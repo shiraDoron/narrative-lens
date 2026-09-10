@@ -1,0 +1,218 @@
+{
+  "IDF": {
+    "sbert_only": {
+      "accuracy": 0.635,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.09071428571428572,
+      "macro_f1": 0.11096548711227609,
+      "recall_true_narrative": 0.635,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_only_IDF_test.csv"
+    },
+    "sbert_ner": {
+      "accuracy": 0.73,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.10428571428571429,
+      "macro_f1": 0.12056151940545004,
+      "recall_true_narrative": 0.73,
+      "pct_misclassified_right_wing": 0.02,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_ner_IDF_test.csv"
+    },
+    "sbert_stance_hard_topic": {
+      "accuracy": 0.525,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.075,
+      "macro_f1": 0.09836065573770492,
+      "recall_true_narrative": 0.525,
+      "pct_misclassified_right_wing": 0.03,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_stance_hard_topic_IDF_test.csv"
+    },
+    "sbert_srl": {
+      "accuracy": 0.525,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.075,
+      "macro_f1": 0.09836065573770492,
+      "recall_true_narrative": 0.525,
+      "pct_misclassified_right_wing": 0.04,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_srl_IDF_test.csv"
+    },
+    "sbert_all_engineered": {
+      "accuracy": 0.67,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.09571428571428572,
+      "macro_f1": 0.1146278870829769,
+      "recall_true_narrative": 0.67,
+      "pct_misclassified_right_wing": 0.035,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_all_engineered_IDF_test.csv"
+    },
+    "sbert_soft_topic": {
+      "accuracy": 0.515,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.08583333333333333,
+      "macro_f1": 0.11331133113311331,
+      "recall_true_narrative": 0.515,
+      "pct_misclassified_right_wing": 0.03,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_IDF_test.csv"
+    },
+    "sbert_all_engineered_plus_soft": {
+      "accuracy": 0.675,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.09642857142857143,
+      "macro_f1": 0.11513859275053305,
+      "recall_true_narrative": 0.675,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_all_engineered_plus_soft_IDF_test.csv"
+    }
+  },
+  "MariaZakharova": {
+    "sbert_only": {
+      "accuracy": 0.895,
+      "macro_precision": 0.2,
+      "macro_recall": 0.179,
+      "macro_f1": 0.18891820580474933,
+      "recall_true_narrative": 0.895,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_only_MariaZakharova_test.csv"
+    },
+    "sbert_ner": {
+      "accuracy": 0.845,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.14083333333333334,
+      "macro_f1": 0.15266485998193316,
+      "recall_true_narrative": 0.845,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_ner_MariaZakharova_test.csv"
+    },
+    "sbert_stance_hard_topic": {
+      "accuracy": 0.77,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.12833333333333333,
+      "macro_f1": 0.14500941619585686,
+      "recall_true_narrative": 0.77,
+      "pct_misclassified_right_wing": 0.075,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_stance_hard_topic_MariaZakharova_test.csv"
+    },
+    "sbert_srl": {
+      "accuracy": 0.79,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.11285714285714286,
+      "macro_f1": 0.12609736632083,
+      "recall_true_narrative": 0.79,
+      "pct_misclassified_right_wing": 0.01,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_srl_MariaZakharova_test.csv"
+    },
+    "sbert_all_engineered": {
+      "accuracy": 0.915,
+      "macro_precision": 0.2,
+      "macro_recall": 0.183,
+      "macro_f1": 0.19112271540469974,
+      "recall_true_narrative": 0.915,
+      "pct_misclassified_right_wing": 0.04,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_all_engineered_MariaZakharova_test.csv"
+    },
+    "sbert_soft_topic": {
+      "accuracy": 0.915,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.1525,
+      "macro_f1": 0.15926892950391644,
+      "recall_true_narrative": 0.915,
+      "pct_misclassified_right_wing": 0.01,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_MariaZakharova_test.csv"
+    },
+    "sbert_all_engineered_plus_soft": {
+      "accuracy": 0.665,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.095,
+      "macro_f1": 0.11411411411411411,
+      "recall_true_narrative": 0.665,
+      "pct_misclassified_right_wing": 0.205,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_all_engineered_plus_soft_MariaZakharova_test.csv"
+    }
+  },
+  "BernieSanders": {
+    "sbert_only": {
+      "accuracy": 0.245,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.04083333333333333,
+      "macro_f1": 0.06559571619812583,
+      "recall_true_narrative": 0.245,
+      "pct_misclassified_right_wing": 0.575,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_only_BernieSanders_test.csv"
+    },
+    "sbert_ner": {
+      "accuracy": 0.21,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.03,
+      "macro_f1": 0.049586776859504134,
+      "recall_true_narrative": 0.21,
+      "pct_misclassified_right_wing": 0.57,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_ner_BernieSanders_test.csv"
+    },
+    "sbert_stance_hard_topic": {
+      "accuracy": 0.265,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.04416666666666667,
+      "macro_f1": 0.06982872200263505,
+      "recall_true_narrative": 0.265,
+      "pct_misclassified_right_wing": 0.52,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_stance_hard_topic_BernieSanders_test.csv"
+    },
+    "sbert_srl": {
+      "accuracy": 0.36,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.05142857142857143,
+      "macro_f1": 0.07563025210084033,
+      "recall_true_narrative": 0.36,
+      "pct_misclassified_right_wing": 0.45,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_srl_BernieSanders_test.csv"
+    },
+    "sbert_all_engineered": {
+      "accuracy": 0.23,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.032857142857142856,
+      "macro_f1": 0.053426248548199766,
+      "recall_true_narrative": 0.23,
+      "pct_misclassified_right_wing": 0.54,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_all_engineered_BernieSanders_test.csv"
+    },
+    "sbert_soft_topic": {
+      "accuracy": 0.34,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.05666666666666667,
+      "macro_f1": 0.0845771144278607,
+      "recall_true_narrative": 0.34,
+      "pct_misclassified_right_wing": 0.46,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_BernieSanders_test.csv"
+    },
+    "sbert_all_engineered_plus_soft": {
+      "accuracy": 0.35,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.049999999999999996,
+      "macro_f1": 0.07407407407407407,
+      "recall_true_narrative": 0.35,
+      "pct_misclassified_right_wing": 0.42,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_all_engineered_plus_soft_BernieSanders_test.csv"
+    }
+  }
+}

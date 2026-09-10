@@ -1,0 +1,10 @@
+relation,precision,recall,f1,support
+causes,0.0,0.0,0.0,5
+threatens,0.0,0.0,0.0,2
+blames,0.0,0.0,0.0,1
+protects,0.0,0.0,0.0,3
+attacks,0.0,0.0,0.0,10
+supports,0.0,0.0,0.0,3
+opposes,0.0,0.0,0.0,4
+proposes_action,0.5,0.5,0.5,2
+uncertain,0.0,0.0,0.0,0

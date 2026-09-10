@@ -1,0 +1,38 @@
+{
+  "train": {
+    "total": 13863,
+    "narrative_counts": {
+      "Russian": 2358,
+      "Zionist": 2226,
+      "Ukrainian": 2139,
+      "Right-wing": 2056,
+      "Resistance": 2041,
+      "Western": 1591,
+      "Left-wing": 1452
+    },
+    "distinct_dataset_sources": 4,
+    "distinct_authors": 83
+  },
+  "val": {
+    "total": 2447,
+    "narrative_counts": {
+      "Russian": 406,
+      "Zionist": 400,
+      "Ukrainian": 383,
+      "Right-wing": 367,
+      "Resistance": 361,
+      "Western": 286,
+      "Left-wing": 244
+    },
+    "distinct_dataset_sources": 4,
+    "distinct_authors": 71
+  },
+  "test": {
+    "total": 200,
+    "narrative_counts": {
+      "Left-wing": 200
+    },
+    "distinct_dataset_sources": 1,
+    "distinct_authors": 1
+  }
+}

@@ -1,0 +1,702 @@
+{
+  "candidates": [
+    {
+      "sizekey": "4000",
+      "min_topic_size": 5,
+      "n_seeds": 2,
+      "n_topics_mean": 167.0,
+      "n_topics_per_seed": [
+        161,
+        173
+      ],
+      "outlier_pct_mean": 33.79,
+      "topic_size_mean": 15.8,
+      "topic_size_median_mean": 12.0,
+      "micro_topic_frac_mean": 0.616,
+      "top2_combined_pct_mean": 4.3,
+      "top2_combined_pct_per_seed": [
+        4.36,
+        4.25
+      ],
+      "coherence_mean": -9.101,
+      "diversity_mean": 0.615,
+      "agreement_rate_mean": 60.9,
+      "soft_signal_pct_mean": 65.9,
+      "instability": 0.038,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.3591,
+      "is_selected": false
+    },
+    {
+      "sizekey": "4000",
+      "min_topic_size": 10,
+      "n_seeds": 2,
+      "n_topics_mean": 83.0,
+      "n_topics_per_seed": [
+        84,
+        82
+      ],
+      "outlier_pct_mean": 41.6,
+      "topic_size_mean": 28.1,
+      "topic_size_median_mean": 22.2,
+      "micro_topic_frac_mean": 0.464,
+      "top2_combined_pct_mean": 8.71,
+      "top2_combined_pct_per_seed": [
+        6.24,
+        11.18
+      ],
+      "coherence_mean": -8.726,
+      "diversity_mean": 0.767,
+      "agreement_rate_mean": 72.7,
+      "soft_signal_pct_mean": 37.9,
+      "instability": 0.215,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.3905,
+      "is_selected": true
+    },
+    {
+      "sizekey": "4000",
+      "min_topic_size": 15,
+      "n_seeds": 2,
+      "n_topics_mean": 49.5,
+      "n_topics_per_seed": [
+        46,
+        53
+      ],
+      "outlier_pct_mean": 41.88,
+      "topic_size_mean": 47.3,
+      "topic_size_median_mean": 35.2,
+      "micro_topic_frac_mean": 0.312,
+      "top2_combined_pct_mean": 15.54,
+      "top2_combined_pct_per_seed": [
+        17.74,
+        13.34
+      ],
+      "coherence_mean": -8.762,
+      "diversity_mean": 0.832,
+      "agreement_rate_mean": 80.7,
+      "soft_signal_pct_mean": 24.4,
+      "instability": 0.172,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.4469,
+      "is_selected": false
+    },
+    {
+      "sizekey": "4000",
+      "min_topic_size": 20,
+      "n_seeds": 2,
+      "n_topics_mean": 19.0,
+      "n_topics_per_seed": [
+        3,
+        35
+      ],
+      "outlier_pct_mean": 21.35,
+      "topic_size_mean": 695.6,
+      "topic_size_median_mean": 46.5,
+      "micro_topic_frac_mean": 0.143,
+      "top2_combined_pct_mean": 63.14,
+      "top2_combined_pct_per_seed": [
+        99.17,
+        27.1
+      ],
+      "coherence_mean": -5.967,
+      "diversity_mean": 0.926,
+      "agreement_rate_mean": 93.8,
+      "soft_signal_pct_mean": 9.3,
+      "instability": 1.589,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.7,
+      "is_selected": false
+    },
+    {
+      "sizekey": "8000",
+      "min_topic_size": 5,
+      "n_seeds": 2,
+      "n_topics_mean": 311.5,
+      "n_topics_per_seed": [
+        307,
+        316
+      ],
+      "outlier_pct_mean": 31.71,
+      "topic_size_mean": 17.6,
+      "topic_size_median_mean": 13.0,
+      "micro_topic_frac_mean": 0.613,
+      "top2_combined_pct_mean": 3.76,
+      "top2_combined_pct_per_seed": [
+        3.87,
+        3.65
+      ],
+      "coherence_mean": -8.325,
+      "diversity_mean": 0.546,
+      "agreement_rate_mean": 64.2,
+      "soft_signal_pct_mean": 71.2,
+      "instability": 0.046,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.35,
+      "is_selected": false
+    },
+    {
+      "sizekey": "8000",
+      "min_topic_size": 10,
+      "n_seeds": 2,
+      "n_topics_mean": 172.5,
+      "n_topics_per_seed": [
+        173,
+        172
+      ],
+      "outlier_pct_mean": 38.17,
+      "topic_size_mean": 28.6,
+      "topic_size_median_mean": 20.5,
+      "micro_topic_frac_mean": 0.502,
+      "top2_combined_pct_mean": 4.48,
+      "top2_combined_pct_per_seed": [
+        4.37,
+        4.59
+      ],
+      "coherence_mean": -8.028,
+      "diversity_mean": 0.66,
+      "agreement_rate_mean": 78.2,
+      "soft_signal_pct_mean": 53.8,
+      "instability": 0.023,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.634,
+      "is_selected": true
+    },
+    {
+      "sizekey": "8000",
+      "min_topic_size": 15,
+      "n_seeds": 2,
+      "n_topics_mean": 89.0,
+      "n_topics_per_seed": [
+        89,
+        89
+      ],
+      "outlier_pct_mean": 37.38,
+      "topic_size_mean": 56.3,
+      "topic_size_median_mean": 35.0,
+      "micro_topic_frac_mean": 0.309,
+      "top2_combined_pct_mean": 16.45,
+      "top2_combined_pct_per_seed": [
+        16.55,
+        16.36
+      ],
+      "coherence_mean": -8.255,
+      "diversity_mean": 0.752,
+      "agreement_rate_mean": 76.6,
+      "soft_signal_pct_mean": 35.8,
+      "instability": 0.021,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.4968,
+      "is_selected": false
+    },
+    {
+      "sizekey": "8000",
+      "min_topic_size": 20,
+      "n_seeds": 2,
+      "n_topics_mean": 66.5,
+      "n_topics_per_seed": [
+        69,
+        64
+      ],
+      "outlier_pct_mean": 39.38,
+      "topic_size_mean": 73.0,
+      "topic_size_median_mean": 53.8,
+      "micro_topic_frac_mean": 0.218,
+      "top2_combined_pct_mean": 16.84,
+      "top2_combined_pct_per_seed": [
+        17.05,
+        16.62
+      ],
+      "coherence_mean": -8.139,
+      "diversity_mean": 0.786,
+      "agreement_rate_mean": 72.5,
+      "soft_signal_pct_mean": 25.4,
+      "instability": 0.034,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.483,
+      "is_selected": false
+    },
+    {
+      "sizekey": "8000",
+      "min_topic_size": 25,
+      "n_seeds": 2,
+      "n_topics_mean": 48.5,
+      "n_topics_per_seed": [
+        48,
+        49
+      ],
+      "outlier_pct_mean": 35.8,
+      "topic_size_mean": 105.9,
+      "topic_size_median_mean": 67.0,
+      "micro_topic_frac_mean": 0.175,
+      "top2_combined_pct_mean": 22.45,
+      "top2_combined_pct_per_seed": [
+        22.59,
+        22.32
+      ],
+      "coherence_mean": -8.085,
+      "diversity_mean": 0.821,
+      "agreement_rate_mean": 82.6,
+      "soft_signal_pct_mean": 19.1,
+      "instability": 0.022,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.6776,
+      "is_selected": false
+    },
+    {
+      "sizekey": "12000",
+      "min_topic_size": 5,
+      "n_seeds": 2,
+      "n_topics_mean": 427.0,
+      "n_topics_per_seed": [
+        423,
+        431
+      ],
+      "outlier_pct_mean": 32.0,
+      "topic_size_mean": 19.1,
+      "topic_size_median_mean": 14.0,
+      "micro_topic_frac_mean": 0.571,
+      "top2_combined_pct_mean": 3.96,
+      "top2_combined_pct_per_seed": [
+        3.8,
+        4.13
+      ],
+      "coherence_mean": -8.27,
+      "diversity_mean": 0.501,
+      "agreement_rate_mean": 64.8,
+      "soft_signal_pct_mean": 71.8,
+      "instability": 0.051,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.3935,
+      "is_selected": false
+    },
+    {
+      "sizekey": "12000",
+      "min_topic_size": 10,
+      "n_seeds": 2,
+      "n_topics_mean": 232.5,
+      "n_topics_per_seed": [
+        231,
+        234
+      ],
+      "outlier_pct_mean": 36.88,
+      "topic_size_mean": 32.6,
+      "topic_size_median_mean": 22.5,
+      "micro_topic_frac_mean": 0.437,
+      "top2_combined_pct_mean": 4.42,
+      "top2_combined_pct_per_seed": [
+        4.41,
+        4.43
+      ],
+      "coherence_mean": -7.753,
+      "diversity_mean": 0.616,
+      "agreement_rate_mean": 73.0,
+      "soft_signal_pct_mean": 55.5,
+      "instability": 0.009,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.5698,
+      "is_selected": true
+    },
+    {
+      "sizekey": "12000",
+      "min_topic_size": 15,
+      "n_seeds": 2,
+      "n_topics_mean": 165.5,
+      "n_topics_per_seed": [
+        161,
+        170
+      ],
+      "outlier_pct_mean": 40.12,
+      "topic_size_mean": 43.4,
+      "topic_size_median_mean": 29.0,
+      "micro_topic_frac_mean": 0.395,
+      "top2_combined_pct_mean": 7.95,
+      "top2_combined_pct_per_seed": [
+        4.88,
+        11.02
+      ],
+      "coherence_mean": -7.634,
+      "diversity_mean": 0.665,
+      "agreement_rate_mean": 78.8,
+      "soft_signal_pct_mean": 45.0,
+      "instability": 0.294,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.5209,
+      "is_selected": false
+    },
+    {
+      "sizekey": "12000",
+      "min_topic_size": 20,
+      "n_seeds": 2,
+      "n_topics_mean": 101.0,
+      "n_topics_per_seed": [
+        95,
+        107
+      ],
+      "outlier_pct_mean": 39.39,
+      "topic_size_mean": 72.3,
+      "topic_size_median_mean": 46.5,
+      "micro_topic_frac_mean": 0.325,
+      "top2_combined_pct_mean": 18.84,
+      "top2_combined_pct_per_seed": [
+        19.08,
+        18.6
+      ],
+      "coherence_mean": -7.438,
+      "diversity_mean": 0.728,
+      "agreement_rate_mean": 74.3,
+      "soft_signal_pct_mean": 34.9,
+      "instability": 0.071,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.5974,
+      "is_selected": false
+    },
+    {
+      "sizekey": "12000",
+      "min_topic_size": 25,
+      "n_seeds": 2,
+      "n_topics_mean": 65.5,
+      "n_topics_per_seed": [
+        63,
+        68
+      ],
+      "outlier_pct_mean": 35.02,
+      "topic_size_mean": 119.4,
+      "topic_size_median_mean": 63.0,
+      "micro_topic_frac_mean": 0.175,
+      "top2_combined_pct_mean": 25.98,
+      "top2_combined_pct_per_seed": [
+        33.13,
+        18.82
+      ],
+      "coherence_mean": -8.033,
+      "diversity_mean": 0.79,
+      "agreement_rate_mean": 72.3,
+      "soft_signal_pct_mean": 24.1,
+      "instability": 0.278,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.4669,
+      "is_selected": false
+    },
+    {
+      "sizekey": "12000",
+      "min_topic_size": 30,
+      "n_seeds": 2,
+      "n_topics_mean": 44.0,
+      "n_topics_per_seed": [
+        54,
+        34
+      ],
+      "outlier_pct_mean": 28.49,
+      "topic_size_mean": 208.8,
+      "topic_size_median_mean": 99.2,
+      "micro_topic_frac_mean": 0.085,
+      "top2_combined_pct_mean": 40.31,
+      "top2_combined_pct_per_seed": [
+        33.12,
+        47.5
+      ],
+      "coherence_mean": -7.634,
+      "diversity_mean": 0.848,
+      "agreement_rate_mean": 75.7,
+      "soft_signal_pct_mean": 13.8,
+      "instability": 0.382,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.6307,
+      "is_selected": false
+    },
+    {
+      "sizekey": "full",
+      "min_topic_size": 5,
+      "n_seeds": 2,
+      "n_topics_mean": 564.0,
+      "n_topics_per_seed": [
+        565,
+        563
+      ],
+      "outlier_pct_mean": 32.01,
+      "topic_size_mean": 19.4,
+      "topic_size_median_mean": 13.0,
+      "micro_topic_frac_mean": 0.588,
+      "top2_combined_pct_mean": 3.63,
+      "top2_combined_pct_per_seed": [
+        3.54,
+        3.73
+      ],
+      "coherence_mean": -7.716,
+      "diversity_mean": 0.46,
+      "agreement_rate_mean": 66.2,
+      "soft_signal_pct_mean": 72.2,
+      "instability": 0.024,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.5079,
+      "is_selected": false
+    },
+    {
+      "sizekey": "full",
+      "min_topic_size": 10,
+      "n_seeds": 2,
+      "n_topics_mean": 293.0,
+      "n_topics_per_seed": [
+        293,
+        293
+      ],
+      "outlier_pct_mean": 35.56,
+      "topic_size_mean": 35.3,
+      "topic_size_median_mean": 24.0,
+      "micro_topic_frac_mean": 0.381,
+      "top2_combined_pct_mean": 3.95,
+      "top2_combined_pct_per_seed": [
+        3.97,
+        3.92
+      ],
+      "coherence_mean": -7.544,
+      "diversity_mean": 0.591,
+      "agreement_rate_mean": 76.2,
+      "soft_signal_pct_mean": 55.2,
+      "instability": 0.012,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.6413,
+      "is_selected": true
+    },
+    {
+      "sizekey": "full",
+      "min_topic_size": 15,
+      "n_seeds": 2,
+      "n_topics_mean": 212.5,
+      "n_topics_per_seed": [
+        222,
+        203
+      ],
+      "outlier_pct_mean": 38.46,
+      "topic_size_mean": 46.6,
+      "topic_size_median_mean": 31.0,
+      "micro_topic_frac_mean": 0.35,
+      "top2_combined_pct_mean": 4.49,
+      "top2_combined_pct_per_seed": [
+        4.11,
+        4.86
+      ],
+      "coherence_mean": -7.475,
+      "diversity_mean": 0.647,
+      "agreement_rate_mean": 74.2,
+      "soft_signal_pct_mean": 47.2,
+      "instability": 0.09,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.5896,
+      "is_selected": false
+    },
+    {
+      "sizekey": "full",
+      "min_topic_size": 20,
+      "n_seeds": 2,
+      "n_topics_mean": 155.5,
+      "n_topics_per_seed": [
+        156,
+        155
+      ],
+      "outlier_pct_mean": 41.22,
+      "topic_size_mean": 60.7,
+      "topic_size_median_mean": 41.5,
+      "micro_topic_frac_mean": 0.322,
+      "top2_combined_pct_mean": 7.35,
+      "top2_combined_pct_per_seed": [
+        9.29,
+        5.41
+      ],
+      "coherence_mean": -7.301,
+      "diversity_mean": 0.698,
+      "agreement_rate_mean": 80.7,
+      "soft_signal_pct_mean": 41.2,
+      "instability": 0.184,
+      "vetoed": false,
+      "veto_reasons": [],
+      "score": 0.6167,
+      "is_selected": false
+    },
+    {
+      "sizekey": "full",
+      "min_topic_size": 25,
+      "n_seeds": 2,
+      "n_topics_mean": 103.5,
+      "n_topics_per_seed": [
+        98,
+        109
+      ],
+      "outlier_pct_mean": 39.16,
+      "topic_size_mean": 94.8,
+      "topic_size_median_mean": 61.8,
+      "micro_topic_frac_mean": 0.252,
+      "top2_combined_pct_mean": 16.11,
+      "top2_combined_pct_per_seed": [
+        19.03,
+        13.19
+      ],
+      "coherence_mean": -7.235,
+      "diversity_mean": 0.744,
+      "agreement_rate_mean": 80.7,
+      "soft_signal_pct_mean": 31.2,
+      "instability": 0.198,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.6515,
+      "is_selected": false
+    },
+    {
+      "sizekey": "full",
+      "min_topic_size": 30,
+      "n_seeds": 2,
+      "n_topics_mean": 72.5,
+      "n_topics_per_seed": [
+        77,
+        68
+      ],
+      "outlier_pct_mean": 32.29,
+      "topic_size_mean": 151.4,
+      "topic_size_median_mean": 86.2,
+      "micro_topic_frac_mean": 0.191,
+      "top2_combined_pct_mean": 31.32,
+      "top2_combined_pct_per_seed": [
+        21.1,
+        41.53
+      ],
+      "coherence_mean": -7.91,
+      "diversity_mean": 0.795,
+      "agreement_rate_mean": 72.8,
+      "soft_signal_pct_mean": 25.9,
+      "instability": 0.384,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.4499,
+      "is_selected": false
+    },
+    {
+      "sizekey": "full",
+      "min_topic_size": 35,
+      "n_seeds": 2,
+      "n_topics_mean": 56.5,
+      "n_topics_per_seed": [
+        61,
+        52
+      ],
+      "outlier_pct_mean": 31.25,
+      "topic_size_mean": 197.4,
+      "topic_size_median_mean": 98.5,
+      "micro_topic_frac_mean": 0.123,
+      "top2_combined_pct_mean": 37.38,
+      "top2_combined_pct_per_seed": [
+        32.28,
+        42.48
+      ],
+      "coherence_mean": -7.99,
+      "diversity_mean": 0.826,
+      "agreement_rate_mean": 75.0,
+      "soft_signal_pct_mean": 20.0,
+      "instability": 0.205,
+      "vetoed": true,
+      "veto_reasons": [
+        "mega-topic: top2_combined_pct > 12.0 in >=1 seed"
+      ],
+      "score": 0.5088,
+      "is_selected": false
+    }
+  ],
+  "best_per_size": {
+    "4000": 10,
+    "8000": 10,
+    "12000": 10,
+    "full": 10
+  },
+  "final_table_points_corpus_size_best_mts": [
+    [
+      4000,
+      10
+    ],
+    [
+      8000,
+      10
+    ],
+    [
+      12000,
+      10
+    ],
+    [
+      16062,
+      10
+    ]
+  ],
+  "scaling_laws": {
+    "constant": {
+      "formula": "mts = 10.00",
+      "r_squared": NaN
+    },
+    "linear_proportional": {
+      "formula": "mts = 0.000831 * corpus_size",
+      "r_squared": NaN
+    },
+    "sqrt": {
+      "formula": "mts = 0.0971 * sqrt(corpus_size)",
+      "r_squared": NaN
+    },
+    "log": {
+      "formula": "mts = -0.000 * ln(corpus_size) + 10.000",
+      "r_squared": NaN
+    },
+    "power": {
+      "formula": "mts = 10.0000 * corpus_size^-0.0000",
+      "r_squared": NaN,
+      "exponent_b": -0.0
+    }
+  },
+  "best_law": "constant",
+  "scoring_weights": {
+    "coherence": 0.2,
+    "diversity": 0.1,
+    "outlier_pct": 0.15,
+    "micro_topic_frac": 0.15,
+    "top2_combined_pct": 0.1,
+    "agreement_rate": 0.1,
+    "soft_signal_pct": 0.1,
+    "instability": 0.1
+  },
+  "mega_topic_veto_pct": 12.0,
+  "min_viable_topics": 3
+}

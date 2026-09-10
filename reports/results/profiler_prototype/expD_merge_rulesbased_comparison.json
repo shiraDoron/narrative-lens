@@ -1,0 +1,143 @@
+{
+  "rulesbased_ids_before": [
+    96,
+    209
+  ],
+  "merged_topic_id_after": 50,
+  "n_topics_before": 282,
+  "n_topics_after": 281,
+  "outlier_count_before": 5750,
+  "outlier_count_after": 5750,
+  "merged_topic_words_after": [
+    "rules based",
+    "based order",
+    "rules",
+    "order just",
+    "based",
+    "order",
+    "global rules",
+    "order isn",
+    "order talk",
+    "just fancy"
+  ],
+  "merged_topic_count_after": 49,
+  "other_topics_total": 280,
+  "other_topics_document_membership_preserved_count": 280,
+  "other_topics_word_drift_jaccard_mean": 0.2404410650900036,
+  "other_topics_word_drift_jaccard_median": 0.25,
+  "other_topics_exact_word_match_count": 0,
+  "quality_before_minilm_seed42": {
+    "n_texts_analyzed": 280,
+    "dominance_threshold_used": 0.5,
+    "case_counts": {
+      "dominant_single_topic": 138,
+      "no_soft_signal": 137,
+      "spread_multi_topic": 5
+    },
+    "case_pct": {
+      "dominant_single_topic": 49.3,
+      "no_soft_signal": 48.9,
+      "spread_multi_topic": 1.8
+    },
+    "hard_soft_agreement_counts": {
+      "None": 137,
+      "True": 86,
+      "False": 57
+    },
+    "hard_is_outlier_pct": 0.0,
+    "raw_top1_score_stats": {
+      "mean": 0.46011391727314055,
+      "median": 0.4226138763687921,
+      "std": 0.46850633949328113,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p75": 1.0
+    },
+    "raw_top2_score_stats": {
+      "mean": 0.03962832667433938,
+      "median": 0.0,
+      "std": 0.10449818277373826,
+      "min": 0.0,
+      "max": 0.494191928594892,
+      "p25": 0.0,
+      "p75": 0.0
+    },
+    "raw_top3_score_stats": {
+      "mean": 0.00671469469466202,
+      "median": 0.0,
+      "std": 0.03031293780694419,
+      "min": 0.0,
+      "max": 0.19115971438038998,
+      "p25": 0.0,
+      "p75": 0.0
+    },
+    "dominance_ratio_stats": {
+      "mean": 0.9009223554998557,
+      "median": 1.0,
+      "std": 0.17702167871321361,
+      "min": 0.2670606417255628,
+      "max": 1.0,
+      "p25": 0.8664474302299396,
+      "p75": 1.0
+    },
+    "outlier_rescue": null
+  },
+  "quality_after_merge": {
+    "n_texts_analyzed": 280,
+    "dominance_threshold_used": 0.5,
+    "case_counts": {
+      "dominant_single_topic": 140,
+      "no_soft_signal": 136,
+      "spread_multi_topic": 4
+    },
+    "case_pct": {
+      "dominant_single_topic": 50.0,
+      "no_soft_signal": 48.6,
+      "spread_multi_topic": 1.4
+    },
+    "hard_soft_agreement_counts": {
+      "None": 136,
+      "True": 92,
+      "False": 52
+    },
+    "hard_is_outlier_pct": 0.0,
+    "raw_top1_score_stats": {
+      "mean": 0.45895115183854623,
+      "median": 0.49184299754373184,
+      "std": 0.4639267750496602,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p75": 1.0
+    },
+    "raw_top2_score_stats": {
+      "mean": 0.046168157205986764,
+      "median": 0.0,
+      "std": 0.11297725399433152,
+      "min": 0.0,
+      "max": 0.4930205326954464,
+      "p25": 0.0,
+      "p75": 0.0
+    },
+    "raw_top3_score_stats": {
+      "mean": 0.004795899338241006,
+      "median": 0.0,
+      "std": 0.024327870017851482,
+      "min": 0.0,
+      "max": 0.16368746082833505,
+      "p25": 0.0,
+      "p75": 0.0
+    },
+    "dominance_ratio_stats": {
+      "mean": 0.8924050174638398,
+      "median": 1.0,
+      "std": 0.1743532389494241,
+      "min": 0.34930829454999374,
+      "max": 1.0,
+      "p25": 0.7961892799050334,
+      "p75": 1.0
+    },
+    "outlier_rescue": null
+  }
+}

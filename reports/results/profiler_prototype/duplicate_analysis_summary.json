@@ -1,0 +1,51 @@
+{
+  "n_docs": 16510,
+  "exact_duplicates": {
+    "n_groups": 97,
+    "n_texts_involved": 215,
+    "pct_of_corpus": 1.302,
+    "n_removed_if_dedup": 118
+  },
+  "near_duplicates_at_chosen_threshold": {
+    "threshold": 0.7,
+    "n_clusters": 231,
+    "n_pure_exact_clusters": 88,
+    "n_true_near_duplicate_clusters": 143,
+    "n_texts_involved": 519,
+    "pct_of_corpus": 3.144,
+    "n_removed_if_dedup": 288,
+    "pct_removed_if_dedup": 1.744
+  },
+  "threshold_sensitivity": {
+    "0.5": {
+      "n_clusters": 357,
+      "n_members": 857,
+      "n_removed_if_dedup": 500,
+      "pct_of_corpus_removed": 3.028
+    },
+    "0.6": {
+      "n_clusters": 290,
+      "n_members": 675,
+      "n_removed_if_dedup": 385,
+      "pct_of_corpus_removed": 2.332
+    },
+    "0.7": {
+      "n_clusters": 231,
+      "n_members": 519,
+      "n_removed_if_dedup": 288,
+      "pct_of_corpus_removed": 1.744
+    },
+    "0.8": {
+      "n_clusters": 173,
+      "n_members": 381,
+      "n_removed_if_dedup": 208,
+      "pct_of_corpus_removed": 1.26
+    }
+  },
+  "maria_investigation": {
+    "n_maria_texts": 187,
+    "n_clusters_containing_maria_texts": 1,
+    "n_maria_texts_in_clusters": 2,
+    "n_maria_texts_without_near_dup_match": 185
+  }
+}

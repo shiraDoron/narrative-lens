@@ -1,0 +1,154 @@
+{
+  "4000": {
+    "dataset_source": {
+      "full_pct": {
+        "gemini": 34.52,
+        "gpt": 3.55,
+        "telegram": 40.84,
+        "twitter": 21.09
+      },
+      "subsample_pct": {
+        "gemini": 34.5,
+        "gpt": 3.55,
+        "telegram": 40.85,
+        "twitter": 21.1
+      },
+      "max_abs_diff_pct": 0.020000000000003126
+    },
+    "narrative_name": {
+      "full_pct": {
+        "Left-wing": 11.69,
+        "Resistance": 14.29,
+        "Right-wing": 14.77,
+        "Russian": 16.85,
+        "Ukrainian": 15.39,
+        "Western": 11.64,
+        "Zionist": 15.38
+      },
+      "subsample_pct": {
+        "Left-wing": 11.7,
+        "Resistance": 14.27,
+        "Right-wing": 14.77,
+        "Russian": 16.85,
+        "Ukrainian": 15.4,
+        "Western": 11.62,
+        "Zionist": 15.38
+      },
+      "max_abs_diff_pct": 0.02000000000000135
+    }
+  },
+  "8000": {
+    "dataset_source": {
+      "full_pct": {
+        "gemini": 34.52,
+        "gpt": 3.55,
+        "telegram": 40.84,
+        "twitter": 21.09
+      },
+      "subsample_pct": {
+        "gemini": 34.52,
+        "gpt": 3.52,
+        "telegram": 40.85,
+        "twitter": 21.1
+      },
+      "max_abs_diff_pct": 0.029999999999999805
+    },
+    "narrative_name": {
+      "full_pct": {
+        "Left-wing": 11.69,
+        "Resistance": 14.29,
+        "Right-wing": 14.77,
+        "Russian": 16.85,
+        "Ukrainian": 15.39,
+        "Western": 11.64,
+        "Zionist": 15.38
+      },
+      "subsample_pct": {
+        "Left-wing": 11.69,
+        "Resistance": 14.29,
+        "Right-wing": 14.76,
+        "Russian": 16.85,
+        "Ukrainian": 15.39,
+        "Western": 11.64,
+        "Zionist": 15.39
+      },
+      "max_abs_diff_pct": 0.009999999999999787
+    }
+  },
+  "12000": {
+    "dataset_source": {
+      "full_pct": {
+        "gemini": 34.52,
+        "gpt": 3.55,
+        "telegram": 40.84,
+        "twitter": 21.09
+      },
+      "subsample_pct": {
+        "gemini": 34.52,
+        "gpt": 3.53,
+        "telegram": 40.85,
+        "twitter": 21.1
+      },
+      "max_abs_diff_pct": 0.020000000000000018
+    },
+    "narrative_name": {
+      "full_pct": {
+        "Left-wing": 11.69,
+        "Resistance": 14.29,
+        "Right-wing": 14.77,
+        "Russian": 16.85,
+        "Ukrainian": 15.39,
+        "Western": 11.64,
+        "Zionist": 15.38
+      },
+      "subsample_pct": {
+        "Left-wing": 11.68,
+        "Resistance": 14.28,
+        "Right-wing": 14.77,
+        "Russian": 16.85,
+        "Ukrainian": 15.39,
+        "Western": 11.64,
+        "Zionist": 15.38
+      },
+      "max_abs_diff_pct": 0.009999999999999787
+    }
+  },
+  "full": {
+    "dataset_source": {
+      "full_pct": {
+        "gemini": 34.52,
+        "gpt": 3.55,
+        "telegram": 40.84,
+        "twitter": 21.09
+      },
+      "subsample_pct": {
+        "gemini": 34.52,
+        "gpt": 3.55,
+        "telegram": 40.84,
+        "twitter": 21.09
+      },
+      "max_abs_diff_pct": 0.0
+    },
+    "narrative_name": {
+      "full_pct": {
+        "Left-wing": 11.69,
+        "Resistance": 14.29,
+        "Right-wing": 14.77,
+        "Russian": 16.85,
+        "Ukrainian": 15.39,
+        "Western": 11.64,
+        "Zionist": 15.38
+      },
+      "subsample_pct": {
+        "Left-wing": 11.69,
+        "Resistance": 14.29,
+        "Right-wing": 14.77,
+        "Russian": 16.85,
+        "Ukrainian": 15.39,
+        "Western": 11.64,
+        "Zionist": 15.38
+      },
+      "max_abs_diff_pct": 0.0
+    }
+  }
+}

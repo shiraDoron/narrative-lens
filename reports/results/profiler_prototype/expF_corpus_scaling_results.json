@@ -1,0 +1,5190 @@
+{
+  "4000__mts5__seed42": {
+    "sizekey": "4000",
+    "min_topic_size": 5,
+    "umap_seed": 42,
+    "fit_seconds": 138.7,
+    "cluster_stats": {
+      "n_topics": 161,
+      "n_docs_total": 4000,
+      "n_outliers": 1340,
+      "outlier_pct": 33.5,
+      "topic_size_mean": 16.5,
+      "topic_size_median": 12.0,
+      "n_micro_topics_abs15": 96,
+      "n_micro_topics_floor_rel": 96,
+      "micro_topic_floor_rel_frac": 0.596
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 59,
+          "pct_of_clustered": 2.22,
+          "label": "lebanon lebanese southern"
+        },
+        {
+          "topic_id": 1,
+          "count": 57,
+          "pct_of_clustered": 2.14,
+          "label": "iranian missile occupied"
+        },
+        {
+          "topic_id": 2,
+          "count": 57,
+          "pct_of_clustered": 2.14,
+          "label": "brigades fighting vehicles"
+        },
+        {
+          "topic_id": 3,
+          "count": 55,
+          "pct_of_clustered": 2.07,
+          "label": "kyiv days thought"
+        },
+        {
+          "topic_id": 4,
+          "count": 55,
+          "pct_of_clustered": 2.07,
+          "label": "bring home project"
+        }
+      ],
+      "top2_combined_pct": 4.36
+    },
+    "u_mass_coherence": -9.022931924305317,
+    "topic_diversity": 0.6217292377701934,
+    "n_dropped_oov_coherence_words": 649,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 166,
+        "no_soft_signal": 100,
+        "spread_multi_topic": 14
+      },
+      "case_pct": {
+        "dominant_single_topic": 59.3,
+        "no_soft_signal": 35.7,
+        "spread_multi_topic": 5.0
+      },
+      "hard_soft_agreement_counts": {
+        "None": 100,
+        "hard_is_outlier": 72,
+        "True": 68,
+        "False": 40
+      },
+      "hard_is_outlier_pct": 25.7,
+      "raw_top1_score_stats": {
+        "mean": 0.5448475286924844,
+        "median": 0.6578815261401458,
+        "std": 0.43954553311661726,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.07653552785983521,
+        "median": 0.0,
+        "std": 0.13987091173994615,
+        "min": 0.0,
+        "max": 0.4789423361926825,
+        "p25": 0.0,
+        "p75": 0.10771392401135983
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.015573190725937953,
+        "median": 0.0,
+        "std": 0.05005697289915625,
+        "min": 0.0,
+        "max": 0.30620842972026296,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.847540600188309,
+        "median": 1.0,
+        "std": 0.20773904945396582,
+        "min": 0.26967511991715193,
+        "max": 1.0,
+        "p25": 0.702823700604551,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 131,
+        "n_rescued_by_soft": 72,
+        "pct_rescued": 55.0
+      }
+    },
+    "agreement_rate_with_signal_pct": 63.0,
+    "soft_signal_coverage_pct": 64.3
+  },
+  "4000__mts10__seed42": {
+    "sizekey": "4000",
+    "min_topic_size": 10,
+    "umap_seed": 42,
+    "fit_seconds": 86.6,
+    "cluster_stats": {
+      "n_topics": 84,
+      "n_docs_total": 4000,
+      "n_outliers": 1708,
+      "outlier_pct": 42.7,
+      "topic_size_mean": 27.3,
+      "topic_size_median": 22.0,
+      "n_micro_topics_abs15": 19,
+      "n_micro_topics_floor_rel": 39,
+      "micro_topic_floor_rel_frac": 0.464
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 74,
+          "pct_of_clustered": 3.23,
+          "label": "lebanon hezbollah lebanese"
+        },
+        {
+          "topic_id": 1,
+          "count": 69,
+          "pct_of_clustered": 3.01,
+          "label": "jews d7 jewish"
+        },
+        {
+          "topic_id": 2,
+          "count": 60,
+          "pct_of_clustered": 2.62,
+          "label": "gender affirming kids"
+        },
+        {
+          "topic_id": 3,
+          "count": 59,
+          "pct_of_clustered": 2.57,
+          "label": "moscow talks sergey"
+        },
+        {
+          "topic_id": 4,
+          "count": 58,
+          "pct_of_clustered": 2.53,
+          "label": "sovereignty borders isn"
+        }
+      ],
+      "top2_combined_pct": 6.24
+    },
+    "u_mass_coherence": -8.81764118219848,
+    "topic_diversity": 0.7608695652173914,
+    "n_dropped_oov_coherence_words": 273,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 172,
+        "dominant_single_topic": 106,
+        "spread_multi_topic": 2
+      },
+      "case_pct": {
+        "no_soft_signal": 61.4,
+        "dominant_single_topic": 37.9,
+        "spread_multi_topic": 0.7
+      },
+      "hard_soft_agreement_counts": {
+        "None": 172,
+        "True": 53,
+        "hard_is_outlier": 41,
+        "False": 14
+      },
+      "hard_is_outlier_pct": 14.6,
+      "raw_top1_score_stats": {
+        "mean": 0.35670206201400845,
+        "median": 0.0,
+        "std": 0.45929063623588307,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.02612482621906142,
+        "median": 0.0,
+        "std": 0.08240497729022221,
+        "min": 0.0,
+        "max": 0.46806613505310335,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.002887397481215833,
+        "median": 0.0,
+        "std": 0.023650983040674863,
+        "min": 0.0,
+        "max": 0.25879359770691135,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9247831237400219,
+        "median": 1.0,
+        "std": 0.14064168000409744,
+        "min": 0.3944046184345121,
+        "max": 1.0,
+        "p25": 0.885140035674791,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 146,
+        "n_rescued_by_soft": 41,
+        "pct_rescued": 28.1
+      }
+    },
+    "agreement_rate_with_signal_pct": 79.1,
+    "soft_signal_coverage_pct": 38.6
+  },
+  "4000__mts15__seed42": {
+    "sizekey": "4000",
+    "min_topic_size": 15,
+    "umap_seed": 42,
+    "fit_seconds": 43.3,
+    "cluster_stats": {
+      "n_topics": 46,
+      "n_docs_total": 4000,
+      "n_outliers": 1599,
+      "outlier_pct": 39.98,
+      "topic_size_mean": 52.2,
+      "topic_size_median": 37.5,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 14,
+      "micro_topic_floor_rel_frac": 0.304
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 259,
+          "pct_of_clustered": 10.79,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 1,
+          "count": 167,
+          "pct_of_clustered": 6.96,
+          "label": "free markets taxes"
+        },
+        {
+          "topic_id": 2,
+          "count": 166,
+          "pct_of_clustered": 6.91,
+          "label": "iran missiles iranian"
+        },
+        {
+          "topic_id": 3,
+          "count": 150,
+          "pct_of_clustered": 6.25,
+          "label": "democrats kirk doj"
+        },
+        {
+          "topic_id": 4,
+          "count": 104,
+          "pct_of_clustered": 4.33,
+          "label": "dignity human rights"
+        }
+      ],
+      "top2_combined_pct": 17.74
+    },
+    "u_mass_coherence": -8.740703721067735,
+    "topic_diversity": 0.8363273453093812,
+    "n_dropped_oov_coherence_words": 103,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 222,
+        "dominant_single_topic": 57,
+        "spread_multi_topic": 1
+      },
+      "case_pct": {
+        "no_soft_signal": 79.3,
+        "dominant_single_topic": 20.4,
+        "spread_multi_topic": 0.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 222,
+        "True": 39,
+        "hard_is_outlier": 13,
+        "False": 6
+      },
+      "hard_is_outlier_pct": 4.6,
+      "raw_top1_score_stats": {
+        "mean": 0.1995725400459886,
+        "median": 0.0,
+        "std": 0.39496032950021137,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.007185448050170835,
+        "median": 0.0,
+        "std": 0.053492770781913494,
+        "min": 0.0,
+        "max": 0.47584117289615985,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.000384869046697725,
+        "median": 0.0,
+        "std": 0.00644009093644526,
+        "min": 0.0,
+        "max": 0.107763333075363,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9634536416013242,
+        "median": 1.0,
+        "std": 0.1211290438225722,
+        "min": 0.47760856148337455,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 138,
+        "n_rescued_by_soft": 13,
+        "pct_rescued": 9.4
+      }
+    },
+    "agreement_rate_with_signal_pct": 86.7,
+    "soft_signal_coverage_pct": 20.7
+  },
+  "4000__mts20__seed42": {
+    "sizekey": "4000",
+    "min_topic_size": 20,
+    "umap_seed": 42,
+    "fit_seconds": 41.0,
+    "cluster_stats": {
+      "n_topics": 3,
+      "n_docs_total": 4000,
+      "n_outliers": 25,
+      "outlier_pct": 0.62,
+      "topic_size_mean": 1325.0,
+      "topic_size_median": 44.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 0,
+      "micro_topic_floor_rel_frac": 0.0
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 3898,
+          "pct_of_clustered": 98.06,
+          "label": "iran people ukraine"
+        },
+        {
+          "topic_id": 1,
+          "count": 44,
+          "pct_of_clustered": 1.11,
+          "label": "lying world maria"
+        },
+        {
+          "topic_id": 2,
+          "count": 33,
+          "pct_of_clustered": 0.83,
+          "label": "vaccine covid 19"
+        }
+      ],
+      "top2_combined_pct": 99.17
+    },
+    "u_mass_coherence": -4.166288070233015,
+    "topic_diversity": 1.0,
+    "n_dropped_oov_coherence_words": 11,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 273,
+        "dominant_single_topic": 7
+      },
+      "case_pct": {
+        "no_soft_signal": 97.5,
+        "dominant_single_topic": 2.5
+      },
+      "hard_soft_agreement_counts": {
+        "None": 273,
+        "True": 7
+      },
+      "hard_is_outlier_pct": 0.0,
+      "raw_top1_score_stats": {
+        "mean": 0.025,
+        "median": 0.0,
+        "std": 0.15640449351408625,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 2,
+        "n_rescued_by_soft": 0,
+        "pct_rescued": 0.0
+      }
+    },
+    "agreement_rate_with_signal_pct": 100.0,
+    "soft_signal_coverage_pct": 2.5
+  },
+  "4000__mts5__seed7": {
+    "sizekey": "4000",
+    "min_topic_size": 5,
+    "umap_seed": 7,
+    "fit_seconds": 77.3,
+    "cluster_stats": {
+      "n_topics": 173,
+      "n_docs_total": 4000,
+      "n_outliers": 1363,
+      "outlier_pct": 34.08,
+      "topic_size_mean": 15.2,
+      "topic_size_median": 12.0,
+      "n_micro_topics_abs15": 110,
+      "n_micro_topics_floor_rel": 110,
+      "micro_topic_floor_rel_frac": 0.636
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 58,
+          "pct_of_clustered": 2.2,
+          "label": "lebanon lebanese southern"
+        },
+        {
+          "topic_id": 1,
+          "count": 54,
+          "pct_of_clustered": 2.05,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 2,
+          "count": 53,
+          "pct_of_clustered": 2.01,
+          "label": "kyiv days thought"
+        },
+        {
+          "topic_id": 3,
+          "count": 52,
+          "pct_of_clustered": 1.97,
+          "label": "brigades armoured fighting"
+        },
+        {
+          "topic_id": 4,
+          "count": 52,
+          "pct_of_clustered": 1.97,
+          "label": "nato isn largest"
+        }
+      ],
+      "top2_combined_pct": 4.25
+    },
+    "u_mass_coherence": -9.178723011388827,
+    "topic_diversity": 0.609105180533752,
+    "n_dropped_oov_coherence_words": 687,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 173,
+        "no_soft_signal": 91,
+        "spread_multi_topic": 16
+      },
+      "case_pct": {
+        "dominant_single_topic": 61.8,
+        "no_soft_signal": 32.5,
+        "spread_multi_topic": 5.7
+      },
+      "hard_soft_agreement_counts": {
+        "None": 91,
+        "hard_is_outlier": 80,
+        "True": 64,
+        "False": 45
+      },
+      "hard_is_outlier_pct": 28.6,
+      "raw_top1_score_stats": {
+        "mean": 0.5691453947894632,
+        "median": 0.7003341308338498,
+        "std": 0.43385796606585003,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.07616248984224569,
+        "median": 0.0,
+        "std": 0.13267197994266872,
+        "min": 0.0,
+        "max": 0.49744922741842335,
+        "p25": 0.0,
+        "p75": 0.1373396195703028
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.018121254308896023,
+        "median": 0.0,
+        "std": 0.05656322363222601,
+        "min": 0.0,
+        "max": 0.3231065052325402,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.8431783626510567,
+        "median": 1.0,
+        "std": 0.21692783039095676,
+        "min": 0.2362557384330737,
+        "max": 1.0,
+        "p25": 0.696842478990056,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 132,
+        "n_rescued_by_soft": 80,
+        "pct_rescued": 60.6
+      }
+    },
+    "agreement_rate_with_signal_pct": 58.7,
+    "soft_signal_coverage_pct": 67.5
+  },
+  "4000__mts10__seed7": {
+    "sizekey": "4000",
+    "min_topic_size": 10,
+    "umap_seed": 7,
+    "fit_seconds": 56.6,
+    "cluster_stats": {
+      "n_topics": 82,
+      "n_docs_total": 4000,
+      "n_outliers": 1620,
+      "outlier_pct": 40.5,
+      "topic_size_mean": 29.0,
+      "topic_size_median": 22.5,
+      "n_micro_topics_abs15": 19,
+      "n_micro_topics_floor_rel": 38,
+      "micro_topic_floor_rel_frac": 0.463
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 182,
+          "pct_of_clustered": 7.65,
+          "label": "democrats kirk senate"
+        },
+        {
+          "topic_id": 1,
+          "count": 84,
+          "pct_of_clustered": 3.53,
+          "label": "jews d7 jerusalem"
+        },
+        {
+          "topic_id": 2,
+          "count": 70,
+          "pct_of_clustered": 2.94,
+          "label": "gender affirming kids"
+        },
+        {
+          "topic_id": 3,
+          "count": 69,
+          "pct_of_clustered": 2.9,
+          "label": "lebanon hezbollah lebanese"
+        },
+        {
+          "topic_id": 4,
+          "count": 64,
+          "pct_of_clustered": 2.69,
+          "label": "sovereignty borders isn"
+        }
+      ],
+      "top2_combined_pct": 11.18
+    },
+    "u_mass_coherence": -8.634845662901487,
+    "topic_diversity": 0.7724215246636771,
+    "n_dropped_oov_coherence_words": 253,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 176,
+        "dominant_single_topic": 102,
+        "spread_multi_topic": 2
+      },
+      "case_pct": {
+        "no_soft_signal": 62.9,
+        "dominant_single_topic": 36.4,
+        "spread_multi_topic": 0.7
+      },
+      "hard_soft_agreement_counts": {
+        "None": 176,
+        "True": 49,
+        "hard_is_outlier": 30,
+        "False": 25
+      },
+      "hard_is_outlier_pct": 10.7,
+      "raw_top1_score_stats": {
+        "mean": 0.34376088046863884,
+        "median": 0.0,
+        "std": 0.4574992104034977,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.0248506208818214,
+        "median": 0.0,
+        "std": 0.08875182249069093,
+        "min": 0.0,
+        "max": 0.49661315442131077,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0025847483893059486,
+        "median": 0.0,
+        "std": 0.021401039440125065,
+        "min": 0.0,
+        "max": 0.2742721909235997,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9255100628001814,
+        "median": 1.0,
+        "std": 0.15268188458151388,
+        "min": 0.4100621040274021,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 131,
+        "n_rescued_by_soft": 30,
+        "pct_rescued": 22.9
+      }
+    },
+    "agreement_rate_with_signal_pct": 66.2,
+    "soft_signal_coverage_pct": 37.1
+  },
+  "4000__mts15__seed7": {
+    "sizekey": "4000",
+    "min_topic_size": 15,
+    "umap_seed": 7,
+    "fit_seconds": 50.6,
+    "cluster_stats": {
+      "n_topics": 53,
+      "n_docs_total": 4000,
+      "n_outliers": 1751,
+      "outlier_pct": 43.77,
+      "topic_size_mean": 42.4,
+      "topic_size_median": 33.0,
+      "n_micro_topics_abs15": 1,
+      "n_micro_topics_floor_rel": 17,
+      "micro_topic_floor_rel_frac": 0.321
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 155,
+          "pct_of_clustered": 6.89,
+          "label": "free markets taxes"
+        },
+        {
+          "topic_id": 1,
+          "count": 145,
+          "pct_of_clustered": 6.45,
+          "label": "democrats doj mullin"
+        },
+        {
+          "topic_id": 2,
+          "count": 116,
+          "pct_of_clustered": 5.16,
+          "label": "dignity human rights"
+        },
+        {
+          "topic_id": 3,
+          "count": 103,
+          "pct_of_clustered": 4.58,
+          "label": "jews jewish d7"
+        },
+        {
+          "topic_id": 4,
+          "count": 82,
+          "pct_of_clustered": 3.65,
+          "label": "fighter jet tomahawk"
+        }
+      ],
+      "top2_combined_pct": 13.34
+    },
+    "u_mass_coherence": -8.782648054241248,
+    "topic_diversity": 0.8274111675126904,
+    "n_dropped_oov_coherence_words": 136,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 201,
+        "dominant_single_topic": 79
+      },
+      "case_pct": {
+        "no_soft_signal": 71.8,
+        "dominant_single_topic": 28.2
+      },
+      "hard_soft_agreement_counts": {
+        "None": 201,
+        "True": 44,
+        "hard_is_outlier": 20,
+        "False": 15
+      },
+      "hard_is_outlier_pct": 7.1,
+      "raw_top1_score_stats": {
+        "mean": 0.26861549553436503,
+        "median": 0.0,
+        "std": 0.4340749247833992,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.7961931717075739
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.012893205267140129,
+        "median": 0.0,
+        "std": 0.06480864999707803,
+        "min": 0.0,
+        "max": 0.4920619846847539,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0006341563413519705,
+        "median": 0.0,
+        "std": 0.010611465227645838,
+        "min": 0.0,
+        "max": 0.17756377557855174,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9520549208812935,
+        "median": 1.0,
+        "std": 0.12228553580493354,
+        "min": 0.5079380153152461,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 142,
+        "n_rescued_by_soft": 20,
+        "pct_rescued": 14.1
+      }
+    },
+    "agreement_rate_with_signal_pct": 74.6,
+    "soft_signal_coverage_pct": 28.2
+  },
+  "4000__mts20__seed7": {
+    "sizekey": "4000",
+    "min_topic_size": 20,
+    "umap_seed": 7,
+    "fit_seconds": 49.8,
+    "cluster_stats": {
+      "n_topics": 35,
+      "n_docs_total": 4000,
+      "n_outliers": 1683,
+      "outlier_pct": 42.08,
+      "topic_size_mean": 66.2,
+      "topic_size_median": 49.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 10,
+      "micro_topic_floor_rel_frac": 0.286
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 347,
+          "pct_of_clustered": 14.98,
+          "label": "democrats texas president"
+        },
+        {
+          "topic_id": 1,
+          "count": 281,
+          "pct_of_clustered": 12.13,
+          "label": "iran tehran iranian"
+        },
+        {
+          "topic_id": 2,
+          "count": 159,
+          "pct_of_clustered": 6.86,
+          "label": "innovation free markets"
+        },
+        {
+          "topic_id": 3,
+          "count": 128,
+          "pct_of_clustered": 5.52,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 4,
+          "count": 89,
+          "pct_of_clustered": 3.84,
+          "label": "putin kremlin moscow"
+        }
+      ],
+      "top2_combined_pct": 27.1
+    },
+    "u_mass_coherence": -7.76764456832188,
+    "topic_diversity": 0.8512820512820513,
+    "n_dropped_oov_coherence_words": 59,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 235,
+        "dominant_single_topic": 45
+      },
+      "case_pct": {
+        "no_soft_signal": 83.9,
+        "dominant_single_topic": 16.1
+      },
+      "hard_soft_agreement_counts": {
+        "None": 235,
+        "True": 35,
+        "False": 5,
+        "hard_is_outlier": 5
+      },
+      "hard_is_outlier_pct": 1.8,
+      "raw_top1_score_stats": {
+        "mean": 0.1566842312530466,
+        "median": 0.0,
+        "std": 0.36067559930843024,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.004030054461239123,
+        "median": 0.0,
+        "std": 0.038822737869113534,
+        "min": 0.0,
+        "max": 0.3927559688351278,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9749241055745123,
+        "median": 1.0,
+        "std": 0.09495952983205215,
+        "min": 0.6072440311648721,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 132,
+        "n_rescued_by_soft": 5,
+        "pct_rescued": 3.8
+      }
+    },
+    "agreement_rate_with_signal_pct": 87.5,
+    "soft_signal_coverage_pct": 16.1
+  },
+  "8000__mts5__seed42": {
+    "sizekey": "8000",
+    "min_topic_size": 5,
+    "umap_seed": 42,
+    "fit_seconds": 100.9,
+    "cluster_stats": {
+      "n_topics": 307,
+      "n_docs_total": 8000,
+      "n_outliers": 2474,
+      "outlier_pct": 30.93,
+      "topic_size_mean": 18.0,
+      "topic_size_median": 13.0,
+      "n_micro_topics_abs15": 188,
+      "n_micro_topics_floor_rel": 188,
+      "micro_topic_floor_rel_frac": 0.612
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 113,
+          "pct_of_clustered": 2.04,
+          "label": "bring home backups"
+        },
+        {
+          "topic_id": 1,
+          "count": 101,
+          "pct_of_clustered": 1.83,
+          "label": "glory ukraine kyiv"
+        },
+        {
+          "topic_id": 2,
+          "count": 98,
+          "pct_of_clustered": 1.77,
+          "label": "maria lying god"
+        },
+        {
+          "topic_id": 4,
+          "count": 89,
+          "pct_of_clustered": 1.61,
+          "label": "secure borders path"
+        },
+        {
+          "topic_id": 3,
+          "count": 89,
+          "pct_of_clustered": 1.61,
+          "label": "human rights dignity"
+        }
+      ],
+      "top2_combined_pct": 3.87
+    },
+    "u_mass_coherence": -8.32743336464207,
+    "topic_diversity": 0.5497092218222099,
+    "n_dropped_oov_coherence_words": 886,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 174,
+        "no_soft_signal": 85,
+        "spread_multi_topic": 21
+      },
+      "case_pct": {
+        "dominant_single_topic": 62.1,
+        "no_soft_signal": 30.4,
+        "spread_multi_topic": 7.5
+      },
+      "hard_soft_agreement_counts": {
+        "None": 85,
+        "True": 80,
+        "hard_is_outlier": 69,
+        "False": 46
+      },
+      "hard_is_outlier_pct": 24.6,
+      "raw_top1_score_stats": {
+        "mean": 0.5767119819119447,
+        "median": 0.6784830603692158,
+        "std": 0.422725863247865,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.08960944757499194,
+        "median": 0.0,
+        "std": 0.1455173673359815,
+        "min": 0.0,
+        "max": 0.4876581111705292,
+        "p25": 0.0,
+        "p75": 0.19237324026142338
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.020680030958365223,
+        "median": 0.0,
+        "std": 0.06059615595711896,
+        "min": 0.0,
+        "max": 0.3238627197145469,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.82809925607869,
+        "median": 1.0,
+        "std": 0.21850772594285767,
+        "min": 0.18690590589102532,
+        "max": 1.0,
+        "p25": 0.651652215077247,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 113,
+        "n_rescued_by_soft": 69,
+        "pct_rescued": 61.1
+      }
+    },
+    "agreement_rate_with_signal_pct": 63.5,
+    "soft_signal_coverage_pct": 69.6
+  },
+  "8000__mts5__seed7": {
+    "sizekey": "8000",
+    "min_topic_size": 5,
+    "umap_seed": 7,
+    "fit_seconds": 68.1,
+    "cluster_stats": {
+      "n_topics": 316,
+      "n_docs_total": 8000,
+      "n_outliers": 2599,
+      "outlier_pct": 32.49,
+      "topic_size_mean": 17.1,
+      "topic_size_median": 13.0,
+      "n_micro_topics_abs15": 194,
+      "n_micro_topics_floor_rel": 194,
+      "micro_topic_floor_rel_frac": 0.614
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 114,
+          "pct_of_clustered": 2.11,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 1,
+          "count": 83,
+          "pct_of_clustered": 1.54,
+          "label": "nato isn expansion"
+        },
+        {
+          "topic_id": 2,
+          "count": 69,
+          "pct_of_clustered": 1.28,
+          "label": "sovereignty isn sovereign"
+        },
+        {
+          "topic_id": 3,
+          "count": 67,
+          "pct_of_clustered": 1.24,
+          "label": "kyiv days ukraine"
+        },
+        {
+          "topic_id": 4,
+          "count": 66,
+          "pct_of_clustered": 1.22,
+          "label": "russia isn russian"
+        }
+      ],
+      "top2_combined_pct": 3.65
+    },
+    "u_mass_coherence": -8.32279909066756,
+    "topic_diversity": 0.5424047235641438,
+    "n_dropped_oov_coherence_words": 870,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 183,
+        "no_soft_signal": 76,
+        "spread_multi_topic": 21
+      },
+      "case_pct": {
+        "dominant_single_topic": 65.4,
+        "no_soft_signal": 27.1,
+        "spread_multi_topic": 7.5
+      },
+      "hard_soft_agreement_counts": {
+        "True": 94,
+        "None": 76,
+        "hard_is_outlier": 59,
+        "False": 51
+      },
+      "hard_is_outlier_pct": 21.1,
+      "raw_top1_score_stats": {
+        "mean": 0.6024253837897348,
+        "median": 0.7586798053897403,
+        "std": 0.4130315197056776,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.08893718371016576,
+        "median": 0.0,
+        "std": 0.13736932322725398,
+        "min": 0.0,
+        "max": 0.49794952458122604,
+        "p25": 0.0,
+        "p75": 0.18604171010744927
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.02452209209068378,
+        "median": 0.0,
+        "std": 0.06336221740505668,
+        "min": 0.0,
+        "max": 0.32751188200680537,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.8268583699074791,
+        "median": 1.0,
+        "std": 0.2190312227361683,
+        "min": 0.16415470538261953,
+        "max": 1.0,
+        "p25": 0.6671819903004401,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 103,
+        "n_rescued_by_soft": 59,
+        "pct_rescued": 57.3
+      }
+    },
+    "agreement_rate_with_signal_pct": 64.8,
+    "soft_signal_coverage_pct": 72.9
+  },
+  "8000__mts10__seed42": {
+    "sizekey": "8000",
+    "min_topic_size": 10,
+    "umap_seed": 42,
+    "fit_seconds": 46.2,
+    "cluster_stats": {
+      "n_topics": 173,
+      "n_docs_total": 8000,
+      "n_outliers": 3034,
+      "outlier_pct": 37.92,
+      "topic_size_mean": 28.7,
+      "topic_size_median": 21.0,
+      "n_micro_topics_abs15": 61,
+      "n_micro_topics_floor_rel": 86,
+      "micro_topic_floor_rel_frac": 0.497
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 111,
+          "pct_of_clustered": 2.24,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 1,
+          "count": 106,
+          "pct_of_clustered": 2.13,
+          "label": "afu group forces"
+        },
+        {
+          "topic_id": 2,
+          "count": 101,
+          "pct_of_clustered": 2.03,
+          "label": "glory ukraine just"
+        },
+        {
+          "topic_id": 3,
+          "count": 98,
+          "pct_of_clustered": 1.97,
+          "label": "maria lying god"
+        },
+        {
+          "topic_id": 4,
+          "count": 94,
+          "pct_of_clustered": 1.89,
+          "label": "instant view smolensk"
+        }
+      ],
+      "top2_combined_pct": 4.37
+    },
+    "u_mass_coherence": -7.947287490091461,
+    "topic_diversity": 0.656959526159921,
+    "n_dropped_oov_coherence_words": 397,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 144,
+        "no_soft_signal": 133,
+        "spread_multi_topic": 3
+      },
+      "case_pct": {
+        "dominant_single_topic": 51.4,
+        "no_soft_signal": 47.5,
+        "spread_multi_topic": 1.1
+      },
+      "hard_soft_agreement_counts": {
+        "None": 133,
+        "True": 82,
+        "hard_is_outlier": 46,
+        "False": 19
+      },
+      "hard_is_outlier_pct": 16.4,
+      "raw_top1_score_stats": {
+        "mean": 0.4736317351862184,
+        "median": 0.5018765849399007,
+        "std": 0.46911709430491877,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.04436304115844634,
+        "median": 0.0,
+        "std": 0.12070365339821676,
+        "min": 0.0,
+        "max": 0.49971210336662,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.004518194114123951,
+        "median": 0.0,
+        "std": 0.027000707732267086,
+        "min": 0.0,
+        "max": 0.23694740937564124,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9021556860689878,
+        "median": 1.0,
+        "std": 0.1769268628412464,
+        "min": 0.3524317508548918,
+        "max": 1.0,
+        "p25": 0.8928926709334235,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 118,
+        "n_rescued_by_soft": 46,
+        "pct_rescued": 39.0
+      }
+    },
+    "agreement_rate_with_signal_pct": 81.2,
+    "soft_signal_coverage_pct": 52.5
+  },
+  "8000__mts10__seed7": {
+    "sizekey": "8000",
+    "min_topic_size": 10,
+    "umap_seed": 7,
+    "fit_seconds": 44.7,
+    "cluster_stats": {
+      "n_topics": 172,
+      "n_docs_total": 8000,
+      "n_outliers": 3074,
+      "outlier_pct": 38.42,
+      "topic_size_mean": 28.6,
+      "topic_size_median": 20.0,
+      "n_micro_topics_abs15": 52,
+      "n_micro_topics_floor_rel": 87,
+      "micro_topic_floor_rel_frac": 0.506
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 113,
+          "pct_of_clustered": 2.29,
+          "label": "enriched uranium iran"
+        },
+        {
+          "topic_id": 1,
+          "count": 113,
+          "pct_of_clustered": 2.29,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 2,
+          "count": 103,
+          "pct_of_clustered": 2.09,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 3,
+          "count": 102,
+          "pct_of_clustered": 2.07,
+          "label": "stand ukraine glory"
+        },
+        {
+          "topic_id": 4,
+          "count": 98,
+          "pct_of_clustered": 1.99,
+          "label": "maria lying god"
+        }
+      ],
+      "top2_combined_pct": 4.59
+    },
+    "u_mass_coherence": -8.10820593530457,
+    "topic_diversity": 0.6631788739412058,
+    "n_dropped_oov_coherence_words": 410,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 153,
+        "no_soft_signal": 126,
+        "spread_multi_topic": 1
+      },
+      "case_pct": {
+        "dominant_single_topic": 54.6,
+        "no_soft_signal": 45.0,
+        "spread_multi_topic": 0.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 126,
+        "True": 82,
+        "hard_is_outlier": 45,
+        "False": 27
+      },
+      "hard_is_outlier_pct": 16.1,
+      "raw_top1_score_stats": {
+        "mean": 0.5045716802519856,
+        "median": 0.5835991229311424,
+        "std": 0.4719484722525185,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.03990533631820213,
+        "median": 0.0,
+        "std": 0.11125915198009224,
+        "min": 0.0,
+        "max": 0.4997276246554379,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.004351818401061174,
+        "median": 0.0,
+        "std": 0.026905376548880252,
+        "min": 0.0,
+        "max": 0.2161129060144308,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9174030550036103,
+        "median": 1.0,
+        "std": 0.15797575414589685,
+        "min": 0.4638575356444388,
+        "max": 1.0,
+        "p25": 0.9102469010799037,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 118,
+        "n_rescued_by_soft": 45,
+        "pct_rescued": 38.1
+      }
+    },
+    "agreement_rate_with_signal_pct": 75.2,
+    "soft_signal_coverage_pct": 55.0
+  },
+  "8000__mts15__seed42": {
+    "sizekey": "8000",
+    "min_topic_size": 15,
+    "umap_seed": 42,
+    "fit_seconds": 46.9,
+    "cluster_stats": {
+      "n_topics": 89,
+      "n_docs_total": 8000,
+      "n_outliers": 2913,
+      "outlier_pct": 36.41,
+      "topic_size_mean": 57.2,
+      "topic_size_median": 36.0,
+      "n_micro_topics_abs15": 7,
+      "n_micro_topics_floor_rel": 30,
+      "micro_topic_floor_rel_frac": 0.337
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 469,
+          "pct_of_clustered": 9.22,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 1,
+          "count": 373,
+          "pct_of_clustered": 7.33,
+          "label": "innovation taxes free"
+        },
+        {
+          "topic_id": 2,
+          "count": 252,
+          "pct_of_clustered": 4.95,
+          "label": "zelensky talks putin"
+        },
+        {
+          "topic_id": 3,
+          "count": 159,
+          "pct_of_clustered": 3.13,
+          "label": "iranian missiles missile"
+        },
+        {
+          "topic_id": 4,
+          "count": 144,
+          "pct_of_clustered": 2.83,
+          "label": "jerusalem jewish people"
+        }
+      ],
+      "top2_combined_pct": 16.55
+    },
+    "u_mass_coherence": -8.310339001705755,
+    "topic_diversity": 0.7523809523809524,
+    "n_dropped_oov_coherence_words": 140,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 181,
+        "dominant_single_topic": 98,
+        "spread_multi_topic": 1
+      },
+      "case_pct": {
+        "no_soft_signal": 64.6,
+        "dominant_single_topic": 35.0,
+        "spread_multi_topic": 0.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 181,
+        "True": 53,
+        "hard_is_outlier": 31,
+        "False": 15
+      },
+      "hard_is_outlier_pct": 11.1,
+      "raw_top1_score_stats": {
+        "mean": 0.32997580877671684,
+        "median": 0.0,
+        "std": 0.4558186148988089,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.022277580438874674,
+        "median": 0.0,
+        "std": 0.0900194022996674,
+        "min": 0.0,
+        "max": 0.49723792057512006,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.001318039355837071,
+        "median": 0.0,
+        "std": 0.013443980796873038,
+        "min": 0.0,
+        "max": 0.18349899317074098,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9332649137119263,
+        "median": 1.0,
+        "std": 0.15078614439328622,
+        "min": 0.4607103562570384,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 114,
+        "n_rescued_by_soft": 31,
+        "pct_rescued": 27.2
+      }
+    },
+    "agreement_rate_with_signal_pct": 77.9,
+    "soft_signal_coverage_pct": 35.4
+  },
+  "8000__mts15__seed7": {
+    "sizekey": "8000",
+    "min_topic_size": 15,
+    "umap_seed": 7,
+    "fit_seconds": 46.8,
+    "cluster_stats": {
+      "n_topics": 89,
+      "n_docs_total": 8000,
+      "n_outliers": 3067,
+      "outlier_pct": 38.34,
+      "topic_size_mean": 55.4,
+      "topic_size_median": 34.0,
+      "n_micro_topics_abs15": 2,
+      "n_micro_topics_floor_rel": 25,
+      "micro_topic_floor_rel_frac": 0.281
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 425,
+          "pct_of_clustered": 8.62,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 1,
+          "count": 382,
+          "pct_of_clustered": 7.74,
+          "label": "innovation taxes free"
+        },
+        {
+          "topic_id": 2,
+          "count": 258,
+          "pct_of_clustered": 5.23,
+          "label": "zelensky telephone conversation"
+        },
+        {
+          "topic_id": 3,
+          "count": 145,
+          "pct_of_clustered": 2.94,
+          "label": "jerusalem jewish state"
+        },
+        {
+          "topic_id": 4,
+          "count": 126,
+          "pct_of_clustered": 2.55,
+          "label": "iranian missiles missile"
+        }
+      ],
+      "top2_combined_pct": 16.36
+    },
+    "u_mass_coherence": -8.198886316978216,
+    "topic_diversity": 0.7509727626459144,
+    "n_dropped_oov_coherence_words": 164,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 179,
+        "dominant_single_topic": 100,
+        "spread_multi_topic": 1
+      },
+      "case_pct": {
+        "no_soft_signal": 63.9,
+        "dominant_single_topic": 35.7,
+        "spread_multi_topic": 0.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 179,
+        "True": 55,
+        "hard_is_outlier": 28,
+        "False": 18
+      },
+      "hard_is_outlier_pct": 10.0,
+      "raw_top1_score_stats": {
+        "mean": 0.3371844876767822,
+        "median": 0.0,
+        "std": 0.4586140033662067,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.02238145738135035,
+        "median": 0.0,
+        "std": 0.09088532465086453,
+        "min": 0.0,
+        "max": 0.48642154658765546,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0011483406561532076,
+        "median": 0.0,
+        "std": 0.013597739834797722,
+        "min": 0.0,
+        "max": 0.17224419272510183,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.934768876727713,
+        "median": 1.0,
+        "std": 0.15040765409047124,
+        "min": 0.42699681626922,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 108,
+        "n_rescued_by_soft": 28,
+        "pct_rescued": 25.9
+      }
+    },
+    "agreement_rate_with_signal_pct": 75.3,
+    "soft_signal_coverage_pct": 36.1
+  },
+  "8000__mts20__seed42": {
+    "sizekey": "8000",
+    "min_topic_size": 20,
+    "umap_seed": 42,
+    "fit_seconds": 46.3,
+    "cluster_stats": {
+      "n_topics": 69,
+      "n_docs_total": 8000,
+      "n_outliers": 3150,
+      "outlier_pct": 39.38,
+      "topic_size_mean": 70.3,
+      "topic_size_median": 51.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 16,
+      "micro_topic_floor_rel_frac": 0.232
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 469,
+          "pct_of_clustered": 9.67,
+          "label": "nuclear iranian missile"
+        },
+        {
+          "topic_id": 1,
+          "count": 358,
+          "pct_of_clustered": 7.38,
+          "label": "innovation taxes free"
+        },
+        {
+          "topic_id": 2,
+          "count": 227,
+          "pct_of_clustered": 4.68,
+          "label": "talks telephone conversation"
+        },
+        {
+          "topic_id": 3,
+          "count": 200,
+          "pct_of_clustered": 4.12,
+          "label": "afu group forces"
+        },
+        {
+          "topic_id": 4,
+          "count": 145,
+          "pct_of_clustered": 2.99,
+          "label": "jerusalem jewish people"
+        }
+      ],
+      "top2_combined_pct": 17.05
+    },
+    "u_mass_coherence": -8.06312622562029,
+    "topic_diversity": 0.7902813299232737,
+    "n_dropped_oov_coherence_words": 108,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 209,
+        "dominant_single_topic": 71
+      },
+      "case_pct": {
+        "no_soft_signal": 74.6,
+        "dominant_single_topic": 25.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 209,
+        "True": 39,
+        "False": 17,
+        "hard_is_outlier": 15
+      },
+      "hard_is_outlier_pct": 5.4,
+      "raw_top1_score_stats": {
+        "mean": 0.24813601114702694,
+        "median": 0.0,
+        "std": 0.4284450729153493,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.6121010588585702
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.004936127412067862,
+        "median": 0.0,
+        "std": 0.039227690318861044,
+        "min": 0.0,
+        "max": 0.40411165916436015,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0004992900123337652,
+        "median": 0.0,
+        "std": 0.008354719899347341,
+        "min": 0.0,
+        "max": 0.13980120345345426,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9785645510023597,
+        "median": 1.0,
+        "std": 0.08158348527521854,
+        "min": 0.5958883408356399,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 123,
+        "n_rescued_by_soft": 15,
+        "pct_rescued": 12.2
+      }
+    },
+    "agreement_rate_with_signal_pct": 69.6,
+    "soft_signal_coverage_pct": 25.4
+  },
+  "8000__mts20__seed7": {
+    "sizekey": "8000",
+    "min_topic_size": 20,
+    "umap_seed": 7,
+    "fit_seconds": 46.3,
+    "cluster_stats": {
+      "n_topics": 64,
+      "n_docs_total": 8000,
+      "n_outliers": 3150,
+      "outlier_pct": 39.38,
+      "topic_size_mean": 75.8,
+      "topic_size_median": 56.5,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 13,
+      "micro_topic_floor_rel_frac": 0.203
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 439,
+          "pct_of_clustered": 9.05,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 1,
+          "count": 367,
+          "pct_of_clustered": 7.57,
+          "label": "innovation taxes free"
+        },
+        {
+          "topic_id": 2,
+          "count": 350,
+          "pct_of_clustered": 7.22,
+          "label": "democrats trump kirk"
+        },
+        {
+          "topic_id": 3,
+          "count": 229,
+          "pct_of_clustered": 4.72,
+          "label": "telephone conversation vladimir"
+        },
+        {
+          "topic_id": 4,
+          "count": 144,
+          "pct_of_clustered": 2.97,
+          "label": "jewish people state"
+        }
+      ],
+      "top2_combined_pct": 16.62
+    },
+    "u_mass_coherence": -8.215813833928088,
+    "topic_diversity": 0.781718963165075,
+    "n_dropped_oov_coherence_words": 85,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 209,
+        "dominant_single_topic": 71
+      },
+      "case_pct": {
+        "no_soft_signal": 74.6,
+        "dominant_single_topic": 25.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 209,
+        "True": 40,
+        "hard_is_outlier": 18,
+        "False": 13
+      },
+      "hard_is_outlier_pct": 6.4,
+      "raw_top1_score_stats": {
+        "mean": 0.244050405185378,
+        "median": 0.0,
+        "std": 0.423526935453193,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.5236020581649017
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.009521023386050587,
+        "median": 0.0,
+        "std": 0.060730391738267345,
+        "min": 0.0,
+        "max": 0.4895406711409251,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9624523021395188,
+        "median": 1.0,
+        "std": 0.11675899596063392,
+        "min": 0.5104593288590749,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 113,
+        "n_rescued_by_soft": 18,
+        "pct_rescued": 15.9
+      }
+    },
+    "agreement_rate_with_signal_pct": 75.5,
+    "soft_signal_coverage_pct": 25.4
+  },
+  "8000__mts25__seed42": {
+    "sizekey": "8000",
+    "min_topic_size": 25,
+    "umap_seed": 42,
+    "fit_seconds": 43.8,
+    "cluster_stats": {
+      "n_topics": 48,
+      "n_docs_total": 8000,
+      "n_outliers": 2913,
+      "outlier_pct": 36.41,
+      "topic_size_mean": 106.0,
+      "topic_size_median": 66.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 8,
+      "micro_topic_floor_rel_frac": 0.167
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 696,
+          "pct_of_clustered": 13.68,
+          "label": "trump democrats texas"
+        },
+        {
+          "topic_id": 1,
+          "count": 453,
+          "pct_of_clustered": 8.91,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 2,
+          "count": 416,
+          "pct_of_clustered": 8.18,
+          "label": "iran iranian missiles"
+        },
+        {
+          "topic_id": 3,
+          "count": 347,
+          "pct_of_clustered": 6.82,
+          "label": "innovation taxes free"
+        },
+        {
+          "topic_id": 4,
+          "count": 231,
+          "pct_of_clustered": 4.54,
+          "label": "putin talks telephone"
+        }
+      ],
+      "top2_combined_pct": 22.59
+    },
+    "u_mass_coherence": -8.05122758005857,
+    "topic_diversity": 0.8219424460431655,
+    "n_dropped_oov_coherence_words": 61,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 230,
+        "dominant_single_topic": 50
+      },
+      "case_pct": {
+        "no_soft_signal": 82.1,
+        "dominant_single_topic": 17.9
+      },
+      "hard_soft_agreement_counts": {
+        "None": 230,
+        "True": 31,
+        "hard_is_outlier": 14,
+        "False": 5
+      },
+      "hard_is_outlier_pct": 5.0,
+      "raw_top1_score_stats": {
+        "mean": 0.17708755917987426,
+        "median": 0.0,
+        "std": 0.3809129826222063,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.0014838693915543173,
+        "median": 0.0,
+        "std": 0.01821543132457413,
+        "min": 0.0,
+        "max": 0.26637627710876965,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9916903314072958,
+        "median": 1.0,
+        "std": 0.042794414649587866,
+        "min": 0.7336237228912303,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 118,
+        "n_rescued_by_soft": 14,
+        "pct_rescued": 11.9
+      }
+    },
+    "agreement_rate_with_signal_pct": 86.1,
+    "soft_signal_coverage_pct": 17.9
+  },
+  "8000__mts25__seed7": {
+    "sizekey": "8000",
+    "min_topic_size": 25,
+    "umap_seed": 7,
+    "fit_seconds": 43.1,
+    "cluster_stats": {
+      "n_topics": 49,
+      "n_docs_total": 8000,
+      "n_outliers": 2816,
+      "outlier_pct": 35.2,
+      "topic_size_mean": 105.8,
+      "topic_size_median": 68.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 9,
+      "micro_topic_floor_rel_frac": 0.184
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 698,
+          "pct_of_clustered": 13.46,
+          "label": "democrats ice texas"
+        },
+        {
+          "topic_id": 1,
+          "count": 459,
+          "pct_of_clustered": 8.85,
+          "label": "iran nuclear missiles"
+        },
+        {
+          "topic_id": 2,
+          "count": 423,
+          "pct_of_clustered": 8.16,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 3,
+          "count": 367,
+          "pct_of_clustered": 7.08,
+          "label": "innovation taxes wealth"
+        },
+        {
+          "topic_id": 4,
+          "count": 225,
+          "pct_of_clustered": 4.34,
+          "label": "telephone conversation vladimir"
+        }
+      ],
+      "top2_combined_pct": 22.32
+    },
+    "u_mass_coherence": -8.119216899503172,
+    "topic_diversity": 0.8210526315789474,
+    "n_dropped_oov_coherence_words": 63,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 223,
+        "dominant_single_topic": 57
+      },
+      "case_pct": {
+        "no_soft_signal": 79.6,
+        "dominant_single_topic": 20.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 223,
+        "True": 34,
+        "hard_is_outlier": 14,
+        "False": 9
+      },
+      "hard_is_outlier_pct": 5.0,
+      "raw_top1_score_stats": {
+        "mean": 0.19936030502907628,
+        "median": 0.0,
+        "std": 0.3967309923961575,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.004211123542352299,
+        "median": 0.0,
+        "std": 0.03763013452847604,
+        "min": 0.0,
+        "max": 0.46633727180817264,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9793137790901992,
+        "median": 1.0,
+        "std": 0.08190210970637182,
+        "min": 0.5336627281918274,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 104,
+        "n_rescued_by_soft": 14,
+        "pct_rescued": 13.5
+      }
+    },
+    "agreement_rate_with_signal_pct": 79.1,
+    "soft_signal_coverage_pct": 20.4
+  },
+  "12000__mts5__seed42": {
+    "sizekey": "12000",
+    "min_topic_size": 5,
+    "umap_seed": 42,
+    "fit_seconds": 94.9,
+    "cluster_stats": {
+      "n_topics": 423,
+      "n_docs_total": 12000,
+      "n_outliers": 3741,
+      "outlier_pct": 31.18,
+      "topic_size_mean": 19.5,
+      "topic_size_median": 14.0,
+      "n_micro_topics_abs15": 235,
+      "n_micro_topics_floor_rel": 235,
+      "micro_topic_floor_rel_frac": 0.556
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 159,
+          "pct_of_clustered": 1.93,
+          "label": "clip hamas terrorists"
+        },
+        {
+          "topic_id": 1,
+          "count": 155,
+          "pct_of_clustered": 1.88,
+          "label": "smolensk view instant"
+        },
+        {
+          "topic_id": 2,
+          "count": 142,
+          "pct_of_clustered": 1.72,
+          "label": "maria lying god"
+        },
+        {
+          "topic_id": 3,
+          "count": 120,
+          "pct_of_clustered": 1.45,
+          "label": "nato just expansion"
+        },
+        {
+          "topic_id": 4,
+          "count": 114,
+          "pct_of_clustered": 1.38,
+          "label": "ran rani bring"
+        }
+      ],
+      "top2_combined_pct": 3.8
+    },
+    "u_mass_coherence": -8.175319306952495,
+    "topic_diversity": 0.5061511423550088,
+    "n_dropped_oov_coherence_words": 940,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 184,
+        "no_soft_signal": 74,
+        "spread_multi_topic": 22
+      },
+      "case_pct": {
+        "dominant_single_topic": 65.7,
+        "no_soft_signal": 26.4,
+        "spread_multi_topic": 7.9
+      },
+      "hard_soft_agreement_counts": {
+        "True": 91,
+        "None": 74,
+        "hard_is_outlier": 61,
+        "False": 54
+      },
+      "hard_is_outlier_pct": 21.8,
+      "raw_top1_score_stats": {
+        "mean": 0.6052518418589325,
+        "median": 0.7380505911301269,
+        "std": 0.4115992782487551,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.09190903990639211,
+        "median": 0.0,
+        "std": 0.14220398240643642,
+        "min": 0.0,
+        "max": 0.49611627086990406,
+        "p25": 0.0,
+        "p75": 0.1932301270855277
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.022545659736279887,
+        "median": 0.0,
+        "std": 0.05824584202932524,
+        "min": 0.0,
+        "max": 0.3186158254546214,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.8226724064101996,
+        "median": 0.9917565256326357,
+        "std": 0.22545478450770567,
+        "min": 0.17445730425516667,
+        "max": 1.0,
+        "p25": 0.6535647889696753,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 98,
+        "n_rescued_by_soft": 61,
+        "pct_rescued": 62.2
+      }
+    },
+    "agreement_rate_with_signal_pct": 62.8,
+    "soft_signal_coverage_pct": 73.6
+  },
+  "12000__mts5__seed7": {
+    "sizekey": "12000",
+    "min_topic_size": 5,
+    "umap_seed": 7,
+    "fit_seconds": 120.0,
+    "cluster_stats": {
+      "n_topics": 431,
+      "n_docs_total": 12000,
+      "n_outliers": 3940,
+      "outlier_pct": 32.83,
+      "topic_size_mean": 18.7,
+      "topic_size_median": 14.0,
+      "n_micro_topics_abs15": 252,
+      "n_micro_topics_floor_rel": 252,
+      "micro_topic_floor_rel_frac": 0.585
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 172,
+          "pct_of_clustered": 2.13,
+          "label": "afu armoured fighting"
+        },
+        {
+          "topic_id": 1,
+          "count": 161,
+          "pct_of_clustered": 2.0,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 2,
+          "count": 145,
+          "pct_of_clustered": 1.8,
+          "label": "smolensk view instant"
+        },
+        {
+          "topic_id": 3,
+          "count": 128,
+          "pct_of_clustered": 1.59,
+          "label": "nato just expansion"
+        },
+        {
+          "topic_id": 4,
+          "count": 119,
+          "pct_of_clustered": 1.48,
+          "label": "maria lying god"
+        }
+      ],
+      "top2_combined_pct": 4.13
+    },
+    "u_mass_coherence": -8.364143651064497,
+    "topic_diversity": 0.496276494176055,
+    "n_dropped_oov_coherence_words": 975,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 177,
+        "no_soft_signal": 84,
+        "spread_multi_topic": 19
+      },
+      "case_pct": {
+        "dominant_single_topic": 63.2,
+        "no_soft_signal": 30.0,
+        "spread_multi_topic": 6.8
+      },
+      "hard_soft_agreement_counts": {
+        "True": 88,
+        "None": 84,
+        "hard_is_outlier": 64,
+        "False": 44
+      },
+      "hard_is_outlier_pct": 22.9,
+      "raw_top1_score_stats": {
+        "mean": 0.5663305093732717,
+        "median": 0.6793337752687423,
+        "std": 0.41435753149760635,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.09693242635954578,
+        "median": 0.0,
+        "std": 0.14234458943983777,
+        "min": 0.0,
+        "max": 0.49951791971706905,
+        "p25": 0.0,
+        "p75": 0.19066219406148488
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.022603962014760313,
+        "median": 0.0,
+        "std": 0.058050746654513194,
+        "min": 0.0,
+        "max": 0.27110111376061397,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.8090435848189595,
+        "median": 0.8737217786814548,
+        "std": 0.21972575247822274,
+        "min": 0.1526823143291206,
+        "max": 1.0,
+        "p25": 0.646503413902324,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 108,
+        "n_rescued_by_soft": 64,
+        "pct_rescued": 59.3
+      }
+    },
+    "agreement_rate_with_signal_pct": 66.7,
+    "soft_signal_coverage_pct": 70.0
+  },
+  "12000__mts10__seed42": {
+    "sizekey": "12000",
+    "min_topic_size": 10,
+    "umap_seed": 42,
+    "fit_seconds": 75.1,
+    "cluster_stats": {
+      "n_topics": 231,
+      "n_docs_total": 12000,
+      "n_outliers": 4405,
+      "outlier_pct": 36.71,
+      "topic_size_mean": 32.9,
+      "topic_size_median": 23.0,
+      "n_micro_topics_abs15": 55,
+      "n_micro_topics_floor_rel": 105,
+      "micro_topic_floor_rel_frac": 0.455
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 177,
+          "pct_of_clustered": 2.33,
+          "label": "jewish people state"
+        },
+        {
+          "topic_id": 1,
+          "count": 158,
+          "pct_of_clustered": 2.08,
+          "label": "hamas terrorists clip"
+        },
+        {
+          "topic_id": 2,
+          "count": 150,
+          "pct_of_clustered": 1.97,
+          "label": "smolensk view instant"
+        },
+        {
+          "topic_id": 3,
+          "count": 142,
+          "pct_of_clustered": 1.87,
+          "label": "maria lying god"
+        },
+        {
+          "topic_id": 4,
+          "count": 129,
+          "pct_of_clustered": 1.7,
+          "label": "nato just expansion"
+        }
+      ],
+      "top2_combined_pct": 4.41
+    },
+    "u_mass_coherence": -7.665044827626587,
+    "topic_diversity": 0.6193734245588765,
+    "n_dropped_oov_coherence_words": 373,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 147,
+        "no_soft_signal": 128,
+        "spread_multi_topic": 5
+      },
+      "case_pct": {
+        "dominant_single_topic": 52.5,
+        "no_soft_signal": 45.7,
+        "spread_multi_topic": 1.8
+      },
+      "hard_soft_agreement_counts": {
+        "None": 128,
+        "True": 87,
+        "hard_is_outlier": 33,
+        "False": 32
+      },
+      "hard_is_outlier_pct": 11.8,
+      "raw_top1_score_stats": {
+        "mean": 0.4977993884347329,
+        "median": 0.5793683297827876,
+        "std": 0.4742580183094079,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.035104928939318734,
+        "median": 0.0,
+        "std": 0.10026381739170781,
+        "min": 0.0,
+        "max": 0.49345227758495125,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.007441458072234958,
+        "median": 0.0,
+        "std": 0.03912587399320846,
+        "min": 0.0,
+        "max": 0.32493639694417487,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9169988734324028,
+        "median": 1.0,
+        "std": 0.16920611512530093,
+        "min": 0.3286466416147984,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 96,
+        "n_rescued_by_soft": 33,
+        "pct_rescued": 34.4
+      }
+    },
+    "agreement_rate_with_signal_pct": 73.1,
+    "soft_signal_coverage_pct": 54.3
+  },
+  "12000__mts10__seed7": {
+    "sizekey": "12000",
+    "min_topic_size": 10,
+    "umap_seed": 7,
+    "fit_seconds": 66.3,
+    "cluster_stats": {
+      "n_topics": 234,
+      "n_docs_total": 12000,
+      "n_outliers": 4445,
+      "outlier_pct": 37.04,
+      "topic_size_mean": 32.3,
+      "topic_size_median": 22.0,
+      "n_micro_topics_abs15": 54,
+      "n_micro_topics_floor_rel": 98,
+      "micro_topic_floor_rel_frac": 0.419
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 173,
+          "pct_of_clustered": 2.29,
+          "label": "jewish state land"
+        },
+        {
+          "topic_id": 1,
+          "count": 162,
+          "pct_of_clustered": 2.14,
+          "label": "afu vehicles russian"
+        },
+        {
+          "topic_id": 2,
+          "count": 156,
+          "pct_of_clustered": 2.06,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 3,
+          "count": 156,
+          "pct_of_clustered": 2.06,
+          "label": "terrorists hamas footage"
+        },
+        {
+          "topic_id": 4,
+          "count": 150,
+          "pct_of_clustered": 1.99,
+          "label": "smolensk view instant"
+        }
+      ],
+      "top2_combined_pct": 4.43
+    },
+    "u_mass_coherence": -7.840996164402441,
+    "topic_diversity": 0.6132616487455197,
+    "n_dropped_oov_coherence_words": 398,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 154,
+        "no_soft_signal": 121,
+        "spread_multi_topic": 5
+      },
+      "case_pct": {
+        "dominant_single_topic": 55.0,
+        "no_soft_signal": 43.2,
+        "spread_multi_topic": 1.8
+      },
+      "hard_soft_agreement_counts": {
+        "None": 121,
+        "True": 89,
+        "hard_is_outlier": 37,
+        "False": 33
+      },
+      "hard_is_outlier_pct": 13.2,
+      "raw_top1_score_stats": {
+        "mean": 0.5159334620639268,
+        "median": 0.6621251577552729,
+        "std": 0.4681627626563807,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.04081292440505159,
+        "median": 0.0,
+        "std": 0.10215203902491275,
+        "min": 0.0,
+        "max": 0.48441144185046187,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.006934741204498186,
+        "median": 0.0,
+        "std": 0.03162653601745444,
+        "min": 0.0,
+        "max": 0.2108094763933059,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9085620715591164,
+        "median": 1.0,
+        "std": 0.16745566762090933,
+        "min": 0.26311510523636555,
+        "max": 1.0,
+        "p25": 0.8529074884482601,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 99,
+        "n_rescued_by_soft": 37,
+        "pct_rescued": 37.4
+      }
+    },
+    "agreement_rate_with_signal_pct": 73.0,
+    "soft_signal_coverage_pct": 56.8
+  },
+  "12000__mts15__seed42": {
+    "sizekey": "12000",
+    "min_topic_size": 15,
+    "umap_seed": 42,
+    "fit_seconds": 53.4,
+    "cluster_stats": {
+      "n_topics": 161,
+      "n_docs_total": 12000,
+      "n_outliers": 4946,
+      "outlier_pct": 41.22,
+      "topic_size_mean": 43.8,
+      "topic_size_median": 30.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 59,
+      "micro_topic_floor_rel_frac": 0.366
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 176,
+          "pct_of_clustered": 2.5,
+          "label": "jewish people state"
+        },
+        {
+          "topic_id": 1,
+          "count": 168,
+          "pct_of_clustered": 2.38,
+          "label": "smolensk instant view"
+        },
+        {
+          "topic_id": 2,
+          "count": 158,
+          "pct_of_clustered": 2.24,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 3,
+          "count": 153,
+          "pct_of_clustered": 2.17,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 4,
+          "count": 142,
+          "pct_of_clustered": 2.01,
+          "label": "maria lying god"
+        }
+      ],
+      "top2_combined_pct": 4.88
+    },
+    "u_mass_coherence": -7.582369724420509,
+    "topic_diversity": 0.6740273396424816,
+    "n_dropped_oov_coherence_words": 265,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 160,
+        "dominant_single_topic": 112,
+        "spread_multi_topic": 8
+      },
+      "case_pct": {
+        "no_soft_signal": 57.1,
+        "dominant_single_topic": 40.0,
+        "spread_multi_topic": 2.9
+      },
+      "hard_soft_agreement_counts": {
+        "None": 160,
+        "True": 73,
+        "hard_is_outlier": 28,
+        "False": 19
+      },
+      "hard_is_outlier_pct": 10.0,
+      "raw_top1_score_stats": {
+        "mean": 0.38776890670465064,
+        "median": 0.0,
+        "std": 0.46457199847671066,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.032517706262480725,
+        "median": 0.0,
+        "std": 0.1023808100741839,
+        "min": 0.0,
+        "max": 0.4985357959346313,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.007543402461045816,
+        "median": 0.0,
+        "std": 0.04058224326953631,
+        "min": 0.0,
+        "max": 0.3201183809084074,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9047941156441849,
+        "median": 1.0,
+        "std": 0.18515513710727427,
+        "min": 0.34791156107459287,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 105,
+        "n_rescued_by_soft": 28,
+        "pct_rescued": 26.7
+      }
+    },
+    "agreement_rate_with_signal_pct": 79.3,
+    "soft_signal_coverage_pct": 42.9
+  },
+  "12000__mts15__seed7": {
+    "sizekey": "12000",
+    "min_topic_size": 15,
+    "umap_seed": 7,
+    "fit_seconds": 56.1,
+    "cluster_stats": {
+      "n_topics": 170,
+      "n_docs_total": 12000,
+      "n_outliers": 4683,
+      "outlier_pct": 39.02,
+      "topic_size_mean": 43.0,
+      "topic_size_median": 28.0,
+      "n_micro_topics_abs15": 1,
+      "n_micro_topics_floor_rel": 72,
+      "micro_topic_floor_rel_frac": 0.424
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 634,
+          "pct_of_clustered": 8.66,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 1,
+          "count": 172,
+          "pct_of_clustered": 2.35,
+          "label": "jewish people state"
+        },
+        {
+          "topic_id": 2,
+          "count": 159,
+          "pct_of_clustered": 2.17,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 3,
+          "count": 150,
+          "pct_of_clustered": 2.05,
+          "label": "smolensk view instant"
+        },
+        {
+          "topic_id": 4,
+          "count": 141,
+          "pct_of_clustered": 1.93,
+          "label": "maria lying god"
+        }
+      ],
+      "top2_combined_pct": 11.02
+    },
+    "u_mass_coherence": -7.685916804655001,
+    "topic_diversity": 0.6568871208354052,
+    "n_dropped_oov_coherence_words": 283,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 148,
+        "dominant_single_topic": 128,
+        "spread_multi_topic": 4
+      },
+      "case_pct": {
+        "no_soft_signal": 52.9,
+        "dominant_single_topic": 45.7,
+        "spread_multi_topic": 1.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 148,
+        "True": 80,
+        "hard_is_outlier": 30,
+        "False": 22
+      },
+      "hard_is_outlier_pct": 10.7,
+      "raw_top1_score_stats": {
+        "mean": 0.4305563530869849,
+        "median": 0.0,
+        "std": 0.47044477135167784,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.034152283588332985,
+        "median": 0.0,
+        "std": 0.10071487252730675,
+        "min": 0.0,
+        "max": 0.4959090753274411,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.005114192136381232,
+        "median": 0.0,
+        "std": 0.030882453047171153,
+        "min": 0.0,
+        "max": 0.30555248594836953,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9133013550329985,
+        "median": 1.0,
+        "std": 0.16462080472036728,
+        "min": 0.35952662659899765,
+        "max": 1.0,
+        "p25": 0.904436576226631,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 107,
+        "n_rescued_by_soft": 30,
+        "pct_rescued": 28.0
+      }
+    },
+    "agreement_rate_with_signal_pct": 78.4,
+    "soft_signal_coverage_pct": 47.1
+  },
+  "12000__mts20__seed42": {
+    "sizekey": "12000",
+    "min_topic_size": 20,
+    "umap_seed": 42,
+    "fit_seconds": 40.1,
+    "cluster_stats": {
+      "n_topics": 95,
+      "n_docs_total": 12000,
+      "n_outliers": 4568,
+      "outlier_pct": 38.07,
+      "topic_size_mean": 78.2,
+      "topic_size_median": 50.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 28,
+      "micro_topic_floor_rel_frac": 0.295
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 772,
+          "pct_of_clustered": 10.39,
+          "label": "democrats senate fbi"
+        },
+        {
+          "topic_id": 1,
+          "count": 646,
+          "pct_of_clustered": 8.69,
+          "label": "vehicles afu russian"
+        },
+        {
+          "topic_id": 2,
+          "count": 425,
+          "pct_of_clustered": 5.72,
+          "label": "iranian missile regime"
+        },
+        {
+          "topic_id": 3,
+          "count": 224,
+          "pct_of_clustered": 3.01,
+          "label": "kids need schools"
+        },
+        {
+          "topic_id": 4,
+          "count": 171,
+          "pct_of_clustered": 2.3,
+          "label": "jewish people state"
+        }
+      ],
+      "top2_combined_pct": 19.08
+    },
+    "u_mass_coherence": -7.299282507777479,
+    "topic_diversity": 0.7318777292576419,
+    "n_dropped_oov_coherence_words": 104,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 191,
+        "dominant_single_topic": 86,
+        "spread_multi_topic": 3
+      },
+      "case_pct": {
+        "no_soft_signal": 68.2,
+        "dominant_single_topic": 30.7,
+        "spread_multi_topic": 1.1
+      },
+      "hard_soft_agreement_counts": {
+        "None": 191,
+        "True": 48,
+        "hard_is_outlier": 23,
+        "False": 18
+      },
+      "hard_is_outlier_pct": 8.2,
+      "raw_top1_score_stats": {
+        "mean": 0.2994615281103548,
+        "median": 0.0,
+        "std": 0.44735637893789804,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.014278943839247852,
+        "median": 0.0,
+        "std": 0.06538458242018477,
+        "min": 0.0,
+        "max": 0.4849002213167785,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.004116670907540174,
+        "median": 0.0,
+        "std": 0.03277902994194894,
+        "min": 0.0,
+        "max": 0.3177805522967149,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9421261558528018,
+        "median": 1.0,
+        "std": 0.14880981576099733,
+        "min": 0.36180550330842653,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 101,
+        "n_rescued_by_soft": 23,
+        "pct_rescued": 22.8
+      }
+    },
+    "agreement_rate_with_signal_pct": 72.7,
+    "soft_signal_coverage_pct": 31.8
+  },
+  "12000__mts20__seed7": {
+    "sizekey": "12000",
+    "min_topic_size": 20,
+    "umap_seed": 7,
+    "fit_seconds": 39.2,
+    "cluster_stats": {
+      "n_topics": 107,
+      "n_docs_total": 12000,
+      "n_outliers": 4886,
+      "outlier_pct": 40.72,
+      "topic_size_mean": 66.5,
+      "topic_size_median": 43.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 38,
+      "micro_topic_floor_rel_frac": 0.355
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 710,
+          "pct_of_clustered": 9.98,
+          "label": "democrats senate dhs"
+        },
+        {
+          "topic_id": 1,
+          "count": 613,
+          "pct_of_clustered": 8.62,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 2,
+          "count": 260,
+          "pct_of_clustered": 3.65,
+          "label": "woke schools student"
+        },
+        {
+          "topic_id": 3,
+          "count": 190,
+          "pct_of_clustered": 2.67,
+          "label": "gaza ecclesiastical forum"
+        },
+        {
+          "topic_id": 4,
+          "count": 174,
+          "pct_of_clustered": 2.45,
+          "label": "jews jewish people"
+        }
+      ],
+      "top2_combined_pct": 18.6
+    },
+    "u_mass_coherence": -7.576692228212875,
+    "topic_diversity": 0.7250589159465829,
+    "n_dropped_oov_coherence_words": 125,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 174,
+        "dominant_single_topic": 103,
+        "spread_multi_topic": 3
+      },
+      "case_pct": {
+        "no_soft_signal": 62.1,
+        "dominant_single_topic": 36.8,
+        "spread_multi_topic": 1.1
+      },
+      "hard_soft_agreement_counts": {
+        "None": 174,
+        "True": 60,
+        "hard_is_outlier": 27,
+        "False": 19
+      },
+      "hard_is_outlier_pct": 9.6,
+      "raw_top1_score_stats": {
+        "mean": 0.35522770583104923,
+        "median": 0.0,
+        "std": 0.4655758676860183,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.018103466284552276,
+        "median": 0.0,
+        "std": 0.07857152478289764,
+        "min": 0.0,
+        "max": 0.4997481281562749,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.004401948777857216,
+        "median": 0.0,
+        "std": 0.0312815714109796,
+        "min": 0.0,
+        "max": 0.3185347666340325,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9383373361574887,
+        "median": 1.0,
+        "std": 0.15362331691184347,
+        "min": 0.35638642269015247,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 103,
+        "n_rescued_by_soft": 27,
+        "pct_rescued": 26.2
+      }
+    },
+    "agreement_rate_with_signal_pct": 75.9,
+    "soft_signal_coverage_pct": 37.9
+  },
+  "12000__mts25__seed42": {
+    "sizekey": "12000",
+    "min_topic_size": 25,
+    "umap_seed": 42,
+    "fit_seconds": 33.6,
+    "cluster_stats": {
+      "n_topics": 63,
+      "n_docs_total": 12000,
+      "n_outliers": 3765,
+      "outlier_pct": 31.38,
+      "topic_size_mean": 130.7,
+      "topic_size_median": 66.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 11,
+      "micro_topic_floor_rel_frac": 0.175
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 1907,
+          "pct_of_clustered": 23.16,
+          "label": "iran strait hormuz"
+        },
+        {
+          "topic_id": 1,
+          "count": 821,
+          "pct_of_clustered": 9.97,
+          "label": "democrats trump senate"
+        },
+        {
+          "topic_id": 2,
+          "count": 626,
+          "pct_of_clustered": 7.6,
+          "label": "vehicles afu russian"
+        },
+        {
+          "topic_id": 3,
+          "count": 316,
+          "pct_of_clustered": 3.84,
+          "label": "zelensky telephone conversation"
+        },
+        {
+          "topic_id": 4,
+          "count": 220,
+          "pct_of_clustered": 2.67,
+          "label": "schools kids need"
+        }
+      ],
+      "top2_combined_pct": 33.13
+    },
+    "u_mass_coherence": -8.08385315799395,
+    "topic_diversity": 0.782258064516129,
+    "n_dropped_oov_coherence_words": 66,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 220,
+        "dominant_single_topic": 60
+      },
+      "case_pct": {
+        "no_soft_signal": 78.6,
+        "dominant_single_topic": 21.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 220,
+        "True": 33,
+        "False": 16,
+        "hard_is_outlier": 11
+      },
+      "hard_is_outlier_pct": 3.9,
+      "raw_top1_score_stats": {
+        "mean": 0.2080635776872384,
+        "median": 0.0,
+        "std": 0.4018669919041091,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.006222136598475895,
+        "median": 0.0,
+        "std": 0.04836272937244253,
+        "min": 0.0,
+        "max": 0.4506834429528153,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9709633625404457,
+        "median": 1.0,
+        "std": 0.10191560723168744,
+        "min": 0.5493165570471847,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 91,
+        "n_rescued_by_soft": 11,
+        "pct_rescued": 12.1
+      }
+    },
+    "agreement_rate_with_signal_pct": 67.3,
+    "soft_signal_coverage_pct": 21.4
+  },
+  "12000__mts25__seed7": {
+    "sizekey": "12000",
+    "min_topic_size": 25,
+    "umap_seed": 7,
+    "fit_seconds": 35.9,
+    "cluster_stats": {
+      "n_topics": 68,
+      "n_docs_total": 12000,
+      "n_outliers": 4641,
+      "outlier_pct": 38.67,
+      "topic_size_mean": 108.2,
+      "topic_size_median": 60.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 12,
+      "micro_topic_floor_rel_frac": 0.176
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 695,
+          "pct_of_clustered": 9.44,
+          "label": "democrats senate dhs"
+        },
+        {
+          "topic_id": 1,
+          "count": 690,
+          "pct_of_clustered": 9.38,
+          "label": "iran iranian missile"
+        },
+        {
+          "topic_id": 2,
+          "count": 669,
+          "pct_of_clustered": 9.09,
+          "label": "vehicles afu russian"
+        },
+        {
+          "topic_id": 3,
+          "count": 310,
+          "pct_of_clustered": 4.21,
+          "label": "zelensky telephone conversation"
+        },
+        {
+          "topic_id": 4,
+          "count": 261,
+          "pct_of_clustered": 3.55,
+          "label": "jerusalem jewish state"
+        }
+      ],
+      "top2_combined_pct": 18.82
+    },
+    "u_mass_coherence": -7.982121212852397,
+    "topic_diversity": 0.7982565379825654,
+    "n_dropped_oov_coherence_words": 70,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 205,
+        "dominant_single_topic": 75
+      },
+      "case_pct": {
+        "no_soft_signal": 73.2,
+        "dominant_single_topic": 26.8
+      },
+      "hard_soft_agreement_counts": {
+        "None": 205,
+        "True": 48,
+        "False": 14,
+        "hard_is_outlier": 13
+      },
+      "hard_is_outlier_pct": 4.6,
+      "raw_top1_score_stats": {
+        "mean": 0.25862234558692704,
+        "median": 0.0,
+        "std": 0.43160795841822885,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.7479791403559198
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.009234797270215797,
+        "median": 0.0,
+        "std": 0.055169582188841194,
+        "min": 0.0,
+        "max": 0.4537152987412411,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9655234235245276,
+        "median": 1.0,
+        "std": 0.10292471277948016,
+        "min": 0.5462847012587588,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 104,
+        "n_rescued_by_soft": 13,
+        "pct_rescued": 12.5
+      }
+    },
+    "agreement_rate_with_signal_pct": 77.4,
+    "soft_signal_coverage_pct": 26.8
+  },
+  "12000__mts30__seed42": {
+    "sizekey": "12000",
+    "min_topic_size": 30,
+    "umap_seed": 42,
+    "fit_seconds": 35.5,
+    "cluster_stats": {
+      "n_topics": 54,
+      "n_docs_total": 12000,
+      "n_outliers": 3989,
+      "outlier_pct": 33.24,
+      "topic_size_mean": 148.4,
+      "topic_size_median": 80.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 6,
+      "micro_topic_floor_rel_frac": 0.111
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 1857,
+          "pct_of_clustered": 23.18,
+          "label": "iran strait hormuz"
+        },
+        {
+          "topic_id": 1,
+          "count": 796,
+          "pct_of_clustered": 9.94,
+          "label": "democrats texas senate"
+        },
+        {
+          "topic_id": 2,
+          "count": 634,
+          "pct_of_clustered": 7.91,
+          "label": "vehicles afu russian"
+        },
+        {
+          "topic_id": 3,
+          "count": 307,
+          "pct_of_clustered": 3.83,
+          "label": "zelensky putin telephone"
+        },
+        {
+          "topic_id": 4,
+          "count": 216,
+          "pct_of_clustered": 2.7,
+          "label": "jews israel jewish"
+        }
+      ],
+      "top2_combined_pct": 33.12
+    },
+    "u_mass_coherence": -7.800890960313127,
+    "topic_diversity": 0.8084772370486656,
+    "n_dropped_oov_coherence_words": 54,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 230,
+        "dominant_single_topic": 50
+      },
+      "case_pct": {
+        "no_soft_signal": 82.1,
+        "dominant_single_topic": 17.9
+      },
+      "hard_soft_agreement_counts": {
+        "None": 230,
+        "True": 35,
+        "False": 12,
+        "hard_is_outlier": 3
+      },
+      "hard_is_outlier_pct": 1.1,
+      "raw_top1_score_stats": {
+        "mean": 0.17579556740751454,
+        "median": 0.0,
+        "std": 0.37890046465998,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.0027758611639140587,
+        "median": 0.0,
+        "std": 0.03054225554749221,
+        "min": 0.0,
+        "max": 0.46069169494151113,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9844551774820812,
+        "median": 1.0,
+        "std": 0.07147638876975497,
+        "min": 0.5393083050584888,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 97,
+        "n_rescued_by_soft": 3,
+        "pct_rescued": 3.1
+      }
+    },
+    "agreement_rate_with_signal_pct": 74.5,
+    "soft_signal_coverage_pct": 17.9
+  },
+  "12000__mts30__seed7": {
+    "sizekey": "12000",
+    "min_topic_size": 30,
+    "umap_seed": 7,
+    "fit_seconds": 34.9,
+    "cluster_stats": {
+      "n_topics": 34,
+      "n_docs_total": 12000,
+      "n_outliers": 2849,
+      "outlier_pct": 23.74,
+      "topic_size_mean": 269.1,
+      "topic_size_median": 118.5,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 2,
+      "micro_topic_floor_rel_frac": 0.059
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 2603,
+          "pct_of_clustered": 28.44,
+          "label": "land history freedom"
+        },
+        {
+          "topic_id": 1,
+          "count": 1744,
+          "pct_of_clustered": 19.06,
+          "label": "iran lebanon strait"
+        },
+        {
+          "topic_id": 2,
+          "count": 670,
+          "pct_of_clustered": 7.32,
+          "label": "democrats arrested kirk"
+        },
+        {
+          "topic_id": 3,
+          "count": 640,
+          "pct_of_clustered": 6.99,
+          "label": "vehicles afu russian"
+        },
+        {
+          "topic_id": 4,
+          "count": 305,
+          "pct_of_clustered": 3.33,
+          "label": "zelensky putin telephone"
+        }
+      ],
+      "top2_combined_pct": 47.5
+    },
+    "u_mass_coherence": -7.466320850144665,
+    "topic_diversity": 0.8877551020408163,
+    "n_dropped_oov_coherence_words": 38,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 253,
+        "dominant_single_topic": 27
+      },
+      "case_pct": {
+        "no_soft_signal": 90.4,
+        "dominant_single_topic": 9.6
+      },
+      "hard_soft_agreement_counts": {
+        "None": 253,
+        "True": 20,
+        "False": 6,
+        "hard_is_outlier": 1
+      },
+      "hard_is_outlier_pct": 0.4,
+      "raw_top1_score_stats": {
+        "mean": 0.09642857142857143,
+        "median": 0.0,
+        "std": 0.29570660512299024,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 65,
+        "n_rescued_by_soft": 1,
+        "pct_rescued": 1.5
+      }
+    },
+    "agreement_rate_with_signal_pct": 76.9,
+    "soft_signal_coverage_pct": 9.6
+  },
+  "full__mts5__seed42": {
+    "sizekey": "full",
+    "min_topic_size": 5,
+    "umap_seed": 42,
+    "fit_seconds": 114.6,
+    "cluster_stats": {
+      "n_topics": 565,
+      "n_docs_total": 16062,
+      "n_outliers": 5096,
+      "outlier_pct": 31.73,
+      "topic_size_mean": 19.4,
+      "topic_size_median": 13.0,
+      "n_micro_topics_abs15": 328,
+      "n_micro_topics_floor_rel": 328,
+      "micro_topic_floor_rel_frac": 0.581
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 196,
+          "pct_of_clustered": 1.79,
+          "label": "lying world maria"
+        },
+        {
+          "topic_id": 1,
+          "count": 192,
+          "pct_of_clustered": 1.75,
+          "label": "hamas terrorists gopro"
+        },
+        {
+          "topic_id": 2,
+          "count": 153,
+          "pct_of_clustered": 1.4,
+          "label": "rani bring home"
+        },
+        {
+          "topic_id": 3,
+          "count": 149,
+          "pct_of_clustered": 1.36,
+          "label": "nato expansion just"
+        },
+        {
+          "topic_id": 4,
+          "count": 144,
+          "pct_of_clustered": 1.31,
+          "label": "iranian missiles missile"
+        }
+      ],
+      "top2_combined_pct": 3.54
+    },
+    "u_mass_coherence": -7.795393488109178,
+    "topic_diversity": 0.4591311803372392,
+    "n_dropped_oov_coherence_words": 1105,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 178,
+        "no_soft_signal": 80,
+        "spread_multi_topic": 22
+      },
+      "case_pct": {
+        "dominant_single_topic": 63.6,
+        "no_soft_signal": 28.6,
+        "spread_multi_topic": 7.9
+      },
+      "hard_soft_agreement_counts": {
+        "True": 100,
+        "None": 80,
+        "hard_is_outlier": 51,
+        "False": 49
+      },
+      "hard_is_outlier_pct": 18.2,
+      "raw_top1_score_stats": {
+        "mean": 0.5860369849875193,
+        "median": 0.7089386088837494,
+        "std": 0.4176789082640546,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.08919162795928785,
+        "median": 0.0,
+        "std": 0.13895541062620353,
+        "min": 0.0,
+        "max": 0.4969869181062659,
+        "p25": 0.0,
+        "p75": 0.19277846415161892
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.02337634823537828,
+        "median": 0.0,
+        "std": 0.05606421197111207,
+        "min": 0.0,
+        "max": 0.24105890076027953,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.8204517789825271,
+        "median": 1.0,
+        "std": 0.22648643667343266,
+        "min": 0.16330100561674393,
+        "max": 1.0,
+        "p25": 0.6449410159902659,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 98,
+        "n_rescued_by_soft": 51,
+        "pct_rescued": 52.0
+      }
+    },
+    "agreement_rate_with_signal_pct": 67.1,
+    "soft_signal_coverage_pct": 71.4
+  },
+  "full__mts5__seed7": {
+    "sizekey": "full",
+    "min_topic_size": 5,
+    "umap_seed": 7,
+    "fit_seconds": 116.0,
+    "cluster_stats": {
+      "n_topics": 563,
+      "n_docs_total": 16062,
+      "n_outliers": 5185,
+      "outlier_pct": 32.28,
+      "topic_size_mean": 19.3,
+      "topic_size_median": 13.0,
+      "n_micro_topics_abs15": 335,
+      "n_micro_topics_floor_rel": 335,
+      "micro_topic_floor_rel_frac": 0.595
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 212,
+          "pct_of_clustered": 1.95,
+          "label": "rani project backups"
+        },
+        {
+          "topic_id": 1,
+          "count": 194,
+          "pct_of_clustered": 1.78,
+          "label": "lying world maria"
+        },
+        {
+          "topic_id": 2,
+          "count": 193,
+          "pct_of_clustered": 1.77,
+          "label": "smolensk view instant"
+        },
+        {
+          "topic_id": 3,
+          "count": 182,
+          "pct_of_clustered": 1.67,
+          "label": "hamas terrorists gopro"
+        },
+        {
+          "topic_id": 4,
+          "count": 146,
+          "pct_of_clustered": 1.34,
+          "label": "iranian missiles missile"
+        }
+      ],
+      "top2_combined_pct": 3.73
+    },
+    "u_mass_coherence": -7.6369698023097765,
+    "topic_diversity": 0.45995093087025546,
+    "n_dropped_oov_coherence_words": 1123,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 184,
+        "no_soft_signal": 76,
+        "spread_multi_topic": 20
+      },
+      "case_pct": {
+        "dominant_single_topic": 65.7,
+        "no_soft_signal": 27.1,
+        "spread_multi_topic": 7.1
+      },
+      "hard_soft_agreement_counts": {
+        "True": 104,
+        "None": 76,
+        "False": 55,
+        "hard_is_outlier": 45
+      },
+      "hard_is_outlier_pct": 16.1,
+      "raw_top1_score_stats": {
+        "mean": 0.6022776344858979,
+        "median": 0.7227114152656806,
+        "std": 0.41434801239407465,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.08811720176653269,
+        "median": 0.0,
+        "std": 0.13817902041754357,
+        "min": 0.0,
+        "max": 0.4953269921744596,
+        "p25": 0.0,
+        "p75": 0.1861970238560871
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.022507768040953512,
+        "median": 0.0,
+        "std": 0.05780832090036881,
+        "min": 0.0,
+        "max": 0.3009758127369631,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.82665557674535,
+        "median": 1.0,
+        "std": 0.22262788174283887,
+        "min": 0.14760556631627605,
+        "max": 1.0,
+        "p25": 0.6585714982570579,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 86,
+        "n_rescued_by_soft": 45,
+        "pct_rescued": 52.3
+      }
+    },
+    "agreement_rate_with_signal_pct": 65.4,
+    "soft_signal_coverage_pct": 72.9
+  },
+  "full__mts10__seed42": {
+    "sizekey": "full",
+    "min_topic_size": 10,
+    "umap_seed": 42,
+    "fit_seconds": 79.9,
+    "cluster_stats": {
+      "n_topics": 293,
+      "n_docs_total": 16062,
+      "n_outliers": 5776,
+      "outlier_pct": 35.96,
+      "topic_size_mean": 35.1,
+      "topic_size_median": 25.0,
+      "n_micro_topics_abs15": 61,
+      "n_micro_topics_floor_rel": 115,
+      "micro_topic_floor_rel_frac": 0.392
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 212,
+          "pct_of_clustered": 2.06,
+          "label": "bring home backups"
+        },
+        {
+          "topic_id": 1,
+          "count": 196,
+          "pct_of_clustered": 1.91,
+          "label": "lying world maria"
+        },
+        {
+          "topic_id": 2,
+          "count": 153,
+          "pct_of_clustered": 1.49,
+          "label": "glory ukraine stand"
+        },
+        {
+          "topic_id": 3,
+          "count": 147,
+          "pct_of_clustered": 1.43,
+          "label": "nato expansion just"
+        },
+        {
+          "topic_id": 4,
+          "count": 145,
+          "pct_of_clustered": 1.41,
+          "label": "iranian missiles missile"
+        }
+      ],
+      "top2_combined_pct": 3.97
+    },
+    "u_mass_coherence": -7.5209423361652705,
+    "topic_diversity": 0.5889261744966443,
+    "n_dropped_oov_coherence_words": 435,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 141,
+        "no_soft_signal": 132,
+        "spread_multi_topic": 7
+      },
+      "case_pct": {
+        "dominant_single_topic": 50.4,
+        "no_soft_signal": 47.1,
+        "spread_multi_topic": 2.5
+      },
+      "hard_soft_agreement_counts": {
+        "None": 132,
+        "True": 90,
+        "hard_is_outlier": 33,
+        "False": 25
+      },
+      "hard_is_outlier_pct": 11.8,
+      "raw_top1_score_stats": {
+        "mean": 0.4685984027421463,
+        "median": 0.5075166830308976,
+        "std": 0.4649229594422412,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.046078114435926465,
+        "median": 0.0,
+        "std": 0.1150947946027946,
+        "min": 0.0,
+        "max": 0.4998620251012203,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.008745149356967727,
+        "median": 0.0,
+        "std": 0.03889761356026942,
+        "min": 0.0,
+        "max": 0.243978338862517,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.8865375187013574,
+        "median": 1.0,
+        "std": 0.19290155276096765,
+        "min": 0.23801192547518094,
+        "max": 1.0,
+        "p25": 0.8036147835820162,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 96,
+        "n_rescued_by_soft": 33,
+        "pct_rescued": 34.4
+      }
+    },
+    "agreement_rate_with_signal_pct": 78.3,
+    "soft_signal_coverage_pct": 52.9
+  },
+  "full__mts10__seed7": {
+    "sizekey": "full",
+    "min_topic_size": 10,
+    "umap_seed": 7,
+    "fit_seconds": 75.5,
+    "cluster_stats": {
+      "n_topics": 293,
+      "n_docs_total": 16062,
+      "n_outliers": 5648,
+      "outlier_pct": 35.16,
+      "topic_size_mean": 35.5,
+      "topic_size_median": 23.0,
+      "n_micro_topics_abs15": 68,
+      "n_micro_topics_floor_rel": 108,
+      "micro_topic_floor_rel_frac": 0.369
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 212,
+          "pct_of_clustered": 2.04,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 1,
+          "count": 196,
+          "pct_of_clustered": 1.88,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 2,
+          "count": 194,
+          "pct_of_clustered": 1.86,
+          "label": "lying world maria"
+        },
+        {
+          "topic_id": 3,
+          "count": 184,
+          "pct_of_clustered": 1.77,
+          "label": "conversation president sergey"
+        },
+        {
+          "topic_id": 4,
+          "count": 179,
+          "pct_of_clustered": 1.72,
+          "label": "glory ukraine stand"
+        }
+      ],
+      "top2_combined_pct": 3.92
+    },
+    "u_mass_coherence": -7.567327481410061,
+    "topic_diversity": 0.5932730356133409,
+    "n_dropped_oov_coherence_words": 430,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 151,
+        "no_soft_signal": 119,
+        "spread_multi_topic": 10
+      },
+      "case_pct": {
+        "dominant_single_topic": 53.9,
+        "no_soft_signal": 42.5,
+        "spread_multi_topic": 3.6
+      },
+      "hard_soft_agreement_counts": {
+        "None": 119,
+        "True": 95,
+        "False": 33,
+        "hard_is_outlier": 33
+      },
+      "hard_is_outlier_pct": 11.8,
+      "raw_top1_score_stats": {
+        "mean": 0.5159590273124124,
+        "median": 0.6474860501277266,
+        "std": 0.46497658914397216,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.04422296746126524,
+        "median": 0.0,
+        "std": 0.10774741816904146,
+        "min": 0.0,
+        "max": 0.4836188721408461,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.00955090613531945,
+        "median": 0.0,
+        "std": 0.03909553036060375,
+        "min": 0.0,
+        "max": 0.30953918380383016,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.8973200474998476,
+        "median": 1.0,
+        "std": 0.18072831214075755,
+        "min": 0.2926160013945233,
+        "max": 1.0,
+        "p25": 0.8503514857390938,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 96,
+        "n_rescued_by_soft": 33,
+        "pct_rescued": 34.4
+      }
+    },
+    "agreement_rate_with_signal_pct": 74.2,
+    "soft_signal_coverage_pct": 57.5
+  },
+  "full__mts15__seed42": {
+    "sizekey": "full",
+    "min_topic_size": 15,
+    "umap_seed": 42,
+    "fit_seconds": 69.1,
+    "cluster_stats": {
+      "n_topics": 222,
+      "n_docs_total": 16062,
+      "n_outliers": 6132,
+      "outlier_pct": 38.18,
+      "topic_size_mean": 44.7,
+      "topic_size_median": 30.0,
+      "n_micro_topics_abs15": 5,
+      "n_micro_topics_floor_rel": 83,
+      "micro_topic_floor_rel_frac": 0.374
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 212,
+          "pct_of_clustered": 2.13,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 1,
+          "count": 196,
+          "pct_of_clustered": 1.97,
+          "label": "telephone conversation president"
+        },
+        {
+          "topic_id": 2,
+          "count": 196,
+          "pct_of_clustered": 1.97,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 3,
+          "count": 196,
+          "pct_of_clustered": 1.97,
+          "label": "lying world maria"
+        },
+        {
+          "topic_id": 4,
+          "count": 183,
+          "pct_of_clustered": 1.84,
+          "label": "nato expansion just"
+        }
+      ],
+      "top2_combined_pct": 4.11
+    },
+    "u_mass_coherence": -7.477493027925484,
+    "topic_diversity": 0.6373018798378179,
+    "n_dropped_oov_coherence_words": 269,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 144,
+        "dominant_single_topic": 128,
+        "spread_multi_topic": 8
+      },
+      "case_pct": {
+        "no_soft_signal": 51.4,
+        "dominant_single_topic": 45.7,
+        "spread_multi_topic": 2.9
+      },
+      "hard_soft_agreement_counts": {
+        "None": 144,
+        "True": 77,
+        "hard_is_outlier": 30,
+        "False": 29
+      },
+      "hard_is_outlier_pct": 10.7,
+      "raw_top1_score_stats": {
+        "mean": 0.4499967253099283,
+        "median": 0.0,
+        "std": 0.47782345720762454,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.026022002360807116,
+        "median": 0.0,
+        "std": 0.0892954133481928,
+        "min": 0.0,
+        "max": 0.49610457075935344,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0059504339741027435,
+        "median": 0.0,
+        "std": 0.03119054745586231,
+        "min": 0.0,
+        "max": 0.2475709877103311,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.926463846226323,
+        "median": 1.0,
+        "std": 0.16477900215643673,
+        "min": 0.345851499091211,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 105,
+        "n_rescued_by_soft": 30,
+        "pct_rescued": 28.6
+      }
+    },
+    "agreement_rate_with_signal_pct": 72.6,
+    "soft_signal_coverage_pct": 48.6
+  },
+  "full__mts15__seed7": {
+    "sizekey": "full",
+    "min_topic_size": 15,
+    "umap_seed": 7,
+    "fit_seconds": 65.9,
+    "cluster_stats": {
+      "n_topics": 203,
+      "n_docs_total": 16062,
+      "n_outliers": 6223,
+      "outlier_pct": 38.74,
+      "topic_size_mean": 48.5,
+      "topic_size_median": 32.0,
+      "n_micro_topics_abs15": 1,
+      "n_micro_topics_floor_rel": 66,
+      "micro_topic_floor_rel_frac": 0.325
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 266,
+          "pct_of_clustered": 2.7,
+          "label": "conversation president sergey"
+        },
+        {
+          "topic_id": 1,
+          "count": 212,
+          "pct_of_clustered": 2.15,
+          "label": "bring home backups"
+        },
+        {
+          "topic_id": 2,
+          "count": 208,
+          "pct_of_clustered": 2.11,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 3,
+          "count": 200,
+          "pct_of_clustered": 2.03,
+          "label": "afu group forces"
+        },
+        {
+          "topic_id": 4,
+          "count": 194,
+          "pct_of_clustered": 1.97,
+          "label": "lying world maria"
+        }
+      ],
+      "top2_combined_pct": 4.86
+    },
+    "u_mass_coherence": -7.471837255608138,
+    "topic_diversity": 0.6571198063735377,
+    "n_dropped_oov_coherence_words": 237,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 152,
+        "dominant_single_topic": 122,
+        "spread_multi_topic": 6
+      },
+      "case_pct": {
+        "no_soft_signal": 54.3,
+        "dominant_single_topic": 43.6,
+        "spread_multi_topic": 2.1
+      },
+      "hard_soft_agreement_counts": {
+        "None": 152,
+        "True": 78,
+        "hard_is_outlier": 25,
+        "False": 25
+      },
+      "hard_is_outlier_pct": 8.9,
+      "raw_top1_score_stats": {
+        "mean": 0.4207161876328615,
+        "median": 0.0,
+        "std": 0.4732592285298823,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.02785330362506383,
+        "median": 0.0,
+        "std": 0.09070761432457222,
+        "min": 0.0,
+        "max": 0.48554110658783967,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.005609512462375591,
+        "median": 0.0,
+        "std": 0.032581315669921895,
+        "min": 0.0,
+        "max": 0.3083514810159852,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9203166604468845,
+        "median": 1.0,
+        "std": 0.1691951121322086,
+        "min": 0.34020845255281695,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 102,
+        "n_rescued_by_soft": 25,
+        "pct_rescued": 24.5
+      }
+    },
+    "agreement_rate_with_signal_pct": 75.7,
+    "soft_signal_coverage_pct": 45.7
+  },
+  "full__mts20__seed42": {
+    "sizekey": "full",
+    "min_topic_size": 20,
+    "umap_seed": 42,
+    "fit_seconds": 60.2,
+    "cluster_stats": {
+      "n_topics": 156,
+      "n_docs_total": 16062,
+      "n_outliers": 6562,
+      "outlier_pct": 40.85,
+      "topic_size_mean": 60.9,
+      "topic_size_median": 42.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 52,
+      "micro_topic_floor_rel_frac": 0.333
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 672,
+          "pct_of_clustered": 7.07,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 1,
+          "count": 211,
+          "pct_of_clustered": 2.22,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 2,
+          "count": 197,
+          "pct_of_clustered": 2.07,
+          "label": "hamas terrorists footage"
+        },
+        {
+          "topic_id": 3,
+          "count": 196,
+          "pct_of_clustered": 2.06,
+          "label": "maria lying god"
+        },
+        {
+          "topic_id": 4,
+          "count": 191,
+          "pct_of_clustered": 2.01,
+          "label": "telephone conversation president"
+        }
+      ],
+      "top2_combined_pct": 9.29
+    },
+    "u_mass_coherence": -7.330580060150295,
+    "topic_diversity": 0.6989022477783586,
+    "n_dropped_oov_coherence_words": 184,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 170,
+        "dominant_single_topic": 105,
+        "spread_multi_topic": 5
+      },
+      "case_pct": {
+        "no_soft_signal": 60.7,
+        "dominant_single_topic": 37.5,
+        "spread_multi_topic": 1.8
+      },
+      "hard_soft_agreement_counts": {
+        "None": 170,
+        "True": 69,
+        "hard_is_outlier": 25,
+        "False": 16
+      },
+      "hard_is_outlier_pct": 8.9,
+      "raw_top1_score_stats": {
+        "mean": 0.36179891036129885,
+        "median": 0.0,
+        "std": 0.46302485610318717,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.024708274805173056,
+        "median": 0.0,
+        "std": 0.08812333402423572,
+        "min": 0.0,
+        "max": 0.4958030990382858,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.005908704298363899,
+        "median": 0.0,
+        "std": 0.03878177460212557,
+        "min": 0.0,
+        "max": 0.31757128001083895,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9209426809196698,
+        "median": 1.0,
+        "std": 0.17059106388732342,
+        "min": 0.3425098807765522,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 111,
+        "n_rescued_by_soft": 25,
+        "pct_rescued": 22.5
+      }
+    },
+    "agreement_rate_with_signal_pct": 81.2,
+    "soft_signal_coverage_pct": 39.3
+  },
+  "full__mts20__seed7": {
+    "sizekey": "full",
+    "min_topic_size": 20,
+    "umap_seed": 7,
+    "fit_seconds": 60.9,
+    "cluster_stats": {
+      "n_topics": 155,
+      "n_docs_total": 16062,
+      "n_outliers": 6680,
+      "outlier_pct": 41.59,
+      "topic_size_mean": 60.5,
+      "topic_size_median": 41.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 48,
+      "micro_topic_floor_rel_frac": 0.31
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 274,
+          "pct_of_clustered": 2.92,
+          "label": "iranian nation mossad"
+        },
+        {
+          "topic_id": 1,
+          "count": 234,
+          "pct_of_clustered": 2.49,
+          "label": "telephone conversation president"
+        },
+        {
+          "topic_id": 2,
+          "count": 213,
+          "pct_of_clustered": 2.27,
+          "label": "smolensk view instant"
+        },
+        {
+          "topic_id": 3,
+          "count": 212,
+          "pct_of_clustered": 2.26,
+          "label": "bring home project"
+        },
+        {
+          "topic_id": 4,
+          "count": 199,
+          "pct_of_clustered": 2.12,
+          "label": "gaza unrwa ceasefire"
+        }
+      ],
+      "top2_combined_pct": 5.41
+    },
+    "u_mass_coherence": -7.271278013951436,
+    "topic_diversity": 0.6979830148619958,
+    "n_dropped_oov_coherence_words": 180,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 159,
+        "dominant_single_topic": 118,
+        "spread_multi_topic": 3
+      },
+      "case_pct": {
+        "no_soft_signal": 56.8,
+        "dominant_single_topic": 42.1,
+        "spread_multi_topic": 1.1
+      },
+      "hard_soft_agreement_counts": {
+        "None": 159,
+        "True": 73,
+        "hard_is_outlier": 30,
+        "False": 18
+      },
+      "hard_is_outlier_pct": 10.7,
+      "raw_top1_score_stats": {
+        "mean": 0.4065449703220883,
+        "median": 0.0,
+        "std": 0.475872372312638,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.02228867383837339,
+        "median": 0.0,
+        "std": 0.08323222763676705,
+        "min": 0.0,
+        "max": 0.4748531903856011,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.002761868465134529,
+        "median": 0.0,
+        "std": 0.021103127271603652,
+        "min": 0.0,
+        "max": 0.21630590107169334,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9407652205800391,
+        "median": 1.0,
+        "std": 0.14050901482218608,
+        "min": 0.40319013357434663,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 117,
+        "n_rescued_by_soft": 30,
+        "pct_rescued": 25.6
+      }
+    },
+    "agreement_rate_with_signal_pct": 80.2,
+    "soft_signal_coverage_pct": 43.2
+  },
+  "full__mts25__seed42": {
+    "sizekey": "full",
+    "min_topic_size": 25,
+    "umap_seed": 42,
+    "fit_seconds": 52.7,
+    "cluster_stats": {
+      "n_topics": 98,
+      "n_docs_total": 16062,
+      "n_outliers": 5895,
+      "outlier_pct": 36.7,
+      "topic_size_mean": 103.7,
+      "topic_size_median": 65.5,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 25,
+      "micro_topic_floor_rel_frac": 0.255
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 968,
+          "pct_of_clustered": 9.52,
+          "label": "kent senate fbi"
+        },
+        {
+          "topic_id": 1,
+          "count": 967,
+          "pct_of_clustered": 9.51,
+          "label": "iranian missile khamenei"
+        },
+        {
+          "topic_id": 2,
+          "count": 764,
+          "pct_of_clustered": 7.51,
+          "label": "vehicles afu russian"
+        },
+        {
+          "topic_id": 3,
+          "count": 236,
+          "pct_of_clustered": 2.32,
+          "label": "wealth billionaires tax"
+        },
+        {
+          "topic_id": 4,
+          "count": 214,
+          "pct_of_clustered": 2.1,
+          "label": "smolensk view instant"
+        }
+      ],
+      "top2_combined_pct": 19.03
+    },
+    "u_mass_coherence": -7.280780825104469,
+    "topic_diversity": 0.7520868113522537,
+    "n_dropped_oov_coherence_words": 86,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 194,
+        "dominant_single_topic": 86
+      },
+      "case_pct": {
+        "no_soft_signal": 69.3,
+        "dominant_single_topic": 30.7
+      },
+      "hard_soft_agreement_counts": {
+        "None": 194,
+        "True": 52,
+        "hard_is_outlier": 19,
+        "False": 15
+      },
+      "hard_is_outlier_pct": 6.8,
+      "raw_top1_score_stats": {
+        "mean": 0.29278287774422196,
+        "median": 0.0,
+        "std": 0.4457329140091211,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.013151256124419098,
+        "median": 0.0,
+        "std": 0.06618572082093861,
+        "min": 0.0,
+        "max": 0.49626177417863,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.001208723274216078,
+        "median": 0.0,
+        "std": 0.014322179784309335,
+        "min": 0.0,
+        "max": 0.18277196663050102,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9532465787021179,
+        "median": 1.0,
+        "std": 0.12304112668209083,
+        "min": 0.50373822582137,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 106,
+        "n_rescued_by_soft": 19,
+        "pct_rescued": 17.9
+      }
+    },
+    "agreement_rate_with_signal_pct": 77.6,
+    "soft_signal_coverage_pct": 30.7
+  },
+  "full__mts25__seed7": {
+    "sizekey": "full",
+    "min_topic_size": 25,
+    "umap_seed": 7,
+    "fit_seconds": 55.1,
+    "cluster_stats": {
+      "n_topics": 109,
+      "n_docs_total": 16062,
+      "n_outliers": 6684,
+      "outlier_pct": 41.61,
+      "topic_size_mean": 86.0,
+      "topic_size_median": 58.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 27,
+      "micro_topic_floor_rel_frac": 0.248
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 960,
+          "pct_of_clustered": 10.24,
+          "label": "kent democrats fbi"
+        },
+        {
+          "topic_id": 1,
+          "count": 277,
+          "pct_of_clustered": 2.95,
+          "label": "iranian missile missiles"
+        },
+        {
+          "topic_id": 2,
+          "count": 213,
+          "pct_of_clustered": 2.27,
+          "label": "smolensk view instant"
+        },
+        {
+          "topic_id": 3,
+          "count": 205,
+          "pct_of_clustered": 2.19,
+          "label": "bring home backups"
+        },
+        {
+          "topic_id": 4,
+          "count": 202,
+          "pct_of_clustered": 2.15,
+          "label": "afu armoured brigades"
+        }
+      ],
+      "top2_combined_pct": 13.19
+    },
+    "u_mass_coherence": -7.188648834210337,
+    "topic_diversity": 0.7356060606060606,
+    "n_dropped_oov_coherence_words": 120,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 191,
+        "dominant_single_topic": 89
+      },
+      "case_pct": {
+        "no_soft_signal": 68.2,
+        "dominant_single_topic": 31.8
+      },
+      "hard_soft_agreement_counts": {
+        "None": 191,
+        "True": 57,
+        "hard_is_outlier": 21,
+        "False": 11
+      },
+      "hard_is_outlier_pct": 7.5,
+      "raw_top1_score_stats": {
+        "mean": 0.2976270183994695,
+        "median": 0.0,
+        "std": 0.44358612137381426,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.018923409640519955,
+        "median": 0.0,
+        "std": 0.07832883959725762,
+        "min": 0.0,
+        "max": 0.4970264409152018,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0013067148171534203,
+        "median": 0.0,
+        "std": 0.012769871440751803,
+        "min": 0.0,
+        "max": 0.14964843867264468,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9363546646275445,
+        "median": 1.0,
+        "std": 0.13774660355184343,
+        "min": 0.5029735590847982,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 106,
+        "n_rescued_by_soft": 21,
+        "pct_rescued": 19.8
+      }
+    },
+    "agreement_rate_with_signal_pct": 83.8,
+    "soft_signal_coverage_pct": 31.8
+  },
+  "full__mts30__seed42": {
+    "sizekey": "full",
+    "min_topic_size": 30,
+    "umap_seed": 42,
+    "fit_seconds": 45.4,
+    "cluster_stats": {
+      "n_topics": 77,
+      "n_docs_total": 16062,
+      "n_outliers": 6161,
+      "outlier_pct": 38.36,
+      "topic_size_mean": 128.6,
+      "topic_size_median": 90.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 9,
+      "micro_topic_floor_rel_frac": 0.117
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 1052,
+          "pct_of_clustered": 10.63,
+          "label": "ice democrats fbi"
+        },
+        {
+          "topic_id": 1,
+          "count": 1037,
+          "pct_of_clustered": 10.47,
+          "label": "iran iranian missile"
+        },
+        {
+          "topic_id": 2,
+          "count": 768,
+          "pct_of_clustered": 7.76,
+          "label": "vehicles afu russian"
+        },
+        {
+          "topic_id": 3,
+          "count": 224,
+          "pct_of_clustered": 2.26,
+          "label": "billionaires wealth tax"
+        },
+        {
+          "topic_id": 4,
+          "count": 214,
+          "pct_of_clustered": 2.16,
+          "label": "smolensk view instant"
+        }
+      ],
+      "top2_combined_pct": 21.1
+    },
+    "u_mass_coherence": -7.582607495416183,
+    "topic_diversity": 0.7813807531380753,
+    "n_dropped_oov_coherence_words": 71,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 206,
+        "dominant_single_topic": 74
+      },
+      "case_pct": {
+        "no_soft_signal": 73.6,
+        "dominant_single_topic": 26.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 206,
+        "True": 47,
+        "hard_is_outlier": 16,
+        "False": 11
+      },
+      "hard_is_outlier_pct": 5.7,
+      "raw_top1_score_stats": {
+        "mean": 0.2525214445756543,
+        "median": 0.0,
+        "std": 0.42685547294879755,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.6240845341021954
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.011764269710060003,
+        "median": 0.0,
+        "std": 0.06665007651308713,
+        "min": 0.0,
+        "max": 0.4963025532657075,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9554865470430162,
+        "median": 1.0,
+        "std": 0.12449939540022782,
+        "min": 0.5036974467342925,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 108,
+        "n_rescued_by_soft": 16,
+        "pct_rescued": 14.8
+      }
+    },
+    "agreement_rate_with_signal_pct": 81.0,
+    "soft_signal_coverage_pct": 26.4
+  },
+  "full__mts30__seed7": {
+    "sizekey": "full",
+    "min_topic_size": 30,
+    "umap_seed": 7,
+    "fit_seconds": 43.1,
+    "cluster_stats": {
+      "n_topics": 68,
+      "n_docs_total": 16062,
+      "n_outliers": 4212,
+      "outlier_pct": 26.22,
+      "topic_size_mean": 174.3,
+      "topic_size_median": 82.5,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 18,
+      "micro_topic_floor_rel_frac": 0.265
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 2493,
+          "pct_of_clustered": 21.04,
+          "label": "brigade drones kyiv"
+        },
+        {
+          "topic_id": 1,
+          "count": 2428,
+          "pct_of_clustered": 20.49,
+          "label": "iran al strait"
+        },
+        {
+          "topic_id": 2,
+          "count": 1049,
+          "pct_of_clustered": 8.85,
+          "label": "ice democrats kent"
+        },
+        {
+          "topic_id": 3,
+          "count": 242,
+          "pct_of_clustered": 2.04,
+          "label": "gaza unra ceasefire"
+        },
+        {
+          "topic_id": 4,
+          "count": 219,
+          "pct_of_clustered": 1.85,
+          "label": "wealth tax gap"
+        }
+      ],
+      "top2_combined_pct": 41.53
+    },
+    "u_mass_coherence": -8.237740521923783,
+    "topic_diversity": 0.8094059405940595,
+    "n_dropped_oov_coherence_words": 71,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 209,
+        "dominant_single_topic": 71
+      },
+      "case_pct": {
+        "no_soft_signal": 74.6,
+        "dominant_single_topic": 25.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 209,
+        "True": 40,
+        "False": 22,
+        "hard_is_outlier": 9
+      },
+      "hard_is_outlier_pct": 3.2,
+      "raw_top1_score_stats": {
+        "mean": 0.2404482544061507,
+        "median": 0.0,
+        "std": 0.41847926627709975,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.5162239231990438
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.013123174165277857,
+        "median": 0.0,
+        "std": 0.06953259977611005,
+        "min": 0.0,
+        "max": 0.4969866364642943,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.948246637094679,
+        "median": 1.0,
+        "std": 0.13130978115340244,
+        "min": 0.5030133635357057,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 73,
+        "n_rescued_by_soft": 9,
+        "pct_rescued": 12.3
+      }
+    },
+    "agreement_rate_with_signal_pct": 64.5,
+    "soft_signal_coverage_pct": 25.4
+  },
+  "full__mts35__seed42": {
+    "sizekey": "full",
+    "min_topic_size": 35,
+    "umap_seed": 42,
+    "fit_seconds": 39.4,
+    "cluster_stats": {
+      "n_topics": 61,
+      "n_docs_total": 16062,
+      "n_outliers": 5475,
+      "outlier_pct": 34.09,
+      "topic_size_mean": 173.6,
+      "topic_size_median": 96.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 8,
+      "micro_topic_floor_rel_frac": 0.131
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 2455,
+          "pct_of_clustered": 23.19,
+          "label": "iran strait hormuz"
+        },
+        {
+          "topic_id": 1,
+          "count": 962,
+          "pct_of_clustered": 9.09,
+          "label": "democrats kent fbi"
+        },
+        {
+          "topic_id": 2,
+          "count": 782,
+          "pct_of_clustered": 7.39,
+          "label": "afu russian defence"
+        },
+        {
+          "topic_id": 3,
+          "count": 446,
+          "pct_of_clustered": 4.21,
+          "label": "telephone conversation vladimir"
+        },
+        {
+          "topic_id": 4,
+          "count": 349,
+          "pct_of_clustered": 3.3,
+          "label": "jewish people jerusalem"
+        }
+      ],
+      "top2_combined_pct": 32.28
+    },
+    "u_mass_coherence": -7.749478990916706,
+    "topic_diversity": 0.8082556591211718,
+    "n_dropped_oov_coherence_words": 45,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 220,
+        "dominant_single_topic": 60
+      },
+      "case_pct": {
+        "no_soft_signal": 78.6,
+        "dominant_single_topic": 21.4
+      },
+      "hard_soft_agreement_counts": {
+        "None": 220,
+        "True": 42,
+        "False": 11,
+        "hard_is_outlier": 7
+      },
+      "hard_is_outlier_pct": 2.5,
+      "raw_top1_score_stats": {
+        "mean": 0.2099122977567487,
+        "median": 0.0,
+        "std": 0.40433164730629817,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.004373416528965564,
+        "median": 0.0,
+        "std": 0.03755544205672451,
+        "min": 0.0,
+        "max": 0.3750857393765201,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9795907228648274,
+        "median": 1.0,
+        "std": 0.07960367009259345,
+        "min": 0.6249142606234799,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 100,
+        "n_rescued_by_soft": 7,
+        "pct_rescued": 7.0
+      }
+    },
+    "agreement_rate_with_signal_pct": 79.2,
+    "soft_signal_coverage_pct": 21.4
+  },
+  "full__mts35__seed7": {
+    "sizekey": "full",
+    "min_topic_size": 35,
+    "umap_seed": 7,
+    "fit_seconds": 39.3,
+    "cluster_stats": {
+      "n_topics": 52,
+      "n_docs_total": 16062,
+      "n_outliers": 4562,
+      "outlier_pct": 28.4,
+      "topic_size_mean": 221.2,
+      "topic_size_median": 101.0,
+      "n_micro_topics_abs15": 0,
+      "n_micro_topics_floor_rel": 6,
+      "micro_topic_floor_rel_frac": 0.115
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 2479,
+          "pct_of_clustered": 21.56,
+          "label": "ukraine brigade drones"
+        },
+        {
+          "topic_id": 1,
+          "count": 2406,
+          "pct_of_clustered": 20.92,
+          "label": "iran strait hormuz"
+        },
+        {
+          "topic_id": 2,
+          "count": 1048,
+          "pct_of_clustered": 9.11,
+          "label": "trump kent fbi"
+        },
+        {
+          "topic_id": 3,
+          "count": 347,
+          "pct_of_clustered": 3.02,
+          "label": "jewish people israel"
+        },
+        {
+          "topic_id": 4,
+          "count": 236,
+          "pct_of_clustered": 2.05,
+          "label": "gaza unra ceasefire"
+        }
+      ],
+      "top2_combined_pct": 42.48
+    },
+    "u_mass_coherence": -8.231255320572604,
+    "topic_diversity": 0.8439490445859873,
+    "n_dropped_oov_coherence_words": 42,
+    "quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 228,
+        "dominant_single_topic": 52
+      },
+      "case_pct": {
+        "no_soft_signal": 81.4,
+        "dominant_single_topic": 18.6
+      },
+      "hard_soft_agreement_counts": {
+        "None": 228,
+        "True": 34,
+        "False": 14,
+        "hard_is_outlier": 4
+      },
+      "hard_is_outlier_pct": 1.4,
+      "raw_top1_score_stats": {
+        "mean": 0.181198654802902,
+        "median": 0.0,
+        "std": 0.3818628172869798,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.004515630911383717,
+        "median": 0.0,
+        "std": 0.03785609825663575,
+        "min": 0.0,
+        "max": 0.3582264563474131,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9756850643233185,
+        "median": 1.0,
+        "std": 0.08572604634864792,
+        "min": 0.6417735436525869,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 82,
+        "n_rescued_by_soft": 4,
+        "pct_rescued": 4.9
+      }
+    },
+    "agreement_rate_with_signal_pct": 70.8,
+    "soft_signal_coverage_pct": 18.6
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "note": "Threshold chosen using ONLY the validation set: val labels + VAL-set predictions of the already-trained reference hard_seed42/soft_seed42 models. The test set is never accessed during this selection step.",
+  "reference_seed": 42,
+  "candidates": [
+    {
+      "criterion": "top1_score",
+      "threshold": 0.3,
+      "val_accuracy": 0.6203554119547657,
+      "val_macro_f1": 0.6181310385083938,
+      "val_weighted_f1": 0.6204687633643018,
+      "pct_routed_hard": 52.38287560581584
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.4,
+      "val_accuracy": 0.6183360258481422,
+      "val_macro_f1": 0.6162079053776565,
+      "val_weighted_f1": 0.6184995071077838,
+      "pct_routed_hard": 51.65589660743134
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.5,
+      "val_accuracy": 0.6167205169628432,
+      "val_macro_f1": 0.6146976564049113,
+      "val_weighted_f1": 0.6169464329568083,
+      "pct_routed_hard": 50.48465266558966
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.6,
+      "val_accuracy": 0.6155088852988692,
+      "val_macro_f1": 0.6134195304830767,
+      "val_weighted_f1": 0.6156424402735978,
+      "pct_routed_hard": 46.001615508885294
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.7,
+      "val_accuracy": 0.6179321486268174,
+      "val_macro_f1": 0.6159871821411205,
+      "val_weighted_f1": 0.6181382282851324,
+      "pct_routed_hard": 42.36672051696284
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.75,
+      "val_accuracy": 0.6179321486268174,
+      "val_macro_f1": 0.616064220268396,
+      "val_weighted_f1": 0.6182030739739985,
+      "pct_routed_hard": 40.75121163166398
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.8,
+      "val_accuracy": 0.6179321486268174,
+      "val_macro_f1": 0.616053663559253,
+      "val_weighted_f1": 0.6181668318405356,
+      "pct_routed_hard": 39.49919224555735
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.85,
+      "val_accuracy": 0.617124394184168,
+      "val_macro_f1": 0.6151410905175466,
+      "val_weighted_f1": 0.617336421625931,
+      "pct_routed_hard": 38.24717285945073
+    },
+    {
+      "criterion": "top1_score",
+      "threshold": 0.9,
+      "val_accuracy": 0.617124394184168,
+      "val_macro_f1": 0.6151051223240822,
+      "val_weighted_f1": 0.61736124160582,
+      "pct_routed_hard": 37.11631663974152
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.05,
+      "val_accuracy": 0.6187399030694669,
+      "val_macro_f1": 0.6166209377114563,
+      "val_weighted_f1": 0.6188415501654062,
+      "pct_routed_hard": 50.64620355411955
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.1,
+      "val_accuracy": 0.6163166397415186,
+      "val_macro_f1": 0.6144800457432222,
+      "val_weighted_f1": 0.6165064882952133,
+      "pct_routed_hard": 49.11147011308562
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.15,
+      "val_accuracy": 0.6163166397415186,
+      "val_macro_f1": 0.6142220033801943,
+      "val_weighted_f1": 0.6164481269017376,
+      "pct_routed_hard": 47.89983844911147
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.2,
+      "val_accuracy": 0.6155088852988692,
+      "val_macro_f1": 0.613573941625687,
+      "val_weighted_f1": 0.6156835008981898,
+      "pct_routed_hard": 47.011308562197094
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.25,
+      "val_accuracy": 0.6138933764135702,
+      "val_macro_f1": 0.6119547036699325,
+      "val_weighted_f1": 0.6141346198797524,
+      "pct_routed_hard": 45.92084006462036
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.3,
+      "val_accuracy": 0.6155088852988692,
+      "val_macro_f1": 0.6133857570205021,
+      "val_weighted_f1": 0.6156926987590197,
+      "pct_routed_hard": 44.87075928917609
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.4,
+      "val_accuracy": 0.6167205169628432,
+      "val_macro_f1": 0.6147554649823863,
+      "val_weighted_f1": 0.6169405696672265,
+      "pct_routed_hard": 42.770597738287556
+    },
+    {
+      "criterion": "margin",
+      "threshold": 0.5,
+      "val_accuracy": 0.6175282714054927,
+      "val_macro_f1": 0.6156924623579789,
+      "val_weighted_f1": 0.6177862919169397,
+      "pct_routed_hard": 41.276252019386106
+    }
+  ],
+  "chosen": {
+    "criterion": "top1_score",
+    "threshold": 0.3,
+    "val_accuracy": 0.6203554119547657,
+    "val_macro_f1": 0.6181310385083938,
+    "val_weighted_f1": 0.6204687633643018,
+    "pct_routed_hard": 52.38287560581584
+  }
+}

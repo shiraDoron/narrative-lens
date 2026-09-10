@@ -1,0 +1,5 @@
+signal,n_rows_with_signal,n_judged_incorrect,n_judged_uncertain,error_rate
+rhetoric_cue,8,8,0,1.0
+agency,2,1,0,0.5
+dependency,2,0,0,0.0
+predicate_action,2,0,0,0.0

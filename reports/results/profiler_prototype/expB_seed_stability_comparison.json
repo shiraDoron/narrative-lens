@@ -1,0 +1,1120 @@
+{
+  "per_config": {
+    "minilm_seed42": {
+      "embedding_key": "minilm",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "seed": 42,
+      "save_path": "models/experiments/soft_v2_baseline_seeded",
+      "n_topics": 282,
+      "outlier_pct": 35.8,
+      "topic_size_mean": 36.6,
+      "topic_size_median": 25.5,
+      "n_small_topics_leq15": 53,
+      "n_topics_at_own_floor": 98,
+      "agreement_true": 86,
+      "agreement_false": 57,
+      "agreement_none": 137,
+      "pct_texts_with_soft_signal": 51.1,
+      "top1_topic_size": 240,
+      "top2_combined_pct": 4.4,
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 240,
+          "pct_of_clustered": 2.3,
+          "label": "jewish state land",
+          "top_words": [
+            "jewish state",
+            "land israel",
+            "israel place",
+            "israel refuge",
+            "shouldnt jewish",
+            "diaspora israel"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 209,
+          "pct_of_clustered": 2.0,
+          "label": "bring home backups",
+          "top_words": [
+            "bring home",
+            "backups",
+            "home project",
+            "hostages",
+            "returned",
+            "goili"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 195,
+          "pct_of_clustered": 1.9,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 191,
+          "pct_of_clustered": 1.9,
+          "label": "gaza ceasefire strip",
+          "top_words": [
+            "gaza",
+            "gaza ceasefire",
+            "gaza strip",
+            "war gaza",
+            "palestinians gaza",
+            "people gaza"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 186,
+          "pct_of_clustered": 1.8,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "terrorists",
+            "hamas terrorists",
+            "footage",
+            "kibbutz",
+            "gopro"
+          ]
+        }
+      ],
+      "n_rulesbased_topics": 2,
+      "rulesbased_topics": [
+        {
+          "topic_id": 96,
+          "count": 31,
+          "top_words": [
+            "rulesbased order",
+            "wests rulesbased",
+            "order talk",
+            "just rules",
+            "western dominance",
+            "write rules"
+          ]
+        },
+        {
+          "topic_id": 209,
+          "count": 18,
+          "top_words": [
+            "global rulesbased",
+            "rulesbased order",
+            "order imperfect",
+            "pure chaos",
+            "upholding global",
+            "best framework"
+          ]
+        }
+      ],
+      "coherence_topics": {
+        "gaza_ceasefire": {
+          "topic_id": 3,
+          "count": 191,
+          "label": "gaza ceasefire strip",
+          "top_words": [
+            "gaza",
+            "gaza ceasefire",
+            "gaza strip",
+            "war gaza",
+            "palestinians gaza",
+            "people gaza"
+          ]
+        },
+        "ukraine_glory": {
+          "topic_id": 6,
+          "count": 149,
+          "label": "glory ukraine stand",
+          "top_words": [
+            "glory ukraine",
+            "stand ukraine",
+            "day ukraine",
+            "crimea ukraine",
+            "ukraine donbas",
+            "ukraine prevail"
+          ]
+        },
+        "iran_related": {
+          "topic_id": 8,
+          "count": 142,
+          "label": "iranian missiles occupied",
+          "top_words": [
+            "iranian missiles",
+            "occupied palestine",
+            "tel aviv",
+            "aviv",
+            "palestine source",
+            "iranian missile"
+          ]
+        },
+        "maria_lying": {
+          "topic_id": 2,
+          "count": 195,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        "home_bring": {
+          "topic_id": 1,
+          "count": 209,
+          "label": "bring home backups",
+          "top_words": [
+            "bring home",
+            "backups",
+            "home project",
+            "hostages",
+            "returned",
+            "goili"
+          ]
+        }
+      }
+    },
+    "minilm_seed7": {
+      "embedding_key": "minilm",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "seed": 7,
+      "save_path": "models/experiments/soft_v2_seedstab_minilm_seed7",
+      "n_topics": 288,
+      "outlier_pct": 33.5,
+      "topic_size_mean": 37.1,
+      "topic_size_median": 24.0,
+      "n_small_topics_leq15": 58,
+      "n_topics_at_own_floor": 117,
+      "agreement_true": 99,
+      "agreement_false": 55,
+      "agreement_none": 125,
+      "pct_texts_with_soft_signal": 55.4,
+      "top1_topic_size": 300,
+      "top2_combined_pct": 4.8,
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 300,
+          "pct_of_clustered": 2.8,
+          "label": "iranian missile missiles",
+          "top_words": [
+            "iranian missile",
+            "iranian missiles",
+            "occupied palestine",
+            "central israel",
+            "regime missile",
+            "missile impact"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 212,
+          "pct_of_clustered": 2.0,
+          "label": "bring home project",
+          "top_words": [
+            "bring home",
+            "home project",
+            "backups",
+            "project backups",
+            "hostages",
+            "goili"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 194,
+          "pct_of_clustered": 1.8,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 184,
+          "pct_of_clustered": 1.7,
+          "label": "hamas terrorists kibbutz",
+          "top_words": [
+            "hamas",
+            "terrorists",
+            "hamas terrorists",
+            "kibbutz",
+            "footage",
+            "gopro"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 173,
+          "pct_of_clustered": 1.6,
+          "label": "glory ukraine stand",
+          "top_words": [
+            "glory ukraine",
+            "stand ukraine",
+            "just ukraine",
+            "crimea ukraine",
+            "ukraine prevail",
+            "day ukraine"
+          ]
+        }
+      ],
+      "n_rulesbased_topics": 2,
+      "rulesbased_topics": [
+        {
+          "topic_id": 101,
+          "count": 31,
+          "top_words": [
+            "based order",
+            "rules based",
+            "order talk",
+            "west rules",
+            "called rules",
+            "talking rules"
+          ]
+        },
+        {
+          "topic_id": 204,
+          "count": 18,
+          "top_words": [
+            "rules based",
+            "global rules",
+            "based order",
+            "option essential",
+            "order imperfect",
+            "upholding global"
+          ]
+        }
+      ],
+      "coherence_topics": {
+        "gaza_ceasefire": {
+          "topic_id": 5,
+          "count": 163,
+          "label": "gaza ceasefire d7",
+          "top_words": [
+            "gaza",
+            "gaza ceasefire",
+            "ceasefire",
+            "d7",
+            "gaza strip",
+            "israel hamas"
+          ]
+        },
+        "ukraine_glory": {
+          "topic_id": 4,
+          "count": 173,
+          "label": "glory ukraine stand",
+          "top_words": [
+            "glory ukraine",
+            "stand ukraine",
+            "just ukraine",
+            "crimea ukraine",
+            "ukraine prevail",
+            "day ukraine"
+          ]
+        },
+        "iran_related": {
+          "topic_id": 0,
+          "count": 300,
+          "label": "iranian missile missiles",
+          "top_words": [
+            "iranian missile",
+            "iranian missiles",
+            "occupied palestine",
+            "central israel",
+            "regime missile",
+            "missile impact"
+          ]
+        },
+        "maria_lying": {
+          "topic_id": 2,
+          "count": 194,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        "home_bring": {
+          "topic_id": 1,
+          "count": 212,
+          "label": "bring home project",
+          "top_words": [
+            "bring home",
+            "home project",
+            "backups",
+            "project backups",
+            "hostages",
+            "goili"
+          ]
+        }
+      }
+    },
+    "minilm_seed123": {
+      "embedding_key": "minilm",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "seed": 123,
+      "save_path": "models/experiments/soft_v2_seedstab_minilm_seed123",
+      "n_topics": 301,
+      "outlier_pct": 34.2,
+      "topic_size_mean": 35.1,
+      "topic_size_median": 24.0,
+      "n_small_topics_leq15": 76,
+      "n_topics_at_own_floor": 125,
+      "agreement_true": 92,
+      "agreement_false": 66,
+      "agreement_none": 122,
+      "pct_texts_with_soft_signal": 56.4,
+      "top1_topic_size": 217,
+      "top2_combined_pct": 4.1,
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 217,
+          "pct_of_clustered": 2.1,
+          "label": "bring home backups",
+          "top_words": [
+            "bring home",
+            "backups",
+            "project backups",
+            "home project",
+            "families abductees",
+            "hostage"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 213,
+          "pct_of_clustered": 2.0,
+          "label": "telephone conversation president",
+          "top_words": [
+            "telephone conversation",
+            "conversation president",
+            "sergey lavrov",
+            "vladimir putin",
+            "president france",
+            "minister sergey"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 210,
+          "pct_of_clustered": 2.0,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "terrorists",
+            "hamas terrorists",
+            "footage",
+            "gopro",
+            "massacres"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 194,
+          "pct_of_clustered": 1.8,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 189,
+          "pct_of_clustered": 1.8,
+          "label": "glory ukraine europe",
+          "top_words": [
+            "glory ukraine",
+            "ukraine europe",
+            "just ukraine",
+            "stand ukraine",
+            "crimea ukraine",
+            "ukraine prevail"
+          ]
+        }
+      ],
+      "n_rulesbased_topics": 2,
+      "rulesbased_topics": [
+        {
+          "topic_id": 105,
+          "count": 29,
+          "top_words": [
+            "based order",
+            "rules based",
+            "west rules",
+            "talking rules",
+            "western dominance",
+            "write rules"
+          ]
+        },
+        {
+          "topic_id": 219,
+          "count": 16,
+          "top_words": [
+            "global rules",
+            "rules based",
+            "based order",
+            "upholding global",
+            "option essential",
+            "best framework"
+          ]
+        }
+      ],
+      "coherence_topics": {
+        "gaza_ceasefire": {
+          "topic_id": 6,
+          "count": 163,
+          "label": "gaza ceasefire strip",
+          "top_words": [
+            "gaza ceasefire",
+            "gaza",
+            "ceasefire",
+            "gaza strip",
+            "ethnic cleansing",
+            "israeli government"
+          ]
+        },
+        "ukraine_glory": {
+          "topic_id": 4,
+          "count": 189,
+          "label": "glory ukraine europe",
+          "top_words": [
+            "glory ukraine",
+            "ukraine europe",
+            "just ukraine",
+            "stand ukraine",
+            "crimea ukraine",
+            "ukraine prevail"
+          ]
+        },
+        "iran_related": {
+          "topic_id": 10,
+          "count": 146,
+          "label": "iranian missiles tel",
+          "top_words": [
+            "iranian missiles",
+            "tel aviv",
+            "aviv",
+            "occupied palestine",
+            "iranian missile",
+            "palestine source"
+          ]
+        },
+        "maria_lying": {
+          "topic_id": 3,
+          "count": 194,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        "home_bring": {
+          "topic_id": 0,
+          "count": 217,
+          "label": "bring home backups",
+          "top_words": [
+            "bring home",
+            "backups",
+            "project backups",
+            "home project",
+            "families abductees",
+            "hostage"
+          ]
+        }
+      }
+    },
+    "mpnet_seed42": {
+      "embedding_key": "mpnet",
+      "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+      "seed": 42,
+      "save_path": "models/experiments/soft_v2_expB_mpnet",
+      "n_topics": 309,
+      "outlier_pct": 34.7,
+      "topic_size_mean": 33.9,
+      "topic_size_median": 24.0,
+      "n_small_topics_leq15": 74,
+      "n_topics_at_own_floor": 131,
+      "agreement_true": 100,
+      "agreement_false": 50,
+      "agreement_none": 129,
+      "pct_texts_with_soft_signal": 53.9,
+      "top1_topic_size": 220,
+      "top2_combined_pct": 4.1,
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 220,
+          "pct_of_clustered": 2.1,
+          "label": "bring home rani",
+          "top_words": [
+            "bring home",
+            "rani",
+            "project",
+            "kidnapped",
+            "hostages",
+            "captivity"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 210,
+          "pct_of_clustered": 2.0,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "hamas terrorists",
+            "terrorists",
+            "footage",
+            "music festival",
+            "massacres"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 205,
+          "pct_of_clustered": 2.0,
+          "label": "nato expansion eastward",
+          "top_words": [
+            "nato",
+            "nato expansion",
+            "eastward",
+            "nato isn",
+            "alliances",
+            "cold war"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 192,
+          "pct_of_clustered": 1.8,
+          "label": "lying world maria",
+          "top_words": [
+            "lying world",
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 174,
+          "pct_of_clustered": 1.7,
+          "label": "smolensk view region",
+          "top_words": [
+            "smolensk",
+            "view smolensk",
+            "smolensk region",
+            "smolensk instant",
+            "smolensk residents",
+            "smolyan residents"
+          ]
+        }
+      ],
+      "n_rulesbased_topics": 1,
+      "rulesbased_topics": [
+        {
+          "topic_id": 8,
+          "count": 122,
+          "top_words": [
+            "rules based",
+            "international law",
+            "global rules",
+            "global cooperation",
+            "international norms",
+            "treaties"
+          ]
+        }
+      ],
+      "coherence_topics": {
+        "gaza_ceasefire": {
+          "topic_id": 42,
+          "count": 54,
+          "label": "gaza ceasefire deal",
+          "top_words": [
+            "gaza ceasefire",
+            "ceasefire deal",
+            "israel hamas",
+            "gaza deal",
+            "hamas ceasefire",
+            "gaza"
+          ]
+        },
+        "ukraine_glory": {
+          "topic_id": 17,
+          "count": 88,
+          "label": "zelensky ukrainian president",
+          "top_words": [
+            "zelensky",
+            "ukrainian president",
+            "victory plan",
+            "president volodymyr",
+            "volodymyr zelensky",
+            "story zelensky"
+          ]
+        },
+        "iran_related": {
+          "topic_id": 16,
+          "count": 92,
+          "label": "ships panama hormuz",
+          "top_words": [
+            "ships",
+            "panama",
+            "hormuz strait",
+            "britain france",
+            "strait iran",
+            "cross strait"
+          ]
+        },
+        "maria_lying": {
+          "topic_id": 3,
+          "count": 192,
+          "label": "lying world maria",
+          "top_words": [
+            "lying world",
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        "home_bring": {
+          "topic_id": 0,
+          "count": 220,
+          "label": "bring home rani",
+          "top_words": [
+            "bring home",
+            "rani",
+            "project",
+            "kidnapped",
+            "hostages",
+            "captivity"
+          ]
+        }
+      }
+    },
+    "mpnet_seed7": {
+      "embedding_key": "mpnet",
+      "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+      "seed": 7,
+      "save_path": "models/experiments/soft_v2_seedstab_mpnet_seed7",
+      "n_topics": 309,
+      "outlier_pct": 35.9,
+      "topic_size_mean": 33.3,
+      "topic_size_median": 24.0,
+      "n_small_topics_leq15": 69,
+      "n_topics_at_own_floor": 127,
+      "agreement_true": 103,
+      "agreement_false": 56,
+      "agreement_none": 120,
+      "pct_texts_with_soft_signal": 57.1,
+      "top1_topic_size": 226,
+      "top2_combined_pct": 4.3,
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 226,
+          "pct_of_clustered": 2.2,
+          "label": "bring home rani",
+          "top_words": [
+            "bring home",
+            "rani",
+            "project",
+            "kidnapped",
+            "captivity",
+            "hostages"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 218,
+          "pct_of_clustered": 2.1,
+          "label": "hamas terrorists kibbutz",
+          "top_words": [
+            "hamas",
+            "hamas terrorists",
+            "kibbutz",
+            "footage",
+            "gopro",
+            "music festival"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 209,
+          "pct_of_clustered": 2.0,
+          "label": "nato expansion eastward",
+          "top_words": [
+            "nato",
+            "nato expansion",
+            "eastward",
+            "alliances",
+            "cold war",
+            "know nato"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 194,
+          "pct_of_clustered": 1.9,
+          "label": "lying world maria",
+          "top_words": [
+            "lying world",
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 171,
+          "pct_of_clustered": 1.7,
+          "label": "smolensk view region",
+          "top_words": [
+            "smolensk",
+            "view smolensk",
+            "smolensk region",
+            "smolensk instant",
+            "smolensk residents",
+            "smolyan residents"
+          ]
+        }
+      ],
+      "n_rulesbased_topics": 1,
+      "rulesbased_topics": [
+        {
+          "topic_id": 65,
+          "count": 43,
+          "top_words": [
+            "rules based",
+            "based order",
+            "global rules",
+            "upholding global",
+            "international order",
+            "global order"
+          ]
+        }
+      ],
+      "coherence_topics": {
+        "gaza_ceasefire": {
+          "topic_id": 50,
+          "count": 46,
+          "label": "gaza ceasefire deal",
+          "top_words": [
+            "gaza ceasefire",
+            "ceasefire deal",
+            "israel hamas",
+            "gaza deal",
+            "hamas ceasefire",
+            "gaza"
+          ]
+        },
+        "ukraine_glory": {
+          "topic_id": 29,
+          "count": 65,
+          "label": "european ukraine future",
+          "top_words": [
+            "european ukraine",
+            "future ukraine",
+            "europe ukraine",
+            "ukraine shield",
+            "ukraine heart",
+            "people belarus"
+          ]
+        },
+        "iran_related": {
+          "topic_id": 12,
+          "count": 95,
+          "label": "panama hormuz strait",
+          "top_words": [
+            "panama",
+            "hormuz strait",
+            "strait iran",
+            "cross strait",
+            "freedom navigation",
+            "unblocking strait"
+          ]
+        },
+        "maria_lying": {
+          "topic_id": 3,
+          "count": 194,
+          "label": "lying world maria",
+          "top_words": [
+            "lying world",
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        "home_bring": {
+          "topic_id": 0,
+          "count": 226,
+          "label": "bring home rani",
+          "top_words": [
+            "bring home",
+            "rani",
+            "project",
+            "kidnapped",
+            "captivity",
+            "hostages"
+          ]
+        }
+      }
+    },
+    "mpnet_seed123": {
+      "embedding_key": "mpnet",
+      "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+      "seed": 123,
+      "save_path": "models/experiments/soft_v2_seedstab_mpnet_seed123",
+      "n_topics": 312,
+      "outlier_pct": 36.2,
+      "topic_size_mean": 32.8,
+      "topic_size_median": 23.0,
+      "n_small_topics_leq15": 71,
+      "n_topics_at_own_floor": 131,
+      "agreement_true": 107,
+      "agreement_false": 53,
+      "agreement_none": 119,
+      "pct_texts_with_soft_signal": 57.5,
+      "top1_topic_size": 206,
+      "top2_combined_pct": 3.9,
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 206,
+          "pct_of_clustered": 2.0,
+          "label": "nato expansion isn",
+          "top_words": [
+            "nato",
+            "nato expansion",
+            "nato isn",
+            "alliances",
+            "cold war",
+            "especially nato"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 195,
+          "pct_of_clustered": 1.9,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "terrorists",
+            "hamas terrorists",
+            "footage",
+            "kibbutz",
+            "music festival"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 192,
+          "pct_of_clustered": 1.9,
+          "label": "lying world maria",
+          "top_words": [
+            "lying world",
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 168,
+          "pct_of_clustered": 1.6,
+          "label": "free markets prosperity",
+          "top_words": [
+            "free markets",
+            "prosperity",
+            "economic freedom",
+            "free enterprise",
+            "innovation thrives",
+            "let businesses"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 168,
+          "pct_of_clustered": 1.6,
+          "label": "smolensk view region",
+          "top_words": [
+            "smolensk",
+            "view smolensk",
+            "smolensk region",
+            "smolensk instant",
+            "smolensk residents",
+            "smolyan residents"
+          ]
+        }
+      ],
+      "n_rulesbased_topics": 2,
+      "rulesbased_topics": [
+        {
+          "topic_id": 194,
+          "count": 19,
+          "top_words": [
+            "rules based",
+            "upholding global",
+            "international order",
+            "global rules",
+            "upholding",
+            "liberal international"
+          ]
+        },
+        {
+          "topic_id": 198,
+          "count": 19,
+          "top_words": [
+            "based order",
+            "rules based",
+            "order talk",
+            "just rules",
+            "hypocrisy rules",
+            "idea rules"
+          ]
+        }
+      ],
+      "coherence_topics": {
+        "gaza_ceasefire": {
+          "topic_id": 40,
+          "count": 53,
+          "label": "gaza ceasefire deal",
+          "top_words": [
+            "gaza ceasefire",
+            "ceasefire deal",
+            "israel hamas",
+            "gaza deal",
+            "hamas ceasefire",
+            "gaza"
+          ]
+        },
+        "ukraine_glory": {
+          "topic_id": 21,
+          "count": 80,
+          "label": "zelensky ukrainian president",
+          "top_words": [
+            "zelensky",
+            "ukrainian president",
+            "president volodymyr",
+            "volodymyr zelensky",
+            "zelensky said",
+            "oreshnik"
+          ]
+        },
+        "iran_related": {
+          "topic_id": 15,
+          "count": 98,
+          "label": "panama hormuz strait",
+          "top_words": [
+            "panama",
+            "hormuz strait",
+            "open strait",
+            "unblocking",
+            "navigation",
+            "hormuz closed"
+          ]
+        },
+        "maria_lying": {
+          "topic_id": 2,
+          "count": 192,
+          "label": "lying world maria",
+          "top_words": [
+            "lying world",
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        "home_bring": {
+          "topic_id": 65,
+          "count": 39,
+          "label": "occupied west bank",
+          "top_words": [
+            "occupied west",
+            "west bank",
+            "israeli settlers",
+            "israeli settler",
+            "nablus occupied",
+            "bank israeli"
+          ]
+        }
+      }
+    }
+  },
+  "averages": {
+    "minilm": {
+      "avg_n_topics": 290.33,
+      "avg_outlier_pct": 34.5,
+      "avg_agreement_true": 92.33,
+      "avg_agreement_false": 59.33,
+      "avg_agreement_none": 128.0,
+      "avg_pct_soft_signal": 54.3,
+      "avg_n_small_topics_leq15": 62.33,
+      "avg_n_topics_at_own_floor": 113.33,
+      "avg_top1_topic_size": 252.33,
+      "avg_top2_combined_pct": 4.43,
+      "n_rulesbased_topics_per_seed": [
+        2,
+        2,
+        2
+      ]
+    },
+    "mpnet": {
+      "avg_n_topics": 310.0,
+      "avg_outlier_pct": 35.6,
+      "avg_agreement_true": 103.33,
+      "avg_agreement_false": 53.0,
+      "avg_agreement_none": 122.67,
+      "avg_pct_soft_signal": 56.17,
+      "avg_n_small_topics_leq15": 71.33,
+      "avg_n_topics_at_own_floor": 129.67,
+      "avg_top1_topic_size": 217.33,
+      "avg_top2_combined_pct": 4.1,
+      "n_rulesbased_topics_per_seed": [
+        1,
+        1,
+        2
+      ]
+    }
+  }
+}

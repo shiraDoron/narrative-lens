@@ -1,0 +1,3 @@
+signal,n_rows_with_signal,n_judged_incorrect,n_judged_uncertain,error_rate
+dependency,1,1,0,1.0
+predicate_action,5,4,0,0.8

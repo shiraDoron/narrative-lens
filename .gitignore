@@ -1,0 +1,20 @@
+# Secrets / credentials - never commit
+.env
+*.session
+*.session-journal
+
+# Python
+__pycache__/
+*.pyc
+
+# OS/editor noise
+.DS_Store
+
+# JetBrains project files (local IDE config, not shared)
+.idea/
+
+# Derived/regeneratable feature caches and embeddings (see data/README.md for how to
+# reproduce). Kept out of Git regardless of size for consistency - all of them are
+# machine-generated from data/raw/ + a documented src/ command, never hand-authored.
+data/cache/**/*.pt
+data/cache/**/*.npy

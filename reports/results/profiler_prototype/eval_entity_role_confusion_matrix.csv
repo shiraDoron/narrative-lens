@@ -1,0 +1,8 @@
+,pred_hero,pred_victim,pred_aggressor,pred_betrayer,pred_savior,pred_unknown,pred_uncertain
+gold_hero,0,0,0,0,0,12,7
+gold_victim,0,1,0,0,0,13,0
+gold_aggressor,0,0,0,0,0,24,1
+gold_betrayer,0,0,0,0,0,2,0
+gold_savior,0,0,0,0,1,3,0
+gold_unknown,0,0,0,0,0,21,0
+gold_uncertain,0,0,0,0,0,0,0

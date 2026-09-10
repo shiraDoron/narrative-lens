@@ -1,0 +1,895 @@
+{
+  "n_topics": 282,
+  "n_pairs": 39621,
+  "score_percentiles": {
+    "50": 0.116,
+    "90": 0.223,
+    "95": 0.26,
+    "99": 0.332,
+    "99.5": 0.365,
+    "99.9": 0.417
+  },
+  "proposed_combined_score_threshold": 0.42,
+  "top_candidates": [
+    {
+      "topic_a": 67,
+      "topic_b": 132,
+      "semantic_sim": 0.816,
+      "lexical_sim": 0.208,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.512,
+      "count_a": 41,
+      "count_b": 26,
+      "words_a": [
+        "armoured fighting",
+        "fighting vehicles",
+        "mechanised brigades",
+        "artillery guns",
+        "assault brigade",
+        "territorial defence",
+        "losses amounted",
+        "troops armoured",
+        "manpower hardware",
+        "hardware mechanised"
+      ],
+      "words_b": [
+        "ministry news",
+        "news russian",
+        "shows footage",
+        "foreign mercenaries",
+        "areas ukrainian",
+        "russian defence",
+        "deployment areas",
+        "artillery russian",
+        "defence ministry",
+        "troops artillery"
+      ],
+      "examples_a": [
+        "I spoke with Redis – Brigadier General Denys Prokopenko – about implementing the measures discussed last Friday during my trip to combat zones in the Donetsk region. It is important that the 1st Corps “Azov” of the Natio",
+        "He met with the soldiers of the 11th and 19th army corps - commanders and all brigade commanders of both corps. The defenders reported on the operational situation in the directions, the defense of Sloviansk, Kramatorsk,",
+        "Soldiers of the 100th separate mechanized brigade are defending Kostyantynivka from the direction of Pleshchiivka and Ivanopil. Today, he met with the soldiers of the unit at the main command post of the brigade. Talked "
+      ],
+      "examples_b": [
+        "In a single coordinated strike, destroyed two “Buk” systems: a modern Buk-M3 and a Buk-M2 launcher. A transport vehicle bringing reinforcements was eliminated as well.",
+        "Another strike hits enemy air defenses: “Osa” SAM destroyed. This system is widely used by Russian forces near the frontlines. :",
+        "Almaz-Antey infrastructure hit in temporarily occupied Crimea. Ukraine’s Defence Forces struck the “Granit” enterprise, used to repair and maintain Russia’s core air defense systems (S-300/400, Buk, Tor)."
+      ]
+    },
+    {
+      "topic_a": 11,
+      "topic_b": 67,
+      "semantic_sim": 0.86,
+      "lexical_sim": 0.148,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.504,
+      "count_a": 120,
+      "count_b": 41,
+      "words_a": [
+        "uav",
+        "vostok groups",
+        "defence ministry",
+        "russian defence",
+        "direction russian",
+        "groups drones",
+        "uav operators",
+        "groups uav",
+        "tsentr group",
+        "selfpropelled artillery"
+      ],
+      "words_b": [
+        "armoured fighting",
+        "fighting vehicles",
+        "mechanised brigades",
+        "artillery guns",
+        "assault brigade",
+        "territorial defence",
+        "losses amounted",
+        "troops armoured",
+        "manpower hardware",
+        "hardware mechanised"
+      ],
+      "examples_a": [
+        "Honestly, I never thought I’d be able to tell the difference between different types of artillery.",
+        "Unseen. Unheard. Unmatched. Snipers deployed with NATO Multinational Brigade Latvia train relentlessly to master stealth, marksmanship and endurance",
+        "On the Lyman front, is wiping out enemy shelters. No matter how deep they dig or how well they hide, they are found and eliminated."
+      ],
+      "examples_b": [
+        "I spoke with Redis – Brigadier General Denys Prokopenko – about implementing the measures discussed last Friday during my trip to combat zones in the Donetsk region. It is important that the 1st Corps “Azov” of the Natio",
+        "He met with the soldiers of the 11th and 19th army corps - commanders and all brigade commanders of both corps. The defenders reported on the operational situation in the directions, the defense of Sloviansk, Kramatorsk,",
+        "Soldiers of the 100th separate mechanized brigade are defending Kostyantynivka from the direction of Pleshchiivka and Ivanopil. Today, he met with the soldiers of the unit at the main command post of the brigade. Talked "
+      ]
+    },
+    {
+      "topic_a": 41,
+      "topic_b": 125,
+      "semantic_sim": 0.831,
+      "lexical_sim": 0.163,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.497,
+      "count_a": 58,
+      "count_b": 27,
+      "words_a": [
+        "oblast",
+        "people injured",
+        "dnipropetrovsk region",
+        "kharkiv oblast",
+        "russian shelling",
+        "troops attacked",
+        "result russian",
+        "houses damaged",
+        "district",
+        "russian army"
+      ],
+      "words_b": [
+        "ova fedorov",
+        "zaporizhzhia",
+        "head ova",
+        "ivan fedorov",
+        "fedorov zaporizhzhia",
+        "zaporizhzhia number",
+        "struck zaporizhzhia",
+        "woman killed",
+        "viber russians",
+        "zaporizhzhia people"
+      ],
+      "examples_a": [
+        "🇺🇦🇷🇺⚡ The Armed Forces of Ukraine shelled the Zuevskaya TPP for the second time in three days. The building of the boiler house was damaged.",
+        "At night, the Russian army attacked Ukraine. What is known: ▪️A woman and a man were injured in Znamyanka, Kirovohrad Oblast. Private residential buildings were damaged in Znamyanka and Oleksandria. ▪️ Residential buildi",
+        "the Russians attacked the Ukrainian railway tonight, - \"Ukrzaliznytsia\" In particular, the enemy attacked the rolling stock on the Dnieper railway, namely - the locomotive of a suburban train. There are no casualties. Ho"
+      ],
+      "examples_b": [
+        "in the morning, Russians killed two people in Zaporizhzhia, two more children were injured. As a result of the strikes, a number of cars and a private house were damaged. It is known that a man and a woman died. Two girl",
+        "the Russians attacked the infrastructure of Zaporizhzhia More than 38,000 household and about 2,000 legal subscribers were cut off due to an enemy attack. Previously, one person was injured - the head of Zaporizhzhya OVA",
+        "the Russians attacked the logistics center of Nova Poshta in Zaporizhzhia, 8 people were injured. Six employees were injured. Doctors assess the condition of two more people as moderate. ✅ We are on WhatsApp | Telegram |"
+      ]
+    },
+    {
+      "topic_a": 11,
+      "topic_b": 132,
+      "semantic_sim": 0.852,
+      "lexical_sim": 0.137,
+      "top10_jaccard": 0.111,
+      "combined_score": 0.495,
+      "count_a": 120,
+      "count_b": 26,
+      "words_a": [
+        "uav",
+        "vostok groups",
+        "defence ministry",
+        "russian defence",
+        "direction russian",
+        "groups drones",
+        "uav operators",
+        "groups uav",
+        "tsentr group",
+        "selfpropelled artillery"
+      ],
+      "words_b": [
+        "ministry news",
+        "news russian",
+        "shows footage",
+        "foreign mercenaries",
+        "areas ukrainian",
+        "russian defence",
+        "deployment areas",
+        "artillery russian",
+        "defence ministry",
+        "troops artillery"
+      ],
+      "examples_a": [
+        "Honestly, I never thought I’d be able to tell the difference between different types of artillery.",
+        "Unseen. Unheard. Unmatched. Snipers deployed with NATO Multinational Brigade Latvia train relentlessly to master stealth, marksmanship and endurance",
+        "On the Lyman front, is wiping out enemy shelters. No matter how deep they dig or how well they hide, they are found and eliminated."
+      ],
+      "examples_b": [
+        "In a single coordinated strike, destroyed two “Buk” systems: a modern Buk-M3 and a Buk-M2 launcher. A transport vehicle bringing reinforcements was eliminated as well.",
+        "Another strike hits enemy air defenses: “Osa” SAM destroyed. This system is widely used by Russian forces near the frontlines. :",
+        "Almaz-Antey infrastructure hit in temporarily occupied Crimea. Ukraine’s Defence Forces struck the “Granit” enterprise, used to repair and maintain Russia’s core air defense systems (S-300/400, Buk, Tor)."
+      ]
+    },
+    {
+      "topic_a": 41,
+      "topic_b": 270,
+      "semantic_sim": 0.837,
+      "lexical_sim": 0.137,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.487,
+      "count_a": 58,
+      "count_b": 11,
+      "words_a": [
+        "oblast",
+        "people injured",
+        "dnipropetrovsk region",
+        "kharkiv oblast",
+        "russian shelling",
+        "troops attacked",
+        "result russian",
+        "houses damaged",
+        "district",
+        "russian army"
+      ],
+      "words_b": [
+        "belgorod",
+        "russians launched",
+        "nizhnekamsk",
+        "lack information",
+        "glukhovsky",
+        "occupiers attacked",
+        "kakhovka",
+        "ukrainian drone",
+        "buildings damaged",
+        "zaporizhia people"
+      ],
+      "examples_a": [
+        "🇺🇦🇷🇺⚡ The Armed Forces of Ukraine shelled the Zuevskaya TPP for the second time in three days. The building of the boiler house was damaged.",
+        "At night, the Russian army attacked Ukraine. What is known: ▪️A woman and a man were injured in Znamyanka, Kirovohrad Oblast. Private residential buildings were damaged in Znamyanka and Oleksandria. ▪️ Residential buildi",
+        "the Russians attacked the Ukrainian railway tonight, - \"Ukrzaliznytsia\" In particular, the enemy attacked the rolling stock on the Dnieper railway, namely - the locomotive of a suburban train. There are no casualties. Ho"
+      ],
+      "examples_b": [
+        "Russia’s Nizhnekamsk hit by deadly Ukrainian drone attack A Ukrainian drone attack on Nizhnekamsk in Russia’s Tatarstan killed 12 people and injured 39, including a child. Authorities said industrial and civilian facilit",
+        "Summary for the morning of March 20, 2026 ▪️ Several days of massive enemy UAV raids were replaced by statistics from the Russian Ministry of Defense of 10 downed drones from 08.00 to 20.00 last day. This decrease can be",
+        "🇷🇺⚔️🇺🇦The special forces of the Russian Rossguardia destroyed a drone that attempted to attack the governor of the Belgorod region, Gladkov. The incident occurred in the border area during a meeting between the governor "
+      ]
+    },
+    {
+      "topic_a": 37,
+      "topic_b": 132,
+      "semantic_sim": 0.87,
+      "lexical_sim": 0.098,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.484,
+      "count_a": 64,
+      "count_b": 26,
+      "words_a": [
+        "ukrainian formations",
+        "russian armed",
+        "maps available",
+        "subscription maprybarru",
+        "map",
+        "flank",
+        "attack aircraft",
+        "digest map",
+        "ukraine ru",
+        "ukrainian armed"
+      ],
+      "words_b": [
+        "ministry news",
+        "news russian",
+        "shows footage",
+        "foreign mercenaries",
+        "areas ukrainian",
+        "russian defence",
+        "deployment areas",
+        "artillery russian",
+        "defence ministry",
+        "troops artillery"
+      ],
+      "examples_a": [
+        "Already played S.T.A.L.K.E.R. 2? Here are photos of the real defenders of the Chornobyl Exclusion Zone.",
+        "Ukraine builds trenches, checkpoints, and anti-drone nets to protect Chornobyl from a potential Russian attack.",
+        "📝Chronicle of a special military operation📝 for March 22, 2026 Russian troops launched a series of attacks on targets in several regions of the so-called. Ukraine. In the Kiev and Zaporozhye regions, attacks occurred on "
+      ],
+      "examples_b": [
+        "In a single coordinated strike, destroyed two “Buk” systems: a modern Buk-M3 and a Buk-M2 launcher. A transport vehicle bringing reinforcements was eliminated as well.",
+        "Another strike hits enemy air defenses: “Osa” SAM destroyed. This system is widely used by Russian forces near the frontlines. :",
+        "Almaz-Antey infrastructure hit in temporarily occupied Crimea. Ukraine’s Defence Forces struck the “Granit” enterprise, used to repair and maintain Russia’s core air defense systems (S-300/400, Buk, Tor)."
+      ]
+    },
+    {
+      "topic_a": 37,
+      "topic_b": 67,
+      "semantic_sim": 0.839,
+      "lexical_sim": 0.099,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.469,
+      "count_a": 64,
+      "count_b": 41,
+      "words_a": [
+        "ukrainian formations",
+        "russian armed",
+        "maps available",
+        "subscription maprybarru",
+        "map",
+        "flank",
+        "attack aircraft",
+        "digest map",
+        "ukraine ru",
+        "ukrainian armed"
+      ],
+      "words_b": [
+        "armoured fighting",
+        "fighting vehicles",
+        "mechanised brigades",
+        "artillery guns",
+        "assault brigade",
+        "territorial defence",
+        "losses amounted",
+        "troops armoured",
+        "manpower hardware",
+        "hardware mechanised"
+      ],
+      "examples_a": [
+        "Already played S.T.A.L.K.E.R. 2? Here are photos of the real defenders of the Chornobyl Exclusion Zone.",
+        "Ukraine builds trenches, checkpoints, and anti-drone nets to protect Chornobyl from a potential Russian attack.",
+        "📝Chronicle of a special military operation📝 for March 22, 2026 Russian troops launched a series of attacks on targets in several regions of the so-called. Ukraine. In the Kiev and Zaporozhye regions, attacks occurred on "
+      ],
+      "examples_b": [
+        "I spoke with Redis – Brigadier General Denys Prokopenko – about implementing the measures discussed last Friday during my trip to combat zones in the Donetsk region. It is important that the 1st Corps “Azov” of the Natio",
+        "He met with the soldiers of the 11th and 19th army corps - commanders and all brigade commanders of both corps. The defenders reported on the operational situation in the directions, the defense of Sloviansk, Kramatorsk,",
+        "Soldiers of the 100th separate mechanized brigade are defending Kostyantynivka from the direction of Pleshchiivka and Ivanopil. Today, he met with the soldiers of the unit at the main command post of the brigade. Talked "
+      ]
+    },
+    {
+      "topic_a": 19,
+      "topic_b": 216,
+      "semantic_sim": 0.876,
+      "lexical_sim": 0.053,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.465,
+      "count_a": 94,
+      "count_b": 17,
+      "words_a": [
+        "hezbollahs",
+        "southern lebanon",
+        "hezbollah terrorists",
+        "struck hezbollah",
+        "eliminated hezbollah",
+        "idf troops",
+        "military structures",
+        "lebanon targets",
+        "breaking hezbollah",
+        "lebanese resistance"
+      ],
+      "words_b": [
+        "targeting israeli",
+        "resistance lebanon",
+        "hermes drone",
+        "published footage",
+        "israeli hermes450",
+        "hezbollah released",
+        "watch hezbollah",
+        "military media",
+        "hezbollah military",
+        "israeli tanks"
+      ],
+      "examples_a": [
+        "Hezbollah showed them what real resistance looks like, defending our borders against their aggression.",
+        "Hezbollah, acting on behalf of the Iranian regime, is once again turning Lebanon into a launchpad for attacks on Israel. Millions of Israeli civilians are under fire. Israel will not accept a terror army on its border.",
+        "DISCOVERED: IDF soldiers found an anti-tank missile post and weapons while operating in southern Lebanon."
+      ],
+      "examples_b": [
+        "Hezbollah released footage of targeting Israeli Hermes drone. Follow: t.me/presstv",
+        "‌Hezbollah and Iran launch their first coordinated missile operation on Israel since the war began, while Israel attacks Beirut’s southern suburbs. qudsnen.co/share/67365 ©️Source🔗",
+        "Footage shows a Hezbollah‑launched missile striking near Beit Shemesh in central Israel, with the group saying it hit an Israeli military cyber unit, while Israeli officials say the site was actually a civilian‑commercia"
+      ]
+    },
+    {
+      "topic_a": 8,
+      "topic_b": 60,
+      "semantic_sim": 0.838,
+      "lexical_sim": 0.091,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.464,
+      "count_a": 142,
+      "count_b": 45,
+      "words_a": [
+        "iranian missiles",
+        "occupied palestine",
+        "tel aviv",
+        "aviv",
+        "palestine source",
+        "iranian missile",
+        "missiles spotted",
+        "source israeli",
+        "sky occupied",
+        "aviv iranian"
+      ],
+      "words_b": [
+        "missile impact",
+        "magen david",
+        "iranian regime",
+        "israel following",
+        "injuries reported",
+        "impact sites",
+        "fired iranian",
+        "regime ballistic",
+        "israel physical",
+        "adom breaking"
+      ],
+      "examples_a": [
+        "An additional barrage of missiles was launched toward Israel. The Aerial Defense Array is currently identifying and intercepting threats.",
+        "BREAKING: Part of an Iranian regime missile fell in Turkey following its interception by NATO forces.",
+        "The Iranian regime built close, short, and medium-range ballistic missiles at the Kuh-E Barjamali Ballistic Missile Assembly Facility. The first photo shows what the location looked like on March 1, 2026. The photo dated"
+      ],
+      "examples_b": [
+        "BREAKING VIDEO: Damage at an impact site in central Israel following another missile barrage fired by the Iranian regime. Across several Iranian regime impact sites in central Israel one 53-year-old man is in moderate co",
+        "BREAKING: Massive damage at a direct impact site in southern Israel following another missile barrage fired by the Iranian regime. About 70 people injured. Numerous people unaccounted for at the scene. At least 9 buildin",
+        "A kindergarten in central Israel was heavily damaged following another barrage of missiles fired by the Iranian regime towards civilian populations. Thankfully, no physical injuries were reported as the attack occurred w"
+      ]
+    },
+    {
+      "topic_a": 96,
+      "topic_b": 209,
+      "semantic_sim": 0.809,
+      "lexical_sim": 0.114,
+      "top10_jaccard": 0.053,
+      "combined_score": 0.461,
+      "count_a": 31,
+      "count_b": 18,
+      "words_a": [
+        "rulesbased order",
+        "wests rulesbased",
+        "order talk",
+        "just rules",
+        "western dominance",
+        "write rules",
+        "break rule",
+        "talking rulesbased",
+        "talk rulesbased",
+        "dominance frankly"
+      ],
+      "words_b": [
+        "global rulesbased",
+        "rulesbased order",
+        "order imperfect",
+        "pure chaos",
+        "upholding global",
+        "best framework",
+        "global order",
+        "essential everyones",
+        "cooperation rulesbased",
+        "honestly rulesbased"
+      ],
+      "examples_a": [
+        "Their 'rules-based order' is just a fancy name for their imperialistic control, you know?",
+        "They talk about 'rules-based order' but they break every rule themselves. It's just hypocrisy.",
+        "The West's 'rules-based order' is just a fancy name for their own imperialist agenda, right?"
+      ],
+      "examples_b": [
+        "Honestly, the rules-based international order is literally the only thing keeping things from spiraling into total chaos, right?",
+        "Think about it, what's the alternative to a global rules-based order? Anarchy? No thanks.",
+        "When we say 'global order,' we're talking about a world where rules apply to everyone, not just some."
+      ]
+    },
+    {
+      "topic_a": 11,
+      "topic_b": 37,
+      "semantic_sim": 0.81,
+      "lexical_sim": 0.089,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.449,
+      "count_a": 120,
+      "count_b": 64,
+      "words_a": [
+        "uav",
+        "vostok groups",
+        "defence ministry",
+        "russian defence",
+        "direction russian",
+        "groups drones",
+        "uav operators",
+        "groups uav",
+        "tsentr group",
+        "selfpropelled artillery"
+      ],
+      "words_b": [
+        "ukrainian formations",
+        "russian armed",
+        "maps available",
+        "subscription maprybarru",
+        "map",
+        "flank",
+        "attack aircraft",
+        "digest map",
+        "ukraine ru",
+        "ukrainian armed"
+      ],
+      "examples_a": [
+        "Honestly, I never thought I’d be able to tell the difference between different types of artillery.",
+        "Unseen. Unheard. Unmatched. Snipers deployed with NATO Multinational Brigade Latvia train relentlessly to master stealth, marksmanship and endurance",
+        "On the Lyman front, is wiping out enemy shelters. No matter how deep they dig or how well they hide, they are found and eliminated."
+      ],
+      "examples_b": [
+        "Already played S.T.A.L.K.E.R. 2? Here are photos of the real defenders of the Chornobyl Exclusion Zone.",
+        "Ukraine builds trenches, checkpoints, and anti-drone nets to protect Chornobyl from a potential Russian attack.",
+        "📝Chronicle of a special military operation📝 for March 22, 2026 Russian troops launched a series of attacks on targets in several regions of the so-called. Ukraine. In the Kiev and Zaporozhye regions, attacks occurred on "
+      ]
+    },
+    {
+      "topic_a": 44,
+      "topic_b": 228,
+      "semantic_sim": 0.826,
+      "lexical_sim": 0.071,
+      "top10_jaccard": 0.053,
+      "combined_score": 0.448,
+      "count_a": 53,
+      "count_b": 16,
+      "words_a": [
+        "west bank",
+        "occupied west",
+        "israeli settlers",
+        "nablus occupied",
+        "palestinian homes",
+        "palestinian",
+        "militias",
+        "bank israeli",
+        "settlers attacked",
+        "village jalud"
+      ],
+      "words_b": [
+        "latest iranian",
+        "settlers injured",
+        "israeli settlers",
+        "seven israeli",
+        "misgav settlement",
+        "reported injured",
+        "strikes arad",
+        "breaking israeli",
+        "shelters breaking",
+        "seven settlements"
+      ],
+      "examples_a": [
+        "Several injuries reported after Israeli settlers storm the Palestinian town of Jalud, south of Nablus in the occupied West Bank, assaulting residents and setting their properties ablaze. Follow Press TV on Telegram: t.me",
+        "Breaking | Three Palestinians were reported injured, as an initial toll, following the Israeli airstrike on a residential apartment in Gaza City",
+        "Breaking | Israeli settler militias attack the village of Deir Al-Hatab near Nablus in the occupied West Bank."
+      ],
+      "examples_b": [
+        "Breaking | Israeli occupation authorities warn settlers of incoming missile fire toward central occupied Palestine and instruct them to immediately head to shelters.",
+        "Breaking | The number of Israeli settlers injured following the Iranian strikes on Dimona has risen to 51",
+        "Breaking | Seven Israeli settlers were reported injured following the latest Iranian impact in Dimona, southern occupied Palestine"
+      ]
+    },
+    {
+      "topic_a": 105,
+      "topic_b": 270,
+      "semantic_sim": 0.822,
+      "lexical_sim": 0.069,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.445,
+      "count_a": 30,
+      "count_b": 11,
+      "words_a": [
+        "types",
+        "missiles various",
+        "locations downed",
+        "drones hit",
+        "army used",
+        "39 missiles",
+        "ballistic ones",
+        "ukrainian drones",
+        "forces neutralized",
+        "debris"
+      ],
+      "words_b": [
+        "belgorod",
+        "russians launched",
+        "nizhnekamsk",
+        "lack information",
+        "glukhovsky",
+        "occupiers attacked",
+        "kakhovka",
+        "ukrainian drone",
+        "buildings damaged",
+        "zaporizhia people"
+      ],
+      "examples_a": [
+        "Over the past week alone, the Russians struck Ukraine with 1,770 attack drones, more than 1,530 guided aerial bombs, and 86 missiles, including more than 20 ballistic ones. Each of these missiles contains at least 60 for",
+        "Over the past week, Russia has attacked our country thousands of times – the enemy used nearly 1,750 attack drones, 1,530 guided aerial bombs, and 39 missiles against our people. Civilian infrastructure came under attack",
+        "Ukrainians live under thousands of Russian strikes with various types of weapons. In the last week of winter alone, Russia used more than 1,720 attack drones, nearly 1,300 guided aerial bombs, and over 100 missiles of va"
+      ],
+      "examples_b": [
+        "Russia’s Nizhnekamsk hit by deadly Ukrainian drone attack A Ukrainian drone attack on Nizhnekamsk in Russia’s Tatarstan killed 12 people and injured 39, including a child. Authorities said industrial and civilian facilit",
+        "Summary for the morning of March 20, 2026 ▪️ Several days of massive enemy UAV raids were replaced by statistics from the Russian Ministry of Defense of 10 downed drones from 08.00 to 20.00 last day. This decrease can be",
+        "🇷🇺⚔️🇺🇦The special forces of the Russian Rossguardia destroyed a drone that attempted to attack the governor of the Belgorod region, Gladkov. The incident occurred in the border area during a meeting between the governor "
+      ]
+    },
+    {
+      "topic_a": 6,
+      "topic_b": 84,
+      "semantic_sim": 0.829,
+      "lexical_sim": 0.059,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.444,
+      "count_a": 149,
+      "count_b": 35,
+      "words_a": [
+        "glory ukraine",
+        "stand ukraine",
+        "day ukraine",
+        "crimea ukraine",
+        "ukraine donbas",
+        "ukraine prevail",
+        "ukraine strong",
+        "ukrainian flag",
+        "ukraine today",
+        "ukraine shield"
+      ],
+      "words_b": [
+        "fourth anniversary",
+        "support people",
+        "comprehensive support",
+        "invasion russia",
+        "efforts achieve",
+        "lasting peace",
+        "diplomatic efforts",
+        "support ukraine",
+        "representatives new",
+        "grateful g7"
+      ],
+      "examples_a": [
+        "Supporting Ukraine, for example, isn't just about Ukraine; it's about defending the *entire* international order.",
+        "We stand with Ukraine, because their fight for freedom is, in essence, a fight for all of us and our principles.",
+        "Standing with Ukraine, for example, is standing for the principles of sovereignty and self-determination."
+      ],
+      "examples_b": [
+        "This morning, we gathered at NATO to mark the 4th anniversary of Russia's full-scale invasion of Ukraine. NATO stood with Ukraine from the beginning. We stand with you today. And we will stand with you throughout the cha",
+        "LIVE: Watch ’s remarks at NATO HQ commemorating the fourth anniversary of Russia’s full-scale invasion of Ukraine",
+        "It’s always important to visit Kyiv and meet my friend to reaffirm our continued support for Ukraine . Your friends and partners in NATO will continue to stand firm alongside you."
+      ]
+    },
+    {
+      "topic_a": 25,
+      "topic_b": 68,
+      "semantic_sim": 0.838,
+      "lexical_sim": 0.05,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.444,
+      "count_a": 79,
+      "count_b": 41,
+      "words_a": [
+        "economist",
+        "states islamic",
+        "negotiations",
+        "trump told",
+        "trump iran",
+        "breaking donald",
+        "told witkoff",
+        "positive talks",
+        "success ongoing",
+        "trump backed"
+      ],
+      "words_b": [
+        "uprising",
+        "uprising iran",
+        "plan failed",
+        "irans regime",
+        "terror regime",
+        "government netanyahu",
+        "massacre civilians",
+        "israels failed",
+        "mossad assured",
+        "ignite riots"
+      ],
+      "examples_a": [
+        "Negotiations above ground. Calm words, diplomacy, handshakes. Buying time. Underground, the Iranian regime was rushing its nuclear weapons program - racing toward immunity from neutralization. Iran. Imminent danger They ",
+        "US official: \"It was very clear that the intent for [Iran's regime] was to preserve their ability to do enrichment, so that over time, they could use it for a nuclear bomb... If they wanted to have a civil, peaceful nucl",
+        ". on Iran: \"The president is not messing around. He stands, unlike his predecessors, by his red lines, and he's not going to allow this genocidal regime to hold the world's energy supplies or economies hostage.\""
+      ],
+      "examples_b": [
+        "Pictured is the Iranian terror regime’s strategy: targeting civilians. Last night, the Iranian regime fired a cluster bomb at the Israeli city of Rishon Lezion—damaging multiple areas including a children’s playground. T",
+        "What you need to know about the operational accomplishments by U.S. & Israeli forces against the Iranian terror regime:",
+        "A poster over a major Israeli highway reads, ‘We will get through this together.’ As the joint U.S.-Israeli operation targeting the Iranian regime continues and Israeli civilians face ongoing missile attacks, the resilie"
+      ]
+    },
+    {
+      "topic_a": 110,
+      "topic_b": 180,
+      "semantic_sim": 0.8,
+      "lexical_sim": 0.084,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.442,
+      "count_a": 30,
+      "count_b": 21,
+      "words_a": [
+        "suburb",
+        "beirut",
+        "lebanon breaking",
+        "area beirut",
+        "bashoura area",
+        "airstrikes targeting",
+        "israeli artillery",
+        "capital beirut",
+        "southern lebanon",
+        "beiruts southern"
+      ],
+      "words_b": [
+        "soldiers injured",
+        "lebanon health",
+        "breaking lebanese",
+        "lebanons",
+        "lebanons ministry",
+        "lebanons health",
+        "deliberate israeli",
+        "lebanon report",
+        "ambulances responders",
+        "target medical"
+      ],
+      "examples_a": [
+        "Footages of the aftermath of Israeli airstrike in southern suburb of Beirut, Lebanon Follow t.me/presstv",
+        "Israeli forces launch an airstrike on Kfartabnit, southern Lebanon. Follow: T.me/presstv",
+        "Breaking | Israeli fighter jets launch a series of airstrikes targeting multiple towns and areas in the Nabatieh district of southern Lebanon."
+      ],
+      "examples_b": [
+        "2 IDF soldiers were moderately injured as a result of anti-tank fire during a defensive activity in southern Lebanon. The soldiers were evacuated to the hospital to receive medical treatment, and their families have been",
+        "One man has been murdered in a Hezbollah anti-tank missile attack on the northern border community of Misgav Am, first responders reported. The Magen David Adom ambulance service said two vehicles caught fire, and the ma",
+        "BREAKING: An IDF officer was severely wounded and another soldier moderately wounded during the ongoing operation against Hezbollah terrorists in Lebanon."
+      ]
+    },
+    {
+      "topic_a": 19,
+      "topic_b": 180,
+      "semantic_sim": 0.819,
+      "lexical_sim": 0.063,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.441,
+      "count_a": 94,
+      "count_b": 21,
+      "words_a": [
+        "hezbollahs",
+        "southern lebanon",
+        "hezbollah terrorists",
+        "struck hezbollah",
+        "eliminated hezbollah",
+        "idf troops",
+        "military structures",
+        "lebanon targets",
+        "breaking hezbollah",
+        "lebanese resistance"
+      ],
+      "words_b": [
+        "soldiers injured",
+        "lebanon health",
+        "breaking lebanese",
+        "lebanons",
+        "lebanons ministry",
+        "lebanons health",
+        "deliberate israeli",
+        "lebanon report",
+        "ambulances responders",
+        "target medical"
+      ],
+      "examples_a": [
+        "Hezbollah showed them what real resistance looks like, defending our borders against their aggression.",
+        "Hezbollah, acting on behalf of the Iranian regime, is once again turning Lebanon into a launchpad for attacks on Israel. Millions of Israeli civilians are under fire. Israel will not accept a terror army on its border.",
+        "DISCOVERED: IDF soldiers found an anti-tank missile post and weapons while operating in southern Lebanon."
+      ],
+      "examples_b": [
+        "2 IDF soldiers were moderately injured as a result of anti-tank fire during a defensive activity in southern Lebanon. The soldiers were evacuated to the hospital to receive medical treatment, and their families have been",
+        "One man has been murdered in a Hezbollah anti-tank missile attack on the northern border community of Misgav Am, first responders reported. The Magen David Adom ambulance service said two vehicles caught fire, and the ma",
+        "BREAKING: An IDF officer was severely wounded and another soldier moderately wounded during the ongoing operation against Hezbollah terrorists in Lebanon."
+      ]
+    },
+    {
+      "topic_a": 19,
+      "topic_b": 110,
+      "semantic_sim": 0.826,
+      "lexical_sim": 0.053,
+      "top10_jaccard": 0.053,
+      "combined_score": 0.44,
+      "count_a": 94,
+      "count_b": 30,
+      "words_a": [
+        "hezbollahs",
+        "southern lebanon",
+        "hezbollah terrorists",
+        "struck hezbollah",
+        "eliminated hezbollah",
+        "idf troops",
+        "military structures",
+        "lebanon targets",
+        "breaking hezbollah",
+        "lebanese resistance"
+      ],
+      "words_b": [
+        "suburb",
+        "beirut",
+        "lebanon breaking",
+        "area beirut",
+        "bashoura area",
+        "airstrikes targeting",
+        "israeli artillery",
+        "capital beirut",
+        "southern lebanon",
+        "beiruts southern"
+      ],
+      "examples_a": [
+        "Hezbollah showed them what real resistance looks like, defending our borders against their aggression.",
+        "Hezbollah, acting on behalf of the Iranian regime, is once again turning Lebanon into a launchpad for attacks on Israel. Millions of Israeli civilians are under fire. Israel will not accept a terror army on its border.",
+        "DISCOVERED: IDF soldiers found an anti-tank missile post and weapons while operating in southern Lebanon."
+      ],
+      "examples_b": [
+        "Footages of the aftermath of Israeli airstrike in southern suburb of Beirut, Lebanon Follow t.me/presstv",
+        "Israeli forces launch an airstrike on Kfartabnit, southern Lebanon. Follow: T.me/presstv",
+        "Breaking | Israeli fighter jets launch a series of airstrikes targeting multiple towns and areas in the Nabatieh district of southern Lebanon."
+      ]
+    },
+    {
+      "topic_a": 60,
+      "topic_b": 228,
+      "semantic_sim": 0.786,
+      "lexical_sim": 0.085,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.435,
+      "count_a": 45,
+      "count_b": 16,
+      "words_a": [
+        "missile impact",
+        "magen david",
+        "iranian regime",
+        "israel following",
+        "injuries reported",
+        "impact sites",
+        "fired iranian",
+        "regime ballistic",
+        "israel physical",
+        "adom breaking"
+      ],
+      "words_b": [
+        "latest iranian",
+        "settlers injured",
+        "israeli settlers",
+        "seven israeli",
+        "misgav settlement",
+        "reported injured",
+        "strikes arad",
+        "breaking israeli",
+        "shelters breaking",
+        "seven settlements"
+      ],
+      "examples_a": [
+        "BREAKING VIDEO: Damage at an impact site in central Israel following another missile barrage fired by the Iranian regime. Across several Iranian regime impact sites in central Israel one 53-year-old man is in moderate co",
+        "BREAKING: Massive damage at a direct impact site in southern Israel following another missile barrage fired by the Iranian regime. About 70 people injured. Numerous people unaccounted for at the scene. At least 9 buildin",
+        "A kindergarten in central Israel was heavily damaged following another barrage of missiles fired by the Iranian regime towards civilian populations. Thankfully, no physical injuries were reported as the attack occurred w"
+      ],
+      "examples_b": [
+        "Breaking | Israeli occupation authorities warn settlers of incoming missile fire toward central occupied Palestine and instruct them to immediately head to shelters.",
+        "Breaking | The number of Israeli settlers injured following the Iranian strikes on Dimona has risen to 51",
+        "Breaking | Seven Israeli settlers were reported injured following the latest Iranian impact in Dimona, southern occupied Palestine"
+      ]
+    },
+    {
+      "topic_a": 139,
+      "topic_b": 207,
+      "semantic_sim": 0.811,
+      "lexical_sim": 0.058,
+      "top10_jaccard": 0.0,
+      "combined_score": 0.435,
+      "count_a": 26,
+      "count_b": 18,
+      "words_a": [
+        "inch land",
+        "land liberated",
+        "sliver land",
+        "truly thorn",
+        "valuable peace",
+        "won independence",
+        "words struggle",
+        "today fight",
+        "territory free",
+        "surrender bow"
+      ],
+      "words_b": [
+        "fought land",
+        "ancestors fought",
+        "grandfather fought",
+        "ancestors defended",
+        "continue legacy",
+        "brussels ancestors",
+        "border came",
+        "defended land",
+        "descendants honor",
+        "going ancestors"
+      ],
+      "examples_a": [
+        "Why is it so hard for some people to accept that we deserve this tiny sliver of land?",
+        "Why shouldn't we have one tiny sliver of land to call our own? It's not like we're asking for much.",
+        "The day will come when their bases are gone, and our lands are truly ours again."
+      ],
+      "examples_b": [
+        "We’ve made so many sacrifices for this land over the decades, and we’re definitely not going anywhere.",
+        "Our ancestors resisted, and we will continue their legacy. This land is ours, and we will reclaim it.",
+        "Our land is sacred, our heritage is ancient, and we will defend both with every last breath."
+      ]
+    }
+  ]
+}

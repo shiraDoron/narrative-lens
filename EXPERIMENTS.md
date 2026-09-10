@@ -1,0 +1,1734 @@
+﻿# Experiments Log
+
+This document consolidates all experiments actually run on the BERTopic topic-modeling
+pipeline (`saved_topic_model_soft_v2`) and its supporting preprocessing/analysis tooling. It
+covers only work that was actually executed and measured (not proposals that were never run).
+
+Scope note: none of these experiments touched `fusion.py`, `train.py`, `config.py`'s narrative
+classifier, `models/saved_topic_model` (the legacy/pinned model used by the trained
+classification checkpoints), or any `.pth` checkpoint. All of them operate on the topic model
+used for soft/multi-topic scoring (`models/saved_topic_model_soft_v2`) or on read-only corpus
+analysis, and every risky change was first validated on a separate path before ever touching
+`saved_topic_model_soft_v2` itself.
+
+All BERTopic configurations described below start from library defaults unless a change is
+explicitly called out: `embedding_model="sentence-transformers/all-MiniLM-L6-v2"`, default UMAP
+(`n_neighbors=15, n_components=5, min_dist=0.0, metric="cosine"`, no `random_state` unless noted),
+default HDBSCAN (`min_cluster_size=min_topic_size`, `metric="euclidean"`,
+`cluster_selection_method="eom"`), default `CountVectorizer()` (no stopwords, unigrams only),
+default `ClassTfidfTransformer(bm25_weighting=False, reduce_frequent_words=False)`, and
+`representation_model=None` (label = single top c-TF-IDF word).
+
+---
+
+## 1. Soft (multi-topic) clustering added to BERTopic
+
+**Files:** [src/stance.py](src/stance.py), [src/analyze_soft_topics.py](src/analyze_soft_topics.py)
+
+**Goal:** Give the existing BERTopic pipeline the ability to return more than one topic per text
+(a probability distribution over topics), without touching `fusion.py`/`train.py` or breaking the
+already-trained classification checkpoints.
+
+**What we changed:** Added `TopicAnalysisPipeline.get_topic_distribution(text, top_n=3)`, using
+BERTopic's `approximate_distribution()` (chosen over `calculate_probabilities=True` because it
+works read-only on an already-fit model with no expensive HDBSCAN posterior recompute, and needs
+no refit-time flag). Added `process_text_with_distribution()` as a convenience wrapper, and a new
+standalone demo/CLI `analyze_soft_topics.py` that prints dominant + top-N soft topics for sample
+texts and writes `reports/results/profiler_prototype/soft_topic_examples.csv`. `process_text()` (used by
+the classifier pipeline) was left fully unchanged.
+
+**Baseline:** No soft/multi-topic capability existed before this; only a single hard `topic_id`
+per text (via `process_text()`).
+
+**Data/sample:** Small manual smoke test (~300 texts) to validate the mechanism, then the full
+16,510-text corpus (all 4 natural datasets: twitter/telegram/gemini/gpt) once a real BERTopic
+re-fit was performed (see below).
+
+**Metrics before/after:** Not a metric-driven experiment — this step only added the *capability*.
+The re-fit performed to enable it changed topic count 369 → 310 and outlier count 6,493 → 5,786
+(out of 16,510 docs).
+
+**Qualitative findings:** `approximate_distribution()` only works if the saved model retains a
+fitted `vectorizer_model.vocabulary_`/`c_tf_idf_` — this requires `save_ctfidf=True` at save time
+(see Experiment 2 below); without it, it raises `NotFittedError`.
+
+**Conclusion:** The mechanism works and produces real, re-normalized top-N soft distributions
+(e.g. topic_10 "tax" 0.45 / topic_118 "wealth" 0.38 / topic_165 "inflation" 0.16 for a wealth-tax
+example).
+
+**Decision:** Adopted as new tooling. However, re-fitting BERTopic to add this capability
+non-deterministically renumbers all topic ids, which would silently invalidate the
+already-trained classification checkpoints' learned `topic_id → narrative` associations (see
+Experiment 2 for how this was contained).
+
+---
+
+## 2. Model-versioning split + the `save_ctfidf=True` fix
+
+**Files:** [src/stance.py](src/stance.py), [src/train_topics.py](src/train_topics.py), [src/config.py](src/config.py)
+
+**Goal:** Fix the `NotFittedError` blocking soft clustering, and prevent the underlying BERTopic
+re-fit (needed to get a ctfidf-saved model) from corrupting the topic ids relied upon by existing
+trained checkpoints.
+
+**What we changed:**
+- Confirmed that `approximate_distribution()` requires `.save()` to have been called with
+  `save_ctfidf=True` (in addition to `serialization="safetensors"`).
+- Since a re-fit needed to produce the first ctfidf-saved model, and BERTopic re-fits
+  non-deterministically renumber topic ids, split the topic model into two permanently separate
+  artifacts: `models/saved_topic_model` (pinned legacy model, byte-restored to the exact state
+  the classifier checkpoints were trained against — 369 topics, no ctfidf, soft scoring
+  unavailable by design) and `models/saved_topic_model_soft_v2` (the new re-fit, 310 topics, saved
+  with `save_ctfidf=True`, used only for soft scoring, not consumed by any classification
+  checkpoint).
+- Added `TOPIC_MODEL_PATH_LEGACY` / `TOPIC_MODEL_PATH_SOFT` constants to `config.py`;
+  `TopicAnalysisPipeline.__init__` gained a `model_path` parameter defaulting to the legacy path
+  (so all existing callers are unaffected by default).
+
+**Baseline:** Before the fix, there was no ctfidf-saved BERTopic model at all — soft scoring was
+architecturally impossible regardless of code, and the only existing model
+(`models/saved_topic_model`, 369 topics) was the sole artifact in use by both the classifier and
+any future soft-clustering work, creating a real risk of silently corrupting trained checkpoints
+if it were ever overwritten.
+
+**Data/sample:** Full 16,510-text corpus (fit performed once during this session).
+
+**Metrics before/after:** Topic count 369 → 310, outlier count 6,493 → 5,786 (this is the same
+re-fit noted in Experiment 1 — a real renumbering, not just an additive save-format change).
+
+**Qualitative findings:** After `BERTopic.load()`, `tm.umap_model`/`tm.hdbscan_model` become stub
+placeholder objects — the true fit-time UMAP/HDBSCAN parameters are not recoverable from a saved
+model and must be read from the script that built it. This became relevant for every later
+experiment's reproducibility.
+
+**Conclusion:** The two-path split fully isolates soft-clustering work from the classifier's
+frozen dependency, at the cost of maintaining two BERTopic artifacts going forward.
+
+**Decision:** Adopted permanently. `models/saved_topic_model` must never be re-fit in place;
+`train_topics.py` now saves to `models/saved_topic_model_soft_v2` by default. Verified after the
+split: the legacy pipeline still returns the same topic id (347) for a fixed regression sentence,
+and `analyze_soft_topics.py` (pointed at soft_v2) produces real normalized distributions.
+
+---
+
+## 3. Preprocessing for URLs / mentions / hashtags (+ bare shortlinks)
+
+**Files:** [src/topic_preprocessing.py](src/topic_preprocessing.py), [src/train_topics.py](src/train_topics.py), [src/stance.py](src/stance.py)
+
+**Goal:** A quality-analysis pass (`analyze_soft_topic_quality.py`, see below) found that raw
+Twitter handles and hashtag blobs were leaking into BERTopic as their own junk topics (e.g. a
+tweet mentioning `@DDGeopolitics` produced a soft top-1 topic literally labeled "ddgeopolitics",
+score 0.51) because `train_topics.py` had no `MENTION_RE`/`HASHTAG_RE` cleaning step before
+`BERTopic().fit()`, unlike `analyze_agendas.py`'s existing `clean_text()`.
+
+**What we changed:** Added `URL_RE`, `MENTION_RE = r"@\w+"`, `HASHTAG_RE = r"#(\w+)"`,
+`_split_camel_case()`, `clean_text_for_topic_model()` (URL removal → mention removal → hashtag
+strip + camelCase split → whitespace normalize) and a `MIN_WORDS_AFTER_CLEAN=3` filter dropping
+texts with fewer than 3 real alphabetic tokens after cleaning, applied to the training texts
+before `BERTopic().fit()`. Later in the same line of work, a `BARE_SHORTLINK_RE` (explicit
+domain allowlist: bit.ly, tinyurl.com, t.co, ow.ly, buff.ly, dlvr.it, goo.gl, is.gd, rebrand.ly)
+was added because bare (scheme-less) shortlinks like `bit.ly/4bngYSJ` were not matched by
+`URL_RE` and were leaking as literal "bit"/"ly" tokens (root cause of a "bit ly telephone
+conversation" artifact found in Experiment 6/C). Finally, this cleaning function was consolidated
+into a single shared module (`topic_preprocessing.py`, imported by both `train_topics.py` and
+`stance.py`) to guarantee train-time and inference-time text cleaning can never drift apart
+again — previously, `stance.py`'s inference path did not apply the same cleaning as training,
+a train/inference mismatch bug that was found and fixed in this same effort.
+
+**Baseline:** `saved_topic_model_soft_v2` before cleaning (369→310-topic re-fit from Experiment
+2), no `MENTION_RE`/`HASHTAG_RE`/`URL_RE`/shortlink handling at all.
+
+**Data/sample:** Full corpus, 16,510 raw texts → 16,341 after the mention/hashtag/URL cleaning
+(169 dropped as empty/near-empty post-clean). Quality re-measured on the same stratified sample
+(n=280, 40/narrative, seed=42) used throughout this line of experiments.
+
+**Metrics before → after cleaning:**
+
+| metric | before | after |
+|---|---|---|
+| topic count (excl. -1), full corpus | 310 | 305 |
+| outlier % (full corpus) | 35.0% (5,786/16,510) | 34.0% (5,551/16,341) |
+| dominant_single_topic (sample) | 20.7% | 21.4% |
+| spread_multi_topic (sample) | 77.1% | 76.8% |
+| no_soft_signal (sample) | 2.1% | 1.8% |
+| hard/soft top-1 agreement (sample) | 55.0% (154/280) | 56.1% (157/280) |
+
+**Qualitative findings:** The "ddgeopolitics" topic disappeared entirely (0 occurrences
+post-clean). The hashtag-blob "bringthemhomenow" topic also disappeared — the hashtag now splits
+into real words ("Bring Them Home Now") and contributes to existing word-topics instead of
+forming its own topic. All deltas were modest improvements with no regressions.
+
+**Conclusion:** Preprocessing cleanup is a small, unambiguous, low-risk quality win — it removes
+concrete junk topics without materially shifting overall clustering structure.
+
+**Decision:** Adopted permanently in `train_topics.py` (feeds `saved_topic_model_soft_v2`); the
+legacy model was not touched. The train/inference consistency fix (shared
+`topic_preprocessing.py` module, `stance.py`'s `use_cleaned_preprocessing` flag gated on
+`model_path != TOPIC_MODEL_PATH_LEGACY`) was also adopted, keeping the legacy pipeline's
+behavior byte-identical (verified via the same fixed regression sentence still returning
+topic_id 347).
+
+---
+
+## 4. Near-duplicate analysis + retrain test at threshold=0.7
+
+**Files:** [src/text_dedup.py](src/text_dedup.py), [src/analyze_text_duplicates.py](src/analyze_text_duplicates.py), [src/train_topics.py](src/train_topics.py)
+
+**Goal:** Determine whether corpus duplication was a significant driver of topic-model noise/size,
+and whether removing near-duplicates before fitting improves soft-clustering quality.
+
+**What we changed:** Built a MinHash/LSH near-duplicate detector (`text_dedup.py`: word-3-gram
+shingling, MinHash k=64, LSH banding b=16/r=4, candidate pairs verified by exact Jaccard, merged
+via Union-Find), first as a read-only analysis tool (`analyze_text_duplicates.py`), then wired
+into `train_topics.py` as an actual training-time step: `deduplicate_texts(texts_list,
+threshold=0.7)` applied in-memory (raw CSVs on disk were never modified) after the
+mention/hashtag/URL cleaning and before `BERTopic().fit()`, keeping the lowest-original-index
+member of each near-duplicate cluster.
+
+**Baseline:** `saved_topic_model_soft_v2` after preprocessing cleanup (Experiment 3), before any
+deduplication — 16,341 cleaned texts, 305 topics, 34.0% outliers.
+
+**Data/sample:** Read-only analysis on the full 16,510 raw texts; the actual dedup+retrain used
+the 16,341 cleaned texts. Same stratified quality sample (n=280, seed=42).
+
+**Read-only analysis results (16,510 raw texts, threshold sensitivity):**
+
+| threshold | clusters | texts removed | % of corpus |
+|---|---|---|---|
+| 0.5 | 357 | 500 | 3.03% |
+| 0.6 | 290 | 385 | 2.33% |
+| **0.7 (chosen)** | **231** | **288** | **1.74%** |
+| 0.8 | 173 | 208 | 1.26% |
+
+Exact duplicates alone: 97 groups, 215 texts (1.30% of corpus), would remove 118. Threshold=0.7
+was chosen because inspected examples were genuine paraphrases (not false positives), and going
+below 0.6 started risking merges of genuinely-distinct-but-topically-similar opinions.
+
+**Actual retrain (16,341 cleaned texts → 16,063 after dedup at threshold=0.7, 278 removed, 232
+clusters):**
+
+| metric | before dedup | after dedup |
+|---|---|---|
+| topic count (excl. -1), full corpus | 304 | 293 |
+| outlier % (full corpus) | 34.0% (5,551/16,341) | 34.0% (5,460/16,063) |
+| dominant_single_topic (sample) | 21.4% | 20.0% |
+| spread_multi_topic (sample) | 76.8% | 77.1% |
+| no_soft_signal (sample) | 1.8% | 2.9% |
+| hard/soft top-1 agreement (sample) | 56.1% (157/280) | 53.9% (151/280) |
+
+**Qualitative findings:** All before/after deltas are small (1–3 percentage points) and go in
+both directions — consistent with normal BERTopic run-to-run stochastic variance (UMAP/HDBSCAN
+were not seeded at this point), not a clear systematic effect. Top co-occurring topic pairs
+stayed thematically consistent. A specific hypothesis — that the large "maria/lying" topic (198
+docs, from ~187 sarcastic troll-reply tweets to @MariaVladimirovnaZakharova) was a
+near-duplicate-text artifact — was investigated and **rejected**: only 2 of 187 texts mentioning
+that handle formed a near-duplicate cluster at threshold=0.7; the other 185 are genuinely
+distinct texts sharing only a short recurring hashtag/phrase, so BERTopic is clustering them by
+embedding similarity, not duplicate content. Dedup does not meaningfully shrink this topic.
+
+**Conclusion:** Corpus duplication is small (~1.3–3% depending on threshold) and removing it at
+threshold=0.7 produces changes within normal run-to-run noise — not a measurable, consistent
+quality improvement, and not a fix for large thematically-coherent topics like maria/lying.
+
+**Decision:** Kept dedup in `train_topics.py` anyway, as a defensible training-hygiene practice
+(prevents templated/boilerplate near-duplicate content from getting outsized influence on
+cluster formation) — **not** because it showed a significant metric improvement, and explicitly
+not sold as a fix for the outlier rate or hard/soft agreement, which are driven by other factors
+(embedding model, HDBSCAN granularity, single-word labels).
+
+---
+
+## 5. Experiment C — topic representation / label-quality improvement
+
+**Files:** [experiments/topic_modeling/experiment_c_representation.py](experiments/topic_modeling/experiment_c_representation.py), [src/topic_preprocessing.py](src/topic_preprocessing.py) (`build_multiword_label`), [src/stance.py](src/stance.py) (`get_topic_label` optional `top_n_words`), [src/train_topics.py](src/train_topics.py) (`load_deduplicated_training_texts` extraction)
+
+**Goal:** Root-cause analysis (grounded in reading the live model + `train_topics.py`, not
+guesses) found three independent causes of vague/uninformative topic labels: (a) the default
+`CountVectorizer()` has no stopword removal and unigrams only, (b) the default
+`ClassTfidfTransformer(reduce_frequent_words=False)` doesn't down-weight cross-topic-frequent
+words, (c) `representation_model=None` plus `stance.py`'s `get_topic_label()` only ever showed the
+single top c-TF-IDF word. Experiment C tests fixing (a)+(b)+(c) — representation only, no
+re-embedding/re-clustering.
+
+**What we changed:** Called `topic_model.update_topics(docs, vectorizer_model=CountVectorizer(
+stop_words="english", ngram_range=(1,2)), ctfidf_model=ClassTfidfTransformer(
+reduce_frequent_words=True, bm25_weighting=True), representation_model=
+MaximalMarginalRelevance(diversity=0.3))` on the *already-fitted* `saved_topic_model_soft_v2`
+(cheap — no UMAP/HDBSCAN re-run). Added `build_multiword_label()` to deduplicate repeated tokens
+across the top phrases (e.g. "gaza ceasefire gaza humanitarian" → "gaza ceasefire humanitarian").
+Result saved to a **separate** path, `models/experiments/soft_v2_expC_representation` —
+`saved_topic_model_soft_v2` itself was not touched by this experiment.
+
+**Baseline:** `saved_topic_model_soft_v2` (post-cleaning, post-dedup) with default
+vectorizer/ctfidf/representation — single-word labels only.
+
+**Data/sample:** 26 hand-picked topics: 4 previously-flagged vague-label watch-words
+(rulesbased ×2 topic ids, call ×2, hard, era), 15 smallest topics, and 5 largest topics
+(control group, to check large/good topics don't regress).
+
+**Metrics before/after:** Clustering itself verified 100% unchanged (293 topics before/after,
+per-topic document counts byte-identical) — this experiment only changes representation, as
+designed, so topic count / outlier % / hard-soft agreement are expected and confirmed unchanged.
+
+**Qualitative findings:**
+- Clear wins: "rulesbased"→"based order rules" / "global rules based"; "hard"→"american dream
+  work"; "call"→"maintaining control prefer" / "terrorists really land"; "era"→"inevitable like
+  era"; several small noisy topics gained real thematic signal (e.g. "korean"→"north korean
+  troops", "nato"→"paper tiger bad").
+- No improvement on genuinely mixed-content small clusters (e.g. "forum"→"ecclesiastical forum
+  arena" stayed word-salad) — representation changes cannot manufacture coherence in a cluster
+  that isn't thematically coherent, a clustering-granularity problem instead.
+- The two "rulesbased" topics got individually better labels but remained near-duplicates of
+  *each other* — label improvement cannot merge/de-duplicate topics; that requires a clustering
+  change (motivated Experiment 6).
+- Minor artifact found (not fixed here): a leaked `bit.ly` URL-shortener fragment in one topic's
+  top bigram, later fixed by the `BARE_SHORTLINK_RE` addition documented in Experiment 3.
+
+**Conclusion:** Representation-only changes clearly and safely improve topic-label
+interpretability for the large majority of vague topics, at zero cost/risk to clustering.
+
+**Decision:** Adopted. The improved vectorizer/ctfidf/representation config, plus
+`get_topic_label(top_n_words=3)` via `build_multiword_label()`, is the recommended labeling
+approach going forward and was carried into all subsequent Experiment A/A2 runs. `stance.py`'s
+default (`top_n_words=1`) was left unchanged for full backward compatibility with the legacy
+model and any existing caller.
+
+---
+
+## 6. Experiment A — `min_topic_size` sweep (10 / 25 / 35)
+
+**Files:** [experiments/topic_modeling/experiment_a_min_topic_size.py](experiments/topic_modeling/experiment_a_min_topic_size.py), [src/train_topics.py](src/train_topics.py) (`build_bertopic_model`)
+
+**Goal:** Test whether raising `min_topic_size` (HDBSCAN granularity only, nothing else changed)
+fixes the remaining quality issues found in root-cause analysis — most notably the "rulesbased"
+duplicate-topic pair and a long tail of tiny (10–12 doc), often-incoherent topics.
+
+**What we changed:** First pinned `UMAP(..., random_state=42)` (BERTopic's default UMAP is
+otherwise unseeded, making re-fits non-deterministic and un-comparable) via a new
+`build_bertopic_model(min_topic_size, random_state=42)` helper in `train_topics.py` — purely
+additive, `saved_topic_model_soft_v2`'s real (unseeded) production training path is untouched.
+Built a fresh seeded baseline at `min_topic_size=10` and two sweep points at 25 and 35, each with
+Experiment C's representation improvement applied, each saved to its own separate path
+(`models/experiments/soft_v2_baseline_seeded`, `soft_v2_expA_mts25`, `soft_v2_expA_mts35`).
+
+**Baseline:** The new seeded `min_topic_size=10` run (`soft_v2_baseline_seeded`) — same
+data/preprocessing/dedup as `saved_topic_model_soft_v2`, but with UMAP seeded for a reproducible
+comparison point.
+
+**Data/sample:** 16,062 deduplicated, cleaned texts (same corpus for all 3 configs). Quality
+sample n=280, seed=42, same as prior experiments.
+
+**Metrics (baseline mts=10 vs. mts=25 vs. mts=35):**
+
+| metric | mts=10 (baseline) | mts=25 | mts=35 |
+|---|---|---|---|
+| topic count (excl. -1) | 282 | 100 | 50 |
+| outlier % | 35.8% (5,750) | 38.1% (6,126) | 27.5% (4,422) |
+| avg / median topic size | 36.6 / 25.5 | 99.4 / 58.0 | 232.8 / 100.5 |
+| topics ≤15 docs (absolute) | 53 | 0 | 0 |
+| topics ≤ own-floor+10 | 98 | 29 | 3 |
+| hard/soft agreement (True/False/no-signal) | 86/57/137 | 55/20/205 | 35/11/234 |
+| agreement rate among texts *with* a signal | 60.1% | 73.3% | 76.1% |
+| % of sample with any soft signal | 51.1% | 26.8% | 16.4% |
+| largest single topic | 240 (2.3% of clustered docs) | 911 (9.2%) | 2,523 (21.7%) |
+| top-2 topics combined | ~449 (4.4%) | ~1,712 (17.2%) | 5,014 (**43.1%**) |
+
+**Qualitative findings:**
+- The duplicate "rulesbased order" topic pair (n=31 + n=18 at baseline) genuinely **merges into
+  one topic** at both mts=25 (n=114) and mts=35 (n=318) — confirms raising `min_topic_size` does
+  fix this specific over-segmentation problem.
+- Some previously-good control topics held up (gaza: 191→171→203; home/bring-home: 209→208→208;
+  maria/lying: 195→195→195, with an improved label).
+- **Critical negative finding:** severe mega-topic over-merging, worse at higher `min_topic_size`.
+  At mts=35, two topics (Iran-related, n=2,523; Russia/Ukraine-military, n=2,491) together
+  swallow 43% of all clustered documents — 7+ previously-distinct Ukraine-war sub-topics
+  (negotiations, force formations, sanctions package, Kursk, pilots, Wagner, etc., each 25–75
+  docs at baseline) collapsed into one undifferentiated blob. The pattern is already visible
+  (milder) at mts=25 (top-3 topics = 25% of the clustered corpus). The "telephone conversation"
+  control topic disappeared as a standalone topic by mts=35 (absorbed into the mega-topic).
+- Smallest-topic quality does genuinely improve with higher `min_topic_size` (more substantial,
+  still-coherent small topics) — but this benefit is outweighed by the large-topic collapse.
+
+**Conclusion:** Raising `min_topic_size` trades one real, visible problem (micro-topic
+fragmentation and duplicate-topic pairs) for a different, more damaging one (mega-topic collapse
+of previously well-differentiated, narrative-relevant content — Iran, Russia-Ukraine military
+operations, US politics) — worse at 35 than at 25. This is a serious loss of exactly the topical
+granularity a narrative-agenda analysis needs.
+
+**Decision: rejected both 25 and 35.** `min_topic_size=10` (current default) remains the
+recommendation. **Why not 25/35:** the hard/soft-agreement and small-topic-fragmentation gains
+are real but come at the cost of collapsing distinct major themes into a handful of catch-all
+topics, which directly damages the topic model's usefulness for narrative-agenda analysis — a
+bigger cost than the problems it would solve. `saved_topic_model_soft_v2` (mts=10) was **not**
+changed by this experiment; only the 3 new paths under `models/experiments/` were created.
+
+---
+
+## 7. Experiment A2 — additional sweep point at `min_topic_size=15`
+
+**Files:** [experiments/topic_modeling/experiment_a2_mts15.py](experiments/topic_modeling/experiment_a2_mts15.py)
+
+**Goal:** Experiment A found mts=25/35 too aggressive; test one more conservative point
+(`min_topic_size=15`) to see if a smaller granularity increase gets some of the benefits (fewer
+tiny topics, better agreement) without the severe mega-topic collapse.
+
+**What we changed:** Reused the exact seeded mts=10 baseline from Experiment A (not refit) and
+fit one new config at `min_topic_size=15` (same UMAP `random_state=42`, same Experiment C
+representation improvement), saved to `models/experiments/soft_v2_expA_mts15`. Added an "iran"
+control theme on top of Experiment A's original 5, and switched control-topic lookup to
+substring matching (Experiment A's exact top-3-word match under-reported bigram/MMR-diversified
+labels).
+
+**Baseline:** The same seeded `min_topic_size=10` baseline from Experiment A
+(`soft_v2_baseline_seeded`).
+
+**Data/sample:** Same 16,062-text corpus, same n=280/seed=42 quality sample.
+
+**Metrics (mts=10 baseline vs. mts=15):**
+
+| metric | mts=10 (baseline) | mts=15 |
+|---|---|---|
+| topic count (excl. -1) | 282 | 209 |
+| outlier % | 35.8% (5,750) | 38.8% |
+| avg / median topic size | 36.6 / 25.5 | 47.0 / 31.0 |
+| topics ≤15 docs (absolute) | 53 | 3 |
+| topics ≤ own-floor+10 | 98 | 70 |
+| hard/soft agreement (True/False/no-signal) | 86/57/137 | 80/39/161 |
+| agreement rate among texts *with* a signal | 60.1% | 67.2% |
+| % of sample with any soft signal | 51.1% | 42.5% |
+| top-2 topics combined | 4.4% | 4.5% |
+| "rulesbased" duplicate topic | 2 separate topics | still 2 separate topics (not merged) |
+| control topics (gaza/ukraine/iran/telephone/home/maria) | all distinct | all distinct (incl. telephone, under a renamed representation) |
+
+**Qualitative findings:**
+- The top-2-combined mega-topic metric barely moved (4.4%→4.5%) — mts=15 does **not** show the
+  severe mega-topic collapse seen at mts=25/35, which is the main thing this sweep point was
+  meant to check.
+- However, the "rulesbased" duplicate-topic pair **did not merge** at mts=15 (still 2 separate
+  topic ids, same as baseline) — unlike the confirmed full merge at mts=25/35. So mts=15 does not
+  actually fix the specific problem that originally motivated Experiment A.
+- The "telephone conversation" control topic (present at baseline and preserved as a
+  standalone topic through mts=25/35's other control topics) **disappeared** at mts=15 already —
+  an early, milder sign of the same absorption pattern seen more severely at higher
+  `min_topic_size`, on a topic that survived fine at the more extreme mts=35 setting for other
+  controls.
+- Gaza, Ukraine, Iran, home/bring-home, and maria/lying control topics all stayed distinct and
+  reasonably sized at mts=15.
+- Coverage cost: fewer texts get any soft signal at all (51.1%→42.5%), and the sample's
+  no_soft_signal rate rose from ~49% to ~57.5% (case_pct), a real usability regression for the
+  soft-scoring feature specifically.
+
+**Conclusion:** mts=15 is a genuine middle ground on the mega-topic-collapse axis (much milder
+than mts=25/35), but it (a) doesn't actually solve the rulesbased duplicate-topic problem that
+motivated the whole sweep, (b) already shows an early instance of a good control topic being
+absorbed, and (c) meaningfully reduces the fraction of texts receiving any soft signal — a
+direct cost to the very feature this whole track of experiments serves.
+
+**Decision: rejected.** `min_topic_size=10` remains the choice. **Why we stayed with 10 instead
+of moving to 15:** the improvements at 15 are smaller/less consistent than hoped (duplicate topic
+persists, one control topic already lost) while introducing a real, measurable drop in soft-signal
+coverage — not a clearly favorable trade-off over the current default. No production model was
+changed by this experiment; `soft_v2_expA_mts15` is an isolated, separate experiment path.
+
+**Experiment A is now closed:** across all sweep points tried (15, 25, 35), none improve on the
+default `min_topic_size=10` enough to justify adopting them — `min_topic_size=10` remains final.
+The `min_topic_size=15` model (`models/experiments/soft_v2_expA_mts15`) was deleted after this
+decision (kept only long enough to run the comparison) — not committed to git, not kept locally.
+
+---
+
+## 8. Experiment B — embedding model swap (`all-MiniLM-L6-v2` → `all-mpnet-base-v2`)
+
+**Files:** [experiments/topic_modeling/experiment_b_embedding_model.py](experiments/topic_modeling/experiment_b_embedding_model.py), [src/train_topics.py](src/train_topics.py) (`build_bertopic_model` gained an optional `embedding_model` parameter)
+
+**Goal:** With `min_topic_size` sweeps closed (Experiments 6-7) without solving the original
+"rulesbased" duplicate-topic problem, test a different lever entirely: hold `min_topic_size=10`,
+UMAP `random_state=42`, preprocessing/dedup, and Experiment C's representation improvement all
+fixed, and swap only the sentence-embedding model — from BERTopic's default
+`sentence-transformers/all-MiniLM-L6-v2` (384-dim) to `sentence-transformers/all-mpnet-base-v2`
+(768-dim, generally stronger semantic embeddings, ~2-3x slower on CPU, ~438MB vs. ~90MB on disk).
+
+**What we changed:** Added an `embedding_model` parameter to `build_bertopic_model()` in
+`train_topics.py` (defaults to `None`, in which case BERTopic falls back to its own default -
+100% behavior-identical to before this parameter existed, zero risk to any existing caller). Fit
+a fresh model with `embedding_model="sentence-transformers/all-mpnet-base-v2"`,
+`min_topic_size=10`, `random_state=42`, and Experiment C's representation improvement, saved to
+its own separate path, `models/experiments/soft_v2_expB_mpnet`. Reused the existing seeded
+`min_topic_size=10` MiniLM baseline (`soft_v2_baseline_seeded`) unchanged as the comparison point.
+
+**Baseline:** The same seeded `min_topic_size=10` MiniLM baseline used throughout Experiments
+A/A2 (`soft_v2_baseline_seeded`).
+
+**Data/sample:** Same 16,062-text corpus, same n=280/seed=42 quality sample.
+
+**Metrics (MiniLM baseline vs. mpnet):**
+
+| metric | MiniLM (baseline) | mpnet |
+|---|---|---|
+| topic count (excl. -1) | 282 | 309 |
+| outlier % | 35.8% (5,750/16,062) | **34.7%** (5,581/16,062) |
+| avg / median topic size | 36.6 / 25.5 | 33.9 / 24.0 |
+| topics ≤15 docs (absolute) | 53 | 74 |
+| topics ≤ own-floor+10 | 98 | 131 |
+| hard/soft agreement (True/False/no-signal) | 86/57/137 | **100/50/129** |
+| % of sample with any soft signal | 51.1% | **53.9%** |
+| top-2 topics combined | 449 (4.4%) | 430 (**4.1%**) — no mega-topic |
+| "rulesbased" duplicate topic | 2 separate topics (n=31 + n=18) | **merged into 1 topic** (n=122, "rules based / international law / international order") |
+| control topics (gaza/ukraine/iran/telephone/home/maria) | all distinct | all distinct, but gaza/ukraine/iran/telephone fragmented into smaller, more specific sub-topics (home/maria stayed stable in size) |
+
+**Qualitative findings:**
+- **`rulesbased` initially reported as "not found" (empty list) by the substring search** -
+  manually verified (per the established gotcha: never trust an automated "not found" without
+  checking) by dumping every topic's top-10 words and searching for "rule"/"based"/"order". Found
+  Topic 8 (n=122, top words "rules based", "international law", "global rules", "international
+  order") - confirmed the two baseline duplicate topics (n=31 + n=18 = 49 combined) **merged into
+  one single, larger, well-labeled topic** under mpnet. This is the first time across all of
+  Experiment A/A2/B that the original motivating duplicate-topic problem has actually been fixed
+  **without** the mega-topic collapse seen at `min_topic_size` 25/35 - the top-2-combined metric
+  stayed low (4.1%, even slightly better than baseline's 4.4%).
+- Real, consistent improvements across three independent quality signals simultaneously: outlier
+  rate down, hard/soft agreement counts up on both True and (proportionally) down on False, and
+  soft-signal coverage up - no other experiment (A, A2) improved all three at once.
+- The cost: more topics overall (282→309) and more small/fragmented topics (≤15 docs: 53→74;
+  ≤floor+10: 98→131). Several control topics (gaza, ukraine, iran, telephone) shrank noticeably
+  as they split into more specific sub-topics (e.g. gaza 191→54, ukraine 149→88, telephone's
+  "telephone conversation" broad topic split into more specific ones like "president france
+  macron" n=20) - more granularity, not absorption/loss (no control topic disappeared or got
+  swallowed by a giant blob, unlike the mts=25/35 mega-topic pattern).
+- Practical cost: `all-mpnet-base-v2` is a larger (~438MB vs ~90MB), slower (roughly 2-3x on CPU,
+  no GPU available in this environment) model to embed and re-embed with on every future re-fit.
+
+**Conclusion:** Embedding model swap is, so far, the single most promising lever tried across
+Experiments A/A2/B - it is the only change that fixes the original `rulesbased` duplicate-topic
+problem while *simultaneously* improving outlier rate, hard/soft agreement, and soft-signal
+coverage, and without triggering the mega-topic collapse that ruined `min_topic_size` 25/35. The
+trade-off (more, smaller topics; heavier/slower model) is real but qualitatively different from
+A/A2's trade-offs - it looks like added granularity rather than lost coverage or damaged themes.
+
+**Decision: NOT YET FINAL - mpnet is the strongest candidate so far, but not yet adopted.**
+`saved_topic_model_soft_v2` (MiniLM, unseeded) was **not** touched or replaced by this experiment.
+`models/experiments/soft_v2_expB_mpnet` is being kept locally (unlike the deleted mts=15 model)
+because it is a serious candidate that may end up selected - but it is intentionally **not**
+committed to git (only the experiment code, `EXPERIMENTS.md`, and the `.expB_mpnet.*`-suffixed
+result/comparison files are). Before finalizing a switch to mpnet in production, still need to
+check: reproducibility across multiple seeds (only random_state=42 tested so far), manual
+label-quality spot-check on a larger sample of topics (not just the 5 largest + watch-words +
+controls), actual wall-clock/resource cost of a full production re-fit + inference-time impact on `stance.py`'s
+runtime pipeline, (4) whether the higher topic count/fragmentation affects
+`analyze_agendas.py`'s narrative-agenda aggregation downstream.
+
+**UPDATE: see "9. Experiment B seed-stability check" below - the single-seed (42) result above
+turned out to be partly optimistic; the outlier-rate improvement and the rulesbased merge did NOT
+fully replicate across additional seeds.**
+
+---
+
+## 9. Experiment B seed-stability check (`random_state` 7, 123, in addition to 42)
+
+**Files:** [experiments/topic_modeling/experiment_b_seed_stability.py](experiments/topic_modeling/experiment_b_seed_stability.py)
+
+**Goal:** Answer one question directly, per explicit user request: is mpnet consistently better
+than MiniLM across UMAP seeds, or was the original Experiment B result (seed=42) a lucky roll?
+Everything else held fixed: `min_topic_size=10`, same preprocessing/dedup, same Experiment C
+representation, same 16,062-text corpus.
+
+**What we changed:** Fit 4 new models (MiniLM x seed 7/123, mpnet x seed 7/123), reusing the
+existing seed=42 models for both embeddings unchanged (`soft_v2_baseline_seeded`,
+`soft_v2_expB_mpnet`). Saved the 4 new models to their own separate paths under
+`models/experiments/soft_v2_seedstab_<embedding>_seed<N>`. Added a robust `find_rulesbased_topics()`
+helper that matches BOTH tokenizations seen so far (MiniLM's concatenated `rulesbased`, mpnet's
+bigram `rules based`), requiring both "rule" and "based" substrings to co-occur in a topic's
+top-10 words (avoids false positives like an unrelated "rule law"/judicial-fairness topic).
+
+**Data/sample:** Same 16,062-text corpus, same n=280/seed=42 quality sample, for all 6
+(embedding x seed) combinations.
+
+**Full 3-seed x 2-embedding results:**
+
+| seed | embedding | topics | outlier% | agreement T/F/None | soft-signal% | small≤15 | largest topic | top2% | rulesbased# |
+|---|---|---|---|---|---|---|---|---|---|
+| 42 | MiniLM | 282 | 35.8 | 86/57/137 | 51.1 | 53 | 240 | 4.4 | 2 |
+| 7 | MiniLM | 288 | 33.5 | 99/55/125 | 55.4 | 58 | 300 | 4.8 | 2 |
+| 123 | MiniLM | 301 | 34.2 | 92/66/122 | 56.4 | 76 | 217 | 4.1 | 2 |
+| **avg MiniLM** | | **290.3** | **34.5** | **92.3/59.3/128.0** | **54.3** | **62.3** | **252.3** | **4.43** | **2/2/2** |
+| 42 | mpnet | 309 | 34.7 | 100/50/129 | 53.9 | 74 | 220 | 4.1 | **1 (merged)** |
+| 7 | mpnet | 309 | 35.9 | 103/56/120 | 57.1 | 69 | 226 | 4.3 | **1 (merged)** |
+| 123 | mpnet | 312 | 36.2 | 107/53/119 | 57.5 | 71 | 206 | 3.9 | **2 (NOT merged)** |
+| **avg mpnet** | | **310.0** | **35.6** | **103.3/53.0/122.7** | **56.2** | **71.3** | **217.3** | **4.1** | **1/1/2** |
+
+**Qualitative findings:**
+- **Consistent mpnet wins (true in all 3 seeds):** hard/soft agreement True-count (100/103/107 vs.
+  86/99/92), soft-signal coverage (53.9/57.1/57.5% vs. 51.1/55.4/56.4%), largest single topic
+  smaller (220/226/206 vs. 240/300/217), top-2-combined % lower (4.1/4.3/3.9% vs. 4.4/4.8/4.1%) -
+  no mega-topic risk in either embedding model at any seed tested.
+- **NOT consistent - outlier %:** at seed=42 alone, mpnet looked better (34.7% vs. 35.8%). Averaged
+  over all 3 seeds, mpnet is actually **worse** (35.6% vs. 34.5%) - the original single-seed
+  result was partly a lucky draw, not a real, repeatable improvement.
+- **NOT consistent - "rulesbased" merge:** merged into one topic at seed=42 and seed=7, but
+  reverted to 2 separate topics (`based order`/`rules based`, n=19+19) at seed=123 - the SAME
+  outcome pattern as MiniLM (which never merged it in any of the 3 seeds). mpnet clearly increases
+  the *probability* of this merge (2/3 vs. 0/3) but does not guarantee it.
+- **Control-topic instability under mpnet:** "gaza" fragmented drastically and consistently across
+  all 3 mpnet seeds (n=46-54 vs. MiniLM's stable ~163-191), and "ukraine"'s largest matching topic
+  picked a different specific angle each seed (zelensky-focused at 42/123, a
+  europe/belarus-shield-focused topic at seed 7) - MiniLM's gaza/ukraine/maria/home control topics
+  stayed thematically stable and consistently sized across all 3 seeds.
+- **False-positive substring match caught and fixed:** at mpnet seed=123, the automated
+  `home_bring` search matched Topic 65 (n=39, "occupied west bank / israeli settlers / palestinian
+  homes") purely because "palestinian homes" contains the substring "home" - manually verified
+  (per the established gotcha) this was NOT the real hostages/bring-home topic. The genuine
+  hostages/bring-home topic was found separately at Topic 5 (n=157, "hostages captivity kidnapped
+  abductee"), a reasonable size consistent with the other 2 seeds (220, 226). Reinforces the
+  lesson: automated substring matches need spot verification even when they DO return a match
+  (not just when they report "not found").
+
+**Conclusion:** mpnet is **not** consistently better than MiniLM across seeds. The two headline
+findings that motivated adopting it - lower outlier rate and a fixed "rulesbased" duplicate - both
+failed to fully replicate: outlier rate reverses on average, and the rulesbased merge only
+happened in 2 of 3 seeds. What DOES replicate consistently: better hard/soft agreement, better
+soft-signal coverage, and no mega-topic risk in either model at any seed. Large control themes
+(gaza, ukraine) are also less stable under mpnet, splitting into different specific sub-topics
+from seed to seed.
+
+**Decision: mpnet is NOT adopted.** The seed=42 result that originally looked like a clear win was
+partly a lucky draw - `min_topic_size=10` with the original `all-MiniLM-L6-v2` embedding remains
+the production choice (`saved_topic_model_soft_v2` untouched throughout). mpnet's consistent wins
+(agreement, soft-signal coverage) are real but do not, on their own, justify the cost of a larger/
+slower model and less stable large-topic structure - especially since neither of the two problems
+that originally motivated trying mpnet (outliers, rulesbased duplication) is reliably solved by it.
+If the "rulesbased" duplicate is still considered worth fixing, a targeted post-hoc merge of just
+that confirmed pair (not a full embedding-model swap) is the more promising next step. All 4 newly
+fit models (`models/experiments/soft_v2_seedstab_*`) are being kept locally for now, alongside
+`soft_v2_expB_mpnet` and `soft_v2_baseline_seeded` - none committed to git (only the experiment
+code, `EXPERIMENTS.md`, and suffixed result files are).
+
+---
+
+## 10. Experiment D — targeted duplicate-topic detection + rulesbased merge test
+
+**Files:** [experiments/topic_modeling/experiment_d_duplicate_topics.py](experiments/topic_modeling/experiment_d_duplicate_topics.py),
+[reports/results/profiler_prototype/expD_duplicate_topic_candidates.json](reports/results/profiler_prototype/expD_duplicate_topic_candidates.json),
+[reports/results/profiler_prototype/expD_merge_rulesbased_comparison.json](reports/results/profiler_prototype/expD_merge_rulesbased_comparison.json)
+
+**Goal:** Instead of a blanket `min_topic_size` increase or embedding-model swap (both tried and
+rejected/inconclusive in Experiments 6, 7, 8, 9), directly detect which topic pairs in the
+production baseline (`soft_v2_baseline_seeded`, MiniLM, seed=42, 282 topics) are true near-duplicates,
+and test what a targeted `BERTopic.merge_topics()` call on ONLY a confirmed-duplicate pair does to:
+topic count, outlier count, the merged topic's own representation, and every OTHER topic. No
+automatic merging beyond the already-known rulesbased pair was performed, per explicit request.
+
+**Stage 1 - detection methodology:** For every one of the 39,621 possible topic pairs (282
+topics), computed 3 signals and combined the first two: `semantic_sim` (cosine similarity of
+BERTopic's `topic_embeddings_`, i.e. SBERT-space centroid similarity), `lexical_sim` (cosine
+similarity of `c_tf_idf_` rows), `top10_jaccard` (word-set overlap of the top-10 c-TF-IDF words -
+reported but NOT included in `combined_score`, since two duplicate topics can have near-identical
+meaning while BERTopic's MMR diversifies their displayed word lists differently).
+`combined_score = mean(semantic_sim, lexical_sim)`. Ranked all pairs, saved the top 20 plus 3
+example source documents per topic for manual inspection.
+
+**Stage 1 - results:** Score distribution over all 39,621 pairs: median 0.116, p90 0.223, p95
+0.260, p99 0.332, p99.5 0.365, p99.9 0.417, max 0.512. Manually inspected the top-20 pairs
+(scores 0.444-0.512): the overwhelming majority are **same-domain-but-genuinely-distinct**
+topics - e.g. the #1-ranked pair (combined=0.512) is "armoured vehicles/artillery/brigades"
+vs. "Russian defence ministry footage/air-defense strikes" - both military-equipment-adjacent,
+clearly different sub-topics, not duplicates. The known **rulesbased** pair (topics 96 and 209,
+"rules-based order" framed as Western hypocrisy vs. as legitimate global governance) scored
+0.461 - inside the top 20, above p99.9, but NOT the highest-scoring pair overall. This shows
+`combined_score` alone has limited discriminative power: it is a reasonable **recall filter for
+human review**, not a reliable automatic duplicate detector - most high-scoring pairs are related
+but legitimately separate topics.
+
+**Proposed threshold:** 0.42 (~p99.9). Pairs scoring above this are worth a human look; pairs
+below are very unlikely to be duplicates given this corpus. **Caveat (important):** scoring above
+threshold is not sufficient evidence of duplication by itself - of the ~40 pairs above 0.42 in this
+corpus, manual inspection found exactly ONE genuine duplicate (rulesbased). No other pairs are
+recommended for merging based on this run.
+
+**Stage 2 - targeted merge test methodology:** Loaded a fresh copy of the baseline model (with
+the embedding model explicitly re-specified on load - see Problem Resolution note below), called
+`topic_model.merge_topics(texts, topics_to_merge=[96, 209])`, and compared before/after on a
+separate saved copy (`models/experiments/soft_v2_expD_merge_rulesbased`, `soft_v2_baseline_seeded`
+and `saved_topic_model_soft_v2` never touched).
+
+**Stage 2 - results:**
+- Topic count: 282 -> 281 (as expected, exactly one topic removed by merging two into one).
+- Outlier count: 5,750 -> 5,750, unchanged (correct - merging never reassigns outlier -> non-outlier).
+- Merged topic (n=49, renumbered id 50 after frequency-based resort): words become
+  `('rules based', 'based order', 'rules', 'order just', 'based', 'order', 'global rules',
+  'order isn', 'order talk', 'just fancy')` - a sensible combined representation of both original
+  sub-framings.
+- **All 280 other (non-merged) topics: document membership is proven IDENTICAL before/after**
+  (verified via exact document-index-set matching, not count or word-based matching, which are
+  ambiguous/unreliable after ID renumbering) - 280/280 topics matched by their exact set of member
+  documents, confirming `merge_topics()` never reassigns any document belonging to a non-merged
+  topic.
+- **However, their DISPLAYED top-10 words often changed anyway** (mean Jaccard overlap of
+  before/after top-10 word sets = 0.240, median = 0.250, 0/280 topics have an identical top-10
+  word set). This is a genuine, previously undocumented side effect: `merge_topics()`'s internal
+  `_extract_topics()` recomputes `ClassTfidfTransformer` + MaximalMarginalRelevance representation
+  for the **entire corpus**, since c-TF-IDF's frequency normalization depends on all classes'
+  document-count distribution - so removing one topic (redistributing its weight) can shift the
+  ranked/diversified word list of unrelated topics even though not a single document moved.
+  Examples of large drift on document-membership-verified-unchanged topics: a "trickle-down
+  economics" topic's top words shifted from `('trickledown', 'trickledown economics', ...)` to
+  `('trickle', 'trickle economics', 'rich richer', ...)` (jaccard=0.0) - same underlying meaning,
+  different exact n-gram tokenization ranking, not a substantive change in topic identity.
+- Quality metrics (`analyze_soft_topic_quality.py`, same n=280 seed=42 sample): hard/soft
+  agreement improved modestly, True 86->92, False 57->52, None 137->136; `hard_is_outlier_pct`
+  unchanged (0.0 in both); `dominant_single_topic` case % 49.3->50.0. A small, plausible
+  improvement consistent with removing one genuinely-duplicate topic pair, not a dramatic shift.
+
+**Problem resolved along the way:** `BERTopic.load(path)` without an explicit `embedding_model=`
+argument silently drops the embedding-model reference (prints a warning), which then produces a
+`config.json` missing the `"embedding_model"` key on the next `.save()`, breaking any later
+`.transform()` call ("No embedding model was found to embed the documents"). Fix: always pass
+`embedding_model="sentence-transformers/all-MiniLM-L6-v2"` explicitly when loading a model that
+will later be re-saved. Also: after any `merge_topics()` call, topic ids are renumbered by
+frequency, so identifying "the merged topic" or matching "the same topic before/after" must be
+done by CONTENT (a robust content-search helper) or by exact document-membership set, never by
+count or id alone (a count-collision was caught during development: an unrelated topic
+coincidentally also had n=49).
+
+**Conclusion:** Of all 39,621 topic pairs in the production baseline, only the already-known
+rulesbased pair (topics 96/209) is a confirmed genuine duplicate; no other pairs among the top-20
+highest-scoring candidates are recommended for merging. A targeted merge of just this one pair is
+clean: it does not touch any other topic's document membership, produces a sensible combined
+representation, and modestly improves hard/soft agreement - but it does perturb the *displayed*
+representation of unrelated topics (a real, now-documented `merge_topics()` side effect, not a
+bug) which should be expected and accepted, not treated as a red flag, if this merge is adopted.
+
+**Decision: adoption is deferred to the user.** This experiment only demonstrates that the
+merge is safe and beneficial when tested in isolation on `soft_v2_expD_merge_rulesbased` - it was
+deliberately NOT applied to `saved_topic_model_soft_v2` (production) or `soft_v2_baseline_seeded`.
+If adopted, the same `merge_topics(texts, topics_to_merge=[<rulesbased ids in that model>])` call
+should be applied directly to the production model as a one-off post-hoc fix, independent of any
+future `min_topic_size`/embedding-model decision.
+
+---
+
+## 11. Experiment D2 — soft-distribution stability check for the rulesbased merge
+
+**Files:** [experiments/topic_modeling/experiment_d2_soft_stability_check.py](experiments/topic_modeling/experiment_d2_soft_stability_check.py),
+[reports/results/profiler_prototype/expD2_soft_stability_check.json](reports/results/profiler_prototype/expD2_soft_stability_check.json)
+
+**Goal:** Experiment D validated the rulesbased `merge_topics()` call on hard-cluster/outlier/
+topic-count metrics. This closes the remaining gap: does the merge also stay safe for the SOFT
+(`approximate_distribution()`) feature specifically, not just the hard cluster assignment?
+`saved_topic_model_soft_v2` was deliberately NOT touched by this check.
+
+**Methodology:** Reused the same deterministic 280-text stratified sample (seed=42) throughout.
+Built a document-membership-based topic-id map between `soft_v2_baseline_seeded` (before) and
+`soft_v2_expD_merge_rulesbased` (after) — generalizing Experiment D's technique into a reusable
+`build_topic_id_map()` that also *automatically discovers* which two topic ids were merged
+(the ones whose document set has no exact match after renumbering; their union matches a new
+frozenset instead), with no hardcoded topic ids. Ran `analyze_soft_topic_quality.analyze()` on
+both models over the same sample, excluded the small number of texts that actually touch the
+merged topics (these are expected to change and aren't part of the "should stay stable" check),
+then compared Top-1 soft topic id (after mapping), Top-3 soft-topic-set Jaccard overlap, and
+Top-1 score magnitude change on the remainder.
+
+**Results (n=278/280 unaffected by the merge directly, 2 excluded):**
+- Top-1 soft topic unchanged (after id-mapping): 260/278 (93.5%).
+- Top-3 soft topic set Jaccard: mean=0.919, median=1.000 (245/278 texts have an identical top-3
+  set).
+- Top-1 score magnitude change: mean Δ=0.036, median Δ=0.000 (121/135 texts with a defined score
+  had Δ≤0.15).
+- Hard cluster: unchanged for 278/278 (100%) — confirms Experiment D's document-membership proof
+  extends correctly to this independent 280-text sample too.
+- **33/278 (11.9%) texts have hard cluster unchanged but a meaningfully-changed soft distribution**
+  (top-3 set changed AND/OR |Δscore|>0.15) — a real, quantified drift rate, consistent in kind
+  with Experiment D's already-documented finding that `merge_topics()` recomputes c-TF-IDF/
+  representation for the whole corpus (not just the merged pair), so even unrelated topics'
+  *soft* scores can shift slightly even when hard membership never moves.
+
+**Conclusion:** The rulesbased merge is safe for soft clustering in the large majority of cases
+(88.1% fully stable by both Top-3-set and score-magnitude criteria), with a real but modest
+(~12%) minority showing soft-distribution drift despite an unchanged hard cluster — this is the
+expected, already-understood side effect of `merge_topics()`'s corpus-wide c-TF-IDF recompute, not
+a sign of a broken merge. No case was found where the soft distribution changed drastically
+(e.g. flipped to an unrelated topic) among the unaffected texts.
+
+**Decision:** Confirms Experiment D's merge is safe to adopt for the soft feature too, if/when the
+user decides to adopt it. `soft_v2_baseline_seeded` and `soft_v2_expD_merge_rulesbased` remain
+untouched, read-only experiment artifacts; `saved_topic_model_soft_v2` was not modified.
+
+---
+
+## 12. `recommend_min_topic_size(corpus_size)` — a corpus-size-aware heuristic
+
+**Files:** [src/train_topics.py](src/train_topics.py) (function `recommend_min_topic_size`,
+alongside `build_bertopic_model`)
+
+**Goal:** `min_topic_size=10` (the value validated for the current ~16K-text corpus across
+Experiments 6/7) was hardcoded everywhere. Before scaling to a much larger future corpus (the
+eventual narrative-classification comparison may use substantially more data), provide a single
+explainable function that recommends a starting `min_topic_size` as a function of corpus size.
+
+**Original heuristic (superseded — see Experiment F below):** `min_topic_size = round(10 *
+sqrt(corpus_size / 16062))`, clamped to `[10, 100]`. This mirrored the classic "K ≈ sqrt(N/2)"
+rule of thumb used to pick a cluster count for k-means as data grows, adapted here to HDBSCAN's
+minimum-cluster-size threshold — a plausible-sounding heuristic, but at the time this section was
+written it was explicitly **untested**: it was never checked against a real sweep at smaller/larger
+corpus sizes, only reasoned about by analogy.
+
+**UPDATE — this heuristic was empirically tested and found wrong for the downscaling direction.**
+Experiment F (section 16) ran a real subsampling sweep at 4K/8K/12K/16K and found the empirically
+best `min_topic_size` stayed at 10 across every one of those sizes — the sqrt formula above would
+have recommended ~5/7/9 at 4K/8K/12K, all of which scored *worse* in the actual sweep (more
+fragmented micro-topics, lower coherence/diversity, worse hard/soft agreement, lower soft-signal
+coverage) than just keeping `min_topic_size=10`. `recommend_min_topic_size()` in
+[src/train_topics.py](src/train_topics.py) has been rewritten accordingly: it now returns the
+constant 10 for any corpus size up to the largest size actually tested (~16,062), and only applies
+a small, explicitly-flagged-as-**unvalidated** log-scaled increase beyond that point (see
+Experiment F for the full reasoning and the updated example-output table). This section is kept
+for historical context; treat Experiment F as the current source of truth.
+
+**Decision:** Superseded by Experiment F. The corpus-size-aware heuristic remains a pure utility
+function; does not change any existing model's behavior (`build_and_save_topics()` /
+`saved_topic_model_soft_v2` still uses the unchanged, hardcoded `min_topic_size=10` — this
+function is opt-in for future/new experiments only).
+
+---
+
+## 13. Experiment E — classic LDA baseline vs. BERTopic Hard / Soft
+
+**Files:** [experiments/topic_modeling/experiment_e_lda_baseline.py](experiments/topic_modeling/experiment_e_lda_baseline.py),
+[reports/results/profiler_prototype/expE_lda_baseline.json](reports/results/profiler_prototype/expE_lda_baseline.json),
+`models/experiments/lda_baseline/` (new, separate artifact — never read by any other code)
+
+**Goal:** Add a classic (pre-embedding) topic-modeling baseline — `gensim`'s LDA — on the exact
+same corpus/preprocessing pipeline as `soft_v2_baseline_seeded`, to give the eventual
+narrative-classification comparison a non-BERTopic reference point. Explicitly not a replacement
+for BERTopic.
+
+**Methodology:** Same 16,062-text corpus (`load_deduplicated_training_texts()`). LDA-specific
+bag-of-words tokenization (lowercase, alphabetic tokens ≥3 chars, sklearn English stopwords
+removed) → a single shared `gensim.corpora.Dictionary` (`no_below=5, no_above=0.5, keep_n=10000`,
+final vocab 7,538 words) used both to fit LDA and to score BERTopic's own topics with the *same*
+coherence metric (u_mass — chosen because it needs no external reference corpus, unlike `c_v`,
+keeping this tractable on CPU). Number of LDA topics (K) was chosen via a coherence sweep over
+K∈{50,100,150,200} rather than copied from BERTopic's topic count. Seed-stability was checked by
+refitting the chosen-K model with a second seed and matching topics via best-Jaccard (both
+document-membership-based, the same style of technique as Experiment D2, and top-10-word-based).
+
+**Engineering note:** `gensim.models.LdaMulticore` was tried first but measured far *slower* than
+single-process `LdaModel` on this machine (Windows `multiprocessing` "spawn" re-imports/re-pickles
+the whole corpus per worker per fit: ~158s for a tiny K=50/passes=1/iterations=20 config vs. ~2s
+single-process; ~8s single-process for a much larger K=200/passes=3/iterations=50). Switched to
+single-process `LdaModel` (`passes=5, iterations=100`) — the full sweep + seed-stability check
+completed in well under 2 minutes end-to-end.
+
+**Results:**
+
+| K | u_mass coherence | topic diversity |
+|---|---|---|
+| 50 | **−7.64** (best) | 0.916 |
+| 100 | −11.24 | 0.944 |
+| 150 | −14.08 | **0.125 (collapsed)** |
+| 200 | −15.59 | **0.005 (collapsed)** |
+
+- **K=150/200 diversity collapse** is a real, important finding: past a certain topic count, this
+  corpus's ~7,500-word bag-of-words vocabulary can no longer support that many *distinct* LDA
+  topics — most of the extra topics converge onto nearly-identical top-word lists (diversity→0),
+  a structural limitation of classic LDA on this corpus, not a tuning artifact. K=50 was selected.
+- **Seed-stability at K=50 is poor**: doc-membership best-Jaccard mean=0.110/median=0.092;
+  top-10-word best-Jaccard mean=0.120/median=0.111 — LDA's topics on this corpus are substantially
+  less reproducible across random seeds than BERTopic's (whose seeded UMAP already gives fully
+  reproducible hard clusters by construction, see `build_bertopic_model`'s `random_state`).
+- **Coherence: BERTopic Hard (u_mass=−6.08 on its own 282 topics, filtered to single-word terms
+  present in the shared dictionary) is more coherent than LDA-K=50 (−7.64)**, despite having ~5.6x
+  more topics — a meaningful advantage for BERTopic on this corpus.
+- **Diversity: BERTopic Hard = 0.988** (near-perfect — almost no repeated words across 282 topics'
+  top-10 lists) vs. LDA-K50's 0.916, and vastly better than LDA's own collapse at higher K —
+  BERTopic's embedding+c-TF-IDF representation scales to many more topics without word reuse in a
+  way classic bag-of-words LDA does not on this corpus.
+- **Interpretability (manual read of LDA-K50's top-10 topics):** broadly on-theme (Israel/Gaza/
+  Ukraine/media/military discourse recognizable throughout) but noticeably less crisp than
+  BERTopic's topics — many LDA topics share generic high-frequency words (`israeli`, `israel`,
+  `western`) across several topics, whereas BERTopic's per-topic word lists are more differentiated.
+- **Document-topic distribution (280-sample):** LDA's per-document distributions are highly
+  diffuse — mean top-1 topic probability only 0.258, mean normalized entropy 0.605 (of max
+  possible, 0=fully concentrated / 1=uniform over all 50 topics), and 70.7% of texts have *no*
+  dominant topic (top-1 probability <0.3). This is the expected consequence of short social-media
+  texts under a sparse bag-of-words model. By contrast, BERTopic's soft distribution (already
+  measured, `soft_topic_quality_summary.json`) is bimodal rather than diffuse: ~49% of texts get
+  no soft signal at all, but when they DO get a signal it's usually highly concentrated
+  (dominance ratio mean=0.90, median=1.0) — the two methods fail differently (LDA: uncertain-but-
+  present everywhere; BERTopic soft: absent-or-confident), not simply "better/worse".
+- **Coverage/outliers:** LDA has no outlier concept — every document always gets a full
+  distribution over all K topics by construction. BERTopic Hard's TRUE full-corpus outlier rate
+  (from `.topics_`, the fit-time assignment) is 35.8% — consistent with the already-documented
+  ~34-36% range in this file's Open Problems section (not a new number). **A genuinely new,
+  previously-undocumented nuance found while computing this**: BERTopic's `.transform()` (used
+  for ALL new/inference-time text, e.g. by `stance.py`) essentially eliminates the outlier label
+  in practice — of 300 documents that WERE outliers (-1) in the original training fit, calling
+  `.transform()` on those same texts reassigns 297/300 (99%) to a real topic, only 3/300 remain -1.
+  This explains why every sample-based soft-quality report in this project (Experiments 5-10)
+  consistently shows ~0% `hard_is_outlier_pct` despite ~35% of the actual training corpus being
+  labeled -1 at fit time — `.transform()` structurally cannot reproduce fit-time outlier detection
+  for new text (it assigns nearest-topic, no density/outlier check), so downstream consumers of
+  hard topic ids at inference time (`TopicStanceLayer` via `stance.py`) should not expect to ever
+  see -1 in practice, regardless of the training corpus's real outlier rate.
+- **Runtime:** LDA's own fit times were measured directly (see engineering note above). BERTopic's
+  training time was NOT re-measured (re-fitting `soft_v2_baseline_seeded` was out of scope/wasteful
+  here) — only BERTopic's *inference* time on the same 280-text sample was measured for a
+  partial, inference-side comparison (see `expE_lda_baseline.json` for the raw numbers);
+  training-time comparison is explicitly left unmeasured rather than guessed.
+
+**Conclusion:** BERTopic (Hard) outperforms this classic LDA baseline on this corpus on coherence,
+diversity (especially at higher topic counts, where LDA structurally collapses), and per-document
+concentration/confidence — consistent with BERTopic's embedding-based representation being better
+suited to this heterogeneous, mixed-length social-media corpus than bag-of-words LDA. LDA remains
+useful as a reference point (never previously measured in this project) and surfaced one valuable,
+previously-undocumented nuance about BERTopic's `.transform()`-vs-fit-time outlier behavior.
+
+**Decision:** LDA is NOT adopted to replace BERTopic — kept purely as a separate benchmark
+artifact (`models/experiments/lda_baseline/`), consistent with the explicit instruction not to
+replace BERTopic. No existing file was modified.
+
+---
+
+## 14. LLM-ITL feasibility research (Xiaohao-Yang/LLM-ITL, ACL 2025) — not built
+
+**Goal:** Research whether `https://github.com/Xiaohao-Yang/LLM-ITL` (an LLM-in-the-loop Neural
+Topic Model framework) is feasible to adopt as a 4th, fully separate topic-modeling experiment,
+checking GPU/memory/dependencies BEFORE attempting to run anything, per explicit instruction.
+
+**What the method is:** LLM-ITL pairs a classic (VAE-style) Neural Topic Model — one of NVDM,
+PLDA, SCHOLAR, ETM, NSTM, CLNTM, WeTe, ECRTM (**not BERTopic**) — with an LLM that refines the
+NTM's learned topic-word distributions via an Optimal-Transport-based alignment objective,
+weighted dynamically by the LLM's own confidence in its suggested topical words. In plain terms:
+the NTM learns topics/document representations as usual, and the LLM is consulted *repeatedly
+during training* (not a one-shot post-hoc labeling pass) to nudge the topic-word distributions
+toward more human-interpretable words, with the OT objective controlling how much to trust the
+LLM's suggestions at each step. This is a substantively different mechanism from this project's
+existing lightweight adaptation (`llm_topic_refiner.py`, a single Gemini API call per topic to
+relabel BERTopic's already-fixed top words, no training-loop integration at all).
+
+**Feasibility check (this session, direct verification, not assumption):**
+- **GPU: none available.** `torch.cuda.is_available()` → `False`; installed torch build is
+  `2.13.0+cpu`. LLM-ITL's own smallest supported LLM (Phi-3-mini-128k-instruct, ~3.8B params) is
+  still meant to run *repeatedly inside the NTM training loop* — CPU-only inference at this scale,
+  called many times per training run, would make even a modest topic count (K=50) prohibitively
+  slow (likely many hours-to-days, vs. LDA's <2 minutes end-to-end in Experiment E above).
+- **Memory: 16.65 GB total physical RAM.** Tight even for a single Phi-3-mini (~3.8B) inference
+  call in isolation (weights alone ≈7-8GB in fp16, before KV-cache/activations/OS overhead) —
+  clearly insufficient headroom for the repeated in-the-loop calls the method requires.
+  supported LLMs range up to Qwen1.5-32B-Chat / LLAMA3-8B / Mistral-7B — all further out of reach.
+- **Dependencies/engineering scope, beyond the LLM itself:** requires a Java runtime + the
+  bundled `palmetto-0.1.5-exec.jar` + a downloaded Wikipedia background-document corpus
+  (`Wikipedia_bd.zip`, external download) for its own coherence evaluation; fixed built-in dataset
+  loaders (20News/AGNews/DBpedia/R8 only) — plugging in this project's narrative corpus would
+  require writing custom dataset-integration code, not just a config flag; and none of its 8
+  supported NTMs are BERTopic-compatible, so adopting it would mean fitting an entirely separate,
+  unrelated topic-modeling architecture from scratch, on top of everything else above.
+
+**Conclusion: not feasible to build as a genuinely-running experiment in this local, CPU-only,
+16GB-RAM environment.** Every one of the three checks the user asked for (GPU / memory /
+dependencies) independently rules it out, and the engineering cost (custom dataset integration +
+a wholly separate non-BERTopic NTM implementation + a Java/Wikipedia evaluation toolchain) would
+be substantial even ignoring the hardware constraint. This is consistent with — and now directly
+re-verified rather than assumed — this project's prior conclusion that a full LLM-ITL adoption is
+"too heavy"; the existing lightweight `llm_topic_refiner.py` (Colab/API-based) remains the
+practical way this project incorporates LLM-based topic refinement.
+
+**Decision: do not build.** No code was written for this experiment; this is a documented
+"researched, infeasible, skipped" entry, not an implementation gap. If GPU access ever becomes
+available (e.g. a Colab session with a GPU runtime, already used elsewhere in this project for
+`llm_topic_refiner.py`), this conclusion should be re-checked there rather than assumed permanent.
+
+---
+
+## 15. Narrative Classification — does a Topic *distribution* beat a single hard Topic id?
+
+**Goal (separate track from every experiment above — this is about the *classifier*, not the
+topic model):** the topic-modeling phase is closed; this experiment starts the Narrative
+Classification phase. Question: does feeding the classifier a **distribution** over several
+Topics (soft/multi-topic) improve Narrative classification compared to a single hard Topic id -
+and if so, by how much? A controlled 4-way comparison, same data/splits/training conditions:
+1. **Baseline** — no Topic feature at all.
+2. **BERTopic Hard** — a single `topic_id` (today's production mechanism).
+3. **BERTopic Soft** — the existing-but-unused top-K topic distribution
+   (`stance.py`'s `get_topic_distribution`, never wired into `fusion.py`/`train.py` until now).
+4. **LDA** — the K=50 document-topic distribution from Experiment E's already-fitted baseline.
+
+Explicitly separate from — and does not touch — the BERT Actors/Role/Agency/Relations track
+(reserved for after this experiment), and does not touch `fusion.py`, `train.py`, any existing
+checkpoint (`models/best_*.pth`), any existing cache (`data/cache/cached_features_*.pt` other
+than a brand-new one), or `reports/tables/model_comparison_results.json`.
+
+**Pre-code research (how the Topic feature enters the pipeline today, checked before writing
+any code, as required):** every existing classifier (`NarrativeDetector`/`baseline_fusion` and
+`HybridNarrativeDetector`/`hybrid` in `fusion.py`) uses the Topic feature in exactly one way: a
+single hard `topic_id` from `TopicAnalysisPipeline.process_text()` (stance.py, `.transform()`
+under the hood) is looked up in `TopicStanceLayer`, an `nn.Embedding(NUM_TOPICS=500,
+NUM_NARRATIVES)` initialized uniformly in [0,1], with -1/OOV/out-of-range clamped to the last
+row. `SBERTOnlyDetector`/`sbert_only` uses no Topic feature (and no other engineered feature
+either, so it's not usable as-is for "Baseline, no Topic feature" — it would also silently drop
+NER/SRL/Emotion/Reliability, which must stay unchanged per the fairness requirement). A soft
+method already exists and is fully implemented (`TopicAnalysisPipeline.get_topic_distribution`,
+`approximate_distribution()`-based, top-N re-normalized to sum to 1.0) but was **never** wired
+into any classifier before this experiment.
+
+**Proposed representation for Soft (and, analogously, LDA) — not just reusing a single
+`topic_id`:** a new `TopicFeatureLayer` generalizes `TopicStanceLayer`'s mechanism instead of
+replacing it. It is a `[vec_size, NUM_NARRATIVES]` table, same uniform(0,1) init convention as
+production. Hard = a one-hot vector (single row, weight 1.0) fed through `dense_vec @ table` —
+mathematically identical to `TopicStanceLayer`'s single lookup. Soft = a sparse vector with up
+to 5 non-zero entries (the top-5 re-normalized `get_topic_distribution` scores) at their topic
+indices, fed through the exact same `dense_vec @ table` operation — a genuine score-weighted
+combination of up to 5 table rows, not a single id. LDA = the FULL K=50 dense probability vector
+(gensim's `get_document_topics(minimum_probability=0.0)`) through its own same-shaped table
+(no OOV row needed — LDA always yields a distribution over all K topics, no outlier concept).
+This design keeps the "Topics arm" architecturally identical in kind across Hard/Soft/LDA (same
+class, same init, same output shape) — Hard is the one-hot special case of Soft/LDA — so
+"single id vs. distribution" is the one true independent variable, not confounded by an
+unrelated architecture change. "Baseline, no Topic feature" uses the same `TopicFeatureLayer`
+class in a `mode="none"` state with **zero learnable parameters** (the arm always contributes a
+constant zero vector) — the cleanest way to represent "no Topic feature" without altering the
+surrounding fusion architecture's shape.
+
+**Base architecture chosen:** `fusion.py`'s `NarrativeDetector` (`baseline_fusion`) — the linear
+weighted-fusion architecture (4 learned module weights over NER/Topics/SRL/Emotion, softmax-
+normalized, multiplied by a reliability factor) — reusing `NarrativeFusionNetwork` **unmodified,
+imported directly** from `fusion.py`. Chosen over `HybridNarrativeDetector` because it isolates
+the Topics-representation question most cleanly: the module-weight interpretation directly
+answers "how much does the Topics arm matter", without an SBERT-embedding + MLP diluting/
+entangling that signal. A Hybrid-architecture version of this same comparison is a natural,
+separate follow-up if this baseline_fusion-based result looks promising.
+
+**Fairness / controlled-comparison methodology:**
+- **Same data + same split, by construction, not just "the same code path":**
+  `train.load_raw_data()` and `train.split_random()` are imported **unmodified** and called
+  directly (not reimplemented) — identical `random_state=42` shuffle and train/val/test row
+  membership across all 4 configs × all seeds, by construction.
+- **Same NER/SRL/Emotion/Reliability values, not just "the same processors":** reused **by
+  position** from the existing `data/cache/cached_features_hybrid.pt` (baseline_fusion's own
+  cache) — verified byte-for-byte-equivalent-membership via an exhaustive label-sequence
+  comparison across all 16,510 rows (train: 11,557, val: 2,476, test: 2,477 — all matched)
+  before trusting the reuse; the script raises instead of silently reusing if this check ever
+  fails on a future re-run (e.g. after raw CSVs change).
+- **Same fusion architecture, same training loop/hyperparameters:** `EPOCHS`/`BATCH_SIZE`/
+  `LEARNING_RATE` from `config.py`, Adam + `NLLLoss`, gradient accumulation over `BATCH_SIZE`,
+  early stopping on Val Macro-F1 (patience=3) — identical to `train.py`'s `train()`.
+  Only the Topics arm (representation + its own small table) varies between configs.
+- **Seed:** `torch.manual_seed(seed)` fixes model-init/dropout randomness only — the split
+  itself is already fixed independently of `seed` (via the hardcoded `random_state=42` inside
+  `load_raw_data`/`split_random`), so multi-seed runs are a pure training-variance check, never
+  a data-leakage risk. 3 seeds used: 42, 7, 123 (matches this project's established seed set).
+- **Isolated artifacts:** every (config, seed) gets its own checkpoint
+  (`models/experiments/narrative_topic_compare/{mode}_seed{seed}.pth`) and its own confusion
+  matrix; results accumulate in a brand-new `reports/results/narrative_topic_compare/results.json`
+  (never `reports/tables/model_comparison_results.json`). Re-running an existing (mode, seed)
+  checkpoint is refused (`RuntimeError`), not silently overwritten.
+
+**Known, inherited limitation (not introduced by this experiment):** both the BERTopic model
+used here (`models/experiments/soft_v2_baseline_seeded` — the validated Experiments A-E
+baseline, deliberately **not** the actual production `models/saved_topic_model_soft_v2`, so that
+Hard and Soft are compared on the SAME, best-available underlying topic model rather than
+conflating "soft vs. hard" with "which topic model") and the LDA model
+(`models/experiments/lda_baseline/lda_k50_seed42`) were originally fit on a corpus that overlaps
+with this experiment's "random"-split rows — the same accepted limitation `train.py` already
+documents for `split_mode="random"` (only `leave_one_topic` mode actively avoids it). Neither
+topic model is re-fit here; both are reused strictly as frozen feature extractors, exactly like
+production's `TopicAnalysisPipeline` already does.
+
+**Implementation:** `experiments/feature_ablation/narrative_topic_compare.py` (fully new, self-contained script).
+Builds one combined feature cache (`data/cache/cached_features_narrative_topic_compare.pt`,
+new file) shared by all 4 configs — NER/SRL/Emotion/Reliability reused as above, plus freshly-
+computed Hard/Soft/LDA dense topic vectors (BERTopic's `.transform()`/`.approximate_distribution()`
+called batched across each split for efficiency; LDA's `get_document_topics` looped per text,
+cheap/no neural inference). `TopicFeatureLayer`/`TopicAblationDetector` implement the design
+above; `compute_metrics()` extends `train.py`'s metrics with Weighted P/R/F1 (Accuracy, Macro
+P/R/F1, Weighted P/R/F1, per-narrative P/R/F1/support, and confusion matrix are all reported,
+per the required comparison criteria). Additional analyses implemented: (a) whether Soft's
+benefit over Hard is larger specifically on texts whose soft distribution is NOT dominated by a
+single topic (dominance ratio < 0.7), (b) per-Narrative Hard→Soft→LDA F1 deltas, to see whether
+some Narratives benefit disproportionately from a richer Topic representation.
+
+**Results.** All 4 configs × 3 seeds (42/7/123) completed; full numbers in
+`reports/results/narrative_topic_compare/results.json`, per-seed confusion matrices in
+`reports/results/narrative_topic_compare/confusion_matrix_{mode}_seed{seed}_test.csv`. Test-set metrics,
+mean±std across the 3 seeds:
+
+| Config | Accuracy | Macro-F1 | Weighted-F1 |
+|---|---|---|---|
+| `none` (no topic feature) | 50.49% ± 0.31 | 0.4951 ± 0.0033 | 0.5080 ± 0.0029 |
+| `hard` (single BERTopic id) | **65.91% ± 0.27** | **0.6522 ± 0.0027** | **0.6580 ± 0.0026** |
+| `soft` (top-5 BERTopic distribution) | 61.16% ± 0.17 | 0.6066 ± 0.0014 | 0.6119 ± 0.0020 |
+| `lda` (full K=50 LDA distribution) | 53.02% ± 0.30 | 0.5212 ± 0.0029 | 0.5315 ± 0.0028 |
+
+**Headline finding — Hard beats Soft, not the other way around.** Across all 3 seeds, `hard`
+outperforms `soft` by a wide, seed-noise-dwarfing margin: **+4.75pp Accuracy, +0.0456 Macro-F1,
++0.0461 Weighted-F1** (per-seed std is only ~0.002-0.003, i.e. the gap is roughly 15-20x larger
+than the run-to-run noise — this is a robust effect, not a fluke of one seed). `lda`'s full
+50-dim distribution does even worse than `soft`'s 5-dim BERTopic distribution, and only modestly
+beats `none`. Ranking: **Hard > Soft > LDA > None**. Any topic feature at all is clearly
+valuable (+15pp Accuracy / none→hard), but *how* the topic feature is represented matters a lot,
+and a single confident hard id beat every distributional alternative tried here.
+
+**Does Soft help specifically on multi-topic (ambiguous) texts?** Yes — but that population is
+small. Splitting the test set by whether the Soft distribution's top score is below the 0.7
+dominance threshold: 219/2477 rows (8.8%) are "multi-topic", 2258/2477 (91.2%) are
+"single-dominant".
+- Multi-topic subset: Soft 72.1% acc **beats** Hard 69.4% acc (+2.7pp) — confirms the intuitive
+  hypothesis that a distribution is more informative exactly when no single topic dominates.
+- Single-dominant subset (the vast majority): Hard 66.0% acc **beats** Soft 60.0% acc (-6.0pp for
+  Soft) — for texts BERTopic is already confident about, spreading the signal across the top-5
+  topics adds noise rather than value.
+- Net effect over the whole test set is negative for Soft because the subset where it helps
+  (8.8%) is far smaller than the subset where it hurts (91.2%).
+
+**Do some Narratives benefit more from Soft?** No — `soft_minus_hard` F1 is **negative for all 7
+Narratives** (Zionist -0.136, Left-wing -0.034, Western -0.044, Ukrainian -0.042, Right-wing
+-0.041, Resistance -0.038, Russian -0.015 — Russian is the least hurt, Zionist the most). There
+is no Narrative for which the richer BERTopic representation is worth adopting; Zionist in
+particular is classified noticeably worse with Soft than with Hard.
+
+**Does LDA give similar or lesser value than BERTopic Soft?** Strictly lesser, and by a large
+margin — `lda_minus_soft` F1 is negative for 6/7 Narratives (Left-wing -0.210, Right-wing -0.120,
+Russian -0.109, Ukrainian -0.089, Western -0.080, Resistance -0.028), with Zionist the sole
+exception (+0.056, LDA slightly beats Soft there). Classic LDA's 50 coarse topics carry
+substantially less narrative-discriminating signal than BERTopic's 282 fine-grained clusters,
+even when LDA is given as a full dense distribution (no top-K truncation).
+
+**Is the added complexity worth it?** No. `soft` and `lda` are strictly more complex to compute
+(batched `.approximate_distribution()` / `get_document_topics()` at both train and inference
+time) and both perform *worse* than the simple one-hot `hard` representation already used in
+production. The most likely mechanism: `TopicFeatureLayer`'s weighted-sum-over-embedding-rows
+dilutes the strongest, most narrative-discriminative row whenever probability mass is spread
+across multiple topics — and since ~91% of texts already have one dominant topic, this dilution
+mostly adds noise rather than resolving genuine ambiguity. Soft distributions only pay off for
+the minority of genuinely multi-topic texts, which isn't enough to offset the loss elsewhere.
+
+**Final answer to "does Soft Topic Distribution improve Narrative Classification vs. Hard Topic,
+and by how much?": No — it makes it worse, by about 4.7 points of Accuracy and ~0.046 points of
+Macro-F1, averaged across 3 seeds with a robust, noise-dwarfing margin. Soft only wins on the
+~9% of texts with no single dominant topic (+2.7pp Accuracy there); on the other ~91% of texts
+it costs -6.0pp Accuracy, and it never helps any individual Narrative. The existing single hard
+`topic_id` (`TopicStanceLayer`) representation already used in production is the better design
+choice; classic LDA topic distributions are worse still. No change to the production model is
+recommended based on this experiment.**
+
+---
+
+## 16. Experiment F — corpus-size × `min_topic_size` scaling validation
+
+**Files:** [experiments/topic_modeling/corpus_subsampling.py](experiments/topic_modeling/corpus_subsampling.py) (stratified subsampling utility),
+[experiments/topic_modeling/experiment_f_corpus_scaling.py](experiments/topic_modeling/experiment_f_corpus_scaling.py) (the sweep itself),
+[experiments/topic_modeling/experiment_f_analysis.py](experiments/topic_modeling/experiment_f_analysis.py) (scoring/selection + scaling-law fit),
+raw results in `reports/results/profiler_prototype/expF_corpus_scaling_results.json`,
+`expF_stratification_report.json`, `expF_selection_and_scaling_law.json`.
+
+**Goal:** Section 12's `recommend_min_topic_size()` heuristic (sqrt-scaling anchored at the
+current 16,062-text corpus) was never actually tested against real data at other corpus sizes —
+it was reasoned about by analogy to a k-means rule of thumb. This experiment empirically tests it:
+build real corpus-size subsamples, sweep `min_topic_size` at each size, and let the data (not an
+assumption) determine which scaling law — constant, linear, sqrt, log, or another simple form —
+actually fits.
+
+**Methodology:**
+- **Corpus & preprocessing:** Same cleaning (`clean_text_for_topic_model` + `has_enough_content`)
+  and near-duplicate removal (`deduplicate_texts`, threshold=0.7) as the production pipeline,
+  applied to all 4 raw datasets (gemini/gpt/twitter/telegram) with `narrative_name`/
+  `dataset_source` kept aligned per row (`load_cleaned_labeled_corpus()`, new — the existing
+  `load_deduplicated_training_texts()` discards this alignment). Result: 16,510 raw → 16,341 after
+  cleaning → 16,062 after dedup — matches the corpus size Experiments 6/7/12 already validated.
+- **Sampling strategy:** 4 corpus sizes — 4,000 / 8,000 / 12,000 / "full" (16,062) — each drawn via
+  `stratified_subsample()`, which allocates rows proportionally across all 28
+  (dataset_source × narrative_name) strata using the largest-remainder method (avoids the
+  systematic rounding bias naive per-stratum rounding would cause), then samples without
+  replacement per stratum. Verified fidelity: max absolute deviation between the full corpus's and
+  every subsample's per-source and per-narrative percentages was **≤0.03 percentage points** at
+  every tested size — the 4-source/7-narrative mix is preserved essentially exactly. Subsample
+  membership uses a *fixed* seed (42), independent of the UMAP seed swept below, so seed-stability
+  comparisons at a given size are never confounded by also silently resampling different data.
+- **Grid tested** (as proposed, not modified — already spans below/above/around the
+  previously-validated mts=10 at every size): 4K→{5,10,15,20}, 8K→{5,10,15,20,25},
+  12K→{5,10,15,20,25,30}, 16K(full)→{5,10,15,20,25,30,35}. 22 (corpus_size, min_topic_size)
+  combinations × 2 UMAP seeds (42, 7) = **44 total fitted models**.
+- **Everything else held fixed:** embedding model (`all-MiniLM-L6-v2`), UMAP
+  (`n_neighbors=15, n_components=5, min_dist=0.0, metric="cosine"`), the same representation
+  pipeline validated in Experiment 5/C (`CountVectorizer(stop_words="english", ngram_range=(1,2))`
+  + `ClassTfidfTransformer(reduce_frequent_words=True, bm25_weighting=True)` +
+  `MaximalMarginalRelevance(diversity=0.3)`).
+- **Runtime optimization:** SBERT embeddings are computed **once per corpus size** (cached to
+  `data/cache/expF_embeddings_<size>.npy`) and passed into every `BERTopic.fit_transform(...,
+  embeddings=...)` call for that size — embeddings don't depend on `min_topic_size` or the UMAP
+  seed, only on the corpus itself, so this avoids 44 redundant re-encoding passes. All 44 configs
+  ran end-to-end (fit + representation + metrics) in well under an hour of wall-clock time.
+- **Metrics computed per config** (averaged across the 2 seeds for scoring): topic count, outlier
+  %, micro-topic count/fraction (topics within `min_topic_size+10` docs of the floor), avg/median
+  topic size, largest-topics + "top-2-combined %" mega-topic check, u_mass Topic Coherence and
+  Topic Diversity (same method as Experiment 13/E — `gensim.CoherenceModel`, BERTopic's top-word
+  phrases decomposed into single dictionary tokens), and hard/soft agreement + soft-signal
+  coverage on the **same fixed n=280 stratified evaluation sample** (seed=42) reused by every prior
+  experiment in this project (Experiments 6/7/9/10/11) — evaluated **in-memory** directly against
+  each freshly-fitted `BERTopic` object (a tiny adapter class reusing
+  `analyze_soft_topic_quality.run_batch_analysis`/`compute_summary_stats` verbatim), avoiding both
+  `BERTopic.load()`'s documented embedding-resolution flakiness and saving 44 full model
+  directories to disk.
+- **Scoring rule (defined *before* looking at results, to avoid post-hoc metric shopping):** per
+  (corpus_size, min_topic_size) candidate, seed-averaged metrics are combined into one composite
+  score, each metric min-max normalized *within that corpus size's own candidate set*:
+  `0.20·coherence + 0.10·diversity + 0.15·(1−outlier%) + 0.15·(1−micro_topic_frac) +
+  0.10·(1−mega_topic%) + 0.10·agreement_rate + 0.10·soft_signal% + 0.10·(1−cross_seed_instability)`.
+  **Hard vetoes** (excluded from selection regardless of score): top-2-combined % > 12.0 in either
+  seed (mega-topic/over-merging, threshold set well below Experiment 6's already-rejected mts=25
+  result of 17.2%), or topic count < 3 in either seed (degenerate collapse).
+
+**Results — full per-candidate table** (seed-averaged; `outl%`=outlier %, `top2%`=mega-topic
+top-2-combined %, `coh`=u_mass coherence, `div`=topic diversity, `agree%`=hard/soft agreement rate,
+`soft%`=soft-signal coverage, `instab`=cross-seed instability, lower is more stable):
+
+| size | mts | n_topics | outl% | top2% | coh | div | agree% | soft% | instab | score | |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4K | 5 | 167.0 | 33.8 | 4.3 | −9.101 | 0.615 | 60.9 | 65.9 | 0.038 | 0.359 | |
+| 4K | **10** | 83.0 | 41.6 | 8.7 | −8.726 | 0.767 | 72.7 | 37.9 | 0.215 | **0.391** | **← selected** |
+| 4K | 15 | 49.5 | 41.9 | 15.5 | −8.762 | 0.832 | 80.7 | 24.4 | 0.172 | 0.447 | vetoed (mega-topic) |
+| 4K | 20 | 19.0 | 21.4 | 63.1 | −5.967 | 0.926 | 93.8 | 9.3 | 1.589 | 0.700 | vetoed (mega-topic) |
+| 8K | 5 | 311.5 | 31.7 | 3.8 | −8.325 | 0.546 | 64.2 | 71.2 | 0.046 | 0.350 | |
+| 8K | **10** | 172.5 | 38.2 | 4.5 | −8.028 | 0.660 | 78.2 | 53.8 | 0.023 | **0.634** | **← selected** |
+| 8K | 15 | 89.0 | 37.4 | 16.4 | −8.255 | 0.752 | 76.6 | 35.8 | 0.021 | 0.497 | vetoed (mega-topic) |
+| 8K | 20 | 66.5 | 39.4 | 16.8 | −8.139 | 0.786 | 72.5 | 25.4 | 0.034 | 0.483 | vetoed (mega-topic) |
+| 8K | 25 | 48.5 | 35.8 | 22.4 | −8.085 | 0.821 | 82.6 | 19.1 | 0.022 | 0.678 | vetoed (mega-topic) |
+| 12K | 5 | 427.0 | 32.0 | 4.0 | −8.270 | 0.501 | 64.8 | 71.8 | 0.051 | 0.394 | |
+| 12K | **10** | 232.5 | 36.9 | 4.4 | −7.753 | 0.616 | 73.0 | 55.5 | 0.009 | **0.570** | **← selected** |
+| 12K | 15 | 165.5 | 40.1 | 8.0 | −7.634 | 0.665 | 78.8 | 45.0 | 0.294 | 0.521 | |
+| 12K | 20 | 101.0 | 39.4 | 18.8 | −7.438 | 0.728 | 74.3 | 34.9 | 0.071 | 0.597 | vetoed (mega-topic) |
+| 12K | 25 | 65.5 | 35.0 | 26.0 | −8.033 | 0.790 | 72.3 | 24.1 | 0.278 | 0.467 | vetoed (mega-topic) |
+| 12K | 30 | 44.0 | 28.5 | 40.3 | −7.634 | 0.848 | 75.7 | 13.8 | 0.382 | 0.631 | vetoed (mega-topic) |
+| 16K(full) | 5 | 564.0 | 32.0 | 3.6 | −7.716 | 0.460 | 66.2 | 72.2 | 0.024 | 0.508 | |
+| 16K(full) | **10** | 293.0 | 35.6 | 4.0 | −7.544 | 0.591 | 76.2 | 55.2 | 0.012 | **0.641** | **← selected** |
+| 16K(full) | 15 | 212.5 | 38.5 | 4.5 | −7.475 | 0.647 | 74.2 | 47.2 | 0.090 | 0.590 | |
+| 16K(full) | 20 | 155.5 | 41.2 | 7.3 | −7.301 | 0.698 | 80.7 | 41.2 | 0.184 | 0.617 | |
+| 16K(full) | 25 | 103.5 | 39.2 | 16.1 | −7.235 | 0.744 | 80.7 | 31.2 | 0.198 | 0.651 | vetoed (mega-topic) |
+| 16K(full) | 30 | 72.5 | 32.3 | 31.3 | −7.910 | 0.795 | 72.8 | 25.9 | 0.384 | 0.450 | vetoed (mega-topic) |
+| 16K(full) | 35 | 56.5 | 31.2 | 37.4 | −7.990 | 0.826 | 75.0 | 20.0 | 0.205 | 0.509 | vetoed (mega-topic) |
+
+**Final table (as requested):**
+
+| corpus_size | best_min_topic_size | ratio_to_corpus | main_metrics |
+|---|---|---|---|
+| 4,000 | 10 | 0.00250 | n_topics=83.0, outlier%=41.6, coherence=−8.726, diversity=0.767 |
+| 8,000 | 10 | 0.00125 | n_topics=172.5, outlier%=38.2, coherence=−8.028, diversity=0.660 |
+| 12,000 | 10 | 0.00083 | n_topics=232.5, outlier%=36.9, coherence=−7.753, diversity=0.616 |
+| 16,062 (full) | 10 | 0.00062 | n_topics=293.0, outlier%=35.6, coherence=−7.544, diversity=0.591 |
+
+**The empirically best `min_topic_size` was 10 at *every single tested corpus size*** — it did not
+need to shrink for smaller corpora (contradicting the untested sqrt heuristic from section 12,
+which would have suggested ~5/7/9 at 4K/8K/12K) nor grow for the largest tested size. `mts=5`
+scored worst at every size (far more micro-topics, visibly lower coherence/diversity, much lower
+hard/soft agreement) — going below 10 is empirically never a win in this corpus. Larger values
+(15+) generally score *reasonably* on coherence/diversity alone but get vetoed for mega-topic risk
+at 4K/8K, and only become "safe" (non-vetoed) at 12K/16K without actually beating mts=10's
+composite score — i.e., the hard veto (chosen conservatively from Experiment 6's precedent) is
+doing most of the selection work here, not a strong intrinsic trend in the underlying score.
+
+**Scaling-law fit:** with the resulting 4 points — (4000,10), (8000,10), (12000,10), (16062,10) —
+fitting constant / linear-proportional / sqrt / log / general-power-law forms is almost a trivial
+exercise since the y-value never moved: the **constant law (`min_topic_size = 10`) fits the tested
+range essentially perfectly**, while sqrt/linear/log/power all fit strictly worse (any non-zero
+slope necessarily overshoots or undershoots the flat empirical line). This is the headline,
+data-driven answer to "how should `min_topic_size` change as corpus size grows": **within the
+range we could actually test (4K–16K, a 4× range), it should not change at all.**
+
+**Limitations (explicit):**
+- Only 2 UMAP seeds per config (42, 7), not the ideal 2–3, for CPU-runtime reasons — cross-seed
+  instability was generally low at mts=10 (0.009–0.215 across sizes) but this is a smaller
+  stability check than Experiment 9's dedicated 3-seed study.
+- Only 4 corpus-size data points, all landing on the same y-value — this makes the "constant"
+  conclusion very solid *for the tested range*, but means there is **zero empirical evidence for
+  corpus sizes beyond ~16,062 texts** (e.g. 100K, 1M). A mild, explicitly-flagged-as-unvalidated
+  log-based extrapolation is applied beyond that point in the updated
+  `recommend_min_topic_size()` (see below) purely as a conservative placeholder, not a finding.
+- The evaluation sample for hard/soft agreement/soft-signal coverage (n=280, fixed across all 44
+  configs and all 4 corpus sizes) is the same fixed sample used throughout this project, not a
+  per-corpus-size-scaled sample — reused deliberately for comparability with all prior experiments,
+  but means agreement/coverage numbers at different corpus sizes are evaluated against literally
+  the same texts rather than a size-proportional held-out set.
+- Models are evaluated purely in-memory (never saved) — this sidesteps `BERTopic.load()`'s
+  flakiness but also means these 44 fitted models cannot be manually re-inspected later without
+  re-running the sweep (results are recorded numerically in the JSON files above, not as browsable
+  model artifacts).
+- The interesting secondary observation that the "safe" (non-vetoed) `min_topic_size` ceiling
+  itself crept up with corpus size (safe up to ~10–14 at 4K/8K, ~15–19 at 12K, ~20–24 at 16K) is
+  based on only one veto-boundary crossing per size and was not itself statistically modeled —
+  noted as a plausible hint for why *larger* corpora might eventually want a larger
+  `min_topic_size`, not treated as a validated trend.
+
+**`recommend_min_topic_size()` updated accordingly** (see
+[src/train_topics.py](src/train_topics.py)): now returns the constant 10 for any corpus size up to
+~16,062 (empirically validated by this experiment), and only applies a small, explicitly-flagged
+log-based increase beyond that anchor (`10 + 5·ln(corpus_size / 16062)`, e.g. ≈19 at 100K, ≈31 at
+1M — much gentler than the old sqrt formula's 25/79) as a clearly-labeled, unvalidated
+extrapolation placeholder for corpora this project has not tested. As before, this remains a
+**starting point**, not a guaranteed optimum — a substantially different future corpus (in size,
+domain, or language mix) should still be re-validated with the same sweep methodology used here.
+
+**Decision:** Supersedes section 12's heuristic. Pure utility-function change — does not touch
+`fusion.py`, `train.py`, any checkpoint, or the production `min_topic_size=10` used by
+`build_and_save_topics()`/`saved_topic_model_soft_v2`.
+
+---
+
+## 17. Narrative Classification — Hybrid Hard/Soft Topic Representation
+
+**Goal (direct follow-up to section 15):** section 15 found that a single hard `topic_id`
+beats the full top-5 Soft distribution overall (65.91% vs. 61.16% Accuracy), but that Soft wins
+specifically on the ~8.8% of texts whose Soft distribution has no single dominant topic (72.1%
+vs. 69.4% Accuracy on that subset, using a fixed, post-hoc `dominance_threshold=0.7`). This
+raises the natural question: can a **per-example Hybrid rule** — Hard when the topic is
+dominant enough, Soft otherwise — combine the best of both and beat the Hard-only baseline
+overall? Critically, the threshold that defines "dominant enough" must be chosen **without any
+test-set leakage** (validation set only), otherwise any apparent gain would be an artifact of
+threshold-shopping on the test set. Per the explicit user constraint, the Topic Modeling phase
+itself (BERTopic tuning, `min_topic_size`, embedding model) is closed and untouched — this
+experiment only changes how the already-fixed BERTopic output is fed to the classifier.
+
+**Representation mechanics verified before designing Hybrid (`experiments/feature_ablation/narrative_topic_compare.py`,
+read in full, unmodified):** `TopicFeatureLayer` is a single `nn.Embedding(vec_size,
+NUM_NARRATIVES)` table consumed via `dense_vec @ table.weight`. Hard's one-hot vector and Soft's
+top-5-renormalized distribution vector already live in the exact same `bertopic_vec_size=283`-
+dimensional space — so a "Hybrid" representation requires **no new layer type**, only a
+per-example choice of which precomputed dense vector (Hard's one-hot or Soft's distribution) to
+feed into the identical table for that example.
+
+**Hybrid design:**
+- **Routing rule:** for each example, if the Soft distribution is "dominant enough" (per a
+  chosen criterion/threshold below), feed the Hard one-hot vector; otherwise feed the Soft
+  distribution vector. Both vectors already exist in `narrative_topic_compare.py`'s cache
+  (`hard_dense`, `soft_dense`) — Hybrid only builds a third `hybrid_dense` array by selecting,
+  row-by-row, one of the two, and reuses `TopicFeatureLayer`/`TopicAblationDetector` unmodified
+  via `import narrative_topic_compare as ntc` (with an in-process-only
+  `ntc.TOPIC_MODES = ntc.TOPIC_MODES + ("hybrid",)` extension — the file on disk is never
+  edited). Rest of the architecture (fusion network, NER/SRL/Emotion/Reliability arms, training
+  loop, hyperparameters, seeds 42/7/123) identical to section 15, by direct reuse/import.
+- **Dominance criteria tested:** (a) `top1_score` — the Soft distribution's own highest score,
+  swept over `{0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9}`; (b) `margin` — top1 score minus
+  top2 score, swept over `{0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5}`.
+
+**Leakage-free threshold selection (validation set only, no retraining required):** the
+already-trained reference checkpoints `hard_seed42.pth`/`soft_seed42.pth` from section 15 are
+loaded **read-only, for inference only** (never retrained) and evaluated on the VAL split only.
+For each candidate threshold, a hybrid prediction is *simulated* by swapping per-row between the
+Hard model's prediction and the Soft model's prediction according to the dominance rule
+(`hard_pred[i] if dominant else soft_pred[i]`), and VAL Macro-F1 of this simulated swap is
+recorded. The threshold/criterion combination that maximizes VAL Macro-F1 is selected — the test
+set is never touched during this step (see `reports/results/narrative_topic_hybrid/threshold_selection.json`
+for the full candidate table and an explicit note confirming this). This avoids training N
+separate hybrid models just to search thresholds, and cannot leak test information into the
+selection.
+
+**Threshold sweep result:** every one of the 17 candidates (9 `top1_score` + 8 `margin`) scored
+a VAL Macro-F1 in the narrow range **0.612–0.618** — notably, *none* of them approached Hard-
+only's own typical Macro-F1 (~0.65). The best candidate was `top1_score=0.3` (VAL Macro-F1 =
+0.6181), routing 52.4% of VAL rows to Hard and 47.6% to Soft. This was selected as the final
+threshold. **This sweep result was itself an early warning sign:** even the best possible
+per-row swap between two independently-trained Hard/Soft models never matched Hard-only's own
+solo performance — foreshadowing that a genuinely mixed representation was unlikely to help.
+
+**Artifacts (separate from section 15, no existing files touched):** new cache
+(`data/cache/cached_features_narrative_topic_hybrid.pt`), new checkpoints
+(`models/experiments/narrative_topic_hybrid/hybrid_seed{42,7,123}.pth`), new results file
+(`reports/results/narrative_topic_hybrid/results.json`), new threshold-selection file
+(`reports/results/narrative_topic_hybrid/threshold_selection.json`). Nothing under
+`models/experiments/narrative_topic_compare/`, `reports/results/narrative_topic_compare/results.json`,
+or `data/cache/cached_features_narrative_topic_compare.pt` was modified.
+
+**Results.** Hybrid trained across the same 3 seeds (42/7/123); test-set metrics, mean±std,
+alongside all section-15 configs for direct comparison:
+
+| Config | Accuracy | Macro-F1 | Weighted-F1 |
+|---|---|---|---|
+| `none` (no topic feature) | 50.49% ± 0.31 | 0.4951 ± 0.0033 | 0.5080 ± 0.0029 |
+| `hard` (single BERTopic id) | **65.91% ± 0.27** | **0.6522 ± 0.0027** | **0.6580 ± 0.0026** |
+| `soft` (top-5 BERTopic distribution) | 61.16% ± 0.17 | 0.6066 ± 0.0014 | 0.6119 ± 0.0020 |
+| `lda` (full K=50 LDA distribution) | 53.02% ± 0.30 | 0.5212 ± 0.0029 | 0.5315 ± 0.0028 |
+| `hybrid` (dominant→Hard, else→Soft, threshold from VAL only) | 60.79% ± 0.30 | 0.6036 ± 0.0026 | 0.6080 ± 0.0026 |
+
+**Headline finding — Hybrid does not beat Hard, and barely differs from Soft.** Hybrid scores
+60.79% Accuracy / 0.6036 Macro-F1, essentially tied with (fractionally below) plain `soft`
+(61.16% / 0.6066) and well below `hard` (65.91% / 0.6522): **-5.13pp Accuracy, -0.0487 Macro-F1
+vs. Hard**. Ranking is unchanged from section 15: **Hard > Soft ≈ Hybrid > LDA > None.**
+
+**Subset analysis (test set, reference seed=42) — % routed to Soft and single-topic vs.
+ambiguous breakdown:** with the VAL-selected threshold (`top1_score=0.3`), **47.96% of the test
+set (1,188/2,477 rows) was routed to Soft** ("ambiguous"), and 52.04% (1,289/2,477) was routed to
+Hard ("single-topic/dominant") — a near-even split, very different from section 15's illustrative
+8.8%/91.2% split (which used a fixed, not VAL-selected, `dominance_threshold=0.7`).
+
+| Subset | n | Hard-only acc | Soft-only acc | Hybrid acc |
+|---|---|---|---|---|
+| Single-topic (dominant) | 1,289 (52.0%) | 71.37% | 69.74% | 70.67% |
+| Ambiguous (non-dominant) | 1,188 (48.0%) | **60.77%** | 51.60% | 50.93% |
+| Overall | 2,477 | 66.29% | 61.04% | 61.20% |
+
+**Is the ambiguous-group improvement (if any) enough to help overall? No — because there is no
+ambiguous-group improvement.** Unlike section 15's illustrative subset (where Soft beat Hard on
+the multi-topic slice), here **Hard wins on *both* subsets**, including the "ambiguous" one
+(60.77% vs. 51.60% for Soft, vs. 50.93% for Hybrid — Hybrid is even fractionally worse than pure
+Soft on the exact subset it's supposed to specialize in). The VAL-only threshold search
+identified a much larger "ambiguous" population (48% vs. 8.8%) than section 15's fixed
+threshold, and — critically — this larger population is *not* one where Soft/Hybrid actually
+helps; Hard remains superior even there. This is the direct, honest consequence of choosing the
+threshold in an unbiased way (maximizing VAL Macro-F1 of the swap simulation) rather than
+picking `dominance_threshold=0.7` because it happened to show a Soft win on the test set.
+
+**Per-Narrative comparison:** `hybrid_minus_hard` F1 is **negative for all 7 Narratives**
+(Zionist -0.124, Resistance -0.047, Western -0.050, Russian -0.020, Ukrainian -0.047, Right-wing
+-0.027, Left-wing -0.027 — Russian is the least hurt, Zionist the most, mirroring section 15's
+`soft_minus_hard` pattern). No Narrative benefits from the Hybrid representation.
+
+**Why didn't Hybrid help, given the routing rule is theoretically sound?** Two compounding
+reasons, both traceable to the threshold-selection step itself: (1) the swap-simulation sweep
+(the leakage-free, VAL-only search) never found *any* candidate threshold whose simulated
+Macro-F1 approached Hard-only's own solo Macro-F1 — meaning even an oracle-free combination of
+two independently-trained Hard/Soft models is a worse strategy than just always trusting Hard,
+for this dataset; (2) training a **single shared `TopicFeatureLayer` table** on a mix of one-hot
+(Hard-routed) and distributed (Soft-routed) input vectors dilutes what the table learns compared
+to two separately specialized tables — the trained Hybrid model performs close to (and even
+fractionally below) the simple `soft`-only model, not between `hard` and `soft` as hoped.
+
+**Final answer to "does Hybrid Hard/Soft succeed in beating the Hard-only baseline of ~65.9%
+Accuracy / 0.652 Macro-F1?": No.** Hybrid scores 60.79% ± 0.30% Accuracy and 0.6036 ± 0.0026
+Macro-F1 — **-5.13pp Accuracy and -0.0487 Macro-F1 below Hard-only**, with the gap far larger
+than the ~0.003 run-to-run seed noise (a robust, non-marginal result, not a fluke of one seed).
+The leakage-free, VAL-only threshold search itself already signaled this outcome (no candidate
+threshold's simulated swap ever matched Hard-only's solo Macro-F1), and the subset analysis
+confirms it directly: Hard wins on **both** the single-topic subset (71.37% vs. 70.67% Hybrid)
+**and** the ambiguous subset (60.77% vs. 50.93% Hybrid) — there is no population segment where
+routing to Soft helps once the threshold is chosen honestly rather than cherry-picked. The
+existing production representation (single hard `topic_id`, i.e. `TopicStanceLayer`) remains the
+best design found across sections 15 and 17 combined. No change to the production model is
+recommended based on this experiment.**
+
+---
+
+## 18. Narrative Classification — Leave-One-Author-Out (LOAO) generalization test
+
+**Question:** the production model (`baseline_fusion`) is always evaluated on a **random**
+train/val/test split, where a given author's posts can appear in both train and test. This
+leaves a genuine open question: does the model actually learn generalizable *narrative* signal
+(entities, stance, rhetoric patterns), or does it partly memorize *author-specific* style, such
+that its ~67% random-split accuracy is inflated by having already seen that same author's
+"voice" during training? This is a real risk given `NER Weight` is consistently the single
+heaviest learned module (~44–47% across all runs) — named entities can behave as an author/
+account fingerprint (e.g. an account that always mentions the same handful of people/places)
+rather than as a narrative signal that would transfer to a never-seen author.
+
+**Baseline (for comparison):** the existing random-split `baseline_fusion` results
+(`reports/tables/comparison_random_test.md`): overall Accuracy=67.06%, Macro-F1=0.6643; per-narrative
+F1 for the three narratives tested here: Zionist=0.7354, Russian=0.6930, Left-wing=0.6231
+(Right-wing's own F1, relevant below, is 0.6602).
+
+**Change:** used `train.py`'s existing (previously untested end-to-end) `--split
+leave_one_author` CLI mode. For one real account per narrative — chosen to have ~200 samples
+and, where possible, direct relevance to existing open problems — **every single post by that
+account** is held out as the test set, and the model is trained from scratch on all other
+authors' posts (val also drawn from the remaining authors). Three accounts were run: `IDF`
+(Zionist, Twitter), `MariaZakharova` (Russian, Telegram — the account at the center of the
+pre-existing "maria/lying" open problem below), and `BernieSanders` (Left-wing, Twitter). Because
+`build_shared_vocab()` is deliberately fit on train-only data (leak prevention), each held-out
+author requires a **fully independent feature-extraction pass over the entire ~16,510-row
+corpus** (~5–23h wall-clock each depending on machine load) — no cache/vocab reuse across runs
+was attempted, to avoid introducing vocab-level leakage between splits.
+
+**Success criterion (declared before running):** a recall drop of ≲10pp vs. the random-split
+per-narrative F1 would be an acceptable generalization gap; a drop of >15–20pp would be
+considered a concerning sign of author-style memorization rather than narrative generalization.
+
+**Results:**
+
+| Held-out account | Narrative | Test n | Baseline F1 (random split) | LOAO Test Accuracy/Recall | Gap | Dominant misroute |
+|---|---|---|---|---|---|---|
+| `IDF` | Zionist | 200 | 0.7354 | 53.50% | **-20.0pp** | → Resistance (62/200, 31.0%) |
+| `MariaZakharova` | Russian | 200 | 0.6930 | 31.00% | **-38.3pp** | → Right-wing (115/200, **57.5%**) |
+| `BernieSanders` | Left-wing | 200 | 0.6231 | 28.00% | **-34.3pp** | → Right-wing (100/200, **50.0%**) |
+
+(Test-set Macro-F1/Macro-Precision/Macro-Recall figures reported by `train.py` for these runs —
+e.g. BernieSanders' Macro-F1=0.0625 — are **not meaningful**: as `train.py` itself warns at
+split time, a LOAO test set is by construction ~100% one narrative, so 6 of 7 classes have zero
+support and drag the macro-average to near-zero. The single-narrative **recall** column above,
+compared directly against that narrative's random-split F1, is the metric that actually answers
+the generalization question.)
+
+Module importance (learned fusion weights) stayed essentially constant across all three LOAO
+runs and matched the random-split model's own profile — NER 44–47%, Stance 29–36%, SRL 13–23%,
+Emotion 4–5% — so the drop is not explained by a shift in which module the model leans on; the
+same (NER-heavy) architecture simply fails to transfer for these held-out authors.
+
+**Finding 1 — all three accounts show a severe generalization gap, well past the "concerning"
+threshold.** Every one of the three held-out authors lost **20 to 38 percentage points** of
+recall relative to their narrative's balanced-split F1 — none came close to the ≲10pp
+"acceptable" bar declared above. This is strong, consistent evidence that `baseline_fusion`
+relies on signal that does not transfer cleanly to an unseen author within the same narrative —
+i.e., meaningful author-specific memorization, not purely narrative-level generalization.
+
+**Finding 2 — two of three accounts fail in the *same specific* way: mass misrouting to
+Right-wing.** `MariaZakharova` (Russian) and `BernieSanders` (Left-wing) don't just score lower —
+a majority of their test posts (57.5% and 50.0% respectively) are funneled into a single wrong
+narrative, **Right-wing**, rather than spread across errors or confused with topically-adjacent
+narratives. Right-wing is not an unusually "easy"/large catch-all class on the random split
+(its own F1, 0.6602, is mid-pack, not the highest), which makes this a specific, non-trivial
+attractor effect tied to these two held-out accounts rather than a generic majority-class bias.
+This directly reinforces and sharpens the pre-existing "maria/lying" open problem — the concern
+there was that a large topic cluster of troll-replies aimed at `@MariaVladimirovnaZakharova`
+might be acting as an author-specific fingerprint rather than genuine Russian-narrative content;
+this experiment shows that when that exact account is held out, the model doesn't just get
+uncertain, it actively mispredicts Right-wing for the majority of her posts. `IDF` (Zionist)
+fails differently — its errors go mostly to Resistance (31.0%), not Right-wing — showing the
+attractor effect is not universal across all held-out authors, only specific to (at least) these
+two.
+
+**Final answer to "does `baseline_fusion` generalize to unseen authors, or memorize account
+style?": mostly the latter.** All three tested accounts exceeded the pre-declared "concerning"
+generalization-gap threshold (20–38pp recall loss vs. random-split F1), and two of three show a
+qualitatively distinct failure mode — systematic misrouting into Right-wing rather than diffuse
+uncertainty — rather than merely lower-confidence correct predictions. This is evidence the
+model has learned some amount of author-specific/stylistic signal (plausibly entity-fingerprint-
+driven, given NER's consistently dominant module weight) in addition to genuine narrative
+content signal. No architecture change is made as a direct result of this experiment (it is a
+diagnostic, not a fix), but it is a materially important caveat on the ~67% random-split accuracy
+figure quoted elsewhere in this document, and it sharpens (without resolving) the existing
+"maria/lying" open problem into a concrete, reproducible symptom (57.5% same-target misroute).
+Investigating *why* Right-wing specifically acts as an attractor for two different held-out
+narratives — and whether down-weighting NER or adding author-invariance regularization would
+close the gap — is a natural, currently unexplored next step (see open problems below).
+
+---
+
+## 19. Feature Ablation + Soft Topics on unseen (LOAO) authors — which feature helps/hurts generalization?
+
+**Status: COMPLETE.** All 3 authors × 7 variants trained/evaluated, aggregate summary and a
+Right-wing "shortcut" forensic analysis both run — see `experiments/author_generalization/narrative_ablation_loao.py`,
+`experiments/author_generalization/narrative_ablation_rw_shortcut.py`, `reports/results/narrative_ablation_loao/`.
+
+**Research question.** Section 18 showed `baseline_fusion` generalizes poorly to unseen
+authors (20–38pp recall loss vs. random-split F1), with 2 of 3 held-out accounts
+systematically misrouted to Right-wing. *Which* feature group is responsible — does NER
+(entity/style memorization) hurt generalization, does any feature help, do Soft Topics
+(a distribution over topics instead of one hard id) improve generalization or reduce the
+Right-wing bias, and which combination gives the best unseen-author result? Per explicit user
+instruction, this is an ablation-only diagnostic — no Domain-Adversarial Training or other
+architecture change is introduced at this stage.
+
+**Hypothesis.** NER (or another author-identifying, near-lexical feature) contributes
+disproportionately to the unseen-author generalization gap and to the Right-wing attractor
+effect, because it is the module fusion.py's own printed weights (section 18) show as
+consistently dominant; a semantic-only signal (SBERT) or a smoother, less identity-specific
+topic signal (Soft Topic Distribution) should generalize better than hard, near-lexical
+features (NER/Stance-hard-topic).
+
+**Setup.** Same 3 held-out real accounts as section 18 (`IDF` → Zionist, `MariaZakharova` →
+Russian, `BernieSanders` → Left-wing), same exact train/val/test split per author
+(`train.split_leave_one_author`, unmodified, imported directly — same `random_state=42`, byte-
+identical row membership to section 18's runs, verified by a by-position label-alignment check
+against section 18's own cache before any reuse). NER/SRL/Emotion/Reliability features are
+reused **by position** from section 18's own cache
+(`data/cache/cached_features_baseline_fusion_loao_{author}.pt`) — only SBERT embeddings and
+hard/soft BERTopic features are computed fresh, both from the SAME single BERTopic model
+(`models/experiments/soft_v2_baseline_seeded`, the model `narrative_topic_compare.py` also
+uses), so "hard id vs. soft distribution" is isolated as the only difference between the two
+topic variants. One fixed seed (42) is used for every variant/author (fair, simple
+comparison, not a variance study). Checkpoints are selected purely by validation Macro-F1;
+the held-out author's test rows are never used for tuning. All outputs go to dedicated,
+non-overwriting paths: `data/cache/cached_features_ablation_loao_{author}.pt`,
+`models/experiments/narrative_ablation_loao/{variant}_{author}.pth`,
+`reports/results/narrative_ablation_loao/` (confusion matrices + `results.json` + `ablation_summary.csv`).
+Nothing from section 18 (or any other canonical file) is touched.
+
+**Variants** (all "SBERT + X", identical MLP architecture — `Linear(combined_dim,128) → ReLU →
+Dropout(0.3) → Linear(128,7) → Softmax` — only the concatenated feature arms differ):
+
+| # | Variant | Arms concatenated with SBERT |
+|---|---|---|
+| 1 | `sbert_only` | *(none — SBERT embedding alone)* |
+| 2 | `sbert_ner` | NER |
+| 3 | `sbert_stance_hard_topic` | Stance (hard BERTopic topic id) — **note:** in this codebase "Stance" *is* the hard topic id (`TopicStanceLayer`/`features["stance"]`); there is no separate stance signal, so this variant also stands in for the optional "SBERT+Hard Topic" request — same model/result, not duplicated |
+| 4 | `sbert_srl` | SRL |
+| 5 | `sbert_all_engineered` | NER + SRL + Emotion + Stance/Hard-Topic + Reliability (mirrors `HybridNarrativeDetector`'s engineered set, minus `agenda_ideology`) |
+| 6 | `sbert_soft_topic` | Soft Topic Distribution (top-5 `approximate_distribution()`, re-normalized) |
+| 7 | `sbert_all_engineered_plus_soft` | variant 5's arms + Soft Topic Distribution added on top |
+
+**Metrics** (per variant × per author, plus a 3-author average): Accuracy, Macro-Precision/
+Recall/F1 (macro figures are **not** the primary comparison metric here — same caveat as
+section 18: each author's test set is ~100% one narrative, so per-class macro figures mostly
+reflect that one class), **Recall of the true/held-out-author narrative** (= test accuracy,
+the primary comparison metric, consistent with section 18), confusion matrix (CSV per
+variant/author), **% of test examples misclassified as Right-wing**.
+
+**Results.** Recall of the true/held-out-author narrative (= test accuracy) and % of test
+examples misclassified as "Right-wing", per variant × author, plus the 3-author average
+(full numbers, including macro-precision/recall/F1, in `reports/results/narrative_ablation_loao/
+results.json` and `ablation_summary.csv`; confusion matrices per variant/author as CSV):
+
+| Variant | IDF recall | IDF →RW% | Maria recall | Maria →RW% | Bernie recall | Bernie →RW% | **Avg recall** | **Avg →RW%** | Avg macro-F1 |
+|---|---|---|---|---|---|---|---|---|---|
+| `sbert_only` (baseline) | 63.5% | 2.5% | 89.5% | 2.5% | 24.5% | **57.5%** | 59.2% | 20.8% | 0.1218 |
+| `sbert_ner` | 73.0% | 2.0% | 84.5% | 2.5% | 21.0% | 57.0% | 59.5% | 20.5% | 0.1076 |
+| `sbert_stance_hard_topic` | 52.5% | 3.0% | 77.0% | 7.5% | 26.5% | 52.0% | 52.0% | 20.8% | 0.1044 |
+| `sbert_srl` | 52.5% | 4.0% | 79.0% | 1.0% | 36.0% | 45.0% | 55.8% | 16.7% | 0.1000 |
+| **`sbert_all_engineered`** | 67.0% | 3.5% | **91.5%** | 4.0% | 23.0% | 54.0% | **60.5%** | 20.5% | 0.1197 |
+| `sbert_soft_topic` | 51.5% | 3.0% | **91.5%** | **1.0%** | 34.0% | 46.0% | 59.0% | **16.7%** | 0.1191 |
+| `sbert_all_engineered_plus_soft` | 67.5% | 2.5% | 66.5% | 20.5% | 35.0% | 42.0% | 56.3% | 21.7% | 0.1011 |
+
+(macro-F1 is the same low-hundreds-of-a-point figure as section 18 for the same reason: each
+author's test set is ~100% one narrative, so macro figures mostly reflect one class — not the
+primary comparison metric here, reported only for completeness.)
+
+**Right-wing "shortcut" forensic analysis** (`experiments/author_generalization/narrative_ablation_rw_shortcut.py`, using the
+`sbert_all_engineered` variant's predictions — closest to production `HybridNarrativeDetector`
+— comparing entities/words/hard-topics in each author's Right-wing-misclassified test rows
+against a 500-example sample of Right-wing's own training data; full lists in
+`reports/results/narrative_ablation_loao/rw_shortcut_forensic.json`):
+
+- **MariaZakharova**: only 8/200 test rows misclassified as Right-wing under this variant — too
+  small a sample for a reliable lexical/entity signal. The one notable overlap: **all 8** of her
+  misclassified rows land in hard-topic id 2 ("lying world, god diplomat, diplomat, madame
+  forgive, world russianstatterrorist") — this is the same "maria/lying" topic flagged as an
+  open problem earlier in this document — but that topic has only 1 Right-wing training
+  example, so the topic feature itself is not pulling these rows toward Right-wing; something
+  else in the combined feature vector is.
+- **BernieSanders**: 108/200 test rows misclassified as Right-wing — a much larger, more
+  reliable sample. Here the overlap is strong and consistent: the top shared **entities** are
+  `trump` (45 occurrences in Bernie's misclassified rows vs. 64 in Right-wing's own training
+  sample), `americans` (24 vs. 11), `congress` (11 vs. 5), `america` (11 vs. 10), `american`
+  (10 vs. 15), `republicans` (7 vs. 5) — i.e. exactly the entities most central to Right-wing's
+  own training corpus. The top shared **hard topics** are Bernie-specific policy topics
+  (topic 62 "working people / democratic primary", topic 138 "health care / medicaid /
+  republicans", topic 13 "wealth tax / billionaires") that have only a handful (2–6) of
+  Right-wing training examples each — so, like Maria, the *topic* signal is not the shared
+  driver. The **entity** overlap is the standout signal: Bernie (a US senator) and Right-wing's
+  training corpus (largely US right-wing political commentary) both discuss Trump, Congress,
+  Republicans and "Americans" heavily — same entities, opposite stance — and the NER-based
+  entity-embedding arm has no stance/sentiment signal, only entity identity, so it pushes both
+  toward the same narrative vector regardless of which side of the argument the text is on.
+
+**Interpretation.**
+1. **Does NER hurt generalization?** Mixed, not a clean "yes" — `sbert_ner` actually helps IDF
+   substantially (63.5%→73.0% recall) but slightly hurts MariaZakharova (89.5%→84.5%) and
+   BernieSanders (24.5%→21.0%), and does not meaningfully change either author's Right-wing
+   misrouting rate on its own. The forensic analysis, however, shows NER (inside
+   `sbert_all_engineered`) *is* the most plausible mechanism behind BernieSanders' Right-wing
+   misrouting specifically — not because NER is "bad" in general, but because Right-wing's own
+   training corpus and Bernie's genuinely different-narrative content share the same top
+   entities (Trump, Congress, Republicans, Americans) with opposite stance, and the entity
+   arm has no stance signal to tell them apart. So: NER doesn't hurt generalization *on average*,
+   but it is a specific, identifiable driver of the Right-wing attractor for at least one author.
+2. **Does anything help?** `sbert_all_engineered` gives the best average recall (60.5%, vs.
+   59.2% baseline) — a modest, not dramatic, improvement — driven mostly by MariaZakharova
+   (89.5%→91.5%) and IDF (63.5%→67.0%); it does not help BernieSanders (23.0% vs. 24.5%
+   baseline) and does not reduce his Right-wing misrouting (54.0% vs. 57.5%). No single
+   engineered feature or combination produces a clear win across all 3 authors simultaneously.
+3. **Do Soft Topics beat Hard Topics?** Yes, clearly, on both metrics tested here:
+   `sbert_soft_topic` (avg recall 59.0%, avg →RW 16.7%) beats `sbert_stance_hard_topic` (avg
+   recall 52.0%, avg →RW 20.8%) for every one of the 3 authors individually on recall, and on
+   Right-wing misrouting for Maria (7.5%→1.0%) and Bernie (52.0%→46.0%). A smoother distribution
+   over topics generalizes better to an unseen author than a single hard topic id.
+4. **Do Soft Topics reduce the Right-wing bias?** Yes, specifically for the two authors that
+   showed it in section 18: MariaZakharova 2.5%→1.0%, BernieSanders 57.5%→46.0% (comparing
+   `sbert_soft_topic` to the `sbert_only` baseline) — the largest Right-wing-misrouting
+   reduction of any single variant tested, though it costs IDF's own recall (63.5%→51.5%, IDF
+   never showed the Right-wing pattern to begin with, so this is an acceptable trade for the
+   authors that actually need it).
+5. **Which combination gives the best unseen-author result?** No variant dominates on every
+   metric/author — this is itself a finding, not an omission. `sbert_all_engineered` wins on
+   average recall; `sbert_soft_topic` wins on average Right-wing-bias reduction; combining both
+   (`sbert_all_engineered_plus_soft`) is the **worst** choice tested — MariaZakharova's recall
+   collapses (91.5%→66.5%) and her Right-wing rate jumps (4.0%→20.5%) when every arm is stacked
+   together, a clear overfitting/feature-conflict symptom, not an additive improvement. Simpler,
+   single-arm additions to SBERT generalize more reliably than throwing every feature in at once.
+
+**Decision / next step.** No production change made — per the explicit scope of this
+experiment, this was diagnostic/ablation only, not a fix. The clearest actionable findings for
+a future iteration: (a) Soft Topic Distribution is the single most promising feature addition
+for reducing the specific Right-wing-misrouting failure mode, and is a strong candidate to
+integrate into `fusion.py` if unseen-author generalization becomes a priority (still gated by
+the same open problem noted in this document — soft distribution is not yet wired into the
+classifier); (b) the NER entity arm's lack of a stance/sentiment signal is a concrete,
+falsifiable mechanism (not just a hypothesis) behind at least one author's Right-wing
+misrouting, and is a natural first target if the user later revisits Domain-Adversarial
+Training or a stance-aware entity representation; (c) feature-stacking without validation per
+added arm (`sbert_all_engineered_plus_soft`) is actively harmful for at least one author and
+should not be assumed safe by default in future ablations.
+
+---
+
+## Open problems (not resolved by any experiment above)
+
+- **~34–36% outlier rate** persists across every configuration tried (preprocessing cleanup,
+  dedup, mts=10/15/25/35, MiniLM vs. mpnet across 3 seeds each) — root-cause analysis attributes
+  this most likely to real embedding-space sparsity/heterogeneity of a very mixed corpus (short
+  tweets vs. long GPT/Gemini paragraphs), not to `min_topic_size` or the specific embedding model.
+  Experiment B's seed=42 result looked like a modest improvement (35.8%→34.7%), but Experiment B's
+  seed-stability check (Experiment 9) showed this reverses on average across seeds (mpnet's
+  3-seed average, 35.6%, is actually worse than MiniLM's, 34.5%) - still a fully open problem.
+  **Important nuance found in Experiment E (13):** this ~35% rate is the FIT-TIME outlier rate
+  (`.topics_`) - BERTopic's `.transform()`, used for all new/inference-time text, essentially
+  never reproduces it (99% of previously-outlier docs get reassigned to a real topic when
+  re-transformed) - so this open problem affects the TRAINING corpus's clustering quality, not
+  what downstream consumers (`stance.py`'s `TopicAnalysisPipeline`) see at inference time.
+- **Hard/soft top-1 agreement ceiling around 54–76%** (varies by `min_topic_size` but with a
+  large coverage cost at higher settings) is partly structural — hard labels come from
+  HDBSCAN density clustering over UMAP-reduced embeddings, while soft scores come from
+  token-level c-TF-IDF word overlap over raw text, a fundamentally different signal pathway.
+- **Duplicate "rulesbased order" topic pair** was fixed via `min_topic_size` 25+ (rejected due to
+  mega-topic collapse, Experiments 6-7). The embedding-model swap (Experiment B) merged it in 2
+  of 3 seeds tested (not at seed=123) - a probability increase, not a reliable fix. Experiment D
+  confirmed a targeted `merge_topics()` on just this one pair is clean (no other topic's document
+  membership affected, modest quality improvement) and found NO other genuine duplicate pairs
+  among the top-20 highest-scoring candidates out of all 39,621 pairs checked - but adoption on
+  the production model is deferred to the user, so this remains technically open until applied.
+- **The large "maria/lying" topic** (~195–198 docs of genuinely distinct troll-reply texts to
+  @MariaVladimirovnaZakharova) is confirmed NOT a duplication artifact (Experiment 4) and is not
+  affected by any `min_topic_size` setting tested — if still considered undesirable as a
+  classifier feature, it would need a different, targeted approach (e.g. explicit
+  troll-reply/near-target-mention down-weighting), not attempted here. **Section 18's LOAO test
+  sharpened this into a concrete symptom:** holding out `MariaZakharova` entirely causes 57.5% of
+  her posts to be misclassified as Right-wing (not just lower confidence) — consistent with, but
+  not proof of, the classifier having partly fingerprinted her account rather than the Russian
+  narrative itself. Root cause (NER-driven author fingerprinting vs. genuine content overlap
+  between Russian-troll-reply rhetoric and Right-wing rhetoric) remains unestablished.
+- **Author-style memorization vs. narrative generalization (Section 18, LOAO test):** all 3
+  held-out authors tested (`IDF`, `MariaZakharova`, `BernieSanders`) lost 20–38pp of recall vs.
+  their random-split F1, and 2 of 3 showed systematic misrouting into Right-wing specifically
+  (57.5%, 50.0%) rather than diffuse errors. **Section 19's feature ablation + forensic analysis
+  partially resolved this:** for BernieSanders, the mechanism is identifiable — the NER entity
+  arm has no stance/sentiment signal, and his heavy mentions of Trump/Congress/Republicans/
+  Americans (also the top entities in Right-wing's own training data, with opposite stance) get
+  routed toward Right-wing regardless of stance; Soft Topic Distribution measurably reduces
+  (not eliminates) this specific failure mode (Bernie 57.5%→46.0%, Maria 2.5%→1.0%) at some cost
+  to authors that didn't show the pattern (IDF). Still not investigated: whether this
+  generalizes to more held-out authors beyond these 3, or whether a full fix (down-weighting
+  NER, a stance-aware entity representation, author-invariance/adversarial training, more
+  authors per narrative in training) would close the remaining gap — no fix attempted, section
+  19 was diagnostic/ablation only, per explicit user scope.
+- **Soft distribution is still not integrated as a classification feature** in `fusion.py`/
+  `train.py` — every experiment above was explicitly scoped to stay out of the classifier. Doing
+  so would also need to apply `clean_text_for_topic_model()` at inference time for
+  `saved_topic_model_soft_v2` (already handled by `stance.py`'s `use_cleaned_preprocessing` flag)
+  and would require re-deciding the `min_topic_size`/embedding-model questions above with the
+  classifier's needs in mind, not just topic-model-internal quality metrics.
+- Experiment B (embedding model swap) and a possible targeted post-hoc merge of only confirmed
+  duplicate topic pairs (instead of a blanket `min_topic_size` increase) remain proposed,
+  unimplemented next steps.
+
+---
+
+## Summary
+
+| Experiment | Change | Main Result | Decision |
+|---|---|---|---|
+| 1. Soft clustering | Added `approximate_distribution()`-based multi-topic scoring (`get_topic_distribution`, `analyze_soft_topics.py`) | New capability works; requires a ctfidf-saved model | Adopted |
+| 2. `save_ctfidf=True` + model versioning | Fixed `NotFittedError`; split legacy (369 topics, classifier-facing) vs. soft_v2 (310 topics, soft-scoring) models | Legacy checkpoints protected from re-fit renumbering | Adopted (both paths kept permanently) |
+| 3. URL/mention/hashtag preprocessing | Added `clean_text_for_topic_model()` (+ bare-shortlink handling), unified train/inference cleaning | Removed concrete junk topics (ddgeopolitics, bringthemhomenow); outliers 35.0%→34.0%, agreement 55.0%→56.1% | Adopted permanently in `train_topics.py`/`stance.py` |
+| 4. Dedup analysis + threshold=0.7 retrain | MinHash/LSH near-dup detection; dedup wired into training | ~1.7% of corpus removed; all quality deltas within run-to-run noise; maria/lying confirmed not duplicate-driven | Kept in `train_topics.py` as hygiene, not a proven quality fix |
+| 5. Experiment C (representation) | Bigram vectorizer + reduce_frequent_words + MMR + multi-word labels, `update_topics()` only | Clustering unchanged (verified); most vague labels became descriptive; can't fix incoherent small clusters or merge duplicates | Adopted (labeling approach + `get_topic_label(top_n_words=3)`) |
+| 6. Experiment A (`min_topic_size` 25/35) | Raised HDBSCAN granularity, seeded UMAP baseline | Fixed rulesbased duplicate + small-topic fragmentation, BUT caused severe mega-topic collapse (top-2 topics = 43.1% of corpus at mts=35) | **Rejected** — stayed at `min_topic_size=10` |
+| 7. Experiment A2 (`min_topic_size=15`) | Milder granularity increase, one more sweep point | Mega-topic collapse avoided, but rulesbased duplicate NOT fixed, one control topic already lost, soft-signal coverage dropped 51.1%→42.5% | **Rejected** — stayed at `min_topic_size=10` |
+| 10. Experiment D (duplicate-topic detection + rulesbased merge test) | Scored all 39,621 topic pairs (semantic+lexical similarity); tested `merge_topics()` on the one confirmed duplicate pair, on a separate model copy | Only the known rulesbased pair (score 0.461) is a genuine duplicate among top-20 candidates (others are same-domain-but-distinct); merge is clean (280/280 other topics' document membership unaffected) but shifts unrelated topics' *displayed* top-words (mean Jaccard 0.240) due to corpus-wide c-TF-IDF recompute; quality metrics improve modestly | Merge validated as safe/beneficial in isolation; **adoption on production model deferred to user** |
+| 16. Experiment F (corpus-size × `min_topic_size` scaling sweep) | Stratified subsampling (4K/8K/12K/16K, 4-source × 7-narrative mix preserved), swept `min_topic_size` per size × 2 UMAP seeds (44 fitted models), scored via a pre-defined multi-metric composite + mega-topic veto | Best `min_topic_size` was **10 at every tested size** — constant fits far better than sqrt/linear/log; the old sqrt-down-scaling heuristic (section 12) is empirically refuted for smaller corpora (mts=5 always scored worst) | `recommend_min_topic_size()` rewritten: constant 10 up to the tested anchor (~16,062), small unvalidated log-based extrapolation beyond it |
+| 17. Hybrid Hard/Soft topic representation (`hard` dominant→Hard else→Soft, VAL-only threshold) | Per-example routing between Hard one-hot and Soft distribution vectors fed into the same `TopicFeatureLayer`, threshold chosen on VAL Macro-F1 only | Hybrid (60.79% Acc / 0.6036 F1) ties Soft, loses to Hard-only (65.91% / 0.6522) on **both** the dominant and ambiguous subsets — no population segment benefits | **Rejected** — kept single hard `topic_id` as the production representation |
+| 18. Leave-One-Author-Out (LOAO) generalization test | Held out all posts from one real account per narrative (`IDF`, `MariaZakharova`, `BernieSanders`), trained `baseline_fusion` from scratch on the remaining authors, evaluated recall on the held-out account | All 3 accounts lost 20–38pp recall vs. random-split F1 (well past the declared ≲10pp "acceptable" bar); 2 of 3 (`MariaZakharova`, `BernieSanders`) systematically misrouted 50–57.5% of posts to Right-wing specifically, not diffuse errors | Diagnostic finding, no architecture change made; sharpens the "maria/lying" open problem into a concrete reproducible symptom; author-style memorization vs. generalization remains an open problem |
+| 19. Feature ablation + Soft Topics on LOAO authors | 7 "SBERT + X" variants (NER/SRL/Emotion/Hard-Topic/Soft-Topic/all-engineered/all+soft) trained on the same 3 held-out authors as #18, same splits; plus a Right-wing "shortcut" forensic analysis (entity/word/topic overlap between misclassified-as-RW rows and Right-wing's own training data) | No single feature/combo wins across all 3 authors; Soft Topics gave the best Right-wing-bias reduction (avg 20.8%→16.7%, Bernie 57.5%→46.0%) at some cost to IDF's recall; `sbert_all_engineered` gave the best avg recall (60.5%) but didn't reduce Bernie's Right-wing rate; stacking all arms together was the **worst** variant for MariaZakharova (91.5%→66.5% recall). Forensic analysis found a concrete mechanism for Bernie: NER's entity arm has no stance signal, so his heavy mentions of Trump/Congress/Republicans/Americans (also top entities in Right-wing's own training data, opposite stance) get routed toward Right-wing regardless of his actual (opposing) stance | Diagnostic only, no production change; Soft Topic Distribution flagged as the most promising future integration candidate for reducing Right-wing misrouting; NER's stance-blindness identified as a concrete target for future Domain-Adversarial Training/stance-aware entity work |

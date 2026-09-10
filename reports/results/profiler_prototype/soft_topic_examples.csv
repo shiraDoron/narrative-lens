@@ -1,0 +1,3 @@
+﻿narrative_name,text,dominant_topic_id,dominant_topic_label,soft_topic_distribution
+Left-wing,Corporate greed is out of control. We need to implement a wealth tax and close those loopholes.,10,tax,topic_10 (tax): 0.45; topic_118 (wealth): 0.38; topic_165 (inflation): 0.16
+Russian,"Every time they add a new member, it just ratchets up the tension. It's so clear.",109,change,topic_109 (change): 0.81; topic_203 (every): 0.19

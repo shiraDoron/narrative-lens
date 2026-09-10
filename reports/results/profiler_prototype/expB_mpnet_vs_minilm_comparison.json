@@ -1,0 +1,977 @@
+{
+  "baseline_mts10": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "save_path": "models/experiments/soft_v2_baseline_seeded",
+    "cluster_stats": {
+      "n_topics": 282,
+      "n_docs_total": 16062,
+      "n_outliers": 5750,
+      "outlier_pct": 35.8,
+      "topic_size_mean": 36.6,
+      "topic_size_median": 25.5,
+      "n_small_topics_leq15": 53,
+      "n_topics_at_own_floor": 98
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 240,
+          "pct_of_clustered": 2.3,
+          "label": "jewish state land",
+          "top_words": [
+            "jewish state",
+            "land israel",
+            "israel place",
+            "israel refuge",
+            "shouldnt jewish",
+            "diaspora israel"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 209,
+          "pct_of_clustered": 2.0,
+          "label": "bring home backups",
+          "top_words": [
+            "bring home",
+            "backups",
+            "home project",
+            "hostages",
+            "returned",
+            "goili"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 195,
+          "pct_of_clustered": 1.9,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 191,
+          "pct_of_clustered": 1.9,
+          "label": "gaza ceasefire strip",
+          "top_words": [
+            "gaza",
+            "gaza ceasefire",
+            "gaza strip",
+            "war gaza",
+            "palestinians gaza",
+            "people gaza"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 186,
+          "pct_of_clustered": 1.8,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "terrorists",
+            "hamas terrorists",
+            "footage",
+            "kibbutz",
+            "gopro"
+          ]
+        }
+      ],
+      "top2_combined_count": 449,
+      "top2_combined_pct_of_clustered": 4.4
+    },
+    "watch_word_topic_ids": {
+      "rulesbased": [
+        96,
+        209
+      ],
+      "call": [
+        22,
+        54,
+        64,
+        201
+      ],
+      "hard": [
+        23,
+        67,
+        149,
+        156,
+        212
+      ],
+      "era": [
+        4,
+        11,
+        15,
+        26,
+        36,
+        54,
+        64,
+        89,
+        103,
+        112,
+        118,
+        135,
+        139,
+        141,
+        147,
+        162,
+        167,
+        177,
+        180,
+        183,
+        186,
+        188,
+        201,
+        209,
+        211,
+        223,
+        224,
+        235,
+        259,
+        261,
+        267,
+        271,
+        279,
+        280
+      ]
+    },
+    "smallest_topics": [
+      {
+        "topic_id": 281,
+        "count": 10,
+        "label": "normal life 75",
+        "top_words": [
+          "normal life",
+          "75 years",
+          "amazing achieved",
+          "feels normal",
+          "years mindblowing",
+          "seventyfive years"
+        ]
+      },
+      {
+        "topic_id": 280,
+        "count": 10,
+        "label": "solidarity greatest people",
+        "top_words": [
+          "solidarity",
+          "solidarity greatest",
+          "solidarity people",
+          "feelgood word",
+          "equitable sustainable",
+          "liberation solidarity"
+        ]
+      },
+      {
+        "topic_id": 279,
+        "count": 10,
+        "label": "normalize occupation compromises",
+        "top_words": [
+          "normalize occupation",
+          "compromises negotiations",
+          "arms occupation",
+          "law deny",
+          "generations grow",
+          "erase truth"
+        ]
+      },
+      {
+        "topic_id": 278,
+        "count": 10,
+        "label": "olive trees longer",
+        "top_words": [
+          "olive trees",
+          "longer borders",
+          "trees theyve",
+          "olive tree",
+          "harvest best",
+          "invaders climbed"
+        ]
+      },
+      {
+        "topic_id": 277,
+        "count": 10,
+        "label": "country border geographical",
+        "top_words": [
+          "country border",
+          "geographical area",
+          "nation borders",
+          "secure borders",
+          "borders isnt",
+          "borders willynilly"
+        ]
+      },
+      {
+        "topic_id": 274,
+        "count": 10,
+        "label": "secret cards chacha",
+        "top_words": [
+          "secret cards",
+          "chacha",
+          "lost secret",
+          "2024 aguto",
+          "ukraine servicemen",
+          "basurin admitted"
+        ]
+      },
+      {
+        "topic_id": 275,
+        "count": 10,
+        "label": "chaiban said classroom",
+        "top_words": [
+          "chaiban said",
+          "classroom children",
+          "children day",
+          "children killed",
+          "killed usisraeli",
+          "killed 334"
+        ]
+      },
+      {
+        "topic_id": 276,
+        "count": 10,
+        "label": "compassion citizens wheres",
+        "top_words": [
+          "compassion citizens",
+          "compassion compassion",
+          "wheres compassion",
+          "empathy compassion",
+          "immigration needs",
+          "compassion talk"
+        ]
+      },
+      {
+        "topic_id": 273,
+        "count": 10,
+        "label": "visas overstay 15000",
+        "top_words": [
+          "visas",
+          "overstay",
+          "15000 bond",
+          "200000 immigrant",
+          "asu visas",
+          "applicants business"
+        ]
+      },
+      {
+        "topic_id": 266,
+        "count": 11,
+        "label": "diversity actually isnt",
+        "top_words": [
+          "diversity",
+          "diversity actually",
+          "diversity isnt",
+          "greatest strength",
+          "ability compromise",
+          "real diversity"
+        ]
+      },
+      {
+        "topic_id": 265,
+        "count": 11,
+        "label": "baltic sea million",
+        "top_words": [
+          "baltic sea",
+          "million tons",
+          "leningrad region",
+          "port primorsk",
+          "oil refinery",
+          "vertical tank"
+        ]
+      },
+      {
+        "topic_id": 264,
+        "count": 11,
+        "label": "wildfires angeles la",
+        "top_words": [
+          "wildfires",
+          "angeles wildfires",
+          "la wildfires",
+          "california wildfires",
+          "firefighters",
+          "blaze fears"
+        ]
+      },
+      {
+        "topic_id": 267,
+        "count": 11,
+        "label": "hate justice isnt",
+        "top_words": [
+          "hate justice",
+          "isnt hate",
+          "hate law",
+          "hatred justice",
+          "hatred ideology",
+          "hate resisting"
+        ]
+      },
+      {
+        "topic_id": 263,
+        "count": 11,
+        "label": "violent crime arrested",
+        "top_words": [
+          "violent crime",
+          "arrested released",
+          "population serial",
+          "big cities",
+          "criminals",
+          "2025 preliminary"
+        ]
+      },
+      {
+        "topic_id": 270,
+        "count": 11,
+        "label": "belgorod russians launched",
+        "top_words": [
+          "belgorod",
+          "russians launched",
+          "nizhnekamsk",
+          "lack information",
+          "glukhovsky",
+          "occupiers attacked"
+        ]
+      }
+    ],
+    "control_topics": {
+      "gaza_ceasefire": {
+        "topic_id": 3,
+        "count": 191,
+        "label": "gaza ceasefire strip",
+        "top_words": [
+          "gaza",
+          "gaza ceasefire",
+          "gaza strip",
+          "war gaza",
+          "palestinians gaza",
+          "people gaza"
+        ]
+      },
+      "ukraine_glory": {
+        "topic_id": 6,
+        "count": 149,
+        "label": "glory ukraine stand",
+        "top_words": [
+          "glory ukraine",
+          "stand ukraine",
+          "day ukraine",
+          "crimea ukraine",
+          "ukraine donbas",
+          "ukraine prevail"
+        ]
+      },
+      "telephone_conversation": {
+        "topic_id": 20,
+        "count": 87,
+        "label": "telephone conversation president",
+        "top_words": [
+          "telephone conversation",
+          "conversation president",
+          "president france",
+          "vladimir putin",
+          "president kazakhstan",
+          "kassymjomart tokayev"
+        ]
+      },
+      "home_bring": {
+        "topic_id": 1,
+        "count": 209,
+        "label": "bring home backups",
+        "top_words": [
+          "bring home",
+          "backups",
+          "home project",
+          "hostages",
+          "returned",
+          "goili"
+        ]
+      },
+      "maria_lying": {
+        "topic_id": 2,
+        "count": 195,
+        "label": "lying world god",
+        "top_words": [
+          "lying world",
+          "god diplomat",
+          "diplomat",
+          "madame forgive",
+          "world russianstatterrorist",
+          "world maria"
+        ]
+      },
+      "iran_related": {
+        "topic_id": 8,
+        "count": 142,
+        "label": "iranian missiles occupied",
+        "top_words": [
+          "iranian missiles",
+          "occupied palestine",
+          "tel aviv",
+          "aviv",
+          "palestine source",
+          "iranian missile"
+        ]
+      }
+    },
+    "soft_quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 138,
+        "no_soft_signal": 137,
+        "spread_multi_topic": 5
+      },
+      "case_pct": {
+        "dominant_single_topic": 49.3,
+        "no_soft_signal": 48.9,
+        "spread_multi_topic": 1.8
+      },
+      "hard_soft_agreement_counts": {
+        "None": 137,
+        "True": 86,
+        "False": 57
+      },
+      "hard_is_outlier_pct": 0.0,
+      "raw_top1_score_stats": {
+        "mean": 0.46011391727314055,
+        "median": 0.4226138763687921,
+        "std": 0.46850633949328113,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.03962832667433938,
+        "median": 0.0,
+        "std": 0.10449818277373826,
+        "min": 0.0,
+        "max": 0.494191928594892,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.00671469469466202,
+        "median": 0.0,
+        "std": 0.03031293780694419,
+        "min": 0.0,
+        "max": 0.19115971438038998,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9009223554998557,
+        "median": 1.0,
+        "std": 0.17702167871321361,
+        "min": 0.2670606417255628,
+        "max": 1.0,
+        "p25": 0.8664474302299396,
+        "p75": 1.0
+      },
+      "outlier_rescue": null
+    },
+    "pct_texts_with_soft_signal": 51.1
+  },
+  "expB_mpnet": {
+    "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+    "save_path": "models/experiments/soft_v2_expB_mpnet",
+    "cluster_stats": {
+      "n_topics": 309,
+      "n_docs_total": 16062,
+      "n_outliers": 5581,
+      "outlier_pct": 34.7,
+      "topic_size_mean": 33.9,
+      "topic_size_median": 24.0,
+      "n_small_topics_leq15": 74,
+      "n_topics_at_own_floor": 131
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 220,
+          "pct_of_clustered": 2.1,
+          "label": "bring home rani",
+          "top_words": [
+            "bring home",
+            "rani",
+            "project",
+            "kidnapped",
+            "hostages",
+            "captivity"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 210,
+          "pct_of_clustered": 2.0,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "hamas terrorists",
+            "terrorists",
+            "footage",
+            "music festival",
+            "massacres"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 205,
+          "pct_of_clustered": 2.0,
+          "label": "nato expansion eastward",
+          "top_words": [
+            "nato",
+            "nato expansion",
+            "eastward",
+            "nato isn",
+            "alliances",
+            "cold war"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 192,
+          "pct_of_clustered": 1.8,
+          "label": "lying world maria",
+          "top_words": [
+            "lying world",
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 174,
+          "pct_of_clustered": 1.7,
+          "label": "smolensk view region",
+          "top_words": [
+            "smolensk",
+            "view smolensk",
+            "smolensk region",
+            "smolensk instant",
+            "smolensk residents",
+            "smolyan residents"
+          ]
+        }
+      ],
+      "top2_combined_count": 430,
+      "top2_combined_pct_of_clustered": 4.1
+    },
+    "watch_word_topic_ids": {
+      "rulesbased": [],
+      "call": [
+        15,
+        17,
+        20,
+        31,
+        73,
+        123,
+        203,
+        239,
+        284,
+        288,
+        307
+      ],
+      "hard": [
+        171,
+        185
+      ],
+      "era": [
+        8,
+        14,
+        31,
+        39,
+        53,
+        55,
+        60,
+        61,
+        62,
+        73,
+        85,
+        89,
+        90,
+        103,
+        110,
+        113,
+        119,
+        143,
+        149,
+        163,
+        166,
+        168,
+        175,
+        180,
+        183,
+        184,
+        200,
+        213,
+        214,
+        219,
+        233,
+        235,
+        238,
+        239,
+        244,
+        249,
+        252,
+        255,
+        268,
+        274,
+        283,
+        293,
+        297
+      ]
+    },
+    "smallest_topics": [
+      {
+        "topic_id": 308,
+        "count": 10,
+        "label": "attack lisichansk attacks",
+        "top_words": [
+          "attack lisichansk",
+          "attacks kharkov",
+          "city stormed",
+          "city gradually",
+          "looters war",
+          "kharkov situation"
+        ]
+      },
+      {
+        "topic_id": 307,
+        "count": 10,
+        "label": "trans youth violence",
+        "top_words": [
+          "trans",
+          "trans youth",
+          "violence statistically",
+          "trump shocker",
+          "truth update",
+          "trump weapon"
+        ]
+      },
+      {
+        "topic_id": 300,
+        "count": 10,
+        "label": "granit enterprise buk",
+        "top_words": [
+          "granit enterprise",
+          "buk tor",
+          "battery warfare",
+          "50 aircraft",
+          "alchevsk",
+          "russian aerospace"
+        ]
+      },
+      {
+        "topic_id": 303,
+        "count": 10,
+        "label": "vance president war",
+        "top_words": [
+          "vance",
+          "president vance",
+          "war department",
+          "executive order",
+          "vice",
+          "war pete"
+        ]
+      },
+      {
+        "topic_id": 304,
+        "count": 10,
+        "label": "sentence thank attention",
+        "top_words": [
+          "sentence thank",
+          "attention matter",
+          "hey trump",
+          "thank attention",
+          "fired familiar",
+          "khatam al"
+        ]
+      },
+      {
+        "topic_id": 305,
+        "count": 10,
+        "label": "georgian dream elections",
+        "top_words": [
+          "georgian",
+          "georgian dream",
+          "elections sunday",
+          "irakli kobakhidze",
+          "russian interference",
+          "pro russian"
+        ]
+      },
+      {
+        "topic_id": 302,
+        "count": 10,
+        "label": "abolish filibuster pass",
+        "top_words": [
+          "abolish filibuster",
+          "filibuster",
+          "pass legislation",
+          "abolish",
+          "end filibuster",
+          "legislation instead"
+        ]
+      },
+      {
+        "topic_id": 306,
+        "count": 10,
+        "label": "charlie kirk tim",
+        "top_words": [
+          "charlie kirk",
+          "charlie",
+          "tim kaine",
+          "south park",
+          "character award",
+          "assassination political"
+        ]
+      },
+      {
+        "topic_id": 301,
+        "count": 10,
+        "label": "sovereignty pure determination",
+        "top_words": [
+          "sovereignty pure",
+          "determination nation",
+          "liberty internationalist",
+          "internationalist agenda",
+          "nation planet",
+          "puppet sovereignty"
+        ]
+      },
+      {
+        "topic_id": 290,
+        "count": 11,
+        "label": "gold coin appointed",
+        "top_words": [
+          "gold coin",
+          "appointed president",
+          "trump crypto",
+          "commemorative gold",
+          "inauguration trump",
+          "coin featuring"
+        ]
+      },
+      {
+        "topic_id": 287,
+        "count": 11,
+        "label": "kimmel jimmy conan",
+        "top_words": [
+          "kimmel",
+          "jimmy kimmel",
+          "conan brien",
+          "oscars stage",
+          "trumps",
+          "trump insults"
+        ]
+      },
+      {
+        "topic_id": 288,
+        "count": 11,
+        "label": "table nations having",
+        "top_words": [
+          "table nations",
+          "having seat",
+          "nations finally",
+          "finally having",
+          "basically having",
+          "nations know"
+        ]
+      },
+      {
+        "topic_id": 289,
+        "count": 11,
+        "label": "gun reform prayers",
+        "top_words": [
+          "gun",
+          "gun reform",
+          "prayers instead",
+          "gun violence",
+          "gun control",
+          "need common"
+        ]
+      },
+      {
+        "topic_id": 291,
+        "count": 11,
+        "label": "need strengthen imperfect",
+        "top_words": [
+          "need strengthen",
+          "imperfect plays",
+          "crisis management",
+          "attorney ran",
+          "clearly states",
+          "antónio guterres"
+        ]
+      },
+      {
+        "topic_id": 297,
+        "count": 11,
+        "label": "russia belgorod oblast",
+        "top_words": [
+          "russia belgorod",
+          "belgorod oblast",
+          "conducted combat",
+          "ukraine claimed",
+          "operation russia",
+          "fighting ukraine"
+        ]
+      }
+    ],
+    "control_topics": {
+      "gaza_ceasefire": {
+        "topic_id": 42,
+        "count": 54,
+        "label": "gaza ceasefire deal",
+        "top_words": [
+          "gaza ceasefire",
+          "ceasefire deal",
+          "israel hamas",
+          "gaza deal",
+          "hamas ceasefire",
+          "gaza"
+        ]
+      },
+      "ukraine_glory": {
+        "topic_id": 17,
+        "count": 88,
+        "label": "zelensky ukrainian president",
+        "top_words": [
+          "zelensky",
+          "ukrainian president",
+          "victory plan",
+          "president volodymyr",
+          "volodymyr zelensky",
+          "story zelensky"
+        ]
+      },
+      "telephone_conversation": {
+        "topic_id": 182,
+        "count": 20,
+        "label": "president france macron",
+        "top_words": [
+          "president france",
+          "macron",
+          "france emmanuel",
+          "developments ukraine",
+          "telephone conversation",
+          "president discussed"
+        ]
+      },
+      "home_bring": {
+        "topic_id": 0,
+        "count": 220,
+        "label": "bring home rani",
+        "top_words": [
+          "bring home",
+          "rani",
+          "project",
+          "kidnapped",
+          "hostages",
+          "captivity"
+        ]
+      },
+      "maria_lying": {
+        "topic_id": 3,
+        "count": 192,
+        "label": "lying world maria",
+        "top_words": [
+          "lying world",
+          "maria lying",
+          "god diplomat",
+          "madame forgive",
+          "world russianstatterrorist",
+          "world maria"
+        ]
+      },
+      "iran_related": {
+        "topic_id": 16,
+        "count": 92,
+        "label": "ships panama hormuz",
+        "top_words": [
+          "ships",
+          "panama",
+          "hormuz strait",
+          "britain france",
+          "strait iran",
+          "cross strait"
+        ]
+      }
+    },
+    "soft_quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 143,
+        "no_soft_signal": 129,
+        "spread_multi_topic": 8
+      },
+      "case_pct": {
+        "dominant_single_topic": 51.1,
+        "no_soft_signal": 46.1,
+        "spread_multi_topic": 2.9
+      },
+      "hard_soft_agreement_counts": {
+        "None": 129,
+        "True": 100,
+        "False": 50,
+        "hard_is_outlier": 1
+      },
+      "hard_is_outlier_pct": 0.4,
+      "raw_top1_score_stats": {
+        "mean": 0.4855382643049343,
+        "median": 0.5167408362571901,
+        "std": 0.46947228952504083,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.04260084961629009,
+        "median": 0.0,
+        "std": 0.11180362728982213,
+        "min": 0.0,
+        "max": 0.4959000557171418,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.007809145036994314,
+        "median": 0.0,
+        "std": 0.03752843756951216,
+        "min": 0.0,
+        "max": 0.2822584433058883,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9003358543402755,
+        "median": 1.0,
+        "std": 0.18440447957826087,
+        "min": 0.31844734409208775,
+        "max": 1.0,
+        "p25": 0.8738597272135973,
+        "p75": 1.0
+      },
+      "outlier_rescue": {
+        "n_hard_outliers": 4,
+        "n_rescued_by_soft": 1,
+        "pct_rescued": 25.0
+      }
+    },
+    "pct_texts_with_soft_signal": 53.9
+  }
+}

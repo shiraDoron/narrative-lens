@@ -1,0 +1,937 @@
+{
+  "baseline_mts10": {
+    "min_topic_size": 10,
+    "save_path": "models/experiments/soft_v2_baseline_seeded",
+    "cluster_stats": {
+      "n_topics": 282,
+      "n_docs_total": 16062,
+      "n_outliers": 5750,
+      "outlier_pct": 35.8,
+      "topic_size_mean": 36.6,
+      "topic_size_median": 25.5,
+      "n_small_topics_leq15": 53,
+      "n_topics_at_own_floor": 98
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 240,
+          "pct_of_clustered": 2.3,
+          "label": "jewish state land",
+          "top_words": [
+            "jewish state",
+            "land israel",
+            "israel place",
+            "israel refuge",
+            "shouldnt jewish",
+            "diaspora israel"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 209,
+          "pct_of_clustered": 2.0,
+          "label": "bring home backups",
+          "top_words": [
+            "bring home",
+            "backups",
+            "home project",
+            "hostages",
+            "returned",
+            "goili"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 195,
+          "pct_of_clustered": 1.9,
+          "label": "lying world god",
+          "top_words": [
+            "lying world",
+            "god diplomat",
+            "diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 191,
+          "pct_of_clustered": 1.9,
+          "label": "gaza ceasefire strip",
+          "top_words": [
+            "gaza",
+            "gaza ceasefire",
+            "gaza strip",
+            "war gaza",
+            "palestinians gaza",
+            "people gaza"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 186,
+          "pct_of_clustered": 1.8,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "terrorists",
+            "hamas terrorists",
+            "footage",
+            "kibbutz",
+            "gopro"
+          ]
+        }
+      ],
+      "top2_combined_count": 449,
+      "top2_combined_pct_of_clustered": 4.4
+    },
+    "watch_word_topic_ids": {
+      "rulesbased": [
+        96,
+        209
+      ],
+      "call": [
+        22,
+        54,
+        64,
+        201
+      ],
+      "hard": [
+        23,
+        67,
+        149,
+        156,
+        212
+      ],
+      "era": [
+        4,
+        11,
+        15,
+        26,
+        36,
+        54,
+        64,
+        89,
+        103,
+        112,
+        118,
+        135,
+        139,
+        141,
+        147,
+        162,
+        167,
+        177,
+        180,
+        183,
+        186,
+        188,
+        201,
+        209,
+        211,
+        223,
+        224,
+        235,
+        259,
+        261,
+        267,
+        271,
+        279,
+        280
+      ]
+    },
+    "smallest_topics": [
+      {
+        "topic_id": 281,
+        "count": 10,
+        "label": "normal life 75",
+        "top_words": [
+          "normal life",
+          "75 years",
+          "amazing achieved",
+          "feels normal",
+          "years mindblowing",
+          "seventyfive years"
+        ]
+      },
+      {
+        "topic_id": 280,
+        "count": 10,
+        "label": "solidarity greatest people",
+        "top_words": [
+          "solidarity",
+          "solidarity greatest",
+          "solidarity people",
+          "feelgood word",
+          "equitable sustainable",
+          "liberation solidarity"
+        ]
+      },
+      {
+        "topic_id": 279,
+        "count": 10,
+        "label": "normalize occupation compromises",
+        "top_words": [
+          "normalize occupation",
+          "compromises negotiations",
+          "arms occupation",
+          "law deny",
+          "generations grow",
+          "erase truth"
+        ]
+      },
+      {
+        "topic_id": 278,
+        "count": 10,
+        "label": "olive trees longer",
+        "top_words": [
+          "olive trees",
+          "longer borders",
+          "trees theyve",
+          "olive tree",
+          "harvest best",
+          "invaders climbed"
+        ]
+      },
+      {
+        "topic_id": 277,
+        "count": 10,
+        "label": "country border geographical",
+        "top_words": [
+          "country border",
+          "geographical area",
+          "nation borders",
+          "secure borders",
+          "borders isnt",
+          "borders willynilly"
+        ]
+      },
+      {
+        "topic_id": 274,
+        "count": 10,
+        "label": "secret cards chacha",
+        "top_words": [
+          "secret cards",
+          "chacha",
+          "lost secret",
+          "2024 aguto",
+          "ukraine servicemen",
+          "basurin admitted"
+        ]
+      },
+      {
+        "topic_id": 275,
+        "count": 10,
+        "label": "chaiban said classroom",
+        "top_words": [
+          "chaiban said",
+          "classroom children",
+          "children day",
+          "children killed",
+          "killed usisraeli",
+          "killed 334"
+        ]
+      },
+      {
+        "topic_id": 276,
+        "count": 10,
+        "label": "compassion citizens wheres",
+        "top_words": [
+          "compassion citizens",
+          "compassion compassion",
+          "wheres compassion",
+          "empathy compassion",
+          "immigration needs",
+          "compassion talk"
+        ]
+      },
+      {
+        "topic_id": 273,
+        "count": 10,
+        "label": "visas overstay 15000",
+        "top_words": [
+          "visas",
+          "overstay",
+          "15000 bond",
+          "200000 immigrant",
+          "asu visas",
+          "applicants business"
+        ]
+      },
+      {
+        "topic_id": 266,
+        "count": 11,
+        "label": "diversity actually isnt",
+        "top_words": [
+          "diversity",
+          "diversity actually",
+          "diversity isnt",
+          "greatest strength",
+          "ability compromise",
+          "real diversity"
+        ]
+      },
+      {
+        "topic_id": 265,
+        "count": 11,
+        "label": "baltic sea million",
+        "top_words": [
+          "baltic sea",
+          "million tons",
+          "leningrad region",
+          "port primorsk",
+          "oil refinery",
+          "vertical tank"
+        ]
+      },
+      {
+        "topic_id": 264,
+        "count": 11,
+        "label": "wildfires angeles la",
+        "top_words": [
+          "wildfires",
+          "angeles wildfires",
+          "la wildfires",
+          "california wildfires",
+          "firefighters",
+          "blaze fears"
+        ]
+      },
+      {
+        "topic_id": 267,
+        "count": 11,
+        "label": "hate justice isnt",
+        "top_words": [
+          "hate justice",
+          "isnt hate",
+          "hate law",
+          "hatred justice",
+          "hatred ideology",
+          "hate resisting"
+        ]
+      },
+      {
+        "topic_id": 263,
+        "count": 11,
+        "label": "violent crime arrested",
+        "top_words": [
+          "violent crime",
+          "arrested released",
+          "population serial",
+          "big cities",
+          "criminals",
+          "2025 preliminary"
+        ]
+      },
+      {
+        "topic_id": 270,
+        "count": 11,
+        "label": "belgorod russians launched",
+        "top_words": [
+          "belgorod",
+          "russians launched",
+          "nizhnekamsk",
+          "lack information",
+          "glukhovsky",
+          "occupiers attacked"
+        ]
+      }
+    ],
+    "control_topics": {
+      "gaza_ceasefire": {
+        "topic_id": 3,
+        "count": 191,
+        "label": "gaza ceasefire strip",
+        "top_words": [
+          "gaza",
+          "gaza ceasefire",
+          "gaza strip",
+          "war gaza",
+          "palestinians gaza",
+          "people gaza"
+        ]
+      },
+      "ukraine_glory": {
+        "topic_id": 6,
+        "count": 149,
+        "label": "glory ukraine stand",
+        "top_words": [
+          "glory ukraine",
+          "stand ukraine",
+          "day ukraine",
+          "crimea ukraine",
+          "ukraine donbas",
+          "ukraine prevail"
+        ]
+      },
+      "telephone_conversation": {
+        "topic_id": 20,
+        "count": 87,
+        "label": "telephone conversation president",
+        "top_words": [
+          "telephone conversation",
+          "conversation president",
+          "president france",
+          "vladimir putin",
+          "president kazakhstan",
+          "kassymjomart tokayev"
+        ]
+      },
+      "home_bring": {
+        "topic_id": 1,
+        "count": 209,
+        "label": "bring home backups",
+        "top_words": [
+          "bring home",
+          "backups",
+          "home project",
+          "hostages",
+          "returned",
+          "goili"
+        ]
+      },
+      "maria_lying": {
+        "topic_id": 2,
+        "count": 195,
+        "label": "lying world god",
+        "top_words": [
+          "lying world",
+          "god diplomat",
+          "diplomat",
+          "madame forgive",
+          "world russianstatterrorist",
+          "world maria"
+        ]
+      },
+      "iran_related": {
+        "topic_id": 8,
+        "count": 142,
+        "label": "iranian missiles occupied",
+        "top_words": [
+          "iranian missiles",
+          "occupied palestine",
+          "tel aviv",
+          "aviv",
+          "palestine source",
+          "iranian missile"
+        ]
+      }
+    },
+    "soft_quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "dominant_single_topic": 138,
+        "no_soft_signal": 137,
+        "spread_multi_topic": 5
+      },
+      "case_pct": {
+        "dominant_single_topic": 49.3,
+        "no_soft_signal": 48.9,
+        "spread_multi_topic": 1.8
+      },
+      "hard_soft_agreement_counts": {
+        "None": 137,
+        "True": 86,
+        "False": 57
+      },
+      "hard_is_outlier_pct": 0.0,
+      "raw_top1_score_stats": {
+        "mean": 0.46011391727314055,
+        "median": 0.4226138763687921,
+        "std": 0.46850633949328113,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.03962832667433938,
+        "median": 0.0,
+        "std": 0.10449818277373826,
+        "min": 0.0,
+        "max": 0.494191928594892,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.00671469469466202,
+        "median": 0.0,
+        "std": 0.03031293780694419,
+        "min": 0.0,
+        "max": 0.19115971438038998,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9009223554998557,
+        "median": 1.0,
+        "std": 0.17702167871321361,
+        "min": 0.2670606417255628,
+        "max": 1.0,
+        "p25": 0.8664474302299396,
+        "p75": 1.0
+      },
+      "outlier_rescue": null
+    },
+    "pct_texts_with_soft_signal": 51.1
+  },
+  "expA2_mts15": {
+    "min_topic_size": 15,
+    "save_path": "models/experiments/soft_v2_expA_mts15",
+    "cluster_stats": {
+      "n_topics": 209,
+      "n_docs_total": 16062,
+      "n_outliers": 6240,
+      "outlier_pct": 38.8,
+      "topic_size_mean": 47.0,
+      "topic_size_median": 31.0,
+      "n_small_topics_leq15": 3,
+      "n_topics_at_own_floor": 70
+    },
+    "largest_topics_stats": {
+      "largest_topics": [
+        {
+          "topic_id": 0,
+          "count": 235,
+          "pct_of_clustered": 2.4,
+          "label": "jewish state israel",
+          "top_words": [
+            "jewish state",
+            "israel place",
+            "israel refuge",
+            "diaspora israel",
+            "shouldnt jewish",
+            "land israel"
+          ]
+        },
+        {
+          "topic_id": 1,
+          "count": 209,
+          "pct_of_clustered": 2.1,
+          "label": "bring home project",
+          "top_words": [
+            "bring home",
+            "project backups",
+            "backups",
+            "home project",
+            "rani",
+            "hostages"
+          ]
+        },
+        {
+          "topic_id": 2,
+          "count": 195,
+          "pct_of_clustered": 2.0,
+          "label": "maria lying god",
+          "top_words": [
+            "maria lying",
+            "god diplomat",
+            "madame forgive",
+            "world russianstatterrorist",
+            "world maria",
+            "russian diplomacy"
+          ]
+        },
+        {
+          "topic_id": 3,
+          "count": 193,
+          "pct_of_clustered": 2.0,
+          "label": "hamas terrorists footage",
+          "top_words": [
+            "hamas",
+            "terrorists",
+            "hamas terrorists",
+            "footage",
+            "kibbutz",
+            "gopro"
+          ]
+        },
+        {
+          "topic_id": 4,
+          "count": 183,
+          "pct_of_clustered": 1.9,
+          "label": "gaza ceasefire strip",
+          "top_words": [
+            "gaza",
+            "gaza ceasefire",
+            "ceasefire",
+            "gaza strip",
+            "war gaza",
+            "palestinians gaza"
+          ]
+        }
+      ],
+      "top2_combined_count": 444,
+      "top2_combined_pct_of_clustered": 4.5
+    },
+    "watch_word_topic_ids": {
+      "rulesbased": [
+        50,
+        99
+      ],
+      "call": [
+        27,
+        41,
+        54,
+        92
+      ],
+      "hard": [
+        28,
+        151,
+        195
+      ],
+      "era": [
+        10,
+        16,
+        20,
+        27,
+        37,
+        41,
+        42,
+        53,
+        61,
+        79,
+        80,
+        88,
+        132,
+        136,
+        140,
+        143,
+        155,
+        161,
+        172,
+        181,
+        182,
+        197,
+        207
+      ]
+    },
+    "smallest_topics": [
+      {
+        "topic_id": 208,
+        "count": 15,
+        "label": "dc big cities",
+        "top_words": [
+          "dc",
+          "big cities",
+          "control washington",
+          "crime just",
+          "arrested released",
+          "violent crime"
+        ]
+      },
+      {
+        "topic_id": 207,
+        "count": 15,
+        "label": "basic income universal",
+        "top_words": [
+          "basic income",
+          "universal basic",
+          "end poverty",
+          "criminalizing poverty",
+          "lives overnight",
+          "literally change"
+        ]
+      },
+      {
+        "topic_id": 206,
+        "count": 15,
+        "label": "safety isnt like",
+        "top_words": [
+          "safety isnt",
+          "safety",
+          "safety like",
+          "isnt luxury",
+          "safe haven",
+          "necessity"
+        ]
+      },
+      {
+        "topic_id": 201,
+        "count": 16,
+        "label": "cbs news npr",
+        "top_words": [
+          "cbs news",
+          "npr pbs",
+          "fcc chair",
+          "fake news",
+          "broadcasting",
+          "news"
+        ]
+      },
+      {
+        "topic_id": 205,
+        "count": 16,
+        "label": "hackers kash patel",
+        "top_words": [
+          "hackers",
+          "kash patel",
+          "impersonating",
+          "mtproxy",
+          "russian hackers",
+          "attackers"
+        ]
+      },
+      {
+        "topic_id": 200,
+        "count": 16,
+        "label": "selfdetermination nation exist",
+        "top_words": [
+          "selfdetermination",
+          "selfdetermination nation",
+          "exist selfdetermination",
+          "chicago study",
+          "believe selfdetermination",
+          "decision necessity"
+        ]
+      },
+      {
+        "topic_id": 202,
+        "count": 16,
+        "label": "cold response exercise",
+        "top_words": [
+          "cold response",
+          "exercise cold",
+          "winter conditions",
+          "training norway",
+          "soldiers train",
+          "largescale nato"
+        ]
+      },
+      {
+        "topic_id": 204,
+        "count": 16,
+        "label": "intersectionality isnt feminism",
+        "top_words": [
+          "intersectionality",
+          "intersectionality isnt",
+          "feminism isnt",
+          "buzzword actually",
+          "oppression overlap",
+          "overlap intersectionality"
+        ]
+      },
+      {
+        "topic_id": 203,
+        "count": 16,
+        "label": "socialism failed socialist",
+        "top_words": [
+          "socialism failed",
+          "socialism",
+          "socialist policies",
+          "people push",
+          "capitalism create",
+          "baffling socialism"
+        ]
+      },
+      {
+        "topic_id": 198,
+        "count": 17,
+        "label": "public transit climate",
+        "top_words": [
+          "public transit",
+          "transit climate",
+          "climate equity",
+          "issue equity",
+          "accessible public",
+          "accessible climate"
+        ]
+      },
+      {
+        "topic_id": 197,
+        "count": 17,
+        "label": "alinejad request come",
+        "top_words": [
+          "alinejad",
+          "request come",
+          "reza radan",
+          "protect greenland",
+          "general radan",
+          "iranian pseudopatriots"
+        ]
+      },
+      {
+        "topic_id": 196,
+        "count": 17,
+        "label": "terrorists whos occupying",
+        "top_words": [
+          "terrorists whos",
+          "occupying land",
+          "terrorism",
+          "really terrorizing",
+          "terrorism selfdefense",
+          "terrorizing region"
+        ]
+      },
+      {
+        "topic_id": 199,
+        "count": 17,
+        "label": "pushing transparency accountability",
+        "top_words": [
+          "pushing transparency",
+          "transparency accountability",
+          "transparency government",
+          "accountability",
+          "accountability governance",
+          "accountability especially"
+        ]
+      },
+      {
+        "topic_id": 191,
+        "count": 18,
+        "label": "south koreas north",
+        "top_words": [
+          "south koreas",
+          "north korea",
+          "yoon",
+          "leader kim",
+          "korean leader",
+          "kim jongun"
+        ]
+      },
+      {
+        "topic_id": 190,
+        "count": 18,
+        "label": "fought land ancestors",
+        "top_words": [
+          "fought land",
+          "ancestors fought",
+          "grandfather fought",
+          "ancestors defended",
+          "continue legacy",
+          "brussels ancestors"
+        ]
+      }
+    ],
+    "control_topics": {
+      "gaza_ceasefire": {
+        "topic_id": 4,
+        "count": 183,
+        "label": "gaza ceasefire strip",
+        "top_words": [
+          "gaza",
+          "gaza ceasefire",
+          "ceasefire",
+          "gaza strip",
+          "war gaza",
+          "palestinians gaza"
+        ]
+      },
+      "ukraine_glory": {
+        "topic_id": 11,
+        "count": 141,
+        "label": "glory ukraine stand",
+        "top_words": [
+          "glory ukraine",
+          "glory",
+          "stand ukraine",
+          "day ukraine",
+          "donbas ukraine",
+          "crimea ukraine"
+        ]
+      },
+      "telephone_conversation": null,
+      "home_bring": {
+        "topic_id": 1,
+        "count": 209,
+        "label": "bring home project",
+        "top_words": [
+          "bring home",
+          "project backups",
+          "backups",
+          "home project",
+          "rani",
+          "hostages"
+        ]
+      },
+      "maria_lying": {
+        "topic_id": 2,
+        "count": 195,
+        "label": "maria lying god",
+        "top_words": [
+          "maria lying",
+          "god diplomat",
+          "madame forgive",
+          "world russianstatterrorist",
+          "world maria",
+          "russian diplomacy"
+        ]
+      },
+      "iran_related": {
+        "topic_id": 13,
+        "count": 133,
+        "label": "iranian missiles tel",
+        "top_words": [
+          "iranian missiles",
+          "tel aviv",
+          "occupied palestine",
+          "iranian missile",
+          "palestine source",
+          "missile strikes"
+        ]
+      }
+    },
+    "soft_quality_summary": {
+      "n_texts_analyzed": 280,
+      "dominance_threshold_used": 0.5,
+      "case_counts": {
+        "no_soft_signal": 161,
+        "dominant_single_topic": 116,
+        "spread_multi_topic": 3
+      },
+      "case_pct": {
+        "no_soft_signal": 57.5,
+        "dominant_single_topic": 41.4,
+        "spread_multi_topic": 1.1
+      },
+      "hard_soft_agreement_counts": {
+        "None": 161,
+        "True": 80,
+        "False": 39
+      },
+      "hard_is_outlier_pct": 0.0,
+      "raw_top1_score_stats": {
+        "mean": 0.3896021892755496,
+        "median": 0.0,
+        "std": 0.46734252097305246,
+        "min": 0.0,
+        "max": 1.0,
+        "p25": 0.0,
+        "p75": 1.0
+      },
+      "raw_top2_score_stats": {
+        "mean": 0.027326703635348802,
+        "median": 0.0,
+        "std": 0.09153568623957235,
+        "min": 0.0,
+        "max": 0.48303795928607984,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "raw_top3_score_stats": {
+        "mean": 0.005520767115480093,
+        "median": 0.0,
+        "std": 0.03212249099496492,
+        "min": 0.0,
+        "max": 0.30072562712222556,
+        "p25": 0.0,
+        "p75": 0.0
+      },
+      "dominance_ratio_stats": {
+        "mean": 0.9167110335895283,
+        "median": 1.0,
+        "std": 0.1706057795529666,
+        "min": 0.35745277780471757,
+        "max": 1.0,
+        "p25": 1.0,
+        "p75": 1.0
+      },
+      "outlier_rescue": null
+    },
+    "pct_texts_with_soft_signal": 42.5
+  }
+}
