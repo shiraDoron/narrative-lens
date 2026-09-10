@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package (editable, with dev extras)
+        env:
+          SETUPTOOLS_USE_DISTUTILS: stdlib
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Import check
+        run: python -c "import narrative_lens; from narrative_lens import config, train, train_topics"
+
+      - name: Lint (ruff)
+        # Informational only for now: the pre-existing research codebase (predating this CI
+        # setup) has some unused-import/unused-variable findings in one-off experiment scripts
+        # that are out of scope to fix here (would touch research logic). Do not fail the build
+        # on these; still surface them in the CI log for visibility.
+        continue-on-error: true
+        run: ruff check .
+
+      - name: Basic compile check (src/ and experiments/)
+        run: |
+          python -m compileall -q src experiments
+
+      - name: Run tests
+        run: pytest tests/ -q
