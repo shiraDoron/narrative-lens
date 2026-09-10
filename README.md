@@ -136,8 +136,16 @@ python -m narrative_lens.train --model hybrid --split leave_one_author --held-ou
 # Build the cross-model comparison table (reports/tables/model_comparison_results.json):
 python -m narrative_lens.evaluation.compare_models
 
-# Fit/refresh the topic model:
+# Fit/refresh the topic model (see --help for all flags; safe to inspect, never trains):
+python -m narrative_lens.train_topics --help
+
+# Omitting all flags preserves the original hardcoded behavior exactly (bare BERTopic(), no
+# explicit seed) - matching the existing pinned saved_topic_model_soft_v2's provenance:
 python -m narrative_lens.train_topics
+
+# Optional: reproducible re-fit with an explicit seed/min_topic_size/embedding model/output path
+# (see configs/topic_model.yaml) - NOT bit-identical to the default above (opts into a seeded UMAP):
+python -m narrative_lens.train_topics --config configs/topic_model.yaml --seed 42 --output-path models/saved_topic_model_experiment
 
 # Unsupervised agenda/rhetoric/ideology profiling (independent of the trained classifier):
 python -m narrative_lens.features.analyze_agendas

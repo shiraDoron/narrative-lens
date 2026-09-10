@@ -1,3 +1,4 @@
+import argparse
 import os
 
 import numpy as np
@@ -14,6 +15,9 @@ from narrative_lens.topic_modeling.topic_preprocessing import clean_text_for_top
 # method/threshold validated in analyze_text_duplicates.py. Applied ONLY to the soft_v2 training
 # texts below (in-memory only - raw CSVs are never modified).
 from narrative_lens.data.text_dedup import deduplicate_texts, NEAR_DUP_THRESHOLD
+from narrative_lens.utils.config_loader import load_config
+from narrative_lens.utils.repro import write_run_metadata
+from narrative_lens.utils.seeding import set_all_seeds
 
 
 def load_deduplicated_training_texts(verbose=True):
@@ -182,11 +186,31 @@ def recommend_min_topic_size(corpus_size):
     return int(max(MIN_TOPIC_SIZE_FLOOR, min(MIN_TOPIC_SIZE_CEILING, round(raw))))
 
 
-def build_and_save_topics():
+def build_and_save_topics(min_topic_size=None, seed=None, embedding_model=None, output_path=None):
+    """Fits BERTopic on the deduplicated training corpus and saves it (default: TOPIC_MODEL_PATH_SOFT).
+
+    `min_topic_size`/`seed`/`embedding_model` all default to None, which preserves the ORIGINAL
+    behavior exactly: a bare, unseeded `BERTopic()` (matching the existing pinned
+    `saved_topic_model_soft_v2` artifact's provenance - non-deterministic UMAP, BERTopic's own
+    default min_topic_size/embedding model). Passing ANY of the three switches to the reproducible
+    `build_bertopic_model()` construction path (seeded UMAP, defaults filled in from
+    `_ANCHOR_MIN_TOPIC_SIZE`/42 for whichever of the other two were left unset) - only use this
+    for an intentional, reproducibility-focused re-fit, not for routine invocations.
+    """
+    output_path = output_path or TOPIC_MODEL_PATH_SOFT
     texts_list = load_deduplicated_training_texts()
 
     print(f"בונה אשכולות נושאים מתוך {len(texts_list)} משפטים (התהליך עשוי לקחת מספר דקות)...")
-    topic_model = BERTopic()
+    if min_topic_size is None and seed is None and embedding_model is None:
+        topic_model = BERTopic()
+    else:
+        if seed is not None:
+            set_all_seeds(seed)
+        topic_model = build_bertopic_model(
+            min_topic_size=min_topic_size if min_topic_size is not None else _ANCHOR_MIN_TOPIC_SIZE,
+            random_state=seed if seed is not None else 42,
+            embedding_model=embedding_model,
+        )
     topic_model.fit(texts_list)
 
     print("שומר את המודל לתיקייה מקומית...")
@@ -197,14 +221,14 @@ def build_and_save_topics():
     # ללא save_ctfidf=True, vectorizer_model.vocabulary_ אינו מאותחל אחרי load() -
     # approximate_distribution() נכשל עם NotFittedError.
     #
-    # שומר לנתיב "soft_v2" (config.TOPIC_MODEL_PATH_SOFT) ולא לנתיב הישן/הקפוא
-    # models/saved_topic_model - אותו נתיב ישן משמש כרגע כ"פינים" (pinned) של המודל
+    # שומר לנתיב "soft_v2" (config.TOPIC_MODEL_PATH_SOFT, או --output-path אם הועבר) ולא לנתיב
+    # הישן/הקפוא models/saved_topic_model - אותו נתיב ישן משמש כרגע כ"פינים" (pinned) של המודל
     # שעליו אומנו הצ'קפוינטים הקיימים (best_narrative_model_hybrid.pth,
     # best_model_hybrid_architecture.pth) דרך TopicStanceLayer, שמניחה מספור topic_id
     # יציב. הרצה חוזרת של סקריפט זה משנה את מספור ה-topic_id (BERTopic לא מבטיח יציבות
     # בין fit-ים) ותשבור את ההתאמה בין topic_id ל-narrative שנלמדה בצ'קפוינטים הישנים -
     # ולכן היא לא נשמרת עוד לנתיב הישן. ראו config.py להסבר המלא על שתי הגרסאות.
-    topic_model.save(TOPIC_MODEL_PATH_SOFT, serialization="safetensors", save_ctfidf=True)
+    topic_model.save(output_path, serialization="safetensors", save_ctfidf=True)
 
     # שמירת משקלי המודל ישירות ל-Google Drive (אותה גרסת soft_v2)
     drive_save_path = "/content/drive/MyDrive/saved_topic_model_soft_v2"
@@ -217,17 +241,79 @@ def build_and_save_topics():
     # את זרימת האימון הרגילה.
     if os.environ.get("GEMINI_API_KEY"):
         print("משכלל תוויות נושאים בעזרת Gemini...")
-        refine_topics_with_llm(topic_model, out_path=os.path.join(TOPIC_MODEL_PATH_SOFT, "topics_llm_refined.json"))
+        refine_topics_with_llm(topic_model, out_path=os.path.join(output_path, "topics_llm_refined.json"))
     else:
         print("[i] GEMINI_API_KEY לא מוגדר - מדלג על שכלול תוויות הנושאים ב-LLM.")
+    return topic_model
+
+
+def _parse_args():
+    """Two-phase argparse (mirrors train.py): a lightweight `--config`-only pre-parse loads the
+    YAML (if given) to supply defaults for the full parser below, so `--config`/CLI flags compose
+    the same way as train.py's (explicit flags always win over the config file). Building this
+    parser and calling `parse_args()` is the ONLY place CLI arguments are inspected - `--help`
+    is handled entirely by argparse itself (prints usage and calls `sys.exit(0)`), so it can never
+    reach `build_and_save_topics()` below."""
+    config_parser = argparse.ArgumentParser(add_help=False)
+    config_parser.add_argument("--config", default=None)
+    config_args, _ = config_parser.parse_known_args()
+    config = load_config(config_args.config)
+
+    parser = argparse.ArgumentParser(
+        description="Fit/refresh the production BERTopic topic model (saved_topic_model_soft_v2)."
+    )
+    parser.add_argument(
+        "--config", default=config_args.config,
+        help="Optional path to a YAML config file (see configs/topic_model.yaml) supplying "
+             "default values for the flags below. Explicit CLI flags always override the config "
+             "file. Omitting --config AND every flag below keeps behavior identical to the "
+             "original hardcoded call (bare BERTopic(), no explicit seed).",
+    )
+    parser.add_argument(
+        "--seed", type=int, default=config.get("seed"),
+        help="Seeds Python/NumPy/PyTorch global RNG plus UMAP's random_state, for a reproducible "
+             "fit. Omitting this keeps BERTopic's own (non-deterministic) default UMAP, matching "
+             "the existing pinned saved_topic_model_soft_v2's original provenance.",
+    )
+    parser.add_argument(
+        "--min-topic-size", type=int, default=config.get("min_topic_size"), dest="min_topic_size",
+        help="HDBSCAN/BERTopic min_topic_size. Omitting this keeps BERTopic's own default (10). "
+             "See recommend_min_topic_size() for a corpus-size-based recommendation.",
+    )
+    parser.add_argument(
+        "--embedding-model", default=config.get("embedding_model"), dest="embedding_model",
+        help="Sentence-transformers embedding model name. Omitting this keeps BERTopic's own "
+             "default ('sentence-transformers/all-MiniLM-L6-v2').",
+    )
+    parser.add_argument(
+        "--output-path", default=None, dest="output_path",
+        help="Directory to save the fitted topic model to (default: config.TOPIC_MODEL_PATH_SOFT, "
+             "i.e. models/saved_topic_model_soft_v2).",
+    )
+    return parser.parse_args()
+
 
 if __name__ == "__main__":
+    args = _parse_args()
+    output_path = args.output_path or TOPIC_MODEL_PATH_SOFT
+
+    build_and_save_topics(
+        min_topic_size=args.min_topic_size,
+        seed=args.seed,
+        embedding_model=args.embedding_model,
+        output_path=output_path,
+    )
     # Reproducibility metadata (see narrative_lens/utils/repro.py and configs/topic_model.yaml
     # for the documented current defaults this run used - build_and_save_topics() itself is
-    # unchanged, this only records what happened for later traceability).
-    from narrative_lens.utils.repro import write_run_metadata
-
-    build_and_save_topics()
+    # unchanged when no flags are passed, this only records what happened for later traceability).
+    write_run_metadata(
+        "reports/results/run_metadata_train_topics_soft_v2.json",
+        config_path=args.config,
+        topic_model_path=output_path,
+        seed=args.seed,
+        min_topic_size=args.min_topic_size,
+        embedding_model=args.embedding_model,
+    )
     write_run_metadata(
         "reports/results/run_metadata_train_topics_soft_v2.json",
         config_path="configs/topic_model.yaml",
