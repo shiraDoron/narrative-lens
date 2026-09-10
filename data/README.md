@@ -9,12 +9,12 @@ regenerated:
 
 | File | Produced by |
 |---|---|
-| `twitter_natural_dataset.csv` | `src/build_twitter_dataset.py` (Selenium scraper) |
-| `telegram_natural_dataset.csv` | `src/build_telegram_dataset.py` (Telethon scraper) |
-| `gemini_natural_dataset.csv` | `src/build_ai_dataset.py` (Gemini-generated synthetic text) |
+| `twitter_natural_dataset.csv` | `narrative_lens.data.build_twitter_dataset` (Selenium scraper) |
+| `telegram_natural_dataset.csv` | `narrative_lens.data.build_telegram_dataset` (Telethon scraper) |
+| `gemini_natural_dataset.csv` | `narrative_lens.data.build_ai_dataset` (Gemini-generated synthetic text) |
 | `gpt_natural_dataset.csv` | GPT-generated synthetic text (companion to the Gemini set) |
 
-Non-English rows in these were translated in place by `src/translate_datasets.py`.
+Non-English rows in these were translated in place by `narrative_lens.data.translate_datasets`.
 
 ## `data/cache/` (mostly gitignored)
 
@@ -27,10 +27,10 @@ command; the producing script will recreate it automatically (all cache writes a
 
 | File | Regenerate with |
 |---|---|
-| `cached_features_hybrid.pt` | `python src/train.py --model baseline_fusion --split random` |
-| `cached_features_sbert_only.pt` | `python src/train.py --model sbert_only --split random` |
-| `cached_features_hybrid_model.pt` | `python src/train.py --model hybrid --split random` |
-| `cached_features_baseline_fusion_loao_<Author>.pt` | `python src/train.py --model baseline_fusion --split leave_one_author --held-out-author <Author>` |
+| `cached_features_hybrid.pt` | `python -m narrative_lens.train --model baseline_fusion --split random` |
+| `cached_features_sbert_only.pt` | `python -m narrative_lens.train --model sbert_only --split random` |
+| `cached_features_hybrid_model.pt` | `python -m narrative_lens.train --model hybrid --split random` |
+| `cached_features_baseline_fusion_loao_<Author>.pt` | `python -m narrative_lens.train --model baseline_fusion --split leave_one_author --held-out-author <Author>` |
 | `cached_features_ablation_loao_<Author>.pt` | `python experiments/author_generalization/narrative_ablation_loao.py --author <Author>` |
 | `cached_features_narrative_topic_compare.pt` | `python experiments/feature_ablation/narrative_topic_compare.py` |
 | `cached_features_narrative_topic_hybrid.pt` | `python experiments/feature_ablation/narrative_topic_hybrid.py` |
@@ -46,6 +46,6 @@ human-readable, and useful to inspect without re-running anything:
 
 ## `data/profiles/`
 
-Output of the unsupervised profiler prototype (`src/build_profile_prototype.py` and related
-scripts) - calibration and sample narrative/text profiles used during that tool's development.
-Small JSON files, kept tracked.
+Output of the unsupervised profiler prototype (`narrative_lens.evaluation.build_profile_prototype`
+and related scripts) - calibration and sample narrative/text profiles used during that tool's
+development. Small JSON files, kept tracked.

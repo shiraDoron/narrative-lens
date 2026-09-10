@@ -42,19 +42,18 @@ Three classifier variants share this feature-extraction machinery and are traine
 
 ```
 final_project/
-├── src/                          # production/reusable code (flat, no package install needed)
-│   ├── config.py                 # narrative list, hyperparameters, pinned topic-model paths
-│   ├── fusion.py                  # the 3 detector classes (see table above)
+├── src/narrative_lens/            # installable package (`pip install -e .`) - no sys.path hacks
+│   ├── config.py                  # narrative list, hyperparameters, pinned topic-model paths
 │   ├── train.py                   # trains/evaluates any model on any split
 │   ├── train_topics.py            # fits the production BERTopic topic model
-│   ├── ner.py / srl.py / emotion.py / reliability.py / stance.py   # feature extractors
-│   ├── topic_preprocessing.py / text_dedup.py   # shared text cleaning + dedup
-│   ├── analyze_agendas.py         # unsupervised agenda/rhetoric/ideology profiling
-│   ├── check_agenda_coverage.py   # dataset agenda-diversity sanity check
-│   ├── compare_models.py          # builds reports/tables/ comparison tables
-│   ├── build_twitter_dataset.py / build_telegram_dataset.py / build_ai_dataset.py  # data collection
-│   ├── translate_datasets.py      # non-English -> English translation
-│   └── ...profiler-prototype / preprocessing-verification helper scripts
+│   ├── models/fusion.py           # the 3 detector classes (see table above)
+│   ├── features/                  # ner.py / srl.py / emotion.py / reliability.py / analyze_agendas.py
+│   ├── topic_modeling/            # stance.py / topic_preprocessing.py / llm_topic_refiner.py
+│   ├── evaluation/                # compare_models.py / check_agenda_coverage.py / ...
+│   ├── data/                      # build_twitter_dataset.py / build_telegram_dataset.py / text_dedup.py / ...
+│   └── utils/                     # config_loader.py / seeding.py / repro.py (reproducibility helpers)
+├── configs/                        # YAML configs (default.yaml, topic_model.yaml) - see configs/README.md
+├── tests/                          # pytest suite (preprocessing, dedup, splits, config loading)
 ├── experiments/                   # one-off research scripts, organized by theme - see
 │   │                               # experiments/README.md for details on each
 │   ├── topic_modeling/            # BERTopic config experiments (Experiments A/A2/B/C/D/D2/E/F)
@@ -83,48 +82,70 @@ final_project/
 └── README.md                       # this file
 ```
 
-## Installation
+## Quick Start
 
 ```bash
 python -m venv .venv
 .venv\Scripts\activate          # Windows PowerShell: .venv\Scripts\Activate.ps1
+
+# Option A - editable install of the narrative_lens package (recommended: enables `python -m
+# narrative_lens...` everywhere below, plus pytest/ruff via the `dev` extra):
+$env:SETUPTOOLS_USE_DISTUTILS="stdlib"   # Windows/pyenv workaround for a distutils_hack bug
+pip install -e ".[dev]"
+
+# Option B - exact pinned lock file used to verify this on a local CPU-only Windows machine:
 pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 ```
 
 See `requirements.txt` for notes on the CPU-only `torch` build and the optional/Colab-only
-extras (Gemini/Telegram/translation packages), which are commented out by default since they
-are only needed for the original data-collection scripts.
+extras (Gemini/Telegram/translation packages, `pip install -e ".[datacollection]"`), which are
+only needed for the original data-collection scripts. See `pyproject.toml` for the full
+dependency declaration and `configs/README.md` for the YAML config philosophy.
+
+```bash
+# Train the current recommended configuration (see "Model comparison" below):
+python -m narrative_lens.train --model sbert_only --split random
+
+# Build the cross-model comparison table (reports/tables/model_comparison_results.json):
+python -m narrative_lens.evaluation.compare_models
+
+# Run the test suite:
+pytest tests/ -q
+```
 
 ## Running the scripts
 
-All scripts must be run **from the repository root** (not from inside `src/` or `experiments/`),
-since their internal paths (`data/raw/...`, `models/...`, `reports/...`) are relative to the
-project root:
+All scripts must be run **from the repository root** as a module (`python -m
+narrative_lens...`), not from inside `src/` or `experiments/`, since their internal paths
+(`data/raw/...`, `models/...`, `reports/...`) are relative to the project root:
 
 ```bash
 # Train (config.py's MODEL_TYPE by default, or pick one explicitly):
-python src/train.py --model baseline_fusion
-python src/train.py --model sbert_only
-python src/train.py --model hybrid
+python -m narrative_lens.train --model baseline_fusion
+python -m narrative_lens.train --model sbert_only
+python -m narrative_lens.train --model hybrid
+
+# Optional: reference a versioned config file + explicit seed (see configs/README.md):
+python -m narrative_lens.train --config configs/default.yaml --seed 42
 
 # Generalization splits (any --model works with any --split):
-python src/train.py --model hybrid --split random                                   # default
-python src/train.py --model hybrid --split leave_one_topic --held-out-topic 12      # LOTO
-python src/train.py --model hybrid --split leave_one_author --held-out-author IDF   # LOAO
+python -m narrative_lens.train --model hybrid --split random                                   # default
+python -m narrative_lens.train --model hybrid --split leave_one_topic --held-out-topic 12      # LOTO
+python -m narrative_lens.train --model hybrid --split leave_one_author --held-out-author IDF   # LOAO
 
 # Build the cross-model comparison table (reports/tables/model_comparison_results.json):
-python src/compare_models.py
+python -m narrative_lens.evaluation.compare_models
 
 # Fit/refresh the topic model:
-python src/train_topics.py
+python -m narrative_lens.train_topics
 
 # Unsupervised agenda/rhetoric/ideology profiling (independent of the trained classifier):
-python src/analyze_agendas.py
-python src/check_agenda_coverage.py
+python -m narrative_lens.features.analyze_agendas
+python -m narrative_lens.evaluation.check_agenda_coverage
 
 # Data collection (requires the relevant secret below):
-python src/build_twitter_dataset.py
-python src/build_telegram_dataset.py
+python -m narrative_lens.data.build_twitter_dataset
+python -m narrative_lens.data.build_telegram_dataset
 ```
 
 ### Reproducing the experiments in `EXPERIMENTS.md`
@@ -141,9 +162,9 @@ running the relevant script:
 
 | Variable | Used by | Purpose |
 |---|---|---|
-| `GEMINI_API_KEY` | `build_ai_dataset.py`, `llm_topic_refiner.py` | Google Gemini API access |
-| `TWITTER_AUTH_TOKEN` | `build_twitter_dataset.py` | X/Twitter `auth_token` cookie for scraping |
-| `TELEGRAM_API_ID` / `TELEGRAM_API_HASH` | `build_telegram_dataset.py` | Telegram API credentials |
+| `GEMINI_API_KEY` | `data/build_ai_dataset.py`, `topic_modeling/llm_topic_refiner.py` | Google Gemini API access |
+| `TWITTER_AUTH_TOKEN` | `data/build_twitter_dataset.py` | X/Twitter `auth_token` cookie for scraping |
+| `TELEGRAM_API_ID` / `TELEGRAM_API_HASH` | `data/build_telegram_dataset.py` | Telegram API credentials |
 
 PowerShell example:
 
@@ -156,50 +177,51 @@ $env:TELEGRAM_API_HASH = "<hash>"
 
 ## Pipeline Overview
 
-1. **Data collection**: `build_twitter_dataset.py` / `build_telegram_dataset.py` scrape
+1. **Data collection**: `data/build_twitter_dataset.py` / `data/build_telegram_dataset.py` scrape
    narrative-labeled posts from a fixed set of accounts/channels per narrative;
-   `build_ai_dataset.py` supplements this with synthetic Gemini/GPT-generated text.
-2. **Preprocessing**: `translate_datasets.py` translates non-English text to English in place.
+   `data/build_ai_dataset.py` supplements this with synthetic Gemini/GPT-generated text.
+2. **Preprocessing**: `data/translate_datasets.py` translates non-English text to English in place.
 3. **Training**: `train_topics.py` fits a BERTopic topic model; `train.py` extracts features
    (NER, SRL, emotion/agency, topic/stance, reliability) for every sample, fuses them via
-   `fusion.py`, and trains the classifier with early stopping, selecting by validation Macro-F1.
-   `train.py` can train any of three models (`--model baseline_fusion|sbert_only|hybrid`, see
-   "Model comparison" below) using identical train/validation/test splits for a fair comparison.
-4. **Analysis**: `analyze_agendas.py` and `check_agenda_coverage.py` provide a lightweight,
-   dependency-free (pandas/numpy only) profiling of each narrative's agendas, rhetoric,
-   ideology, and per-account internal diversity — independent of the trained model.
+   `models/fusion.py`, and trains the classifier with early stopping, selecting by validation
+   Macro-F1. `train.py` can train any of three models (`--model baseline_fusion|sbert_only|hybrid`,
+   see "Model comparison" below) using identical train/validation/test splits for a fair comparison.
+4. **Analysis**: `features/analyze_agendas.py` and `evaluation/check_agenda_coverage.py` provide a
+   lightweight, dependency-free (pandas/numpy only) profiling of each narrative's agendas,
+   rhetoric, ideology, and per-account internal diversity — independent of the trained model.
 
 ## Model Architecture (`fusion.py`)
 
 Each input text passes through several frozen feature extractors, each producing a
 narrative-oriented vector, which are combined by a learned weighted-sum fusion network:
 
-- **NER** (`ner.py`) → entity-based narrative signal
-- **SRL** (`srl.py`) → reason/purpose clause signal
-- **Emotion + agency** (`emotion.py`) → emotion classification + passive/active voice
-- **Topic/stance** (`stance.py`) → BERTopic topic assignment
-- **Reliability** (`reliability.py`) → fake-news/subjectivity confidence multiplier
+- **NER** (`features/ner.py`) → entity-based narrative signal
+- **SRL** (`features/srl.py`) → reason/purpose clause signal
+- **Emotion + agency** (`features/emotion.py`) → emotion classification + passive/active voice
+- **Topic/stance** (`topic_modeling/stance.py`) → BERTopic topic assignment
+- **Reliability** (`features/reliability.py`) → fake-news/subjectivity confidence multiplier
 
 The fusion network learns per-module importance weights, printed after training for
 interpretability. The **Hybrid** variant (`HybridNarrativeDetector`) additionally concatenates a
 frozen SBERT sentence embedding (`sentence-transformers/all-MiniLM-L6-v2`) and two lexicon-based
 feature vectors (agenda and ideology, reusing `AGENDA_PATTERNS`/`IDEOLOGY_PATTERNS` from
-`analyze_agendas.py`) before an MLP head, instead of a linear weighted-sum.
+`features/analyze_agendas.py`) before an MLP head, instead of a linear weighted-sum.
 
 ## Topic model versions (`models/saved_topic_model*`)
 
 There are two separate saved BERTopic artifacts, and they are **not interchangeable**:
 
-- `models/saved_topic_model` - the **pinned legacy** model. `stance.py`'s `TopicStanceLayer`
-  indexes an embedding table directly by this model's numeric `topic_id`, and BERTopic's topic
-  numbering is not stable across re-fits, so all existing checkpoints only make sense paired
-  with this exact file. Saved without `save_ctfidf=True`, so only the hard `topic_id` is
-  available (no soft/multi-topic scoring). `TopicAnalysisPipeline` (`stance.py`) defaults to
-  this path, so the existing detectors are unaffected by anything below.
+- `models/saved_topic_model` - the **pinned legacy** model. `topic_modeling/stance.py`'s
+  `TopicStanceLayer` indexes an embedding table directly by this model's numeric `topic_id`, and
+  BERTopic's topic numbering is not stable across re-fits, so all existing checkpoints only make
+  sense paired with this exact file. Saved without `save_ctfidf=True`, so only the hard
+  `topic_id` is available (no soft/multi-topic scoring). `TopicAnalysisPipeline`
+  (`topic_modeling/stance.py`) defaults to this path, so the existing detectors are unaffected by
+  anything below.
 - `models/saved_topic_model_soft_v2` - a separate, newer re-fit, saved with `save_ctfidf=True`,
-  so it supports soft/multi-topic scoring (`analyze_soft_topics.py`). Not currently used by any
-  classification checkpoint; `train_topics.py` writes new re-fits here by default, so re-running
-  it never clobbers the pinned legacy model above.
+  so it supports soft/multi-topic scoring (`evaluation/analyze_soft_topics.py`). Not currently
+  used by any classification checkpoint; `train_topics.py` writes new re-fits here by default, so
+  re-running it never clobbers the pinned legacy model above.
 
 `experiments/topic_modeling/` contains a series of exploratory BERTopic configuration studies —
 clustering granularity (`min_topic_size`), embedding model choice, seed stability, topic-label
@@ -219,7 +241,7 @@ results and conclusions for each (Experiments A/A2/B/B-seed-stability/C/D/D2/E/F
 `VAL_SIZE`/`TEST_SIZE`, fixed `random_state=42`) for a fair comparison. Each checkpoint
 (`models/best_model_*.pth`) is selected by validation Macro-F1. Latest results on the `random`
 split test set (`reports/tables/model_comparison_results.json`, rebuild with
-`python src/compare_models.py`):
+`python -m narrative_lens.evaluation.compare_models`):
 
 | `--model` | Class | Test Accuracy | Test Macro-F1 |
 |---|---|---|---|
@@ -233,7 +255,7 @@ measurable value over frozen SBERT embeddings alone on a random split. **Current
 configuration for reproducing the headline result**:
 
 ```bash
-python src/train.py --model sbert_only --split random
+python -m narrative_lens.train --model sbert_only --split random
 ```
 
 using the existing `models/saved_topic_model` (legacy) topic model as-is - no retraining
@@ -290,7 +312,7 @@ assign `topic_id` before splitting.
 
 - **Identify the leading account(s) per narrative group** — for each of the 7 narratives, the
   Twitter/Telegram scrapers currently pull from a fixed list of accounts/channels treated
-  equally (see `NARRATIVES_ACCOUNTS` in `build_twitter_dataset.py`). A useful extension is to
+  equally (see `NARRATIVES_ACCOUNTS` in `data/build_twitter_dataset.py`). A useful extension is to
   determine which account within each group acts as the primary/most influential voice
   ("group leader"), e.g. by engagement volume, retweet/citation frequency by the other accounts
   in the same group, or centrality in a narrative-specific interaction graph:

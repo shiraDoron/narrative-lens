@@ -9,13 +9,15 @@ python experiments/feature_ablation/narrative_topic_compare.py
 python experiments/author_generalization/narrative_ablation_loao.py --author IDF
 ```
 
-Every script here still imports shared production code from `src/` (e.g. `from config import
-...`, `from train import ...`) via a small `sys.path` shim near the top of the file, so those
-imports keep working unmodified even though the scripts no longer live inside `src/` itself.
-Some scripts also import helpers from a sibling experiment folder (e.g.
-`narrative_ablation_loao.py` reuses `TopicFeatureLayer` from
-`experiments/feature_ablation/narrative_topic_compare.py`) - the same shim covers this by
-adding all three experiment subfolders to `sys.path`.
+Every script here imports shared production code from the installed `narrative_lens` package
+(e.g. `from narrative_lens.config import ...`, `from narrative_lens.train import ...`), so
+`pip install -e .` must be done first (see the repo root [`README.md`](../README.md) Quick
+Start). Only 3 scripts additionally need a lightweight `sys.path` shim for a same-repo but
+different-experiments-subfolder sibling import (not covered by the package install): both
+`narrative_ablation_loao.py` and `narrative_ablation_rw_shortcut.py`
+(`author_generalization/`) reuse `narrative_topic_compare` from `feature_ablation/`, and
+`narrative_topic_compare.py` (`feature_ablation/`) reuses `experiment_e_lda_baseline` from
+`topic_modeling/` - each adds just that one sibling folder to `sys.path`, not all of `src/`.
 
 Full methodology, results, and conclusions for every experiment are documented in
 [`EXPERIMENTS.md`](../EXPERIMENTS.md) at the repo root - this folder only holds the code.

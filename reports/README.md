@@ -3,13 +3,13 @@
 Generated analysis outputs, split by purpose:
 
 - **`tables/`** - curated, small comparison tables meant to be read directly (cross-model
-  comparison, agenda-coverage counts). Produced by `src/compare_models.py` and
-  `src/check_agenda_coverage.py`.
-- **`agenda_profiling/`** - all output of `src/analyze_agendas.py` (per-narrative agendas,
-  rhetoric, ideology, style, keyword, similarity, and per-account diversity CSVs + 2 PNG charts
-  + a text summary report).
+  comparison, agenda-coverage counts). Produced by `narrative_lens.evaluation.compare_models` and
+  `narrative_lens.evaluation.check_agenda_coverage`.
+- **`agenda_profiling/`** - all output of `narrative_lens.features.analyze_agendas` (per-narrative
+  agendas, rhetoric, ideology, style, keyword, similarity, and per-account diversity CSVs + 2 PNG
+  charts + a text summary report).
 - **`results/`** - raw, per-run/per-experiment result dumps: confusion matrices and split
-  summaries from `src/train.py`, run logs, and the full result folders for the
+  summaries from `narrative_lens.train`, run logs, and the full result folders for the
   `narrative_ablation_loao`, `narrative_topic_compare`, `narrative_topic_hybrid`, and
   `profiler_prototype` experiments/tools (each documented in
   [`EXPERIMENTS.md`](../EXPERIMENTS.md) / `experiments/README.md`).

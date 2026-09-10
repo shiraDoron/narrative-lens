@@ -1,4 +1,4 @@
-﻿# Experiments Log
+# Experiments Log
 
 This document consolidates all experiments actually run on the BERTopic topic-modeling
 pipeline (`saved_topic_model_soft_v2`) and its supporting preprocessing/analysis tooling. It
@@ -23,7 +23,7 @@ default `ClassTfidfTransformer(bm25_weighting=False, reduce_frequent_words=False
 
 ## 1. Soft (multi-topic) clustering added to BERTopic
 
-**Files:** [src/stance.py](src/stance.py), [src/analyze_soft_topics.py](src/analyze_soft_topics.py)
+**Files:** [src/narrative_lens/topic_modeling/stance.py](src/narrative_lens/topic_modeling/stance.py), [src/narrative_lens/evaluation/analyze_soft_topics.py](src/narrative_lens/evaluation/analyze_soft_topics.py)
 
 **Goal:** Give the existing BERTopic pipeline the ability to return more than one topic per text
 (a probability distribution over topics), without touching `fusion.py`/`train.py` or breaking the
@@ -65,7 +65,7 @@ Experiment 2 for how this was contained).
 
 ## 2. Model-versioning split + the `save_ctfidf=True` fix
 
-**Files:** [src/stance.py](src/stance.py), [src/train_topics.py](src/train_topics.py), [src/config.py](src/config.py)
+**Files:** [src/narrative_lens/topic_modeling/stance.py](src/narrative_lens/topic_modeling/stance.py), [src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py), [src/narrative_lens/config.py](src/narrative_lens/config.py)
 
 **Goal:** Fix the `NotFittedError` blocking soft clustering, and prevent the underlying BERTopic
 re-fit (needed to get a ctfidf-saved model) from corrupting the topic ids relied upon by existing
@@ -113,7 +113,7 @@ and `analyze_soft_topics.py` (pointed at soft_v2) produces real normalized distr
 
 ## 3. Preprocessing for URLs / mentions / hashtags (+ bare shortlinks)
 
-**Files:** [src/topic_preprocessing.py](src/topic_preprocessing.py), [src/train_topics.py](src/train_topics.py), [src/stance.py](src/stance.py)
+**Files:** [src/narrative_lens/topic_modeling/topic_preprocessing.py](src/narrative_lens/topic_modeling/topic_preprocessing.py), [src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py), [src/narrative_lens/topic_modeling/stance.py](src/narrative_lens/topic_modeling/stance.py)
 
 **Goal:** A quality-analysis pass (`analyze_soft_topic_quality.py`, see below) found that raw
 Twitter handles and hashtag blobs were leaking into BERTopic as their own junk topics (e.g. a
@@ -172,7 +172,7 @@ topic_id 347).
 
 ## 4. Near-duplicate analysis + retrain test at threshold=0.7
 
-**Files:** [src/text_dedup.py](src/text_dedup.py), [src/analyze_text_duplicates.py](src/analyze_text_duplicates.py), [src/train_topics.py](src/train_topics.py)
+**Files:** [src/narrative_lens/data/text_dedup.py](src/narrative_lens/data/text_dedup.py), [src/narrative_lens/evaluation/analyze_text_duplicates.py](src/narrative_lens/evaluation/analyze_text_duplicates.py), [src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py)
 
 **Goal:** Determine whether corpus duplication was a significant driver of topic-model noise/size,
 and whether removing near-duplicates before fitting improves soft-clustering quality.
@@ -240,7 +240,7 @@ not sold as a fix for the outlier rate or hard/soft agreement, which are driven 
 
 ## 5. Experiment C — topic representation / label-quality improvement
 
-**Files:** [experiments/topic_modeling/experiment_c_representation.py](experiments/topic_modeling/experiment_c_representation.py), [src/topic_preprocessing.py](src/topic_preprocessing.py) (`build_multiword_label`), [src/stance.py](src/stance.py) (`get_topic_label` optional `top_n_words`), [src/train_topics.py](src/train_topics.py) (`load_deduplicated_training_texts` extraction)
+**Files:** [experiments/topic_modeling/experiment_c_representation.py](experiments/topic_modeling/experiment_c_representation.py), [src/narrative_lens/topic_modeling/topic_preprocessing.py](src/narrative_lens/topic_modeling/topic_preprocessing.py) (`build_multiword_label`), [src/narrative_lens/topic_modeling/stance.py](src/narrative_lens/topic_modeling/stance.py) (`get_topic_label` optional `top_n_words`), [src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py) (`load_deduplicated_training_texts` extraction)
 
 **Goal:** Root-cause analysis (grounded in reading the live model + `train_topics.py`, not
 guesses) found three independent causes of vague/uninformative topic labels: (a) the default
@@ -297,7 +297,7 @@ model and any existing caller.
 
 ## 6. Experiment A — `min_topic_size` sweep (10 / 25 / 35)
 
-**Files:** [experiments/topic_modeling/experiment_a_min_topic_size.py](experiments/topic_modeling/experiment_a_min_topic_size.py), [src/train_topics.py](src/train_topics.py) (`build_bertopic_model`)
+**Files:** [experiments/topic_modeling/experiment_a_min_topic_size.py](experiments/topic_modeling/experiment_a_min_topic_size.py), [src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py) (`build_bertopic_model`)
 
 **Goal:** Test whether raising `min_topic_size` (HDBSCAN granularity only, nothing else changed)
 fixes the remaining quality issues found in root-cause analysis — most notably the "rulesbased"
@@ -439,7 +439,7 @@ decision (kept only long enough to run the comparison) — not committed to git,
 
 ## 8. Experiment B — embedding model swap (`all-MiniLM-L6-v2` → `all-mpnet-base-v2`)
 
-**Files:** [experiments/topic_modeling/experiment_b_embedding_model.py](experiments/topic_modeling/experiment_b_embedding_model.py), [src/train_topics.py](src/train_topics.py) (`build_bertopic_model` gained an optional `embedding_model` parameter)
+**Files:** [experiments/topic_modeling/experiment_b_embedding_model.py](experiments/topic_modeling/experiment_b_embedding_model.py), [src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py) (`build_bertopic_model` gained an optional `embedding_model` parameter)
 
 **Goal:** With `min_topic_size` sweeps closed (Experiments 6-7) without solving the original
 "rulesbased" duplicate-topic problem, test a different lever entirely: hold `min_topic_size=10`,
@@ -756,7 +756,7 @@ untouched, read-only experiment artifacts; `saved_topic_model_soft_v2` was not m
 
 ## 12. `recommend_min_topic_size(corpus_size)` — a corpus-size-aware heuristic
 
-**Files:** [src/train_topics.py](src/train_topics.py) (function `recommend_min_topic_size`,
+**Files:** [src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py) (function `recommend_min_topic_size`,
 alongside `build_bertopic_model`)
 
 **Goal:** `min_topic_size=10` (the value validated for the current ~16K-text corpus across
@@ -777,7 +777,7 @@ best `min_topic_size` stayed at 10 across every one of those sizes — the sqrt 
 have recommended ~5/7/9 at 4K/8K/12K, all of which scored *worse* in the actual sweep (more
 fragmented micro-topics, lower coherence/diversity, worse hard/soft agreement, lower soft-signal
 coverage) than just keeping `min_topic_size=10`. `recommend_min_topic_size()` in
-[src/train_topics.py](src/train_topics.py) has been rewritten accordingly: it now returns the
+[src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py) has been rewritten accordingly: it now returns the
 constant 10 for any corpus size up to the largest size actually tested (~16,062), and only applies
 a small, explicitly-flagged-as-**unvalidated** log-scaled increase beyond that point (see
 Experiment F for the full reasoning and the updated example-output table). This section is kept
@@ -1258,7 +1258,7 @@ range we could actually test (4K–16K, a 4× range), it should not change at al
   `min_topic_size`, not treated as a validated trend.
 
 **`recommend_min_topic_size()` updated accordingly** (see
-[src/train_topics.py](src/train_topics.py)): now returns the constant 10 for any corpus size up to
+[src/narrative_lens/train_topics.py](src/narrative_lens/train_topics.py)): now returns the constant 10 for any corpus size up to
 ~16,062 (empirically validated by this experiment), and only applies a small, explicitly-flagged
 log-based increase beyond that anchor (`10 + 5·ln(corpus_size / 16062)`, e.g. ≈19 at 100K, ≈31 at
 1M — much gentler than the old sqrt formula's 25/79) as a clearly-labeled, unvalidated
