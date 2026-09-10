@@ -36,16 +36,6 @@ import shutil
 
 from bertopic import BERTopic
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from train_topics import ...`) keep working unmodified.
-import sys
-
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
-
 from experiment_a_min_topic_size import (
     N_SMALLEST_SHOWN,
     WATCH_WORDS,
@@ -61,8 +51,8 @@ from experiment_a2_mts15 import (
     pct_with_soft_signal,
 )
 from experiment_c_representation import _topic_snapshot
-from topic_preprocessing import build_multiword_label
-from train_topics import build_bertopic_model, load_deduplicated_training_texts
+from narrative_lens.topic_modeling.topic_preprocessing import build_multiword_label
+from narrative_lens.train_topics import build_bertopic_model, load_deduplicated_training_texts
 
 REPORT_DIR = "reports/results/profiler_prototype"
 

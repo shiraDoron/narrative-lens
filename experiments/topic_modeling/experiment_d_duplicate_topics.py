@@ -70,18 +70,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from train_topics import ...`) keep working unmodified.
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
-
 from experiment_a_min_topic_size import run_analysis_with_retry
 from experiment_b_seed_stability import find_rulesbased_topics
 from experiment_c_representation import _topic_snapshot
-from train_topics import load_deduplicated_training_texts
+from narrative_lens.train_topics import load_deduplicated_training_texts
 
 BASELINE_PATH = "models/experiments/soft_v2_baseline_seeded"
 MERGE_EXPERIMENT_PATH = "models/experiments/soft_v2_expD_merge_rulesbased"

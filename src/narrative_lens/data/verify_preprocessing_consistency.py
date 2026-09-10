@@ -18,14 +18,14 @@ Checks performed:
    sentence as it did before this change was made (regression check against a hardcoded known-good
    value recorded in an earlier session).
 
-Run: `python src/verify_preprocessing_consistency.py` from repo root.
+Run: `python -m narrative_lens.data.verify_preprocessing_consistency` from repo root.
 """
 
 import sys
 
-from config import TOPIC_MODEL_PATH_LEGACY, TOPIC_MODEL_PATH_SOFT
-from stance import TopicAnalysisPipeline
-from topic_preprocessing import clean_text_for_topic_model
+from narrative_lens.config import TOPIC_MODEL_PATH_LEGACY, TOPIC_MODEL_PATH_SOFT
+from narrative_lens.topic_modeling.stance import TopicAnalysisPipeline
+from narrative_lens.topic_modeling.topic_preprocessing import clean_text_for_topic_model
 
 SAMPLE_TEXTS = [
     "Saudi Arabia sovereignty stuff  🔴 @DDGeopolitics | Socials | Donate | Advertising",

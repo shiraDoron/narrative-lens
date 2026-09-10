@@ -3,8 +3,8 @@ import os
 from telethon.sync import TelegramClient
 from telethon.errors import ChannelPrivateError, UsernameInvalidError
 
-from build_twitter_dataset import NARRATIVES_ACCOUNTS
-from config import NARRATIVES
+from narrative_lens.data.build_twitter_dataset import NARRATIVES_ACCOUNTS
+from narrative_lens.config import NARRATIVES
 
 # Personal access credentials you obtained from the site - read from environment variables, never hardcoded.
 _API_ID = os.environ.get("TELEGRAM_API_ID")

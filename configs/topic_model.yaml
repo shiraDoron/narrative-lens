@@ -1,0 +1,25 @@
+# BERTopic training configuration (documentation of the current defaults).
+#
+# Mirrors narrative_lens/train_topics.py's build_bertopic_model() defaults and the anchor point
+# used by recommend_min_topic_size(). This file is reference documentation for the "current
+# recommended configuration" - the experiments/topic_modeling/*.py sweep scripts intentionally
+# override embedding_model / min_topic_size / seed explicitly per-experiment (that is the whole
+# point of those experiments - see EXPERIMENTS.md) and do NOT read this file.
+
+# Sentence-transformers model BERTopic embeds documents with (also used by fusion.py's SBERT
+# feature extractors, experiments/*_ablation*.py, etc.)
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+
+# UMAP random_state used by build_bertopic_model() - fixes the dimensionality-reduction step so
+# repeated fits on the same data are reproducible (does not, by itself, make HDBSCAN clustering
+# fully deterministic - see EXPERIMENTS.md Experiment B "seed stability").
+seed: 42
+
+# min_topic_size anchor: the empirically-validated value at the ~1000-16000 document corpus
+# sizes this project actually trained on (see recommend_min_topic_size() docstring in
+# train_topics.py for the full validated-vs-extrapolated corpus-size table).
+min_topic_size: 10
+
+# Model save paths (see narrative_lens/config.py for the full explanation of why there are two).
+topic_model_path_legacy: models/saved_topic_model
+topic_model_path_soft: models/saved_topic_model_soft_v2

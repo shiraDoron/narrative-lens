@@ -37,7 +37,7 @@ can see what the system WOULD have guessed, and which signal drove it).
 
 from collections import Counter
 
-from analyze_agendas import RHETORIC_PATTERNS, clean_text as clean_rhetoric_text
+from narrative_lens.features.analyze_agendas import RHETORIC_PATTERNS, clean_text as clean_rhetoric_text
 
 ROLE_LABELS = ("hero", "victim", "aggressor", "betrayer", "savior", "unknown", "uncertain")
 

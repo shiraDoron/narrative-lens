@@ -32,21 +32,21 @@ from collections import Counter
 import torch
 from bertopic import BERTopic
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from train import ...`) keep working unmodified.
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
+# narrative_topic_compare.py is a sibling experiment script (not part of the installable
+# narrative_lens package) living in experiments/feature_ablation/ - add just that folder to
+# sys.path. Everything else below is imported from the installed `narrative_lens` package
+# (pip install -e ., see pyproject.toml) instead of a sys.path hack.
+_SIBLING_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "feature_ablation"))
+if _SIBLING_DIR not in sys.path:
+    sys.path.insert(0, _SIBLING_DIR)
 
-from train import load_raw_data, split_leave_one_author, evaluate
+from narrative_lens.train import load_raw_data, split_leave_one_author, evaluate
 from narrative_ablation_loao import (
     build_or_load_cache, AblationDetector, VARIANTS, CHECKPOINT_DIR, RIGHT_WING_IDX,
 )
 from narrative_topic_compare import BERTOPIC_MODEL_PATH, BERTOPIC_EMBEDDING_MODEL_NAME
-from ner import EntityAnalysisPipeline
-from analyze_agendas import clean_text, tokenize
+from narrative_lens.features.ner import EntityAnalysisPipeline
+from narrative_lens.features.analyze_agendas import clean_text, tokenize
 
 AUTHORS_TO_ANALYZE = ("MariaZakharova", "BernieSanders")
 VARIANT_NAME = "sbert_all_engineered"
@@ -125,7 +125,7 @@ def word_counts(texts):
 
 
 def hard_topic_counts(texts, bertopic_model):
-    from topic_preprocessing import clean_text_for_topic_model
+    from narrative_lens.topic_modeling.topic_preprocessing import clean_text_for_topic_model
     cleaned = [clean_text_for_topic_model(t) for t in texts]
     safe = [t if t.strip() else "empty" for t in cleaned]
     hard_topics, _ = bertopic_model.transform(safe)

@@ -3,11 +3,11 @@ import torch
 import torch.nn as nn
 import pandas as pd
 from bertopic import BERTopic
-from config import NUM_TOPICS, NUM_NARRATIVES, TOPIC_MODEL_PATH_LEGACY
+from narrative_lens.config import NUM_TOPICS, NUM_NARRATIVES, TOPIC_MODEL_PATH_LEGACY
 # Shared (train + inference) preprocessing - see topic_preprocessing.py docstring. MUST be the
 # exact same function train_topics.py applies before BERTopic.fit(), applied here ONLY when
 # model_path != TOPIC_MODEL_PATH_LEGACY (see TopicAnalysisPipeline.__init__ below).
-from topic_preprocessing import clean_text_for_topic_model, build_multiword_label
+from narrative_lens.topic_modeling.topic_preprocessing import clean_text_for_topic_model, build_multiword_label
 
 # שכבת הלמידה מהנושאים (ללא ממד העמדות)
 class TopicStanceLayer(nn.Module):
@@ -67,7 +67,7 @@ class TopicAnalysisPipeline:
         # תוויות שכוללו ע"י LLM (llm_topic_refiner.py), אם קיימות - אופציונלי,
         # לא משפיע על הסיווג עצמו, רק על פרשנות אנושית של הנושא.
         try:
-            from llm_topic_refiner import load_refined_labels
+            from narrative_lens.topic_modeling.llm_topic_refiner import load_refined_labels
             self.llm_labels = load_refined_labels(os.path.join(model_path, "topics_llm_refined.json"))
         except Exception:
             self.llm_labels = {}

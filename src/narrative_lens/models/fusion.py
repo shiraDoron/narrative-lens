@@ -167,16 +167,16 @@ import transformers
 import logging
 
 # import all the components we built, from the various files
-from ner import NarrativeEntityLayer, EntityAnalysisPipeline
-from srl import SRLProcessor, SRLNarrativeLayer
-from emotion import EmotionAgencyProcessor, EmotionAgencyLayer
-from reliability import ReliabilityProcessor, ReliabilityLayer
-from stance import TopicStanceLayer, TopicAnalysisPipeline  # now used only as a topics module
-from config import NUM_NARRATIVES, NARRATIVES
+from narrative_lens.features.ner import NarrativeEntityLayer, EntityAnalysisPipeline
+from narrative_lens.features.srl import SRLProcessor, SRLNarrativeLayer
+from narrative_lens.features.emotion import EmotionAgencyProcessor, EmotionAgencyLayer
+from narrative_lens.features.reliability import ReliabilityProcessor, ReliabilityLayer
+from narrative_lens.topic_modeling.stance import TopicStanceLayer, TopicAnalysisPipeline  # now used only as a topics module
+from narrative_lens.config import NUM_NARRATIVES, NARRATIVES
 
 # extra components for Hybrid v1 (SBERT + engineered features, see bottom of file)
 from sentence_transformers import SentenceTransformer
-from analyze_agendas import AGENDA_PATTERNS, IDEOLOGY_PATTERNS, clean_text as clean_agenda_text
+from narrative_lens.features.analyze_agendas import AGENDA_PATTERNS, IDEOLOGY_PATTERNS, clean_text as clean_agenda_text
 
 transformers.logging.set_verbosity_error()
 logging.getLogger("transformers").setLevel(logging.ERROR)

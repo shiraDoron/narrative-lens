@@ -28,7 +28,7 @@ Outputs (written to reports/results/profiler_prototype/):
   - duplicate_clusters.csv: one row per cluster (>=2 members) with size, type, sample texts.
   - duplicate_analysis_summary.json: corpus-level stats + threshold sensitivity + recommendation.
 
-Run: `python src/analyze_text_duplicates.py [--threshold 0.7]` from repo root.
+Run: `python -m narrative_lens.evaluation.analyze_text_duplicates [--threshold 0.7]` from repo root.
 """
 
 import argparse
@@ -42,7 +42,7 @@ import pandas as pd
 # Shared MinHash/LSH/Jaccard near-duplicate detection - see text_dedup.py docstring. This is the
 # SAME method train_topics.py uses to deduplicate the soft_v2 training texts, so results here stay
 # comparable to what actually gets applied before a BERTopic fit.
-from text_dedup import (
+from narrative_lens.data.text_dedup import (
     cluster_at_threshold,
     build_minhash_signatures,
     lsh_candidate_pairs,

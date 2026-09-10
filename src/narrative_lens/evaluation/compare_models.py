@@ -3,9 +3,9 @@ Builds a single cross-model comparison table from reports/tables/model_compariso
 (the shared results file written by train.py's save_comparison_result() after every run).
 
 Usage (from repo root, after running the 3 models for a given run):
-    python src/compare_models.py --run-key random --split test
-    python src/compare_models.py --run-key loto_lexicon_topic<category_name> --split test
-    python src/compare_models.py --run-key loao_IDF --split test
+    python -m narrative_lens.evaluation.compare_models --run-key random --split test
+    python -m narrative_lens.evaluation.compare_models --run-key loto_lexicon_topic<category_name> --split test
+    python -m narrative_lens.evaluation.compare_models --run-key loao_IDF --split test
 
 Only needs pandas/json (no torch/transformers) - safe to run locally even though the
 actual training runs happen on Colab; just copy reports/tables/model_comparison_results.json
@@ -17,7 +17,7 @@ import os
 
 import pandas as pd
 
-from config import MODEL_TYPES, NARRATIVES
+from narrative_lens.config import MODEL_TYPES, NARRATIVES
 
 RESULTS_FILE = "reports/tables/model_comparison_results.json"
 

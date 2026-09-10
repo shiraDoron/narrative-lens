@@ -1,0 +1,34 @@
+# Default / documented configuration for train.py.
+#
+# Mirrors the existing hardcoded defaults in narrative_lens/config.py exactly - passing
+# `--config configs/default.yaml` to train.py produces IDENTICAL behavior to passing no --config
+# at all. This file exists so a run can point at an explicit, versioned config for the
+# reproducibility metadata record (see narrative_lens/utils/repro.py) instead of an implicit
+# "whatever config.py contains right now".
+#
+# CLI flags always override values from this file (e.g. `--config configs/default.yaml --epochs 5`
+# still trains for 5 epochs).
+
+# Which of the 3 narrative-detection model architectures to train.
+# One of: baseline_fusion | sbert_only | hybrid
+model: baseline_fusion
+
+# Train/test split strategy. One of: random | leave_one_topic | leave_one_author | leave_group_authors
+split: random
+
+# Training hyperparameters (see narrative_lens/config.py: EPOCHS, BATCH_SIZE, LEARNING_RATE)
+epochs: 20
+batch_size: 16
+lr: 0.001
+patience: 3
+
+# Determinism. NOTE: this seeds Python/NumPy/PyTorch global RNG state (weight init, DataLoader
+# shuffling) via narrative_lens.utils.seeding.set_all_seeds() - it does NOT change the
+# train/val/test split logic itself, which already uses a separate, extensively-validated
+# hardcoded random_state=42 at every train_test_split() call site in train.py (unchanged,
+# leak-free by construction - see verify_no_leakage()).
+seed: 42
+
+# Train/val/test split ratios shared by every split strategy (see narrative_lens/config.py).
+val_size: 0.15
+test_size: 0.15

@@ -20,16 +20,8 @@ import sys
 import numpy as np
 import pandas as pd
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from topic_preprocessing import ...`) keep working unmodified.
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
-
-from text_dedup import NEAR_DUP_THRESHOLD, deduplicate_texts
-from topic_preprocessing import clean_text_for_topic_model, has_enough_content
+from narrative_lens.data.text_dedup import NEAR_DUP_THRESHOLD, deduplicate_texts
+from narrative_lens.topic_modeling.topic_preprocessing import clean_text_for_topic_model, has_enough_content
 
 RAW_DATASETS = {
     "gemini": "data/raw/gemini_natural_dataset.csv",

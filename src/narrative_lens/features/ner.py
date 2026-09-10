@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from transformers import pipeline
-from config import NUM_NARRATIVES
+from narrative_lens.config import NUM_NARRATIVES
 
 
 # שכבת הלמידה של הישויות

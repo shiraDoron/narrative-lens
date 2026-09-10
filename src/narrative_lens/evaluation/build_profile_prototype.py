@@ -72,10 +72,10 @@ model re-run needed).
 
 Run:
     # small calibration batch (~5-10 texts/narrative) to review and tune rules first:
-    python src/build_profile_prototype.py --n-per-narrative 8 --prefix calibration
+    python -m narrative_lens.evaluation.build_profile_prototype --n-per-narrative 8 --prefix calibration
 
     # later, larger (still NOT full-corpus) validation batch:
-    python src/build_profile_prototype.py --n-per-narrative 25 --prefix sample25
+    python -m narrative_lens.evaluation.build_profile_prototype --n-per-narrative 25 --prefix sample25
 (from the repo root, so the data/... and reports/... relative paths resolve correctly)
 """
 
@@ -88,11 +88,11 @@ from collections import Counter, defaultdict
 import pandas as pd
 import spacy
 
-from ner import EntityAnalysisPipeline, reconstruct_fragmented_entities
-from entity_normalizer import normalize_entity
-from entity_role_tagger import tag_entity_role, find_conceptual_actor_spans
-from relation_extractor import extract_relations
-from analyze_agendas import (
+from narrative_lens.features.ner import EntityAnalysisPipeline, reconstruct_fragmented_entities
+from narrative_lens.evaluation.entity_normalizer import normalize_entity
+from narrative_lens.evaluation.entity_role_tagger import tag_entity_role, find_conceptual_actor_spans
+from narrative_lens.evaluation.relation_extractor import extract_relations
+from narrative_lens.features.analyze_agendas import (
     VALUES_PATTERNS, clean_text as clean_lexicon_text,
     MENTION_RE, HASHTAG_RE,
 )

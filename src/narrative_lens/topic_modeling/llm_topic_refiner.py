@@ -19,7 +19,7 @@ Optimal-Transport בין הצעות ה-LLM למשקלי המודל; המטרה �
 דורש משתנה סביבה GEMINI_API_KEY (אל תשתמשו במפתח hardcoded בקוד!).
 
 הרצה עצמאית (אחרי שכבר יש saved_topic_model/ שמור):
-    python llm_topic_refiner.py
+    python -m narrative_lens.topic_modeling.llm_topic_refiner
 """
 import json
 import os

@@ -5,15 +5,15 @@ import pandas as pd
 from bertopic import BERTopic
 from umap import UMAP
 
-from config import TOPIC_MODEL_PATH_SOFT
-from llm_topic_refiner import refine_topics_with_llm
+from narrative_lens.config import TOPIC_MODEL_PATH_SOFT
+from narrative_lens.topic_modeling.llm_topic_refiner import refine_topics_with_llm
 # Shared (train + inference) preprocessing - see topic_preprocessing.py docstring for why this
 # MUST be the same function used by stance.py's TopicAnalysisPipeline at inference time.
-from topic_preprocessing import clean_text_for_topic_model, has_enough_content
+from narrative_lens.topic_modeling.topic_preprocessing import clean_text_for_topic_model, has_enough_content
 # Shared near-duplicate detection (MinHash+LSH+Jaccard, see text_dedup.py docstring) - same
 # method/threshold validated in analyze_text_duplicates.py. Applied ONLY to the soft_v2 training
 # texts below (in-memory only - raw CSVs are never modified).
-from text_dedup import deduplicate_texts, NEAR_DUP_THRESHOLD
+from narrative_lens.data.text_dedup import deduplicate_texts, NEAR_DUP_THRESHOLD
 
 
 def load_deduplicated_training_texts(verbose=True):
@@ -222,4 +222,14 @@ def build_and_save_topics():
         print("[i] GEMINI_API_KEY לא מוגדר - מדלג על שכלול תוויות הנושאים ב-LLM.")
 
 if __name__ == "__main__":
+    # Reproducibility metadata (see narrative_lens/utils/repro.py and configs/topic_model.yaml
+    # for the documented current defaults this run used - build_and_save_topics() itself is
+    # unchanged, this only records what happened for later traceability).
+    from narrative_lens.utils.repro import write_run_metadata
+
     build_and_save_topics()
+    write_run_metadata(
+        "reports/results/run_metadata_train_topics_soft_v2.json",
+        config_path="configs/topic_model.yaml",
+        topic_model_path=TOPIC_MODEL_PATH_SOFT,
+    )

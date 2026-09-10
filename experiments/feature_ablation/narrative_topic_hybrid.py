@@ -98,23 +98,13 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from config import ...`) keep working unmodified.
-import sys
+from narrative_lens.config import EPOCHS, BATCH_SIZE, LEARNING_RATE
 
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
-
-from config import EPOCHS, BATCH_SIZE, LEARNING_RATE
-
-from ner import NarrativeEntityLayer
-from srl import SRLNarrativeLayer
-from emotion import EmotionAgencyLayer
-from reliability import ReliabilityLayer
-from fusion import NarrativeFusionNetwork
+from narrative_lens.features.ner import NarrativeEntityLayer
+from narrative_lens.features.srl import SRLNarrativeLayer
+from narrative_lens.features.emotion import EmotionAgencyLayer
+from narrative_lens.features.reliability import ReliabilityLayer
+from narrative_lens.models.fusion import NarrativeFusionNetwork
 
 import narrative_topic_compare as ntc
 

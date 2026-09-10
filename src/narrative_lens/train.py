@@ -17,13 +17,13 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
 # import project components
-from config import NARRATIVES, MODEL_TYPE, MODEL_TYPES, VAL_SIZE, TEST_SIZE, EPOCHS, BATCH_SIZE, LEARNING_RATE
-from fusion import NarrativeDetector, SBERTOnlyDetector, HybridNarrativeDetector
+from narrative_lens.config import NARRATIVES, MODEL_TYPE, MODEL_TYPES, VAL_SIZE, TEST_SIZE, EPOCHS, BATCH_SIZE, LEARNING_RATE
+from narrative_lens.models.fusion import NarrativeDetector, SBERTOnlyDetector, HybridNarrativeDetector
 # AGENDA_PATTERNS/clean_text: safe import (only pandas/numpy/re at import time, the CLI is
 # guarded by `if __name__ == "__main__"`) - already used by fusion.py's
 # AgendaIdeologyFeatureExtractor. Used here by assign_topic_ids_lexicon (fixed, leak-free
 # topic labels for LOTO).
-from analyze_agendas import AGENDA_PATTERNS, clean_text
+from narrative_lens.features.analyze_agendas import AGENDA_PATTERNS, clean_text
 
 # ==========================================================================
 # Split modes supported by train.py:
@@ -856,13 +856,33 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
 
 
 if __name__ == "__main__":
+    # Two-phase parsing so --config (a YAML file, see configs/) can supply DEFAULT values for
+    # the flags below, while any flag still explicitly passed on the command line overrides it
+    # (argparse's normal default-vs-explicit-value precedence). Passing no --config at all keeps
+    # every default byte-identical to before this was added - config.get(key, existing_default)
+    # falls back to existing_default when config == {} (see load_config()).
+    from narrative_lens.utils.config_loader import load_config
+    from narrative_lens.utils.repro import write_run_metadata
+    from narrative_lens.utils.seeding import set_all_seeds
+
+    _config_parser = argparse.ArgumentParser(add_help=False)
+    _config_parser.add_argument("--config", type=str, default=None)
+    _config_args, _remaining_argv = _config_parser.parse_known_args()
+    config = load_config(_config_args.config)
+
     parser = argparse.ArgumentParser(description="Train one of the three narrative-detection models.")
     parser.add_argument(
-        "--model", choices=MODEL_TYPES, default=MODEL_TYPE,
+        "--config", type=str, default=None,
+        help="Optional path to a YAML config file (see configs/) supplying default values for "
+             "the flags below. Explicit CLI flags always override the config file. Omitting "
+             "--config keeps every default identical to config.py's hardcoded values."
+    )
+    parser.add_argument(
+        "--model", choices=MODEL_TYPES, default=config.get("model", MODEL_TYPE),
         help=f"Which model to train (default from config.py: '{MODEL_TYPE}')."
     )
     parser.add_argument(
-        "--split", choices=SPLIT_MODES, default="random",
+        "--split", choices=SPLIT_MODES, default=config.get("split", "random"),
         help="Split strategy: 'random' (default), 'leave_one_topic', 'leave_one_author', "
              "or 'leave_group_authors'."
     )
@@ -891,11 +911,20 @@ if __name__ == "__main__":
              "(required for --split leave_group_authors), e.g. 'IDF,khamenei_ir'. Synthetic "
              "gemini/gpt placeholders are not allowed."
     )
-    parser.add_argument("--epochs", type=int, default=EPOCHS)
-    parser.add_argument("--batch-size", type=int, default=BATCH_SIZE)
-    parser.add_argument("--patience", type=int, default=3)
-    parser.add_argument("--lr", type=float, default=LEARNING_RATE)
-    args = parser.parse_args()
+    parser.add_argument("--epochs", type=int, default=config.get("epochs", EPOCHS))
+    parser.add_argument("--batch-size", type=int, default=config.get("batch_size", BATCH_SIZE))
+    parser.add_argument("--patience", type=int, default=config.get("patience", 3))
+    parser.add_argument("--lr", type=float, default=config.get("lr", LEARNING_RATE))
+    parser.add_argument(
+        "--seed", type=int, default=config.get("seed", 42),
+        help="Seeds Python/NumPy/PyTorch global RNG state (weight init, batch shuffling order) "
+             "via narrative_lens.utils.seeding.set_all_seeds(). Does NOT change the "
+             "train/val/test split logic, which already uses its own hardcoded, "
+             "extensively-validated random_state=42 at every split() call site (unchanged)."
+    )
+    args = parser.parse_args(_remaining_argv)
+
+    set_all_seeds(args.seed)
 
     if args.split == "leave_one_topic" and args.held_out_topic is None:
         parser.error("--split leave_one_topic requires --held-out-topic <topic_id>")
@@ -915,7 +944,7 @@ if __name__ == "__main__":
         held_out_authors_list = [a.strip() for a in args.held_out_authors.split(",") if a.strip()]
 
     print(f"Selected model type: '{args.model}' | split mode: '{args.split}'")
-    train(
+    _, test_metrics = train(
         model_type=args.model,
         split_mode=args.split,
         held_out_topic=held_out_topic,
@@ -926,6 +955,16 @@ if __name__ == "__main__":
         batch_size=args.batch_size,
         patience=args.patience,
         lr=args.lr,
+    )
+
+    # Reproducibility metadata: lets every result be traced back to the exact code version,
+    # config, seed, and CLI arguments that produced it (see narrative_lens/utils/repro.py).
+    run_key = run_key_for(args.split, held_out_topic, args.held_out_author, held_out_authors_list, args.topic_source)
+    write_run_metadata(
+        f"reports/results/run_metadata_{args.model}_{run_key}.json",
+        config_path=args.config,
+        cli_args=vars(args),
+        test_metrics={k: v for k, v in test_metrics.items() if k not in ("confusion_matrix",)},
     )
 
 # ==========================================================================

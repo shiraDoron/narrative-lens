@@ -5,7 +5,7 @@ import time
 from google import genai
 from google.genai import types
 from google.genai.errors import APIError
-from config import NARRATIVES
+from narrative_lens.config import NARRATIVES
 
 # Initialize the client with your key - read from the GEMINI_API_KEY environment variable, never hardcoded.
 _GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")

@@ -71,15 +71,15 @@ ANNOTATION GUIDE
 
 Run (from repo root, AFTER build_profile_prototype.py has produced
 text_profiles_<prefix>.json - no need to re-run it):
-    python src/build_gold_annotation_set.py --prefix calibration --n-per-narrative 5
+    python -m narrative_lens.evaluation.build_gold_annotation_set --prefix calibration --n-per-narrative 5
 """
 
 import argparse
 import json
 import os
 
-from build_profile_prototype import write_entity_review, write_relation_review, write_values_review
-from build_review_sample import write_agenda_review, filter_first_n_per_narrative
+from narrative_lens.evaluation.build_profile_prototype import write_entity_review, write_relation_review, write_values_review
+from narrative_lens.evaluation.build_review_sample import write_agenda_review, filter_first_n_per_narrative
 
 PROFILES_DIR = "data/profiles"
 REPORT_DIR = "reports/results/profiler_prototype"
@@ -124,7 +124,7 @@ def main():
     print(f"- {agendas_path}")
     print("\nFill in the gold_*/error_stage/correct_incorrect_missing_uncertain/annotator_notes "
           "columns (see this script's module docstring for the annotation conventions), then run:")
-    print(f"    python src/evaluate_profile_extraction.py --entities-csv {entities_path} "
+    print(f"    python -m narrative_lens.evaluation.evaluate_profile_extraction --entities-csv {entities_path} "
           f"--relations-csv {relations_path} --values-csv {values_path} --agendas-csv {agendas_path}")
 
 

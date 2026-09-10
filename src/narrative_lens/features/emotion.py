@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from transformers import pipeline
 import spacy
-from config import NUM_NARRATIVES
+from narrative_lens.config import NUM_NARRATIVES
 
 # This module essentially identifies which narratives are more characterized
 # by victimhood framing, and which lean more toward a call-to-action framing,

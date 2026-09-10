@@ -39,7 +39,7 @@ prints the coverage stats and a clear message that no P/R/F1 can be computed
 until annotation is done - it will NOT crash or silently fabricate metrics.
 
 Run (after filling in gold_* columns in Excel/Sheets and re-saving as CSV):
-    python src/evaluate_profile_extraction.py \\
+    python -m narrative_lens.evaluation.evaluate_profile_extraction \\
         --entities-csv reports/results/profiler_prototype/calibration_gold_entities.csv \\
         --relations-csv reports/results/profiler_prototype/calibration_gold_relations.csv \\
         --values-csv reports/results/profiler_prototype/calibration_gold_values.csv \\
@@ -52,8 +52,8 @@ import os
 import pandas as pd
 from sklearn.metrics import precision_recall_fscore_support, confusion_matrix
 
-from entity_role_tagger import ROLE_LABELS
-from relation_extractor import RELATION_TYPES
+from narrative_lens.evaluation.entity_role_tagger import ROLE_LABELS
+from narrative_lens.evaluation.relation_extractor import RELATION_TYPES
 
 NON_SUBSTANTIVE_ROLES = {"unknown", "uncertain"}
 NON_SUBSTANTIVE_RELATIONS = {"uncertain", "(none detected)"}

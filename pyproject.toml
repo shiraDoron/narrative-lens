@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "narrative-lens"
+version = "0.1.0"
+description = "Narrative detection & profiling pipeline: classifies political/geopolitical text into 7 narratives via a hybrid feature-fusion model, plus unsupervised agenda/rhetoric/ideology profiling."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+# Core dependencies needed to import narrative_lens and run the production pipeline
+# (train.py, train_topics.py, fusion.py, and the evaluation/ scripts). Exact pinned versions
+# (as actually verified locally via `pip freeze`) live in requirements.txt - see its header
+# comment and the "pyproject.toml vs requirements.txt" note in README.md for why both exist.
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "torch",
+    "transformers",
+    "sentence-transformers",
+    "spacy",
+    "bertopic",
+    "umap-learn",
+    "hdbscan",
+    "gensim",
+    "scikit-learn",
+    "tqdm",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+# Only needed for the original data-collection scripts (narrative_lens/data/build_*.py,
+# translate_datasets.py, topic_modeling/llm_topic_refiner.py). Not required to train/evaluate
+# models or run the analysis/evaluation scripts.
+datacollection = [
+    "selenium",
+    "webdriver-manager",
+    "google-genai",
+    "telethon",
+    "deep-translator",
+]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+# Keep this intentionally light for a research codebase: catch real bugs (unused imports,
+# undefined names) without forcing a full style rewrite of existing research scripts.
+select = ["E9", "F"]

@@ -8,8 +8,8 @@ and how many appear in significant volume (at least MIN_DOCS matching documents)
 Highlights narratives that don't reach 10 categories.
 
 Usage:
-    python check_agenda_coverage.py
-    python check_agenda_coverage.py --files data/raw/twitter_natural_dataset.csv data/raw/telegram_natural_dataset.csv ...
+    python -m narrative_lens.evaluation.check_agenda_coverage
+    python -m narrative_lens.evaluation.check_agenda_coverage --files data/raw/twitter_natural_dataset.csv data/raw/telegram_natural_dataset.csv ...
 """
 import argparse
 import os
@@ -17,7 +17,7 @@ import os
 import numpy as np
 import pandas as pd
 
-from analyze_agendas import AGENDA_PATTERNS, clean_text
+from narrative_lens.features.analyze_agendas import AGENDA_PATTERNS, clean_text
 
 MIN_DOCS = 10  # threshold for "significant presence" of an agenda in a narrative
 

@@ -18,15 +18,15 @@ versioned re-fit that supports soft/multi-topic scoring - NOT the pinned legacy
 `models/saved_topic_model` that the existing classification checkpoints depend on.
 Use `--model-path` to point at a different saved model.
 
-Run (from repo root): `python src/analyze_soft_topics.py --n-examples 10`
+Run (from repo root): `python -m narrative_lens.evaluation.analyze_soft_topics --n-examples 10`
 """
 import argparse
 import os
 
 import pandas as pd
 
-from config import TOPIC_MODEL_PATH_SOFT
-from stance import TopicAnalysisPipeline
+from narrative_lens.config import TOPIC_MODEL_PATH_SOFT
+from narrative_lens.topic_modeling.stance import TopicAnalysisPipeline
 
 RAW_DATASETS = [
     "data/raw/twitter_natural_dataset.csv",

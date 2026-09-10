@@ -24,7 +24,7 @@ entity/relation/values writers) to produce all 4 long-format reviews
 (entities/relations/values/agendas) restricted to this exact same small text set.
 
 Run (from repo root):
-    python src/build_review_sample.py --prefix calibration --n-per-narrative 5
+    python -m narrative_lens.evaluation.build_review_sample --prefix calibration --n-per-narrative 5
 """
 
 import argparse
@@ -33,7 +33,7 @@ import os
 
 import pandas as pd
 
-from analyze_agendas import AGENDA_PATTERNS, clean_text as clean_lexicon_text, MENTION_RE, HASHTAG_RE
+from narrative_lens.features.analyze_agendas import AGENDA_PATTERNS, clean_text as clean_lexicon_text, MENTION_RE, HASHTAG_RE
 
 PROFILES_DIR = "data/profiles"
 REPORT_DIR = "reports/results/profiler_prototype"

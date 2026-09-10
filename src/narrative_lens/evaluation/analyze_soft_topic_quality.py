@@ -31,7 +31,7 @@ Outputs (all under reports/results/profiler_prototype/):
   - soft_topic_cooccurrence.csv        - top topic-pairs from point 4
   - soft_topic_quality_examples.csv    - curated rows from point 5, with a `case_type` column
 
-Run (from repo root): `python src/analyze_soft_topic_quality.py --n-per-narrative 40`
+Run (from repo root): `python -m narrative_lens.evaluation.analyze_soft_topic_quality --n-per-narrative 40`
 """
 import argparse
 import itertools
@@ -42,8 +42,8 @@ from collections import Counter
 import numpy as np
 import pandas as pd
 
-from config import TOPIC_MODEL_PATH_SOFT
-from stance import TopicAnalysisPipeline
+from narrative_lens.config import TOPIC_MODEL_PATH_SOFT
+from narrative_lens.topic_modeling.stance import TopicAnalysisPipeline
 
 RAW_DATASETS = [
     "data/raw/twitter_natural_dataset.csv",

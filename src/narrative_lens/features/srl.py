@@ -1,7 +1,7 @@
 import spacy
 import torch
 import torch.nn as nn
-from config import NUM_NARRATIVES
+from narrative_lens.config import NUM_NARRATIVES
 
 
 class SRLNarrativeLayer(nn.Module):

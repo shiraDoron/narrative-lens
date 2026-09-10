@@ -87,21 +87,11 @@ from gensim.models import LdaModel
 from gensim.models.coherencemodel import CoherenceModel
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from train_topics import ...`) keep working unmodified.
-import sys
-
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
-
 # NOTE: `BERTopic` (and transitively torch/sentence-transformers) is deliberately NOT imported at
 # module level to keep this module lightweight to import - it is imported lazily instead, inside
 # `compute_bertopic_hard_metrics()`, the only place that needs it.
-from analyze_soft_topic_quality import load_stratified_sample
-from train_topics import load_deduplicated_training_texts
+from narrative_lens.evaluation.analyze_soft_topic_quality import load_stratified_sample
+from narrative_lens.train_topics import load_deduplicated_training_texts
 
 REPORT_DIR = "reports/results/profiler_prototype"
 LDA_MODEL_DIR = "models/experiments/lda_baseline"

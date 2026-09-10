@@ -91,26 +91,26 @@ from bertopic import BERTopic
 from gensim.corpora import Dictionary
 from gensim.models import LdaModel
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from train import ...`) keep working unmodified.
+# experiment_e_lda_baseline.py is a sibling experiment script (not part of the installable
+# narrative_lens package) living in experiments/topic_modeling/ - add just that folder to
+# sys.path. Everything else below is imported from the installed `narrative_lens` package
+# (pip install -e ., see pyproject.toml) instead of a sys.path hack.
 import sys
 
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
+_SIBLING_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "topic_modeling"))
+if _SIBLING_DIR not in sys.path:
+    sys.path.insert(0, _SIBLING_DIR)
 
-from config import NARRATIVES, NUM_NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE
-from train import load_raw_data, split_random
-from topic_preprocessing import clean_text_for_topic_model
+from narrative_lens.config import NARRATIVES, NUM_NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE
+from narrative_lens.train import load_raw_data, split_random
+from narrative_lens.topic_modeling.topic_preprocessing import clean_text_for_topic_model
 from experiment_e_lda_baseline import tokenize as lda_tokenize
 
-from ner import NarrativeEntityLayer
-from srl import SRLNarrativeLayer
-from emotion import EmotionAgencyLayer
-from reliability import ReliabilityLayer
-from fusion import NarrativeFusionNetwork
+from narrative_lens.features.ner import NarrativeEntityLayer
+from narrative_lens.features.srl import SRLNarrativeLayer
+from narrative_lens.features.emotion import EmotionAgencyLayer
+from narrative_lens.features.reliability import ReliabilityLayer
+from narrative_lens.models.fusion import NarrativeFusionNetwork
 
 # ---------------------------------------------------------------------------------------
 # Paths - all new, none overlap with any existing cache/checkpoint/results file.

@@ -42,20 +42,10 @@ from bertopic.representation import MaximalMarginalRelevance
 from bertopic.vectorizers import ClassTfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 
-# Moved out of src/ into experiments/ - add src/ and sibling experiment folders to sys.path so
-# same-style flat imports (e.g. `from train_topics import ...`) keep working unmodified.
-import sys
-
-_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-for _rel_dir in ("src", "experiments/topic_modeling", "experiments/feature_ablation", "experiments/author_generalization"):
-    _abs_dir = os.path.join(_REPO_ROOT, _rel_dir)
-    if _abs_dir not in sys.path:
-        sys.path.insert(0, _abs_dir)
-
-from analyze_soft_topic_quality import analyze as run_soft_quality_analysis
+from narrative_lens.evaluation.analyze_soft_topic_quality import analyze as run_soft_quality_analysis
 from experiment_c_representation import _find_topics_by_top_word, _topic_snapshot
-from topic_preprocessing import build_multiword_label
-from train_topics import build_bertopic_model, load_deduplicated_training_texts
+from narrative_lens.topic_modeling.topic_preprocessing import build_multiword_label
+from narrative_lens.train_topics import build_bertopic_model, load_deduplicated_training_texts
 
 REPORT_DIR = "reports/results/profiler_prototype"
 
