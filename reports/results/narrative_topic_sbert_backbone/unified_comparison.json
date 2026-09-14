@@ -1,0 +1,419 @@
+{
+  "random_split": {
+    "none": {
+      "accuracy_mean": 0.7297806486341004,
+      "accuracy_std": 0.000503520035900168,
+      "macro_f1_mean": 0.7274955010702645,
+      "macro_f1_std": 0.000833595012265306,
+      "n_seeds": 3,
+      "delta_vs_hard": {
+        "accuracy_mean": -0.004844570044408562,
+        "accuracy_std": 0.0028736585256442706,
+        "per_seed_accuracy": [
+          -0.00645942672587807,
+          -0.0008074283407347727,
+          -0.007266855066612843
+        ],
+        "macro_f1_mean": -0.004585540002117379,
+        "macro_f1_std": 0.0031230210396483537,
+        "per_seed_macro_f1": [
+          -0.006609043176409091,
+          -0.00017394035971185495,
+          -0.006973636470231193
+        ],
+        "n_seeds": 3
+      }
+    },
+    "hard": {
+      "accuracy_mean": 0.7346252186785089,
+      "accuracy_std": 0.0028799535135288394,
+      "macro_f1_mean": 0.7320810410723819,
+      "macro_f1_std": 0.0029188664694155767,
+      "n_seeds": 3,
+      "delta_vs_none": {
+        "accuracy_mean": 0.004844570044408562,
+        "accuracy_std": 0.0028736585256442706,
+        "per_seed_accuracy": [
+          0.00645942672587807,
+          0.0008074283407347727,
+          0.007266855066612843
+        ],
+        "macro_f1_mean": 0.004585540002117379,
+        "macro_f1_std": 0.0031230210396483537,
+        "per_seed_macro_f1": [
+          0.006609043176409091,
+          0.00017394035971185495,
+          0.006973636470231193
+        ],
+        "n_seeds": 3
+      }
+    },
+    "soft": {
+      "accuracy_mean": 0.734356075898264,
+      "accuracy_std": 0.002929826545159066,
+      "macro_f1_mean": 0.7319074990029136,
+      "macro_f1_std": 0.0032280545624504805,
+      "n_seeds": 3,
+      "delta_vs_none": {
+        "accuracy_mean": 0.004575427264163638,
+        "accuracy_std": 0.0025176001795006618,
+        "per_seed_accuracy": [
+          0.0012111425111022145,
+          0.007266855066612843,
+          0.005248284214775856
+        ],
+        "macro_f1_mean": 0.004411997932649052,
+        "macro_f1_std": 0.002513385897689333,
+        "per_seed_macro_f1": [
+          0.0013350202003338252,
+          0.007491531584717381,
+          0.004409442012895948
+        ],
+        "n_seeds": 3
+      },
+      "delta_vs_hard": {
+        "accuracy_mean": -0.0002691427802449242,
+        "accuracy_std": 0.004937138023911738,
+        "per_seed_accuracy": [
+          -0.005248284214775856,
+          0.00645942672587807,
+          -0.002018570851836987
+        ],
+        "macro_f1_mean": -0.00017354206946832798,
+        "macro_f1_std": 0.00541132153772226,
+        "per_seed_macro_f1": [
+          -0.0052740229760752655,
+          0.007317591225005526,
+          -0.002564194457335245
+        ],
+        "n_seeds": 3
+      }
+    },
+    "lda": {
+      "accuracy_mean": 0.7322029336563046,
+      "accuracy_std": 0.002119232370881912,
+      "macro_f1_mean": 0.7299111430337133,
+      "macro_f1_std": 0.0020089077457486463,
+      "n_seeds": 3,
+      "delta_vs_none": {
+        "accuracy_mean": 0.002422285022204318,
+        "accuracy_std": 0.002616366854423851,
+        "per_seed_accuracy": [
+          0.006055712555510739,
+          0.0012111425111022145,
+          0.0
+        ],
+        "macro_f1_mean": 0.002415641963448826,
+        "macro_f1_std": 0.0028423498733354383,
+        "per_seed_macro_f1": [
+          0.006422340625063527,
+          0.0006919416625632557,
+          0.00013264360271969533
+        ],
+        "n_seeds": 3
+      },
+      "delta_vs_hard": {
+        "accuracy_mean": -0.002422285022204244,
+        "accuracy_std": 0.0034414511781845052,
+        "per_seed_accuracy": [
+          -0.0004037141703673308,
+          0.00040371417036744184,
+          -0.007266855066612843
+        ],
+        "macro_f1_mean": -0.002169898038668553,
+        "macro_f1_std": 0.0033154684993790835,
+        "per_seed_macro_f1": [
+          -0.00018670255134556335,
+          0.0005180013028514008,
+          -0.006840992867511497
+        ],
+        "n_seeds": 3
+      }
+    }
+  },
+  "loao": {
+    "none": {
+      "avg_recall_true_narrative": 0.5916666666666667,
+      "avg_pct_misclassified_right_wing": 0.20833333333333334,
+      "avg_macro_f1": 0.12182646970505041,
+      "n_authors": 3,
+      "reused_from_existing_run": true,
+      "per_author": {
+        "IDF": {
+          "accuracy": 0.635,
+          "macro_precision": 0.14285714285714285,
+          "macro_recall": 0.09071428571428572,
+          "macro_f1": 0.11096548711227609,
+          "recall_true_narrative": 0.635,
+          "pct_misclassified_right_wing": 0.025,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_only_IDF_test.csv"
+        },
+        "MariaZakharova": {
+          "accuracy": 0.895,
+          "macro_precision": 0.2,
+          "macro_recall": 0.179,
+          "macro_f1": 0.18891820580474933,
+          "recall_true_narrative": 0.895,
+          "pct_misclassified_right_wing": 0.025,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_only_MariaZakharova_test.csv"
+        },
+        "BernieSanders": {
+          "accuracy": 0.245,
+          "macro_precision": 0.16666666666666666,
+          "macro_recall": 0.04083333333333333,
+          "macro_f1": 0.06559571619812583,
+          "recall_true_narrative": 0.245,
+          "pct_misclassified_right_wing": 0.575,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_only_BernieSanders_test.csv"
+        }
+      }
+    },
+    "hard": {
+      "avg_recall_true_narrative": 0.52,
+      "avg_pct_misclassified_right_wing": 0.20833333333333334,
+      "avg_macro_f1": 0.10439959797873227,
+      "n_authors": 3,
+      "reused_from_existing_run": true,
+      "per_author": {
+        "IDF": {
+          "accuracy": 0.525,
+          "macro_precision": 0.14285714285714285,
+          "macro_recall": 0.075,
+          "macro_f1": 0.09836065573770492,
+          "recall_true_narrative": 0.525,
+          "pct_misclassified_right_wing": 0.03,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_stance_hard_topic_IDF_test.csv"
+        },
+        "MariaZakharova": {
+          "accuracy": 0.77,
+          "macro_precision": 0.16666666666666666,
+          "macro_recall": 0.12833333333333333,
+          "macro_f1": 0.14500941619585686,
+          "recall_true_narrative": 0.77,
+          "pct_misclassified_right_wing": 0.075,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_stance_hard_topic_MariaZakharova_test.csv"
+        },
+        "BernieSanders": {
+          "accuracy": 0.265,
+          "macro_precision": 0.16666666666666666,
+          "macro_recall": 0.04416666666666667,
+          "macro_f1": 0.06982872200263505,
+          "recall_true_narrative": 0.265,
+          "pct_misclassified_right_wing": 0.52,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_stance_hard_topic_BernieSanders_test.csv"
+        }
+      }
+    },
+    "soft": {
+      "avg_recall_true_narrative": 0.5900000000000001,
+      "avg_pct_misclassified_right_wing": 0.16666666666666666,
+      "avg_macro_f1": 0.11905245835496349,
+      "n_authors": 3,
+      "reused_from_existing_run": true,
+      "per_author": {
+        "IDF": {
+          "accuracy": 0.515,
+          "macro_precision": 0.16666666666666666,
+          "macro_recall": 0.08583333333333333,
+          "macro_f1": 0.11331133113311331,
+          "recall_true_narrative": 0.515,
+          "pct_misclassified_right_wing": 0.03,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_IDF_test.csv"
+        },
+        "MariaZakharova": {
+          "accuracy": 0.915,
+          "macro_precision": 0.16666666666666666,
+          "macro_recall": 0.1525,
+          "macro_f1": 0.15926892950391644,
+          "recall_true_narrative": 0.915,
+          "pct_misclassified_right_wing": 0.01,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_MariaZakharova_test.csv"
+        },
+        "BernieSanders": {
+          "accuracy": 0.34,
+          "macro_precision": 0.16666666666666666,
+          "macro_recall": 0.05666666666666667,
+          "macro_f1": 0.0845771144278607,
+          "recall_true_narrative": 0.34,
+          "pct_misclassified_right_wing": 0.46,
+          "n_test": 200,
+          "confusion_matrix_csv": "reports/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_BernieSanders_test.csv"
+        }
+      }
+    },
+    "lda": {
+      "avg_recall_true_narrative": 0.5783333333333333,
+      "avg_pct_misclassified_right_wing": 0.19666666666666668,
+      "avg_macro_f1": 0.12102365655842083,
+      "n_authors": 3,
+      "reused_from_existing_run": false,
+      "per_author": {
+        "IDF": {
+          "accuracy": 0.58,
+          "macro_precision": 0.14285714285714285,
+          "macro_recall": 0.08285714285714285,
+          "macro_f1": 0.10488245931283906,
+          "per_class": {
+            "Zionist": {
+              "precision": 1.0,
+              "recall": 0.58,
+              "f1": 0.7341772151898734,
+              "support": 200
+            },
+            "Resistance": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Western": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Russian": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Ukrainian": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Right-wing": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Left-wing": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            }
+          },
+          "recall_true_narrative": 0.58,
+          "pct_misclassified_right_wing": 0.02,
+          "n_test": 200,
+          "checkpoint": "models/experiments/narrative_topic_sbert_backbone/lda_loao_IDF.pth",
+          "confusion_matrix_csv": "reports/results/narrative_topic_sbert_backbone/confusion_matrix_sbert_lda_topic_IDF_test.csv"
+        },
+        "MariaZakharova": {
+          "accuracy": 0.89,
+          "macro_precision": 0.2,
+          "macro_recall": 0.178,
+          "macro_f1": 0.18835978835978834,
+          "per_class": {
+            "Resistance": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Russian": {
+              "precision": 1.0,
+              "recall": 0.89,
+              "f1": 0.9417989417989417,
+              "support": 200
+            },
+            "Ukrainian": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Right-wing": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Left-wing": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            }
+          },
+          "recall_true_narrative": 0.89,
+          "pct_misclassified_right_wing": 0.03,
+          "n_test": 200,
+          "checkpoint": "models/experiments/narrative_topic_sbert_backbone/lda_loao_MariaZakharova.pth",
+          "confusion_matrix_csv": "reports/results/narrative_topic_sbert_backbone/confusion_matrix_sbert_lda_topic_MariaZakharova_test.csv"
+        },
+        "BernieSanders": {
+          "accuracy": 0.265,
+          "macro_precision": 0.16666666666666666,
+          "macro_recall": 0.04416666666666667,
+          "macro_f1": 0.06982872200263505,
+          "per_class": {
+            "Zionist": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Resistance": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Western": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Ukrainian": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Right-wing": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "Left-wing": {
+              "precision": 1.0,
+              "recall": 0.265,
+              "f1": 0.4189723320158103,
+              "support": 200
+            }
+          },
+          "recall_true_narrative": 0.265,
+          "pct_misclassified_right_wing": 0.54,
+          "n_test": 200,
+          "checkpoint": "models/experiments/narrative_topic_sbert_backbone/lda_loao_BernieSanders.pth",
+          "confusion_matrix_csv": "reports/results/narrative_topic_sbert_backbone/confusion_matrix_sbert_lda_topic_BernieSanders_test.csv"
+        }
+      }
+    }
+  },
+  "dimensionality_fairness_note": {
+    "bertopic_vec_size_hard_soft": 283,
+    "lda_vec_size": 50,
+    "classifier_input_dim_added_by_topic_arm": 7,
+    "note": "Soft BERTopic's underlying table has 283 rows (num topics + 1 OOV slot) vs. LDA's 50 rows (K=50) - a large difference in TopicFeatureLayer's PARAMETER COUNT (283x7=1981 vs. 50x7=350). However, the actual FEATURE DIMENSION appended to the SBERT embedding before the final MLP is exactly 7 (NUM_NARRATIVES) for every one of hard/soft/lda, because TopicFeatureLayer always projects the (possibly much larger) input distribution down to a 7-dim vector via `dense_vec @ table` (a weighted sum over the table's rows) before concatenation. So the classifier itself sees the SAME input dimensionality (sbert_dim + 7) for hard/soft/lda - no variant gets an unfair advantage merely from having a larger raw feature-vector count; only the number of LEARNABLE embedding-table parameters differs, which is an inherent property of the topic model's own vocabulary size (283 BERTopic topics vs. 50 LDA topics), not an experimental design choice."
+  },
+  "random_split_table_csv": "reports/results/narrative_topic_sbert_backbone/random_split_summary_table.csv",
+  "loao_table_csv": "reports/results/narrative_topic_sbert_backbone/loao_summary_table.csv",
+  "per_narrative_random_csv": "reports/results/narrative_topic_sbert_backbone/per_narrative_summary_random.csv",
+  "per_narrative_loao_csv": "reports/results/narrative_topic_sbert_backbone/per_narrative_summary_loao.csv"
+}

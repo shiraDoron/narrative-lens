@@ -1,0 +1,32 @@
+{
+  "git_commit": "8a7452b-dirty",
+  "timestamp_utc": "2026-09-10T14:39:59.811333+00:00",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "config": "SBERT-backbone Topic comparison, unified report",
+  "random_seeds": [
+    42,
+    7,
+    123
+  ],
+  "loao_authors": [
+    "IDF",
+    "MariaZakharova",
+    "BernieSanders"
+  ],
+  "loao_seed": 42,
+  "modes": [
+    "none",
+    "hard",
+    "soft",
+    "lda"
+  ],
+  "random_dataset_size": 384,
+  "bertopic_vec_size": 283,
+  "lda_vec_size": 50,
+  "random_results_file": "reports/results/narrative_topic_sbert_backbone/results_random.json",
+  "loao_lda_results_file": "reports/results/narrative_topic_sbert_backbone/results_loao_lda.json",
+  "loao_reused_results_file": "reports/results/narrative_ablation_loao/results.json",
+  "random_split_table_csv": "reports/results/narrative_topic_sbert_backbone/random_split_summary_table.csv",
+  "loao_table_csv": "reports/results/narrative_topic_sbert_backbone/loao_summary_table.csv",
+  "unified_comparison_json": "reports/results/narrative_topic_sbert_backbone/unified_comparison.json"
+}

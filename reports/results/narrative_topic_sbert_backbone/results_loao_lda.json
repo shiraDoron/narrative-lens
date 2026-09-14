@@ -1,0 +1,149 @@
+{
+  "IDF": {
+    "accuracy": 0.58,
+    "macro_precision": 0.14285714285714285,
+    "macro_recall": 0.08285714285714285,
+    "macro_f1": 0.10488245931283906,
+    "per_class": {
+      "Zionist": {
+        "precision": 1.0,
+        "recall": 0.58,
+        "f1": 0.7341772151898734,
+        "support": 200
+      },
+      "Resistance": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Western": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Russian": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Ukrainian": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Right-wing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Left-wing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      }
+    },
+    "recall_true_narrative": 0.58,
+    "pct_misclassified_right_wing": 0.02,
+    "n_test": 200,
+    "checkpoint": "models/experiments/narrative_topic_sbert_backbone/lda_loao_IDF.pth",
+    "confusion_matrix_csv": "reports/results/narrative_topic_sbert_backbone/confusion_matrix_sbert_lda_topic_IDF_test.csv"
+  },
+  "MariaZakharova": {
+    "accuracy": 0.89,
+    "macro_precision": 0.2,
+    "macro_recall": 0.178,
+    "macro_f1": 0.18835978835978834,
+    "per_class": {
+      "Resistance": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Russian": {
+        "precision": 1.0,
+        "recall": 0.89,
+        "f1": 0.9417989417989417,
+        "support": 200
+      },
+      "Ukrainian": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Right-wing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Left-wing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      }
+    },
+    "recall_true_narrative": 0.89,
+    "pct_misclassified_right_wing": 0.03,
+    "n_test": 200,
+    "checkpoint": "models/experiments/narrative_topic_sbert_backbone/lda_loao_MariaZakharova.pth",
+    "confusion_matrix_csv": "reports/results/narrative_topic_sbert_backbone/confusion_matrix_sbert_lda_topic_MariaZakharova_test.csv"
+  },
+  "BernieSanders": {
+    "accuracy": 0.265,
+    "macro_precision": 0.16666666666666666,
+    "macro_recall": 0.04416666666666667,
+    "macro_f1": 0.06982872200263505,
+    "per_class": {
+      "Zionist": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Resistance": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Western": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Ukrainian": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Right-wing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Left-wing": {
+        "precision": 1.0,
+        "recall": 0.265,
+        "f1": 0.4189723320158103,
+        "support": 200
+      }
+    },
+    "recall_true_narrative": 0.265,
+    "pct_misclassified_right_wing": 0.54,
+    "n_test": 200,
+    "checkpoint": "models/experiments/narrative_topic_sbert_backbone/lda_loao_BernieSanders.pth",
+    "confusion_matrix_csv": "reports/results/narrative_topic_sbert_backbone/confusion_matrix_sbert_lda_topic_BernieSanders_test.csv"
+  }
+}

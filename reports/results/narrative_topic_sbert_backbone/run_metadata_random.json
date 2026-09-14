@@ -1,0 +1,26 @@
+{
+  "git_commit": "8a7452b-dirty",
+  "timestamp_utc": "2026-09-10T14:04:22.704558+00:00",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "config": "SBERT-backbone Topic comparison, random split",
+  "seeds": [
+    42,
+    7,
+    123
+  ],
+  "modes": [
+    "none",
+    "hard",
+    "soft",
+    "lda"
+  ],
+  "dataset_size": {
+    "train": 11557,
+    "val": 2476,
+    "test": 2477
+  },
+  "topic_model_path": "models/experiments/soft_v2_baseline_seeded",
+  "lda_model_path": "models/experiments/lda_baseline/lda_k50_seed42",
+  "results_file": "reports/results/narrative_topic_sbert_backbone/results_random.json",
+  "checkpoint_dir": "models/experiments/narrative_topic_sbert_backbone"
+}

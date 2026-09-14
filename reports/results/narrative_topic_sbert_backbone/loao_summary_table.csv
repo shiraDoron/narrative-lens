@@ -1,0 +1,5 @@
+﻿mode,avg_recall_true_narrative,avg_pct_misclassified_right_wing,avg_macro_f1,n_authors,reused_from_section_19
+none,59.2%,20.8%,0.1218,3,True
+hard,52.0%,20.8%,0.1044,3,True
+soft,59.0%,16.7%,0.1191,3,True
+lda,57.8%,19.7%,0.1210,3,False

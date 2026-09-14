@@ -1716,6 +1716,303 @@ should not be assumed safe by default in future ablations.
 
 ---
 
+## 20. Hard Topic vs. Soft Topic Distribution vs. LDA Distribution for Narrative Classification — SBERT-backbone, controlled comparison
+
+**Status: COMPLETE.** All 4 Topic representations (`none`/`hard`/`soft`/`lda`) × 3 seeds
+(random split) + 3 authors (LOAO, `lda` mode only — `none`/`hard`/`soft` reused from Section 19)
+trained/evaluated; completeness verified programmatically; 4 sanity-check categories run and
+passed; full reports built. See
+`experiments/feature_ablation/narrative_topic_sbert_backbone.py`,
+`reports/results/narrative_topic_sbert_backbone/`.
+
+**Research question.** Section 15 compared Hard/Soft/LDA inside `baseline_fusion`'s full
+linear-weighted-fusion architecture (NER+Topics+SRL+Emotion arms) and found **Hard > Soft > LDA
+> None** on a random split. Section 19 separately found, inside a *different*, simpler
+"SBERT + single engineered arm" architecture, that on unseen authors (LOAO) **Soft clearly
+beat Hard** on both recall (59.0% vs. 52.0%) and Right-wing bias (16.7% vs. 20.8%) — the
+opposite ranking. This experiment isolates the Topic-representation question as cleanly as
+possible from *both* confounds at once: (a) a single, minimal, SBERT-only backbone (no NER/SRL/
+Emotion/Stance arms at all, so the Topics arm cannot be diluted or entangled by other engineered
+features, unlike Section 15/19's architectures) and (b) **both** evaluation regimes — random
+split (3 seeds, for statistical robustness) *and* the same 3 held-out authors used in Sections
+18/19 (for generalization) — run side-by-side under the identical architecture, so any
+random-vs-LOAO ranking reversal can be attributed to the evaluation regime itself, not to an
+architecture difference.
+
+**Setup.** `SBERTTopicDetector`: `sbert_embedding` (384-dim, frozen SBERT) optionally
+concatenated with one Topic arm's `TopicFeatureLayer(mode, vec_size)` output (7-dim, same
+`dense_vec @ table` mechanism as Sections 15/17/19 — see their write-ups for the design
+rationale), then `Linear(combined_dim,128) → ReLU → Dropout(0.3) → Linear(128,7) → Softmax`.
+Four modes: `none` (no Topic arm, zero learnable parameters in that arm — the SBERT-only
+control), `hard` (BERTopic one-hot id), `soft` (top-5 `approximate_distribution()`,
+re-normalized — `SOFT_TOP_N=5`), `lda` (full K=50 gensim distribution,
+`models/experiments/lda_baseline/lda_k50_seed42`, the same frozen baseline Experiment E fit).
+
+- **Random split:** `train.load_raw_data()`+`train.split_random()` imported unmodified and
+  called directly (identical `random_state=42` row membership to Section 15's own random-split
+  runs). Features are a zero-recomputation **recombination** of two already-existing caches —
+  `sbert_embedding` from `train.py`'s own `cached_features_sbert_only.pt`, `hard_dense`/
+  `soft_dense`/`lda_dense` from `narrative_topic_compare.py`'s
+  `cached_features_narrative_topic_compare.pt` (Section 15's own cache) — both verified
+  byte-for-byte row-aligned (by a fresh label-sequence reconstruction check) before being
+  trusted, not assumed. 3 seeds (42/7/123, this project's standard set) × 4 modes = 12 runs,
+  20 epochs each, Adam + NLLLoss, early stopping on Val Macro-F1 (patience=3), matching
+  `train.py`'s training loop exactly.
+- **LOAO (unseen author):** same 3 held-out real accounts as Sections 18/19 (`IDF`→Zionist,
+  `MariaZakharova`→Russian, `BernieSanders`→Left-wing), same `train.split_leave_one_author`
+  (unmodified, imported directly, internally calls `verify_no_leakage()` — re-confirmed leak-free
+  for all 3 authors during this experiment's own fresh-split reconstruction). `none`/`hard`/
+  `soft` results are **reused, not re-trained** — Section 19's `sbert_only`/
+  `sbert_stance_hard_topic`/`sbert_soft_topic` variants are architecturally identical to this
+  script's `none`/`hard`/`soft` modes (same `combined_dim` formula, same `TopicFeatureLayer`
+  class, same MLP shape, same EPOCHS/BATCH_SIZE/LEARNING_RATE/seed=42/patience=3 — verified
+  programmatically by `verify_loao_reuse_validity()`, not just asserted), so re-running them
+  would be pure duplication. Only `lda` is genuinely new per author: the existing
+  `cached_features_ablation_loao_{author}.pt` cache (SBERT/NER/SRL/Emotion/Reliability/hard/
+  soft, from Section 19) is augmented with a freshly-computed `lda_dense` field only (LDA
+  inference is cheap, no neural computation) — nothing already-cached is recomputed. One fixed
+  seed=42 per author (matches Section 19's own convention, not a variance study).
+
+**Fairness / dimensionality note.** Soft's underlying BERTopic table has 283 rows (282 topics +
+1 OOV) vs. LDA's 50 rows (K=50) — a real difference in `TopicFeatureLayer`'s *parameter count*
+(283×7=1,981 vs. 50×7=350). This does **not** advantage either variant at the classifier level:
+`TopicFeatureLayer` always projects its (possibly much larger) input distribution down to a
+7-dim (`NUM_NARRATIVES`) vector via `dense_vec @ table` before concatenation with SBERT, so the
+final MLP sees the exact same `sbert_dim + 7` input dimensionality for `hard`/`soft`/`lda` alike
+— only the number of *learnable table rows* differs, an inherent property of each topic model's
+own vocabulary size, not an experimental design choice.
+
+**Verification performed before trusting any result (per explicit requirement):**
+1. `verify_random_split_completeness()` — confirmed all 4×3=12 (mode, seed) random-split runs
+   completed with valid (finite, in-range) accuracy/Macro-F1 and an on-disk checkpoint. **PASSED.**
+2. `verify_loao_reuse_validity()` — confirmed the reused `none`/`hard`/`soft` LOAO results come
+   from an architecturally-equivalent model (same `combined_dim` formula, same feature-arm
+   class, same training convention) to this script's own `lda` runs, for all 3 authors.
+   **PASSED.**
+3. `run_sanity_checks()` — 4 categories, all **PASSED**:
+   - Random-split cache: 11,557/2,476/2,477 train/val/test rows, no zero-count narrative class
+     in any split, `sbert_dim=384`, `bertopic_vec_size=283`, `lda_vec_size=50`.
+   - Non-degeneracy: `lda_dense` sums to 1.0 for all 2,477 test rows (never all-zero, as
+     expected — LDA has no outlier concept). `soft_dense` is all-zero for 1,187/2,477 (47.9%)
+     test rows — **investigated, not dismissed:** this is a documented, pre-existing property
+     of the underlying BERTopic model/corpus, not a bug introduced here — it matches Section 9's
+     "soft-signal%" finding almost exactly (51–58% of documents get *any* positive-score topic
+     from `approximate_distribution()`, i.e. ~42–49% get an all-zero distribution) and Section
+     15's dominance-threshold finding (only 8.8% of rows are genuinely "multi-topic" — the vast
+     majority, whether zero-signal or not, are single-topic-dominated). Among the 1,290 rows
+     that DO have a soft signal, the mean nonzero-entry count is 1.39 (of a possible top-5) —
+     consistent with the same finding, not a new anomaly.
+   - LOAO+lda caches (all 3 authors): correct row counts, correct single-narrative test-set
+     composition (matches Section 18/19's known 100%-one-narrative LOAO test sets by design),
+     non-degenerate `lda_dense` (sum=1.0, 0 all-zero rows, for all 3 authors' 200-row test sets).
+   - Author leakage: structurally enforced by `split_leave_one_author()`'s internal
+     `verify_no_leakage()` call, re-confirmed for all 3 authors during this experiment's cache
+     construction (no assertion raised).
+4. Full test suite (`pytest tests/`, 48 tests) re-run clean, 0 failures — see below.
+
+**Results — Random split (mean ± std across 3 seeds, test set, n=2,477):**
+
+| Variant | Macro-F1 | Accuracy | Δ Macro-F1 vs. SBERT (`none`) | Δ Accuracy vs. SBERT (`none`) | Δ Macro-F1 vs. Hard | Δ Accuracy vs. Hard |
+|---|---|---|---|---|---|---|
+| `none` (SBERT-only) | 0.7275 ± 0.0008 | 72.98 ± 0.05% | — (baseline) | — (baseline) | −0.0046 ± 0.0031 | −0.48 ± 0.29pp |
+| **`hard`** | **0.7321 ± 0.0029** | **73.46 ± 0.29%** | **+0.0046 ± 0.0031** | **+0.48 ± 0.29pp** | — (baseline) | — (baseline) |
+| `soft` | 0.7319 ± 0.0032 | 73.44 ± 0.29% | +0.0044 ± 0.0025 | +0.46 ± 0.25pp | −0.0002 ± 0.0054 | −0.03 ± 0.49pp |
+| `lda` | 0.7299 ± 0.0020 | 73.22 ± 0.21% | +0.0024 ± 0.0028 | +0.24 ± 0.26pp | −0.0022 ± 0.0033 | −0.24 ± 0.34pp |
+
+**Hard and Soft are tied on the random split.** The Hard-vs-Soft gap (−0.03pp Accuracy, −0.0002
+Macro-F1) is roughly an order of magnitude smaller than the ±0.29–0.32pp / ±0.0029–0.0032
+seed-to-seed std (computed legitimately across 3 seeds, a real if small measure of run-to-run
+stability for this in-distribution split) — there is **no evidence of an advantage for Soft
+over Hard in this in-distribution evaluation**, and none should be claimed. `hard`/`none` and
+`lda`/`none` gaps (+0.48pp and +0.24pp respectively) are likewise small — real and consistent in
+direction across all 3 seeds, but modest, not dramatic, effects.
+
+**Results — LOAO / unseen-author (avg across IDF/MariaZakharova/BernieSanders, n=200 each):**
+
+| Variant | Avg held-out recall | Avg Macro-F1 | Avg Right-wing bias (% misrouted) | Δ recall vs. SBERT (`none`) | Δ recall vs. Hard |
+|---|---|---|---|---|---|
+| `none` (SBERT-only) | 59.2% | 0.1218 | 20.8% | — (baseline) | +7.2pp |
+| `hard` | 52.0% | 0.1044 | 20.8% | −7.2pp | — (baseline) |
+| **`soft`** | 59.0% | 0.1191 | **16.7%** | −0.2pp | **+7.0pp** |
+| `lda` | 57.8% | 0.1210 | 19.7% | −1.3pp | +5.8pp |
+
+**Reading this table precisely.** Soft clearly beats Hard on both primary LOAO metrics (+7.0pp
+recall, −4.1pp Right-wing bias). But Soft does **not** beat SBERT-only (`none`) on average
+recall — 59.0% vs. 59.2%, i.e. essentially tied, marginally lower — so "Soft improves
+generalization" would overstate the finding. The precise claim supported by this table: **Soft
+topic distributions avoid much of the generalization degradation caused by hard topic IDs and
+reduce systematic Right-wing misclassification, while maintaining SBERT-level average recall.**
+Note also that the 3 LOAO authors are 3 distinct held-out accounts, not repeated random draws
+of the same distribution (unlike the random split's 3 seeds) — there is no seed-style variance
+estimate for the LOAO numbers above; each is a single point estimate per author, and "avg"
+simply means the unweighted mean across the 3 authors, not a mean±std.
+
+**Why LOAO Macro-F1 is low (~0.10–0.12) for every variant, and why it is a supplementary
+metric here, not primary.** Each held-out author's LOAO test set is, by construction (Sections
+18/19), ~100% a single narrative (e.g. IDF's 200 test rows are 100% Zionist). Macro-F1 is
+nonetheless computed over all `NUM_NARRATIVES=7` classes: the 6 narratives absent from a given
+author's test set mechanically contribute precision=recall=F1=0 (no true or predicted examples
+of most classes ever appear in a single-author test set), which drags every variant's Macro-F1
+down into the ~0.10–0.19 range regardless of how good the model's actual held-out-narrative
+recall is — e.g. MariaZakharova's `soft` row scores 91.5% recall (a strong result) yet only
+0.159 macro-F1, purely because 6 of 7 classes contribute 0. This is a structural property of
+averaging over classes that were never present in a single-narrative test set, not a sign the
+models are performing poorly. **The primary LOAO metrics in this experiment are therefore
+recall of the true/held-out narrative and the % misclassified as Right-wing (the specific
+failure mode Section 19 identified); avg Macro-F1 is reported for completeness/comparability
+with Section 19's own table but should be treated as supplementary**, not as the main basis for
+ranking variants on LOAO (see LDA in Q3 below, where Macro-F1 and recall/Right-wing-bias
+disagree on the ranking).
+
+**Per-author LOAO breakdown (recall of the true/held-out narrative, i.e. test accuracy, and %
+misclassified as Right-wing):**
+
+| Variant | IDF recall | IDF →RW% | Maria recall | Maria →RW% | Bernie recall | Bernie →RW% |
+|---|---|---|---|---|---|---|
+| `none` (SBERT-only) | 63.5% | 2.5% | 89.5% | 2.5% | 24.5% | 57.5% |
+| `hard` | 52.5% | 3.0% | 77.0% | 7.5% | 26.5% | 52.0% |
+| `soft` | 51.5% | 3.0% | **91.5%** | **1.0%** | 34.0% | 46.0% |
+| `lda` | 58.0% | 2.0% | 89.0% | 3.0% | 26.5% | 54.0% |
+
+(`none`/`hard`/`soft` rows above are reused verbatim from Section 19's `sbert_only`/
+`sbert_stance_hard_topic`/`sbert_soft_topic` variants, verified architecturally equivalent —
+see "Verification performed" above; `lda` is the only newly-trained row.)
+
+**Answering the 6 questions directly:**
+
+1. **Hard vs. SBERT-only (`none`) — does adding a Topic feature at all help?** On the random
+   split, yes, but only modestly in this SBERT-only-backbone architecture: Hard beats SBERT-only
+   by +0.48pp Accuracy / +0.0046 Macro-F1 — a real but small effect (roughly the same order as
+   the seed-to-seed std, i.e. a soft rather than dramatic signal), a much smaller gap than
+   Section 15's fusion-architecture result (+15pp Accuracy for `hard` vs. `none` there). On
+   LOAO, Hard is *worse* than SBERT-only by −7.2pp recall — adding the Topic feature actively
+   hurts unseen-author generalization here, the opposite of the random-split finding.
+2. **Soft vs. Hard — does a distribution beat a single id?** No evidence of a Soft advantage
+   (or a Hard advantage) on the random split: Hard and Soft are **tied** (−0.03pp Accuracy,
+   −0.0002 Macro-F1, an order of magnitude smaller than the ±0.29–0.32pp seed-to-seed std) —
+   this is best read as consistent with Section 15's "Hard ≥ Soft" *direction*, but the
+   magnitude here gives no basis for claiming either representation is better in-distribution.
+   **Yes on LOAO**, and by the largest margin in this table: Soft beats Hard by +7.0pp recall
+   and by 4.1pp lower Right-wing bias (16.7% vs. 20.8%) — consistent with, and now replicated
+   independently of, Section 19's finding that Soft was the best Right-wing-bias reducer there
+   too. Soft does **not**, however, beat SBERT-only (`none`) on average LOAO recall (59.0% vs.
+   59.2%) — see the precise framing in the LOAO results section above.
+3. **LDA vs. BERTopic (both distributional) — does the specific topic model matter, not just
+   "hard vs. soft"?** Yes, but LDA is a **middle ground**, not a clear loser. On the random
+   split, LDA trails both Soft (−0.22pp Accuracy, −0.0020 Macro-F1) and Hard (−0.24pp Accuracy,
+   −0.0022 Macro-F1) — same ranking direction as Section 15's `Hard > Soft > LDA > None`, though
+   the gaps are much smaller here. On LOAO, LDA sits between Hard and Soft on recall (57.8%, vs.
+   Hard 52.0% and Soft 59.0%) and on Right-wing bias (19.7%, between Hard's 20.8% and Soft's
+   16.7%) — **but LDA's avg Macro-F1 (0.1210) is actually the highest of the four variants,
+   slightly above even Soft's (0.1191)**, despite LDA's worse recall and worse Right-wing bias
+   than Soft. This disagreement between Macro-F1 and recall/Right-wing-bias is itself informative
+   (see the Macro-F1 note above) and means LDA should not be characterized as worse than Soft "in
+   every metric." Overall: the specific topic model matters, not just "hard vs. distributional" —
+   LDA is a usable middle-ground distributional alternative, not a substitute for BERTopic's soft
+   distribution specifically.
+4. **Random vs. unseen-author (LOAO) — does the ranking actually reverse, and does this
+   architecture explain Section 15 vs. Section 19's apparent contradiction?** **Yes, confirmed,
+   not smoothed over:** under this single, minimal, controlled architecture, Hard is (weakly)
+   ahead of Soft on the random split (tied, no real evidence either way — Q2) while Soft is
+   clearly ahead of Hard on LOAO — the exact same reversal Sections 15 and 19 showed, but this
+   time isolated from any architecture difference between the two regimes (same
+   `SBERTTopicDetector` class used for both). This confirms the reversal is attributable to the
+   **evaluation regime itself** (in-distribution random split vs. out-of-distribution
+   unseen-author generalization), not to Section 15 using a different (fusion) architecture than
+   Section 19 (SBERT+single-arm) as previously hypothesized. **One possible interpretation**
+   (a hypothesis, not something this experiment establishes causally) is that Hard's one-hot id
+   can partly memorize author-specific topic co-occurrence patterns that don't transfer to an
+   unseen author, while preserving a topic *distribution* rather than collapsing it to a single
+   id reduces reliance on this kind of brittle topic shortcut. This experiment does not isolate
+   or test that mechanism directly (e.g. no probing of what the model actually relies on) — it
+   only establishes the *outcome* (the ranking reversal itself, Q2/Q4 above), not the causal
+   reason for it. (Methodological note: the random-split comparison rests on 3
+   seeds, a legitimate — if small — sample for estimating run-to-run stability; the LOAO
+   comparison rests on 3 held-out **authors**, which are not repeated random draws of the same
+   distribution and so cannot be used to estimate variance the same way — the LOAO numbers are
+   single point estimates per author, not a seed-averaged mean±std.)
+5. **Does Soft help accuracy, or mainly generalization/robustness?** Mainly the latter, and even
+   there its concrete, defensible benefit is bias reduction rather than a raw recall gain. On the
+   random split, Soft's Accuracy/Macro-F1 are tied with Hard (Q2) — it does not improve raw
+   classification accuracy on data resembling the training distribution. On LOAO, Soft's
+   advantage over Hard is real (+7.0pp recall, a much bigger swing than the random split's
+   ±0.29pp seed std) and is concentrated in reducing the Right-wing misrouting failure mode
+   (Section 19's own "shortcut" finding) — but Soft does not raise average recall above the
+   SBERT-only baseline (59.0% vs. 59.2%). So Soft's contribution on LOAO is a reduction in a
+   specific systematic error (Right-wing misrouting), not a general recall improvement over
+   using no Topic feature at all.
+6. **Is there a performance/robustness trade-off, and is the added complexity justified?** Yes,
+   and it favors Soft once unseen-author generalization is a concern — but the justification is
+   narrower than "Soft is generally better." Hard gives a small, seed-stable random-split
+   improvement over SBERT-only (+0.48pp Accuracy) yet costs −7.2pp recall on LOAO relative to
+   SBERT-only, i.e. it actively hurts generalization to an unseen author. Soft gives essentially
+   the same random-split performance as Hard (no evidence of a difference, Q2) while avoiding
+   most of Hard's LOAO recall degradation and additionally reducing systematic Right-wing bias
+   relative to both Hard and SBERT-only (20.8% → 16.7%). On accuracy/recall alone, Hard and Soft
+   are indistinguishable in effect on the random split, and neither beats SBERT-only's own LOAO
+   recall by a meaningful margin (Hard is clearly worse; Soft is about equal). The added
+   complexity of a distributional Soft Topic representation is therefore best justified as a
+   **robustness/bias-reduction measure for deployment scenarios where generalization to unseen
+   authors matters** (a real, currently-unsolved production concern per Sections 18/19) — **not**
+   as a general in-distribution accuracy upgrade, and **not** as a LOAO recall upgrade over doing
+   nothing (SBERT-only).
+
+**Limitation: the Soft Topic feature is inactive for a large share of the corpus.** The sanity
+check found `soft_dense` is all-zero for 1,187/2,477 (47.9%) of random-split test rows —
+consistent with Section 9's previously-documented ~42–49% no-soft-signal rate
+(`approximate_distribution()` finding no topic with positive overlap for that text), so this is
+not a new defect introduced here. It does mean that for close to half the corpus the Soft Topic
+arm contributes a constant zero vector — functionally identical to `mode="none"` for those rows
+— so Soft's measured effects (both the random-split tie with Hard and the LOAO recall/
+Right-wing-bias results) are driven entirely by the roughly half of rows that DO receive a
+non-trivial soft signal. This caps how much benefit a coverage-limited Soft representation can
+realistically provide and is a plausible contributing factor in why Soft ties (rather than
+beats) SBERT-only on LOAO average recall. It is a natural target for improvement (e.g. a lower
+`approximate_distribution()` threshold, or falling back to Hard's id when Soft is all-zero)
+before considering production integration.
+
+**Overall conclusion (bounded to what the data shows).**
+- Hard topics give a small, seed-stable improvement on the random split (+0.48pp Accuracy vs.
+  SBERT-only) but meaningfully hurt unseen-author (LOAO) generalization (−7.2pp recall vs.
+  SBERT-only).
+- Soft topics give essentially the same in-distribution performance as Hard (tied — no evidence
+  of an advantage either way) but are far more robust when the author is unseen during training,
+  avoiding most of Hard's LOAO recall degradation.
+- Compared to SBERT-only, Soft Topics do **not** improve average LOAO recall (59.0% vs. 59.2%),
+  but they **do** reduce systematic Right-wing misclassification (20.8% → 16.7%).
+- The main current, evidence-backed contribution of Soft Topics is therefore **robustness /
+  Right-wing-bias reduction**, not raw classification accuracy — any recommendation to adopt
+  Soft should be scoped to that specific benefit, not stated as a general performance upgrade.
+
+**What this does NOT resolve (explicitly, not smoothed over):** this experiment used a
+deliberately minimal SBERT-only backbone to isolate the Topics-representation question; Section
+15's much larger Hard-vs-Soft gap (+4.75pp Accuracy, `hard` vs `soft`, in the full
+`baseline_fusion` architecture with NER/SRL/Emotion arms) is NOT reproduced here (this
+experiment's random-split Hard-vs-Soft gap is ≈0pp, within noise) — architecture clearly still
+matters for the *magnitude* of the Hard-vs-Soft gap, even though the *direction* of the
+random-vs-LOAO reversal is architecture-independent (finding #4 above). Whether Soft Topic
+Distribution would still help LOAO generalization if wired into the full production
+`HybridNarrativeDetector`/`baseline_fusion` (rather than this SBERT-only diagnostic backbone)
+remains untested — a natural next step given Soft's demonstrated, replicated (Section 19 + this
+section) Right-wing-bias-reduction benefit.
+
+**Implementation:** `experiments/feature_ablation/narrative_topic_sbert_backbone.py`. Reuses
+`train.py`'s `load_raw_data()`/`split_random()`/`split_leave_one_author()` unmodified; reuses
+Section 15's `cached_features_narrative_topic_compare.pt` and Section 19's
+`cached_features_ablation_loao_{author}.pt` caches by position (verified, not assumed); adds
+zero new heavy feature extraction beyond LDA inference for the 3 LOAO+lda runs. All results in
+`reports/results/narrative_topic_sbert_backbone/` (`results_random.json`,
+`results_loao_lda.json`, `random_split_summary_table.csv`, `loao_summary_table.csv`,
+`per_narrative_summary_random.csv`, `per_narrative_summary_loao.csv`,
+`unified_comparison.json`); checkpoints in
+`models/experiments/narrative_topic_sbert_backbone/`. Full test suite (`pytest tests/`, 48
+tests across `test_train_topics_cli.py`, `test_topic_preprocessing.py`, `test_text_dedup.py`,
+`test_soft_topic_distribution.py`, `test_recommend_min_topic_size.py`,
+`test_loao_split_leakage.py`, `test_config_loading.py`) re-run clean after this experiment's
+code additions — 0 failures.
+
+---
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -1732,3 +2029,4 @@ should not be assumed safe by default in future ablations.
 | 17. Hybrid Hard/Soft topic representation (`hard` dominant→Hard else→Soft, VAL-only threshold) | Per-example routing between Hard one-hot and Soft distribution vectors fed into the same `TopicFeatureLayer`, threshold chosen on VAL Macro-F1 only | Hybrid (60.79% Acc / 0.6036 F1) ties Soft, loses to Hard-only (65.91% / 0.6522) on **both** the dominant and ambiguous subsets — no population segment benefits | **Rejected** — kept single hard `topic_id` as the production representation |
 | 18. Leave-One-Author-Out (LOAO) generalization test | Held out all posts from one real account per narrative (`IDF`, `MariaZakharova`, `BernieSanders`), trained `baseline_fusion` from scratch on the remaining authors, evaluated recall on the held-out account | All 3 accounts lost 20–38pp recall vs. random-split F1 (well past the declared ≲10pp "acceptable" bar); 2 of 3 (`MariaZakharova`, `BernieSanders`) systematically misrouted 50–57.5% of posts to Right-wing specifically, not diffuse errors | Diagnostic finding, no architecture change made; sharpens the "maria/lying" open problem into a concrete reproducible symptom; author-style memorization vs. generalization remains an open problem |
 | 19. Feature ablation + Soft Topics on LOAO authors | 7 "SBERT + X" variants (NER/SRL/Emotion/Hard-Topic/Soft-Topic/all-engineered/all+soft) trained on the same 3 held-out authors as #18, same splits; plus a Right-wing "shortcut" forensic analysis (entity/word/topic overlap between misclassified-as-RW rows and Right-wing's own training data) | No single feature/combo wins across all 3 authors; Soft Topics gave the best Right-wing-bias reduction (avg 20.8%→16.7%, Bernie 57.5%→46.0%) at some cost to IDF's recall; `sbert_all_engineered` gave the best avg recall (60.5%) but didn't reduce Bernie's Right-wing rate; stacking all arms together was the **worst** variant for MariaZakharova (91.5%→66.5% recall). Forensic analysis found a concrete mechanism for Bernie: NER's entity arm has no stance signal, so his heavy mentions of Trump/Congress/Republicans/Americans (also top entities in Right-wing's own training data, opposite stance) get routed toward Right-wing regardless of his actual (opposing) stance | Diagnostic only, no production change; Soft Topic Distribution flagged as the most promising future integration candidate for reducing Right-wing misrouting; NER's stance-blindness identified as a concrete target for future Domain-Adversarial Training/stance-aware entity work |
+| 20. Hard vs. Soft vs. LDA, minimal SBERT-only backbone, random split + LOAO side-by-side | Same `SBERTTopicDetector` architecture (SBERT + at most one Topic arm) evaluated under BOTH random split (3 seeds × 4 modes) and the same 3 LOAO authors as #18/19 (`lda` newly trained, `none`/`hard`/`soft` reused+verified from #19) | Random split: Hard and Soft are **tied** (no evidence of an advantage either way, −0.03pp well inside seed std); Hard/LDA give small, seed-stable gains over SBERT-only (+0.48pp / +0.24pp Acc). LOAO: Soft clearly beats Hard (+7.0pp recall, Right-wing bias 16.7% vs. 20.8%) but does **not** beat SBERT-only on avg recall (59.0% vs. 59.2%) — its LOAO benefit vs. SBERT-only is specifically Right-wing-bias reduction, not recall; Hard is *worse* than SBERT-only on LOAO (−7.2pp recall); LDA is a middle ground (better than Hard on recall/bias, but its Macro-F1 0.1210 is slightly above Soft's 0.1191). Ranking reverses by evaluation regime, confirmed architecture-independent — replicates Section 15 vs. 19's contradiction with architecture held constant | Diagnostic only, no production change; Soft's evidence-backed contribution is robustness/Right-wing-bias reduction on unseen authors, not raw accuracy or recall — ~48% of rows get an all-zero `soft_dense` vector (Soft inactive there), a limitation on how large this effect can be; not claimed as a general in-distribution accuracy upgrade |
