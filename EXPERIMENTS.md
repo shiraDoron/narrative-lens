@@ -2013,6 +2013,164 @@ code additions — 0 failures.
 
 ---
 
+## 21. Entity Shortcut Test — does entity IDENTITY (not just topic/stance) drive the LOAO Right-wing shortcut?
+
+**Status: COMPLETE.** All 3 LOAO authors run; masked-text cache built once over the full
+corpus (16,394 unique texts) and reused across authors; 2 new variants trained per author (6
+trainings total); 3 variants reused verbatim from Section 19 after a programmatic reuse-validity
+check. See `experiments/author_generalization/narrative_entity_shortcut.py`,
+`reports/results/narrative_entity_shortcut/`.
+
+**Research question.** Section 19's Right-wing-shortcut forensic analysis
+(`narrative_ablation_rw_shortcut.py`) found that BernieSanders' Right-wing-misclassified rows
+share the same top entities (`trump`, `americans`, `congress`, `america`, `republicans`) with
+Right-wing's own training corpus — Bernie and Right-wing discuss the same entities with
+opposite stance, and the NER arm encodes entity *identity* only, with no stance signal. This
+experiment tests that mechanism directly, by removing entity identity from the model's input
+via masking and observing whether that changes recall of the true/held-out narrative and/or the
+Right-wing-misclassification rate. This is a test of one specific, narrow hypothesis (identity
+without stance can create a spurious cross-narrative association for entities two narratives
+both discuss) — it is not a general claim about whether entities matter for classification
+overall.
+
+**Setup.** Every named entity mention (`PER`/`ORG`/`LOC`/`MISC`, from the same
+`dslim/bert-base-NER` model already used by the production NER arm) is replaced by a generic
+placeholder token before computing the SBERT embedding, e.g. `"Trump criticized Biden"` →
+`"[PERSON] criticized [PERSON]"` (`mask_entities()`, `narrative_lens/features/ner.py`; entity
+spans reconstructed via `reconstruct_fragmented_entities()` first so one fragmented name isn't
+masked as several separate tokens). 5 variants compared on the same 3 LOAO authors, same
+`split_leave_one_author` split, seed=42, as Sections 19/20:
+
+1. **`sbert_only`** — REUSED verbatim from Section 19 (SBERT on original, unmasked text; no
+   explicit entity arm — entity identity is only whatever the SBERT embedding implicitly
+   encodes).
+2. **`sbert_ner`** — REUSED verbatim from Section 19 (SBERT on unmasked text + an explicit
+   NER-identity arm on top — entity identity maximally present).
+3. **`sbert_masked` (NEW)** — SBERT embedding computed on entity-**masked** text, no other arm.
+   This is the primary comparison: `sbert_only` (identity present) vs. `sbert_masked` (identity
+   removed) isolates the effect of removing entity identity from the input.
+4. **`sbert_soft_topic`** — REUSED verbatim from Section 19 (SBERT on unmasked text + Soft
+   Topic Distribution arm).
+5. **`sbert_masked_soft_topic` (NEW)** — SBERT on entity-masked text + Soft Topic Distribution
+   arm (tests whether Soft Topics can compensate once entity identity is removed).
+
+Variants 1/2/4 are reused, not retrained: they are architecturally identical (same
+`AblationDetector` class, same arms, same hyperparameters, same split, same seed) to Section
+19's own runs — retraining would only reproduce the same numbers with sampling noise, not a new
+result. `verify_reuse_validity()` checks programmatically that Section 19's `results.json`
+actually contains all 3 reused variants for all 3 authors before allowing reuse. Masking runs
+**once** over the full corpus's 16,394 unique texts (all 3 authors' train sets are large,
+overlapping subsets of the same corpus), cached to
+`data/cache/cached_raw_entities_masked_text.pt`, and looked up by exact text match per author —
+avoiding a repeat ~16k-call NER pass per author. Only `sbert_masked`/`sbert_masked_soft_topic`
+are newly trained (2 variants × 3 authors = 6 trainings); the Soft Topic arm's `soft_dense`
+feature is reused by position from Section 19's own
+`cached_features_ablation_loao_{author}.pt` cache (masking does not change topic features, only
+the SBERT input).
+
+**Verification performed.** (1) Masking logic spot-checked on hand-written examples before the
+full run (`"Trump criticized Biden"` → `"[PERSON] criticized [PERSON]"`,
+`"The United Nations condemned the actions taken by NATO forces"` →
+`"The [ORG] condemned the actions taken by [ORG] forces"`) — confirmed entity spans are
+replaced correctly and non-entity text is untouched. (2) Per-split label alignment re-verified
+against a fresh `load_raw_data()`+`split_leave_one_author()` reconstruction before reusing
+`soft_dense` by position (same pattern as Sections 19/20 — refuses to run silently on a
+mismatch). (3) `verify_reuse_validity()` confirms Section 19's 3 reused variants exist for all 3
+authors before any run. (4) Masking-coverage stats computed and saved alongside the cache (see
+Limitation below), not just eyeballed on a few examples.
+
+**Results — per author (recall of true/held-out narrative, % test rows misclassified as
+Right-wing):**
+
+| Variant | IDF recall / →RW% | MariaZakharova recall / →RW% | BernieSanders recall / →RW% |
+|---|---|---|---|
+| `sbert_only` | 63.5% / 2.5% | 89.5% / 2.5% | 24.5% / 57.5% |
+| `sbert_ner` | 73.0% / 2.0% | 84.5% / 2.5% | 21.0% / 57.0% |
+| `sbert_masked` | 38.5% / 5.0% | 76.5% / 6.5% | 30.5% / 42.0% |
+| `sbert_soft_topic` | 51.5% / 3.0% | 91.5% / 1.0% | 34.0% / 46.0% |
+| `sbert_masked_soft_topic` | 36.0% / 4.0% | 63.0% / 4.5% | 37.0% / 30.5% |
+
+**Averaged across the 3 authors** (reported only as a secondary summary — see below for why
+the average is not representative of any single author here):
+
+| Variant | Avg recall | Avg →RW% | Avg Macro-F1 |
+|---|---|---|---|
+| `sbert_only` | 59.2% | 20.8% | 0.1218 |
+| `sbert_ner` | 59.5% | 20.5% | 0.1076 |
+| `sbert_masked` | 48.5% | 17.8% | 0.1065 |
+| `sbert_soft_topic` | 59.0% | 16.7% | 0.1191 |
+| `sbert_masked_soft_topic` | 45.3% | 13.0% | 0.1025 |
+
+**Reading this precisely — the effect of masking is author-dependent, not uniform.** For IDF
+and MariaZakharova, masking **hurts**: recall drops sharply (63.5%→38.5% and 89.5%→76.5%) and
+the Right-wing-misclassification rate *increases* (2.5%→5.0% and 2.5%→6.5%). For these two
+authors, removing entity identity removes signal that appears to be legitimately informative for
+their held-out narrative (Zionist, Russian) — not a shortcut being cut away. For BernieSanders —
+the one author Section 19's forensic analysis specifically implicated — masking helps on both
+axes: recall improves (24.5%→30.5%) and the Right-wing-misclassification rate drops
+substantially (57.5%→42.0%). Adding Soft Topics on top of masking pushes both directions further
+for every author: it improves Right-wing-bias further in all 3 cases (IDF 5.0%→4.0%, Maria
+6.5%→4.5%, Bernie 42.0%→30.5%, so `sbert_masked_soft_topic` gives the lowest Right-wing rate of
+any variant tested for all 3 authors) but costs more recall for IDF/Maria (38.5%→36.0%,
+76.5%→63.0%) while giving Bernie its best recall of any variant (37.0%). Because the 3 authors
+move in different directions, the averaged table above is a poor summary of what actually
+happens to any one of them — it should not be read as "masking helps" or "masking hurts" in
+general.
+
+**What this is (and is not) evidence for.** For BernieSanders specifically, the result is
+consistent with Section 19's forensic hypothesis: identity-without-stance can create a spurious
+cross-narrative pull for entities two narratives both discuss heavily (Bernie/Right-wing both
+discuss Trump/Congress/America/Republicans), and removing that identity signal reduces the
+pull. This experiment does not, on its own, prove that mechanism causally — masking removes
+identity but does not isolate *why* removing it helps (e.g., it is also possible some other
+correlated property of entity-bearing sentences changed). For IDF and MariaZakharova, the
+opposite direction of the result argues against treating "mask entities" as a general-purpose
+fix: whatever the NER arm/implicit SBERT identity signal was contributing for those two authors
+was, on net, legitimate narrative signal, not a shortcut, and removing it made generalization
+worse. The honest reading is that an entity-identity shortcut is **plausible and
+author/narrative-pair-specific**, not a universal property of this classifier.
+
+**Limitation.** Masking coverage over the full corpus: only **69.6%** of unique texts had at
+least one entity detected and masked (entity group counts: LOC 22,616, MISC 13,500, PER 9,313,
+ORG 12,558) — the remaining ~30% of texts are unchanged by masking because
+`dslim/bert-base-NER` found nothing to mask in them (either genuinely no named entities, or
+missed collective/abstract identity-carrying phrases like "the West"/"the regime", a known
+model limitation documented in `narrative_lens/features/ner.py`). Separately, NER span
+boundaries are sometimes imperfect even when an entity is caught at all — e.g. `"Zelenskyy"` is
+tagged as only `"Zelensky"`, so the masked output is `"[PERSON]y met with..."`, leaving a
+one-character fragment of the real name in the text. Both effects mean masking is a partial,
+not complete, removal of entity-identity information — the true effect of *fully* removing
+identity could be larger (in whichever direction) than what is measured here.
+
+**Overall conclusion (bounded to what the data shows).** Entity-identity masking does not
+uniformly help or hurt LOAO generalization across held-out authors — it helped exactly the one
+author (`BernieSanders`) for which a concrete entity-overlap-with-opposite-stance mechanism was
+previously documented (Section 19), and hurt the other two, where entity identity appears to
+carry real narrative signal. This is directionally consistent with, but does not prove, the
+hypothesis that the LOAO Right-wing shortcut for Bernie specifically is at least partly
+attributable to entity identity being learned without stance. It is not evidence that entity
+identity is harmful in general.
+
+**What this does NOT resolve.** Whether a *stance-aware* entity representation (Experiment 22,
+proposed but not started — restoring entity information while attaching sentiment/stance toward
+that entity, rather than removing entity identity outright) could recover IDF/Maria's lost
+recall while keeping Bernie's Right-wing-bias reduction remains untested. Whether the ~30%
+masking-coverage gap materially understates the effect (in either direction) is also untested —
+would require a more exhaustive entity/identity-phrase detector, not attempted here.
+
+**Implementation:** `experiments/author_generalization/narrative_entity_shortcut.py`;
+`mask_entities()` added to `narrative_lens/features/ner.py` (uses
+`EntityAnalysisPipeline.extract_raw_entities()` + `reconstruct_fragmented_entities()`, both
+unmodified/pre-existing). Reuses `train.py`'s `load_raw_data()`/`split_leave_one_author()`/
+`evaluate()`/`save_confusion_matrix_csv()` and `narrative_ablation_loao.AblationDetector`
+unmodified. Masked-text cache: `data/cache/cached_raw_entities_masked_text.pt`. Per-author
+feature caches: `data/cache/cached_features_entity_shortcut_{author}.pt`. Checkpoints:
+`models/experiments/narrative_entity_shortcut/{variant}_{author}.pth`. Results:
+`reports/results/narrative_entity_shortcut/results.json`, `entity_shortcut_summary.csv`,
+`confusion_matrix_{variant}_{author}_test.csv`.
+
+---
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -2030,3 +2188,4 @@ code additions — 0 failures.
 | 18. Leave-One-Author-Out (LOAO) generalization test | Held out all posts from one real account per narrative (`IDF`, `MariaZakharova`, `BernieSanders`), trained `baseline_fusion` from scratch on the remaining authors, evaluated recall on the held-out account | All 3 accounts lost 20–38pp recall vs. random-split F1 (well past the declared ≲10pp "acceptable" bar); 2 of 3 (`MariaZakharova`, `BernieSanders`) systematically misrouted 50–57.5% of posts to Right-wing specifically, not diffuse errors | Diagnostic finding, no architecture change made; sharpens the "maria/lying" open problem into a concrete reproducible symptom; author-style memorization vs. generalization remains an open problem |
 | 19. Feature ablation + Soft Topics on LOAO authors | 7 "SBERT + X" variants (NER/SRL/Emotion/Hard-Topic/Soft-Topic/all-engineered/all+soft) trained on the same 3 held-out authors as #18, same splits; plus a Right-wing "shortcut" forensic analysis (entity/word/topic overlap between misclassified-as-RW rows and Right-wing's own training data) | No single feature/combo wins across all 3 authors; Soft Topics gave the best Right-wing-bias reduction (avg 20.8%→16.7%, Bernie 57.5%→46.0%) at some cost to IDF's recall; `sbert_all_engineered` gave the best avg recall (60.5%) but didn't reduce Bernie's Right-wing rate; stacking all arms together was the **worst** variant for MariaZakharova (91.5%→66.5% recall). Forensic analysis found a concrete mechanism for Bernie: NER's entity arm has no stance signal, so his heavy mentions of Trump/Congress/Republicans/Americans (also top entities in Right-wing's own training data, opposite stance) get routed toward Right-wing regardless of his actual (opposing) stance | Diagnostic only, no production change; Soft Topic Distribution flagged as the most promising future integration candidate for reducing Right-wing misrouting; NER's stance-blindness identified as a concrete target for future Domain-Adversarial Training/stance-aware entity work |
 | 20. Hard vs. Soft vs. LDA, minimal SBERT-only backbone, random split + LOAO side-by-side | Same `SBERTTopicDetector` architecture (SBERT + at most one Topic arm) evaluated under BOTH random split (3 seeds × 4 modes) and the same 3 LOAO authors as #18/19 (`lda` newly trained, `none`/`hard`/`soft` reused+verified from #19) | Random split: Hard and Soft are **tied** (no evidence of an advantage either way, −0.03pp well inside seed std); Hard/LDA give small, seed-stable gains over SBERT-only (+0.48pp / +0.24pp Acc). LOAO: Soft clearly beats Hard (+7.0pp recall, Right-wing bias 16.7% vs. 20.8%) but does **not** beat SBERT-only on avg recall (59.0% vs. 59.2%) — its LOAO benefit vs. SBERT-only is specifically Right-wing-bias reduction, not recall; Hard is *worse* than SBERT-only on LOAO (−7.2pp recall); LDA is a middle ground (better than Hard on recall/bias, but its Macro-F1 0.1210 is slightly above Soft's 0.1191). Ranking reverses by evaluation regime, confirmed architecture-independent — replicates Section 15 vs. 19's contradiction with architecture held constant | Diagnostic only, no production change; Soft's evidence-backed contribution is robustness/Right-wing-bias reduction on unseen authors, not raw accuracy or recall — ~48% of rows get an all-zero `soft_dense` vector (Soft inactive there), a limitation on how large this effect can be; not claimed as a general in-distribution accuracy upgrade |
+| 21. Entity Shortcut Test — mask entity identity, re-evaluate LOAO recall/Right-wing-bias | Every named entity span (PER/ORG/LOC/MISC) replaced with a generic placeholder token before SBERT encoding (`"Trump criticized Biden"` → `"[PERSON] criticized [PERSON]"`); 2 new variants (`sbert_masked`, `sbert_masked_soft_topic`) trained on the same 3 LOAO authors as #18-20, compared against 3 reused Section-19 variants (`sbert_only`/`sbert_ner`/`sbert_soft_topic`) | Effect is **author-dependent, not uniform**: masking hurts IDF and MariaZakharova (recall 63.5%→38.5% and 89.5%→76.5%, Right-wing rate *rises*) but helps BernieSanders — the one author Section 19's forensic analysis implicated (recall 24.5%→30.5%, Right-wing rate 57.5%→42.0%, further down to 30.5% when combined with Soft Topics). Averaged-across-authors numbers (recall 59.2%→48.5%) obscure this split and are not representative of any one author | Diagnostic only, no production change; directionally consistent with (but does not prove) an entity-identity-without-stance shortcut specific to Bernie/Right-wing's shared entity vocabulary; entity identity is legitimate signal, not a shortcut, for IDF/Maria — masking is not a general-purpose fix; stance-aware entity representation (Experiment 22) proposed as the next step, contingent on this finding |

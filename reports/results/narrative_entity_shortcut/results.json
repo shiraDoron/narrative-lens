@@ -1,0 +1,167 @@
+{
+  "IDF": {
+    "sbert_only": {
+      "accuracy": 0.635,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.09071428571428572,
+      "macro_f1": 0.11096548711227609,
+      "recall_true_narrative": 0.635,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_only_IDF_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_ner": {
+      "accuracy": 0.73,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.10428571428571429,
+      "macro_f1": 0.12056151940545004,
+      "recall_true_narrative": 0.73,
+      "pct_misclassified_right_wing": 0.02,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_ner_IDF_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_soft_topic": {
+      "accuracy": 0.515,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.08583333333333333,
+      "macro_f1": 0.11331133113311331,
+      "recall_true_narrative": 0.515,
+      "pct_misclassified_right_wing": 0.03,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_IDF_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_masked": {
+      "accuracy": 0.385,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.055,
+      "macro_f1": 0.07942238267148015,
+      "recall_true_narrative": 0.385,
+      "pct_misclassified_right_wing": 0.05,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_entity_shortcut\\confusion_matrix_sbert_masked_IDF_test.csv"
+    },
+    "sbert_masked_soft_topic": {
+      "accuracy": 0.36,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.05142857142857143,
+      "macro_f1": 0.07563025210084033,
+      "recall_true_narrative": 0.36,
+      "pct_misclassified_right_wing": 0.04,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_entity_shortcut\\confusion_matrix_sbert_masked_soft_topic_IDF_test.csv"
+    }
+  },
+  "MariaZakharova": {
+    "sbert_only": {
+      "accuracy": 0.895,
+      "macro_precision": 0.2,
+      "macro_recall": 0.179,
+      "macro_f1": 0.18891820580474933,
+      "recall_true_narrative": 0.895,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_only_MariaZakharova_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_ner": {
+      "accuracy": 0.845,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.14083333333333334,
+      "macro_f1": 0.15266485998193316,
+      "recall_true_narrative": 0.845,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_ner_MariaZakharova_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_soft_topic": {
+      "accuracy": 0.915,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.1525,
+      "macro_f1": 0.15926892950391644,
+      "recall_true_narrative": 0.915,
+      "pct_misclassified_right_wing": 0.01,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_MariaZakharova_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_masked": {
+      "accuracy": 0.765,
+      "macro_precision": 0.2,
+      "macro_recall": 0.153,
+      "macro_f1": 0.173371104815864,
+      "recall_true_narrative": 0.765,
+      "pct_misclassified_right_wing": 0.065,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_entity_shortcut\\confusion_matrix_sbert_masked_MariaZakharova_test.csv"
+    },
+    "sbert_masked_soft_topic": {
+      "accuracy": 0.63,
+      "macro_precision": 0.2,
+      "macro_recall": 0.126,
+      "macro_f1": 0.15460122699386503,
+      "recall_true_narrative": 0.63,
+      "pct_misclassified_right_wing": 0.045,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_entity_shortcut\\confusion_matrix_sbert_masked_soft_topic_MariaZakharova_test.csv"
+    }
+  },
+  "BernieSanders": {
+    "sbert_only": {
+      "accuracy": 0.245,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.04083333333333333,
+      "macro_f1": 0.06559571619812583,
+      "recall_true_narrative": 0.245,
+      "pct_misclassified_right_wing": 0.575,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_only_BernieSanders_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_ner": {
+      "accuracy": 0.21,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.03,
+      "macro_f1": 0.049586776859504134,
+      "recall_true_narrative": 0.21,
+      "pct_misclassified_right_wing": 0.57,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_ner_BernieSanders_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_soft_topic": {
+      "accuracy": 0.34,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.05666666666666667,
+      "macro_f1": 0.0845771144278607,
+      "recall_true_narrative": 0.34,
+      "pct_misclassified_right_wing": 0.46,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_soft_topic_BernieSanders_test.csv",
+      "reused_from": "reports/results/narrative_ablation_loao/results.json"
+    },
+    "sbert_masked": {
+      "accuracy": 0.305,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.04357142857142857,
+      "macro_f1": 0.06677613574165299,
+      "recall_true_narrative": 0.305,
+      "pct_misclassified_right_wing": 0.42,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_entity_shortcut\\confusion_matrix_sbert_masked_BernieSanders_test.csv"
+    },
+    "sbert_masked_soft_topic": {
+      "accuracy": 0.37,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.05285714285714286,
+      "macro_f1": 0.07716371220020855,
+      "recall_true_narrative": 0.37,
+      "pct_misclassified_right_wing": 0.305,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_entity_shortcut\\confusion_matrix_sbert_masked_soft_topic_BernieSanders_test.csv"
+    }
+  }
+}

@@ -176,6 +176,35 @@ def reconstruct_fragmented_entities(raw_entities, text, max_gap_chars=1):
     return reconstructed
 
 
+DEFAULT_ENTITY_MASK_TOKENS = {"PER": "[PERSON]", "ORG": "[ORG]", "LOC": "[LOCATION]", "MISC": "[MISC]"}
+
+
+def mask_entities(text, raw_entities, mask_tokens=None):
+    """
+    Replaces each entity span (as returned by extract_raw_entities(), ideally passed
+    through reconstruct_fragmented_entities() first so a single fragmented name is not
+    masked twice) with a generic placeholder token based on its entity_group, e.g.
+    "Trump criticized Biden" -> "[PERSON] criticized [PERSON]". Used by the Entity
+    Shortcut Test (experiments/author_generalization/narrative_entity_shortcut.py) to
+    strip entity IDENTITY out of the text fed to SBERT while preserving sentence
+    structure and all non-entity language (stance/sentiment words, syntax, etc.) - the
+    model can still see THAT an entity is mentioned and of what type, but not WHICH
+    specific entity.
+
+    Entities are masked in descending `start` order so replacing one span never shifts
+    the character offsets of spans not yet processed. `mask_tokens` maps entity_group ->
+    placeholder string; unmapped groups fall back to a generic "[ENTITY]" token.
+    """
+    tokens = mask_tokens or DEFAULT_ENTITY_MASK_TOKENS
+    if not raw_entities:
+        return text
+    masked = text
+    for ent in sorted(raw_entities, key=lambda e: e["start"], reverse=True):
+        token = tokens.get(ent["entity_group"], "[ENTITY]")
+        masked = masked[:ent["start"]] + token + masked[ent["end"]:]
+    return masked
+
+
 # --- קוד בדיקה (Test) ---
 if __name__ == "__main__":
     analyzer = EntityAnalysisPipeline()
