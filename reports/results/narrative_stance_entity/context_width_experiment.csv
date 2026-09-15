@@ -1,0 +1,31 @@
+﻿mention_id,author,target_entity,gold_stance,error_category,pred_sentence,correct_sentence,pred_window,correct_window,pred_full,correct_full
+IDF_011,IDF,MUHAMMAD ZID,negative,wrong_entity_boundary,positive,False,positive,False,positive,False
+IDF_023,IDF,Israel,positive,action_vs_entity,negative,False,negative,False,negative,False
+IDF_024,IDF,IDF,positive,action_vs_entity,negative,False,negative,False,negative,False
+IDF_018,IDF,IDF,positive,none,positive,True,positive,True,positive,True
+IDF_027,IDF,IDF,positive,none,positive,True,positive,True,positive,True
+IDF_001,IDF,Hezbollah Radwan Force,negative,none,negative,True,negative,True,negative,True
+IDF_002,IDF,Baalbek,neutral,none,neutral,True,negative,False,negative,False
+IDF_003,IDF,IAF,neutral,none,neutral,True,negative,False,negative,False
+IDF_004,IDF,TEHRAN,neutral,none,neutral,True,negative,False,negative,False
+IDF_005,IDF,Yellow Line,neutral,none,neutral,True,neutral,True,neutral,True
+MariaZakharova_039,MariaZakharova,Russian,neutral,wrong_entity_boundary,positive,False,negative,False,negative,False
+MariaZakharova_005,MariaZakharova,MariaVladimirovnaZakharova #Queen of Humor,neutral,insufficient_context,positive,False,positive,False,positive,False
+MariaZakharova_002,MariaZakharova,Estonia,neutral,multiple_entities,negative,False,positive,False,negative,False
+MariaZakharova_003,MariaZakharova,MariaVladimirovnaZakhar,negative,none,negative,True,negative,True,negative,True
+MariaZakharova_004,MariaZakharova,Maria,negative,none,negative,True,negative,True,negative,True
+MariaZakharova_001,MariaZakharova,MariaVladimirovnaZakharova,negative,insufficient_context,neutral,False,neutral,False,negative,True
+MariaZakharova_006,MariaZakharova,MariaVladimirovnaZakhar,negative,insufficient_context,neutral,False,neutral,False,negative,True
+MariaZakharova_007,MariaZakharova,Lavrov,negative,other,neutral,False,negative,True,negative,True
+MariaZakharova_008,MariaZakharova,MariaVladimirovnaZakhar,negative,none,negative,True,negative,True,negative,True
+MariaZakharova_009,MariaZakharova,Russian,negative,none,negative,True,negative,True,negative,True
+BernieSanders_003,BernieSanders,NYC Central Labor Council,positive,none,positive,True,positive,True,positive,True
+BernieSanders_004,BernieSanders,AFL-CIO,positive,none,positive,True,positive,True,positive,True
+BernieSanders_006,BernieSanders,Villegas,positive,none,positive,True,positive,True,positive,True
+BernieSanders_011,BernieSanders,Brad Lander,positive,none,positive,True,positive,True,positive,True
+BernieSanders_001,BernieSanders,Bill Ackman,negative,none,negative,True,negative,True,negative,True
+BernieSanders_009,BernieSanders,Trump,negative,none,negative,True,negative,True,negative,True
+BernieSanders_010,BernieSanders,Big Beautiful Bill,negative,none,negative,True,negative,True,negative,True
+BernieSanders_002,BernieSanders,ZohranKM,positive,insufficient_context,neutral,False,neutral,False,positive,True
+BernieSanders_005,BernieSanders,Randy Villegas,positive,insufficient_context,neutral,False,neutral,False,positive,True
+BernieSanders_007,BernieSanders,Republicans,negative,insufficient_context,neutral,False,positive,False,positive,False

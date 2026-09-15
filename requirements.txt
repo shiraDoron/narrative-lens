@@ -36,6 +36,8 @@ spacy==3.8.15
 # spaCy transformer pipeline used by srl.py (advcl/SRL extraction) - installed as a direct
 # wheel, not from PyPI's package index. Alternative: `python -m spacy download en_core_web_trf`.
 en_core_web_trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl
+sentencepiece==0.2.2         # DeBERTa-v2/v3 slow-tokenizer conversion (narrative_stance_entity.py's ABSA model)
+protobuf==7.36.1             # required alongside sentencepiece for the same tokenizer conversion path
 
 # --- Topic modeling ------------------------------------------------------------------------
 # Used by: train_topics.py, stance.py, analyze_soft_topic_quality.py, analyze_soft_topics.py,

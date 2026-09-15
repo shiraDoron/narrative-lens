@@ -2171,6 +2171,256 @@ feature caches: `data/cache/cached_features_entity_shortcut_{author}.pt`. Checkp
 
 ---
 
+## 22. Stance-Aware Entity Representation — representation-validation gate (NOT reached: LOAO training)
+
+**Status: STOPPED at the representation-validation gate — negative finding / future work. No
+LOAO classification training was run.** This section documents a pre-training feasibility study
+only: whether *any* off-the-shelf stance-extraction method can reliably tell, for a given named
+entity mention, whether the author's attitude toward that specific entity is positive, negative,
+or neutral. The plan (agreed in advance) was to validate this signal in isolation before ever
+wiring it into `AblationDetector`/LOAO training — training was never reached because the
+signal failed validation.
+
+**Research question.** Section 21 showed that entity-identity masking helps BernieSanders
+(reduces Right-wing-misrouting) but hurts IDF and MariaZakharova (removes legitimate signal) —
+consistent with Section 19's hypothesis that the NER arm encodes entity *identity* with no
+*stance*, creating a shortcut specifically where two narratives discuss the same entities with
+opposite attitudes. The natural next step, proposed at the end of Section 21, is not to remove
+entity identity but to **attach entity-targeted stance** to it (e.g. `Trump:NEGATIVE` vs.
+`Trump:POSITIVE` instead of a bare `Trump` identity token), so the shortcut-prone entities keep
+their identity but the model additionally sees whose attitude points which way. **Before
+investing in that architecture change**, this experiment asks a narrower, prior question: does
+any accessible stance-extraction method produce accurate, target-sensitive, cross-author
+predictions on our actual corpus?
+
+**Motivation from Experiment 21.** Experiment 21 is the sole reason this direction was
+considered at all — it identified a concrete mechanism (identity without stance) for one author
+and, symmetrically, a concrete cost (loss of legitimate identity signal) for the other two. This
+experiment is a direct, disciplined follow-up: rather than assuming a stance signal would be
+reliable and building it straight into the classifier, its quality was validated on hand-labeled
+data first.
+
+**De-risking strategy (pre-registered, followed in order).** Each stage below was a go/no-go
+checkpoint agreed on *before* running it, not after seeing results:
+1. Audit the repo's existing stance-adjacent modules (rule-based lexicon scoring, generic
+   sentence sentiment) — none were target-conditioned (they score a sentence, not "attitude
+   toward entity X" when several entities co-occur) — rejected as unusable without modification.
+2. Select one accessible, target-conditioned candidate:
+   `yangheng/deberta-v3-base-absa-v1.1` (Aspect-Based Sentiment Analysis; entity passed as
+   `text_pair`, i.e. genuinely target-conditioned, not just sentence sentiment).
+3. Build a balanced ~180-mention validation sample across the 3 LOAO authors
+   (`IDF`/`MariaZakharova`/`BernieSanders`), inspect 20–30 qualitative examples.
+4. Build a **30-mention pilot** (10 per author, with 4 deliberately forced "suspicious" cases:
+   `IDF_011`, `IDF_023`, `IDF_024`, `MariaZakharova_039`) and have it **manually gold-labeled by
+   the researcher** (`gold_stance`, `error_category`, `annotator_notes` — one label per row, not
+   model-assisted).
+5. Only then measure accuracy/confusion/error-buckets against the gold labels, run a
+   context-width sweep, and — since the single ABSA candidate did not clear its own gate — run a
+   5-method mini-benchmark, all still on the same 30 gold rows, before any decision to scale up
+   to the full 180-mention sample or touch LOAO training at all.
+
+**The gate criteria below (Step 6) were fixed in writing *before* the 5-method benchmark was
+run, and are unchanged from that pre-registration. The FAIL decision at the end of this section
+follows directly from applying those pre-declared numbers — it was not a judgment call made
+after looking at the results.**
+
+### 30-row manually annotated pilot
+
+10 mentions per author (`IDF`, `MariaZakharova`, `BernieSanders`), each hand-labeled with
+`gold_stance` (positive/negative/neutral), `error_category` (one of 11 predefined values), and
+free-text `annotator_notes`. Saved at
+`reports/results/narrative_stance_entity/pilot_sample_30_annotated.csv` (git-tracked, the
+authoritative ground truth for every result in this section — never regenerated or overwritten
+after annotation).
+
+**ABSA baseline accuracy on the pilot (sentence-level context):** 60.0% overall (18/30).
+
+| Author | Accuracy |
+|---|---|
+| IDF | 70.0% (7/10) |
+| BernieSanders | 70.0% (7/10) |
+| MariaZakharova | 40.0% (4/10) |
+
+**Error-category breakdown (30 rows, 12 wrong):**
+
+| `error_category` | Count | Bucket |
+|---|---|---|
+| `none` (correct) | 18 | — |
+| `insufficient_context` | 6 | `insufficient_context` |
+| `action_vs_entity` | 2 | `absa_prediction_error` |
+| `wrong_entity_boundary` | 2 | `ner_entity_error` |
+| `multiple_entities` | 1 | `absa_prediction_error` |
+| `other` | 1 | `absa_prediction_error` |
+
+i.e. of the 12 errors: 6 are the local sentence genuinely lacking the information needed (the
+supportive/critical clause is in a *different* sentence of the same post), 4 are the ABSA model
+itself misreading an in-context signal (e.g. `action_vs_entity`: IDF_023/IDF_024 — "the IDF is
+striking Hezbollah" gets read as negative-toward-IDF/Israel because of the violent vocabulary,
+when the text actually frames IDF/Israel as the party defending itself), and 2 are upstream
+NER-boundary errors (not the stance model's fault).
+
+**Context-width follow-up** (still on the ABSA model only, before the 5-method benchmark):
+widening context from current-sentence → ±1-sentence window → full post gave 60.0% → 53.3% →
+66.7%. Full-post context recovered 4 of the 6 `insufficient_context` errors, but introduced a
+**new** failure mode: 3 previously-correct neutral IDF predictions (`IDF_002`/`IDF_003`/`IDF_004`
+— headline-style factual mentions of a location/org) flipped to negative once the surrounding
+violent-conflict paragraph was included — i.e. wider context helps recover missing signal but
+also lets the model over-generalize sentiment from surrounding text onto entities the local
+sentence treats neutrally. Full results:
+`reports/results/narrative_stance_entity/context_width_experiment.csv`.
+
+### 5 stance-extraction methods benchmarked (same 30 gold rows, same target entity per row)
+
+Because the single ABSA candidate did not clear the pre-declared gate on its own, 3 additional,
+fundamentally different candidates were benchmarked on the identical 30 rows before concluding
+anything about the underlying idea:
+
+1. **`absa_sentence`** — `yangheng/deberta-v3-base-absa-v1.1`, current-sentence context
+   (baseline, reused from the pilot analysis above).
+2. **`absa_full`** — same ABSA model, full-post context (reused from the context-width
+   experiment).
+3. **`semeval`** — `krishnagarg09/stance-detection-semeval2016`, a real (text, target) →
+   FAVOR/AGAINST/NONE stance classifier trained on SemEval-2016 Task 6 (not a sentiment model).
+4. **`nli`** — `MoritzLaurer/deberta-v3-large-zeroshot-v2.0`, a generic NLI/zero-shot model
+   repurposed via 3 explicit target-conditioned hypotheses ("The author supports/opposes/has no
+   clear attitude toward {target}.") — documented explicitly as a zero-shot heuristic, not a
+   trained stance signal.
+5. **`procon`** — `NLP-Debater-Project/debertav3-stance-detection`, a real PRO/CON debate-stance
+   model (IBM ArgKP-2023) with **no native neutral class**; a fixed, pre-declared abstention
+   margin (`|P(PRO)-P(CON)| < 0.15` → predict neutral) was set *before* looking at any gold label
+   in this pilot, specifically to avoid tuning a threshold against the same 30 labels it would be
+   scored on.
+
+**Gate criteria, fixed in writing before running the benchmark.** PASS requires at least one
+method to simultaneously: (a) reach ≥70–75% overall accuracy, (b) not depend almost entirely on
+one author, (c) not introduce a new systematic failure mode, (d) work reasonably across
+positive/negative/**and** neutral (not just the majority class), and (e) show genuine
+target-sensitivity (different predictions for different targets in the same sentence when their
+true stances differ) rather than being sentence-level sentiment in disguise.
+
+**Full comparison table:**
+
+| Method | Overall acc. | BernieSanders | IDF | MariaZakharova | Neutral P / R | Target-sensitive? | New systematic failure mode |
+|---|---|---|---|---|---|---|---|
+| `absa_sentence` (baseline) | 60.0% | 70% | 70% | 40% | 0.40 / 0.57 | Partial (differentiated correctly in 2/3 multi-target contexts) | None new (see pilot error buckets above) |
+| `absa_full` | 66.7% | 90% | **40%** | 70% | 1.00 / **0.14** | Weak (near-constant per context group) | **Yes** — neutral recall collapses (7 IDF `neutral` rows → `negative`); IDF accuracy drops sharply |
+| `semeval` | 60.0% | 60% | 50% | 70% | 0.50 / 0.71 | Weak | Positive-class recall collapses (30%; several genuine `positive` endorsements → `neutral`) |
+| `nli` | 56.7% | 60% | 70% | 40% | 0.33 / 0.43 | Weak–moderate | Negative-class recall drops (46%; several `negative` rows softened to `neutral`) |
+| `procon` | 33.3% | 60% | 40% | **0%** | undefined / 0.00 | **No** — near-constant "positive" output | **Yes** — degenerates to an almost-constant predictor (10/10 `positive` rows correct, but 0/13 `negative` and 0/7 `neutral` rows correct) |
+
+**Target-sensitivity analysis.** 9 pilot contexts contain ≥2 distinct target entities in the
+same sentence; in 4 of these the gold stance genuinely differs by target (e.g.
+`"...worried about Estonia"` — `Estonia`=neutral vs. `MariaVladimirovnaZakharova`=negative in the
+same sentence; `"...defeat @ZohranKMamdani..."` — `Bill Ackman`=negative vs. `ZohranKM`=positive).
+Only `absa_sentence` differentiated its predictions in most of these gold-differing groups (2/3
+checked in detail); `absa_full`, `semeval`, and `procon` collapsed to a single prediction across
+different targets in nearly every group regardless of whether gold differed — i.e. for most
+candidates the "target" argument is not doing meaningful work, the prediction is closer to
+generic sentence sentiment than to true target-conditioned stance. `nli` showed intermittent
+target-sensitivity but not reliably tied to the correct direction.
+
+**Fixed-vs-regressed vs. the `absa_sentence` baseline.** Every alternative method that fixed some
+of the baseline's errors introduced a comparable or larger number of *new* errors on previously-
+correct rows (`absa_full`: +5 fixed / −3 new; `semeval`: +7 / −7; `nli`: +4 / −5; `procon`: +4 /
+−12) — none of the 4 alternatives represents a net improvement; each just relocates the error
+pattern.
+
+**Row-by-row inspection of the critical/flagged cases** (full detail in
+`stance_benchmark_run.log`): `IDF_023`/`IDF_024` (the `action_vs_entity` cases) were only fixed by
+`nli` and `procon` — but `procon`'s "fix" is an artifact of it predicting `positive` almost
+unconditionally, not evidence of understanding. `MariaZakharova_039` (forced suspicious case) was
+correctly predicted **only** by `semeval` (`neutral`); all 4 other methods got it wrong.
+`BernieSanders_002`/`BernieSanders_005` (`insufficient_context`, sentence-level context omits a
+later "Stand with Zohran"/"proud to endorse" clause) were recovered by `absa_full` and `procon`
+but not by `semeval`/`nli`. `BernieSanders_007` (`insufficient_context`) was not recovered by any
+of the 5 methods.
+
+**Full artifacts:** `reports/results/narrative_stance_entity/stance_method_benchmark.csv`
+(per-row, all 5 methods) and `reports/results/narrative_stance_entity/stance_benchmark_run.log`
+(complete run output: all per-method reports, confusion matrices, fixed/regressed breakdowns,
+and the target-sensitivity groups).
+
+### Gate Decision: **FAIL**
+
+No method reaches the pre-declared bar. The best raw accuracy (`absa_full`, 66.7%) fails
+criteria (b)/(c)/(d): it is heavily author-dependent (90% BernieSanders vs. 40% IDF) and
+collapses neutral recall to 0.14, a new systematic failure mode not present in the sentence-level
+baseline. `procon` fails hardest and most informatively: an accuracy-only read (33.3%, with a
+perfect 100% "recall" on the positive class) would look almost plausible in isolation, but the
+per-row and target-sensitivity checks show it is a near-constant predictor with no real
+entity-targeting behavior — a concrete illustration of why the gate required target-sensitivity
+and cross-class balance, not just overall accuracy. `semeval` and `nli` are more balanced across
+authors but plateau at 56.7–60.0%, well under the 70–75% bar, and neither shows reliable
+target-sensitivity either.
+
+**This decision was reached by applying the pre-declared gate criteria (Step 6, fixed in writing
+before the benchmark was run) to the measured numbers above — it was not a post-hoc judgment
+made after seeing which numbers came out. The threshold and success conditions did not change
+after the results were known.**
+
+### Conclusion
+
+> The stance-aware entity hypothesis was not tested end-to-end because no evaluated
+> stance-extraction method produced a sufficiently reliable and target-sensitive signal. Rather
+> than injecting systematic label noise into the narrative classifier, the experiment was
+> stopped at the representation-validation gate.
+
+To state this precisely:
+- **There is no evidence that the stance-aware-entity *idea* itself is wrong.** Experiment 21's
+  underlying motivation (entity identity without stance can create a shortcut for some
+  author/narrative pairs, while still being legitimate signal for others) is untouched by this
+  result.
+- **There is evidence that the specific stance-extraction *methods* evaluated here are not
+  reliable enough for this corpus** — informal, code-mixed, multi-entity social-media text,
+  across 3 stylistically very different authors — even though 3 of the 5 (`absa`, `semeval`,
+  `procon`) are real, purpose-built target/stance classifiers, not generic sentiment models.
+- **This direction therefore remains future work, not a closed/refuted research question.** A
+  better outcome would require either a stance model fine-tuned on in-domain, entity-targeted
+  examples (the 30-row pilot + the existing 180-row validation sample would be a starting point
+  for such fine-tuning data, itself a nontrivial follow-up project), or a fundamentally different
+  representation of "attitude toward an entity" that does not depend on a single pretrained
+  target-stance classifier's output being correct.
+
+### Limitations
+
+- **Small pilot (n=30).** 10 mentions per author is enough to reject the pre-declared gate with
+  reasonable confidence (all 5 methods fail by a wide margin, not a close call), but far too
+  small to finely rank or calibrate any candidate method, or to detect rarer error modes.
+- **Domain mismatch of all 3 pretrained stance candidates.** None were fine-tuned on informal,
+  code-mixed, multi-clause social-media posts about ongoing geopolitical conflicts — `semeval`
+  was trained on short tweet-length text via a `bertweet-base` tokenizer (max 130 tokens),
+  `procon` on formal topic/argument pairs from structured debate corpora (IBM ArgKP-2023), and
+  `absa` on general-domain aspect-based-sentiment benchmarks, not political entity stance.
+- **NER boundary/type errors upstream of the stance model.** 2 of the pilot's 12 baseline errors
+  (`wrong_entity_boundary`) were caused by the entity span itself being truncated
+  (`"MUHAMMAD ZID"` instead of `"MUHAMMAD ZIDAN"`), not by the stance model — a ceiling on how
+  much any stance-model swap alone can fix.
+- **Author/domain differences in how attitude is expressed.** MariaZakharova's Twitter-reply
+  corpus (short, reactive, heavily sarcastic/mocking replies) was the hardest for every method
+  (40% or worse for 4 of 5 methods) — the same architecture that handles IDF's declarative
+  military-update style reasonably cannot be assumed to transfer to a sarcasm-heavy reply corpus.
+- **"Stance toward the entity" vs. general sentence sentiment.** The target-sensitivity analysis
+  is direct evidence that most candidates (`absa_full`, `semeval`, `procon`) collapse toward
+  scoring the sentence as a whole rather than conditioning on the specific target argument, even
+  though all 3 are architecturally designed to take a target/aspect as input.
+- **Neutral-class instability.** Every method's neutral precision/recall is materially worse and
+  less stable than its positive/negative numbers (e.g. `absa_full`'s neutral recall collapses to
+  0.14, `procon`'s neutral recall is 0.00) — "no clear attitude" appears to be the hardest class
+  for all 5 methods, which is a particular concern since a large share of entity mentions in this
+  corpus are plausibly neutral (headline-style factual references).
+
+**Implementation:** `experiments/author_generalization/narrative_stance_entity.py` (single script
+for the full Phase-1 pipeline: validation-sample building, pilot building, pilot analysis,
+context-width experiment, and the 5-method benchmark — CLI flags `--build-sample`,
+`--build-pilot`, `--analyze-pilot`, `--context-experiment`, `--stance-benchmark`). Artifacts (all
+git-tracked, none regenerated after annotation):
+`reports/results/narrative_stance_entity/validation_sample.csv` (180-row validation sample),
+`STANCE_ANNOTATION_GUIDE.md` (annotation instructions/label definitions),
+`pilot_sample_30_annotated.csv` (gold-labeled ground truth for this whole section),
+`context_width_experiment.csv`, `stance_method_benchmark.csv`, `stance_benchmark_run.log`.
+
+---
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -2189,3 +2439,4 @@ feature caches: `data/cache/cached_features_entity_shortcut_{author}.pt`. Checkp
 | 19. Feature ablation + Soft Topics on LOAO authors | 7 "SBERT + X" variants (NER/SRL/Emotion/Hard-Topic/Soft-Topic/all-engineered/all+soft) trained on the same 3 held-out authors as #18, same splits; plus a Right-wing "shortcut" forensic analysis (entity/word/topic overlap between misclassified-as-RW rows and Right-wing's own training data) | No single feature/combo wins across all 3 authors; Soft Topics gave the best Right-wing-bias reduction (avg 20.8%→16.7%, Bernie 57.5%→46.0%) at some cost to IDF's recall; `sbert_all_engineered` gave the best avg recall (60.5%) but didn't reduce Bernie's Right-wing rate; stacking all arms together was the **worst** variant for MariaZakharova (91.5%→66.5% recall). Forensic analysis found a concrete mechanism for Bernie: NER's entity arm has no stance signal, so his heavy mentions of Trump/Congress/Republicans/Americans (also top entities in Right-wing's own training data, opposite stance) get routed toward Right-wing regardless of his actual (opposing) stance | Diagnostic only, no production change; Soft Topic Distribution flagged as the most promising future integration candidate for reducing Right-wing misrouting; NER's stance-blindness identified as a concrete target for future Domain-Adversarial Training/stance-aware entity work |
 | 20. Hard vs. Soft vs. LDA, minimal SBERT-only backbone, random split + LOAO side-by-side | Same `SBERTTopicDetector` architecture (SBERT + at most one Topic arm) evaluated under BOTH random split (3 seeds × 4 modes) and the same 3 LOAO authors as #18/19 (`lda` newly trained, `none`/`hard`/`soft` reused+verified from #19) | Random split: Hard and Soft are **tied** (no evidence of an advantage either way, −0.03pp well inside seed std); Hard/LDA give small, seed-stable gains over SBERT-only (+0.48pp / +0.24pp Acc). LOAO: Soft clearly beats Hard (+7.0pp recall, Right-wing bias 16.7% vs. 20.8%) but does **not** beat SBERT-only on avg recall (59.0% vs. 59.2%) — its LOAO benefit vs. SBERT-only is specifically Right-wing-bias reduction, not recall; Hard is *worse* than SBERT-only on LOAO (−7.2pp recall); LDA is a middle ground (better than Hard on recall/bias, but its Macro-F1 0.1210 is slightly above Soft's 0.1191). Ranking reverses by evaluation regime, confirmed architecture-independent — replicates Section 15 vs. 19's contradiction with architecture held constant | Diagnostic only, no production change; Soft's evidence-backed contribution is robustness/Right-wing-bias reduction on unseen authors, not raw accuracy or recall — ~48% of rows get an all-zero `soft_dense` vector (Soft inactive there), a limitation on how large this effect can be; not claimed as a general in-distribution accuracy upgrade |
 | 21. Entity Shortcut Test — mask entity identity, re-evaluate LOAO recall/Right-wing-bias | Every named entity span (PER/ORG/LOC/MISC) replaced with a generic placeholder token before SBERT encoding (`"Trump criticized Biden"` → `"[PERSON] criticized [PERSON]"`); 2 new variants (`sbert_masked`, `sbert_masked_soft_topic`) trained on the same 3 LOAO authors as #18-20, compared against 3 reused Section-19 variants (`sbert_only`/`sbert_ner`/`sbert_soft_topic`) | Effect is **author-dependent, not uniform**: masking hurts IDF and MariaZakharova (recall 63.5%→38.5% and 89.5%→76.5%, Right-wing rate *rises*) but helps BernieSanders — the one author Section 19's forensic analysis implicated (recall 24.5%→30.5%, Right-wing rate 57.5%→42.0%, further down to 30.5% when combined with Soft Topics). Averaged-across-authors numbers (recall 59.2%→48.5%) obscure this split and are not representative of any one author | Diagnostic only, no production change; directionally consistent with (but does not prove) an entity-identity-without-stance shortcut specific to Bernie/Right-wing's shared entity vocabulary; entity identity is legitimate signal, not a shortcut, for IDF/Maria — masking is not a general-purpose fix; stance-aware entity representation (Experiment 22) proposed as the next step, contingent on this finding |
+| 22. Stance-Aware Entity Representation — representation-validation gate for entity-targeted stance extraction | 30-row hand-annotated pilot (3 LOAO authors) used to gate 5 stance-extraction candidates (2 ABSA context widths + SemEval target-stance + NLI zero-shot target-stance + PRO/CON debate-stance) against a pre-declared bar (≥70–75% accuracy, not author-dependent, no new systematic failure mode, balanced across pos/neg/neutral, genuinely target-sensitive) — **before** any LOAO training | Best raw accuracy (`absa_full`, 66.7%) fails on author-dependence (90% Bernie vs. 40% IDF) and introduces a new failure mode (neutral recall collapses to 0.14); `procon` degenerates to a near-constant "positive" predictor despite 33.3% surface accuracy; `semeval`/`nli` plateau at 56.7–60.0%; target-sensitivity analysis shows most candidates collapse toward generic sentence sentiment rather than true per-target conditioning | **Gate FAILED — stopped before LOAO training.** Negative finding / future work: no evidence the stance-aware-entity idea is wrong, but no evaluated method is reliable enough on this corpus to use as a training feature; would require in-domain fine-tuning or a different representation, not attempted here |
