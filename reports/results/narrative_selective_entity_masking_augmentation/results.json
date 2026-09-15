@@ -1,0 +1,383 @@
+{
+  "IDF": {
+    "sbert_original": {
+      "accuracy": 0.635,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.09071428571428572,
+      "macro_f1": 0.11096548711227609,
+      "recall_true_narrative": 0.635,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_only_IDF_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_original",
+      "pct_misclassified_resistance": 0.27
+    },
+    "sbert_duplicated_original_control": {
+      "accuracy": 0.58,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.08285714285714285,
+      "macro_f1": 0.10488245931283906,
+      "recall_true_narrative": 0.58,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_entity_masking_augmentation\\confusion_matrix_sbert_duplicated_original_control_IDF_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_duplicated_original_control",
+      "pct_misclassified_resistance": 0.31
+    },
+    "sbert_full_masked_aug": {
+      "accuracy": 0.39,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.055714285714285716,
+      "macro_f1": 0.08016443987667009,
+      "recall_true_narrative": 0.39,
+      "pct_misclassified_right_wing": 0.03,
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_entity_masking_augmentation\\confusion_matrix_sbert_masked_aug_IDF_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_masked_aug",
+      "pct_misclassified_resistance": 0.51
+    },
+    "sbert_person_masked_aug": {
+      "accuracy": 0.61,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.08714285714285715,
+      "macro_f1": 0.10825199645075421,
+      "recall_true_narrative": 0.61,
+      "pct_misclassified_right_wing": 0.015,
+      "pct_misclassified_resistance": 0.28,
+      "policy": "person",
+      "types_masked": [
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_masked_aug_IDF_test.csv"
+    },
+    "sbert_person_misc_masked_aug": {
+      "accuracy": 0.565,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.08071428571428571,
+      "macro_f1": 0.10314924691921498,
+      "recall_true_narrative": 0.565,
+      "pct_misclassified_right_wing": 0.02,
+      "pct_misclassified_resistance": 0.315,
+      "policy": "person_misc",
+      "types_masked": [
+        "MISC",
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_misc_masked_aug_IDF_test.csv"
+    },
+    "sbert_person_masked_aug_soft_topic": {
+      "accuracy": 0.54,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.07714285714285715,
+      "macro_f1": 0.10018552875695733,
+      "recall_true_narrative": 0.54,
+      "pct_misclassified_right_wing": 0.02,
+      "pct_misclassified_resistance": 0.325,
+      "policy": "person",
+      "types_masked": [
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_masked_aug_soft_topic_IDF_test.csv"
+    },
+    "sbert_person_misc_masked_aug_soft_topic": {
+      "accuracy": 0.48,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.06857142857142857,
+      "macro_f1": 0.09266409266409267,
+      "recall_true_narrative": 0.48,
+      "pct_misclassified_right_wing": 0.035,
+      "pct_misclassified_resistance": 0.34,
+      "policy": "person_misc",
+      "types_masked": [
+        "MISC",
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_misc_masked_aug_soft_topic_IDF_test.csv"
+    }
+  },
+  "MariaZakharova": {
+    "sbert_original": {
+      "accuracy": 0.895,
+      "macro_precision": 0.2,
+      "macro_recall": 0.179,
+      "macro_f1": 0.18891820580474933,
+      "recall_true_narrative": 0.895,
+      "pct_misclassified_right_wing": 0.025,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_only_MariaZakharova_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_original",
+      "pct_misclassified_resistance": 0.005
+    },
+    "sbert_duplicated_original_control": {
+      "accuracy": 0.85,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.14166666666666666,
+      "macro_f1": 0.15315315315315317,
+      "recall_true_narrative": 0.85,
+      "pct_misclassified_right_wing": 0.02,
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_entity_masking_augmentation\\confusion_matrix_sbert_duplicated_original_control_MariaZakharova_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_duplicated_original_control",
+      "pct_misclassified_resistance": 0.01
+    },
+    "sbert_full_masked_aug": {
+      "accuracy": 0.815,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.11642857142857142,
+      "macro_f1": 0.12829594647776466,
+      "recall_true_narrative": 0.815,
+      "pct_misclassified_right_wing": 0.01,
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_entity_masking_augmentation\\confusion_matrix_sbert_masked_aug_MariaZakharova_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_masked_aug",
+      "pct_misclassified_resistance": 0.02
+    },
+    "sbert_person_masked_aug": {
+      "accuracy": 0.87,
+      "macro_precision": 0.2,
+      "macro_recall": 0.174,
+      "macro_f1": 0.18609625668449198,
+      "recall_true_narrative": 0.87,
+      "pct_misclassified_right_wing": 0.02,
+      "pct_misclassified_resistance": 0.005,
+      "policy": "person",
+      "types_masked": [
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_masked_aug_MariaZakharova_test.csv"
+    },
+    "sbert_person_misc_masked_aug": {
+      "accuracy": 0.835,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.11928571428571429,
+      "macro_f1": 0.1300116776956014,
+      "recall_true_narrative": 0.835,
+      "pct_misclassified_right_wing": 0.015,
+      "pct_misclassified_resistance": 0.005,
+      "policy": "person_misc",
+      "types_masked": [
+        "MISC",
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_misc_masked_aug_MariaZakharova_test.csv"
+    },
+    "sbert_person_masked_aug_soft_topic": {
+      "accuracy": 0.835,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.11928571428571429,
+      "macro_f1": 0.1300116776956014,
+      "recall_true_narrative": 0.835,
+      "pct_misclassified_right_wing": 0.015,
+      "pct_misclassified_resistance": 0.03,
+      "policy": "person",
+      "types_masked": [
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_masked_aug_soft_topic_MariaZakharova_test.csv"
+    },
+    "sbert_person_misc_masked_aug_soft_topic": {
+      "accuracy": 0.88,
+      "macro_precision": 0.2,
+      "macro_recall": 0.176,
+      "macro_f1": 0.18723404255319148,
+      "recall_true_narrative": 0.88,
+      "pct_misclassified_right_wing": 0.0,
+      "pct_misclassified_resistance": 0.03,
+      "policy": "person_misc",
+      "types_masked": [
+        "MISC",
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_misc_masked_aug_soft_topic_MariaZakharova_test.csv"
+    }
+  },
+  "BernieSanders": {
+    "sbert_original": {
+      "accuracy": 0.245,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.04083333333333333,
+      "macro_f1": 0.06559571619812583,
+      "recall_true_narrative": 0.245,
+      "pct_misclassified_right_wing": 0.575,
+      "n_test": 200,
+      "confusion_matrix_csv": "reports/results/narrative_ablation_loao\\confusion_matrix_sbert_only_BernieSanders_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_original",
+      "pct_misclassified_resistance": 0.09
+    },
+    "sbert_duplicated_original_control": {
+      "accuracy": 0.28,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.04666666666666667,
+      "macro_f1": 0.07291666666666667,
+      "recall_true_narrative": 0.28,
+      "pct_misclassified_right_wing": 0.56,
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_entity_masking_augmentation\\confusion_matrix_sbert_duplicated_original_control_BernieSanders_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_duplicated_original_control",
+      "pct_misclassified_resistance": 0.06
+    },
+    "sbert_full_masked_aug": {
+      "accuracy": 0.405,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.0675,
+      "macro_f1": 0.09608540925266905,
+      "recall_true_narrative": 0.405,
+      "pct_misclassified_right_wing": 0.415,
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_entity_masking_augmentation\\confusion_matrix_sbert_masked_aug_BernieSanders_test.csv",
+      "reused_from": "reports/results/narrative_entity_masking_augmentation/results.json",
+      "reused_from_variant": "sbert_masked_aug",
+      "pct_misclassified_resistance": 0.065
+    },
+    "sbert_person_masked_aug": {
+      "accuracy": 0.25,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.03571428571428571,
+      "macro_f1": 0.05714285714285715,
+      "recall_true_narrative": 0.25,
+      "pct_misclassified_right_wing": 0.565,
+      "pct_misclassified_resistance": 0.065,
+      "policy": "person",
+      "types_masked": [
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_masked_aug_BernieSanders_test.csv"
+    },
+    "sbert_person_misc_masked_aug": {
+      "accuracy": 0.31,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.051666666666666666,
+      "macro_f1": 0.07888040712468193,
+      "recall_true_narrative": 0.31,
+      "pct_misclassified_right_wing": 0.52,
+      "pct_misclassified_resistance": 0.055,
+      "policy": "person_misc",
+      "types_masked": [
+        "MISC",
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_misc_masked_aug_BernieSanders_test.csv"
+    },
+    "sbert_person_masked_aug_soft_topic": {
+      "accuracy": 0.4,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.06666666666666667,
+      "macro_f1": 0.09523809523809523,
+      "recall_true_narrative": 0.4,
+      "pct_misclassified_right_wing": 0.4,
+      "pct_misclassified_resistance": 0.07,
+      "policy": "person",
+      "types_masked": [
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_masked_aug_soft_topic_BernieSanders_test.csv"
+    },
+    "sbert_person_misc_masked_aug_soft_topic": {
+      "accuracy": 0.41,
+      "macro_precision": 0.16666666666666666,
+      "macro_recall": 0.06833333333333333,
+      "macro_f1": 0.09692671394799053,
+      "recall_true_narrative": 0.41,
+      "pct_misclassified_right_wing": 0.39,
+      "pct_misclassified_resistance": 0.08,
+      "policy": "person_misc",
+      "types_masked": [
+        "MISC",
+        "PER"
+      ],
+      "n_test": 200,
+      "n_train_original": 13863,
+      "n_train_effective": 27726,
+      "n_val_original": 2447,
+      "n_val_effective": 4894,
+      "confusion_matrix_csv": "reports/results/narrative_selective_entity_masking_augmentation\\confusion_matrix_sbert_person_misc_masked_aug_soft_topic_BernieSanders_test.csv"
+    }
+  }
+}

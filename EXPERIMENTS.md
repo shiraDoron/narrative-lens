@@ -2570,13 +2570,20 @@ reduction (41.5%) meet or beat `sbert_masked_only`'s on both axes, not just "par
 benefit. **(a) is answered yes for Maria, no for IDF:** Maria's recall (81.5%, or 90.0% with
 Soft Topics) is reasonably close to original (89.5%), but IDF's recall (39.0%, or 42.0% with
 Soft Topics) is nearly as far from original (63.5%) as full masking is (38.5%) — augmentation
-does not rescue IDF. The honest reading is that `sbert_masked_aug_soft_topic` is the
-**best-balanced variant found across Sections 19-23**: it preserves Maria almost entirely
-(89.5%→90.0%), gives Bernie a large, robust improvement on both recall (24.5%→39.0%) and
-Right-wing-bias (57.5%→38.0%, the best Bernie Right-wing result of any experiment in this
-project), at the real but bounded cost of IDF's recall (63.5%→42.0%, smaller than full
-masking's −25.0pp cost by only 3.5pp) — a genuine, if incomplete, improvement over choosing
-between `sbert_original` and `sbert_masked_only` outright.
+does not rescue IDF.
+
+**`sbert_masked_aug_soft_topic` is NOT the best model overall — it is a robustness/bias
+trade-off, not a strict improvement.** On **average recall**, it is not competitive:
+`sbert_original` 59.2%, `sbert_soft_topic` 59.0%, `sbert_masked_aug_soft_topic` **57.0%** — the
+augmented-plus-soft-topic variant has the *lowest* average recall of these three, because IDF's
+large loss is not offset by Bernie's gain once averaged. Its value is specific and narrow: it
+(1) improves Bernie substantially (recall 24.5%→39.0%, Right-wing rate 57.5%→38.0%, the best
+Bernie Right-wing result of any experiment in this project), (2) preserves Maria almost fully
+(89.5%→90.0%), but (3) costs IDF a large amount of recall (63.5%→42.0%, barely better than full
+masking's 38.5%) — a real, unresolved degradation, not a minor side effect. Whether this
+trade-off is worth taking depends entirely on how much weight is placed on Bernie/Right-wing-bias
+reduction vs. IDF's recall — it is not a win on the primary average-recall metric, and should
+not be presented as one.
 
 **What this is (and is not) evidence for.** This supports the hypothesis that training-time
 invariance (seeing both entity-identity-present and entity-identity-absent versions of the same
@@ -2602,8 +2609,10 @@ is not specific to masking — this experiment did not isolate that mechanism fu
 Section 21, masking coverage over the corpus is ~69.6% (some texts have no entity detected to
 mask), inherited unchanged from the existing masked-text cache — not re-measured here. (4) No
 new stance features, no new architecture, and no post-hoc hyperparameter tuning were used, per
-the explicit constraint on this experiment — the "best-balanced" variant here should not be
-read as a fully-tuned production candidate.
+the explicit constraint on this experiment — the robustness/bias-trade-off variant here should
+not be read as a fully-tuned, or overall-best, production candidate; it loses to `sbert_original`
+and `sbert_soft_topic` on average recall, and IDF's large recall cost remains unexplained and
+unresolved (root-cause audit proposed as future work).
 
 **Implementation:** `experiments/author_generalization/narrative_entity_masking_augmentation.py`.
 Reuses `narrative_ablation_loao.AblationDetector` and `train.py`'s `evaluate()`/
@@ -2614,6 +2623,177 @@ Checkpoints: `models/experiments/narrative_entity_masking_augmentation/{variant}
 Results: `reports/results/narrative_entity_masking_augmentation/results.json`,
 `entity_masking_augmentation_summary.csv`, `confusion_matrix_{variant}_{author}_test.csv`,
 per-author run logs (`run_{author}.log`).
+
+### Root-Cause Audit — why does masking hurt IDF? (test-informed, exploratory — not blind)
+
+**Methodological caveat, stated explicitly and up front.** This audit was performed by
+evaluating 4 already-trained models on IDF's held-out LOAO **test** set (the same 200 rows
+used to compute this section's own reported metrics) and comparing their predictions
+row-by-row. Any hypothesis or masking policy derived from this audit is therefore
+**test-informed, not blind** — it does not constitute an independent, pre-registered
+confirmatory test. Section 24 (which trains new variants based on this audit's hypothesis and
+evaluates them on the SAME IDF/MariaZakharova/BernieSanders authors) must accordingly be read
+as **exploratory evidence**, not a validated or confirmed result. A genuinely confirmatory test
+of any policy that looks promising here would require evaluating it on **fresh held-out
+authors that were never used for hypothesis generation in Sections 19-24**.
+
+**Method.** `sbert_original`, `sbert_soft_topic` (both from Section 19/21), `sbert_masked_aug`,
+and `sbert_masked_aug_soft_topic` (Section 23) were all evaluated on the same 200 IDF test rows
+(`orig_cache["test"]`, original/unmasked text, identical to how each was already scored — no
+re-training). The **regression set** is defined as rows where `sbert_original` AND
+`sbert_soft_topic` both predicted correctly, but `sbert_masked_aug` did not: **31/200 (15.5%)**
+of IDF's test rows. Entities in each regression row's original text were freshly extracted
+(`EntityAnalysisPipeline.extract_raw_entities()` + `reconstruct_fragmented_entities()`, both
+unmodified) and compared against the same extraction run over all 200 test rows (baseline
+prevalence), so the regression set's entity-type composition can be read as an enrichment (or
+not) relative to the full test set, not in isolation.
+
+**Finding 1 — where the errors go.** Of the 31 regressions, **87.1% are misclassified as
+"Resistance"** specifically (the remaining 12.9% split across Ukrainian/Left-wing/Russian) —
+essentially the same pattern as Section 19/21's Bernie→Right-wing shortcut, but for the
+IDF/Resistance pair (the two narratives describing opposite sides of the same conflict).
+
+**Finding 2 — entity-type composition of the regression set vs. the full test-set baseline:**
+
+| Entity type | % of regression rows containing this type | % of all 200 test rows containing this type |
+|---|---|---|
+| LOC | 90.3% | 78.0% |
+| ORG | 87.1% | 79.0% |
+| MISC | 25.8% | 36.5% |
+| PER | 16.1% | 19.0% |
+
+LOC and ORG are present in the large majority of regression rows, and modestly enriched
+relative to the full test set (+12.3pp / +8.1pp) — but PER and MISC are **not** enriched; MISC
+is actually **less** common in the regression set than in the baseline (−10.7pp), and PER is
+essentially flat (−2.9pp).
+
+**Finding 3 — qualitative pattern.** The regression rows are overwhelmingly IDF's characteristic
+"operational report" style text — e.g. *"As part of IDF activities in Lebanon, IDF special
+forces operated overnight..."* (entities: `ORG:IDF` ×4, `LOC:Lebanon`, `PER:Ron Arad`) and
+*"...the IDF struck a command center... belonging to the Syrian regime in southern Syria"*
+(entities: `MISC:Druze`, `ORG:IDF`, `MISC:Syrian`, `LOC:Syria`) — where the ORG token `IDF`
+itself and specific conflict-zone place names (Lebanon, Syria, Gaza-region toponyms) recur
+constantly. Unlike Bernie's Trump/Congress mentions (Section 19's forensic finding, where
+identity-without-stance created a plausible spurious shortcut), IDF mentioning the organization
+"IDF" and specific Levant place names looks like a **direct, legitimate identity marker** of
+who is writing (an IDF-affiliated account), not merely a topic the account happens to share
+with its narrative "opponent." Masking-augmentation training teaches invariance to exactly
+this ORG/LOC identity signal, which appears to cost IDF specifically because — for this
+narrative pair — that signal is unusually reliable, not spurious.
+
+**Hypothesis for Section 24 (test-informed, not yet tested independently).** If ORG/LOC
+identity is legitimate signal being eroded by full masking, while PER (and, less certainly,
+MISC) are not enriched in the regression set (i.e., masking them is less implicated in IDF's
+cost), then a **selective masking policy that masks only PER (or PER+MISC) while leaving
+ORG/LOC identity intact** might retain more of IDF's signal than full masking, while still
+providing some of the training-time invariance that helped Bernie. This is a hypothesis to
+test, not a conclusion — it was generated by looking at the same test set Section 24 will be
+evaluated on, so any result in Section 24 supporting it is exploratory corroboration, not
+independent proof.
+
+**Implementation:** `experiments/author_generalization/narrative_idf_masking_regression_audit.py`.
+Results: `reports/results/narrative_idf_masking_regression_audit/` (`idf_masked_aug_regressions_full.csv`
+[31 rows], `idf_masked_aug_regressions_sample.csv` [30-row qualitative sample],
+`entity_type_summary.csv`, `audit_summary.json`).
+
+---
+
+## 24. Selective Entity-Masking Augmentation — exploratory test of a test-informed hypothesis
+
+**Methodological status: EXPLORATORY, NOT CONFIRMATORY.** The masking-policy hypothesis this
+experiment tests (mask only PER, or PER+MISC, while leaving ORG/LOC intact) was generated by
+Section 23's root-cause audit, which looked at IDF's held-out LOAO test set — the SAME 200
+rows this experiment is evaluated on. This is test-set-informed hypothesis generation, not
+blind experimental design. Accordingly, every result below is reported as **exploratory
+evidence**, and the words "validated"/"confirmed" are deliberately not used anywhere in this
+section. If a selective policy looks promising here, the required next step (not attempted in
+this section) is to test it on fresh held-out authors never used for hypothesis generation in
+Sections 19-24.
+
+**Research question:** Can selective entity masking retain the robustness benefit seen for
+Bernie while avoiding the loss of legitimate ORG/LOC narrative signal observed for IDF?
+
+**Variants (7, same 3 LOAO authors/split/seed=42/architecture/hyperparameters as Sections
+18-23).** 3 reused verbatim from Section 23 (`sbert_original`, `sbert_duplicated_original_control`,
+`sbert_full_masked_aug` = Section 23's `sbert_masked_aug`); 4 newly trained, with the masking
+policy FIXED in advance (per explicit instruction, not changed after seeing results, no
+additional policies added mid-experiment): `sbert_person_masked_aug`, `sbert_person_misc_masked_aug`,
+and their `+soft_topic` combinations. (A previously-discussed "Variant 5" — a plain PER+MISC
+masked-aug without soft topics — was a duplicate of `sbert_person_misc_masked_aug` as first
+described and was canceled; it does not appear in the 7 variants actually run.)
+
+**Results (Primary metrics: true-narrative recall per author, average recall, Bernie→Right-wing
+rate, IDF→Resistance rate — a new metric, not tracked in Section 23):**
+
+| Variant | IDF recall | IDF→Resistance | Maria recall | Bernie recall | Bernie→RW | Avg recall |
+|---|---|---|---|---|---|---|
+| `sbert_original` | 63.5% | 27.0% | 89.5% | 24.5% | 57.5% | 59.2% |
+| `sbert_duplicated_original_control` | 58.0% | 31.0% | 85.0% | 28.0% | 56.0% | 57.0% |
+| `sbert_full_masked_aug` | 39.0% | 51.0% | 81.5% | 40.5% | 41.5% | 53.7% |
+| `sbert_person_masked_aug` | 61.0% | 28.0% | 87.0% | 25.0% | 56.5% | 57.7% |
+| `sbert_person_masked_aug_soft_topic` | 54.0% | 32.5% | 83.5% | 40.0% | 40.0% | 59.2% |
+| `sbert_person_misc_masked_aug` | 56.5% | 31.5% | 83.5% | 31.0% | 52.0% | 57.0% |
+| `sbert_person_misc_masked_aug_soft_topic` | 48.0% | 34.0% | 88.0% | 41.0% | 39.0% | 59.0% |
+
+Secondary metrics (Macro-F1, confusion matrices per variant/author) saved alongside these —
+see Implementation below.
+
+**Pre-registered success pattern (multi-condition, not a single-metric winner).** A variant is
+only "interesting" if it simultaneously: (a) improves Bernie's recall vs. `sbert_original`; (b)
+reduces Bernie's →Right-wing rate vs. `sbert_original`; (c) hurts IDF's recall significantly
+LESS than `sbert_full_masked_aug` does (vs. original); (d) preserves Maria's recall (within
+5pp of original); AND (e) is not fully explained by `sbert_duplicated_original_control` alone.
+Checked against all 4 new variants:
+
+| Variant | (a) Bernie↑ | (b) Bernie→RW↓ | (c) IDF cost < full-masking cost | (d) Maria preserved | (e) not just duplication | All 5? |
+|---|---|---|---|---|---|---|
+| `sbert_person_masked_aug` | True | True | True (2.5pp vs 24.5pp) | True | **False** | No |
+| `sbert_person_misc_masked_aug` | True | True | True (7.0pp vs 24.5pp) | **False** (−6.0pp) | True | No |
+| `sbert_person_masked_aug_soft_topic` | True | True | True (9.5pp vs 24.5pp) | **False** (−6.0pp) | True | No |
+| `sbert_person_misc_masked_aug_soft_topic` | True | True | True (15.5pp vs 24.5pp) | True (−1.5pp) | True | **Yes** |
+
+**Finding.** Only `sbert_person_misc_masked_aug_soft_topic` meets all 5 pre-registered
+conditions. Relative to `sbert_original`, it improves Bernie's recall (24.5%→41.0%, the best
+of any variant tested including full masking) and lowers Bernie's →Right-wing rate the most
+(57.5%→39.0%), while preserving Maria almost exactly (89.5%→88.0%) and costing IDF
+substantially less than full masking (63.5%→48.0%, a 15.5pp drop, vs. full masking's 24.5pp
+drop). It is not attributable to the duplicated-original control (which alone only moves
+Bernie 24.5%→28.0% and Bernie→RW 57.5%→56.0% — far short of this variant's effect). IDF's
+IDF→Resistance rate still rises (27.0%→34.0%), and IDF still pays a real, non-trivial cost —
+this is a better trade-off point than full masking, not an elimination of the trade-off.
+Average recall across the 3 authors (59.0%) is essentially tied with `sbert_original` (59.2%)
+and `sbert_person_masked_aug_soft_topic` (59.2%) — the distinguishing story here is entirely
+about the per-author trade-off shape, not raw average recall.
+
+**Limitations.** (1) This entire experiment is exploratory evidence for a hypothesis derived
+from looking at IDF's own held-out test set — it is not an independent confirmatory test, and
+should not be cited as one. (2) IDF still loses a substantial 15.5pp of recall even under the
+"interesting" variant — selective masking reduces, but does not eliminate, IDF's cost. (3) No
+variant tested here beats `sbert_original` on average recall by a meaningful margin; the case
+for `sbert_person_misc_masked_aug_soft_topic` rests entirely on the Bernie/bias-vs-IDF-cost
+trade-off, which is a value judgment, not a strict improvement. (4) Only 3 authors were
+evaluated, all already used for hypothesis generation across Sections 19-24 — no claim is
+made about how this policy would behave on any other unseen author.
+
+**Proposed next step (not executed here).** If this trade-off is judged worth pursuing, the
+required validation step is to evaluate `sbert_person_misc_masked_aug_soft_topic` (or the
+underlying PER+MISC-masking-augmentation idea) on fresh held-out authors that were never used
+for hypothesis generation in Sections 19-24, to obtain genuinely confirmatory (non-test-informed)
+evidence — out of scope for this experiment.
+
+**Implementation:** `experiments/author_generalization/narrative_selective_entity_masking_augmentation.py`.
+Reuses `narrative_ablation_loao.AblationDetector` and `train.py`'s `evaluate()`/
+`save_confusion_matrix_csv()` unmodified; reuses Section 23's 3 variants verbatim via
+`reports/results/narrative_entity_masking_augmentation/results.json`. New corpus-wide raw
+(type-annotated) entity cache: `data/cache/cached_raw_entities_by_text.pt` (built once, reused
+to derive both masking policies by simple type-filtering, no repeated NER runs). Per-author,
+per-policy feature caches: `data/cache/cached_features_selective_masking_{policy}_{author}.pt`
+(train/val only — test is never masked in this experiment). Masking-isolation verified on real
+corpus examples before training (`--verify-masking`): PERSON-only masking leaves ORG/LOC/MISC
+substrings byte-identical to the original text; PERSON+MISC masking leaves ORG/LOC substrings
+byte-identical. Checkpoints: `models/experiments/narrative_selective_entity_masking_augmentation/{variant}_{author}.pth`.
+Results: `reports/results/narrative_selective_entity_masking_augmentation/results.json`,
+`selective_entity_masking_summary.csv`, `confusion_matrix_{variant}_{author}_test.csv`.
 
 ---
 
@@ -2636,4 +2816,5 @@ per-author run logs (`run_{author}.log`).
 | 20. Hard vs. Soft vs. LDA, minimal SBERT-only backbone, random split + LOAO side-by-side | Same `SBERTTopicDetector` architecture (SBERT + at most one Topic arm) evaluated under BOTH random split (3 seeds × 4 modes) and the same 3 LOAO authors as #18/19 (`lda` newly trained, `none`/`hard`/`soft` reused+verified from #19) | Random split: Hard and Soft are **tied** (no evidence of an advantage either way, −0.03pp well inside seed std); Hard/LDA give small, seed-stable gains over SBERT-only (+0.48pp / +0.24pp Acc). LOAO: Soft clearly beats Hard (+7.0pp recall, Right-wing bias 16.7% vs. 20.8%) but does **not** beat SBERT-only on avg recall (59.0% vs. 59.2%) — its LOAO benefit vs. SBERT-only is specifically Right-wing-bias reduction, not recall; Hard is *worse* than SBERT-only on LOAO (−7.2pp recall); LDA is a middle ground (better than Hard on recall/bias, but its Macro-F1 0.1210 is slightly above Soft's 0.1191). Ranking reverses by evaluation regime, confirmed architecture-independent — replicates Section 15 vs. 19's contradiction with architecture held constant | Diagnostic only, no production change; Soft's evidence-backed contribution is robustness/Right-wing-bias reduction on unseen authors, not raw accuracy or recall — ~48% of rows get an all-zero `soft_dense` vector (Soft inactive there), a limitation on how large this effect can be; not claimed as a general in-distribution accuracy upgrade |
 | 21. Entity Shortcut Test — mask entity identity, re-evaluate LOAO recall/Right-wing-bias | Every named entity span (PER/ORG/LOC/MISC) replaced with a generic placeholder token before SBERT encoding (`"Trump criticized Biden"` → `"[PERSON] criticized [PERSON]"`); 2 new variants (`sbert_masked`, `sbert_masked_soft_topic`) trained on the same 3 LOAO authors as #18-20, compared against 3 reused Section-19 variants (`sbert_only`/`sbert_ner`/`sbert_soft_topic`) | Effect is **author-dependent, not uniform**: masking hurts IDF and MariaZakharova (recall 63.5%→38.5% and 89.5%→76.5%, Right-wing rate *rises*) but helps BernieSanders — the one author Section 19's forensic analysis implicated (recall 24.5%→30.5%, Right-wing rate 57.5%→42.0%, further down to 30.5% when combined with Soft Topics). Averaged-across-authors numbers (recall 59.2%→48.5%) obscure this split and are not representative of any one author | Diagnostic only, no production change; directionally consistent with (but does not prove) an entity-identity-without-stance shortcut specific to Bernie/Right-wing's shared entity vocabulary; entity identity is legitimate signal, not a shortcut, for IDF/Maria — masking is not a general-purpose fix; stance-aware entity representation (Experiment 22) proposed as the next step, contingent on this finding |
 | 22. Stance-Aware Entity Representation — representation-validation gate for entity-targeted stance extraction | 30-row hand-annotated pilot (3 LOAO authors) used to gate 5 stance-extraction candidates (2 ABSA context widths + SemEval target-stance + NLI zero-shot target-stance + PRO/CON debate-stance) against a pre-declared bar (≥70–75% accuracy, not author-dependent, no new systematic failure mode, balanced across pos/neg/neutral, genuinely target-sensitive) — **before** any LOAO training | Best raw accuracy (`absa_full`, 66.7%) fails on author-dependence (90% Bernie vs. 40% IDF) and introduces a new failure mode (neutral recall collapses to 0.14); `procon` degenerates to a near-constant "positive" predictor despite 33.3% surface accuracy; `semeval`/`nli` plateau at 56.7–60.0%; target-sensitivity analysis shows most candidates collapse toward generic sentence sentiment rather than true per-target conditioning | **Gate FAILED — stopped before LOAO training.** Negative finding / future work: no evidence the stance-aware-entity idea is wrong, but no evaluated method is reliable enough on this corpus to use as a training feature; would require in-domain fine-tuning or a different representation, not attempted here |
-| 23. Entity-Masking Augmentation — training-time invariance vs. full masking/duplication control | Every training/validation example contributes both its original and entity-masked version under the same label (`sbert_masked_aug`), + a `sbert_masked_aug_soft_topic` combo, + a `sbert_duplicated_original_control` (2x duplicated, no masking) to isolate "more rows" from "masking"; same 3 LOAO authors/split/seed/architecture as #18-21; 3 of 6 variants reused verbatim from #21 | Augmentation captures **more** than full masking's Bernie benefit (recall 24.5%→40.5%, Right-wing rate 57.5%→38.0% with Soft Topics — the best Bernie Right-wing result in the project) while nearly eliminating Maria's cost (89.5%→90.0% with Soft Topics, vs. −13.0pp for full masking); IDF's cost is barely reduced vs. full masking (−24.5pp vs. −25.0pp). The duplicated-original control confirms Bernie's gain is attributable to masking itself, not row count (+3.5pp control vs. +16.0pp augmentation) | Diagnostic only, no production change; `sbert_masked_aug_soft_topic` identified as the best-balanced variant across Sections 19-23 but does not fully resolve the IDF trade-off — partial, author-dependent success, not a general-purpose fix |
+| 23. Entity-Masking Augmentation — training-time invariance vs. full masking/duplication control | Every training/validation example contributes both its original and entity-masked version under the same label (`sbert_masked_aug`), + a `sbert_masked_aug_soft_topic` combo, + a `sbert_duplicated_original_control` (2x duplicated, no masking) to isolate "more rows" from "masking"; same 3 LOAO authors/split/seed/architecture as #18-21; 3 of 6 variants reused verbatim from #21 | Augmentation captures **more** than full masking's Bernie benefit (recall 24.5%→40.5%, Right-wing rate 57.5%→38.0% with Soft Topics — the best Bernie Right-wing result in the project) while nearly eliminating Maria's cost (89.5%→90.0% with Soft Topics, vs. −13.0pp for full masking); IDF's cost is barely reduced vs. full masking (−24.5pp vs. −25.0pp). The duplicated-original control confirms Bernie's gain is attributable to masking itself, not row count (+3.5pp control vs. +16.0pp augmentation). On **average recall**, `sbert_masked_aug_soft_topic` (57.0%) is actually *below* both `sbert_original` (59.2%) and `sbert_soft_topic` (59.0%) — it is a robustness/bias trade-off, not an overall accuracy win. A root-cause audit of IDF's regressions (test-informed, exploratory) found LOC/ORG entities enriched but PER/MISC not, motivating Section 24 | Diagnostic only, no production change; NOT the best overall model — a narrow, author-dependent trade-off (Bernie/bias improves, Maria roughly preserved, IDF pays a large unresolved cost); root-cause audit of IDF's degradation proposed as immediate next step before any further training |
+| 24. Selective Entity-Masking Augmentation — exploratory test of a test-informed hypothesis | 4 new variants masking only PER, or PER+MISC (policy fixed in advance per Section 23's audit), ± Soft Topics; same 3 LOAO authors/split/seed/architecture as #18-23; 3 of 7 variants reused verbatim from #23 | `sbert_person_misc_masked_aug_soft_topic` is the only variant meeting a pre-registered 5-condition success pattern: Bernie recall 24.5%→41.0% (best in project) and →Right-wing 57.5%→39.0%, Maria preserved (89.5%→88.0%), IDF's cost reduced vs. full masking (−15.5pp vs. −24.5pp) but not eliminated, and not explained by the duplicated-original control alone. Average recall is essentially tied with `sbert_original` (59.0% vs. 59.2%) | **Exploratory evidence only — not validated or confirmed** (masking policy was chosen using the same IDF test set this experiment evaluates on); no production change; required next step (not done here) is testing this policy on fresh held-out authors never used for hypothesis generation in Sections 19-24 |

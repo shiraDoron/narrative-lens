@@ -1,0 +1,62 @@
+{
+  "author": "IDF",
+  "n_test": 200,
+  "n_regressions": 31,
+  "pct_regressions_of_test": 0.155,
+  "n_regressions_also_wrong_with_soft_topic": 13,
+  "n_regressions_recovered_by_soft_topic": 18,
+  "entity_type_summary": [
+    {
+      "entity_type": "LOC",
+      "regression_rows_containing_type": 28,
+      "regression_pct_of_regressions": 90.3225806451613,
+      "regression_total_entity_mentions": 49,
+      "baseline_rows_containing_type": 156,
+      "baseline_pct_of_all_200": 78.0,
+      "baseline_total_entity_mentions": 267
+    },
+    {
+      "entity_type": "MISC",
+      "regression_rows_containing_type": 8,
+      "regression_pct_of_regressions": 25.806451612903224,
+      "regression_total_entity_mentions": 14,
+      "baseline_rows_containing_type": 73,
+      "baseline_pct_of_all_200": 36.5,
+      "baseline_total_entity_mentions": 121
+    },
+    {
+      "entity_type": "ORG",
+      "regression_rows_containing_type": 27,
+      "regression_pct_of_regressions": 87.09677419354838,
+      "regression_total_entity_mentions": 68,
+      "baseline_rows_containing_type": 158,
+      "baseline_pct_of_all_200": 79.0,
+      "baseline_total_entity_mentions": 348
+    },
+    {
+      "entity_type": "PER",
+      "regression_rows_containing_type": 5,
+      "regression_pct_of_regressions": 16.129032258064516,
+      "regression_total_entity_mentions": 7,
+      "baseline_rows_containing_type": 38,
+      "baseline_pct_of_all_200": 19.0,
+      "baseline_total_entity_mentions": 70
+    }
+  ],
+  "entity_count_histogram": {
+    "2": 2,
+    "6": 5,
+    "5": 5,
+    "7": 3,
+    "4": 7,
+    "3": 7,
+    "0": 1,
+    "9": 1
+  },
+  "masked_aug_prediction_targets": {
+    "Ukrainian": 2,
+    "Resistance": 27,
+    "Left-wing": 1,
+    "Russian": 1
+  }
+}

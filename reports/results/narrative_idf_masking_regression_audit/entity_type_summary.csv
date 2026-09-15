@@ -1,0 +1,5 @@
+﻿entity_type,regression_rows_containing_type,regression_pct_of_regressions,regression_total_entity_mentions,baseline_rows_containing_type,baseline_pct_of_all_200,baseline_total_entity_mentions
+LOC,28,90.3225806451613,49,156,78.0,267
+MISC,8,25.806451612903224,14,73,36.5,121
+ORG,27,87.09677419354838,68,158,79.0,348
+PER,5,16.129032258064516,7,38,19.0,70
