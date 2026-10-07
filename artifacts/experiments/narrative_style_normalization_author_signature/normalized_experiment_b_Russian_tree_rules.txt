@@ -1,0 +1,49 @@
+|--- word_count <= 181.50
+|   |--- soft_topic_entropy <= 0.69
+|   |   |--- sentence_count <= 1.50
+|   |   |   |--- sbert_pca_3 <= -0.05
+|   |   |   |   |--- soft_topic_max_prob <= 0.28
+|   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |--- soft_topic_max_prob >  0.28
+|   |   |   |   |   |--- class: Readovka
+|   |   |   |--- sbert_pca_3 >  -0.05
+|   |   |   |   |--- uppercase_ratio <= 0.08
+|   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |--- uppercase_ratio >  0.08
+|   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |--- sentence_count >  1.50
+|   |   |   |--- sbert_pca_4 <= -0.02
+|   |   |   |   |--- sbert_pca_2 <= -0.19
+|   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |--- sbert_pca_2 >  -0.19
+|   |   |   |   |   |--- class: Slavyangrad
+|   |   |   |--- sbert_pca_4 >  -0.02
+|   |   |   |   |--- sbert_pca_1 <= -0.18
+|   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |--- sbert_pca_1 >  -0.18
+|   |   |   |   |   |--- class: mfa_russia
+|   |--- soft_topic_entropy >  0.69
+|   |   |--- avg_word_length <= 4.75
+|   |   |   |--- class: DDGeopolitics
+|   |   |--- avg_word_length >  4.75
+|   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |--- class: DDGeopolitics
+|   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |--- class: DDGeopolitics
+|--- word_count >  181.50
+|   |--- type_token_ratio <= 0.68
+|   |   |--- punctuation_rate <= 0.03
+|   |   |   |--- class: Rybar
+|   |   |--- punctuation_rate >  0.03
+|   |   |   |--- class: mod_russia_en
+|   |--- type_token_ratio >  0.68
+|   |   |--- stopword_rate <= 0.41
+|   |   |   |--- class: Rybar
+|   |   |--- stopword_rate >  0.41
+|   |   |   |--- word_count <= 240.50
+|   |   |   |   |--- class: Rybar
+|   |   |   |--- word_count >  240.50
+|   |   |   |   |--- sbert_pca_3 <= 0.28
+|   |   |   |   |   |--- class: Rybar
+|   |   |   |   |--- sbert_pca_3 >  0.28
+|   |   |   |   |   |--- class: Rybar

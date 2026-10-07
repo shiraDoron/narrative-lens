@@ -2,9 +2,9 @@
 results produced by `experiment_f_corpus_scaling.py`, then fit candidate scaling laws to the
 resulting (corpus_size, best_min_topic_size) points.
 
-Reads reports/results/profiler_prototype/expF_corpus_scaling_results.json (44 configs: 4 corpus sizes x
+Reads artifacts/experiments/profiler_prototype/expF_corpus_scaling_results.json (44 configs: 4 corpus sizes x
 its own min_topic_size grid x 2 UMAP seeds). Writes
-reports/results/profiler_prototype/expF_selection_and_scaling_law.json with the full per-candidate
+artifacts/experiments/profiler_prototype/expF_selection_and_scaling_law.json with the full per-candidate
 scoring breakdown, the winning min_topic_size per corpus size, and the scaling-law comparison.
 
 SCORING RULE (documented here and in EXPERIMENTS.md - decided BEFORE looking at which law "wins",
@@ -33,7 +33,7 @@ import os
 
 import numpy as np
 
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 RESULTS_JSON = os.path.join(REPORT_DIR, "expF_corpus_scaling_results.json")
 SELECTION_JSON = os.path.join(REPORT_DIR, "expF_selection_and_scaling_law.json")
 

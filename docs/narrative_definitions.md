@@ -2,9 +2,9 @@
 
 Status: **audit and definition only** - no labels in the existing dataset were changed while
 writing this document. Grounded in real data: `src/narrative_lens/data/audit_narratives.py`
-(per-narrative counts/authors/samples, see `reports/results/narrative_audit/narrative_audit.txt`)
+(per-narrative counts/authors/samples, see `artifacts/experiments/narrative_audit/narrative_audit.txt`)
 and the actual `sbert_only` random-split confusion matrix
-(`reports/results/confusion_matrix_sbert_only_random_test.csv`), used to identify each
+(`artifacts/experiments/confusion_matrix_sbert_only_random_test.csv`), used to identify each
 narrative's empirically-closest neighbor rather than guessing.
 
 Current account rosters (source of truth: `NARRATIVES_ACCOUNTS` in

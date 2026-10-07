@@ -15,7 +15,7 @@ from pathlib import Path
 import pandas as pd
 
 RAW_DIR = Path("data/raw")
-OUT_DIR = Path("reports/results/narrative_audit")
+OUT_DIR = Path("artifacts/experiments/narrative_audit")
 MIN_TEXTS_FOR_NARRATIVE_PRESENCE = 3  # a narrative "has coverage" in a cell if >= this many texts
 
 # Topic keyword groups (regex, case-insensitive). A text can match more than one topic.

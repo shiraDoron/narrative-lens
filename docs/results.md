@@ -6,7 +6,7 @@
 `MODEL_TYPE`), on **identical train/validation/test splits** (`config.py`'s
 `VAL_SIZE`/`TEST_SIZE`, fixed `random_state=42`) for a fair comparison. Each checkpoint
 (`models/best_model_*.pth`) is selected by validation Macro-F1. Latest results on the `random`
-split test set (`reports/tables/model_comparison_results.json`, rebuild with
+split test set (`artifacts/tables/model_comparison_results.json`, rebuild with
 `python -m narrative_lens.evaluation.compare_models`):
 
 | `--model` | Class | Test Accuracy | Test Macro-F1 |
@@ -50,12 +50,12 @@ train/validation/test are built from these:
 
 For the two specialized modes, `train.py` automatically runs `verify_no_leakage()` to assert
 the held-out topic/author never also appears in train or validation, and saves a
-`reports/results/split_summary_<model>_<run>.json` file with per-split narrative counts and
+`artifacts/experiments/split_summary_<model>_<run>.json` file with per-split narrative counts and
 distinct `dataset_source`/`author_source` counts. Cache (`data/cache/`) and checkpoint
 (`models/`) files are automatically namespaced per split mode + held-out value, so a
 `random`-split run never collides with a `leave_one_topic`/`leave_one_author` run of the same
 model. Author-generalization ablation results (LOAO) live in
-[`reports/results/narrative_ablation_loao/`](../reports/results/narrative_ablation_loao/); the
+[`artifacts/experiments/narrative_ablation_loao/`](../artifacts/experiments/narrative_ablation_loao/); the
 code is in [`experiments/author_generalization/`](../experiments/author_generalization/).
 
 **Known limitation**: `leave_one_author` on `gemini`/`gpt` rows is really equivalent to holding
@@ -66,9 +66,9 @@ assign `topic_id` before splitting.
 
 ## Where results live
 
-- **`reports/tables/`** - curated cross-model comparison tables (start here for headline numbers).
-- **`reports/agenda_profiling/`** - unsupervised agenda/rhetoric/ideology profiling output.
-- **`reports/results/`** - raw per-run confusion matrices, split summaries, logs, and full
+- **`artifacts/tables/`** - curated cross-model comparison tables (start here for headline numbers).
+- **`artifacts/agenda_profiling/`** - unsupervised agenda/rhetoric/ideology profiling output.
+- **`artifacts/experiments/`** - raw per-run confusion matrices, split summaries, logs, and full
   per-experiment result dumps (Leave-One-Author-Out ablation, topic-representation ablation,
   profiler-prototype development).
 - **[`EXPERIMENTS.md`](../EXPERIMENTS.md)** - the full narrative of every experiment: what was

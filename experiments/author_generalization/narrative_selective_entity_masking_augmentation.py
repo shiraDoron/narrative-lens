@@ -124,11 +124,11 @@ ORIGINAL_CACHE_TEMPLATE = os.path.join(CACHE_DIR, "cached_features_ablation_loao
 POLICY_CACHE_TEMPLATE = os.path.join(CACHE_DIR, "cached_features_selective_masking_{policy}_{author}.pt")
 
 CHECKPOINT_DIR = "models/experiments/narrative_selective_entity_masking_augmentation"
-REPORT_DIR = "reports/results/narrative_selective_entity_masking_augmentation"
+REPORT_DIR = "artifacts/experiments/narrative_selective_entity_masking_augmentation"
 RESULTS_FILE = os.path.join(REPORT_DIR, "results.json")
 SUMMARY_FILE = os.path.join(REPORT_DIR, "selective_entity_masking_summary.csv")
 
-EXISTING_AUG_RESULTS_FILE = "reports/results/narrative_entity_masking_augmentation/results.json"
+EXISTING_AUG_RESULTS_FILE = "artifacts/experiments/narrative_entity_masking_augmentation/results.json"
 # new_variant_name -> the variant name it is reused verbatim from in section 23's results.json
 REUSED_VARIANT_MAP = {
     "sbert_original": "sbert_original",

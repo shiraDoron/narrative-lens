@@ -23,7 +23,7 @@ result is reproducible independent of any incidental DataFrame row order. No aut
 swapped after being drawn, regardless of any later result.
 
 Output (frozen, do not edit by hand after this script is run):
-    reports/results/narrative_fresh_author_audit/fresh_author_confirmatory_set.json
+    artifacts/experiments/narrative_fresh_author_audit/fresh_author_confirmatory_set.json
       - eligible_pool: every author in the >=200 / non-excluded / non-synthetic pool, with
         narrative + n_examples (i.e. the full pre-selection candidate set, for auditability).
       - random_seed: 42
@@ -40,7 +40,7 @@ import pandas as pd
 
 from narrative_lens.train import load_raw_data, is_synthetic_author
 
-REPORT_DIR = "reports/results/narrative_fresh_author_audit"
+REPORT_DIR = "artifacts/experiments/narrative_fresh_author_audit"
 FROZEN_SET_FILE = os.path.join(REPORT_DIR, "fresh_author_confirmatory_set.json")
 
 EXCLUDED_AUTHORS = {"IDF", "MariaZakharova", "BernieSanders"}

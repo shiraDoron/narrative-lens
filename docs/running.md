@@ -25,7 +25,7 @@ philosophy.
 # Train the current recommended configuration (see docs/results.md):
 python -m narrative_lens.train --model sbert_only --split random
 
-# Build the cross-model comparison table (reports/tables/model_comparison_results.json):
+# Build the cross-model comparison table (artifacts/tables/model_comparison_results.json):
 python -m narrative_lens.evaluation.compare_models
 
 # Run the test suite:
@@ -36,7 +36,7 @@ pytest tests/ -q
 
 All scripts must be run **from the repository root** as a module (`python -m
 narrative_lens...`), not from inside `src/` or `experiments/`, since their internal paths
-(`data/raw/...`, `models/...`, `reports/...`) are relative to the project root.
+(`data/raw/...`, `models/...`, `artifacts/...`) are relative to the project root.
 
 ```bash
 # Train (config.py's MODEL_TYPE by default, or pick one explicitly):
@@ -52,7 +52,7 @@ python -m narrative_lens.train --model hybrid --split random                    
 python -m narrative_lens.train --model hybrid --split leave_one_topic --held-out-topic 12      # LOTO
 python -m narrative_lens.train --model hybrid --split leave_one_author --held-out-author IDF   # LOAO
 
-# Build the cross-model comparison table (reports/tables/model_comparison_results.json):
+# Build the cross-model comparison table (artifacts/tables/model_comparison_results.json):
 python -m narrative_lens.evaluation.compare_models
 
 # Fit/refresh the topic model (see --help for all flags; safe to inspect, never trains):

@@ -64,7 +64,7 @@ Instead:
      `soft_pred[i]`. Val Macro-F1 of this simulated prediction is computed for every candidate.
   c. The (criterion, threshold) that maximizes VAL Macro-F1 is selected and frozen. The full
      candidate table + the chosen pick are saved to
-     `reports/results/narrative_topic_hybrid/threshold_selection.json` for transparency.
+     `artifacts/experiments/narrative_topic_hybrid/threshold_selection.json` for transparency.
   d. This chosen, FIXED rule is then applied identically (and blindly — it needs no labels at
      application time, only the already-computed `soft_dense`) to the train/val/test splits to
      build `hybrid_dense`. The test set is never touched, in any way, during threshold
@@ -83,10 +83,10 @@ Fairness / controlled comparison (mirrors narrative_topic_compare.py's methodolo
   - New, fully separate artifacts: `data/cache/cached_features_narrative_topic_hybrid.pt` (new
     cache — extends the old one with `hybrid_dense`/`route_is_hard`, old cache untouched),
     `models/experiments/narrative_topic_hybrid/hybrid_seed{seed}.pth` (new checkpoints, refuses
-    to overwrite if already present), `reports/results/narrative_topic_hybrid/` (new report dir).
+    to overwrite if already present), `artifacts/experiments/narrative_topic_hybrid/` (new report dir).
     Nothing under `models/experiments/narrative_topic_compare/`,
     `data/cache/cached_features_narrative_topic_compare.pt`, or
-    `reports/results/narrative_topic_compare/results.json` is ever written to — read-only reuse only.
+    `artifacts/experiments/narrative_topic_compare/results.json` is ever written to — read-only reuse only.
 
 Run (from repo root): python experiments/feature_ablation/narrative_topic_hybrid.py
 """
@@ -119,12 +119,12 @@ ntc.TOPIC_MODES = ntc.TOPIC_MODES + ("hybrid",)
 # ---------------------------------------------------------------------------------------
 OLD_CACHE_FILE = ntc.NEW_CACHE_FILE                       # cached_features_narrative_topic_compare.pt (read-only)
 OLD_CHECKPOINT_DIR = ntc.CHECKPOINT_DIR                   # models/experiments/narrative_topic_compare (read-only)
-OLD_RESULTS_FILE = ntc.RESULTS_FILE                       # reports/results/narrative_topic_compare/results.json (read-only)
+OLD_RESULTS_FILE = ntc.RESULTS_FILE                       # artifacts/experiments/narrative_topic_compare/results.json (read-only)
 SHARED_VOCAB_FILE = ntc.SHARED_VOCAB_FILE                 # data/cache/shared_vocab.json (read-only)
 
 NEW_CACHE_FILE = "data/cache/cached_features_narrative_topic_hybrid.pt"
 CHECKPOINT_DIR = "models/experiments/narrative_topic_hybrid"
-REPORT_DIR = "reports/results/narrative_topic_hybrid"
+REPORT_DIR = "artifacts/experiments/narrative_topic_hybrid"
 RESULTS_FILE = f"{REPORT_DIR}/results.json"
 THRESHOLD_FILE = f"{REPORT_DIR}/threshold_selection.json"
 

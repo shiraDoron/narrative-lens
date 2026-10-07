@@ -40,10 +40,10 @@ until annotation is done - it will NOT crash or silently fabricate metrics.
 
 Run (after filling in gold_* columns in Excel/Sheets and re-saving as CSV):
     python -m narrative_lens.evaluation.evaluate_profile_extraction \\
-        --entities-csv reports/results/profiler_prototype/calibration_gold_entities.csv \\
-        --relations-csv reports/results/profiler_prototype/calibration_gold_relations.csv \\
-        --values-csv reports/results/profiler_prototype/calibration_gold_values.csv \\
-        --agendas-csv reports/results/profiler_prototype/calibration_gold_agendas.csv
+        --entities-csv artifacts/experiments/profiler_prototype/calibration_gold_entities.csv \\
+        --relations-csv artifacts/experiments/profiler_prototype/calibration_gold_relations.csv \\
+        --values-csv artifacts/experiments/profiler_prototype/calibration_gold_values.csv \\
+        --agendas-csv artifacts/experiments/profiler_prototype/calibration_gold_agendas.csv
 """
 
 import argparse
@@ -289,16 +289,16 @@ def error_analysis_by_signal(df, method_col, out_path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--entities-csv", type=str,
-                         default="reports/results/profiler_prototype/calibration_gold_entities.csv")
+                         default="artifacts/experiments/profiler_prototype/calibration_gold_entities.csv")
     parser.add_argument("--relations-csv", type=str,
-                         default="reports/results/profiler_prototype/calibration_gold_relations.csv")
+                         default="artifacts/experiments/profiler_prototype/calibration_gold_relations.csv")
     parser.add_argument("--values-csv", type=str,
-                         default="reports/results/profiler_prototype/calibration_gold_values.csv",
+                         default="artifacts/experiments/profiler_prototype/calibration_gold_values.csv",
                          help="Optional - skipped if the file doesn't exist.")
     parser.add_argument("--agendas-csv", type=str,
-                         default="reports/results/profiler_prototype/calibration_gold_agendas.csv",
+                         default="artifacts/experiments/profiler_prototype/calibration_gold_agendas.csv",
                          help="Optional - skipped if the file doesn't exist.")
-    parser.add_argument("--out-dir", type=str, default="reports/results/profiler_prototype")
+    parser.add_argument("--out-dir", type=str, default="artifacts/experiments/profiler_prototype")
     args = parser.parse_args()
 
     if not os.path.exists(args.entities_csv):

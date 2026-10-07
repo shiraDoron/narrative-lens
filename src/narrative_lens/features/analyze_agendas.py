@@ -917,7 +917,7 @@ def main():
 
     ap = argparse.ArgumentParser(description="ניתוח אג'נדות ומאפיינים לפי נרטיב")
     ap.add_argument("--files", nargs="+", default=["data/raw/twitter_natural_dataset.csv"])
-    ap.add_argument("--out-prefix", default="reports/agenda_profiling/narrative_agendas")
+    ap.add_argument("--out-prefix", default="artifacts/agenda_profiling/narrative_agendas")
     ap.add_argument("--plot", action="store_true", help="שמירת מפות חום PNG")
     ap.add_argument("--min-len", type=int, default=15, help="אורך מינימלי בתווים")
     ap.add_argument("--auto-topics", type=int, default=0, metavar="N",

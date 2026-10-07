@@ -6,7 +6,7 @@ new Left-wing/Western collection or matched-event benchmark construction.
 
 Produced by `src/narrative_lens/data/audit_label_quality.py` (heuristic keyword-based text/label
 consistency check) plus manual review of the accounts it surfaced. Outputs:
-`reports/results/narrative_audit/label_quality_{per_text,narrative_summary,account_flags}.csv`.
+`artifacts/experiments/narrative_audit/label_quality_{per_text,narrative_summary,account_flags}.csv`.
 
 ## 1. How the heuristic works, and its real limitation (read this first)
 
@@ -129,7 +129,7 @@ this script must be manually read before any label/removal decision**, exactly a
 
 ## 4. Matched-event benchmark — shortlist of 4 (not built yet, per instruction)
 
-From the already-computed `reports/results/narrative_audit/matched_event_candidates_full.csv`
+From the already-computed `artifacts/experiments/narrative_audit/matched_event_candidates_full.csv`
 (systematic mining across 5 topics × every month, human-authored data only), ranked by how many
 narratives are present, author diversity, and per-narrative text volume:
 

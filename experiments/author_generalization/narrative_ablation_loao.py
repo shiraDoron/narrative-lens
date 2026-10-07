@@ -60,7 +60,7 @@ every variant/author for a fair comparison (per user's explicit request - not a 
 variance study, just consistency).
 
 Nothing under models/best_*.pth, data/cache/cached_features_baseline_fusion_loao_*.pt,
-data/cache/cached_features_hybrid*.pt, reports/tables/model_comparison_results.json, or any of
+data/cache/cached_features_hybrid*.pt, artifacts/tables/model_comparison_results.json, or any of
 narrative_topic_compare.py's/narrative_topic_hybrid.py's own files is ever touched or
 overwritten by this script - all outputs go to clearly separate, dedicated paths (see the
 *_DIR / *_FILE constants below).
@@ -113,7 +113,7 @@ SEED = 42  # single fixed seed for every variant/author, for a fair, simple comp
 
 CACHE_DIR = "data/cache"
 CHECKPOINT_DIR = "models/experiments/narrative_ablation_loao"
-REPORT_DIR = "reports/results/narrative_ablation_loao"
+REPORT_DIR = "artifacts/experiments/narrative_ablation_loao"
 RESULTS_FILE = f"{REPORT_DIR}/results.json"
 
 EXISTING_LOAO_CACHE_TEMPLATE = "data/cache/cached_features_baseline_fusion_loao_{author}.pt"

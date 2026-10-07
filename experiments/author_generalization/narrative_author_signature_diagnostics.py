@@ -102,7 +102,7 @@ MIN_EXAMPLES_PER_AUTHOR = 100
 SEED = 42
 N_PCA_COMPONENTS = 5
 
-REPORT_DIR = "reports/results/narrative_author_signature_diagnostics"
+REPORT_DIR = "artifacts/experiments/narrative_author_signature_diagnostics"
 DATASET_FILE = os.path.join(REPORT_DIR, "diagnostic_dataset.csv")
 SUMMARY_FILE = os.path.join(REPORT_DIR, "summary.json")
 

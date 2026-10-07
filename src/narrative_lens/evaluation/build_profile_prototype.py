@@ -41,7 +41,7 @@ Outputs:
         vs. "inferred_interpretation" (role distributions, relation examples).
         Full facet aggregation (agenda/ideology/rhetoric/stance-per-entity) is
         deferred to the full narrative_profiler.py once these MVPs are validated.
-  - reports/results/profiler_prototype/<prefix>_entities.csv
+  - artifacts/experiments/profiler_prototype/<prefix>_entities.csv
         LONG format, one row per entity mention, predicted_* columns + empty
         gold_* columns (gold_actor/gold_role/gold_agency) + a blank
         error_stage column + a blank correct_incorrect_missing_uncertain
@@ -56,11 +56,11 @@ Outputs:
         (a real actor the system failed to detect at all - see
         build_gold_annotation_set.py's docstring for the row-adding convention)
         / "uncertain" (annotator themself isn't sure).
-  - reports/results/profiler_prototype/<prefix>_relations.csv
+  - artifacts/experiments/profiler_prototype/<prefix>_relations.csv
         LONG format, one row per extracted relation, same predicted/gold split.
         error_stage: "entity_extraction" (source/target isn't a real entity) or
         "relation_extraction" (entities fine, relation type/direction wrong).
-  - reports/results/profiler_prototype/<prefix>_values.csv
+  - artifacts/experiments/profiler_prototype/<prefix>_values.csv
         LONG format, one row per values-lexicon hit, same predicted/gold split.
 
 See also build_gold_annotation_set.py, which assembles these same long-format
@@ -76,7 +76,7 @@ Run:
 
     # later, larger (still NOT full-corpus) validation batch:
     python -m narrative_lens.evaluation.build_profile_prototype --n-per-narrative 25 --prefix sample25
-(from the repo root, so the data/... and reports/... relative paths resolve correctly)
+(from the repo root, so the data/... and artifacts/... relative paths resolve correctly)
 """
 
 import argparse
@@ -130,7 +130,7 @@ RAW_DATASETS = [
 ]
 
 PROFILES_DIR = "data/profiles"
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 
 
 def load_sample(n_per_narrative=25, seed=42):

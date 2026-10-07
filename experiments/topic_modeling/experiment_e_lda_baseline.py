@@ -58,7 +58,7 @@ Methodology
    stratified sample used throughout this project's soft-quality analysis
    (`analyze_soft_topic_quality.load_stratified_sample(seed=42)`), for a like-for-like comparison
    against the already-existing BERTopic Hard/Soft numbers in
-   `reports/results/profiler_prototype/soft_topic_quality_summary.json` (baseline run). LDA's own
+   `artifacts/experiments/profiler_prototype/soft_topic_quality_summary.json` (baseline run). LDA's own
    per-document topic distribution (`gensim`'s `get_document_topics`) yields, for each doc: the
    top-1 topic's probability (analogous to BERTopic's soft top1 score) and Shannon entropy of the
    full K-way distribution (LDA-specific - BERTopic's soft distribution is sparse/truncated to
@@ -93,7 +93,7 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from narrative_lens.evaluation.analyze_soft_topic_quality import load_stratified_sample
 from narrative_lens.train_topics import load_deduplicated_training_texts
 
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 LDA_MODEL_DIR = "models/experiments/lda_baseline"
 BERTOPIC_BASELINE_PATH = "models/experiments/soft_v2_baseline_seeded"
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"

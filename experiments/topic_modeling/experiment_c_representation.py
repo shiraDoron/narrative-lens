@@ -29,7 +29,7 @@ from narrative_lens.topic_modeling.topic_preprocessing import build_multiword_la
 from narrative_lens.train_topics import load_deduplicated_training_texts
 
 EXPERIMENT_MODEL_PATH = "models/experiments/soft_v2_expC_representation"
-REPORT_PATH = "reports/results/profiler_prototype/expC_label_comparison.csv"
+REPORT_PATH = "artifacts/experiments/profiler_prototype/expC_label_comparison.csv"
 
 # Topics explicitly flagged by the user as generic/problematic in the earlier analysis
 WATCH_WORDS = ["rulesbased", "call", "hard", "era"]

@@ -1,0 +1,73 @@
+|--- word_count <= 19.50
+|   |--- uppercase_ratio <= 0.16
+|   |   |--- avg_sentence_length <= 9.75
+|   |   |   |--- text_length <= 50.50
+|   |   |   |   |--- class: CharlieKirk
+|   |   |   |--- text_length >  50.50
+|   |   |   |   |--- class: BenShapiro
+|   |   |--- avg_sentence_length >  9.75
+|   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |--- class: FoxNews
+|   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |--- uppercase_ratio <= 0.07
+|   |   |   |   |   |--- class: ThePostMillennial
+|   |   |   |   |--- uppercase_ratio >  0.07
+|   |   |   |   |   |--- class: ThePostMillennial
+|   |--- uppercase_ratio >  0.16
+|   |   |--- sbert_pca_5 <= 0.04
+|   |   |   |--- avg_word_length <= 4.24
+|   |   |   |   |--- class: TheEpochTimes
+|   |   |   |--- avg_word_length >  4.24
+|   |   |   |   |--- text_length <= 93.50
+|   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |--- text_length >  93.50
+|   |   |   |   |   |--- class: TheEpochTimes
+|   |   |--- sbert_pca_5 >  0.04
+|   |   |   |--- entity_count_MISC <= 0.50
+|   |   |   |   |--- sbert_pca_3 <= -0.15
+|   |   |   |   |   |--- class: ThePostMillennial
+|   |   |   |   |--- sbert_pca_3 >  -0.15
+|   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |--- entity_count_MISC >  0.50
+|   |   |   |   |--- uppercase_ratio <= 0.21
+|   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |--- uppercase_ratio >  0.21
+|   |   |   |   |   |--- class: TheEpochTimes
+|--- word_count >  19.50
+|   |--- text_length <= 338.00
+|   |   |--- uppercase_ratio <= 0.09
+|   |   |   |--- word_count <= 36.50
+|   |   |   |   |--- avg_sentence_length <= 17.00
+|   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |--- avg_sentence_length >  17.00
+|   |   |   |   |   |--- class: CharlieKirk
+|   |   |   |--- word_count >  36.50
+|   |   |   |   |--- text_length <= 280.50
+|   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |--- text_length >  280.50
+|   |   |   |   |   |--- class: Newsmax
+|   |   |--- uppercase_ratio >  0.09
+|   |   |   |--- type_token_ratio <= 0.94
+|   |   |   |   |--- text_length <= 241.50
+|   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |--- text_length >  241.50
+|   |   |   |   |   |--- class: FoxNews
+|   |   |   |--- type_token_ratio >  0.94
+|   |   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |   |--- class: FoxNews
+|   |   |   |   |--- sentence_count >  1.50
+|   |   |   |   |   |--- class: Newsmax
+|   |--- text_length >  338.00
+|   |   |--- sbert_pca_4 <= 0.01
+|   |   |   |--- sbert_pca_4 <= -0.08
+|   |   |   |   |--- class: CharlieKirk
+|   |   |   |--- sbert_pca_4 >  -0.08
+|   |   |   |   |--- class: CharlieKirk
+|   |   |--- sbert_pca_4 >  0.01
+|   |   |   |--- sbert_pca_5 <= 0.04
+|   |   |   |   |--- avg_word_length <= 4.63
+|   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |--- avg_word_length >  4.63
+|   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |--- sbert_pca_5 >  0.04
+|   |   |   |   |--- class: @KoheletForum

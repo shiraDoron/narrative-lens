@@ -1,0 +1,73 @@
+|--- text_length <= 346.50
+|   |--- text_length <= 269.50
+|   |   |--- entity_count_total <= 3.50
+|   |   |   |--- punctuation_rate <= 0.01
+|   |   |   |   |--- class: Ukraine
+|   |   |   |--- punctuation_rate >  0.01
+|   |   |   |   |--- sbert_pca_5 <= 0.04
+|   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |--- sbert_pca_5 >  0.04
+|   |   |   |   |   |--- class: SuspilneNews
+|   |   |--- entity_count_total >  3.50
+|   |   |   |--- type_token_ratio <= 0.84
+|   |   |   |   |--- text_length <= 228.00
+|   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |--- text_length >  228.00
+|   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |--- type_token_ratio >  0.84
+|   |   |   |   |--- entity_count_ORG <= 2.50
+|   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |--- entity_count_ORG >  2.50
+|   |   |   |   |   |--- class: UkraineNow
+|   |--- text_length >  269.50
+|   |   |--- stopword_rate <= 0.44
+|   |   |   |--- type_token_ratio <= 0.85
+|   |   |   |   |--- class: KyivIndependent
+|   |   |   |--- type_token_ratio >  0.85
+|   |   |   |   |--- text_length <= 284.50
+|   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |--- text_length >  284.50
+|   |   |   |   |   |--- class: United24Media
+|   |   |--- stopword_rate >  0.44
+|   |   |   |--- sbert_pca_3 <= -0.17
+|   |   |   |   |--- class: SuspilneNews
+|   |   |   |--- sbert_pca_3 >  -0.17
+|   |   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |   |--- class: ZelenskyyUa
+|--- text_length >  346.50
+|   |--- entity_count_ORG <= 2.50
+|   |   |--- punctuation_rate <= 0.02
+|   |   |   |--- word_count <= 69.50
+|   |   |   |   |--- class: United24Media
+|   |   |   |--- word_count >  69.50
+|   |   |   |   |--- avg_sentence_length <= 18.77
+|   |   |   |   |   |--- class: United24Media
+|   |   |   |   |--- avg_sentence_length >  18.77
+|   |   |   |   |   |--- class: United24Media
+|   |   |--- punctuation_rate >  0.02
+|   |   |   |--- word_count <= 92.50
+|   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |--- class: SuspilneNews
+|   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |--- class: Babel
+|   |   |   |--- word_count >  92.50
+|   |   |   |   |--- type_token_ratio <= 0.78
+|   |   |   |   |   |--- class: Babel
+|   |   |   |   |--- type_token_ratio >  0.78
+|   |   |   |   |   |--- class: Babel
+|   |--- entity_count_ORG >  2.50
+|   |   |--- unique_token_count <= 61.50
+|   |   |   |--- sbert_pca_2 <= -0.03
+|   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |--- class: UkraineNow
+|   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |--- class: UkraineNow
+|   |   |   |--- sbert_pca_2 >  -0.03
+|   |   |   |   |--- class: Babel
+|   |   |--- unique_token_count >  61.50
+|   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |--- class: United24Media
+|   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |--- class: Babel

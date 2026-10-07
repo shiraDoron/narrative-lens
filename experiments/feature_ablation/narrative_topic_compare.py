@@ -61,7 +61,7 @@ Fairness / controlled-comparison methodology:
     check, not a data-leakage risk).
   - Every (config, seed) gets its own checkpoint
     (`models/experiments/narrative_topic_compare/{mode}_seed{seed}.pth`) and result entry;
-    nothing under `models/best_*.pth` or `reports/tables/model_comparison_results.json` is ever
+    nothing under `models/best_*.pth` or `artifacts/tables/model_comparison_results.json` is ever
     touched. Re-running an existing (mode, seed) is refused (existing checkpoints are never
     silently overwritten) - delete the specific file manually first if a genuine re-run is
     wanted.
@@ -120,7 +120,7 @@ SHARED_VOCAB_FILE = "data/cache/shared_vocab.json"               # read-only reu
 
 NEW_CACHE_FILE = "data/cache/cached_features_narrative_topic_compare.pt"
 CHECKPOINT_DIR = "models/experiments/narrative_topic_compare"
-REPORT_DIR = "reports/results/narrative_topic_compare"
+REPORT_DIR = "artifacts/experiments/narrative_topic_compare"
 RESULTS_FILE = f"{REPORT_DIR}/results.json"
 
 BERTOPIC_MODEL_PATH = "models/experiments/soft_v2_baseline_seeded"

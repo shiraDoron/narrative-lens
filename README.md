@@ -100,7 +100,7 @@ final_project/
 ├── experiments/            # one-off research scripts, by theme - see experiments/README.md
 ├── data/                   # raw datasets, feature caches, profiles - see data/README.md
 ├── models/                 # checkpoints + saved topic models - see models/README.md
-├── reports/                # comparison tables, profiling output, run logs - see reports/README.md
+├── artifacts/               # comparison tables, profiling output, run logs - see artifacts/README.md
 ├── docs/                   # architecture, results, running instructions (linked above)
 └── EXPERIMENTS.md          # full experiment narrative
 ```

@@ -1,0 +1,423 @@
+{
+  "random_split_normalized": {
+    "seeds": [
+      42,
+      7,
+      123
+    ],
+    "results": {
+      "42": {
+        "test_metrics": {
+          "accuracy": 0.7044812272910779,
+          "macro_precision": 0.7041987945107179,
+          "macro_recall": 0.7019788257765784,
+          "macro_f1": 0.7023653441082616,
+          "per_class": {
+            "Zionist": {
+              "precision": 0.7574123989218329,
+              "recall": 0.7060301507537688,
+              "f1": 0.7308192457737321,
+              "support": 398
+            },
+            "Resistance": {
+              "precision": 0.6658031088082902,
+              "recall": 0.7021857923497268,
+              "f1": 0.6835106382978723,
+              "support": 366
+            },
+            "Western": {
+              "precision": 0.6714285714285714,
+              "recall": 0.6596491228070176,
+              "f1": 0.6654867256637168,
+              "support": 285
+            },
+            "Russian": {
+              "precision": 0.7388059701492538,
+              "recall": 0.7004716981132075,
+              "f1": 0.7191283292978208,
+              "support": 424
+            },
+            "Ukrainian": {
+              "precision": 0.7108753315649867,
+              "recall": 0.7465181058495822,
+              "f1": 0.7282608695652174,
+              "support": 359
+            },
+            "Right-wing": {
+              "precision": 0.6658354114713217,
+              "recall": 0.7335164835164835,
+              "f1": 0.6980392156862745,
+              "support": 364
+            },
+            "Left-wing": {
+              "precision": 0.7192307692307692,
+              "recall": 0.6654804270462633,
+              "f1": 0.6913123844731978,
+              "support": 281
+            }
+          },
+          "confusion_matrix": [
+            [
+              281,
+              50,
+              11,
+              13,
+              9,
+              27,
+              7
+            ],
+            [
+              19,
+              257,
+              11,
+              30,
+              24,
+              15,
+              10
+            ],
+            [
+              11,
+              6,
+              188,
+              21,
+              25,
+              21,
+              13
+            ],
+            [
+              17,
+              31,
+              15,
+              297,
+              44,
+              11,
+              9
+            ],
+            [
+              16,
+              13,
+              19,
+              30,
+              268,
+              10,
+              3
+            ],
+            [
+              18,
+              11,
+              21,
+              10,
+              6,
+              267,
+              31
+            ],
+            [
+              9,
+              18,
+              15,
+              1,
+              1,
+              50,
+              187
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "Zionist",
+            "Resistance",
+            "Western",
+            "Russian",
+            "Ukrainian",
+            "Right-wing",
+            "Left-wing"
+          ]
+        },
+        "checkpoint": "models/experiments/narrative_style_normalization_generalization\\random_normalized_seed42.pth",
+        "confusion_matrix_csv": "reports/results/narrative_style_normalization_generalization\\confusion_matrix_random_normalized_seed42_test.csv"
+      },
+      "7": {
+        "test_metrics": {
+          "accuracy": 0.7060960839725474,
+          "macro_precision": 0.7053237664609088,
+          "macro_recall": 0.7044167289481355,
+          "macro_f1": 0.7046699042098942,
+          "per_class": {
+            "Zionist": {
+              "precision": 0.7538071065989848,
+              "recall": 0.7462311557788944,
+              "f1": 0.75,
+              "support": 398
+            },
+            "Resistance": {
+              "precision": 0.6846361185983828,
+              "recall": 0.6939890710382514,
+              "f1": 0.689280868385346,
+              "support": 366
+            },
+            "Western": {
+              "precision": 0.704119850187266,
+              "recall": 0.6596491228070176,
+              "f1": 0.6811594202898551,
+              "support": 285
+            },
+            "Russian": {
+              "precision": 0.7135922330097088,
+              "recall": 0.6933962264150944,
+              "f1": 0.7033492822966507,
+              "support": 424
+            },
+            "Ukrainian": {
+              "precision": 0.6989247311827957,
+              "recall": 0.724233983286908,
+              "f1": 0.7113543091655267,
+              "support": 359
+            },
+            "Right-wing": {
+              "precision": 0.6825396825396826,
+              "recall": 0.7087912087912088,
+              "f1": 0.6954177897574124,
+              "support": 364
+            },
+            "Left-wing": {
+              "precision": 0.6996466431095406,
+              "recall": 0.7046263345195729,
+              "f1": 0.7021276595744681,
+              "support": 281
+            }
+          },
+          "confusion_matrix": [
+            [
+              297,
+              39,
+              12,
+              10,
+              9,
+              22,
+              9
+            ],
+            [
+              25,
+              254,
+              11,
+              31,
+              22,
+              11,
+              12
+            ],
+            [
+              9,
+              6,
+              188,
+              21,
+              27,
+              20,
+              14
+            ],
+            [
+              17,
+              33,
+              12,
+              294,
+              45,
+              12,
+              11
+            ],
+            [
+              14,
+              17,
+              14,
+              39,
+              260,
+              11,
+              4
+            ],
+            [
+              21,
+              9,
+              19,
+              15,
+              7,
+              258,
+              35
+            ],
+            [
+              11,
+              13,
+              11,
+              2,
+              2,
+              44,
+              198
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "Zionist",
+            "Resistance",
+            "Western",
+            "Russian",
+            "Ukrainian",
+            "Right-wing",
+            "Left-wing"
+          ]
+        },
+        "checkpoint": "models/experiments/narrative_style_normalization_generalization\\random_normalized_seed7.pth",
+        "confusion_matrix_csv": "reports/results/narrative_style_normalization_generalization\\confusion_matrix_random_normalized_seed7_test.csv"
+      },
+      "123": {
+        "test_metrics": {
+          "accuracy": 0.7004440855874041,
+          "macro_precision": 0.6988338351543771,
+          "macro_recall": 0.6987184272934321,
+          "macro_f1": 0.6984003853251001,
+          "per_class": {
+            "Zionist": {
+              "precision": 0.73,
+              "recall": 0.7336683417085427,
+              "f1": 0.731829573934837,
+              "support": 398
+            },
+            "Resistance": {
+              "precision": 0.6675603217158177,
+              "recall": 0.680327868852459,
+              "f1": 0.6738836265223275,
+              "support": 366
+            },
+            "Western": {
+              "precision": 0.677536231884058,
+              "recall": 0.656140350877193,
+              "f1": 0.6666666666666666,
+              "support": 285
+            },
+            "Russian": {
+              "precision": 0.7326478149100257,
+              "recall": 0.6721698113207547,
+              "f1": 0.7011070110701108,
+              "support": 424
+            },
+            "Ukrainian": {
+              "precision": 0.7063492063492064,
+              "recall": 0.7437325905292479,
+              "f1": 0.7245590230664858,
+              "support": 359
+            },
+            "Right-wing": {
+              "precision": 0.6857142857142857,
+              "recall": 0.7252747252747253,
+              "f1": 0.7049399198931909,
+              "support": 364
+            },
+            "Left-wing": {
+              "precision": 0.6920289855072463,
+              "recall": 0.6797153024911032,
+              "f1": 0.6858168761220825,
+              "support": 281
+            }
+          },
+          "confusion_matrix": [
+            [
+              292,
+              44,
+              13,
+              8,
+              8,
+              21,
+              12
+            ],
+            [
+              32,
+              249,
+              11,
+              30,
+              17,
+              14,
+              13
+            ],
+            [
+              13,
+              4,
+              187,
+              17,
+              26,
+              25,
+              13
+            ],
+            [
+              20,
+              28,
+              18,
+              285,
+              52,
+              11,
+              10
+            ],
+            [
+              14,
+              18,
+              15,
+              33,
+              267,
+              8,
+              4
+            ],
+            [
+              19,
+              9,
+              19,
+              13,
+              7,
+              264,
+              33
+            ],
+            [
+              10,
+              21,
+              13,
+              3,
+              1,
+              42,
+              191
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "Zionist",
+            "Resistance",
+            "Western",
+            "Russian",
+            "Ukrainian",
+            "Right-wing",
+            "Left-wing"
+          ]
+        },
+        "checkpoint": "models/experiments/narrative_style_normalization_generalization\\random_normalized_seed123.pth",
+        "confusion_matrix_csv": "reports/results/narrative_style_normalization_generalization\\confusion_matrix_random_normalized_seed123_test.csv"
+      }
+    }
+  },
+  "fresh_author_normalized": {
+    "abualiexpress": {
+      "narrative": "Zionist",
+      "accuracy": 0.23,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.032857142857142856,
+      "macro_f1": 0.053426248548199766,
+      "recall_true_narrative": 0.23,
+      "dominant_wrong_narrative": "Resistance",
+      "dominant_wrong_narrative_error_share": 0.512987012987013,
+      "n_test": 200,
+      "checkpoint": "models/experiments/narrative_style_normalization_generalization\\loao_normalized_abualiexpress.pth",
+      "confusion_matrix_csv": "artifacts/experiments/narrative_style_normalization_generalization\\confusion_matrix_loao_normalized_abualiexpress_test.csv"
+    },
+    "BringThemHomeNow": {
+      "narrative": "Zionist",
+      "accuracy": 0.325,
+      "macro_precision": 0.14285714285714285,
+      "macro_recall": 0.04642857142857143,
+      "macro_f1": 0.07008086253369272,
+      "recall_true_narrative": 0.325,
+      "dominant_wrong_narrative": "Resistance",
+      "dominant_wrong_narrative_error_share": 0.562962962962963,
+      "n_test": 200,
+      "checkpoint": "models/experiments/narrative_style_normalization_generalization\\loao_normalized_BringThemHomeNow.pth",
+      "confusion_matrix_csv": "artifacts/experiments/narrative_style_normalization_generalization\\confusion_matrix_loao_normalized_BringThemHomeNow_test.csv"
+    }
+  }
+}

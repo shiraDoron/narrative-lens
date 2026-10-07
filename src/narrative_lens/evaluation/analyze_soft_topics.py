@@ -35,7 +35,7 @@ RAW_DATASETS = [
     "data/raw/gpt_natural_dataset.csv",
 ]
 
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 
 
 def load_example_texts(n_examples=10, seed=42):

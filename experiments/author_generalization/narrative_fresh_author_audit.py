@@ -44,7 +44,7 @@ import pandas as pd
 
 from narrative_lens.train import load_raw_data, is_synthetic_author
 
-REPORT_DIR = "reports/results/narrative_fresh_author_audit"
+REPORT_DIR = "artifacts/experiments/narrative_fresh_author_audit"
 AUDIT_CSV = os.path.join(REPORT_DIR, "author_audit.csv")
 AUDIT_JSON = os.path.join(REPORT_DIR, "author_audit_summary.json")
 

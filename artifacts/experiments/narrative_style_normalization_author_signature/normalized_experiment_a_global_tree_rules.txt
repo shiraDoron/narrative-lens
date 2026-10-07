@@ -1,0 +1,907 @@
+|--- sbert_pca_2 <= -0.08
+|   |--- text_length <= 346.50
+|   |   |--- word_count <= 24.50
+|   |   |   |--- sbert_pca_3 <= -0.05
+|   |   |   |   |--- soft_topic_max_prob <= 0.53
+|   |   |   |   |   |--- entity_count_ORG <= 1.50
+|   |   |   |   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |   |   |   |--- text_length <= 103.50
+|   |   |   |   |   |   |   |   |--- entity_count_LOC <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |   |   |   |   |--- entity_count_LOC >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |   |   |   |--- text_length >  103.50
+|   |   |   |   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.01
+|   |   |   |   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.01
+|   |   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |   |--- entity_count_ORG >  1.50
+|   |   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |--- soft_topic_max_prob >  0.53
+|   |   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |   |--- sbert_pca_2 <= -0.27
+|   |   |   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |   |   |--- sbert_pca_2 >  -0.27
+|   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.08
+|   |   |   |   |   |   |   |   |--- class: Readovka
+|   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.08
+|   |   |   |   |   |   |   |   |--- class: Readovka
+|   |   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |   |--- sbert_pca_1 <= -0.03
+|   |   |   |   |   |   |   |--- class: Readovka
+|   |   |   |   |   |   |--- sbert_pca_1 >  -0.03
+|   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |--- sbert_pca_3 >  -0.05
+|   |   |   |   |--- entity_count_PER <= 0.50
+|   |   |   |   |   |--- sbert_pca_5 <= -0.19
+|   |   |   |   |   |   |--- class: NATO
+|   |   |   |   |   |--- sbert_pca_5 >  -0.19
+|   |   |   |   |   |   |--- text_length <= 58.50
+|   |   |   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |   |   |--- text_length >  58.50
+|   |   |   |   |   |   |   |--- punctuation_rate <= 0.01
+|   |   |   |   |   |   |   |   |--- class: Readovka
+|   |   |   |   |   |   |   |--- punctuation_rate >  0.01
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.03
+|   |   |   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.03
+|   |   |   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |--- entity_count_PER >  0.50
+|   |   |   |   |   |--- avg_word_length <= 5.42
+|   |   |   |   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |   |   |   |   |--- sentence_count >  1.50
+|   |   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |   |--- avg_word_length >  5.42
+|   |   |   |   |   |   |--- avg_word_length <= 5.72
+|   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |   |   |   |   |--- avg_word_length >  5.72
+|   |   |   |   |   |   |   |--- soft_topic_max_prob <= 0.50
+|   |   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |   |   |   |   |   |--- soft_topic_max_prob >  0.50
+|   |   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |--- word_count >  24.50
+|   |   |   |--- sbert_pca_5 <= -0.14
+|   |   |   |   |--- text_length <= 274.50
+|   |   |   |   |   |--- sbert_pca_1 <= -0.12
+|   |   |   |   |   |   |--- class: EU_Commission
+|   |   |   |   |   |--- sbert_pca_1 >  -0.12
+|   |   |   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.01
+|   |   |   |   |   |   |   |   |--- class: EU_Commission
+|   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.01
+|   |   |   |   |   |   |   |   |--- class: NATO
+|   |   |   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.02
+|   |   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.02
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.14
+|   |   |   |   |   |   |   |   |   |--- class: NATO
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.14
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: NATO
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: NATO
+|   |   |   |   |--- text_length >  274.50
+|   |   |   |   |   |--- stopword_rate <= 0.41
+|   |   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |   |--- stopword_rate >  0.41
+|   |   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |--- sbert_pca_5 >  -0.14
+|   |   |   |   |--- type_token_ratio <= 0.83
+|   |   |   |   |   |--- stopword_rate <= 0.36
+|   |   |   |   |   |   |--- sbert_pca_5 <= 0.04
+|   |   |   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |   |   |--- sbert_pca_5 >  0.04
+|   |   |   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |   |--- stopword_rate >  0.36
+|   |   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |--- type_token_ratio >  0.83
+|   |   |   |   |   |--- text_length <= 273.50
+|   |   |   |   |   |   |--- sbert_pca_4 <= -0.02
+|   |   |   |   |   |   |   |--- entity_count_ORG <= 2.50
+|   |   |   |   |   |   |   |   |--- stopword_rate <= 0.32
+|   |   |   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |   |   |   |   |--- stopword_rate >  0.32
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- avg_word_length <= 4.85
+|   |   |   |   |   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |   |   |   |   |   |   |--- avg_word_length >  4.85
+|   |   |   |   |   |   |   |   |   |   |   |--- class: SuspilneNews
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |   |   |   |--- entity_count_ORG >  2.50
+|   |   |   |   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |   |   |--- sbert_pca_4 >  -0.02
+|   |   |   |   |   |   |   |--- avg_word_length <= 5.07
+|   |   |   |   |   |   |   |   |--- entity_count_PER <= 1.50
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= -0.34
+|   |   |   |   |   |   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  -0.34
+|   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- avg_word_length <= 4.61
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |   |   |   |   |   |   |   |--- avg_word_length >  4.61
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |   |   |   |   |--- entity_count_PER >  1.50
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= 0.11
+|   |   |   |   |   |   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  0.11
+|   |   |   |   |   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |   |   |   |--- avg_word_length >  5.07
+|   |   |   |   |   |   |   |   |--- text_length <= 242.00
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |   |   |   |   |--- text_length >  242.00
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.07
+|   |   |   |   |   |   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.07
+|   |   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |   |--- text_length >  273.50
+|   |   |   |   |   |   |--- stopword_rate <= 0.43
+|   |   |   |   |   |   |   |--- entity_count_ORG <= 2.50
+|   |   |   |   |   |   |   |   |--- text_length <= 287.50
+|   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |   |   |   |   |--- text_length >  287.50
+|   |   |   |   |   |   |   |   |   |--- class: United24Media
+|   |   |   |   |   |   |   |--- entity_count_ORG >  2.50
+|   |   |   |   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |   |   |--- stopword_rate >  0.43
+|   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.07
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 <= 0.04
+|   |   |   |   |   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 >  0.04
+|   |   |   |   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |   |   |   |--- sbert_pca_3 >  0.07
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.07
+|   |   |   |   |   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.07
+|   |   |   |   |   |   |   |   |   |--- class: ZelenskyyUa
+|   |--- text_length >  346.50
+|   |   |--- text_length <= 1196.50
+|   |   |   |--- unique_token_count <= 54.50
+|   |   |   |   |--- entity_count_ORG <= 2.50
+|   |   |   |   |   |--- sbert_pca_5 <= 0.20
+|   |   |   |   |   |   |--- avg_sentence_length <= 17.63
+|   |   |   |   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |   |   |   |--- stopword_rate <= 0.44
+|   |   |   |   |   |   |   |   |   |--- class: United24Media
+|   |   |   |   |   |   |   |   |--- stopword_rate >  0.44
+|   |   |   |   |   |   |   |   |   |--- class: Babel
+|   |   |   |   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |   |   |   |--- text_length <= 562.50
+|   |   |   |   |   |   |   |   |   |--- class: Babel
+|   |   |   |   |   |   |   |   |--- text_length >  562.50
+|   |   |   |   |   |   |   |   |   |--- class: Babel
+|   |   |   |   |   |   |--- avg_sentence_length >  17.63
+|   |   |   |   |   |   |   |--- unique_token_count <= 46.50
+|   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.90
+|   |   |   |   |   |   |   |   |   |   |--- class: United24Media
+|   |   |   |   |   |   |   |   |   |--- type_token_ratio >  0.90
+|   |   |   |   |   |   |   |   |   |   |--- class: United24Media
+|   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |   |   |   |   |--- class: euronews_eng
+|   |   |   |   |   |   |   |--- unique_token_count >  46.50
+|   |   |   |   |   |   |   |   |--- class: WashingtonPost
+|   |   |   |   |   |--- sbert_pca_5 >  0.20
+|   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |--- entity_count_ORG >  2.50
+|   |   |   |   |   |--- stopword_rate <= 0.37
+|   |   |   |   |   |   |--- sbert_pca_3 <= -0.12
+|   |   |   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |   |   |--- sbert_pca_3 >  -0.12
+|   |   |   |   |   |   |   |--- class: euronews_eng
+|   |   |   |   |   |--- stopword_rate >  0.37
+|   |   |   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |   |   |--- entity_density <= 0.12
+|   |   |   |   |   |   |   |   |--- class: SuspilneNews
+|   |   |   |   |   |   |   |--- entity_density >  0.12
+|   |   |   |   |   |   |   |   |--- class: UkraineNow
+|   |   |   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |   |   |--- type_token_ratio <= 0.86
+|   |   |   |   |   |   |   |   |--- class: UkraineNow
+|   |   |   |   |   |   |   |--- type_token_ratio >  0.86
+|   |   |   |   |   |   |   |   |--- class: UkraineNow
+|   |   |   |--- unique_token_count >  54.50
+|   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |--- entity_count_ORG <= 3.50
+|   |   |   |   |   |   |--- avg_word_length <= 5.26
+|   |   |   |   |   |   |   |--- stopword_rate <= 0.44
+|   |   |   |   |   |   |   |   |--- text_length <= 761.50
+|   |   |   |   |   |   |   |   |   |--- class: WashingtonPost
+|   |   |   |   |   |   |   |   |--- text_length >  761.50
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: WashingtonPost
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: WashingtonPost
+|   |   |   |   |   |   |   |--- stopword_rate >  0.44
+|   |   |   |   |   |   |   |   |--- class: WashingtonPost
+|   |   |   |   |   |   |--- avg_word_length >  5.26
+|   |   |   |   |   |   |   |--- class: WashingtonPost
+|   |   |   |   |   |--- entity_count_ORG >  3.50
+|   |   |   |   |   |   |--- sbert_pca_3 <= -0.01
+|   |   |   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |   |   |--- sbert_pca_3 >  -0.01
+|   |   |   |   |   |   |   |--- class: WashingtonPost
+|   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |--- stopword_rate <= 0.36
+|   |   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |   |--- stopword_rate >  0.36
+|   |   |   |   |   |   |--- text_length <= 838.50
+|   |   |   |   |   |   |   |--- class: Babel
+|   |   |   |   |   |   |--- text_length >  838.50
+|   |   |   |   |   |   |   |--- class: UkraineNow
+|   |   |--- text_length >  1196.50
+|   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |--- entity_count_PER <= 1.50
+|   |   |   |   |   |--- entity_count_ORG <= 5.50
+|   |   |   |   |   |   |--- sentence_count <= 13.50
+|   |   |   |   |   |   |   |--- class: Rybar
+|   |   |   |   |   |   |--- sentence_count >  13.50
+|   |   |   |   |   |   |   |--- class: Rybar
+|   |   |   |   |   |--- entity_count_ORG >  5.50
+|   |   |   |   |   |   |--- class: Rybar
+|   |   |   |   |--- entity_count_PER >  1.50
+|   |   |   |   |   |--- class: Rybar
+|   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |--- class: mod_russia_en
+|--- sbert_pca_2 >  -0.08
+|   |--- uppercase_ratio <= 0.17
+|   |   |--- text_length <= 287.50
+|   |   |   |--- sbert_pca_1 <= 0.06
+|   |   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |   |--- stopword_rate <= 0.31
+|   |   |   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |   |   |--- word_count <= 5.50
+|   |   |   |   |   |   |   |   |--- class: abualiexpress
+|   |   |   |   |   |   |   |--- word_count >  5.50
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.05
+|   |   |   |   |   |   |   |   |   |--- class: Readovka
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.05
+|   |   |   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.01
+|   |   |   |   |   |   |   |   |--- text_length <= 59.50
+|   |   |   |   |   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |   |   |   |   |--- text_length >  59.50
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ThePostMillennial
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.09
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: ThePostMillennial
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.09
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: ThePostMillennial
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- word_count <= 14.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: ThePostMillennial
+|   |   |   |   |   |   |   |   |   |   |   |--- word_count >  14.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: ThePostMillennial
+|   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.01
+|   |   |   |   |   |   |   |   |--- unique_token_count <= 7.50
+|   |   |   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |   |   |   |   |   |   |--- unique_token_count >  7.50
+|   |   |   |   |   |   |   |   |   |--- text_length <= 105.50
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |   |   |   |   |--- text_length >  105.50
+|   |   |   |   |   |   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |   |   |   |--- stopword_rate >  0.31
+|   |   |   |   |   |   |--- punctuation_rate <= 0.00
+|   |   |   |   |   |   |   |--- unique_token_count <= 4.50
+|   |   |   |   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |   |   |   |--- unique_token_count >  4.50
+|   |   |   |   |   |   |   |   |--- class: Readovka
+|   |   |   |   |   |   |--- punctuation_rate >  0.00
+|   |   |   |   |   |   |   |--- sbert_pca_4 <= 0.06
+|   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.09
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.15
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.47
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: novaramedia
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.47
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: CharlieKirk
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.15
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: SuspilneNews
+|   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.09
+|   |   |   |   |   |   |   |   |   |--- unique_token_count <= 11.50
+|   |   |   |   |   |   |   |   |   |   |--- text_length <= 70.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |   |   |   |   |   |   |--- text_length >  70.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |   |   |   |   |--- unique_token_count >  11.50
+|   |   |   |   |   |   |   |   |   |   |--- class: FoxNews
+|   |   |   |   |   |   |   |--- sbert_pca_4 >  0.06
+|   |   |   |   |   |   |   |   |--- entity_count_ORG <= 0.50
+|   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |--- entity_count_ORG >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: TasnimNewsEN
+|   |   |   |   |--- sentence_count >  1.50
+|   |   |   |   |   |--- sbert_pca_5 <= -0.20
+|   |   |   |   |   |   |--- sbert_pca_2 <= 0.06
+|   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.03
+|   |   |   |   |   |   |   |   |--- class: Israel
+|   |   |   |   |   |   |   |--- sbert_pca_3 >  0.03
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.29
+|   |   |   |   |   |   |   |   |   |--- class: EU_Commission
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.29
+|   |   |   |   |   |   |   |   |   |--- class: EU_Commission
+|   |   |   |   |   |   |--- sbert_pca_2 >  0.06
+|   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.17
+|   |   |   |   |   |   |   |   |--- class: BernieSanders
+|   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.17
+|   |   |   |   |   |   |   |   |--- sentence_count <= 2.50
+|   |   |   |   |   |   |   |   |   |--- class: Israel
+|   |   |   |   |   |   |   |   |--- sentence_count >  2.50
+|   |   |   |   |   |   |   |   |   |--- class: Israel
+|   |   |   |   |   |--- sbert_pca_5 >  -0.20
+|   |   |   |   |   |   |--- uppercase_ratio <= 0.10
+|   |   |   |   |   |   |   |--- soft_topic_entropy <= 0.69
+|   |   |   |   |   |   |   |   |--- sbert_pca_4 <= 0.07
+|   |   |   |   |   |   |   |   |   |--- avg_sentence_length <= 14.42
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.12
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length <= 10.42
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: ViceNews
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length >  10.42
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.98
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: ViceNews
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- type_token_ratio >  0.98
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: ViceNews
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.12
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: ViceNews
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- word_count <= 34.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- unique_token_count <= 13.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- soft_topic_max_prob <= 0.82
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.09
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.09
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: novaramedia
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- soft_topic_max_prob >  0.82
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |   |   |   |   |   |   |   |   |--- unique_token_count >  13.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.11
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.11
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |   |   |   |   |   |   |   |--- word_count >  34.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.30
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: BernieSanders
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.30
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: BernieSanders
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- text_length <= 234.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- text_length >  234.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: BernieSanders
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |   |   |   |   |   |--- avg_sentence_length >  14.42
+|   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.12
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.06
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.06
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.12
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: novaramedia
+|   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- text_length <= 268.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- entity_density <= 0.13
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- word_count <= 40.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: ViceNews
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- word_count >  40.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.03
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.03
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |   |   |   |   |   |   |   |   |--- entity_density >  0.13
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |   |   |   |   |   |   |   |--- text_length >  268.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: novaramedia
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- entity_density <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- entity_density >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: novaramedia
+|   |   |   |   |   |   |   |   |--- sbert_pca_4 >  0.07
+|   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.96
+|   |   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |   |   |--- type_token_ratio >  0.96
+|   |   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.47
+|   |   |   |   |   |   |   |   |   |   |   |   |--- text_length <= 252.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: ViceNews
+|   |   |   |   |   |   |   |   |   |   |   |   |--- text_length >  252.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: novaramedia
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.47
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Israel
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |   |--- entity_count_MISC <= 1.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- sentence_count <= 2.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: KyivIndependent
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- sentence_count >  2.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |   |   |   |   |   |   |   |   |--- entity_count_MISC >  1.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: AIPAC
+|   |   |   |   |   |   |   |--- soft_topic_entropy >  0.69
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.03
+|   |   |   |   |   |   |   |   |   |--- class: BernieSanders
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.03
+|   |   |   |   |   |   |   |   |   |--- class: BernieSanders
+|   |   |   |   |   |   |--- uppercase_ratio >  0.10
+|   |   |   |   |   |   |   |--- avg_sentence_length <= 11.29
+|   |   |   |   |   |   |   |   |--- question_rate <= 0.01
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= 0.08
+|   |   |   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.94
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.33
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.33
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: BenShapiro
+|   |   |   |   |   |   |   |   |   |   |--- type_token_ratio >  0.94
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density <= 0.08
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: ViceNews
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density >  0.08
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  0.08
+|   |   |   |   |   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |   |   |   |   |--- question_rate >  0.01
+|   |   |   |   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |   |   |   |--- avg_sentence_length >  11.29
+|   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.91
+|   |   |   |   |   |   |   |   |   |--- word_count <= 39.50
+|   |   |   |   |   |   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |   |   |   |   |   |--- word_count >  39.50
+|   |   |   |   |   |   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |   |   |   |   |--- type_token_ratio >  0.91
+|   |   |   |   |   |   |   |   |   |--- text_length <= 270.50
+|   |   |   |   |   |   |   |   |   |   |--- avg_word_length <= 5.12
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.11
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.11
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |   |   |   |   |   |   |--- avg_word_length >  5.12
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |   |   |   |   |   |--- text_length >  270.50
+|   |   |   |   |   |   |   |   |   |   |--- class: FoxNews
+|   |   |   |--- sbert_pca_1 >  0.06
+|   |   |   |   |--- soft_topic_entropy <= 0.69
+|   |   |   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |   |   |--- uppercase_ratio <= 0.08
+|   |   |   |   |   |   |   |--- entity_density <= 0.13
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.00
+|   |   |   |   |   |   |   |   |   |--- soft_topic_max_prob <= 0.32
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |   |   |   |   |--- soft_topic_max_prob >  0.32
+|   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.00
+|   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |   |   |   |--- entity_density >  0.13
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.01
+|   |   |   |   |   |   |   |   |   |--- entity_count_MISC <= 0.50
+|   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |   |--- entity_count_MISC >  0.50
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= 0.35
+|   |   |   |   |   |   |   |   |   |   |   |--- word_count <= 17.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |   |   |   |--- word_count >  17.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.17
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.17
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  0.35
+|   |   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.01
+|   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.33
+|   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.33
+|   |   |   |   |   |   |   |   |   |   |--- class: AIPAC
+|   |   |   |   |   |   |--- uppercase_ratio >  0.08
+|   |   |   |   |   |   |   |--- sbert_pca_4 <= 0.16
+|   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.95
+|   |   |   |   |   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |   |   |   |   |--- type_token_ratio >  0.95
+|   |   |   |   |   |   |   |   |   |--- entity_count_ORG <= 0.50
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density <= 0.19
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density >  0.19
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: QudsNen
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |   |   |   |   |--- entity_count_ORG >  0.50
+|   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density <= 0.20
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density >  0.20
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: TasnimNewsEN
+|   |   |   |   |   |   |   |--- sbert_pca_4 >  0.16
+|   |   |   |   |   |   |   |   |--- stopword_rate <= 0.24
+|   |   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |   |   |   |--- stopword_rate >  0.24
+|   |   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |--- sentence_count >  1.50
+|   |   |   |   |   |   |--- text_length <= 260.50
+|   |   |   |   |   |   |   |--- uppercase_ratio <= 0.06
+|   |   |   |   |   |   |   |   |--- entity_density <= 0.07
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |--- entity_density >  0.07
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.07
+|   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length <= 14.42
+|   |   |   |   |   |   |   |   |   |   |   |--- class: abualiexpress
+|   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length >  14.42
+|   |   |   |   |   |   |   |   |   |   |   |--- class: abualiexpress
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.07
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.96
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |   |   |   |   |   |   |   |--- type_token_ratio >  0.96
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: TheJerusalemPost
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= 0.26
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.15
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.15
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: AIPAC
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  0.26
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: AIPAC
+|   |   |   |   |   |   |   |--- uppercase_ratio >  0.06
+|   |   |   |   |   |   |   |   |--- entity_count_ORG <= 0.50
+|   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.04
+|   |   |   |   |   |   |   |   |   |   |--- text_length <= 147.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: TheJerusalemPost
+|   |   |   |   |   |   |   |   |   |   |--- text_length >  147.50
+|   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: TheJerusalemPost
+|   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.04
+|   |   |   |   |   |   |   |   |   |   |--- unique_token_count <= 11.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |   |   |   |   |--- unique_token_count >  11.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |   |   |   |   |--- entity_count_ORG >  0.50
+|   |   |   |   |   |   |   |   |   |--- entity_density <= 0.21
+|   |   |   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.87
+|   |   |   |   |   |   |   |   |   |   |   |--- class: TasnimNewsEN
+|   |   |   |   |   |   |   |   |   |   |--- type_token_ratio >  0.87
+|   |   |   |   |   |   |   |   |   |   |   |--- unique_token_count <= 17.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 <= 0.30
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_1 >  0.30
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.10
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: abualiexpress
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.10
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |   |   |   |   |   |--- unique_token_count >  17.50
+|   |   |   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length <= 14.67
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: TheJerusalemPost
+|   |   |   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length >  14.67
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: IDF
+|   |   |   |   |   |   |   |   |   |--- entity_density >  0.21
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |--- text_length >  260.50
+|   |   |   |   |   |   |   |--- entity_count_ORG <= 1.50
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 <= 0.35
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.14
+|   |   |   |   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.14
+|   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.15
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: AIPAC
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.15
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: khamenei_ir
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 >  0.35
+|   |   |   |   |   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |   |   |   |--- entity_count_ORG >  1.50
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 <= 0.28
+|   |   |   |   |   |   |   |   |   |--- class: IDF
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 >  0.28
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: IDF
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: IDF
+|   |   |   |   |--- soft_topic_entropy >  0.69
+|   |   |   |   |   |--- punctuation_rate <= 0.04
+|   |   |   |   |   |   |--- text_length <= 193.50
+|   |   |   |   |   |   |   |--- class: TheJerusalemPost
+|   |   |   |   |   |   |--- text_length >  193.50
+|   |   |   |   |   |   |   |--- class: IDF
+|   |   |   |   |   |--- punctuation_rate >  0.04
+|   |   |   |   |   |   |--- punctuation_rate <= 0.05
+|   |   |   |   |   |   |   |--- class: DDGeopolitics
+|   |   |   |   |   |   |--- punctuation_rate >  0.05
+|   |   |   |   |   |   |   |--- class: DDGeopolitics
+|   |   |--- text_length >  287.50
+|   |   |   |--- sbert_pca_3 <= -0.14
+|   |   |   |   |--- sbert_pca_1 <= 0.15
+|   |   |   |   |   |--- sbert_pca_4 <= 0.12
+|   |   |   |   |   |   |--- sbert_pca_4 <= -0.05
+|   |   |   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |   |   |--- sbert_pca_4 >  -0.05
+|   |   |   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |   |   |   |--- sbert_pca_4 >  0.12
+|   |   |   |   |   |   |--- type_token_ratio <= 0.87
+|   |   |   |   |   |   |   |--- uppercase_ratio <= 0.06
+|   |   |   |   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |   |   |   |   |   |--- uppercase_ratio >  0.06
+|   |   |   |   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |   |   |   |   |--- type_token_ratio >  0.87
+|   |   |   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |   |   |--- sbert_pca_1 >  0.15
+|   |   |   |   |   |--- entity_count_LOC <= 2.50
+|   |   |   |   |   |   |--- uppercase_ratio <= 0.03
+|   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |   |--- uppercase_ratio >  0.03
+|   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.04
+|   |   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.04
+|   |   |   |   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |   |--- entity_count_LOC >  2.50
+|   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |--- sbert_pca_3 >  -0.14
+|   |   |   |   |--- unique_token_count <= 108.50
+|   |   |   |   |   |--- sbert_pca_1 <= 0.05
+|   |   |   |   |   |   |--- sbert_pca_4 <= 0.02
+|   |   |   |   |   |   |   |--- type_token_ratio <= 0.96
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 <= -0.01
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |   |   |   |   |--- sbert_pca_5 >  -0.01
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.18
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CharlieKirk
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CharlieKirk
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.18
+|   |   |   |   |   |   |   |   |   |   |--- class: Babel
+|   |   |   |   |   |   |   |--- type_token_ratio >  0.96
+|   |   |   |   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |   |   |--- sbert_pca_4 >  0.02
+|   |   |   |   |   |   |   |--- stopword_rate <= 0.40
+|   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |   |   |   |   |--- exclamation_rate <= 0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: euronews_eng
+|   |   |   |   |   |   |   |   |   |--- exclamation_rate >  0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: euronews_eng
+|   |   |   |   |   |   |   |--- stopword_rate >  0.40
+|   |   |   |   |   |   |   |   |--- avg_word_length <= 4.40
+|   |   |   |   |   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |   |   |   |   |   |   |--- avg_word_length >  4.40
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 <= 0.08
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.44
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.44
+|   |   |   |   |   |   |   |   |   |   |   |   |--- entity_count_ORG <= 1.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |   |   |   |   |   |   |   |   |--- entity_count_ORG >  1.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_5 >  0.08
+|   |   |   |   |   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |   |   |--- sbert_pca_1 >  0.05
+|   |   |   |   |   |   |--- soft_topic_entropy <= 0.69
+|   |   |   |   |   |   |   |--- avg_word_length <= 5.11
+|   |   |   |   |   |   |   |   |--- sbert_pca_4 <= 0.24
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.16
+|   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.41
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: Slavyangrad
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.41
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: abualiexpress
+|   |   |   |   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: TasnimNewsEN
+|   |   |   |   |   |   |   |   |   |   |--- uppercase_ratio >  0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Slavyangrad
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.16
+|   |   |   |   |   |   |   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |   |   |   |   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- type_token_ratio <= 0.86
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: TasnimNewsEN
+|   |   |   |   |   |   |   |   |   |   |   |--- type_token_ratio >  0.86
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |   |   |   |   |   |--- sbert_pca_4 >  0.24
+|   |   |   |   |   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |   |   |   |--- avg_word_length >  5.11
+|   |   |   |   |   |   |   |   |--- text_length <= 397.00
+|   |   |   |   |   |   |   |   |   |--- avg_sentence_length <= 21.75
+|   |   |   |   |   |   |   |   |   |   |--- class: abualiexpress
+|   |   |   |   |   |   |   |   |   |--- avg_sentence_length >  21.75
+|   |   |   |   |   |   |   |   |   |   |--- class: PressTV
+|   |   |   |   |   |   |   |   |--- text_length >  397.00
+|   |   |   |   |   |   |   |   |   |--- avg_sentence_length <= 18.77
+|   |   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |   |   |   |   |   |--- avg_sentence_length >  18.77
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate <= 0.38
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |   |   |   |   |   |   |   |   |--- stopword_rate >  0.38
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |   |   |--- soft_topic_entropy >  0.69
+|   |   |   |   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |   |   |   |--- class: @MiddleEastEye_TG
+|   |   |   |   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |   |   |   |--- avg_sentence_length <= 15.78
+|   |   |   |   |   |   |   |   |   |--- class: DDGeopolitics
+|   |   |   |   |   |   |   |   |--- avg_sentence_length >  15.78
+|   |   |   |   |   |   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |   |--- unique_token_count >  108.50
+|   |   |   |   |   |--- sbert_pca_3 <= 0.01
+|   |   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |   |--- sbert_pca_3 >  0.01
+|   |   |   |   |   |   |--- soft_topic_max_prob <= 0.52
+|   |   |   |   |   |   |   |--- class: Rybar
+|   |   |   |   |   |   |--- soft_topic_max_prob >  0.52
+|   |   |   |   |   |   |   |--- class: Rybar
+|   |--- uppercase_ratio >  0.17
+|   |   |--- punctuation_rate <= 0.26
+|   |   |   |--- text_length <= 115.50
+|   |   |   |   |--- sentence_count <= 2.50
+|   |   |   |   |   |--- punctuation_rate <= 0.06
+|   |   |   |   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |   |   |   |--- class: FoxNews
+|   |   |   |   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |   |   |   |--- sbert_pca_5 <= 0.04
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.04
+|   |   |   |   |   |   |   |   |   |--- avg_word_length <= 4.73
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |   |   |   |   |--- avg_word_length >  4.73
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 <= 0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |   |   |   |   |   |   |--- sbert_pca_2 >  0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density <= 0.13
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |   |   |   |   |   |   |   |--- entity_density >  0.13
+|   |   |   |   |   |   |   |   |   |   |   |   |--- text_length <= 82.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |   |   |   |   |   |   |   |   |--- text_length >  82.50
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.04
+|   |   |   |   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |   |   |--- sbert_pca_5 >  0.04
+|   |   |   |   |   |   |   |   |--- entity_density <= 0.22
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.13
+|   |   |   |   |   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.13
+|   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length <= 12.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |   |   |   |   |   |--- avg_sentence_length >  12.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |   |   |   |--- entity_density >  0.22
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_4 <= -0.07
+|   |   |   |   |   |   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_4 >  -0.07
+|   |   |   |   |   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |--- punctuation_rate >  0.06
+|   |   |   |   |   |   |--- avg_word_length <= 5.58
+|   |   |   |   |   |   |   |--- sbert_pca_1 <= -0.14
+|   |   |   |   |   |   |   |   |--- sbert_pca_4 <= 0.03
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 <= -0.09
+|   |   |   |   |   |   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |   |   |   |   |   |--- sbert_pca_3 >  -0.09
+|   |   |   |   |   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |   |   |   |--- sbert_pca_4 >  0.03
+|   |   |   |   |   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |   |   |   |--- sbert_pca_1 >  -0.14
+|   |   |   |   |   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |   |   |   |--- avg_word_length >  5.58
+|   |   |   |   |   |   |   |--- class: DDGeopolitics
+|   |   |   |   |--- sentence_count >  2.50
+|   |   |   |   |   |--- punctuation_rate <= 0.05
+|   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |   |   |--- punctuation_rate >  0.05
+|   |   |   |   |   |   |--- class: TheIntercept
+|   |   |   |--- text_length >  115.50
+|   |   |   |   |--- punctuation_rate <= 0.06
+|   |   |   |   |   |--- sbert_pca_1 <= 0.14
+|   |   |   |   |   |   |--- sbert_pca_5 <= -0.05
+|   |   |   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |   |   |--- sbert_pca_5 >  -0.05
+|   |   |   |   |   |   |   |--- avg_sentence_length <= 11.58
+|   |   |   |   |   |   |   |   |--- class: Newsmax
+|   |   |   |   |   |   |   |--- avg_sentence_length >  11.58
+|   |   |   |   |   |   |   |   |--- class: FoxNews
+|   |   |   |   |   |--- sbert_pca_1 >  0.14
+|   |   |   |   |   |   |--- class: IDF
+|   |   |   |   |--- punctuation_rate >  0.06
+|   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |--- punctuation_rate >  0.26
+|   |   |   |--- class: OpenSourceIntel

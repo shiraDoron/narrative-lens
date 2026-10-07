@@ -31,7 +31,7 @@ STAGE 1 - detection (read-only, does not modify or re-save any model):
     version's update_topics()+save()+load() round trip) - manual inspection of real documents is
     required per the user's request, not just word lists.
     Saves the ranked candidate list + score-distribution percentiles (to help pick a sensible
-    threshold) to `reports/results/profiler_prototype/expD_duplicate_topic_candidates.json`.
+    threshold) to `artifacts/experiments/profiler_prototype/expD_duplicate_topic_candidates.json`.
 
 STAGE 2 - merge test (writes ONE new model, `models/experiments/soft_v2_expD_merge_rulesbased`;
 never touches `soft_v2_baseline_seeded`, `saved_topic_model_soft_v2`, or any other existing path):
@@ -47,7 +47,7 @@ never touches `soft_v2_baseline_seeded`, `saved_topic_model_soft_v2`, or any oth
         every OTHER topic before vs. after to confirm none of them were altered by the merge,
       - re-runs `analyze_soft_topic_quality.analyze()` on the merged model and compares its
         summary against the baseline's ALREADY-SAVED quality snapshot
-        (`reports/results/profiler_prototype/soft_topic_quality_summary.minilm_seed42.json`, produced by
+        (`artifacts/experiments/profiler_prototype/soft_topic_quality_summary.minilm_seed42.json`, produced by
         Experiment B's seed-stability check on this exact same baseline model - re-running the
         baseline analysis again would be redundant).
 
@@ -85,7 +85,7 @@ MERGE_EXPERIMENT_PATH = "models/experiments/soft_v2_expD_merge_rulesbased"
 # any later .transform() call (as used by analyze_soft_topic_quality.py) fail with "No embedding
 # model was found" - not transient, 100% reproducible, root-caused during this experiment.
 BASELINE_EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 BASELINE_QUALITY_SNAPSHOT = os.path.join(REPORT_DIR, "soft_topic_quality_summary.minilm_seed42.json")
 TOP_N_CANDIDATES = 20
 N_EXAMPLE_DOCS = 3

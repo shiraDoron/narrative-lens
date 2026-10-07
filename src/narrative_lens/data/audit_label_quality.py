@@ -29,14 +29,14 @@ from pathlib import Path
 import pandas as pd
 
 RAW_DIR = Path("data/raw")
-OUT_DIR = Path("reports/results/narrative_audit")
+OUT_DIR = Path("artifacts/experiments/narrative_audit")
 MIN_TEXTS_FOR_ACCOUNT_FLAG = 5
 UNSTABLE_ACCOUNT_THRESHOLD = 0.5  # fraction of non-strongly_aligned texts
 
 # Framing/opinion markers per narrative - deliberately NOT plain topic nouns (e.g. "Israel",
 # "Iran", "Russia") since those appear in neutral wire reporting too and wouldn't distinguish
 # framing from topic. These were derived from real examples in
-# reports/results/narrative_audit/narrative_audit.txt and docs/narrative_definitions.md.
+# artifacts/experiments/narrative_audit/narrative_audit.txt and docs/narrative_definitions.md.
 FRAMING_MARKERS = {
     "Zionist": [
         r"terrorist", r"terror regime", r"hostages?", r"eliminated", r"self-defen",

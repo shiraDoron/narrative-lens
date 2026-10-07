@@ -34,7 +34,7 @@ BERTopic's `approximate_distribution()` (chosen over `calculate_probabilities=Tr
 works read-only on an already-fit model with no expensive HDBSCAN posterior recompute, and needs
 no refit-time flag). Added `process_text_with_distribution()` as a convenience wrapper, and a new
 standalone demo/CLI `analyze_soft_topics.py` that prints dominant + top-N soft topics for sample
-texts and writes `reports/results/profiler_prototype/soft_topic_examples.csv`. `process_text()` (used by
+texts and writes `artifacts/experiments/profiler_prototype/soft_topic_examples.csv`. `process_text()` (used by
 the classifier pipeline) was left fully unchanged.
 
 **Baseline:** No soft/multi-topic capability existed before this; only a single hard `topic_id`
@@ -607,8 +607,8 @@ code, `EXPERIMENTS.md`, and suffixed result files are).
 ## 10. Experiment D — targeted duplicate-topic detection + rulesbased merge test
 
 **Files:** [experiments/topic_modeling/experiment_d_duplicate_topics.py](experiments/topic_modeling/experiment_d_duplicate_topics.py),
-[reports/results/profiler_prototype/expD_duplicate_topic_candidates.json](reports/results/profiler_prototype/expD_duplicate_topic_candidates.json),
-[reports/results/profiler_prototype/expD_merge_rulesbased_comparison.json](reports/results/profiler_prototype/expD_merge_rulesbased_comparison.json)
+[artifacts/experiments/profiler_prototype/expD_duplicate_topic_candidates.json](artifacts/experiments/profiler_prototype/expD_duplicate_topic_candidates.json),
+[artifacts/experiments/profiler_prototype/expD_merge_rulesbased_comparison.json](artifacts/experiments/profiler_prototype/expD_merge_rulesbased_comparison.json)
 
 **Goal:** Instead of a blanket `min_topic_size` increase or embedding-model swap (both tried and
 rejected/inconclusive in Experiments 6, 7, 8, 9), directly detect which topic pairs in the
@@ -709,7 +709,7 @@ future `min_topic_size`/embedding-model decision.
 ## 11. Experiment D2 — soft-distribution stability check for the rulesbased merge
 
 **Files:** [experiments/topic_modeling/experiment_d2_soft_stability_check.py](experiments/topic_modeling/experiment_d2_soft_stability_check.py),
-[reports/results/profiler_prototype/expD2_soft_stability_check.json](reports/results/profiler_prototype/expD2_soft_stability_check.json)
+[artifacts/experiments/profiler_prototype/expD2_soft_stability_check.json](artifacts/experiments/profiler_prototype/expD2_soft_stability_check.json)
 
 **Goal:** Experiment D validated the rulesbased `merge_topics()` call on hard-cluster/outlier/
 topic-count metrics. This closes the remaining gap: does the merge also stay safe for the SOFT
@@ -793,7 +793,7 @@ function is opt-in for future/new experiments only).
 ## 13. Experiment E — classic LDA baseline vs. BERTopic Hard / Soft
 
 **Files:** [experiments/topic_modeling/experiment_e_lda_baseline.py](experiments/topic_modeling/experiment_e_lda_baseline.py),
-[reports/results/profiler_prototype/expE_lda_baseline.json](reports/results/profiler_prototype/expE_lda_baseline.json),
+[artifacts/experiments/profiler_prototype/expE_lda_baseline.json](artifacts/experiments/profiler_prototype/expE_lda_baseline.json),
 `models/experiments/lda_baseline/` (new, separate artifact — never read by any other code)
 
 **Goal:** Add a classic (pre-embedding) topic-modeling baseline — `gensim`'s LDA — on the exact
@@ -955,7 +955,7 @@ and if so, by how much? A controlled 4-way comparison, same data/splits/training
 Explicitly separate from — and does not touch — the BERT Actors/Role/Agency/Relations track
 (reserved for after this experiment), and does not touch `fusion.py`, `train.py`, any existing
 checkpoint (`models/best_*.pth`), any existing cache (`data/cache/cached_features_*.pt` other
-than a brand-new one), or `reports/tables/model_comparison_results.json`.
+than a brand-new one), or `artifacts/tables/model_comparison_results.json`.
 
 **Pre-code research (how the Topic feature enters the pipeline today, checked before writing
 any code, as required):** every existing classifier (`NarrativeDetector`/`baseline_fusion` and
@@ -1018,8 +1018,8 @@ separate follow-up if this baseline_fusion-based result looks promising.
   a data-leakage risk. 3 seeds used: 42, 7, 123 (matches this project's established seed set).
 - **Isolated artifacts:** every (config, seed) gets its own checkpoint
   (`models/experiments/narrative_topic_compare/{mode}_seed{seed}.pth`) and its own confusion
-  matrix; results accumulate in a brand-new `reports/results/narrative_topic_compare/results.json`
-  (never `reports/tables/model_comparison_results.json`). Re-running an existing (mode, seed)
+  matrix; results accumulate in a brand-new `artifacts/experiments/narrative_topic_compare/results.json`
+  (never `artifacts/tables/model_comparison_results.json`). Re-running an existing (mode, seed)
   checkpoint is refused (`RuntimeError`), not silently overwritten.
 
 **Known, inherited limitation (not introduced by this experiment):** both the BERTopic model
@@ -1047,8 +1047,8 @@ single topic (dominance ratio < 0.7), (b) per-Narrative Hard→Soft→LDA F1 del
 some Narratives benefit disproportionately from a richer Topic representation.
 
 **Results.** All 4 configs × 3 seeds (42/7/123) completed; full numbers in
-`reports/results/narrative_topic_compare/results.json`, per-seed confusion matrices in
-`reports/results/narrative_topic_compare/confusion_matrix_{mode}_seed{seed}_test.csv`. Test-set metrics,
+`artifacts/experiments/narrative_topic_compare/results.json`, per-seed confusion matrices in
+`artifacts/experiments/narrative_topic_compare/confusion_matrix_{mode}_seed{seed}_test.csv`. Test-set metrics,
 mean±std across the 3 seeds:
 
 | Config | Accuracy | Macro-F1 | Weighted-F1 |
@@ -1117,7 +1117,7 @@ recommended based on this experiment.**
 **Files:** [experiments/topic_modeling/corpus_subsampling.py](experiments/topic_modeling/corpus_subsampling.py) (stratified subsampling utility),
 [experiments/topic_modeling/experiment_f_corpus_scaling.py](experiments/topic_modeling/experiment_f_corpus_scaling.py) (the sweep itself),
 [experiments/topic_modeling/experiment_f_analysis.py](experiments/topic_modeling/experiment_f_analysis.py) (scoring/selection + scaling-law fit),
-raw results in `reports/results/profiler_prototype/expF_corpus_scaling_results.json`,
+raw results in `artifacts/experiments/profiler_prototype/expF_corpus_scaling_results.json`,
 `expF_stratification_report.json`, `expF_selection_and_scaling_law.json`.
 
 **Goal:** Section 12's `recommend_min_topic_size()` heuristic (sqrt-scaling anchored at the
@@ -1315,7 +1315,7 @@ For each candidate threshold, a hybrid prediction is *simulated* by swapping per
 Hard model's prediction and the Soft model's prediction according to the dominance rule
 (`hard_pred[i] if dominant else soft_pred[i]`), and VAL Macro-F1 of this simulated swap is
 recorded. The threshold/criterion combination that maximizes VAL Macro-F1 is selected — the test
-set is never touched during this step (see `reports/results/narrative_topic_hybrid/threshold_selection.json`
+set is never touched during this step (see `artifacts/experiments/narrative_topic_hybrid/threshold_selection.json`
 for the full candidate table and an explicit note confirming this). This avoids training N
 separate hybrid models just to search thresholds, and cannot leak test information into the
 selection.
@@ -1331,9 +1331,9 @@ solo performance — foreshadowing that a genuinely mixed representation was unl
 **Artifacts (separate from section 15, no existing files touched):** new cache
 (`data/cache/cached_features_narrative_topic_hybrid.pt`), new checkpoints
 (`models/experiments/narrative_topic_hybrid/hybrid_seed{42,7,123}.pth`), new results file
-(`reports/results/narrative_topic_hybrid/results.json`), new threshold-selection file
-(`reports/results/narrative_topic_hybrid/threshold_selection.json`). Nothing under
-`models/experiments/narrative_topic_compare/`, `reports/results/narrative_topic_compare/results.json`,
+(`artifacts/experiments/narrative_topic_hybrid/results.json`), new threshold-selection file
+(`artifacts/experiments/narrative_topic_hybrid/threshold_selection.json`). Nothing under
+`models/experiments/narrative_topic_compare/`, `artifacts/experiments/narrative_topic_compare/results.json`,
 or `data/cache/cached_features_narrative_topic_compare.pt` was modified.
 
 **Results.** Hybrid trained across the same 3 seeds (42/7/123); test-set metrics, mean±std,
@@ -1418,7 +1418,7 @@ account fingerprint (e.g. an account that always mentions the same handful of pe
 rather than as a narrative signal that would transfer to a never-seen author.
 
 **Baseline (for comparison):** the existing random-split `baseline_fusion` results
-(`reports/tables/comparison_random_test.md`): overall Accuracy=67.06%, Macro-F1=0.6643; per-narrative
+(`artifacts/tables/comparison_random_test.md`): overall Accuracy=67.06%, Macro-F1=0.6643; per-narrative
 F1 for the three narratives tested here: Zionist=0.7354, Russian=0.6930, Left-wing=0.6231
 (Right-wing's own F1, relevant below, is 0.6602).
 
@@ -1502,7 +1502,7 @@ close the gap — is a natural, currently unexplored next step (see open problem
 
 **Status: COMPLETE.** All 3 authors × 7 variants trained/evaluated, aggregate summary and a
 Right-wing "shortcut" forensic analysis both run — see `experiments/author_generalization/narrative_ablation_loao.py`,
-`experiments/author_generalization/narrative_ablation_rw_shortcut.py`, `reports/results/narrative_ablation_loao/`.
+`experiments/author_generalization/narrative_ablation_rw_shortcut.py`, `artifacts/experiments/narrative_ablation_loao/`.
 
 **Research question.** Section 18 showed `baseline_fusion` generalizes poorly to unseen
 authors (20–38pp recall loss vs. random-split F1), with 2 of 3 held-out accounts
@@ -1535,7 +1535,7 @@ comparison, not a variance study). Checkpoints are selected purely by validation
 the held-out author's test rows are never used for tuning. All outputs go to dedicated,
 non-overwriting paths: `data/cache/cached_features_ablation_loao_{author}.pt`,
 `models/experiments/narrative_ablation_loao/{variant}_{author}.pth`,
-`reports/results/narrative_ablation_loao/` (confusion matrices + `results.json` + `ablation_summary.csv`).
+`artifacts/experiments/narrative_ablation_loao/` (confusion matrices + `results.json` + `ablation_summary.csv`).
 Nothing from section 18 (or any other canonical file) is touched.
 
 **Variants** (all "SBERT + X", identical MLP architecture — `Linear(combined_dim,128) → ReLU →
@@ -1560,7 +1560,7 @@ variant/author), **% of test examples misclassified as Right-wing**.
 
 **Results.** Recall of the true/held-out-author narrative (= test accuracy) and % of test
 examples misclassified as "Right-wing", per variant × author, plus the 3-author average
-(full numbers, including macro-precision/recall/F1, in `reports/results/narrative_ablation_loao/
+(full numbers, including macro-precision/recall/F1, in `artifacts/experiments/narrative_ablation_loao/
 results.json` and `ablation_summary.csv`; confusion matrices per variant/author as CSV):
 
 | Variant | IDF recall | IDF →RW% | Maria recall | Maria →RW% | Bernie recall | Bernie →RW% | **Avg recall** | **Avg →RW%** | Avg macro-F1 |
@@ -1581,7 +1581,7 @@ primary comparison metric here, reported only for completeness.)
 `sbert_all_engineered` variant's predictions — closest to production `HybridNarrativeDetector`
 — comparing entities/words/hard-topics in each author's Right-wing-misclassified test rows
 against a 500-example sample of Right-wing's own training data; full lists in
-`reports/results/narrative_ablation_loao/rw_shortcut_forensic.json`):
+`artifacts/experiments/narrative_ablation_loao/rw_shortcut_forensic.json`):
 
 - **MariaZakharova**: only 8/200 test rows misclassified as Right-wing under this variant — too
   small a sample for a reliable lexical/entity signal. The one notable overlap: **all 8** of her
@@ -1723,7 +1723,7 @@ should not be assumed safe by default in future ablations.
 trained/evaluated; completeness verified programmatically; 4 sanity-check categories run and
 passed; full reports built. See
 `experiments/feature_ablation/narrative_topic_sbert_backbone.py`,
-`reports/results/narrative_topic_sbert_backbone/`.
+`artifacts/experiments/narrative_topic_sbert_backbone/`.
 
 **Research question.** Section 15 compared Hard/Soft/LDA inside `baseline_fusion`'s full
 linear-weighted-fusion architecture (NER+Topics+SRL+Emotion arms) and found **Hard > Soft > LDA
@@ -2001,7 +2001,7 @@ section) Right-wing-bias-reduction benefit.
 Section 15's `cached_features_narrative_topic_compare.pt` and Section 19's
 `cached_features_ablation_loao_{author}.pt` caches by position (verified, not assumed); adds
 zero new heavy feature extraction beyond LDA inference for the 3 LOAO+lda runs. All results in
-`reports/results/narrative_topic_sbert_backbone/` (`results_random.json`,
+`artifacts/experiments/narrative_topic_sbert_backbone/` (`results_random.json`,
 `results_loao_lda.json`, `random_split_summary_table.csv`, `loao_summary_table.csv`,
 `per_narrative_summary_random.csv`, `per_narrative_summary_loao.csv`,
 `unified_comparison.json`); checkpoints in
@@ -2019,7 +2019,7 @@ code additions — 0 failures.
 corpus (16,394 unique texts) and reused across authors; 2 new variants trained per author (6
 trainings total); 3 variants reused verbatim from Section 19 after a programmatic reuse-validity
 check. See `experiments/author_generalization/narrative_entity_shortcut.py`,
-`reports/results/narrative_entity_shortcut/`.
+`artifacts/experiments/narrative_entity_shortcut/`.
 
 **Research question.** Section 19's Right-wing-shortcut forensic analysis
 (`narrative_ablation_rw_shortcut.py`) found that BernieSanders' Right-wing-misclassified rows
@@ -2166,7 +2166,7 @@ unmodified/pre-existing). Reuses `train.py`'s `load_raw_data()`/`split_leave_one
 unmodified. Masked-text cache: `data/cache/cached_raw_entities_masked_text.pt`. Per-author
 feature caches: `data/cache/cached_features_entity_shortcut_{author}.pt`. Checkpoints:
 `models/experiments/narrative_entity_shortcut/{variant}_{author}.pth`. Results:
-`reports/results/narrative_entity_shortcut/results.json`, `entity_shortcut_summary.csv`,
+`artifacts/experiments/narrative_entity_shortcut/results.json`, `entity_shortcut_summary.csv`,
 `confusion_matrix_{variant}_{author}_test.csv`.
 
 ---
@@ -2229,7 +2229,7 @@ after looking at the results.**
 10 mentions per author (`IDF`, `MariaZakharova`, `BernieSanders`), each hand-labeled with
 `gold_stance` (positive/negative/neutral), `error_category` (one of 11 predefined values), and
 free-text `annotator_notes`. Saved at
-`reports/results/narrative_stance_entity/pilot_sample_30_annotated.csv` (git-tracked, the
+`artifacts/experiments/narrative_stance_entity/pilot_sample_30_annotated.csv` (git-tracked, the
 authoritative ground truth for every result in this section — never regenerated or overwritten
 after annotation).
 
@@ -2267,7 +2267,7 @@ widening context from current-sentence → ±1-sentence window → full post gav
 violent-conflict paragraph was included — i.e. wider context helps recover missing signal but
 also lets the model over-generalize sentiment from surrounding text onto entities the local
 sentence treats neutrally. Full results:
-`reports/results/narrative_stance_entity/context_width_experiment.csv`.
+`artifacts/experiments/narrative_stance_entity/context_width_experiment.csv`.
 
 ### 5 stance-extraction methods benchmarked (same 30 gold rows, same target entity per row)
 
@@ -2335,8 +2335,8 @@ later "Stand with Zohran"/"proud to endorse" clause) were recovered by `absa_ful
 but not by `semeval`/`nli`. `BernieSanders_007` (`insufficient_context`) was not recovered by any
 of the 5 methods.
 
-**Full artifacts:** `reports/results/narrative_stance_entity/stance_method_benchmark.csv`
-(per-row, all 5 methods) and `reports/results/narrative_stance_entity/stance_benchmark_run.log`
+**Full artifacts:** `artifacts/experiments/narrative_stance_entity/stance_method_benchmark.csv`
+(per-row, all 5 methods) and `artifacts/experiments/narrative_stance_entity/stance_benchmark_run.log`
 (complete run output: all per-method reports, confusion matrices, fixed/regressed breakdowns,
 and the target-sensitivity groups).
 
@@ -2414,7 +2414,7 @@ for the full Phase-1 pipeline: validation-sample building, pilot building, pilot
 context-width experiment, and the 5-method benchmark — CLI flags `--build-sample`,
 `--build-pilot`, `--analyze-pilot`, `--context-experiment`, `--stance-benchmark`). Artifacts (all
 git-tracked, none regenerated after annotation):
-`reports/results/narrative_stance_entity/validation_sample.csv` (180-row validation sample),
+`artifacts/experiments/narrative_stance_entity/validation_sample.csv` (180-row validation sample),
 `STANCE_ANNOTATION_GUIDE.md` (annotation instructions/label definitions),
 `pilot_sample_30_annotated.csv` (gold-labeled ground truth for this whole section),
 `context_width_experiment.csv`, `stance_method_benchmark.csv`, `stance_benchmark_run.log`.
@@ -2428,7 +2428,7 @@ git-tracked, none regenerated after annotation):
 variants trained per author (9 trainings total), built entirely from 2 already-existing
 per-author feature caches with **zero new NER/SBERT/BERTopic inference**. See
 `experiments/author_generalization/narrative_entity_masking_augmentation.py`,
-`reports/results/narrative_entity_masking_augmentation/`.
+`artifacts/experiments/narrative_entity_masking_augmentation/`.
 
 **Research question.** Section 21 showed entity-identity masking is not a universal fix: full
 masking (replacing every entity mention with a generic placeholder before encoding) helps
@@ -2441,7 +2441,7 @@ training example, under the same label — can teach label-invariance to entity-
 presence/absence without erasing identity information at inference time altogether.
 
 **Audit performed before writing any new code (per explicit instruction).** (1)
-`reports/results/narrative_entity_shortcut/results.json` already contains `sbert_only`,
+`artifacts/experiments/narrative_entity_shortcut/results.json` already contains `sbert_only`,
 `sbert_masked`, and `sbert_soft_topic` for all 3 LOAO authors, computed under the exact
 split/seed/architecture this experiment needs — `verify_reuse_validity()` confirms this
 programmatically; all 3 reused verbatim, not retrained. (2) `narrative_lens/features/ner.py`'s
@@ -2522,7 +2522,7 @@ predicted as the true narrative; Macro-F1, averaged across authors):**
 | `sbert_soft_topic` | 0.1191 |
 | `sbert_masked_aug_soft_topic` | 0.1075 |
 
-Full per-author confusion matrices: `reports/results/narrative_entity_masking_augmentation/
+Full per-author confusion matrices: `artifacts/experiments/narrative_entity_masking_augmentation/
 confusion_matrix_{variant}_{author}_test.csv`.
 
 **Analysis — the 4 required questions:**
@@ -2620,7 +2620,7 @@ Reuses `narrative_ablation_loao.AblationDetector` and `train.py`'s `evaluate()`/
 (`data/cache/cached_features_ablation_loao_{author}.pt`,
 `data/cache/cached_features_entity_shortcut_{author}.pt` — no new cache-building step).
 Checkpoints: `models/experiments/narrative_entity_masking_augmentation/{variant}_{author}.pth`.
-Results: `reports/results/narrative_entity_masking_augmentation/results.json`,
+Results: `artifacts/experiments/narrative_entity_masking_augmentation/results.json`,
 `entity_masking_augmentation_summary.csv`, `confusion_matrix_{variant}_{author}_test.csv`,
 per-author run logs (`run_{author}.log`).
 
@@ -2692,7 +2692,7 @@ evaluated on, so any result in Section 24 supporting it is exploratory corrobora
 independent proof.
 
 **Implementation:** `experiments/author_generalization/narrative_idf_masking_regression_audit.py`.
-Results: `reports/results/narrative_idf_masking_regression_audit/` (`idf_masked_aug_regressions_full.csv`
+Results: `artifacts/experiments/narrative_idf_masking_regression_audit/` (`idf_masked_aug_regressions_full.csv`
 [31 rows], `idf_masked_aug_regressions_sample.csv` [30-row qualitative sample],
 `entity_type_summary.csv`, `audit_summary.json`).
 
@@ -2784,7 +2784,7 @@ evidence — out of scope for this experiment.
 **Implementation:** `experiments/author_generalization/narrative_selective_entity_masking_augmentation.py`.
 Reuses `narrative_ablation_loao.AblationDetector` and `train.py`'s `evaluate()`/
 `save_confusion_matrix_csv()` unmodified; reuses Section 23's 3 variants verbatim via
-`reports/results/narrative_entity_masking_augmentation/results.json`. New corpus-wide raw
+`artifacts/experiments/narrative_entity_masking_augmentation/results.json`. New corpus-wide raw
 (type-annotated) entity cache: `data/cache/cached_raw_entities_by_text.pt` (built once, reused
 to derive both masking policies by simple type-filtering, no repeated NER runs). Per-author,
 per-policy feature caches: `data/cache/cached_features_selective_masking_{policy}_{author}.pt`
@@ -2792,7 +2792,7 @@ per-policy feature caches: `data/cache/cached_features_selective_masking_{policy
 corpus examples before training (`--verify-masking`): PERSON-only masking leaves ORG/LOC/MISC
 substrings byte-identical to the original text; PERSON+MISC masking leaves ORG/LOC substrings
 byte-identical. Checkpoints: `models/experiments/narrative_selective_entity_masking_augmentation/{variant}_{author}.pth`.
-Results: `reports/results/narrative_selective_entity_masking_augmentation/results.json`,
+Results: `artifacts/experiments/narrative_selective_entity_masking_augmentation/results.json`,
 `selective_entity_masking_summary.csv`, `confusion_matrix_{variant}_{author}_test.csv`.
 
 ---
@@ -2840,7 +2840,7 @@ point, regardless of any later result.**
 | Left-wing | `@MiddleEastEye_TG` (n=200) | `ViceNews` (n=200) |
 
 Frozen artifact (full eligible pool + seed + selected authors):
-`reports/results/narrative_fresh_author_audit/fresh_author_confirmatory_set.json`.
+`artifacts/experiments/narrative_fresh_author_audit/fresh_author_confirmatory_set.json`.
 
 **Frozen variants (3 only — no sweep, no tuning, no additional variants):**
 1. `sbert_original` — SBERT on unmasked text, no augmentation, no topic feature.
@@ -2993,7 +2993,7 @@ Result: training accuracy 62.4% vs. a 59.9% majority-class baseline (+2.5pp) —
 (0.00). `classifier_margin` being dominant is close to tautological (low model confidence
 correlating with being wrong is expected for any classifier) and does not explain the
 *mechanism* of the LOAO failure — this motivated the second, more targeted pass below.
-Artifacts: `reports/results/narrative_unseen_author_error_diagnostics/` (`diagnostic_dataset.csv`,
+Artifacts: `artifacts/experiments/narrative_unseen_author_error_diagnostics/` (`diagnostic_dataset.csv`,
 `feature_importance.csv`, `leaf_error_rates.csv`, `tree_rules.txt`, `tree.png`, `summary.json`).
 
 **Second pass (domain-shift/novelty-focused, 11 features, `classifier_margin` excluded).**
@@ -3053,13 +3053,13 @@ result above):**
 This full-data fit looks like it has a strong, clean story (semantic distance to the
 same-narrative centroid + topic drift "explain" errors) — but this is **not generalized
 evidence**: the grouped CV above shows none of the depths beat the trivial baseline, and the
-per-leaf error rates (`reports/results/narrative_unseen_author_domain_shift_diagnostics/leaf_error_rates.csv`)
+per-leaf error rates (`artifacts/experiments/narrative_unseen_author_domain_shift_diagnostics/leaf_error_rates.csv`)
 show no monotonic or otherwise stable pattern across leaves (error rates ranging 17.6%–93.5%
 across leaves of only 27–56 to several-hundred examples, in no consistent order relative to the
 splitting features) — consistent with the full-data fit overfitting to noise rather than
 capturing a real, reproducible mechanism.
 
-Artifacts: `reports/results/narrative_unseen_author_domain_shift_diagnostics/`
+Artifacts: `artifacts/experiments/narrative_unseen_author_domain_shift_diagnostics/`
 (`diagnostic_dataset.csv`, `feature_importance.csv`, `leaf_error_rates.csv`, `tree_rules.txt`,
 `tree.png`, `summary.json` — the latter records the seed, config, CV results and conclusion
 verbatim for reproducibility).
@@ -3185,10 +3185,10 @@ top 5 for all 7 narratives; `url_count`, `mention_count`, `hashtag_count`, `punc
 `sentence_count`, `stopword_rate`, `uppercase_ratio` fill most of the remaining slots.
 `sbert_pca_*` components appear in 3/7 narratives' top 5 (Right-wing, Western, Zionist) but
 never dominate; raw entity-type counts and soft-topic features rarely crack the top 5. Full
-per-narrative tables: `reports/results/narrative_author_signature_diagnostics/experiment_b_
+per-narrative tables: `artifacts/experiments/narrative_author_signature_diagnostics/experiment_b_
 <narrative>_feature_importance.csv`.
 
-Artifacts: `reports/results/narrative_author_signature_diagnostics/` (`diagnostic_dataset.csv`;
+Artifacts: `artifacts/experiments/narrative_author_signature_diagnostics/` (`diagnostic_dataset.csv`;
 per-scope `feature_importance.csv`, `confusion_matrix.csv`, `tree_rules.txt`, `tree.png` for
 Experiment A and each of the 7 Experiment-B narratives; `summary.json` with the full numeric
 record for reproducibility).

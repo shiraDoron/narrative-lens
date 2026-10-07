@@ -20,7 +20,7 @@ restricted via build_review_sample.filter_first_n_per_narrative() to guarantee
 these rows are IDENTICAL (same confidence/evidence values) to what's already
 in <prefix>_review_sample.csv - no re-computation, just re-formatting.
 
-Outputs (reports/results/profiler_prototype/):
+Outputs (artifacts/experiments/profiler_prototype/):
   <prefix>_gold_entities.csv   - one row per actor mention
   <prefix>_gold_relations.csv  - one row per extracted relation
   <prefix>_gold_values.csv     - one row per values-lexicon hit
@@ -82,7 +82,7 @@ from narrative_lens.evaluation.build_profile_prototype import write_entity_revie
 from narrative_lens.evaluation.build_review_sample import write_agenda_review, filter_first_n_per_narrative
 
 PROFILES_DIR = "data/profiles"
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 
 
 def main():

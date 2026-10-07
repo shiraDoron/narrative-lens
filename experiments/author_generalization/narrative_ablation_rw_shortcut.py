@@ -53,7 +53,7 @@ VARIANT_NAME = "sbert_all_engineered"
 RW_TRAIN_SAMPLE_SIZE = 500  # cap on Right-wing's own training examples used as the reference set
 TOP_K = 25
 
-REPORT_DIR = "reports/results/narrative_ablation_loao"
+REPORT_DIR = "artifacts/experiments/narrative_ablation_loao"
 OUT_FILE = os.path.join(REPORT_DIR, "rw_shortcut_forensic.json")
 
 

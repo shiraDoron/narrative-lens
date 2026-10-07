@@ -6,7 +6,7 @@ Single source of truth for the near-duplicate detection method validated in
 universal hashing + LSH banding to find candidate pairs cheaply, each candidate verified via
 exact Jaccard similarity over the full shingle sets before merging into clusters). Threshold
 0.7 was chosen after inspecting cluster examples at 0.5/0.6/0.7/0.8 (see
-`reports/results/profiler_prototype/duplicate_analysis_summary.json`) - genuine paraphrase-level
+`artifacts/experiments/profiler_prototype/duplicate_analysis_summary.json`) - genuine paraphrase-level
 near-duplicates at 0.7, fewer false positives than looser thresholds.
 
 Used by:

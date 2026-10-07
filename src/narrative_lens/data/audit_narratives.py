@@ -13,7 +13,7 @@ from pathlib import Path
 import pandas as pd
 
 RAW_DIR = Path("data/raw")
-OUT_DIR = Path("reports/results/narrative_audit")
+OUT_DIR = Path("artifacts/experiments/narrative_audit")
 NARRATIVES = ["Zionist", "Resistance", "Western", "Russian", "Ukrainian", "Right-wing", "Left-wing"]
 SAMPLES_PER_AUTHOR = 2
 RANDOM_SEED = 42

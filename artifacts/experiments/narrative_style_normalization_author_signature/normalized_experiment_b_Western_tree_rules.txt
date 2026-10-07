@@ -1,0 +1,43 @@
+|--- text_length <= 610.00
+|   |--- sbert_pca_2 <= -0.02
+|   |   |--- text_length <= 281.00
+|   |   |   |--- sbert_pca_1 <= -0.15
+|   |   |   |   |--- sbert_pca_5 <= -0.21
+|   |   |   |   |   |--- class: EU_Commission
+|   |   |   |   |--- sbert_pca_5 >  -0.21
+|   |   |   |   |   |--- class: NATO
+|   |   |   |--- sbert_pca_1 >  -0.15
+|   |   |   |   |--- sentence_count <= 3.50
+|   |   |   |   |   |--- class: NATO
+|   |   |   |   |--- sentence_count >  3.50
+|   |   |   |   |   |--- class: EU_Commission
+|   |   |--- text_length >  281.00
+|   |   |   |--- uppercase_ratio <= 0.07
+|   |   |   |   |--- class: euronews_eng
+|   |   |   |--- uppercase_ratio >  0.07
+|   |   |   |   |--- class: euronews_eng
+|   |--- sbert_pca_2 >  -0.02
+|   |   |--- sbert_pca_4 <= 0.03
+|   |   |   |--- sbert_pca_5 <= -0.22
+|   |   |   |   |--- class: EU_Commission
+|   |   |   |--- sbert_pca_5 >  -0.22
+|   |   |   |   |--- entity_density <= 0.04
+|   |   |   |   |   |--- class: Bloomberg
+|   |   |   |   |--- entity_density >  0.04
+|   |   |   |   |   |--- class: Bloomberg
+|   |   |--- sbert_pca_4 >  0.03
+|   |   |   |--- word_count <= 51.50
+|   |   |   |   |--- punctuation_rate <= 0.03
+|   |   |   |   |   |--- class: EU_Commission
+|   |   |   |   |--- punctuation_rate >  0.03
+|   |   |   |   |   |--- class: EU_Commission
+|   |   |   |--- word_count >  51.50
+|   |   |   |   |--- class: euronews_eng
+|--- text_length >  610.00
+|   |--- sbert_pca_2 <= -0.14
+|   |   |--- type_token_ratio <= 0.89
+|   |   |   |--- class: WashingtonPost
+|   |   |--- type_token_ratio >  0.89
+|   |   |   |--- class: WashingtonPost
+|   |--- sbert_pca_2 >  -0.14
+|   |   |--- class: euronews_eng

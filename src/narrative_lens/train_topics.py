@@ -307,7 +307,7 @@ if __name__ == "__main__":
     # for the documented current defaults this run used - build_and_save_topics() itself is
     # unchanged when no flags are passed, this only records what happened for later traceability).
     write_run_metadata(
-        "reports/results/run_metadata_train_topics_soft_v2.json",
+        "artifacts/experiments/run_metadata_train_topics_soft_v2.json",
         config_path=args.config,
         topic_model_path=output_path,
         seed=args.seed,
@@ -315,7 +315,7 @@ if __name__ == "__main__":
         embedding_model=args.embedding_model,
     )
     write_run_metadata(
-        "reports/results/run_metadata_train_topics_soft_v2.json",
+        "artifacts/experiments/run_metadata_train_topics_soft_v2.json",
         config_path="configs/topic_model.yaml",
         topic_model_path=TOPIC_MODEL_PATH_SOFT,
     )

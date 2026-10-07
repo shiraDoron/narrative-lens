@@ -7,7 +7,7 @@ with the private `human_validation_pilot_300_key.csv` via `annotation_id` - this
 the FIRST point at which reviewer judgments are compared to the original
 source-derived labels. Does not change any label anywhere; read-only analysis.
 
-Outputs a printed report plus `reports/results/narrative_audit/human_validation_report.md`
+Outputs a printed report plus `artifacts/experiments/narrative_audit/human_validation_report.md`
 covering:
   - Overall: % agreement with original labels, % disagreement, % neutral/no-clear,
     % ambiguous, confidence distribution.
@@ -29,7 +29,7 @@ ANNOT_DIR = Path("data/annotation")
 BLIND_PATH = ANNOT_DIR / "human_validation_pilot_300_blind.csv"
 KEY_PATH = ANNOT_DIR / "human_validation_pilot_300_key.csv"
 SECOND_PATH = ANNOT_DIR / "human_validation_pilot_300_blind_second_annotator_subset.csv"
-OUT_DIR = Path("reports/results/narrative_audit")
+OUT_DIR = Path("artifacts/experiments/narrative_audit")
 OUT_PATH = OUT_DIR / "human_validation_report.md"
 
 NARRATIVES = ["Zionist", "Resistance", "Western", "Russian", "Ukrainian", "Right-wing", "Left-wing"]

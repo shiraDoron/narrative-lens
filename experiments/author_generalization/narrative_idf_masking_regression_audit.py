@@ -81,7 +81,7 @@ MODELS = {
     },
 }
 
-REPORT_DIR = "reports/results/narrative_idf_masking_regression_audit"
+REPORT_DIR = "artifacts/experiments/narrative_idf_masking_regression_audit"
 SAMPLE_SIZE = 30
 
 IDF_TRUE_NARRATIVE_IDX = NARRATIVES.index("Zionist")

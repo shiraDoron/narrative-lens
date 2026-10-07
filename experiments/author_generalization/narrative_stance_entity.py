@@ -20,7 +20,7 @@ Not usable for entity-targeted stance in any configuration.
 
 --- Why not entity_role_tagger.py (evaluation/) ---
 This IS entity-mention-targeted (assigns hero/victim/aggressor/betrayer/savior per mention),
-but its own gold-calibration results (reports/results/profiler_prototype/eval_entity_role_*)
+but its own gold-calibration results (artifacts/experiments/profiler_prototype/eval_entity_role_*)
 show only 12/167 (~7%) judged "correct" by a human annotator, with F1=0.0 for hero/aggressor/
 betrayer. Not reliable enough to reuse as a pseudo-label source.
 
@@ -48,7 +48,7 @@ dependency - used here ONLY for sentence boundaries, not for entity_role_tagger'
 role logic).
 
 --- Phase 1 outputs (this script) ---
-1. reports/results/narrative_stance_entity/validation_sample.csv: ~150-200 entity mentions,
+1. artifacts/experiments/narrative_stance_entity/validation_sample.csv: ~150-200 entity mentions,
    balanced across the 3 LOAO authors (IDF, MariaZakharova, BernieSanders - same accounts/
    same split_leave_one_author test sets as sections 19-21). Columns are ordered so the
    annotator-facing ones come first (author, context, target_entity, entity_type,
@@ -58,7 +58,7 @@ role logic).
    CSV) for label definitions and edge-case rules (quotation/negation/sarcasm/reported
    speech/action-vs-entity/multiple-entities/short-context/entity-boundary/entity-type).
    error_category allowed values: see ERROR_CATEGORIES below.
-2. reports/results/narrative_stance_entity/STANCE_ANNOTATION_GUIDE.md: the annotation
+2. artifacts/experiments/narrative_stance_entity/STANCE_ANNOTATION_GUIDE.md: the annotation
    instructions (label definitions + edge-case rules) referenced above.
 3. --show-qualitative: prints a handful of examples per author to the console for a first
    qualitative look (ASCII-safe printing) before/alongside the manual annotation pass.
@@ -68,7 +68,7 @@ Run:
     python experiments/author_generalization/narrative_stance_entity.py --show-qualitative
 
 Next step (NOT this script, NOT yet run): after gold_stance is filled in by hand, compute
-accuracy/agreement + error-category breakdown against reports/results/narrative_stance_entity/
+accuracy/agreement + error-category breakdown against artifacts/experiments/narrative_stance_entity/
 validation_sample.csv, and only if that signal is judged strong enough, build the full 7-variant
 LOAO comparison (sbert_only / sbert_ner / sbert_masked / sbert_soft_topic /
 sbert_masked_soft_topic / sbert_stance_masked / sbert_stance_masked_soft_topic).
@@ -103,7 +103,7 @@ ERROR_CATEGORIES = (
     "reported_speech", "action_vs_entity", "other",
 )
 
-REPORT_DIR = "reports/results/narrative_stance_entity"
+REPORT_DIR = "artifacts/experiments/narrative_stance_entity"
 VALIDATION_SAMPLE_FILE = os.path.join(REPORT_DIR, "validation_sample.csv")
 ANNOTATION_GUIDE_FILE = os.path.join(REPORT_DIR, "STANCE_ANNOTATION_GUIDE.md")
 PILOT_SAMPLE_FILE = os.path.join(REPORT_DIR, "pilot_sample_30.csv")

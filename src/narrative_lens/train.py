@@ -89,7 +89,7 @@ CHECKPOINT_FILES = {
 
 # Shared JSON file that accumulates results from every run, for a research comparison
 # between the three models.
-RESULTS_FILE = "reports/tables/model_comparison_results.json"
+RESULTS_FILE = "artifacts/tables/model_comparison_results.json"
 
 # Narrative <-> index mapping for computing metrics
 label_to_index = {narrative: i for i, narrative in enumerate(NARRATIVES)}
@@ -124,7 +124,7 @@ def run_key_for(split_mode, held_out_topic=None, held_out_author=None, held_out_
                 topic_source="lexicon"):
     """Unique textual identifier for a run, based on the split mode + held-out value (if
     relevant). Used both for cache/checkpoint filenames (split_mode != random) and as a
-    key within reports/tables/model_comparison_results.json."""
+    key within artifacts/tables/model_comparison_results.json."""
     if split_mode == "random":
         return "random"
     elif split_mode == "leave_one_topic":
@@ -526,7 +526,7 @@ def print_and_save_split_summary(train_data, val_data, test_data, model_type, ru
             "distinct_authors": n_authors,
         }
 
-    summary_file = f"reports/results/split_summary_{model_type}_{run_key}.json"
+    summary_file = f"artifacts/experiments/split_summary_{model_type}_{run_key}.json"
     os.makedirs(os.path.dirname(summary_file), exist_ok=True)
     with open(summary_file, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
@@ -840,7 +840,7 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
 
     save_comparison_result(model_type, run_key, "validation", best_val_metrics)
     save_comparison_result(model_type, run_key, "test", test_metrics)
-    save_confusion_matrix_csv(test_metrics, f"reports/results/confusion_matrix_{model_type}_{run_key}_test.csv")
+    save_confusion_matrix_csv(test_metrics, f"artifacts/experiments/confusion_matrix_{model_type}_{run_key}_test.csv")
 
     # Print the learned module weights - relevant only for baseline_fusion (NarrativeDetector)
     if hasattr(detector, "fusion_network") and hasattr(detector.fusion_network, 'module_weights'):
@@ -961,7 +961,7 @@ if __name__ == "__main__":
     # config, seed, and CLI arguments that produced it (see narrative_lens/utils/repro.py).
     run_key = run_key_for(args.split, held_out_topic, args.held_out_author, held_out_authors_list, args.topic_source)
     write_run_metadata(
-        f"reports/results/run_metadata_{args.model}_{run_key}.json",
+        f"artifacts/experiments/run_metadata_{args.model}_{run_key}.json",
         config_path=args.config,
         cli_args=vars(args),
         test_metrics={k: v for k, v in test_metrics.items() if k not in ("confusion_matrix",)},

@@ -24,7 +24,7 @@ Methodology
    whether they fall into one or several near-duplicate clusters, to root-cause the "maria"/"lying"
    BERTopic topic identified in the Phase C quality report.
 
-Outputs (written to reports/results/profiler_prototype/):
+Outputs (written to artifacts/experiments/profiler_prototype/):
   - duplicate_clusters.csv: one row per cluster (>=2 members) with size, type, sample texts.
   - duplicate_analysis_summary.json: corpus-level stats + threshold sensitivity + recommendation.
 
@@ -165,8 +165,8 @@ def main():
         })
     cluster_rows.sort(key=lambda r: -r["size"])
 
-    os.makedirs("reports/results/profiler_prototype", exist_ok=True)
-    clusters_csv_path = "reports/results/profiler_prototype/duplicate_clusters.csv"
+    os.makedirs("artifacts/experiments/profiler_prototype", exist_ok=True)
+    clusters_csv_path = "artifacts/experiments/profiler_prototype/duplicate_clusters.csv"
     pd.DataFrame(cluster_rows).to_csv(clusters_csv_path, index=False, encoding="utf-8-sig")
     print(f"\nWrote cluster details to {clusters_csv_path}")
 
@@ -232,7 +232,7 @@ def main():
             "n_maria_texts_without_near_dup_match": len(maria_singletons),
         },
     }
-    summary_path = "reports/results/profiler_prototype/duplicate_analysis_summary.json"
+    summary_path = "artifacts/experiments/profiler_prototype/duplicate_analysis_summary.json"
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     print(f"\nWrote summary to {summary_path}")

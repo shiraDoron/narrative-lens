@@ -1,0 +1,70 @@
+|--- sbert_pca_1 <= -0.13
+|   |--- sbert_pca_4 <= -0.06
+|   |   |--- sbert_pca_3 <= -0.03
+|   |   |   |--- type_token_ratio <= 0.91
+|   |   |   |   |--- sbert_pca_3 <= -0.13
+|   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |--- sbert_pca_3 >  -0.13
+|   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |--- type_token_ratio >  0.91
+|   |   |   |   |--- avg_word_length <= 4.82
+|   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |   |--- avg_word_length >  4.82
+|   |   |   |   |   |--- class: OpenSourceIntel
+|   |   |--- sbert_pca_3 >  -0.03
+|   |   |   |--- class: abualiexpress
+|   |--- sbert_pca_4 >  -0.06
+|   |   |--- type_token_ratio <= 0.89
+|   |   |   |--- sbert_pca_3 <= -0.12
+|   |   |   |   |--- class: BringThemHomeNow
+|   |   |   |--- sbert_pca_3 >  -0.12
+|   |   |   |   |--- class: BringThemHomeNow
+|   |   |--- type_token_ratio >  0.89
+|   |   |   |--- sbert_pca_5 <= -0.06
+|   |   |   |   |--- class: Israel
+|   |   |   |--- sbert_pca_5 >  -0.06
+|   |   |   |   |--- class: AIPAC
+|--- sbert_pca_1 >  -0.13
+|   |--- text_length <= 280.50
+|   |   |--- sbert_pca_1 <= 0.13
+|   |   |   |--- sbert_pca_5 <= -0.12
+|   |   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |   |--- class: Israel
+|   |   |   |   |--- sentence_count >  1.50
+|   |   |   |   |   |--- class: Israel
+|   |   |   |--- sbert_pca_5 >  -0.12
+|   |   |   |   |--- uppercase_ratio <= 0.03
+|   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |--- uppercase_ratio >  0.03
+|   |   |   |   |   |--- class: AIPAC
+|   |   |--- sbert_pca_1 >  0.13
+|   |   |   |--- entity_count_ORG <= 1.50
+|   |   |   |   |--- entity_density <= 0.06
+|   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |--- entity_density >  0.06
+|   |   |   |   |   |--- class: StandWithUs
+|   |   |   |--- entity_count_ORG >  1.50
+|   |   |   |   |--- unique_token_count <= 18.50
+|   |   |   |   |   |--- class: abualiexpress
+|   |   |   |   |--- unique_token_count >  18.50
+|   |   |   |   |   |--- class: IDF
+|   |--- text_length >  280.50
+|   |   |--- sbert_pca_1 <= 0.13
+|   |   |   |--- sbert_pca_4 <= 0.08
+|   |   |   |   |--- class: abualiexpress
+|   |   |   |--- sbert_pca_4 >  0.08
+|   |   |   |   |--- type_token_ratio <= 0.87
+|   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |   |   |--- type_token_ratio >  0.87
+|   |   |   |   |   |--- class: BringThemHomeNow
+|   |   |--- sbert_pca_1 >  0.13
+|   |   |   |--- sbert_pca_3 <= -0.16
+|   |   |   |   |--- uppercase_ratio <= 0.04
+|   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |--- uppercase_ratio >  0.04
+|   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |--- sbert_pca_3 >  -0.16
+|   |   |   |   |--- stopword_rate <= 0.39
+|   |   |   |   |   |--- class: TheJerusalemPost
+|   |   |   |   |--- stopword_rate >  0.39
+|   |   |   |   |   |--- class: abualiexpress

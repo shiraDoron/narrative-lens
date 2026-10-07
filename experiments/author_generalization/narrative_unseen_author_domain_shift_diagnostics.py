@@ -95,7 +95,7 @@ NOVELTY_FEATURES = [
     "avg_sentence_length", "punctuation_rate", "hashtag_count", "mention_count",
 ]
 
-REPORT_DIR = "reports/results/narrative_unseen_author_domain_shift_diagnostics"
+REPORT_DIR = "artifacts/experiments/narrative_unseen_author_domain_shift_diagnostics"
 DATASET_FILE = os.path.join(REPORT_DIR, "diagnostic_dataset.csv")
 IMPORTANCE_FILE = os.path.join(REPORT_DIR, "feature_importance.csv")
 LEAF_STATS_FILE = os.path.join(REPORT_DIR, "leaf_error_rates.csv")

@@ -36,7 +36,7 @@ import pandas as pd
 from narrative_lens.features.analyze_agendas import AGENDA_PATTERNS, clean_text as clean_lexicon_text, MENTION_RE, HASHTAG_RE
 
 PROFILES_DIR = "data/profiles"
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 
 
 def _extract_agenda_hits(text):
@@ -178,7 +178,7 @@ def main():
                          help="Prefix of the already-run build_profile_prototype.py batch to read from.")
     parser.add_argument("--n-per-narrative", type=int, default=5)
     parser.add_argument("--out", type=str, default=None,
-                         help="Output CSV path (default: reports/results/profiler_prototype/<prefix>_review_sample.csv)")
+                         help="Output CSV path (default: artifacts/experiments/profiler_prototype/<prefix>_review_sample.csv)")
     args = parser.parse_args()
 
     text_profiles_path = os.path.join(PROFILES_DIR, f"text_profiles_{args.prefix}.json")

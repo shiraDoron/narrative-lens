@@ -57,13 +57,13 @@ SEED = 42  # same fixed seed as Sections 18-24
 BERTOPIC_MODEL_PATH = "models/experiments/soft_v2_baseline_seeded"
 BERTOPIC_EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
-FROZEN_SET_FILE = "reports/results/narrative_fresh_author_audit/fresh_author_confirmatory_set.json"
+FROZEN_SET_FILE = "artifacts/experiments/narrative_fresh_author_audit/fresh_author_confirmatory_set.json"
 RAW_ENTITIES_CACHE_FILE = "data/cache/cached_raw_entities_by_text.pt"
 
 CACHE_DIR = "data/cache"
 FEATURE_CACHE_TEMPLATE = os.path.join(CACHE_DIR, "cached_features_fresh_author_confirmatory_{author}.pt")
 CHECKPOINT_DIR = "models/experiments/narrative_fresh_author_confirmatory"
-REPORT_DIR = "reports/results/narrative_fresh_author_confirmatory"
+REPORT_DIR = "artifacts/experiments/narrative_fresh_author_confirmatory"
 RESULTS_FILE = os.path.join(REPORT_DIR, "results.json")
 SUMMARY_FILE = os.path.join(REPORT_DIR, "fresh_author_confirmatory_summary.csv")
 PER_NARRATIVE_FILE = os.path.join(REPORT_DIR, "per_narrative_aggregation.csv")

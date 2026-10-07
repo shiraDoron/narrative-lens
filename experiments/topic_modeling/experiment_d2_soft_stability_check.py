@@ -55,7 +55,7 @@ from narrative_lens.train_topics import load_deduplicated_training_texts
 BASELINE_PATH = "models/experiments/soft_v2_baseline_seeded"
 MERGE_PATH = "models/experiments/soft_v2_expD_merge_rulesbased"
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 N_PER_NARRATIVE = 40  # matches all prior experiments' n=280 quality sample (7 narratives x 40)
 # A soft-distribution change on an "unaffected" text is considered "meaningful" if the top-3 topic
 # id SET changed after mapping, OR the top-1 normalized score moved by more than this amount.

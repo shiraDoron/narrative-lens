@@ -42,7 +42,7 @@ code, per explicit user instruction):
 
 Nothing in fusion.py/train.py/config.py, any `models/best_*.pth` checkpoint, any of
 narrative_topic_compare.py's/narrative_ablation_loao.py's own checkpoints/results/cache files,
-or `reports/tables/model_comparison_results.json` is ever touched or overwritten - all new
+or `artifacts/tables/model_comparison_results.json` is ever touched or overwritten - all new
 outputs go to dedicated paths (see the *_DIR / *_FILE constants below).
 
 Run (from repo root):
@@ -93,14 +93,14 @@ RIGHT_WING_IDX = NARRATIVES.index("Right-wing")
 
 RANDOM_CACHE_FILE = "data/cache/cached_features_narrative_topic_sbert_backbone_random.pt"
 CHECKPOINT_DIR = "models/experiments/narrative_topic_sbert_backbone"
-REPORT_DIR = "reports/results/narrative_topic_sbert_backbone"
+REPORT_DIR = "artifacts/experiments/narrative_topic_sbert_backbone"
 RESULTS_FILE_RANDOM = f"{REPORT_DIR}/results_random.json"
 RESULTS_FILE_LOAO_LDA = f"{REPORT_DIR}/results_loao_lda.json"
 METADATA_FILE = f"{REPORT_DIR}/run_metadata.json"
 
 # Existing, READ-ONLY reuse sources (never modified by this script):
 EXISTING_LOAO_ABLATION_CACHE_TEMPLATE = "data/cache/cached_features_ablation_loao_{author}.pt"
-EXISTING_LOAO_REPORT_DIR = "reports/results/narrative_ablation_loao"
+EXISTING_LOAO_REPORT_DIR = "artifacts/experiments/narrative_ablation_loao"
 EXISTING_LOAO_RESULTS_FILE = f"{EXISTING_LOAO_REPORT_DIR}/results.json"
 LOAO_VARIANT_NAME_FOR_MODE = {
     "none": "sbert_only",

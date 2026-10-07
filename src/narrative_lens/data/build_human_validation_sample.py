@@ -45,7 +45,7 @@ TOPICS = {
     "iran": r"\b(?:iran|tehran|irgc|khamenei|hormuz|nuclear|pezeshkian)\w*\b",
     "ceasefire_hostage_peace": r"\b(?:ceasefire|hostage|peace talks|negotiation|truce|prisoner exchange|cease-fire)\w*\b",
 }
-CANDIDATE_SUMMARY_PATH = Path("reports/results/narrative_audit/matched_event_candidates_summary.csv")
+CANDIDATE_SUMMARY_PATH = Path("artifacts/experiments/narrative_audit/matched_event_candidates_summary.csv")
 
 
 def load_human_authored() -> pd.DataFrame:

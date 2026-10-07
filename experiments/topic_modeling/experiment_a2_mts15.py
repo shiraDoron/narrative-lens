@@ -48,7 +48,7 @@ from experiment_c_representation import _topic_snapshot
 from narrative_lens.topic_modeling.topic_preprocessing import build_multiword_label
 from narrative_lens.train_topics import build_bertopic_model, load_deduplicated_training_texts
 
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 
 # (display name, min_topic_size, save path) - baseline reused unchanged, mts15 is new
 CONFIGS = [

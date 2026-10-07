@@ -55,7 +55,7 @@ from narrative_fresh_author_confirmatory import (  # noqa: E402
 VARIANT = "sbert_original"  # cleanest/least-confounded of the 3 Experiment-25 variants
 FEATURES = ["text_length", "entity_count", "soft_topic_max_prob", "soft_topic_entropy", "classifier_margin"]
 
-REPORT_DIR = "reports/results/narrative_unseen_author_error_diagnostics"
+REPORT_DIR = "artifacts/experiments/narrative_unseen_author_error_diagnostics"
 DATASET_FILE = os.path.join(REPORT_DIR, "diagnostic_dataset.csv")
 IMPORTANCE_FILE = os.path.join(REPORT_DIR, "feature_importance.csv")
 LEAF_STATS_FILE = os.path.join(REPORT_DIR, "leaf_error_rates.csv")

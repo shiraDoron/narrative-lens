@@ -25,7 +25,7 @@ across all 4 natural datasets):
      where soft still finds signal, hard/soft disagreements, most spread-out texts) for
      manual eyeballing of quality.
 
-Outputs (all under reports/results/profiler_prototype/):
+Outputs (all under artifacts/experiments/profiler_prototype/):
   - soft_topic_quality_full.csv        - one row per sampled text, all computed fields
   - soft_topic_quality_summary.json    - the aggregate statistics from point 2/3 above
   - soft_topic_cooccurrence.csv        - top topic-pairs from point 4
@@ -52,7 +52,7 @@ RAW_DATASETS = [
     "data/raw/gpt_natural_dataset.csv",
 ]
 
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 
 # A text is classified "dominant_single_topic" if its single strongest soft topic holds
 # at least this fraction of the TOTAL soft mass assigned across all topics for that text

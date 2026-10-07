@@ -1,0 +1,25 @@
+|--- uppercase_ratio <= 0.16
+|   |--- text_length <= 297.00
+|   |   |--- sbert_pca_3 <= -0.04
+|   |   |   |--- punctuation_rate <= 0.02
+|   |   |   |   |--- class: novaramedia
+|   |   |   |--- punctuation_rate >  0.02
+|   |   |   |   |--- class: ViceNews
+|   |   |--- sbert_pca_3 >  -0.04
+|   |   |   |--- sentence_count <= 2.50
+|   |   |   |   |--- class: novaramedia
+|   |   |   |--- sentence_count >  2.50
+|   |   |   |   |--- class: BernieSanders
+|   |--- text_length >  297.00
+|   |   |--- class: @MiddleEastEye_TG
+|--- uppercase_ratio >  0.16
+|   |--- punctuation_rate <= 0.07
+|   |   |--- text_length <= 100.50
+|   |   |   |--- avg_word_length <= 4.10
+|   |   |   |   |--- class: TheIntercept
+|   |   |   |--- avg_word_length >  4.10
+|   |   |   |   |--- class: TheIntercept
+|   |   |--- text_length >  100.50
+|   |   |   |--- class: TheIntercept
+|   |--- punctuation_rate >  0.07
+|   |   |--- class: TheIntercept

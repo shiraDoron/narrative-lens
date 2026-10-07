@@ -84,8 +84,8 @@ def main():
         print(f"[OK] All narratives have at least 10 agenda categories with {MIN_DOCS}+ matching docs.")
 
     os.makedirs("reports", exist_ok=True)
-    counts.to_csv("reports/tables/agenda_coverage_counts.csv", encoding="utf-8-sig")
-    print("\n[i] Full counts table saved to reports/tables/agenda_coverage_counts.csv")
+    counts.to_csv("artifacts/tables/agenda_coverage_counts.csv", encoding="utf-8-sig")
+    print("\n[i] Full counts table saved to artifacts/tables/agenda_coverage_counts.csv")
 
 
 if __name__ == "__main__":

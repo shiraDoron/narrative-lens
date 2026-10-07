@@ -38,7 +38,7 @@ model directory.
 
 Run (from repo root): python experiments/topic_modeling/experiment_f_corpus_scaling.py
 Resumable: re-running skips any (corpus_size, min_topic_size, seed) config already present in
-reports/results/profiler_prototype/expF_corpus_scaling_results.json.
+artifacts/experiments/profiler_prototype/expF_corpus_scaling_results.json.
 """
 import argparse
 import json
@@ -58,7 +58,7 @@ from corpus_subsampling import load_cleaned_labeled_corpus, stratification_repor
 from experiment_e_lda_baseline import build_dictionary_and_corpus, compute_coherence, tokenize, topic_diversity
 from narrative_lens.topic_modeling.topic_preprocessing import build_multiword_label
 
-REPORT_DIR = "reports/results/profiler_prototype"
+REPORT_DIR = "artifacts/experiments/profiler_prototype"
 CACHE_DIR = "data/cache"
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 

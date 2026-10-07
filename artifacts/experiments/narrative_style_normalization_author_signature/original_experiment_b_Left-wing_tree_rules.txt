@@ -1,0 +1,25 @@
+|--- punctuation_rate <= 0.08
+|   |--- text_length <= 302.50
+|   |   |--- url_count <= 0.50
+|   |   |   |--- sentence_count <= 2.50
+|   |   |   |   |--- class: novaramedia
+|   |   |   |--- sentence_count >  2.50
+|   |   |   |   |--- class: BernieSanders
+|   |   |--- url_count >  0.50
+|   |   |   |--- stopword_rate <= 0.40
+|   |   |   |   |--- class: ViceNews
+|   |   |   |--- stopword_rate >  0.40
+|   |   |   |   |--- class: ViceNews
+|   |--- text_length >  302.50
+|   |   |--- unique_token_count <= 30.50
+|   |   |   |--- class: @MiddleEastEye_TG
+|   |   |--- unique_token_count >  30.50
+|   |   |   |--- class: @MiddleEastEye_TG
+|--- punctuation_rate >  0.08
+|   |--- stopword_rate <= 0.36
+|   |   |--- uppercase_ratio <= 0.07
+|   |   |   |--- class: TheIntercept
+|   |   |--- uppercase_ratio >  0.07
+|   |   |   |--- class: TheIntercept
+|   |--- stopword_rate >  0.36
+|   |   |--- class: TheIntercept

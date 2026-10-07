@@ -39,7 +39,7 @@ see "Audit" below for exactly what is reused vs. newly trained):
 
 Audit performed before writing any new code (per explicit instruction - documented here,
 not just asserted):
-  - Section 21's results.json (reports/results/narrative_entity_shortcut/results.json)
+  - Section 21's results.json (artifacts/experiments/narrative_entity_shortcut/results.json)
     already contains "sbert_only", "sbert_masked", and "sbert_soft_topic" for all 3 LOAO
     authors, computed under the EXACT split/seed/architecture this experiment needs -> all
     3 reused verbatim (verify_reuse_validity() checks this programmatically before allowing
@@ -130,11 +130,11 @@ ORIGINAL_CACHE_TEMPLATE = os.path.join(CACHE_DIR, "cached_features_ablation_loao
 MASKED_CACHE_TEMPLATE = os.path.join(CACHE_DIR, "cached_features_entity_shortcut_{author}.pt")
 
 CHECKPOINT_DIR = "models/experiments/narrative_entity_masking_augmentation"
-REPORT_DIR = "reports/results/narrative_entity_masking_augmentation"
+REPORT_DIR = "artifacts/experiments/narrative_entity_masking_augmentation"
 RESULTS_FILE = os.path.join(REPORT_DIR, "results.json")
 SUMMARY_FILE = os.path.join(REPORT_DIR, "entity_masking_augmentation_summary.csv")
 
-EXISTING_SHORTCUT_RESULTS_FILE = "reports/results/narrative_entity_shortcut/results.json"
+EXISTING_SHORTCUT_RESULTS_FILE = "artifacts/experiments/narrative_entity_shortcut/results.json"
 # new_variant_name -> the variant name it is reused verbatim from in section 21's results.json
 REUSED_VARIANT_MAP = {
     "sbert_original": "sbert_only",

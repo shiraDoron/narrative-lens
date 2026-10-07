@@ -1,5 +1,5 @@
 ﻿"""
-Builds a single cross-model comparison table from reports/tables/model_comparison_results.json
+Builds a single cross-model comparison table from artifacts/tables/model_comparison_results.json
 (the shared results file written by train.py's save_comparison_result() after every run).
 
 Usage (from repo root, after running the 3 models for a given run):
@@ -8,7 +8,7 @@ Usage (from repo root, after running the 3 models for a given run):
     python -m narrative_lens.evaluation.compare_models --run-key loao_IDF --split test
 
 Only needs pandas/json (no torch/transformers) - safe to run locally even though the
-actual training runs happen on Colab; just copy reports/tables/model_comparison_results.json
+actual training runs happen on Colab; just copy artifacts/tables/model_comparison_results.json
 back locally (or run this script on Colab too).
 """
 import argparse
@@ -19,7 +19,7 @@ import pandas as pd
 
 from narrative_lens.config import MODEL_TYPES, NARRATIVES
 
-RESULTS_FILE = "reports/tables/model_comparison_results.json"
+RESULTS_FILE = "artifacts/tables/model_comparison_results.json"
 
 
 def load_results(results_file=RESULTS_FILE):
@@ -81,7 +81,7 @@ def dataframe_to_markdown(df):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Build a cross-model comparison table from reports/tables/model_comparison_results.json."
+        description="Build a cross-model comparison table from artifacts/tables/model_comparison_results.json."
     )
     parser.add_argument("--run-key", default="random",
                         help="run_key to compare across models, e.g. 'random', "
@@ -92,7 +92,7 @@ def main():
     parser.add_argument("--results-file", default=RESULTS_FILE)
     parser.add_argument("--out-prefix", default=None,
                         help="If set, also saves the table to '<out-prefix>.csv' and "
-                             "'<out-prefix>.md'. Default: reports/tables/comparison_<run_key>_<split>.")
+                             "'<out-prefix>.md'. Default: artifacts/tables/comparison_<run_key>_<split>.")
     args = parser.parse_args()
 
     results = load_results(args.results_file)
@@ -101,7 +101,7 @@ def main():
     print(f"\n=== Model comparison: run_key='{args.run_key}' split='{args.split}' ===")
     print(table.to_string(index=False))
 
-    out_prefix = args.out_prefix or f"reports/tables/comparison_{args.run_key}_{args.split}"
+    out_prefix = args.out_prefix or f"artifacts/tables/comparison_{args.run_key}_{args.split}"
     os.makedirs(os.path.dirname(out_prefix), exist_ok=True)
     table.to_csv(f"{out_prefix}.csv", index=False)
     with open(f"{out_prefix}.md", "w", encoding="utf-8") as f:

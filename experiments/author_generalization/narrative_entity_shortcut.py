@@ -111,11 +111,11 @@ MASKED_TEXT_CACHE_FILE = os.path.join(CACHE_DIR, "cached_raw_entities_masked_tex
 EXISTING_ABLATION_CACHE_TEMPLATE = os.path.join(CACHE_DIR, "cached_features_ablation_loao_{author}.pt")
 
 CHECKPOINT_DIR = "models/experiments/narrative_entity_shortcut"
-REPORT_DIR = "reports/results/narrative_entity_shortcut"
+REPORT_DIR = "artifacts/experiments/narrative_entity_shortcut"
 RESULTS_FILE = os.path.join(REPORT_DIR, "results.json")
 
-EXISTING_LOAO_RESULTS_FILE = "reports/results/narrative_ablation_loao/results.json"
-EXISTING_LOAO_REPORT_DIR = "reports/results/narrative_ablation_loao"
+EXISTING_LOAO_RESULTS_FILE = "artifacts/experiments/narrative_ablation_loao/results.json"
+EXISTING_LOAO_REPORT_DIR = "artifacts/experiments/narrative_ablation_loao"
 REUSED_VARIANTS = ("sbert_only", "sbert_ner", "sbert_soft_topic")
 
 NEW_VARIANTS = {

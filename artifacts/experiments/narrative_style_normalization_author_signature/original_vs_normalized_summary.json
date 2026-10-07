@@ -1,0 +1,110 @@
+{
+  "seed": 42,
+  "experiment_a": {
+    "original": {
+      "accuracy": 0.4730948369834506,
+      "macro_f1": 0.46297335686324254,
+      "top_features": [
+        "text_length",
+        "punctuation_rate",
+        "mention_count",
+        "sbert_pca_2",
+        "sbert_pca_1"
+      ]
+    },
+    "normalized": {
+      "accuracy": 0.3760776929937568,
+      "macro_f1": 0.36422765104920013,
+      "top_features": [
+        "text_length",
+        "punctuation_rate",
+        "sbert_pca_3",
+        "sbert_pca_1",
+        "uppercase_ratio"
+      ]
+    },
+    "accuracy_delta": -0.0970171439896938,
+    "macro_f1_delta": -0.0987457058140424
+  },
+  "experiment_b_by_narrative": [
+    {
+      "narrative": "Left-wing",
+      "original_accuracy": 0.815,
+      "normalized_accuracy": 0.714,
+      "accuracy_delta": -0.10099999999999998,
+      "original_macro_f1": 0.8188104836041299,
+      "normalized_macro_f1": 0.7160843125314834,
+      "macro_f1_delta": -0.10272617107264648,
+      "original_beats_baselines": true,
+      "normalized_beats_baselines": true
+    },
+    {
+      "narrative": "Resistance",
+      "original_accuracy": 0.682845744680851,
+      "normalized_accuracy": 0.6283244680851063,
+      "accuracy_delta": -0.05452127659574468,
+      "original_macro_f1": 0.6988920144693376,
+      "normalized_macro_f1": 0.63034866504114,
+      "macro_f1_delta": -0.06854334942819762,
+      "original_beats_baselines": true,
+      "normalized_beats_baselines": true
+    },
+    {
+      "narrative": "Right-wing",
+      "original_accuracy": 0.7193675889328063,
+      "normalized_accuracy": 0.5329380764163373,
+      "accuracy_delta": -0.186429512516469,
+      "original_macro_f1": 0.7026775481360028,
+      "normalized_macro_f1": 0.5194160565748425,
+      "macro_f1_delta": -0.18326149156116034,
+      "original_beats_baselines": true,
+      "normalized_beats_baselines": true
+    },
+    {
+      "narrative": "Russian",
+      "original_accuracy": 0.76,
+      "normalized_accuracy": 0.6622222222222223,
+      "accuracy_delta": -0.09777777777777774,
+      "original_macro_f1": 0.7636357958367096,
+      "normalized_macro_f1": 0.6601555867163851,
+      "macro_f1_delta": -0.10348020912032452,
+      "original_beats_baselines": true,
+      "normalized_beats_baselines": true
+    },
+    {
+      "narrative": "Ukrainian",
+      "original_accuracy": 0.568738229755179,
+      "normalized_accuracy": 0.4921531701192718,
+      "accuracy_delta": -0.07658505963590717,
+      "original_macro_f1": 0.5491136871510822,
+      "normalized_macro_f1": 0.4775601139910989,
+      "macro_f1_delta": -0.07155357315998334,
+      "original_beats_baselines": true,
+      "normalized_beats_baselines": true
+    },
+    {
+      "narrative": "Western",
+      "original_accuracy": 0.8505263157894737,
+      "normalized_accuracy": 0.7221052631578947,
+      "accuracy_delta": -0.128421052631579,
+      "original_macro_f1": 0.8440335047909265,
+      "normalized_macro_f1": 0.7174640633901659,
+      "macro_f1_delta": -0.12656944140076065,
+      "original_beats_baselines": true,
+      "normalized_beats_baselines": true
+    },
+    {
+      "narrative": "Zionist",
+      "original_accuracy": 0.4831981460023175,
+      "normalized_accuracy": 0.49130938586326767,
+      "accuracy_delta": 0.008111239860950192,
+      "original_macro_f1": 0.4521301324463265,
+      "normalized_macro_f1": 0.4844771827569607,
+      "macro_f1_delta": 0.03234705031063423,
+      "original_beats_baselines": true,
+      "normalized_beats_baselines": true
+    }
+  ],
+  "experiment_a_still_beats_baselines_after_normalization": true,
+  "any_experiment_b_narrative_still_beats_baselines_after_normalization": true
+}
