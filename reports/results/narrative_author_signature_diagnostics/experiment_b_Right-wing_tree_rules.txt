@@ -1,0 +1,55 @@
+|--- url_count <= 0.50
+|   |--- text_length <= 288.00
+|   |   |--- uppercase_ratio <= 0.08
+|   |   |   |--- stopword_rate <= 0.35
+|   |   |   |   |--- class: FoxNews
+|   |   |   |--- stopword_rate >  0.35
+|   |   |   |   |--- word_count <= 36.00
+|   |   |   |   |   |--- class: CharlieKirk
+|   |   |   |   |--- word_count >  36.00
+|   |   |   |   |   |--- class: BenShapiro
+|   |   |--- uppercase_ratio >  0.08
+|   |   |   |--- unique_token_count <= 7.50
+|   |   |   |   |--- class: BenShapiro
+|   |   |   |--- unique_token_count >  7.50
+|   |   |   |   |--- sbert_pca_4 <= -0.01
+|   |   |   |   |   |--- class: FoxNews
+|   |   |   |   |--- sbert_pca_4 >  -0.01
+|   |   |   |   |   |--- class: FoxNews
+|   |--- text_length >  288.00
+|   |   |--- sbert_pca_4 <= 0.01
+|   |   |   |--- sbert_pca_4 <= -0.15
+|   |   |   |   |--- class: CharlieKirk
+|   |   |   |--- sbert_pca_4 >  -0.15
+|   |   |   |   |--- class: CharlieKirk
+|   |   |--- sbert_pca_4 >  0.01
+|   |   |   |--- class: @KoheletForum
+|--- url_count >  0.50
+|   |--- sentence_count <= 2.50
+|   |   |--- sbert_pca_5 <= -0.08
+|   |   |   |--- class: ThePostMillennial
+|   |   |--- sbert_pca_5 >  -0.08
+|   |   |   |--- sbert_pca_3 <= 0.05
+|   |   |   |   |--- class: ThePostMillennial
+|   |   |   |--- sbert_pca_3 >  0.05
+|   |   |   |   |--- class: ThePostMillennial
+|   |--- sentence_count >  2.50
+|   |   |--- punctuation_rate <= 0.08
+|   |   |   |--- text_length <= 375.50
+|   |   |   |   |--- type_token_ratio <= 0.95
+|   |   |   |   |   |--- class: WesternJournal
+|   |   |   |   |--- type_token_ratio >  0.95
+|   |   |   |   |   |--- class: Newsmax
+|   |   |   |--- text_length >  375.50
+|   |   |   |   |--- sbert_pca_4 <= 0.01
+|   |   |   |   |   |--- class: @KoheletForum
+|   |   |   |   |--- sbert_pca_4 >  0.01
+|   |   |   |   |   |--- class: @KoheletForum
+|   |   |--- punctuation_rate >  0.08
+|   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |--- class: TheEpochTimes
+|   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |--- sbert_pca_5 <= 0.11
+|   |   |   |   |   |--- class: TheEpochTimes
+|   |   |   |   |--- sbert_pca_5 >  0.11
+|   |   |   |   |   |--- class: TheEpochTimes

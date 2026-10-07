@@ -1,0 +1,43 @@
+|--- mention_count <= 0.50
+|   |--- text_length <= 287.00
+|   |   |--- stopword_rate <= 0.44
+|   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |--- class: QudsNen
+|   |   |   |--- sentence_count >  1.50
+|   |   |   |   |--- class: PressTV
+|   |   |--- stopword_rate >  0.44
+|   |   |   |--- entity_density <= 0.12
+|   |   |   |   |--- class: khamenei_ir
+|   |   |   |--- entity_density >  0.12
+|   |   |   |   |--- class: khamenei_ir
+|   |--- text_length >  287.00
+|   |   |--- avg_sentence_length <= 21.18
+|   |   |   |--- sbert_pca_3 <= 0.22
+|   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |--- sbert_pca_3 >  0.22
+|   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |--- avg_sentence_length >  21.18
+|   |   |   |--- avg_sentence_length <= 32.88
+|   |   |   |   |--- class: AlMayadeenEnglish
+|   |   |   |--- avg_sentence_length >  32.88
+|   |   |   |   |--- class: AlMayadeenEnglish
+|--- mention_count >  0.50
+|   |--- entity_count_ORG <= 0.50
+|   |   |--- text_length <= 111.50
+|   |   |   |--- stopword_rate <= 0.36
+|   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |--- stopword_rate >  0.36
+|   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |--- text_length >  111.50
+|   |   |   |--- class: AlJazeeraEnglish
+|   |--- entity_count_ORG >  0.50
+|   |   |--- stopword_rate <= 0.36
+|   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |--- class: AlJazeeraEnglish
+|   |   |   |--- sentence_count >  1.50
+|   |   |   |   |--- class: PressTV
+|   |   |--- stopword_rate >  0.36
+|   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |--- class: TasnimNewsEN
+|   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |--- class: TasnimNewsEN

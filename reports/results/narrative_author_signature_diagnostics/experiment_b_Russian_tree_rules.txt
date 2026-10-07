@@ -1,0 +1,58 @@
+|--- word_count <= 181.50
+|   |--- mention_count <= 0.50
+|   |   |--- unique_token_count <= 15.50
+|   |   |   |--- sbert_pca_3 <= -0.03
+|   |   |   |   |--- soft_topic_max_prob <= 0.25
+|   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |--- soft_topic_max_prob >  0.25
+|   |   |   |   |   |--- class: Readovka
+|   |   |   |--- sbert_pca_3 >  -0.03
+|   |   |   |   |--- sentence_count <= 1.50
+|   |   |   |   |   |--- class: IntelSlavaZ
+|   |   |   |   |--- sentence_count >  1.50
+|   |   |   |   |   |--- class: KremlinRussia_E
+|   |   |--- unique_token_count >  15.50
+|   |   |   |--- sbert_pca_4 <= -0.02
+|   |   |   |   |--- entity_count_ORG <= 2.50
+|   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |   |--- entity_count_ORG >  2.50
+|   |   |   |   |   |--- class: mod_russia_en
+|   |   |   |--- sbert_pca_4 >  -0.02
+|   |   |   |   |--- text_length <= 281.00
+|   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |--- text_length >  281.00
+|   |   |   |   |   |--- class: IntelSlavaZ
+|   |--- mention_count >  0.50
+|   |   |--- hashtag_count <= 0.50
+|   |   |   |--- soft_topic_entropy <= 0.17
+|   |   |   |   |--- soft_topic_max_prob <= 0.98
+|   |   |   |   |   |--- class: Slavyangrad
+|   |   |   |   |--- soft_topic_max_prob >  0.98
+|   |   |   |   |   |--- class: Slavyangrad
+|   |   |   |--- soft_topic_entropy >  0.17
+|   |   |   |   |--- avg_word_length <= 5.11
+|   |   |   |   |   |--- class: DDGeopolitics
+|   |   |   |   |--- avg_word_length >  5.11
+|   |   |   |   |   |--- class: DDGeopolitics
+|   |   |--- hashtag_count >  0.50
+|   |   |   |--- sbert_pca_1 <= -0.13
+|   |   |   |   |--- sbert_pca_5 <= 0.07
+|   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |   |--- sbert_pca_5 >  0.07
+|   |   |   |   |   |--- class: MariaZakharova
+|   |   |   |--- sbert_pca_1 >  -0.13
+|   |   |   |   |--- text_length <= 273.50
+|   |   |   |   |   |--- class: mfa_russia
+|   |   |   |   |--- text_length >  273.50
+|   |   |   |   |   |--- class: MariaZakharova
+|--- word_count >  181.50
+|   |--- type_token_ratio <= 0.67
+|   |   |--- class: mod_russia_en
+|   |--- type_token_ratio >  0.67
+|   |   |--- hashtag_count <= 0.50
+|   |   |   |--- class: Rybar
+|   |   |--- hashtag_count >  0.50
+|   |   |   |--- stopword_rate <= 0.42
+|   |   |   |   |--- class: Rybar
+|   |   |   |--- stopword_rate >  0.42
+|   |   |   |   |--- class: Rybar

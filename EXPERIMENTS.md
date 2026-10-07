@@ -3081,6 +3081,146 @@ considered at any point in this section.
 
 ---
 
+## 27. Author Signature Diagnostics — does the text itself identify its author? (Decision Tree)
+
+**Status: COMPLETE. Positive result** — reframes, but does not contradict, Section 26's negative
+finding (see Interpretation).
+
+**Purpose.** Section 26 tried to predict *which* LOAO test examples get misclassified, and
+found no stable per-example pattern. This section asks a more direct, prior question instead:
+**does the text carry an author-specific style/content signature at all**, independent of any
+trained narrative classifier? If a shallow, interpretable Decision Tree can recover `author`
+identity from engineered textual features — especially *within a single fixed narrative*, where
+narrative can no longer act as a proxy for author — that is direct evidence that author-specific
+signal exists in the feature space the real classifiers consume, which plausibly contributes to
+unseen-author degradation even though Section 26 could not localize *where* it bites.
+
+Script: `experiments/author_generalization/narrative_author_signature_diagnostics.py`. This is a
+different research question from Experiments 25/26 and does **not** reuse their exclusion list —
+IDF/MariaZakharova/BernieSanders were only excluded there because those experiments tested
+narrative-*classifier* generalization (a held-out author must never have been used to pick a
+policy). This script never trains or touches a narrative classifier, so all 3 are included here
+as ordinary real authors.
+
+**Data.** Real (non-synthetic) authors with ≥100 examples (`MIN_EXAMPLES_PER_AUTHOR`) — **50
+authors, 10,091 rows total**, spanning all 7 narratives (5–9 authors per narrative).
+
+**Target:** `author` (`author_source`) — never used as a feature.
+
+**Features (28 total, none encode author/source/platform identity directly):**
+- *Style/lexical* (regex + `analyze_agendas.tokenize`): `text_length`, `word_count`,
+  `sentence_count`, `avg_sentence_length`, `punctuation_rate`, `exclamation_rate`,
+  `question_rate`, `uppercase_ratio`, `hashtag_count`, `mention_count`, `url_count`,
+  `avg_word_length`, `stopword_rate`, `type_token_ratio`, `unique_token_count`.
+- *Entity counts/types* (reused from Experiment 24's corpus-wide raw-entities cache, no new NER
+  inference): `entity_count_total`, `entity_count_PER`, `entity_count_ORG`, `entity_count_LOC`,
+  `entity_count_MISC`, `entity_density`.
+- *Topic* (BERTopic Soft Topic Distribution, same model as Experiments 18–26, summarized to 2
+  scalars so a shallow tree can use it): `soft_topic_max_prob`, `soft_topic_entropy`.
+- *Semantic representation* (frozen SBERT `all-MiniLM-L6-v2` embedding, reduced via PCA — fit on
+  this script's own dataset, unsupervised, no author label used in the fit — top 5 components):
+  `sbert_pca_1`..`sbert_pca_5`.
+
+### Experiment A — global author prediction (all narratives pooled)
+Decision Tree predicts `author` across all 50 authors/7 narratives pooled together. **Caveat
+disclosed up front:** in this pooled setting, narrative is itself informative about author (most
+authors write in only one narrative) even though narrative is never used as a feature directly —
+some engineered features (soft-topic, entities) correlate with narrative/topic. Success here
+could just mean "the features distinguish narratives/topics, and author is a proxy for that" —
+Experiment B below is the decisive test that controls for this.
+
+### Experiment B — within-narrative author prediction (the decisive test)
+Same tree/same features, run **separately within each of the 7 narratives** (narrative held
+perfectly constant). If the tree still recovers author identity here, success cannot be
+explained by narrative/topic acting as a proxy for author.
+
+### Methodology
+- Evaluation is always on held-out texts: **`StratifiedKFold`, 5-fold, shuffled, seed 42**, with
+  `cross_val_predict` to get genuine out-of-fold predictions for every example — accuracy/
+  macro-F1/confusion matrices are computed from these out-of-fold predictions, never from
+  training-set accuracy.
+- `min_samples_leaf=25`, `class_weight="balanced"`, seed 42 throughout.
+- Experiment A tried `max_depth ∈ {5, 10, 15, unlimited}` (~50 classes need more splits than a
+  3–5-deep tree can offer); Experiment B tried `max_depth ∈ {3, 4, 5}` (kept small/interpretable
+  — each narrative only has 5–9 classes). The depth with the best out-of-fold macro-F1 was then
+  re-fit on all data (standard practice) purely for feature importance/tree rules — that
+  full-data fit's own accuracy is never reported as a generalization metric.
+- No further feature engineering was attempted (results were positive on the first pass).
+
+### Results
+
+**Experiment A (global, n=10,091, 50 authors):** majority-author baseline 4.0%, chance baseline
+2.0%.
+
+| `max_depth` | OOF accuracy | OOF macro-F1 |
+|---|---|---|
+| 5 | 26.8% | 20.8% |
+| 10 | 45.7% | 44.1% |
+| 15 | 47.3% | 46.3% |
+| unlimited | 47.3% | 46.3% |
+
+Best depth (unlimited) **beats both baselines by a wide margin** (47.3% vs. 4.0%/2.0%). Top
+features (full-data fit): `text_length`, `punctuation_rate`, `mention_count`, `sbert_pca_2`,
+`sbert_pca_1`.
+
+**Experiment B (within-narrative, decisive test) — best-depth out-of-fold results per narrative:**
+
+| Narrative | n authors | n examples | Majority baseline | Chance baseline | Best depth | OOF accuracy | OOF macro-F1 | Beats both baselines |
+|---|---|---|---|---|---|---|---|---|
+| Western | 5 | 950 | 22.0% | 20.0% | 5 | **85.1%** | 84.4% | ✅ |
+| Left-wing | 5 | 1,000 | 20.0% | 20.0% | 4 | **81.5%** | 81.9% | ✅ |
+| Russian | 9 | 1,800 | 11.1% | 11.1% | 5 | **76.0%** | 76.4% | ✅ |
+| Right-wing | 8 | 1,518 | 13.2% | 12.5% | 5 | **71.9%** | 70.3% | ✅ |
+| Resistance | 6 | 1,504 | 26.6% | 16.7% | 4 | **68.3%** | 69.9% | ✅ |
+| Ukrainian | 8 | 1,593 | 12.6% | 12.5% | 5 | **56.9%** | 54.9% | ✅ |
+| Zionist | 9 | 1,726 | 11.7% | 11.1% | 5 | **48.3%** | 45.2% | ✅ |
+
+**Every single narrative beats both baselines, several by a very wide margin** (e.g. Western
+85.1% vs. 20–22%; Russian 76.0% vs. 11.1%) — with narrative held perfectly constant, so this
+cannot be explained by narrative acting as an author proxy.
+
+Top-5 feature importances (full-data fit at each narrative's best depth) are dominated by
+**style/formatting features, not semantic content**: `text_length`/`word_count` appear in the
+top 5 for all 7 narratives; `url_count`, `mention_count`, `hashtag_count`, `punctuation_rate`,
+`sentence_count`, `stopword_rate`, `uppercase_ratio` fill most of the remaining slots.
+`sbert_pca_*` components appear in 3/7 narratives' top 5 (Right-wing, Western, Zionist) but
+never dominate; raw entity-type counts and soft-topic features rarely crack the top 5. Full
+per-narrative tables: `reports/results/narrative_author_signature_diagnostics/experiment_b_
+<narrative>_feature_importance.csv`.
+
+Artifacts: `reports/results/narrative_author_signature_diagnostics/` (`diagnostic_dataset.csv`;
+per-scope `feature_importance.csv`, `confusion_matrix.csv`, `tree_rules.txt`, `tree.png` for
+Experiment A and each of the 7 Experiment-B narratives; `summary.json` with the full numeric
+record for reproducibility).
+
+### Interpretation
+Author identity is **recoverable from simple textual/stylistic features — primarily post length,
+punctuation/formatting (URLs, mentions, hashtags), and sentence structure, not narrative-specific
+semantic content — even within a fixed narrative**, supporting the presence of author-specific
+stylistic signals that may contribute to unseen-author degradation: a LOAO model can partially
+pick up on an author's formatting/length habits as a shortcut correlated with narrative in
+training, and that shortcut necessarily breaks for a never-seen author with different habits.
+This is direct, stronger evidence than Section 26's inconclusive per-example error analysis — but
+it does **not** contradict Section 26: Section 26 asked "can we predict *which* examples a
+specific trained classifier gets wrong", while this section asks "does *any* author signal exist
+in the raw features at all" — the answer to the second question is clearly yes, even though the
+first question's diagnostic features/method could not turn that signal into a working per-example
+error predictor for the particular LOAO checkpoints tested. Both results stand as documented.
+
+**This does not prove causality** for unseen-author degradation (no controlled ablation removing
+style features from the real classifiers and re-measuring LOAO performance was run here — that
+would be the natural next step if pursued), but it is the clearest evidence in this project that
+a non-trivial, learnable author signature exists in the text/feature space independent of
+narrative.
+
+### Decision
+No further feature engineering was attempted (per the pre-agreed one-pass rule for a positive
+result). No production model or pipeline was changed — this remains a diagnostic/interpretability
+study. Documented, artifacts saved, tests passing, committed and pushed per the project's standing
+norm (Section 26).
+
+---
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -3104,3 +3244,4 @@ considered at any point in this section.
 | 24. Selective Entity-Masking Augmentation — exploratory test of a test-informed hypothesis | 4 new variants masking only PER, or PER+MISC (policy fixed in advance per Section 23's audit), ± Soft Topics; same 3 LOAO authors/split/seed/architecture as #18-23; 3 of 7 variants reused verbatim from #23 | `sbert_person_misc_masked_aug_soft_topic` is the only variant meeting a pre-registered 5-condition success pattern: Bernie recall 24.5%→41.0% (best in project) and →Right-wing 57.5%→39.0%, Maria preserved (89.5%→88.0%), IDF's cost reduced vs. full masking (−15.5pp vs. −24.5pp) but not eliminated, and not explained by the duplicated-original control alone. Average recall is essentially tied with `sbert_original` (59.0% vs. 59.2%) | **Exploratory evidence only — not validated or confirmed** (masking policy was chosen using the same IDF test set this experiment evaluates on); no production change; required next step (not done here) is testing this policy on fresh held-out authors never used for hypothesis generation in Sections 19-24 |
 | 25. Fresh-Author Confirmatory Evaluation — pre-registered test of Section 24's candidate on unseen authors | 14 fresh authors (2/narrative, seed=42, frozen before training), 3 frozen variants (`sbert_original`, `sbert_soft_topic`, `sbert_person_misc_masked_aug_soft_topic`), same architecture/hyperparameters/seed as #18-24; pre-registered 3pp non-inferiority margin (mean+median) and ≤20%-of-authors->10pp-degradation guardrail | Guardrail passes (1/14 authors degrade >10pp) and mean recall is ~tied (37.1% vs. 39.0%), but median recall fails the margin (32.7% vs. 38.8%, baseline−3pp=35.8%); dominant-error concentration is *not* reduced (45.8% vs. 44.2% baseline); per-narrative gains are limited to Right-wing/Left-wing while Resistance/Russian/Ukrainian/Zionist regress | **NON-INFERIOR = FALSE** — Section 24's policy does not replicate as confirmatory; entity-masking-augmentation line of investigation (Sections 21-25) closed as a negative/non-generalizing result, no production adoption |
 | 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree) | First pass: 5 generic features (`text_length`/`entity_count`/`soft_topic_max_prob`/`soft_topic_entropy`/`classifier_margin`), training accuracy only. Second pass: 11 domain-shift/novelty/style features (SBERT similarity-to-train, entity/lexical novelty, topic-distribution distance, basic style), `classifier_margin` excluded, evaluated via `StratifiedGroupKFold` (5-fold, grouped by author) at depth 3/4/5, on all 3,009 test examples from Section 25's 14 fresh authors | First pass: training accuracy 62.4% vs. 59.9% majority baseline (+2.5pp), dominated by near-tautological `classifier_margin`. Second pass: grouped CV accuracy 56.7%/57.3%/59.0% (depth 3/4/5) — **none beat the 59.9% majority baseline**; full-data-fit feature importance (`distance_to_same_narrative_centroid`≈0.59, `topic_distribution_distance`≈0.30) is not supported by the CV result, and per-leaf error rates show no stable/monotonic pattern | **Closed as negative/inconclusive per the user's pre-registered stopping rule** — not extended to Random Forest or further feature engineering; no evidence domain shift *isn't* the cause, only that no stable per-example pattern was detectable with the tried features/method |
+| 27. Author Signature Diagnostics — does the text identify its author? (Decision Tree) | Decision Tree predicts `author` (never a feature) from 28 style/lexical/entity/topic/SBERT-PCA features, on 50 real authors (10,091 rows, ≥100 examples each, all 7 narratives). Experiment A: all narratives pooled. Experiment B (decisive): same tree, run separately **within each narrative** (narrative held constant). `StratifiedKFold` 5-fold + `cross_val_predict` for honest out-of-fold accuracy/macro-F1/confusion matrices | Experiment A: 47.3% OOF accuracy vs. 4.0%/2.0% (majority/chance) baselines. Experiment B: **every one of the 7 narratives beat both baselines**, several by a wide margin (Western 85.1% vs. 20–22%; Russian 76.0% vs. 11.1%; Zionist, the weakest, still 48.3% vs. 11.1–11.7%) — narrative held constant, so this cannot be a narrative-as-author-proxy artifact. Top features were dominated by style/formatting (`text_length`, `word_count`, `url_count`, `mention_count`, `punctuation_rate`), not semantic content | **Positive result, closed after one pass.** Author identity is recoverable from simple stylistic/formatting features even within a fixed narrative — direct evidence of an author-specific signature that plausibly contributes to unseen-author (LOAO) degradation. Complements rather than contradicts Section 26 (different question: "does author signal exist" vs. "can we predict which examples a given classifier gets wrong"). No production change made; no causal ablation run |

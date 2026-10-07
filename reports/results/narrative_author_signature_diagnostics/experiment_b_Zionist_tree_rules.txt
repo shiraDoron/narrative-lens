@@ -1,0 +1,37 @@
+|--- mention_count <= 2.50
+|   |--- url_count <= 0.50
+|   |   |--- sbert_pca_3 <= -0.20
+|   |   |   |--- uppercase_ratio <= 0.05
+|   |   |   |   |--- uppercase_ratio <= 0.04
+|   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |   |--- uppercase_ratio >  0.04
+|   |   |   |   |   |--- class: southfirstresponders
+|   |   |   |--- uppercase_ratio >  0.05
+|   |   |   |   |--- sbert_pca_1 <= 0.19
+|   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |--- sbert_pca_1 >  0.19
+|   |   |   |   |   |--- class: IDF
+|   |   |--- sbert_pca_3 >  -0.20
+|   |   |   |--- sbert_pca_1 <= 0.13
+|   |   |   |   |--- sbert_pca_5 <= -0.12
+|   |   |   |   |   |--- class: Israel
+|   |   |   |   |--- sbert_pca_5 >  -0.12
+|   |   |   |   |   |--- class: AIPAC
+|   |   |   |--- sbert_pca_1 >  0.13
+|   |   |   |   |--- entity_count_ORG <= 1.50
+|   |   |   |   |   |--- class: StandWithUs
+|   |   |   |   |--- entity_count_ORG >  1.50
+|   |   |   |   |   |--- class: IDF
+|   |--- url_count >  0.50
+|   |   |--- text_length <= 363.00
+|   |   |   |--- sbert_pca_4 <= -0.07
+|   |   |   |   |--- class: OpenSourceIntel
+|   |   |   |--- sbert_pca_4 >  -0.07
+|   |   |   |   |--- class: OpenSourceIntel
+|   |   |--- text_length >  363.00
+|   |   |   |--- class: OpenSourceIntel
+|--- mention_count >  2.50
+|   |--- sbert_pca_3 <= -0.09
+|   |   |--- class: BringThemHomeNow
+|   |--- sbert_pca_3 >  -0.09
+|   |   |--- class: BringThemHomeNow

@@ -1,0 +1,283 @@
+{
+  "seed": 42,
+  "min_examples_per_author": 100,
+  "n_features": 28,
+  "features": [
+    "text_length",
+    "word_count",
+    "sentence_count",
+    "avg_sentence_length",
+    "punctuation_rate",
+    "exclamation_rate",
+    "question_rate",
+    "uppercase_ratio",
+    "hashtag_count",
+    "mention_count",
+    "url_count",
+    "avg_word_length",
+    "stopword_rate",
+    "type_token_ratio",
+    "unique_token_count",
+    "entity_count_total",
+    "entity_count_PER",
+    "entity_count_ORG",
+    "entity_count_LOC",
+    "entity_count_MISC",
+    "entity_density",
+    "soft_topic_max_prob",
+    "soft_topic_entropy",
+    "sbert_pca_1",
+    "sbert_pca_2",
+    "sbert_pca_3",
+    "sbert_pca_4",
+    "sbert_pca_5"
+  ],
+  "experiment_a": {
+    "scope": "Experiment A - global author prediction (all narratives pooled)",
+    "n_authors": 50,
+    "n_examples": 10091,
+    "majority_baseline": 0.03963928252898623,
+    "chance_baseline": 0.02,
+    "depth_results": {
+      "5": {
+        "accuracy": 0.26776335348330194,
+        "macro_f1": 0.20790191027042876
+      },
+      "10": {
+        "accuracy": 0.4565454365275988,
+        "macro_f1": 0.4411937785350798
+      },
+      "15": {
+        "accuracy": 0.4730948369834506,
+        "macro_f1": 0.46292264037232683
+      },
+      "unlimited": {
+        "accuracy": 0.4730948369834506,
+        "macro_f1": 0.46297335686324254
+      }
+    },
+    "best_depth": "unlimited",
+    "best_depth_beats_both_baselines": true,
+    "top_features": [
+      "text_length",
+      "punctuation_rate",
+      "mention_count",
+      "sbert_pca_2",
+      "sbert_pca_1"
+    ]
+  },
+  "experiment_b_by_narrative": [
+    {
+      "scope": "Experiment B - within-narrative author prediction (Left-wing)",
+      "n_authors": 5,
+      "n_examples": 1000,
+      "majority_baseline": 0.2,
+      "chance_baseline": 0.2,
+      "depth_results": {
+        "3": {
+          "accuracy": 0.743,
+          "macro_f1": 0.7187644232448035
+        },
+        "4": {
+          "accuracy": 0.815,
+          "macro_f1": 0.8188104836041299
+        },
+        "5": {
+          "accuracy": 0.797,
+          "macro_f1": 0.8018440611698818
+        }
+      },
+      "best_depth": 4,
+      "best_depth_beats_both_baselines": true,
+      "top_features": [
+        "punctuation_rate",
+        "text_length",
+        "url_count",
+        "sentence_count",
+        "stopword_rate"
+      ]
+    },
+    {
+      "scope": "Experiment B - within-narrative author prediction (Resistance)",
+      "n_authors": 6,
+      "n_examples": 1504,
+      "majority_baseline": 0.26595744680851063,
+      "chance_baseline": 0.16666666666666666,
+      "depth_results": {
+        "3": {
+          "accuracy": 0.6422872340425532,
+          "macro_f1": 0.6749516211725174
+        },
+        "4": {
+          "accuracy": 0.682845744680851,
+          "macro_f1": 0.6988920144693376
+        },
+        "5": {
+          "accuracy": 0.6662234042553191,
+          "macro_f1": 0.6824655200413744
+        }
+      },
+      "best_depth": 4,
+      "best_depth_beats_both_baselines": true,
+      "top_features": [
+        "mention_count",
+        "stopword_rate",
+        "entity_count_ORG",
+        "text_length",
+        "sentence_count"
+      ]
+    },
+    {
+      "scope": "Experiment B - within-narrative author prediction (Right-wing)",
+      "n_authors": 8,
+      "n_examples": 1518,
+      "majority_baseline": 0.13175230566534915,
+      "chance_baseline": 0.125,
+      "depth_results": {
+        "3": {
+          "accuracy": 0.5915678524374176,
+          "macro_f1": 0.532858007259227
+        },
+        "4": {
+          "accuracy": 0.6620553359683794,
+          "macro_f1": 0.6079850916990222
+        },
+        "5": {
+          "accuracy": 0.7193675889328063,
+          "macro_f1": 0.7026775481360028
+        }
+      },
+      "best_depth": 5,
+      "best_depth_beats_both_baselines": true,
+      "top_features": [
+        "sentence_count",
+        "url_count",
+        "text_length",
+        "punctuation_rate",
+        "sbert_pca_4"
+      ]
+    },
+    {
+      "scope": "Experiment B - within-narrative author prediction (Russian)",
+      "n_authors": 9,
+      "n_examples": 1800,
+      "majority_baseline": 0.1111111111111111,
+      "chance_baseline": 0.1111111111111111,
+      "depth_results": {
+        "3": {
+          "accuracy": 0.5116666666666667,
+          "macro_f1": 0.4127005515687494
+        },
+        "4": {
+          "accuracy": 0.7161111111111111,
+          "macro_f1": 0.6830364177536948
+        },
+        "5": {
+          "accuracy": 0.76,
+          "macro_f1": 0.7636357958367096
+        }
+      },
+      "best_depth": 5,
+      "best_depth_beats_both_baselines": true,
+      "top_features": [
+        "hashtag_count",
+        "word_count",
+        "mention_count",
+        "unique_token_count",
+        "soft_topic_entropy"
+      ]
+    },
+    {
+      "scope": "Experiment B - within-narrative author prediction (Ukrainian)",
+      "n_authors": 8,
+      "n_examples": 1593,
+      "majority_baseline": 0.12554927809165098,
+      "chance_baseline": 0.125,
+      "depth_results": {
+        "3": {
+          "accuracy": 0.4475831763967357,
+          "macro_f1": 0.40175899714439933
+        },
+        "4": {
+          "accuracy": 0.5241682360326428,
+          "macro_f1": 0.4918501477804369
+        },
+        "5": {
+          "accuracy": 0.568738229755179,
+          "macro_f1": 0.5491136871510822
+        }
+      },
+      "best_depth": 5,
+      "best_depth_beats_both_baselines": true,
+      "top_features": [
+        "text_length",
+        "mention_count",
+        "entity_count_ORG",
+        "unique_token_count",
+        "url_count"
+      ]
+    },
+    {
+      "scope": "Experiment B - within-narrative author prediction (Western)",
+      "n_authors": 5,
+      "n_examples": 950,
+      "majority_baseline": 0.22,
+      "chance_baseline": 0.2,
+      "depth_results": {
+        "3": {
+          "accuracy": 0.828421052631579,
+          "macro_f1": 0.81680025605642
+        },
+        "4": {
+          "accuracy": 0.8463157894736842,
+          "macro_f1": 0.8406128965871533
+        },
+        "5": {
+          "accuracy": 0.8505263157894737,
+          "macro_f1": 0.8440335047909265
+        }
+      },
+      "best_depth": 5,
+      "best_depth_beats_both_baselines": true,
+      "top_features": [
+        "word_count",
+        "url_count",
+        "text_length",
+        "sbert_pca_1",
+        "uppercase_ratio"
+      ]
+    },
+    {
+      "scope": "Experiment B - within-narrative author prediction (Zionist)",
+      "n_authors": 9,
+      "n_examples": 1726,
+      "majority_baseline": 0.11703360370799537,
+      "chance_baseline": 0.1111111111111111,
+      "depth_results": {
+        "3": {
+          "accuracy": 0.3354577056778679,
+          "macro_f1": 0.27876039083064874
+        },
+        "4": {
+          "accuracy": 0.4466975666280417,
+          "macro_f1": 0.3586918496721627
+        },
+        "5": {
+          "accuracy": 0.4831981460023175,
+          "macro_f1": 0.4521301324463265
+        }
+      },
+      "best_depth": 5,
+      "best_depth_beats_both_baselines": true,
+      "top_features": [
+        "mention_count",
+        "url_count",
+        "sbert_pca_3",
+        "sbert_pca_1",
+        "uppercase_ratio"
+      ]
+    }
+  ],
+  "experiment_a_beats_both_baselines": true,
+  "any_experiment_b_narrative_beats_both_baselines": true
+}

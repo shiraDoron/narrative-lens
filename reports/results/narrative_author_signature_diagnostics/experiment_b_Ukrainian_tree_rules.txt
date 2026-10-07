@@ -1,0 +1,52 @@
+|--- mention_count <= 0.50
+|   |--- entity_count_ORG <= 2.50
+|   |   |--- url_count <= 0.50
+|   |   |   |--- text_length <= 269.50
+|   |   |   |   |--- sbert_pca_4 <= 0.05
+|   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |--- sbert_pca_4 >  0.05
+|   |   |   |   |   |--- class: Ukraine
+|   |   |   |--- text_length >  269.50
+|   |   |   |   |--- unique_token_count <= 27.50
+|   |   |   |   |   |--- class: ZelenskyyUa
+|   |   |   |   |--- unique_token_count >  27.50
+|   |   |   |   |   |--- class: United24Media
+|   |   |--- url_count >  0.50
+|   |   |   |--- type_token_ratio <= 0.89
+|   |   |   |   |--- class: KyivIndependent
+|   |   |   |--- type_token_ratio >  0.89
+|   |   |   |   |--- class: KyivIndependent
+|   |--- entity_count_ORG >  2.50
+|   |   |--- punctuation_rate <= 0.02
+|   |   |   |--- text_length <= 439.00
+|   |   |   |   |--- class: SuspilneNews
+|   |   |   |--- text_length >  439.00
+|   |   |   |   |--- class: United24Media
+|   |   |--- punctuation_rate >  0.02
+|   |   |   |--- text_length <= 304.50
+|   |   |   |   |--- sbert_pca_5 <= -0.04
+|   |   |   |   |   |--- class: DefenceU
+|   |   |   |   |--- sbert_pca_5 >  -0.04
+|   |   |   |   |   |--- class: UkraineNow
+|   |   |   |--- text_length >  304.50
+|   |   |   |   |--- sbert_pca_1 <= -0.17
+|   |   |   |   |   |--- class: SuspilneNews
+|   |   |   |   |--- sbert_pca_1 >  -0.17
+|   |   |   |   |   |--- class: UkraineNow
+|--- mention_count >  0.50
+|   |--- text_length <= 292.00
+|   |   |--- sbert_pca_4 <= -0.10
+|   |   |   |--- class: DefenceU
+|   |   |--- sbert_pca_4 >  -0.10
+|   |   |   |--- sbert_pca_3 <= 0.12
+|   |   |   |   |--- punctuation_rate <= 0.04
+|   |   |   |   |   |--- class: Ukraine
+|   |   |   |   |--- punctuation_rate >  0.04
+|   |   |   |   |   |--- class: DefenceU
+|   |   |   |--- sbert_pca_3 >  0.12
+|   |   |   |   |--- class: ZelenskyyUa
+|   |--- text_length >  292.00
+|   |   |--- sbert_pca_4 <= 0.14
+|   |   |   |--- class: Babel
+|   |   |--- sbert_pca_4 >  0.14
+|   |   |   |--- class: Babel
