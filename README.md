@@ -174,12 +174,11 @@ raw text
 > Today it only produces a BERTopic topic assignment (hard id or soft distribution); there is no
 > stance/sentiment signal left in it.
 
-What each module contributes:
+What each module contributes (see "A few terms used throughout this README and the code" above
+for what NER/SRL stand for):
 
-- **NER** — which people/organizations/places are named (e.g. mentioning "NATO" vs. "the
-  resistance" is itself a narrative signal).
-- **SRL / advcl** — the sentence's who-did-what-to-whom structure (e.g. who is framed as the
-  actor vs. the victim).
+- **NER** — e.g. mentioning "NATO" vs. "the resistance" is itself a narrative signal.
+- **SRL / advcl** — e.g. who is framed as the actor vs. the victim in a sentence.
 - **Emotion + agency** — the dominant emotion expressed, plus whether the text uses active or
   passive voice (passive voice often hides who is responsible for an action).
 - **Topic representation** (`stance.py` — legacy module name, see naming note above) — which
