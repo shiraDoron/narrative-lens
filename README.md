@@ -44,8 +44,9 @@ primary subject of investigation in this project.
 
 ## Architecture at a glance
 
-Every text goes through several feature-extraction steps in parallel, and their outputs are
-combined ("fused") into a single prediction:
+Every text goes through several feature-extraction steps in parallel — each one a separate,
+frozen "expert" module that turns the raw text into a narrative-oriented signal — and their
+outputs are combined ("fused") into a single prediction:
 
 ```
 raw text
@@ -59,15 +60,35 @@ raw text
    +-> (Hybrid only) + frozen SBERT sentence embedding + agenda/ideology lexicon vectors
 ```
 
+What each module contributes:
+
+- **NER** — which people/organizations/places are named (e.g. mentioning "NATO" vs. "the
+  resistance" is itself a narrative signal).
+- **SRL / advcl** — the sentence's who-did-what-to-whom structure (e.g. who is framed as the
+  actor vs. the victim).
+- **Emotion + agency** — the dominant emotion expressed, plus whether the text uses active or
+  passive voice (passive voice often hides who is responsible for an action).
+- **Topic/stance** — which BERTopic topic the text belongs to, used as a proxy for stance.
+- **Reliability** — a confidence score for how subjective/unreliable the source sounds.
+
+None of these modules are trained together with the classifier — they run once per text as
+fixed, frozen feature extractors. Only the **fusion layer** (`fusion.py`) that combines their
+outputs into a final narrative label is what actually gets trained.
+
 To answer the research question, three classifier variants share this same feature-extraction
-machinery but differ in what they feed into the final decision step, and are trained/evaluated
-on **identical splits** for a fair comparison (`train.py --model ...`):
+machinery but differ only in what they feed into that final decision step, and are
+trained/evaluated on **identical splits** for a fair comparison (`train.py --model ...`):
 
 | `--model` | Class (`fusion.py`) | Description |
 |---|---|---|
-| `baseline_fusion` | `NarrativeDetector` | Linear weighted-sum fusion of the 5 feature layers above |
-| `sbert_only` | `SBERTOnlyDetector` | Baseline: frozen SBERT embedding → MLP only, no engineered features |
+| `baseline_fusion` | `NarrativeDetector` | Linear weighted-sum fusion of the 5 feature layers above — no SBERT |
+| `sbert_only` | `SBERTOnlyDetector` | Baseline: frozen SBERT embedding → MLP only, no engineered features at all |
 | `hybrid` | `HybridNarrativeDetector` | SBERT + all 5 engineered feature layers + agenda/ideology lexicon vectors → MLP |
+
+In other words: `baseline_fusion` tests the engineered features alone, `sbert_only` tests plain
+SBERT alone, and `hybrid` tests whether combining both beats either one individually. Per
+[`docs/results.md`](docs/results.md), `sbert_only` currently wins on a random split — the
+engineered features aren't yet adding measurable value over SBERT alone.
 
 ## Project layout
 
