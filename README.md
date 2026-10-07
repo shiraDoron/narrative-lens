@@ -1,16 +1,41 @@
 # Narrative Detection & Profiling Pipeline
 
-A research/thesis project studying how political/geopolitical text can be automatically
-classified into a fixed set of **narratives** — `Zionist`, `Resistance`, `Western`, `Russian`,
-`Ukrainian`, `Right-wing`, `Left-wing` — and how the agendas, rhetoric and ideology behind each
-narrative can be profiled without supervision (`analyze_agendas.py`, independent of the trained
-classifier).
+## What this project does
 
-**Research question**: does a hybrid architecture that fuses frozen sentence embeddings (SBERT)
-with engineered linguistic features (named entities, semantic roles, emotion/agency, topic
-assignment, source reliability) out-perform a purely learned (SBERT + MLP) or a purely
-linear-fusion baseline — and how well does any of it generalize to unseen topics/authors rather
-than just an i.i.d. random split?
+This project studies automatic classification of political/geopolitical text into one of seven
+predefined **narratives** — `Zionist`, `Resistance`, `Western`, `Russian`, `Ukrainian`,
+`Right-wing`, `Left-wing` — and, separately, how to characterize the agendas, rhetoric, and
+ideology associated with each narrative once texts are grouped by it.
+
+It consists of two components:
+
+1. **A classifier** — reads a short text and labels it with one of 7 narratives:
+   `Zionist`, `Resistance`, `Western`, `Russian`, `Ukrainian`, `Right-wing`, `Left-wing`.
+2. **A profiler** (`analyze_agendas.py`) — takes texts already grouped by narrative and
+   summarizes each group's recurring topics, tone, and ideological leaning. It doesn't need the
+   classifier at all; it works directly off of texts that are already labeled.
+
+### Why it's interesting (the research question)
+A classifier of this kind can be built in more than one way: it can rely entirely on a modern
+pretrained language model (SBERT) to represent meaning, or it can additionally be given
+hand-engineered linguistic features (named entities, who-did-what-to-whom structure, emotional
+tone, topic, source reliability). The central question is whether these additional engineered
+features improve performance in a way that generalizes, or whether any apparent gain is
+specific to the authors/topics seen during training and does not transfer to a previously unseen
+author or topic. This generalization question — rather than raw in-sample accuracy — is the
+primary subject of investigation in this project.
+
+### A few terms used throughout this README and the code
+- **SBERT** — a pretrained model that turns a sentence into a numeric vector capturing its
+  meaning; used here "frozen" (not retrained), just as a ready-made meaning representation.
+- **NER (Named Entity Recognition)** — detects names of people, organizations, places in text.
+- **SRL (Semantic Role Labeling)** — detects "who did what to whom" structure in a sentence.
+- **MLP (Multi-Layer Perceptron)** — a small standard neural network used as the final decision
+  layer on top of whichever input features are given to it.
+- **Fusion** — combining several different feature sources into one input before classifying.
+- **LOAO (Leave-One-Author-Out)** — a stricter train/test split that hides one author's text
+  entirely during training, to test generalization to an author the model has never seen.
+
 
 - 📄 [Read the full experiment log](EXPERIMENTS.md) — every experiment: methodology, results, conclusions
 - 📊 [Read the results summary](docs/results.md) — headline model comparison + generalization findings
@@ -19,20 +44,24 @@ than just an i.i.d. random split?
 
 ## Architecture at a glance
 
+Every text goes through several feature-extraction steps in parallel, and their outputs are
+combined ("fused") into a single prediction:
+
 ```
 raw text
    |
-   +-> NER (ner.py)                    -+
-   +-> SRL / advcl (srl.py)             |
+   +-> NER (ner.py)                    -+   who/what is mentioned
+   +-> SRL / advcl (srl.py)             |   who did what to whom
    +-> Emotion + agency (emotion.py)     +->  fusion layer  ->  narrative (1 of 7)
-   +-> Topic/stance (stance.py)          |       (fusion.py)
-   +-> Reliability (reliability.py)    -+
+   +-> Topic/stance (stance.py)          |   what topic, what stance        (fusion.py)
+   +-> Reliability (reliability.py)    -+   how reliable is the source
    |
    +-> (Hybrid only) + frozen SBERT sentence embedding + agenda/ideology lexicon vectors
 ```
 
-Three classifier variants share this feature-extraction machinery and are trained/evaluated on
-**identical splits** for a fair comparison (`train.py --model ...`):
+To answer the research question, three classifier variants share this same feature-extraction
+machinery but differ in what they feed into the final decision step, and are trained/evaluated
+on **identical splits** for a fair comparison (`train.py --model ...`):
 
 | `--model` | Class (`fusion.py`) | Description |
 |---|---|---|
