@@ -1,0 +1,299 @@
+{
+  "min_examples_threshold": 200,
+  "excluded_authors": [
+    "BernieSanders",
+    "IDF",
+    "MariaZakharova"
+  ],
+  "random_seed": 42,
+  "n_per_narrative": 2,
+  "eligible_pool": [
+    {
+      "author_source": "@KoheletForum",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "@MiddleEastEye_TG",
+      "narrative": "Left-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "AlJazeeraEnglish",
+      "narrative": "Resistance",
+      "n_examples": 200
+    },
+    {
+      "author_source": "AlMayadeenEnglish",
+      "narrative": "Resistance",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Babel",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Bloomberg",
+      "narrative": "Western",
+      "n_examples": 200
+    },
+    {
+      "author_source": "BringThemHomeNow",
+      "narrative": "Zionist",
+      "n_examples": 200
+    },
+    {
+      "author_source": "CharlieKirk",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "DDGeopolitics",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "FoxNews",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "IntelSlavaZ",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Israel",
+      "narrative": "Zionist",
+      "n_examples": 202
+    },
+    {
+      "author_source": "KremlinRussia_E",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "KyivIndependent",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "NATO",
+      "narrative": "Western",
+      "n_examples": 209
+    },
+    {
+      "author_source": "Newsmax",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "OpenSourceIntel",
+      "narrative": "Zionist",
+      "n_examples": 200
+    },
+    {
+      "author_source": "PressTV",
+      "narrative": "Resistance",
+      "n_examples": 400
+    },
+    {
+      "author_source": "QudsNen",
+      "narrative": "Resistance",
+      "n_examples": 304
+    },
+    {
+      "author_source": "Readovka",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Rybar",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Slavyangrad",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "StandWithUs",
+      "narrative": "Zionist",
+      "n_examples": 200
+    },
+    {
+      "author_source": "SuspilneNews",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "TasnimNewsEN",
+      "narrative": "Resistance",
+      "n_examples": 200
+    },
+    {
+      "author_source": "TheEpochTimes",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "TheIntercept",
+      "narrative": "Left-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "TheJerusalemPost",
+      "narrative": "Zionist",
+      "n_examples": 200
+    },
+    {
+      "author_source": "ThePostMillennial",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Ukraine",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "UkraineNow",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "United24Media",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "ViceNews",
+      "narrative": "Left-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "WashingtonPost",
+      "narrative": "Western",
+      "n_examples": 200
+    },
+    {
+      "author_source": "WesternJournal",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "ZelenskyyUa",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "abualiexpress",
+      "narrative": "Zionist",
+      "n_examples": 200
+    },
+    {
+      "author_source": "euronews_eng",
+      "narrative": "Western",
+      "n_examples": 200
+    },
+    {
+      "author_source": "khamenei_ir",
+      "narrative": "Resistance",
+      "n_examples": 200
+    },
+    {
+      "author_source": "mfa_russia",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "mod_russia_en",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "novaramedia",
+      "narrative": "Left-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "southfirstresponders",
+      "narrative": "Zionist",
+      "n_examples": 200
+    }
+  ],
+  "selected_authors": [
+    {
+      "author_source": "abualiexpress",
+      "narrative": "Zionist",
+      "n_examples": 200
+    },
+    {
+      "author_source": "BringThemHomeNow",
+      "narrative": "Zionist",
+      "n_examples": 200
+    },
+    {
+      "author_source": "AlJazeeraEnglish",
+      "narrative": "Resistance",
+      "n_examples": 200
+    },
+    {
+      "author_source": "PressTV",
+      "narrative": "Resistance",
+      "n_examples": 400
+    },
+    {
+      "author_source": "NATO",
+      "narrative": "Western",
+      "n_examples": 209
+    },
+    {
+      "author_source": "Bloomberg",
+      "narrative": "Western",
+      "n_examples": 200
+    },
+    {
+      "author_source": "KremlinRussia_E",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Slavyangrad",
+      "narrative": "Russian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "Babel",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "United24Media",
+      "narrative": "Ukrainian",
+      "n_examples": 200
+    },
+    {
+      "author_source": "ThePostMillennial",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "TheEpochTimes",
+      "narrative": "Right-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "@MiddleEastEye_TG",
+      "narrative": "Left-wing",
+      "n_examples": 200
+    },
+    {
+      "author_source": "ViceNews",
+      "narrative": "Left-wing",
+      "n_examples": 200
+    }
+  ]
+}

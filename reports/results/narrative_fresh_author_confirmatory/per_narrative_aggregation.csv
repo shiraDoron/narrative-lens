@@ -1,0 +1,8 @@
+﻿narrative,sbert_original,sbert_person_misc_masked_aug_soft_topic,sbert_soft_topic
+Left-wing,0.105,0.12,0.125
+Resistance,0.4225,0.375,0.42625
+Right-wing,0.5725,0.6375,0.575
+Russian,0.36,0.265,0.3775
+Ukrainian,0.6799999999999999,0.6499999999999999,0.6275
+Western,0.1566866028708134,0.15157894736842104,0.165933014354067
+Zionist,0.43,0.4,0.40750000000000003

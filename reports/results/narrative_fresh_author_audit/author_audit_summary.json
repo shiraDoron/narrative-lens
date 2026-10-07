@@ -1,0 +1,19 @@
+{
+  "n_total_authors": 85,
+  "n_synthetic_authors": 2,
+  "n_excluded_prior_experiments": 3,
+  "n_eligible_total": 80,
+  "eligible_authors_by_threshold": {
+    "200": 43,
+    "150": 44,
+    "100": 47,
+    "75": 47,
+    "50": 48,
+    "30": 48
+  },
+  "excluded_authors_list": [
+    "BernieSanders",
+    "IDF",
+    "MariaZakharova"
+  ]
+}
