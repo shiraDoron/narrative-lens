@@ -22,7 +22,7 @@ dependency declaration and [`configs/README.md`](../configs/README.md) for the Y
 philosophy.
 
 ```bash
-# Train the current recommended configuration (see docs/results.md):
+# Quick smoke test (random split - NOT the headline research result, see docs/results.md):
 python -m narrative_lens.train --model sbert_only --split random
 
 # Build the cross-model comparison table (artifacts/tables/model_comparison_results.json):

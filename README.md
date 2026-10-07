@@ -15,6 +15,63 @@ It consists of two components:
    summarizes each group's recurring topics, tone, and ideological leaning. It doesn't need the
    classifier at all; it works directly off of texts that are already labeled.
 
+## Current research findings (TL;DR)
+
+The full story is in [`EXPERIMENTS.md`](EXPERIMENTS.md#research-storyline-start-here) and
+[`docs/results.md`](docs/results.md); this is the short version:
+
+- **In-distribution (random split), the plain SBERT baseline wins.** `sbert_only` beats both
+  `hybrid` and `baseline_fusion` on a standard random train/val/test split — the hand-engineered
+  features (NER/SRL/emotion/topic/reliability) aren't adding measurable value here.
+- **But that result doesn't generalize to an unseen author.** Under a stricter
+  Leave-One-Author-Out (LOAO) split, recall drops 20–38 percentage points relative to the
+  random-split numbers, and for 2 of the 3 authors tested the model systematically misroutes
+  their text to `Right-wing` regardless of true narrative (EXPERIMENTS.md §18–§19).
+- **Part of the problem is an author-identity shortcut, not narrative content.** A simple
+  decision tree can predict *which specific author* wrote a text using only surface style
+  features (text length, punctuation, mentions, etc.) — with accuracy far above chance even
+  **within a single fixed narrative** (e.g. 85.1% for `Western` vs. a ~20% majority-class
+  baseline). This means narrative labels partly encode *who wrote it*, not just *what it says*
+  (EXPERIMENTS.md §27).
+- **Entity-masking as a fix did not hold up under a pre-registered confirmatory test.** Masking
+  named entities during training looked promising in exploratory testing on 3 authors (helping
+  one, hurting two), but a later confirmatory evaluation on 14 fresh, previously unseen authors
+  found the masking policy did **not** generalize (`NON-INFERIOR = FALSE`, EXPERIMENTS.md §21–§25).
+- **Removing the author-style signal did not improve unseen-author generalization either.**
+  Normalizing surface style (URLs, mentions, hashtags, emoji, repeated characters) before
+  classification *did* measurably reduce the author-signature effect from §27 (avg ≈−15pp
+  macro-F1 in a decision-tree author-ID test), confirming the intervention worked as intended —
+  but fresh-author recall on the same 14 held-out authors got **worse**, not better (13 of 14
+  authors regressed, mean −6.4pp, median −10.8pp), while in-distribution (random-split)
+  performance stayed roughly flat. The conclusion: an author-specific style signal clearly
+  exists, but there is currently no evidence it is a harmful shortcut whose removal improves
+  generalization (EXPERIMENTS.md §28).
+
+## Dataset at a glance
+
+- **16,510 texts** total across 7 narratives (`Zionist`, `Resistance`, `Western`, `Russian`,
+  `Ukrainian`, `Right-wing`, `Left-wing`), built from 4 source files in `data/raw/` (see
+  [`data/README.md`](data/README.md) for exact producing scripts):
+  - **10,330 human-authored** — `telegram_natural_dataset.csv` (6,877 rows, via Telethon) +
+    `twitter_natural_dataset.csv` (3,453 rows, via Selenium).
+  - **6,180 synthetic (LLM-generated)** — `gemini_natural_dataset.csv` (5,600 rows) +
+    `gpt_natural_dataset.csv` (580 rows), generated to target a specific narrative.
+- **How the 7 narratives were decided**: for the human-authored data, each narrative maps to a
+  fixed, manually curated list of Twitter accounts / Telegram channels (`NARRATIVES_ACCOUNTS` /
+  `NARRATIVES_CHANNELS` in `src/narrative_lens/data/build_twitter_dataset.py` /
+  `build_telegram_dataset.py`) — the narratives were not discovered via clustering or other
+  data-driven means. See [`docs/narrative_definitions.md`](docs/narrative_definitions.md) for the
+  full definitions.
+- **Label provenance matters**: for human-authored text, `narrative_name` is assigned by *which
+  account/channel a text came from*, not by an independent, text-level human judgment of what the
+  text actually argues. This is an important caveat when interpreting accuracy numbers — a model
+  can score well by learning account-specific style instead of narrative content (see "Current
+  research findings" above). A blind, text-only human-validation pilot
+  (`data/annotation/human_validation_pilot_300_blind.csv`, 300 texts with narrative/author/platform
+  redacted) exists to check whether labels are actually text-supported; see
+  [`docs/label_quality_audit.md`](docs/label_quality_audit.md) for the methodology and current
+  status.
+
 ### Why it's interesting (the research question)
 A classifier of this kind can be built in more than one way: it can rely entirely on a modern
 pretrained language model (SBERT) to represent meaning, or it can additionally be given
@@ -54,11 +111,16 @@ raw text
    +-> NER (ner.py)                    -+   who/what is mentioned
    +-> SRL / advcl (srl.py)             |   who did what to whom
    +-> Emotion + agency (emotion.py)     +->  fusion layer  ->  narrative (1 of 7)
-   +-> Topic/stance (stance.py)          |   what topic, what stance        (fusion.py)
+   +-> Topic representation (stance.py)  |   which BERTopic topic         (fusion.py)
    +-> Reliability (reliability.py)    -+   how reliable is the source
    |
    +-> (Hybrid only) + frozen SBERT sentence embedding + agenda/ideology lexicon vectors
 ```
+
+> **Naming note**: the module is still called `stance.py` for historical reasons — an earlier
+> version of the pipeline had a real support/oppose stance dimension that was later removed.
+> Today it only produces a BERTopic topic assignment (hard id or soft distribution); there is no
+> stance/sentiment signal left in it.
 
 What each module contributes:
 
@@ -68,7 +130,8 @@ What each module contributes:
   actor vs. the victim).
 - **Emotion + agency** — the dominant emotion expressed, plus whether the text uses active or
   passive voice (passive voice often hides who is responsible for an action).
-- **Topic/stance** — which BERTopic topic the text belongs to, used as a proxy for stance.
+- **Topic representation** (`stance.py` — legacy module name, see naming note above) — which
+  BERTopic topic the text belongs to (hard id or soft distribution).
 - **Reliability** — a confidence score for how subjective/unreliable the source sounds.
 
 None of these modules are trained together with the classifier — they run once per text as
@@ -113,10 +176,24 @@ python -m venv .venv
 $env:SETUPTOOLS_USE_DISTUTILS="stdlib"   # Windows/pyenv workaround for a distutils_hack bug
 pip install -e ".[dev]"
 
-python -m narrative_lens.train --model sbert_only --split random   # train the recommended config
+python -m narrative_lens.train --model sbert_only --split random   # quick smoke test (~minutes)
 pytest tests/ -q                                                   # run the test suite
 ```
 
-See [`docs/running.md`](docs/running.md) for the full setup + CLI reference (all `--model`/
-`--split` combinations, topic-model fitting, data collection, environment variables/secrets, and
-how to reproduce every experiment in `EXPERIMENTS.md`).
+This smoke test just confirms the pipeline runs end-to-end on a random split — it is **not** the
+headline result. See [`docs/running.md`](docs/running.md) for the full setup + CLI reference (all
+`--model`/`--split` combinations, topic-model fitting, data collection, environment
+variables/secrets, and how to reproduce every experiment in `EXPERIMENTS.md`).
+
+### Research evaluation
+
+The result that actually matters for this project's research question is generalization to an
+unseen author, not the random-split smoke test above:
+
+```bash
+python -m narrative_lens.train --model hybrid --split leave_one_author --held-out-author IDF
+```
+
+See ["Current research findings"](#current-research-findings-tldr) above, the "Generalization
+evaluation" section of [`docs/results.md`](docs/results.md), and EXPERIMENTS.md §18, §19, §25 for
+the full LOAO / fresh-author results.

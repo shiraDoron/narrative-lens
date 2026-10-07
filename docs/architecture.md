@@ -7,7 +7,7 @@
    `data/build_ai_dataset.py` supplements this with synthetic Gemini/GPT-generated text.
 2. **Preprocessing**: `data/translate_datasets.py` translates non-English text to English in place.
 3. **Training**: `train_topics.py` fits a BERTopic topic model; `train.py` extracts features
-   (NER, SRL, emotion/agency, topic/stance, reliability) for every sample, fuses them via
+   (NER, SRL, emotion/agency, topic representation, reliability) for every sample, fuses them via
    `models/fusion.py`, and trains the classifier with early stopping, selecting by validation
    Macro-F1. `train.py` can train any of three models (`--model baseline_fusion|sbert_only|hybrid`,
    see [`results.md`](results.md)) using identical train/validation/test splits for a fair comparison.
@@ -23,7 +23,10 @@ narrative-oriented vector, which are combined by a learned weighted-sum fusion n
 - **NER** (`features/ner.py`) → entity-based narrative signal
 - **SRL** (`features/srl.py`) → reason/purpose clause signal
 - **Emotion + agency** (`features/emotion.py`) → emotion classification + passive/active voice
-- **Topic/stance** (`topic_modeling/stance.py`) → BERTopic topic assignment
+- **Topic representation** (`topic_modeling/stance.py` — legacy module name) → BERTopic topic
+  assignment. An earlier version of the pipeline had a real support/oppose stance dimension here,
+  which was later removed; the module name was kept for historical continuity, but there is no
+  stance/sentiment signal left in it today.
 - **Reliability** (`features/reliability.py`) → fake-news/subjectivity confidence multiplier
 
 The fusion network learns per-module importance weights, printed after training for
