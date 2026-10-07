@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "variant": "sbert_original",
+  "n_authors": 14,
+  "n_examples": 3009,
+  "features": [
+    "text_length",
+    "entity_count",
+    "soft_topic_max_prob",
+    "soft_topic_entropy",
+    "classifier_margin"
+  ],
+  "tree_max_depth": 4,
+  "tree_min_samples_leaf": 25,
+  "overall_correct_rate": 0.4011299435028249,
+  "majority_baseline": 0.5988700564971752,
+  "tree_training_accuracy": 0.6244599534729146,
+  "note": "training-set accuracy only (no CV in this first pass) - see diagnostics #2 for a cross-validated follow-up."
+}

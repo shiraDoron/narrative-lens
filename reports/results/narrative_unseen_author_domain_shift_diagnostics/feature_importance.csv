@@ -1,0 +1,12 @@
+﻿feature,importance
+distance_to_same_narrative_centroid,0.5880855655592964
+topic_distribution_distance_to_same_narrative_train,0.2991252014653507
+punctuation_rate,0.049868879059196444
+lexical_overlap_with_train,0.04510250726630246
+entity_novelty_ratio,0.011923460662672225
+mean_same_narrative_similarity,0.005894385987181711
+nearest_train_sbert_similarity,0.0
+entity_overlap_ratio_with_train,0.0
+avg_sentence_length,0.0
+hashtag_count,0.0
+mention_count,0.0

@@ -1,0 +1,64 @@
+{
+  "seed": 42,
+  "variant": "sbert_original",
+  "n_authors": 14,
+  "n_examples": 3009,
+  "features": [
+    "nearest_train_sbert_similarity",
+    "mean_same_narrative_similarity",
+    "distance_to_same_narrative_centroid",
+    "entity_overlap_ratio_with_train",
+    "entity_novelty_ratio",
+    "lexical_overlap_with_train",
+    "topic_distribution_distance_to_same_narrative_train",
+    "avg_sentence_length",
+    "punctuation_rate",
+    "hashtag_count",
+    "mention_count"
+  ],
+  "classifier_margin_excluded": true,
+  "cv_method": "StratifiedGroupKFold",
+  "cv_n_splits": 5,
+  "cv_grouped_by": "author",
+  "overall_correct_rate": 0.4011299435028249,
+  "majority_baseline": 0.5988700564971752,
+  "cv_results_by_depth": {
+    "3": {
+      "mean": 0.5671297208538588,
+      "std": 0.038852146829792766,
+      "folds": [
+        0.5883333333333334,
+        0.6166666666666667,
+        0.5866666666666667,
+        0.5123152709359606,
+        0.5316666666666666
+      ]
+    },
+    "4": {
+      "mean": 0.572855500821018,
+      "std": 0.045779621258467115,
+      "folds": [
+        0.5683333333333334,
+        0.615,
+        0.62,
+        0.49261083743842365,
+        0.5683333333333334
+      ]
+    },
+    "5": {
+      "mean": 0.5904975369458129,
+      "std": 0.05687996677981623,
+      "folds": [
+        0.6283333333333333,
+        0.6166666666666667,
+        0.6566666666666666,
+        0.5008210180623974,
+        0.55
+      ]
+    }
+  },
+  "any_depth_beats_majority_baseline": false,
+  "full_fit_depth": 4,
+  "full_fit_min_samples_leaf": 25,
+  "conclusion": "Under grouped cross-validation, the tested semantic, lexical, entity, topic, and simple stylistic features did not predict unseen-author classification errors above the majority baseline. Therefore, no stable per-example explanatory pattern was identified with the available diagnostic features."
+}

@@ -1,0 +1,43 @@
+|--- distance_to_same_narrative_centroid <= 0.67
+|   |--- topic_distribution_distance_to_same_narrative_train <= 0.06
+|   |   |--- punctuation_rate <= 0.05
+|   |   |   |--- topic_distribution_distance_to_same_narrative_train <= 0.06
+|   |   |   |   |--- class: 1
+|   |   |   |--- topic_distribution_distance_to_same_narrative_train >  0.06
+|   |   |   |   |--- class: 1
+|   |   |--- punctuation_rate >  0.05
+|   |   |   |--- mean_same_narrative_similarity <= 0.17
+|   |   |   |   |--- class: 1
+|   |   |   |--- mean_same_narrative_similarity >  0.17
+|   |   |   |   |--- class: 1
+|   |--- topic_distribution_distance_to_same_narrative_train >  0.06
+|   |   |--- distance_to_same_narrative_centroid <= 0.48
+|   |   |   |--- topic_distribution_distance_to_same_narrative_train <= 0.07
+|   |   |   |   |--- class: 0
+|   |   |   |--- topic_distribution_distance_to_same_narrative_train >  0.07
+|   |   |   |   |--- class: 1
+|   |   |--- distance_to_same_narrative_centroid >  0.48
+|   |   |   |--- topic_distribution_distance_to_same_narrative_train <= 1.00
+|   |   |   |   |--- class: 1
+|   |   |   |--- topic_distribution_distance_to_same_narrative_train >  1.00
+|   |   |   |   |--- class: 0
+|--- distance_to_same_narrative_centroid >  0.67
+|   |--- topic_distribution_distance_to_same_narrative_train <= 0.07
+|   |   |--- distance_to_same_narrative_centroid <= 0.82
+|   |   |   |--- lexical_overlap_with_train <= 0.55
+|   |   |   |   |--- class: 0
+|   |   |   |--- lexical_overlap_with_train >  0.55
+|   |   |   |   |--- class: 1
+|   |   |--- distance_to_same_narrative_centroid >  0.82
+|   |   |   |--- entity_novelty_ratio <= 0.17
+|   |   |   |   |--- class: 0
+|   |   |   |--- entity_novelty_ratio >  0.17
+|   |   |   |   |--- class: 0
+|   |--- topic_distribution_distance_to_same_narrative_train >  0.07
+|   |   |--- punctuation_rate <= 0.08
+|   |   |   |--- lexical_overlap_with_train <= 0.92
+|   |   |   |   |--- class: 0
+|   |   |   |--- lexical_overlap_with_train >  0.92
+|   |   |   |   |--- class: 1
+|   |   |--- punctuation_rate >  0.08
+|   |   |   |--- class: 1

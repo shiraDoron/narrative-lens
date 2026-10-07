@@ -1,0 +1,37 @@
+|--- classifier_margin <= 0.68
+|   |--- text_length <= 174.50
+|   |   |--- classifier_margin <= 0.35
+|   |   |   |--- entity_count <= 1.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- entity_count >  1.50
+|   |   |   |   |--- class: 0
+|   |   |--- classifier_margin >  0.35
+|   |   |   |--- entity_count <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- entity_count >  0.50
+|   |   |   |   |--- class: 1
+|   |--- text_length >  174.50
+|   |   |--- text_length <= 684.00
+|   |   |   |--- classifier_margin <= 0.25
+|   |   |   |   |--- class: 0
+|   |   |   |--- classifier_margin >  0.25
+|   |   |   |   |--- class: 0
+|   |   |--- text_length >  684.00
+|   |   |   |--- text_length <= 2015.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- text_length >  2015.50
+|   |   |   |   |--- class: 0
+|--- classifier_margin >  0.68
+|   |--- soft_topic_entropy <= 0.27
+|   |   |--- text_length <= 58.50
+|   |   |   |--- class: 0
+|   |   |--- text_length >  58.50
+|   |   |   |--- text_length <= 145.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- text_length >  145.50
+|   |   |   |   |--- class: 1
+|   |--- soft_topic_entropy >  0.27
+|   |   |--- text_length <= 730.50
+|   |   |   |--- class: 1
+|   |   |--- text_length >  730.50
+|   |   |   |--- class: 1

@@ -2797,6 +2797,290 @@ Results: `reports/results/narrative_selective_entity_masking_augmentation/result
 
 ---
 
+## 25. Fresh-Author Confirmatory Evaluation — Protocol / Pre-registration
+
+**Status: COMPLETE. All 14 frozen fresh authors × 3 frozen variants trained/evaluated; results
+below, exactly as pre-registered above (no protocol changes were made after seeing results).**
+
+**Purpose.** Sections 19–24 are all exploratory: every hypothesis (Soft Topics helping
+Right-wing bias, entity masking as a shortcut fix, the PER/PER+MISC selective-masking policy)
+was generated and/or refined by looking at results on the SAME 3 held-out authors (`IDF`,
+`MariaZakharova`, `BernieSanders`). Section 25 evaluates the single most promising policy from
+Section 24 (`sbert_person_misc_masked_aug_soft_topic`) on **fresh authors never individually
+used for hypothesis generation in Sections 19–24**, to obtain genuinely confirmatory (not
+test-informed) evidence. Everything in this section is fixed BEFORE any training or model
+evaluation happens, per explicit instruction — no masking-policy change, no hyperparameter
+change, no author swap, no threshold tuning, no re-run with a different seed, and no new
+metric introduced after seeing results.
+
+**Fresh-author eligibility (pre-registered):**
+- `n_examples >= 200` (comparable in order of magnitude to the original 3 authors' `n_test`).
+- Excludes `IDF`, `MariaZakharova`, `BernieSanders`.
+- Excludes Gemini/GPT synthetic placeholder authors.
+- Excludes any author used to make a decision in Sections 19–24 (in this codebase, that is
+  exactly the 3 authors above — see `narrative_fresh_author_audit.py`'s docstring for the
+  disclosed operational definition of "used").
+
+This yielded a 43-author eligible pool (all `n_examples>=200`, spanning all 7 narratives).
+
+**Fresh confirmatory set (frozen).** 2 authors drawn uniformly at random, without
+replacement, from each narrative's eligible pool, using a single fixed, documented seed
+(`42`), computed by `narrative_fresh_author_freeze.py`. The eligible pool was sorted
+alphabetically before sampling for reproducibility. **No author may be swapped after this
+point, regardless of any later result.**
+
+| Narrative | Author 1 | Author 2 |
+|---|---|---|
+| Zionist | `BringThemHomeNow` (n=200) | `abualiexpress` (n=200) |
+| Resistance | `AlJazeeraEnglish` (n=200) | `PressTV` (n=400) |
+| Western | `Bloomberg` (n=200) | `NATO` (n=209) |
+| Russian | `KremlinRussia_E` (n=200) | `Slavyangrad` (n=200) |
+| Ukrainian | `Babel` (n=200) | `United24Media` (n=200) |
+| Right-wing | `TheEpochTimes` (n=200) | `ThePostMillennial` (n=200) |
+| Left-wing | `@MiddleEastEye_TG` (n=200) | `ViceNews` (n=200) |
+
+Frozen artifact (full eligible pool + seed + selected authors):
+`reports/results/narrative_fresh_author_audit/fresh_author_confirmatory_set.json`.
+
+**Frozen variants (3 only — no sweep, no tuning, no additional variants):**
+1. `sbert_original` — SBERT on unmasked text, no augmentation, no topic feature.
+2. `sbert_soft_topic` — SBERT + Soft Topic Distribution, no augmentation.
+3. `sbert_person_misc_masked_aug_soft_topic` — Section 24's selected policy: PER+MISC-masked
+   augmented copy interleaved with the original at training time + Soft Topic Distribution.
+
+Same architecture (`AblationDetector`), hyperparameters (`EPOCHS=20, BATCH_SIZE=16,
+LEARNING_RATE=0.001, patience=3, dropout=0.3, hidden_size=128`), SBERT backbone
+(`all-MiniLM-L6-v2`), Soft Topic model (`models/experiments/soft_v2_baseline_seeded`),
+masking implementation (`EntityAnalysisPipeline` + `mask_entities()` filtered to PER+MISC),
+and seed (`42`) as Sections 18–24 — held-out-author LOAO split via `split_leave_one_author`,
+one held-out author at a time, for each of the 14 frozen authors.
+
+**Pre-registered primary metric:** true-narrative recall, paired by held-out author. Reported
+per variant: mean recall across the 14 authors, median recall, std / IQR, and worst-author
+recall.
+
+**Pre-registered non-inferiority rule** (for `sbert_person_misc_masked_aug_soft_topic` vs.
+`sbert_original`):
+- Margin: **3 percentage points absolute recall**, fixed before seeing any result.
+- Non-inferior only if BOTH: mean recall ≥ baseline mean − 3pp, AND median recall ≥ baseline
+  median − 3pp.
+- Robustness guardrail: no more than 20% of the 14 fresh authors (i.e. > 2 of 14) may show a
+  degradation of more than 10pp recall vs. `sbert_original` — otherwise the guardrail fails
+  regardless of the mean/median result.
+
+**Pre-registered robustness endpoint** (secondary): per author, the dominant wrong-narrative
+and the fraction of that author's errors going to it; then the average dominant-error
+concentration is compared across the 3 variants. This tests whether selective masking + soft
+topics reduces systematic shortcut-like errors without materially hurting overall recall — not
+evaluated per-author in isolation.
+
+**Secondary metrics:** Macro-F1, confusion matrix, accuracy, and per-narrative aggregation
+across the 14 fresh authors.
+
+**Pre-registered interpretation (fixed before seeing results, not to be redefined
+afterward).** The selective-masking + Soft Topic policy is considered confirmatorily
+supported only if ALL of the following hold simultaneously across the 14 fresh authors: (a)
+average fresh-author recall is not substantially below `sbert_original` (per the 3pp
+non-inferiority rule above); (b) no severe, consistent degradation across multiple fresh
+authors (per the ≤20%-of-authors->10pp-degradation guardrail above); (c) at least some fresh
+authors show improved robustness / lower dominant-error concentration without a large overall
+recall trade-off. This is an aggregate, multi-condition judgment — not a single author's
+result, and not a single metric.
+
+**Explicitly out of scope / forbidden for this section:** changing the masking policy,
+changing hyperparameters, swapping any of the 14 authors, tuning the eligibility threshold,
+re-running with a different seed because a result is unfavorable, or introducing a new metric
+after seeing results.
+
+**Implementation:** `experiments/author_generalization/narrative_fresh_author_audit.py`
+(Phase 1 — eligibility audit), `experiments/author_generalization/narrative_fresh_author_freeze.py`
+(Phase 1b — frozen random selection, seed 42), and
+`experiments/author_generalization/narrative_fresh_author_confirmatory.py` (Phase 2 — training +
+evaluation for all 14 authors × 3 variants, plus `--aggregate`).
+
+### Results
+
+**Primary metric summary (true-narrative recall, paired by held-out author, n=14 authors):**
+
+| Variant | Mean recall | Median recall | Std | IQR | Worst-author recall | Mean Macro-F1 | Mean dominant-error concentration |
+|---|---|---|---|---|---|---|---|
+| `sbert_original` (baseline) | 39.0% | 38.8% | 0.236 | 0.360 | 3.0% | 0.0810 | 44.2% |
+| `sbert_soft_topic` | 38.6% | 40.0% | 0.228 | 0.342 | 4.0% | 0.0794 | 45.9% |
+| `sbert_person_misc_masked_aug_soft_topic` (Section 24's candidate) | 37.1% | 32.7% | 0.235 | 0.375 | 4.0% | 0.0756 | 45.8% |
+
+**Per-narrative mean recall (2 authors/narrative):**
+
+| Narrative | `sbert_original` | `sbert_soft_topic` | `sbert_person_misc_masked_aug_soft_topic` |
+|---|---|---|---|
+| Left-wing | 10.5% | 12.5% | 12.0% |
+| Resistance | 42.3% | 42.6% | 37.5% |
+| Right-wing | 57.3% | 57.5% | 63.8% |
+| Russian | 36.0% | 37.8% | 26.5% |
+| Ukrainian | 68.0% | 62.8% | 65.0% |
+| Western | 15.7% | 16.6% | 15.2% |
+| Zionist | 43.0% | 40.8% | 40.0% |
+
+**Pre-registered non-inferiority check** (`sbert_person_misc_masked_aug_soft_topic` vs.
+`sbert_original`, 3pp margin):
+- Mean condition (candidate mean ≥ baseline mean − 3pp): 37.1% ≥ 36.0% → **PASS**.
+- Median condition (candidate median ≥ baseline median − 3pp): 32.7% ≥ 35.8% → **FAIL** (candidate
+  median is 6.1pp below baseline median, more than double the 3pp margin).
+- Robustness guardrail (≤20% of authors with >10pp degradation): 1/14 authors (7.1%) → **PASS**.
+- **=> NON-INFERIOR overall (mean AND median AND guardrail): FALSE** — fails solely on the
+  median condition.
+
+**Robustness endpoint (secondary):** mean dominant-error concentration is *not* reduced by the
+candidate (45.8%) relative to baseline (44.2%) — condition (c) from the pre-registered
+interpretation ("at least some fresh authors show improved robustness / lower dominant-error
+concentration without a large overall trade-off") is **not supported** either: per-narrative,
+the candidate only clearly beats baseline recall on Right-wing (+6.5pp) and Left-wing (+1.5pp,
+both already the worst-performing narratives in absolute terms), while losing on Resistance
+(−4.8pp), Russian (−9.5pp), Ukrainian (−3.0pp), Zionist (−3.0pp), and Western (roughly flat).
+
+**Interpretation.** Per the pre-registered rule, all of (a)/(b)/(c) must hold simultaneously for
+confirmatory support; (b) passes but (a)'s median condition and (c) both fail. **Section 24's
+selective-masking + Soft Topic policy does NOT replicate as confirmatory on fresh, previously
+unseen authors.** The gain pattern it showed on `BernieSanders`/`MariaZakharova`/`IDF` (better
+Right-wing-bias handling at roughly-tied average recall) does not generalize: on the 14 fresh
+authors it trades a modest, uneven Right-wing/Left-wing improvement for larger, broader losses
+on Resistance/Russian/Ukrainian/Zionist, pulling the median recall down by more than double the
+pre-registered margin. This is consistent with Section 24 itself being flagged as "exploratory
+evidence only" (policy chosen using the same test set it was evaluated on) — the confirmatory
+test called for in Section 24 now shows that hypothesis does not hold up out-of-sample.
+
+**Decision:** Do **not** adopt `sbert_person_misc_masked_aug_soft_topic` (or any entity-masking
+augmentation variant from Sections 21–24) as a production change. The entity-masking-shortcut
+line of investigation (Sections 21–25) is closed as a negative/non-generalizing result; no
+further masking-policy variants should be tested against these fresh authors (doing so would
+itself violate this section's own no-further-tuning pre-registration).
+
+---
+
+## 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree)
+
+**Status: COMPLETE. Closed as a negative/inconclusive result per the pre-registered stopping
+rule below — not extended to Random Forest or further feature engineering.**
+
+**Purpose.** Sections 18–25 established (and then confirmed, Section 25) that the model's
+recall drops sharply on entirely unseen authors (LOAO), and that none of the tested
+masking/feature-arm interventions reliably fix it. This section is a diagnostic/
+interpretability study, NOT a model-improvement attempt: it asks, at the level of individual
+test examples (not aggregated per-author metrics), WHICH properties of a text are associated
+with the model getting it wrong on an unseen author — to explain, associationally and not
+causally, why unseen-author performance degrades. Hypotheses tested: semantic domain shift
+(the text is far from its narrative's training distribution in SBERT space), lexical/vocabulary
+novelty, entity novelty (new named entities not seen for that narrative in training), topic
+drift (soft-topic distribution far from the narrative's training centroid), and simple
+stylistic differences.
+
+**Data.** The 14 frozen fresh authors from Section 25 (same frozen set, same `sbert_original`
+checkpoints — no new training), one row per held-out test example, **3,009 examples total**.
+Author identity itself is never used as a feature. All diagnostic features are computed
+strictly from each held-out author's OWN train split (the remaining 13+ authors' data for that
+run) — no leakage.
+
+**First pass (minimal, 5 already-existing/cheaply-derived features)** — a deliberately small
+first iteration, per the user's explicit "start minimal" instruction:
+`text_length`, `entity_count` (from the Section 24 raw-entities cache), `soft_topic_max_prob`,
+`soft_topic_entropy` (both from the already-cached BERTopic soft-topic vector), and
+`classifier_margin` (top1 − top2 softmax probability from the trained checkpoint's own forward
+pass). A single depth-4 Decision Tree (`class_weight="balanced"`) was fit, evaluated by its own
+**training-set** accuracy only (no cross-validation in this first pass).
+
+Result: training accuracy 62.4% vs. a 59.9% majority-class baseline (+2.5pp) —
+`classifier_margin` dominated feature importance (0.55), followed by `text_length` (0.31);
+`entity_count`/`soft_topic_entropy` were minor (0.09/0.05) and `soft_topic_max_prob` was unused
+(0.00). `classifier_margin` being dominant is close to tautological (low model confidence
+correlating with being wrong is expected for any classifier) and does not explain the
+*mechanism* of the LOAO failure — this motivated the second, more targeted pass below.
+Artifacts: `reports/results/narrative_unseen_author_error_diagnostics/` (`diagnostic_dataset.csv`,
+`feature_importance.csv`, `leaf_error_rates.csv`, `tree_rules.txt`, `tree.png`, `summary.json`).
+
+**Second pass (domain-shift/novelty-focused, 11 features, `classifier_margin` excluded).**
+`classifier_margin` was removed from the feature set entirely (reported only in the first pass
+above, as a sanity check — not mixed into this pass's tree) so the tree cannot "explain" errors
+via the model's own confidence. Features, all computed from the author's own train split:
+
+- *Semantic (SBERT cosine):* `nearest_train_sbert_similarity` (max similarity to any train
+  example), `mean_same_narrative_similarity` (mean similarity to same-narrative train
+  examples), `distance_to_same_narrative_centroid` (1 − cosine similarity to the mean embedding
+  of same-narrative train examples).
+- *Entity/lexical novelty:* `entity_overlap_ratio_with_train` (fraction of the example's
+  entities seen anywhere in the author's train split, any narrative), `entity_novelty_ratio`
+  (1 − fraction of entities seen specifically in same-narrative train texts — narrative-specific
+  novelty even if the entity is known elsewhere), `lexical_overlap_with_train` (fraction of
+  content tokens, via `analyze_agendas.tokenize`, seen in same-narrative train texts).
+- *Topic:* `topic_distribution_distance_to_same_narrative_train` (Euclidean distance between the
+  example's soft-topic vector and the same-narrative train centroid).
+- *Basic style (naive, regex-based, no new NLP model):* `avg_sentence_length`,
+  `punctuation_rate`, `hashtag_count`, `mention_count`.
+
+**Evaluation.** Per explicit instruction, not training accuracy alone: **`StratifiedGroupKFold`,
+5 folds, grouped by author** (so no author's examples leak across folds — a plain random split
+would overstate generalization since rows from the same author are highly correlated), at
+`max_depth ∈ {3, 4, 5}`, `min_samples_leaf=25`, `class_weight="balanced"`, seed `42` throughout.
+A separate full-data fit (depth=4) was used only for interpretation (feature importance / tree
+rules / per-leaf stats), never for the generalization-accuracy claim.
+
+### Results
+
+**Baseline:** majority-class accuracy (always predict "incorrect") = **59.9%** (overall correct
+rate = 40.1%, n=3,009).
+
+**Grouped 5-fold cross-validation accuracy (the honest generalization estimate):**
+
+| `max_depth` | CV accuracy | Std | vs. 59.9% baseline |
+|---|---|---|---|
+| 3 | 56.7% | ±3.9pp | below |
+| 4 | 57.3% | ±4.6pp | below |
+| 5 | 59.0% | ±5.7pp | below (closest) |
+
+**No tested configuration beat the majority-class baseline.**
+
+**Full-data fit feature importance (depth=4, for interpretation only — NOT supported by the CV
+result above):**
+
+| Feature | Importance |
+|---|---|
+| `distance_to_same_narrative_centroid` | ≈0.59 |
+| `topic_distribution_distance_to_same_narrative_train` | ≈0.30 |
+| `punctuation_rate` | ≈0.05 |
+| `lexical_overlap_with_train` | ≈0.05 |
+| `entity_novelty_ratio` | ≈0.01 |
+| `mean_same_narrative_similarity` | ≈0.01 |
+| `nearest_train_sbert_similarity`, `entity_overlap_ratio_with_train`, `avg_sentence_length`, `hashtag_count`, `mention_count` | 0.00 (unused) |
+
+This full-data fit looks like it has a strong, clean story (semantic distance to the
+same-narrative centroid + topic drift "explain" errors) — but this is **not generalized
+evidence**: the grouped CV above shows none of the depths beat the trivial baseline, and the
+per-leaf error rates (`reports/results/narrative_unseen_author_domain_shift_diagnostics/leaf_error_rates.csv`)
+show no monotonic or otherwise stable pattern across leaves (error rates ranging 17.6%–93.5%
+across leaves of only 27–56 to several-hundred examples, in no consistent order relative to the
+splitting features) — consistent with the full-data fit overfitting to noise rather than
+capturing a real, reproducible mechanism.
+
+Artifacts: `reports/results/narrative_unseen_author_domain_shift_diagnostics/`
+(`diagnostic_dataset.csv`, `feature_importance.csv`, `leaf_error_rates.csv`, `tree_rules.txt`,
+`tree.png`, `summary.json` — the latter records the seed, config, CV results and conclusion
+verbatim for reproducibility).
+
+**Interpretation.** Under grouped cross-validation, the tested semantic, lexical, entity, topic,
+and simple stylistic features did not predict unseen-author classification errors above the
+majority baseline. Therefore, no stable per-example explanatory pattern was identified with the
+available diagnostic features. **This is not evidence that domain shift is not the cause** —
+only that it was not detectable as a stable per-example pattern with the features and the
+shallow-tree method tried here; the underlying failure may be more diffuse/author-global (not
+decomposable into a handful of per-example features) or may require a different
+modeling/feature approach than attempted in this section.
+
+**Decision (pre-registered stopping rule, set by the user before seeing the second pass's
+results):** since the tree does not predict errors above baseline and no clear/stable pattern
+emerged, this Decision-Tree diagnostics line is **closed here** — not extended to Random Forest,
+permutation importance, or further feature engineering. No production change was made or
+considered at any point in this section.
+
+---
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -2818,3 +3102,5 @@ Results: `reports/results/narrative_selective_entity_masking_augmentation/result
 | 22. Stance-Aware Entity Representation — representation-validation gate for entity-targeted stance extraction | 30-row hand-annotated pilot (3 LOAO authors) used to gate 5 stance-extraction candidates (2 ABSA context widths + SemEval target-stance + NLI zero-shot target-stance + PRO/CON debate-stance) against a pre-declared bar (≥70–75% accuracy, not author-dependent, no new systematic failure mode, balanced across pos/neg/neutral, genuinely target-sensitive) — **before** any LOAO training | Best raw accuracy (`absa_full`, 66.7%) fails on author-dependence (90% Bernie vs. 40% IDF) and introduces a new failure mode (neutral recall collapses to 0.14); `procon` degenerates to a near-constant "positive" predictor despite 33.3% surface accuracy; `semeval`/`nli` plateau at 56.7–60.0%; target-sensitivity analysis shows most candidates collapse toward generic sentence sentiment rather than true per-target conditioning | **Gate FAILED — stopped before LOAO training.** Negative finding / future work: no evidence the stance-aware-entity idea is wrong, but no evaluated method is reliable enough on this corpus to use as a training feature; would require in-domain fine-tuning or a different representation, not attempted here |
 | 23. Entity-Masking Augmentation — training-time invariance vs. full masking/duplication control | Every training/validation example contributes both its original and entity-masked version under the same label (`sbert_masked_aug`), + a `sbert_masked_aug_soft_topic` combo, + a `sbert_duplicated_original_control` (2x duplicated, no masking) to isolate "more rows" from "masking"; same 3 LOAO authors/split/seed/architecture as #18-21; 3 of 6 variants reused verbatim from #21 | Augmentation captures **more** than full masking's Bernie benefit (recall 24.5%→40.5%, Right-wing rate 57.5%→38.0% with Soft Topics — the best Bernie Right-wing result in the project) while nearly eliminating Maria's cost (89.5%→90.0% with Soft Topics, vs. −13.0pp for full masking); IDF's cost is barely reduced vs. full masking (−24.5pp vs. −25.0pp). The duplicated-original control confirms Bernie's gain is attributable to masking itself, not row count (+3.5pp control vs. +16.0pp augmentation). On **average recall**, `sbert_masked_aug_soft_topic` (57.0%) is actually *below* both `sbert_original` (59.2%) and `sbert_soft_topic` (59.0%) — it is a robustness/bias trade-off, not an overall accuracy win. A root-cause audit of IDF's regressions (test-informed, exploratory) found LOC/ORG entities enriched but PER/MISC not, motivating Section 24 | Diagnostic only, no production change; NOT the best overall model — a narrow, author-dependent trade-off (Bernie/bias improves, Maria roughly preserved, IDF pays a large unresolved cost); root-cause audit of IDF's degradation proposed as immediate next step before any further training |
 | 24. Selective Entity-Masking Augmentation — exploratory test of a test-informed hypothesis | 4 new variants masking only PER, or PER+MISC (policy fixed in advance per Section 23's audit), ± Soft Topics; same 3 LOAO authors/split/seed/architecture as #18-23; 3 of 7 variants reused verbatim from #23 | `sbert_person_misc_masked_aug_soft_topic` is the only variant meeting a pre-registered 5-condition success pattern: Bernie recall 24.5%→41.0% (best in project) and →Right-wing 57.5%→39.0%, Maria preserved (89.5%→88.0%), IDF's cost reduced vs. full masking (−15.5pp vs. −24.5pp) but not eliminated, and not explained by the duplicated-original control alone. Average recall is essentially tied with `sbert_original` (59.0% vs. 59.2%) | **Exploratory evidence only — not validated or confirmed** (masking policy was chosen using the same IDF test set this experiment evaluates on); no production change; required next step (not done here) is testing this policy on fresh held-out authors never used for hypothesis generation in Sections 19-24 |
+| 25. Fresh-Author Confirmatory Evaluation — pre-registered test of Section 24's candidate on unseen authors | 14 fresh authors (2/narrative, seed=42, frozen before training), 3 frozen variants (`sbert_original`, `sbert_soft_topic`, `sbert_person_misc_masked_aug_soft_topic`), same architecture/hyperparameters/seed as #18-24; pre-registered 3pp non-inferiority margin (mean+median) and ≤20%-of-authors->10pp-degradation guardrail | Guardrail passes (1/14 authors degrade >10pp) and mean recall is ~tied (37.1% vs. 39.0%), but median recall fails the margin (32.7% vs. 38.8%, baseline−3pp=35.8%); dominant-error concentration is *not* reduced (45.8% vs. 44.2% baseline); per-narrative gains are limited to Right-wing/Left-wing while Resistance/Russian/Ukrainian/Zionist regress | **NON-INFERIOR = FALSE** — Section 24's policy does not replicate as confirmatory; entity-masking-augmentation line of investigation (Sections 21-25) closed as a negative/non-generalizing result, no production adoption |
+| 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree) | First pass: 5 generic features (`text_length`/`entity_count`/`soft_topic_max_prob`/`soft_topic_entropy`/`classifier_margin`), training accuracy only. Second pass: 11 domain-shift/novelty/style features (SBERT similarity-to-train, entity/lexical novelty, topic-distribution distance, basic style), `classifier_margin` excluded, evaluated via `StratifiedGroupKFold` (5-fold, grouped by author) at depth 3/4/5, on all 3,009 test examples from Section 25's 14 fresh authors | First pass: training accuracy 62.4% vs. 59.9% majority baseline (+2.5pp), dominated by near-tautological `classifier_margin`. Second pass: grouped CV accuracy 56.7%/57.3%/59.0% (depth 3/4/5) — **none beat the 59.9% majority baseline**; full-data-fit feature importance (`distance_to_same_narrative_centroid`≈0.59, `topic_distribution_distance`≈0.30) is not supported by the CV result, and per-leaf error rates show no stable/monotonic pattern | **Closed as negative/inconclusive per the user's pre-registered stopping rule** — not extended to Random Forest or further feature engineering; no evidence domain shift *isn't* the cause, only that no stable per-example pattern was detectable with the tried features/method |
