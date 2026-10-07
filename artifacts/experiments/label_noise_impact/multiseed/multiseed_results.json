@@ -1,0 +1,224 @@
+{
+  "arms": [
+    "removal",
+    "full-corpus baseline"
+  ],
+  "authors": {
+    "BernieSanders": {
+      "baseline": {
+        "recall_mean": 0.29,
+        "recall_std": 0.045,
+        "right_wing_mean": 0.5367,
+        "right_wing_std": 0.0501
+      },
+      "delta_mean": 0.0017,
+      "delta_rw_mean": 0.0083,
+      "delta_rw_std": 0.0929,
+      "delta_std": 0.1026,
+      "removal": {
+        "recall_mean": 0.2917,
+        "recall_std": 0.0791,
+        "right_wing_mean": 0.545,
+        "right_wing_std": 0.0841
+      },
+      "seeds": {
+        "42": {
+          "baseline": {
+            "recall": 0.245,
+            "right_wing_rate": 0.575
+          },
+          "delta_removal_minus_baseline": {
+            "recall": 0.115,
+            "right_wing_rate": -0.095
+          },
+          "removal": {
+            "recall": 0.36,
+            "right_wing_rate": 0.48
+          }
+        },
+        "43": {
+          "baseline": {
+            "recall": 0.29,
+            "right_wing_rate": 0.555
+          },
+          "delta_removal_minus_baseline": {
+            "recall": -0.085,
+            "right_wing_rate": 0.085
+          },
+          "removal": {
+            "recall": 0.205,
+            "right_wing_rate": 0.64
+          }
+        },
+        "44": {
+          "baseline": {
+            "recall": 0.335,
+            "right_wing_rate": 0.48
+          },
+          "delta_removal_minus_baseline": {
+            "recall": -0.025,
+            "right_wing_rate": 0.035
+          },
+          "removal": {
+            "recall": 0.31,
+            "right_wing_rate": 0.515
+          }
+        }
+      }
+    },
+    "IDF": {
+      "baseline": {
+        "recall_mean": 0.6417,
+        "recall_std": 0.0115,
+        "right_wing_mean": 0.03,
+        "right_wing_std": 0.005
+      },
+      "delta_mean": -0.025,
+      "delta_rw_mean": 0.01,
+      "delta_rw_std": 0.0132,
+      "delta_std": 0.0218,
+      "removal": {
+        "recall_mean": 0.6167,
+        "recall_std": 0.0176,
+        "right_wing_mean": 0.04,
+        "right_wing_std": 0.015
+      },
+      "seeds": {
+        "42": {
+          "baseline": {
+            "recall": 0.635,
+            "right_wing_rate": 0.025
+          },
+          "delta_removal_minus_baseline": {
+            "recall": -0.035,
+            "right_wing_rate": 0.0
+          },
+          "removal": {
+            "recall": 0.6,
+            "right_wing_rate": 0.025
+          }
+        },
+        "43": {
+          "baseline": {
+            "recall": 0.635,
+            "right_wing_rate": 0.03
+          },
+          "delta_removal_minus_baseline": {
+            "recall": 0.0,
+            "right_wing_rate": 0.025
+          },
+          "removal": {
+            "recall": 0.635,
+            "right_wing_rate": 0.055
+          }
+        },
+        "44": {
+          "baseline": {
+            "recall": 0.655,
+            "right_wing_rate": 0.035
+          },
+          "delta_removal_minus_baseline": {
+            "recall": -0.04,
+            "right_wing_rate": 0.005
+          },
+          "removal": {
+            "recall": 0.615,
+            "right_wing_rate": 0.04
+          }
+        }
+      }
+    },
+    "MariaZakharova": {
+      "baseline": {
+        "recall_mean": 0.8667,
+        "recall_std": 0.0407,
+        "right_wing_mean": 0.0217,
+        "right_wing_std": 0.0029
+      },
+      "delta_mean": -0.0417,
+      "delta_rw_mean": -0.0017,
+      "delta_rw_std": 0.0126,
+      "delta_std": 0.0401,
+      "removal": {
+        "recall_mean": 0.825,
+        "recall_std": 0.0757,
+        "right_wing_mean": 0.02,
+        "right_wing_std": 0.01
+      },
+      "seeds": {
+        "42": {
+          "baseline": {
+            "recall": 0.895,
+            "right_wing_rate": 0.025
+          },
+          "delta_removal_minus_baseline": {
+            "recall": -0.045,
+            "right_wing_rate": -0.015
+          },
+          "removal": {
+            "recall": 0.85,
+            "right_wing_rate": 0.01
+          }
+        },
+        "43": {
+          "baseline": {
+            "recall": 0.82,
+            "right_wing_rate": 0.02
+          },
+          "delta_removal_minus_baseline": {
+            "recall": -0.08,
+            "right_wing_rate": 0.01
+          },
+          "removal": {
+            "recall": 0.74,
+            "right_wing_rate": 0.03
+          }
+        },
+        "44": {
+          "baseline": {
+            "recall": 0.885,
+            "right_wing_rate": 0.02
+          },
+          "delta_removal_minus_baseline": {
+            "recall": 0.0,
+            "right_wing_rate": 0.0
+          },
+          "removal": {
+            "recall": 0.885,
+            "right_wing_rate": 0.02
+          }
+        }
+      }
+    }
+  },
+  "excluded_accounts": [
+    "OpenSourceIntel",
+    "ResistanceNewsNetwork"
+  ],
+  "held_out_authors": [
+    "IDF",
+    "MariaZakharova",
+    "BernieSanders"
+  ],
+  "hyperparams": {
+    "backbone": "sentence-transformers/all-MiniLM-L6-v2",
+    "batch_size": 16,
+    "dropout": 0.3,
+    "epochs": 20,
+    "hidden": 128,
+    "lr": 0.001,
+    "patience": 3,
+    "variant": "sbert_only"
+  },
+  "method": "post-split row mask: for each author/seed, the full-corpus baseline split is built first (test = all held-out author rows; pool split train/val by sklearn train_test_split test_size=0.15 random_state=seed); the removal arm reuses the SAME train/val row membership and drops pool rows with author_source in the exclusion set. Seed 42 values are reused verbatim from removal_retrain_results.json (original pre-split-filter run); seeds 43 and 44 are fresh runs under the post-split mask. Per-epoch train order is fixed (no reshuffling), matching narrative_ablation_loao.train_variant; evaluate/compute_metrics from narrative_lens.train reused unmodified. CPU only.",
+  "n_test": 200,
+  "seed_42_source": "artifacts/experiments/label_noise_impact/removal_retrain_results.json (pre-split exclusion filter; test sets verified multiset+order identical to baseline)",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "stats": "mean/std across the 3 seeds; std is the sample standard deviation (n=3); delta = removal minus baseline per seed, then averaged",
+  "test_identity": "byte-identical across arms within each author: held-out authors are disjoint from the exclusion set; verified multiset True and order True for all 3 authors on the fresh-run path",
+  "verdict": "BernieSanders +0.115 gain is WITHIN NOISE, not stable: per-seed removal-minus-baseline recall deltas are +0.115 (seed 42), -0.085 (seed 43), -0.025 (seed 44), mean +0.0017 std 0.1026, with the sign flipping across seeds. The baseline arm alone swings 0.245-0.335 across seeds (range 0.090), so a 0.115 single-seed delta is within the observed seed noise. Right-wing rate delta likewise flips sign (mean +0.0083, std 0.0929). IDF (mean delta -0.025, std 0.0218) and MariaZakharova (mean delta -0.0417, std 0.0401) show small negative deltas stable in sign in 2-3 of 3 seeds but within ~1 std of zero. Conclusion: removing 202/16510 rows has no demonstrated systematic effect on unseen-author sbert_only recall; the single-seed Bernie gain does not replicate."
+}

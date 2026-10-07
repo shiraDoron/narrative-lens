@@ -23,6 +23,11 @@ rows are byte-identical before/after (verified multiset + order).
 
 Reconstruction source: retrain_protocol.json (spec) + removal_retrain_results.json
 commands + narrative_ablation_loao.py train_variant.
+
+Multiseed follow-up: artifacts/experiments/label_noise_impact/multiseed/
+multiseed_results.json (seeds 42/43/44, 3 authors x 2 arms; seed 42 reused
+from removal_retrain_results.json, seeds 43/44 fresh runs using a post-split
+exclusion row mask with shared train/val membership across arms).
 """
 from __future__ import annotations
 

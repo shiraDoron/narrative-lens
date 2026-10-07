@@ -1,0 +1,799 @@
+{
+ "mode": "T-sampled",
+ "seed": 42,
+ "hyperparams": {
+  "variant": "sbert_only",
+  "EPOCHS": 20,
+  "BATCH": 16,
+  "lr": 0.001,
+  "patience": 3,
+  "hidden": 128,
+  "dropout": 0.3,
+  "backbone": "sentence-transformers/all-MiniLM-L6-v2",
+  "train_split": "train-author suite rows only, 85/15 train/val, seed 42"
+ },
+ "sampling": {
+  "method": "40 undirected author pairs: min-1 per suite plus largest-remainder proportional to covered-pair counts (seed 42 choice without replacement per suite); direction per undirected pair prefers the Mode-Z-covered test author for direct comparability, else random (seed 42); all cells >=30 texts verified from pairs CSV train_n/test_n",
+  "n_undirected_per_suite": {
+   "event_iran_2026-03": 145,
+   "event_israel_hezbollah_gaza_2026-03": 59,
+   "event_russia_ukraine_2026-03": 20,
+   "event_us_politics_trump_2026-03": 66,
+   "event_russia_ukraine_2026-02": 2,
+   "event_israel_hezbollah_gaza_2026-02": 3,
+   "event_us_politics_trump_2025-01": 1
+  },
+  "covered_per_suite": {
+   "event_iran_2026-03": 79,
+   "event_israel_hezbollah_gaza_2026-03": 39,
+   "event_russia_ukraine_2026-03": 13,
+   "event_us_politics_trump_2026-03": 63,
+   "event_russia_ukraine_2026-02": 0,
+   "event_israel_hezbollah_gaza_2026-02": 1,
+   "event_us_politics_trump_2025-01": 1
+  },
+  "allocated": {
+   "event_iran_2026-03": 14,
+   "event_israel_hezbollah_gaza_2026-03": 8,
+   "event_russia_ukraine_2026-03": 3,
+   "event_us_politics_trump_2026-03": 12,
+   "event_russia_ukraine_2026-02": 1,
+   "event_israel_hezbollah_gaza_2026-02": 1,
+   "event_us_politics_trump_2025-01": 1
+  },
+  "n_pairs": 40
+ },
+ "mode_Z_reference": {
+  "matched_mean_gap_pp": -36.316364687035595,
+  "variant": "Z_sbert_soft_topic",
+  "n_covered_pairs": 196
+ },
+ "summary": {
+  "n": 40,
+  "mean_recall_T": 0.005941040666650422,
+  "mean_gap_T_pp": -73.4282688765014,
+  "n_with_mode_Z": 25,
+  "mean_recall_Z_on_sampled_covered": 0.2950887761699528
+ },
+ "verdict": "Fresh single-author training does NOT close the event-matched gap: sampled Mode T mean recall 0.006 (mean gap -73.4pp vs sbert_only random baseline) vs Mode Z matched mean gap -36.3pp. Single-narrative train-author supervision collapses predictions onto the train narrative, so cross-narrative test recall stays at or below Mode Z levels.",
+ "pairs": [
+  {
+   "pair_id": "event_iran_2026-03-P100",
+   "event_id": "event_iran_2026-03",
+   "train_author": "IDF",
+   "train_narrative": "Zionist",
+   "n_train": 55,
+   "test_author": "FoxNews",
+   "true_narrative": "Right-wing",
+   "n_test": 30,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.52747252747253,
+   "sbert_only_random_baseline": 0.7252747252747253,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Zionist": 29,
+    "Russian": 1
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P244",
+   "event_id": "event_iran_2026-03",
+   "train_author": "UkraineNow",
+   "train_narrative": "Ukrainian",
+   "n_train": 43,
+   "test_author": "abualiexpress",
+   "true_narrative": "Zionist",
+   "n_test": 104,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": 0.20192307692307693,
+   "mode_Z_gap_pp": -53.348064978499764,
+   "pred_hist": {
+    "Ukrainian": 104
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P201",
+   "event_id": "event_iran_2026-03",
+   "train_author": "TasnimNewsEN",
+   "train_narrative": "Resistance",
+   "n_train": 100,
+   "test_author": "AIPAC",
+   "true_narrative": "Zionist",
+   "n_test": 51,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Resistance": 50,
+    "Russian": 1
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P021",
+   "event_id": "event_iran_2026-03",
+   "train_author": "AIPAC",
+   "train_narrative": "Zionist",
+   "n_train": 51,
+   "test_author": "Babel",
+   "true_narrative": "Ukrainian",
+   "n_test": 44,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.09470752089136,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": 0.38636363636363635,
+   "mode_Z_gap_pp": -31.534464221717847,
+   "pred_hist": {
+    "Zionist": 44
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P046",
+   "event_id": "event_iran_2026-03",
+   "train_author": "AlMayadeenEnglish",
+   "train_narrative": "Resistance",
+   "n_train": 142,
+   "test_author": "abualiexpress",
+   "true_narrative": "Zionist",
+   "n_test": 104,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": 0.20192307692307693,
+   "mode_Z_gap_pp": -53.348064978499764,
+   "pred_hist": {
+    "Resistance": 104
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P223",
+   "event_id": "event_iran_2026-03",
+   "train_author": "TheJerusalemPost",
+   "train_narrative": "Zionist",
+   "n_train": 111,
+   "test_author": "Rybar",
+   "true_narrative": "Russian",
+   "n_test": 77,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.76415094339622,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Zionist": 77
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P185",
+   "event_id": "event_iran_2026-03",
+   "train_author": "Slavyangrad",
+   "train_narrative": "Russian",
+   "n_train": 82,
+   "test_author": "abualiexpress",
+   "true_narrative": "Zionist",
+   "n_test": 104,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": 0.20192307692307693,
+   "mode_Z_gap_pp": -53.348064978499764,
+   "pred_hist": {
+    "Russian": 104
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P149",
+   "event_id": "event_iran_2026-03",
+   "train_author": "QudsNen",
+   "train_narrative": "Resistance",
+   "n_train": 146,
+   "test_author": "Slavyangrad",
+   "true_narrative": "Russian",
+   "n_test": 82,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.76415094339622,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": 0.0975609756097561,
+   "mode_Z_gap_pp": -59.539003992190466,
+   "pred_hist": {
+    "Resistance": 82
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P105",
+   "event_id": "event_iran_2026-03",
+   "train_author": "IDF",
+   "train_narrative": "Zionist",
+   "n_train": 55,
+   "test_author": "Slavyangrad",
+   "true_narrative": "Russian",
+   "n_test": 82,
+   "mode_T_recall": 0.024390243902439025,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.32512655315232,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": 0.0975609756097561,
+   "mode_Z_gap_pp": -59.539003992190466,
+   "pred_hist": {
+    "Zionist": 80,
+    "Russian": 2
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P020",
+   "event_id": "event_iran_2026-03",
+   "train_author": "AIPAC",
+   "train_narrative": "Zionist",
+   "n_train": 51,
+   "test_author": "AlMayadeenEnglish",
+   "true_narrative": "Resistance",
+   "n_test": 142,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Zionist": 142
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P200",
+   "event_id": "event_iran_2026-03",
+   "train_author": "TasnimNewsEN",
+   "train_narrative": "Resistance",
+   "n_train": 100,
+   "test_author": "@MiddleEastEye_TG",
+   "true_narrative": "Left-wing",
+   "n_test": 111,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.24199288256227,
+   "sbert_only_random_baseline": 0.7224199288256228,
+   "mode_Z_sbert_soft_topic_recall": 0.018018018018018018,
+   "mode_Z_gap_pp": -60.505890505890505,
+   "pred_hist": {
+    "Resistance": 111
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P249",
+   "event_id": "event_iran_2026-03",
+   "train_author": "WesternJournal",
+   "train_narrative": "Right-wing",
+   "n_train": 30,
+   "test_author": "Babel",
+   "true_narrative": "Ukrainian",
+   "n_test": 44,
+   "mode_T_recall": 0.045454545454545456,
+   "mode_T_gap_vs_sbert_only_random_pp": -69.54925297543683,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": 0.38636363636363635,
+   "mode_Z_gap_pp": -31.534464221717847,
+   "pred_hist": {
+    "Russian": 2,
+    "Ukrainian": 2,
+    "Right-wing": 40
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P197",
+   "event_id": "event_iran_2026-03",
+   "train_author": "StandWithUs",
+   "train_narrative": "Zionist",
+   "n_train": 110,
+   "test_author": "UkraineNow",
+   "true_narrative": "Ukrainian",
+   "n_test": 43,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.09470752089136,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Zionist": 43
+   }
+  },
+  {
+   "pair_id": "event_iran_2026-03-P094",
+   "event_id": "event_iran_2026-03",
+   "train_author": "FoxNews",
+   "train_narrative": "Right-wing",
+   "n_train": 30,
+   "test_author": "abualiexpress",
+   "true_narrative": "Zionist",
+   "n_test": 104,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": 0.20192307692307693,
+   "mode_Z_gap_pp": -53.348064978499764,
+   "pred_hist": {
+    "Ukrainian": 4,
+    "Right-wing": 100
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P043",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "IDF",
+   "train_narrative": "Zionist",
+   "n_train": 60,
+   "test_author": "PressTV",
+   "true_narrative": "Resistance",
+   "n_test": 174,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": 0.5574712643678161,
+   "mode_Z_gap_pp": -8.335560901719674,
+   "pred_hist": {
+    "Zionist": 174
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P065",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "QudsNen",
+   "train_narrative": "Resistance",
+   "n_train": 230,
+   "test_author": "abualiexpress",
+   "true_narrative": "Zionist",
+   "n_test": 82,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": 0.4146341463414634,
+   "mode_Z_gap_pp": -32.07695803666112,
+   "pred_hist": {
+    "Resistance": 81,
+    "Russian": 1
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P087",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "StandWithUs",
+   "train_narrative": "Zionist",
+   "n_train": 140,
+   "test_author": "AlMayadeenEnglish",
+   "true_narrative": "Resistance",
+   "n_test": 131,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Zionist": 131
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P073",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "Rybar",
+   "train_narrative": "Russian",
+   "n_train": 45,
+   "test_author": "TasnimNewsEN",
+   "true_narrative": "Resistance",
+   "n_test": 48,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Russian": 48
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P012",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "@MiddleEastEye_TG",
+   "train_narrative": "Left-wing",
+   "n_train": 151,
+   "test_author": "abualiexpress",
+   "true_narrative": "Zionist",
+   "n_test": 82,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": 0.4146341463414634,
+   "mode_Z_gap_pp": -32.07695803666112,
+   "pred_hist": {
+    "Left-wing": 82
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P018",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "AIPAC",
+   "train_narrative": "Zionist",
+   "n_train": 59,
+   "test_author": "Rybar",
+   "true_narrative": "Russian",
+   "n_test": 45,
+   "mode_T_recall": 0.022222222222222223,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.541928721174,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Zionist": 44,
+    "Russian": 1
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P099",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "TasnimNewsEN",
+   "train_narrative": "Resistance",
+   "n_train": 48,
+   "test_author": "Slavyangrad",
+   "true_narrative": "Russian",
+   "n_test": 41,
+   "mode_T_recall": 0.024390243902439025,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.32512655315232,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": 0.07317073170731707,
+   "mode_Z_gap_pp": -61.978028382434374,
+   "pred_hist": {
+    "Resistance": 39,
+    "Russian": 1,
+    "Ukrainian": 1
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-03-P017",
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "train_author": "AIPAC",
+   "train_narrative": "Zionist",
+   "n_train": 59,
+   "test_author": "QudsNen",
+   "true_narrative": "Resistance",
+   "n_test": 230,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Zionist": 230
+   }
+  },
+  {
+   "pair_id": "event_russia_ukraine_2026-03-P013",
+   "event_id": "event_russia_ukraine_2026-03",
+   "train_author": "Slavyangrad",
+   "train_narrative": "Russian",
+   "n_train": 42,
+   "test_author": "United24Media",
+   "true_narrative": "Ukrainian",
+   "n_test": 166,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.09470752089136,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": 0.7289156626506024,
+   "mode_Z_gap_pp": 2.7207384069787537,
+   "pred_hist": {
+    "Russian": 166
+   }
+  },
+  {
+   "pair_id": "event_russia_ukraine_2026-03-P021",
+   "event_id": "event_russia_ukraine_2026-03",
+   "train_author": "UkraineNow",
+   "train_narrative": "Ukrainian",
+   "n_train": 153,
+   "test_author": "mfa_russia",
+   "true_narrative": "Russian",
+   "n_test": 93,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.76415094339622,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Ukrainian": 93
+   }
+  },
+  {
+   "pair_id": "event_russia_ukraine_2026-03-P009",
+   "event_id": "event_russia_ukraine_2026-03",
+   "train_author": "Rybar",
+   "train_narrative": "Russian",
+   "n_train": 126,
+   "test_author": "ZelenskyyUa",
+   "true_narrative": "Ukrainian",
+   "n_test": 84,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.09470752089136,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Russian": 84
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P107",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "UkraineNow",
+   "train_narrative": "Ukrainian",
+   "n_train": 62,
+   "test_author": "Newsmax",
+   "true_narrative": "Right-wing",
+   "n_test": 100,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.52747252747253,
+   "sbert_only_random_baseline": 0.7252747252747253,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Russian": 1,
+    "Ukrainian": 99
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P111",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "UkraineNow",
+   "train_narrative": "Ukrainian",
+   "n_train": 62,
+   "test_author": "TheJerusalemPost",
+   "true_narrative": "Zionist",
+   "n_test": 33,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Ukrainian": 33
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P034",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "FoxNews",
+   "train_narrative": "Right-wing",
+   "n_train": 88,
+   "test_author": "Babel",
+   "true_narrative": "Ukrainian",
+   "n_test": 52,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.09470752089136,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": 0.4230769230769231,
+   "mode_Z_gap_pp": -27.863135550389174,
+   "pred_hist": {
+    "Right-wing": 52
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P098",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "ThePostMillennial",
+   "train_narrative": "Right-wing",
+   "n_train": 50,
+   "test_author": "PressTV",
+   "true_narrative": "Resistance",
+   "n_test": 34,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": 0.35294117647058826,
+   "mode_Z_gap_pp": -28.78856969144246,
+   "pred_hist": {
+    "Russian": 2,
+    "Right-wing": 32
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P083",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "TheJerusalemPost",
+   "train_narrative": "Zionist",
+   "n_train": 33,
+   "test_author": "@MiddleEastEye_TG",
+   "true_narrative": "Left-wing",
+   "n_test": 45,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.24199288256227,
+   "sbert_only_random_baseline": 0.7224199288256228,
+   "mode_Z_sbert_soft_topic_recall": 0.022222222222222223,
+   "mode_Z_gap_pp": -60.085470085470085,
+   "pred_hist": {
+    "Zionist": 45
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P125",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "WesternJournal",
+   "train_narrative": "Right-wing",
+   "n_train": 89,
+   "test_author": "Babel",
+   "true_narrative": "Ukrainian",
+   "n_test": 52,
+   "mode_T_recall": 0.057692307692307696,
+   "mode_T_gap_vs_sbert_only_random_pp": -68.3254767516606,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": 0.4230769230769231,
+   "mode_Z_gap_pp": -27.863135550389174,
+   "pred_hist": {
+    "Russian": 10,
+    "Ukrainian": 3,
+    "Right-wing": 39
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P090",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "TheJerusalemPost",
+   "train_narrative": "Zionist",
+   "n_train": 33,
+   "test_author": "Slavyangrad",
+   "true_narrative": "Russian",
+   "n_test": 31,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.76415094339622,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": 0.16129032258064516,
+   "mode_Z_gap_pp": -53.166069295101565,
+   "pred_hist": {
+    "Zionist": 31
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P042",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "Newsmax",
+   "train_narrative": "Right-wing",
+   "n_train": 100,
+   "test_author": "@MiddleEastEye_TG",
+   "true_narrative": "Left-wing",
+   "n_test": 45,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.24199288256227,
+   "sbert_only_random_baseline": 0.7224199288256228,
+   "mode_Z_sbert_soft_topic_recall": 0.022222222222222223,
+   "mode_Z_gap_pp": -60.085470085470085,
+   "pred_hist": {
+    "Right-wing": 45
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P077",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "Slavyangrad",
+   "train_narrative": "Russian",
+   "n_train": 31,
+   "test_author": "PressTV",
+   "true_narrative": "Resistance",
+   "n_test": 34,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": 0.35294117647058826,
+   "mode_Z_gap_pp": -28.78856969144246,
+   "pred_hist": {
+    "Russian": 34
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P043",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "Newsmax",
+   "train_narrative": "Right-wing",
+   "n_train": 100,
+   "test_author": "Babel",
+   "true_narrative": "Ukrainian",
+   "n_test": 52,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.09470752089136,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": 0.4230769230769231,
+   "mode_Z_gap_pp": -27.863135550389174,
+   "pred_hist": {
+    "Russian": 4,
+    "Right-wing": 48
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P112",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "UkraineNow",
+   "train_narrative": "Ukrainian",
+   "n_train": 62,
+   "test_author": "ThePostMillennial",
+   "true_narrative": "Right-wing",
+   "n_test": 50,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -72.52747252747253,
+   "sbert_only_random_baseline": 0.7252747252747253,
+   "mode_Z_sbert_soft_topic_recall": 0.7,
+   "mode_Z_gap_pp": 3.975240715268228,
+   "pred_hist": {
+    "Ukrainian": 50
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2026-03-P024",
+   "event_id": "event_us_politics_trump_2026-03",
+   "train_author": "DDGeopolitics",
+   "train_narrative": "Russian",
+   "n_train": 32,
+   "test_author": "Babel",
+   "true_narrative": "Ukrainian",
+   "n_test": 52,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.09470752089136,
+   "sbert_only_random_baseline": 0.7409470752089137,
+   "mode_Z_sbert_soft_topic_recall": 0.4230769230769231,
+   "mode_Z_gap_pp": -27.863135550389174,
+   "pred_hist": {
+    "Russian": 52
+   }
+  },
+  {
+   "pair_id": "event_russia_ukraine_2026-02-P001",
+   "event_id": "event_russia_ukraine_2026-02",
+   "train_author": "DefenceU",
+   "train_narrative": "Ukrainian",
+   "n_train": 30,
+   "test_author": "mfa_russia",
+   "true_narrative": "Russian",
+   "n_test": 63,
+   "mode_T_recall": 0.06349206349206349,
+   "mode_T_gap_vs_sbert_only_random_pp": -68.41494459418988,
+   "sbert_only_random_baseline": 0.7476415094339622,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Russian": 4,
+    "Ukrainian": 59
+   }
+  },
+  {
+   "pair_id": "event_israel_hezbollah_gaza_2026-02-P003",
+   "event_id": "event_israel_hezbollah_gaza_2026-02",
+   "train_author": "@KoheletForum",
+   "train_narrative": "Right-wing",
+   "n_train": 31,
+   "test_author": "Israel",
+   "true_narrative": "Zionist",
+   "n_test": 31,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.12060301507537,
+   "sbert_only_random_baseline": 0.7412060301507538,
+   "mode_Z_sbert_soft_topic_recall": null,
+   "mode_Z_gap_pp": null,
+   "pred_hist": {
+    "Russian": 17,
+    "Right-wing": 14
+   }
+  },
+  {
+   "pair_id": "event_us_politics_trump_2025-01-P002",
+   "event_id": "event_us_politics_trump_2025-01",
+   "train_author": "TheIntercept",
+   "train_narrative": "Left-wing",
+   "n_train": 33,
+   "test_author": "AlJazeeraEnglish",
+   "true_narrative": "Resistance",
+   "n_test": 44,
+   "mode_T_recall": 0.0,
+   "mode_T_gap_vs_sbert_only_random_pp": -74.31693989071039,
+   "sbert_only_random_baseline": 0.7431693989071039,
+   "mode_Z_sbert_soft_topic_recall": 0.09090909090909091,
+   "mode_Z_gap_pp": -54.991778247592194,
+   "pred_hist": {
+    "Russian": 16,
+    "Left-wing": 28
+   }
+  }
+ ]
+}

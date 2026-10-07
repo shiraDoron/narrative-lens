@@ -23,8 +23,9 @@ Details: [docs/results.md](docs/results.md). All numbers below trace to that fil
 - **Random split: plain SBERT baseline wins.** `sbert_only` reaches 0.732 accuracy / 0.730 macro-F1, ahead of `hybrid` (0.722 / 0.717) and `baseline_fusion` (0.671 / 0.664). Engineered features add no measurable value here.
 - **RQ1: LOAO recall drops 20 to 38pp** relative to the random split, and 2 of 3 tested authors are systematically misrouted to `Right-wing` (Sections 18, 19).
 - **Labels are text-supported but noisy.** A 300-text blind validation agrees with provenance labels at 0.7727 accuracy (kappa 0.7348); the hard-disagreement (noise) rate is 0.1988.
-- **Noise removal does not fix the gap (mixed, single seed).** Removing 202 noisy rows shifts 3-author recall by -0.045/-0.035/+0.115.
+- **Removing 202 noisy rows shows no systematic effect across seeds 42/43/44 (Bernie mean delta +0.0017, sign flips; Section 34A).**
 - **The gap is not an event confound.** The event-matched LOAO gap is -36.3pp, showing no shrinkage versus -30.9pp mismatched.
+- **Fresh single-author training collapses harder (recall 0.006, gap -73.4pp; Section 34B).**
 - **RQ2: entity identity correlates but does not cause errors.** The entity-swap ACE is +0.043. Exploratory masking helped one author and hurt two (Sections 23, 24); the pre-registered test on 14 fresh authors returned `NON-INFERIOR = FALSE` (Section 25).
 - **RQ3: style identifies authors but removing it hurts.** A decision tree predicts the author within a fixed narrative far above chance (`Western`: 85.1% vs. about 20% baseline, Section 27). Normalizing style cut that signal (about minus 15 points macro-F1) yet fresh-author recall regressed for 13 of 14 authors (mean minus 6.4pp, median difference -10.8pp of group medians, Section 28).
 - **Group-DRO confirmatory: NOT_SUPPORTED.** Mean recall 33.3% vs 39.0% baseline, median 30.8% vs 38.8%, guardrail 3/14 (Section 33).

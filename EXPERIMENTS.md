@@ -42,6 +42,7 @@ narrative arc that connects the sections below, in the order the questions were 
 | 11 | Entity causality | Does entity identity causally drive LOAO errors at test time? | No: test-time entity swaps move predictions barely above placebo (ACE +0.043); identity correlates with errors but does not cause them | §32 |
 | 12 | Group robustness (selection) | Which group-DRO setting best improves worst-group recall on 3 exploratory authors? | eta=0.01, C=0 selected by mean worst-group val recall 0.2517; held-out test deltas vs sbert_only are mixed (IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp) | §33 |
 | 13 | Group robustness (confirmation) | Does the frozen DRO setting replicate on 14 fresh held-out authors (pre-registered test)? | **No**: `NOT_SUPPORTED`; mean, median, and guardrail all FAIL, only error-concentration passes | §33 |
+| 14 | Open-question closeout | Is the §30 Bernie gain stable across seeds, and does fresh single-author training close the event-matched gap? | **No to both**: noise-removal deltas flip sign across seeds 42/43/44 (Bernie mean +0.0017); fresh-train matched recall 0.0059 (gap -73.4pp), worse than Mode Z matched -36.3pp | §34 |
 
 For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_only` vs.
 `hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
@@ -90,6 +91,8 @@ summarized in the storyline table above.
 | §31 Matched-event evaluation (Mode Z) | Diagnostic | Negative | Closed |
 | §32 Entity attribution by test-time swaps | Diagnostic | Negative | Closed |
 | §33 Group-DRO on (narrative, author) groups | Intervention | Negative | Closed |
+| §34A Multiseed noise-removal stability | Exploratory | Negative | Closed |
+| §34B Sampled fresh-train matched-event eval (Mode T) | Diagnostic | Negative | Closed |
 
 ---
 
@@ -3644,6 +3647,38 @@ Artifacts: `artifacts/experiments/group_dro/selection.json`, `artifacts/experime
 
 ---
 
+## 34. Closing the two open questions: seed stability of noise removal (34A) and fresh-train matched-event eval (34B)
+
+**Experiment status 34A:** Exploratory · Negative · Closed (see legend above)
+
+**Experiment status 34B:** Diagnostic · Negative · Closed (see legend above)
+
+### 34A. Multiseed noise-removal stability: is the §30 Bernie gain real?
+
+**Goal:** Test whether the single-seed BernieSanders +0.115 recall gain from §30 replicates across seeds once the removal-vs-baseline comparison is made apples-to-apples.
+
+**Method:** Post-split row-mask method: for each author and seed (42/43/44), the full-corpus baseline split is built first (test is all held-out author rows; pool split train/val by sklearn train_test_split test_size=0.15 random_state=seed); the removal arm reuses the SAME train/val row membership and drops pool rows with author_source in the exclusion set (OpenSourceIntel, ResistanceNewsNetwork: 202 rows). Note: seed 42 values are reused verbatim from removal_retrain_results.json (the older pre-split filter run) and kept for continuity; seeds 43 and 44 are fresh runs under the post-split mask. Per-epoch train order is fixed (no reshuffling), matching narrative_ablation_loao.train_variant. Variant `sbert_only` (sentence-transformers/all-MiniLM-L6-v2, epochs 20, batch 16, lr 0.001, patience 3), CPU only. n_test 200 per author.
+
+**Result:** Bernie per-seed removal-minus-baseline recall deltas are +0.115 (seed 42), -0.085 (seed 43), -0.025 (seed 44), mean +0.0017 std 0.1026, with the sign flipping across seeds. The baseline arm alone swings 0.245-0.335 across seeds (range 0.090), so a 0.115 single-seed delta is within the observed seed noise. Right-wing rate delta likewise flips sign (mean +0.0083, std 0.0929). IDF mean delta -0.025 (std 0.0218) and MariaZakharova mean delta -0.0417 (std 0.0401) are small negatives within about 1 std of zero.
+
+**Conclusion:** The §30 Bernie gain is within noise, not a systematic removal effect: it does not replicate across seeds, and removing 202/16510 rows shows no demonstrated systematic effect on unseen-author `sbert_only` recall. Closed as an exploratory negative.
+
+Artifacts: `artifacts/experiments/label_noise_impact/multiseed/multiseed_results.json`.
+
+### 34B. Sampled fresh-train matched-event eval (Mode T): does training on the event close the gap?
+
+**Goal:** Run the Mode T evaluation left not-run by design in §31: fresh-train a classifier on the train author of an event-matched pair and test on the paired author, to see whether single-event supervision closes the event-matched gap.
+
+**Method:** 40 undirected author pairs sampled min-1-per-suite plus largest-remainder proportional to covered-pair counts (seed 42, choice without replacement per suite); direction per undirected pair prefers the Mode-Z-covered test author for direct comparability, else random (seed 42); all cells verified >=30 texts from the pairs CSV train_n/test_n. Per pair, `sbert_only` fresh-trained on train-author suite rows only (85/15 train/val, EPOCHS=20 BATCH=16 lr=0.001 patience=3 seed 42, hidden 128 dropout 0.3, backbone sentence-transformers/all-MiniLM-L6-v2) and evaluated for true-narrative recall on the test author rows.
+
+**Result:** Sampled Mode T mean recall 0.0059 with mean gap -73.4pp vs the `sbert_only` random baseline, against the Mode Z matched mean gap of -36.3pp (variant Z_sbert_soft_topic, 196 covered pairs). On the 25 sampled pairs also covered by Mode Z, Z mean recall is 0.2951, far above T. 34/40 pairs score exact-zero recall because single-narrative supervision collapses predictions onto the train narrative (per-pair pred_hist shows the train narrative taking nearly all test rows).
+
+**Conclusion:** Fresh single-author training does not close the event-matched gap; it collapses harder than the frozen-checkpoint Mode Z evaluation. Closed as a diagnostic negative.
+
+Artifacts: `artifacts/experiments/matched_event_eval/mode_t_sampled/mode_t_results.json`; runner `artifacts/experiments/matched_event_eval/mode_t_sampled/run_mode_t_sampled.py`.
+
+---
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -3674,4 +3709,5 @@ Artifacts: `artifacts/experiments/group_dro/selection.json`, `artifacts/experime
 | 31. Matched-event evaluation (Mode Z) - is the LOAO gap just event mismatch? | Mode Z event-matched directed-pair evaluation over frozen event suites vs mismatched LOAO mean gap; Mode T not run | 196/592 pairs covered; event-matched mean gap -36.3pp vs mismatched LOAO -30.9pp (no shrinkage); only russia_ukraine_2026-03 smaller at -15.6pp | Event mismatch is not the primary driver of LOAO errors; closed as negative diagnostic |
 | 32. Entity attribution by test-time swaps - does entity identity cause LOAO errors? | Test-time entity swaps over full 3009 rows: cross-author transplant (flip cross) vs same-author placebo shuffle; ACE on predicted-label flips | Flip cross 0.577 vs placebo 0.534 (ACE +0.043); per-author ACE -0.146 to +0.166; ACE-gap correlation r = -0.596 | Entity identity correlates with LOAO errors but does not causally drive them; closed as negative diagnostic |
 | 33. Group-DRO on (narrative, author) groups - does robust optimization close the gap? | Eta/C grid selected on 3 exploratory authors by mean worst-group val recall (winner eta=0.01, C=0, frozen), then pre-registered confirmatory on 14 fresh authors vs `sbert_only` | Selection deltas IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp; confirmatory 14/14: mean 33.3% vs 39.0% (needs >=36.0%) FAIL, median 30.8% vs 38.8% (needs >=35.8%) FAIL, guardrail 3/14 >10pp degradations (at most 2) FAIL, concentration 43.9% vs 44.2% PASS; verdict `NOT_SUPPORTED` | Group-DRO does not generalize; closed as negative intervention, no production change, no post-hoc tuning |
+| 34. Open-question closeout (34A multiseed noise removal; 34B sampled Mode T fresh-train) | 34A: post-split row-mask removal vs same-membership baseline, seeds 42/43/44 (seed 42 reused pre-split values); 34B: 40 sampled event-matched pairs, per-pair fresh `sbert_only` on train-author rows | 34A: Bernie deltas +0.115/-0.085/-0.025 (mean +0.0017, std 0.1026, sign flips; baseline swings 0.245-0.335); IDF mean -0.025, Maria mean -0.0417; 34B: Mode T mean recall 0.0059 (gap -73.4pp) vs Mode Z matched -36.3pp; Z recall on 25 covered sampled pairs 0.2951; 34/40 pairs exact zero | Both negatives, closed: no systematic removal effect; fresh single-author training collapses onto the train narrative and does not close the gap |
 
