@@ -30,13 +30,13 @@ narrative arc that connects the sections below, in the order the questions were 
 | # | Stage | Question | Result | Sections |
 |---|---|---|---|---|
 | 1 | Topic representation | Does a richer topic *distribution* (soft/LDA) beat a single hard topic id for narrative classification? | Hard topic id wins in the full fusion architecture; soft's real benefit turned out to be bias-reduction, not accuracy | §15, §17, §20 |
-| 2 | Unseen-author problem | Does the classifier generalize to an author excluded from training (LOAO)? | No — recall drops 20–38pp vs. the random split, with 2 of 3 tested authors systematically misrouted to `Right-wing` | §18, §19 |
-| 3 | Entity shortcut | Is the drop driven by memorized named-entity identities rather than genuine topic/stance signal? | Partially — masking entity identity changes predictions, but inconsistently across authors | §21, §22 |
-| 4 | Masking intervention | Can training-time entity-masking augmentation close the generalization gap? | Exploratory signal only: helps one author (Bernie), hurts two others (IDF, Maria) — not validated | §23, §24 |
-| 5 | Fresh-author confirmation | Does the masking policy replicate on 14 new, previously unanalyzed held-out authors (pre-registered test)? | **No** — `NON-INFERIOR = FALSE`; masking did not generalize | §25 |
-| 6 | Error diagnostics | What do misclassified unseen-author examples have in common? | Inconclusive — no single clean, actionable failure mode found | §26 |
-| 7 | Author signature | Can a simple model predict *which author* wrote a text using only surface style features, even within one fixed narrative? | **Yes**, far above chance (e.g. `Western` 85.1% vs. ~20% baseline) — narrative labels partly encode author identity, not just content | §27 |
-| 8 | Style normalization | Does normalizing surface style (punctuation, capitalization, length, ...) reduce the author-signature effect and improve unseen-author generalization without hurting in-distribution accuracy? | Normalization reduced the author-signature effect (avg ≈−15pp macro-F1) but **did not improve unseen-author generalization** — fresh-author recall got worse for 13/14 authors (mean −6.4pp, median −10.8pp). Author style signal exists, but there is no evidence yet that it is a harmful shortcut whose removal improves generalization | §28 |
+| 2 | Unseen-author problem | Does the classifier generalize to an author excluded from training (LOAO)? | No, recall drops 20–38pp vs. the random split, with 2 of 3 tested authors systematically misrouted to `Right-wing` | §18, §19 |
+| 3 | Entity shortcut | Is the drop driven by memorized named-entity identities rather than genuine topic/stance signal? | Partially, masking entity identity changes predictions, but inconsistently across authors | §21, §22 |
+| 4 | Masking intervention | Can training-time entity-masking augmentation close the generalization gap? | Exploratory signal only: helps one author (Bernie), hurts two others (IDF, Maria), not validated | §23, §24 |
+| 5 | Fresh-author confirmation | Does the masking policy replicate on 14 new, previously unanalyzed held-out authors (pre-registered test)? | **No**: `NON-INFERIOR = FALSE`; masking did not generalize | §25 |
+| 6 | Error diagnostics | What do misclassified unseen-author examples have in common? | Inconclusive, no single clean, actionable failure mode found | §26 |
+| 7 | Author signature | Can a simple model predict *which author* wrote a text using only surface style features, even within one fixed narrative? | **Yes**, far above chance (e.g. `Western` 85.1% vs. ~20% baseline): narrative labels partly encode author identity, not just content | §27 |
+| 8 | Style normalization | Does normalizing surface style (punctuation, capitalization, length, ...) reduce the author-signature effect and improve unseen-author generalization without hurting in-distribution accuracy? | Normalization reduced the author-signature effect (avg ≈−15pp macro-F1) but **did not improve unseen-author generalization**: fresh-author recall got worse for 13/14 authors (mean −6.4pp, median −10.8pp). Author style signal exists, but there is no evidence yet that it is a harmful shortcut whose removal improves generalization | §28 |
 
 For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_only` vs.
 `hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
@@ -1190,6 +1190,7 @@ assumption) determine which scaling law — constant, linear, sqrt, log, or anot
 actually fits.
 
 **Methodology:**
+<!-- CONDENSE: corpus/preprocessing bullets restate the §3/§4 pipeline; keep only the delta (stratified loader preserving label alignment). -->
 - **Corpus & preprocessing:** Same cleaning (`clean_text_for_topic_model` + `has_enough_content`)
   and near-duplicate removal (`deduplicate_texts`, threshold=0.7) as the production pipeline,
   applied to all 4 raw datasets (gemini/gpt/twitter/telegram) with `narrative_name`/
@@ -1348,6 +1349,7 @@ threshold-shopping on the test set. Per the explicit user constraint, the Topic 
 itself (BERTopic tuning, `min_topic_size`, embedding model) is closed and untouched — this
 experiment only changes how the already-fixed BERTopic output is fed to the classifier.
 
+<!-- CONDENSE: layer-mechanics paragraph restates the §15 design rationale; keep only the Hybrid routing rule. -->
 **Representation mechanics verified before designing Hybrid (`experiments/feature_ablation/narrative_topic_compare.py`,
 read in full, unmodified):** `TopicFeatureLayer` is a single `nn.Embedding(vec_size,
 NUM_NARRATIVES)` table consumed via `dense_vec @ table.weight`. Hard's one-hot vector and Soft's
@@ -1467,7 +1469,7 @@ recommended based on this experiment.**
 
 ---
 
-## 18. Narrative Classification — Leave-One-Author-Out (LOAO) generalization test
+## 18. Narrative Classification: Leave-One-Author-Out (LOAO) generalization test
 
 **Experiment status:** Diagnostic · Negative · Closed (see legend above)
 
@@ -1562,7 +1564,7 @@ close the gap — is a natural, currently unexplored next step (see open problem
 
 ---
 
-## 19. Feature Ablation + Soft Topics on unseen (LOAO) authors — which feature helps/hurts generalization?
+## 19. Feature Ablation + Soft Topics on unseen (LOAO) authors: which feature helps/hurts generalization?
 
 **Experiment status:** Diagnostic · Mixed · Closed (see legend above)
 
@@ -1782,7 +1784,7 @@ should not be assumed safe by default in future ablations.
 
 ---
 
-## 20. Hard Topic vs. Soft Topic Distribution vs. LDA Distribution for Narrative Classification — SBERT-backbone, controlled comparison
+## 20. Hard Topic vs. Soft Topic Distribution vs. LDA Distribution for Narrative Classification: SBERT-backbone, controlled comparison
 
 **Experiment status:** Confirmatory · Mixed · Closed (see legend above)
 
@@ -1807,6 +1809,7 @@ split (3 seeds, for statistical robustness) *and* the same 3 held-out authors us
 random-vs-LOAO ranking reversal can be attributed to the evaluation regime itself, not to an
 architecture difference.
 
+<!-- CONDENSE: setup bullets restate the §18/§19 training loop, seeds, and LOAO authors; keep only what differs (single-topic arm, both regimes side by side). -->
 **Setup.** `SBERTTopicDetector`: `sbert_embedding` (384-dim, frozen SBERT) optionally
 concatenated with one Topic arm's `TopicFeatureLayer(mode, vec_size)` output (7-dim, same
 `dense_vec @ table` mechanism as Sections 15/17/19 — see their write-ups for the design
@@ -2081,7 +2084,7 @@ code additions — 0 failures.
 
 ---
 
-## 21. Entity Shortcut Test — does entity IDENTITY (not just topic/stance) drive the LOAO Right-wing shortcut?
+## 21. Entity Shortcut Test: does entity IDENTITY (not just topic/stance) drive the LOAO Right-wing shortcut?
 
 **Experiment status:** Diagnostic · Mixed · Closed (see legend above)
 
@@ -2241,7 +2244,7 @@ feature caches: `data/cache/cached_features_entity_shortcut_{author}.pt`. Checkp
 
 ---
 
-## 22. Stance-Aware Entity Representation — representation-validation gate (NOT reached: LOAO training)
+## 22. Stance-Aware Entity Representation: representation-validation gate (NOT reached: LOAO training)
 
 **Experiment status:** Exploratory · Negative · Closed (see legend above)
 
@@ -2265,6 +2268,7 @@ investing in that architecture change**, this experiment asks a narrower, prior 
 any accessible stance-extraction method produce accurate, target-sensitive, cross-author
 predictions on our actual corpus?
 
+<!-- CONDENSE: motivation paragraph restates the §21 mechanism already given in the Research question above; keep one of the two. -->
 **Motivation from Experiment 21.** Experiment 21 is the sole reason this direction was
 considered at all — it identified a concrete mechanism (identity without stance) for one author
 and, symmetrically, a concrete cost (loss of legitimate identity signal) for the other two. This
@@ -2493,7 +2497,7 @@ git-tracked, none regenerated after annotation):
 
 ---
 
-## 23. Entity-Masking Augmentation — can training-time invariance capture Bernie's gain without paying IDF/Maria's cost?
+## 23. Entity-Masking Augmentation: can training-time invariance capture Bernie's gain without paying IDF/Maria's cost?
 
 **Experiment status:** Intervention · Mixed · Closed (see legend above)
 
@@ -2772,7 +2776,7 @@ Results: `artifacts/experiments/narrative_idf_masking_regression_audit/` (`idf_m
 
 ---
 
-## 24. Selective Entity-Masking Augmentation — exploratory test of a test-informed hypothesis
+## 24. Selective Entity-Masking Augmentation: exploratory test of a test-informed hypothesis
 
 **Experiment status:** Exploratory · Mixed · Closed (see legend above)
 
@@ -2873,7 +2877,7 @@ Results: `artifacts/experiments/narrative_selective_entity_masking_augmentation/
 
 ---
 
-## 25. Fresh-Author Confirmatory Evaluation — Protocol / Pre-registration
+## 25. Fresh-Author Confirmatory Evaluation: Protocol / Pre-registration
 
 **Experiment status:** Confirmatory · Negative · Closed (see legend above)
 
@@ -3034,7 +3038,7 @@ itself violate this section's own no-further-tuning pre-registration).
 
 ---
 
-## 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree)
+## 26. Unseen-Author Error Diagnostics: per-example interpretability study (Decision Tree)
 
 **Experiment status:** Diagnostic · Negative · Closed (see legend above)
 
@@ -3161,7 +3165,7 @@ considered at any point in this section.
 
 ---
 
-## 27. Author Signature Diagnostics — does the text itself identify its author? (Decision Tree)
+## 27. Author Signature Diagnostics: does the text itself identify its author? (Decision Tree)
 
 **Experiment status:** Diagnostic · Positive · Closed (see legend above)
 
@@ -3303,7 +3307,7 @@ norm (Section 26).
 
 ---
 
-## 28. Style-Normalization Intervention — does removing author-specific formatting/style signal improve unseen-author generalization?
+## 28. Style-Normalization Intervention: does removing author-specific formatting/style signal improve unseen-author generalization?
 
 **Experiment status:** Intervention · Negative · Closed (see legend above)
 
@@ -3555,6 +3559,7 @@ this specific line of investigation as a negative result.
 
 ---
 
+<!-- CONDENSE: summary table duplicates the storyline table plus per-section Decisions; keep one of the two. -->
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -3580,3 +3585,12 @@ this specific line of investigation as a negative result.
 | 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree) | First pass: 5 generic features (`text_length`/`entity_count`/`soft_topic_max_prob`/`soft_topic_entropy`/`classifier_margin`), training accuracy only. Second pass: 11 domain-shift/novelty/style features (SBERT similarity-to-train, entity/lexical novelty, topic-distribution distance, basic style), `classifier_margin` excluded, evaluated via `StratifiedGroupKFold` (5-fold, grouped by author) at depth 3/4/5, on all 3,009 test examples from Section 25's 14 fresh authors | First pass: training accuracy 62.4% vs. 59.9% majority baseline (+2.5pp), dominated by near-tautological `classifier_margin`. Second pass: grouped CV accuracy 56.7%/57.3%/59.0% (depth 3/4/5) — **none beat the 59.9% majority baseline**; full-data-fit feature importance (`distance_to_same_narrative_centroid`≈0.59, `topic_distribution_distance`≈0.30) is not supported by the CV result, and per-leaf error rates show no stable/monotonic pattern | **Closed as negative/inconclusive per the user's pre-registered stopping rule** — not extended to Random Forest or further feature engineering; no evidence domain shift *isn't* the cause, only that no stable per-example pattern was detectable with the tried features/method |
 | 27. Author Signature Diagnostics — does the text identify its author? (Decision Tree) | Decision Tree predicts `author` (never a feature) from 28 style/lexical/entity/topic/SBERT-PCA features, on 50 real authors (10,091 rows, ≥100 examples each, all 7 narratives). Experiment A: all narratives pooled. Experiment B (decisive): same tree, run separately **within each narrative** (narrative held constant). `StratifiedKFold` 5-fold + `cross_val_predict` for honest out-of-fold accuracy/macro-F1/confusion matrices | Experiment A: 47.3% OOF accuracy vs. 4.0%/2.0% (majority/chance) baselines. Experiment B: **every one of the 7 narratives beat both baselines**, several by a wide margin (Western 85.1% vs. 20–22%; Russian 76.0% vs. 11.1%; Zionist, the weakest, still 48.3% vs. 11.1–11.7%) — narrative held constant, so this cannot be a narrative-as-author-proxy artifact. Top features were dominated by style/formatting (`text_length`, `word_count`, `url_count`, `mention_count`, `punctuation_rate`), not semantic content | **Positive result, closed after one pass.** Author identity is recoverable from simple stylistic/formatting features even within a fixed narrative — direct evidence of an author-specific signature that plausibly contributes to unseen-author (LOAO) degradation. Complements rather than contradicts Section 26 (different question: "does author signal exist" vs. "can we predict which examples a given classifier gets wrong"). No production change made; no causal ablation run |
 | 28. Style-Normalization Intervention — does removing author-specific style signal improve unseen-author generalization? | Deterministic `normalize_style()` (URL/mention/hashtag/emoji/repeated-char normalization, pre-registered, unit-tested) applied before SBERT encoding. Part A: Section 27's methodology re-run on normalized text (global + 7 narratives). Part B: `AblationDetector(arms=set())` (= Section 20's `"none"` mode / Section 25's `sbert_original`) trained fresh on normalized text, random split (3 seeds) + all 14 Section-25 frozen fresh authors, compared against REUSED (never retrained) Section 20/25 baselines; sanity-checked (`all_passed=true`) for identical rows/labels/splits/authors before any comparison | Part A: author-signal reduced substantially (avg ≈−15pp macro-F1, 6/7 narratives; Right-wing −26%, Zionist the one exception at +7%) but not eliminated anywhere. Part B: random-split macro-F1 non-inferior (−2.57pp, inside ±3pp margin), but fresh-author recall got **worse**, not better — 13/14 authors degraded, mean −6.4pp, median −10.8pp (opposite direction from the required ≥+3pp improvement) | **`WEAK_INCONCLUSIVE` per the pre-registered 3-way rule, but honestly a negative result**: this specific normalization measurably weakened the author shortcut (Part A) yet made unseen-author recall worse for most authors (Part B), not better — the author-signal-as-harmful-shortcut hypothesis is not confirmed; closed as negative, no production change |
+
+## Research agenda (pre-registered proposals, not results)
+
+Sections 18-28 above close the unseen-author generalization line as a measured negative
+result (masking NON-INFERIOR FALSE on 14 fresh authors in §25; style normalization hurting
+fresh-author recall by 6.4pp mean in §28 despite reducing the §27 author signature).
+Three falsifiable follow-up directions grounded only in those measured failures, with
+hypotheses, protocols, metrics, falsification criteria, and novelty claims, are proposed in
+[docs/research_agenda_A.md](docs/research_agenda_A.md). No results are claimed there.
