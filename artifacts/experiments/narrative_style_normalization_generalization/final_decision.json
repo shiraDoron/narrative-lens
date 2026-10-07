@@ -1,0 +1,21 @@
+{
+  "fresh_author_mean_delta": -0.06403024606971974,
+  "fresh_author_median_delta": -0.10777511961722491,
+  "random_split_macro_f1_delta": -0.02568362318917916,
+  "fresh_author_summary": {
+    "original": {
+      "mean": 0.38952665755297333,
+      "median": 0.3875,
+      "std": 0.2362198252970388,
+      "worst": 0.03
+    },
+    "normalized": {
+      "mean": 0.3254964114832536,
+      "median": 0.2797248803827751,
+      "std": 0.21486169896799379,
+      "worst": 0.035
+    }
+  },
+  "outcome_pattern": "WEAK_INCONCLUSIVE",
+  "explanation": "Part A shows some reduction in author-signal, but Part B's fresh-author recall improvement is small/mixed or random-split performance degraded beyond the non-inferiority margin - a real generalization benefit cannot be confidently claimed either way."
+}

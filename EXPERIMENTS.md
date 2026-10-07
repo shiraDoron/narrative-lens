@@ -21,6 +21,29 @@ default `ClassTfidfTransformer(bm25_weighting=False, reduce_frequent_words=False
 
 ---
 
+## Research storyline (start here)
+
+This file is a chronological lab notebook (27+ sections, methodology + results + conclusions for
+every experiment actually run). If you're new to the project, read this table first — it's the
+narrative arc that connects the sections below, in the order the questions were actually asked.
+
+| # | Stage | Question | Result | Sections |
+|---|---|---|---|---|
+| 1 | Topic representation | Does a richer topic *distribution* (soft/LDA) beat a single hard topic id for narrative classification? | Hard topic id wins in the full fusion architecture; soft's real benefit turned out to be bias-reduction, not accuracy | §15, §17, §20 |
+| 2 | Unseen-author problem | Does the classifier generalize to an author excluded from training (LOAO)? | No — recall drops 20–38pp vs. the random split, with 2 of 3 tested authors systematically misrouted to `Right-wing` | §18, §19 |
+| 3 | Entity shortcut | Is the drop driven by memorized named-entity identities rather than genuine topic/stance signal? | Partially — masking entity identity changes predictions, but inconsistently across authors | §21, §22 |
+| 4 | Masking intervention | Can training-time entity-masking augmentation close the generalization gap? | Exploratory signal only: helps one author (Bernie), hurts two others (IDF, Maria) — not validated | §23, §24 |
+| 5 | Fresh-author confirmation | Does the masking policy replicate on 14 new, previously unanalyzed held-out authors (pre-registered test)? | **No** — `NON-INFERIOR = FALSE`; masking did not generalize | §25 |
+| 6 | Error diagnostics | What do misclassified unseen-author examples have in common? | Inconclusive — no single clean, actionable failure mode found | §26 |
+| 7 | Author signature | Can a simple model predict *which author* wrote a text using only surface style features, even within one fixed narrative? | **Yes**, far above chance (e.g. `Western` 85.1% vs. ~20% baseline) — narrative labels partly encode author identity, not just content | §27 |
+| 8 | Style normalization | Does normalizing surface style (punctuation, capitalization, length, ...) reduce the author-signature effect and improve unseen-author generalization without hurting in-distribution accuracy? | **In progress** — not yet finalized or written up as a numbered section; see `experiments/author_generalization/narrative_style_normalization_*.py` | not yet numbered |
+
+For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_only` vs.
+`hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
+rather than this file.
+
+---
+
 ## 1. Soft (multi-topic) clustering added to BERTopic
 
 **Files:** [src/narrative_lens/topic_modeling/stance.py](src/narrative_lens/topic_modeling/stance.py), [src/narrative_lens/evaluation/analyze_soft_topics.py](src/narrative_lens/evaluation/analyze_soft_topics.py)
@@ -3221,6 +3244,256 @@ norm (Section 26).
 
 ---
 
+## 28. Style-Normalization Intervention — does removing author-specific formatting/style signal improve unseen-author generalization?
+
+**Status: COMPLETE. Negative/WEAK_INCONCLUSIVE result (mechanical label), but the actual
+direction of the Part B effect is a net regression, not a neutral mixed result — see
+Interpretation.**
+
+**Research question / motivation.** Section 27 found that author identity is recoverable from
+simple stylistic/formatting features (post length, punctuation, URL/mention/hashtag counts,
+sentence structure) even *within a single fixed narrative*. This section asks the natural causal
+follow-up: if that author-specific style signal is a *shortcut* that narrative classifiers latch
+onto during training (plausibly contributing to the LOAO/unseen-author degradation documented in
+Sections 18–26), does **removing** it via deterministic text normalization — before any SBERT
+encoding — make the classifier generalize better to never-seen authors, without hurting
+in-distribution (random-split) performance?
+
+**Hypothesis (pre-registered, before running anything):** normalizing away author-specific
+formatting/style markers will (a) materially reduce the author-signature recoverable per Section
+27's methodology, and if that signal really is a shortcut, (b) improve recall on unseen
+("fresh") authors, (c) without materially hurting random-split performance.
+
+**Design — ONE predefined intervention, no sweep, no mid-experiment tuning.** The normalization
+rules (`narrative_lens.features.style_normalization.normalize_style()`) were fully specified and
+unit-tested (11/11 tests passing) *before* either Part A or Part B was run, and never changed
+afterward. Applied in order, to every text (train/val/test alike), before SBERT encoding:
+
+1. Bare shortlink → `[URL]`
+2. Full URL → `[URL]`
+3. `@mention` → `[USER]`
+4. `#hashtag` → hashtag stripped of `#`, camelCase split into separate words
+5. Emoji removed
+6. Repeated `!`/`?`/`.` collapsed to a single occurrence
+7. Repeated letters (3+ in a row) collapsed to 2 (e.g. `"sooooo"` → `"soo"`)
+8. Whitespace collapsed
+
+**Explicitly NOT normalized** (left untouched, by design): capitalization/uppercase ratio, overall
+text length, word choice/vocabulary, sentence structure/length, named entities, punctuation
+*type* (only repeated runs are collapsed), stopwords, grammar. This is a deliberately narrow,
+surface-level intervention — not a full style-transfer or paraphrase.
+
+### Part A — does normalization actually reduce the measured author-signature?
+
+Re-ran Section 27's exact Decision-Tree methodology (same 28 features, same 50 real authors,
+10,091 rows, same `StratifiedKFold(5)` + `cross_val_predict` out-of-fold evaluation) on the
+**normalized** text, compared against the unmodified Section-27 numbers.
+Script: `experiments/author_generalization/narrative_style_normalization_author_signature.py`.
+
+**Global (Experiment A, n=10,091, 50 authors):**
+
+| Variant | OOF accuracy | OOF macro-F1 |
+|---|---|---|
+| Original | 47.309% | 46.297% |
+| Normalized | 37.608% | 36.423% |
+| Δ (absolute) | −9.70pp | −9.88pp |
+| Δ (relative) | −20.51% | −21.33% |
+
+Top features: original → `text_length, punctuation_rate, mention_count, sbert_pca_2, sbert_pca_1`;
+normalized → `text_length, punctuation_rate, sbert_pca_3, sbert_pca_1, uppercase_ratio` (style
+features still dominate even after normalization — `text_length`/`punctuation_rate` persist as
+top-2 in both).
+
+**Per-narrative (Experiment B, decisive test — narrative held constant), original → normalized macro-F1:**
+
+| Narrative | Original | Normalized | Δ (absolute) | Δ (relative) |
+|---|---|---|---|---|
+| Right-wing | 70.268% | 51.942% | **−18.33pp** | **−26.08%** |
+| Western | 84.403% | 71.746% | −12.66pp | −15.00% |
+| Russian | 76.364% | 66.016% | −10.35pp | −13.55% |
+| Left-wing | 81.881% | 71.608% | −10.27pp | −12.55% |
+| Ukrainian | 54.911% | 47.756% | −7.16pp | −13.03% |
+| Resistance | 69.889% | 63.035% | −6.85pp | −9.81% |
+| **Zionist** | 45.213% | 48.448% | **+3.24pp** | **+7.15%** |
+
+**Zionist is the one exception** — author-signature *increased* slightly after normalization,
+not decreased. This is reported as-is, not explained away: with 9 authors and the weakest
+baseline (45.2%) of the 7 narratives, this could be noise around an already-marginal signal, but
+no post-hoc investigation was run to preserve the pre-registered one-pass design.
+
+**Author signal was reduced substantially (avg ≈−15pp, Right-wing worst at −26%) but NOT
+eliminated anywhere**: `experiment_a_still_beats_baselines_after_normalization=true` and
+`any_experiment_b_narrative_still_beats_baselines_after_normalization=true` — every narrative,
+including Zionist, still predicts author far above the majority/chance baseline after
+normalization. The intervention weakened the shortcut; it did not remove it.
+
+Artifacts: `artifacts/experiments/narrative_style_normalization_author_signature/`
+(`diagnostic_dataset_normalized.csv`; per-scope `feature_importance.csv`/`confusion_matrix.csv`/
+`tree_rules.txt`/`tree.png` for original+normalized × global+7 narratives;
+`original_vs_normalized_summary.json`; `run_log.txt`).
+
+### Part B — does the normalized model generalize better to unseen authors?
+
+Script: `experiments/author_generalization/narrative_style_normalization_generalization.py`.
+Architecture: `AblationDetector(arms=set())` — frozen SBERT embedding → MLP only, architecturally
+identical to Section 20's `SBERTTopicDetector(mode="none")` / Section 25's `sbert_original`.
+
+**"Original" baseline was REUSED, never retrained** (zero retraining, by design):
+- Random split → Section 20's `narrative_topic_sbert_backbone.py` `"none"`-mode results, 3 seeds
+  (42/7/123): `artifacts/experiments/narrative_topic_sbert_backbone/results_random.json`.
+- 14 fresh authors → Section 25's `narrative_fresh_author_confirmatory.py` `sbert_original`
+  variant, on the SAME 14 frozen authors (2 per narrative, seed=42, frozen before any training —
+  `artifacts/experiments/narrative_fresh_author_audit/fresh_author_confirmatory_set.json`):
+  `artifacts/experiments/narrative_fresh_author_confirmatory/results.json`.
+
+**"Style-normalized" variant was trained fresh**, same splits/seeds/architecture/hyperparameters
+as the reused baselines — `normalize_style()` applied to every text is the only variable.
+
+**Sanity checks (run automatically before any comparison is computed, `run_sanity_checks()` →
+`sanity_checks.json`, `all_passed: true`):**
+- Random split: normalized cache's train/val/test row counts (11,557 / 2,476 / 2,477) AND label
+  sequences are byte-for-byte identical to the reused original cache.
+- Each of the 14 frozen authors: normalized LOAO cache's per-split row counts and label sequences
+  are identical to Section 25's own per-author cache (verified individually for all 14).
+- The 14 authors used are exactly the frozen set (no substitution), and each one's cached test
+  split's narrative matches the frozen set's declared narrative.
+
+All checks passed — original and normalized variants are built from identical
+examples/labels/splits/authors; the comparison below is apples-to-apples.
+
+**Random-split comparison (3 seeds):**
+
+| Seed | Original Acc | Original F1 | Normalized Acc | Normalized F1 |
+|---|---|---|---|---|
+| 42 | 72.99% | 72.80% | 70.45% | 70.24% |
+| 7 | 73.03% | 72.82% | 70.61% | 70.47% |
+| 123 | 72.91% | 72.63% | 70.04% | 69.84% |
+| **Mean ± std** | **72.98% ± 0.06pp** | **72.75% ± 0.10pp** | **70.37% ± 0.29pp** | **70.18% ± 0.32pp** |
+
+Macro-F1 delta = **−2.57pp**, inside the pre-registered ±3pp non-inferiority margin.
+**Random-split performance was NOT meaningfully hurt by normalization** (borderline but
+non-inferior).
+
+**Fresh-author comparison, all 14 frozen authors (`recall_true_narrative`, original →
+normalized):**
+
+| Author | Narrative | Original recall | Normalized recall | Δ |
+|---|---|---|---|---|
+| abualiexpress | Zionist | 24.0% | 23.0% | −1.0pp |
+| BringThemHomeNow | Zionist | 62.0% | 32.5% | **−29.5pp** |
+| AlJazeeraEnglish | Resistance | 27.5% | 19.0% | −8.5pp |
+| PressTV | Resistance | 57.0% | 55.25% | −1.75pp |
+| NATO | Western | 25.84% | 23.45% | −2.39pp |
+| Bloomberg | Western | 5.5% | 4.5% | −1.0pp |
+| KremlinRussia_E | Russian | 50.0% | 33.5% | −16.5pp |
+| Slavyangrad | Russian | 22.0% | 11.0% | −11.0pp |
+| Babel | Ukrainian | 59.0% | 58.0% | −1.0pp |
+| United24Media | Ukrainian | 77.0% | 66.0% | −11.0pp |
+| ThePostMillennial | Right-wing | 64.0% | 60.0% | −4.0pp |
+| TheEpochTimes | Right-wing | 50.5% | 49.0% | −1.5pp |
+| @MiddleEastEye_TG | Left-wing | 3.0% | 3.5% | **+0.5pp** |
+| ViceNews | Left-wing | 18.0% | 17.0% | −1.0pp |
+
+**13 of 14 authors got WORSE after normalization; only 1 of 14 (`@MiddleEastEye_TG`) improved,
+and only marginally (+0.5pp).** Largest degradation: `BringThemHomeNow` (−29.5pp).
+
+**Per-narrative aggregation (mean recall across the 2 authors per narrative), original → normalized:**
+
+| Narrative | Original | Normalized | Δ |
+|---|---|---|---|
+| Zionist | 43.0% | 27.75% | −15.25pp |
+| Russian | 36.0% | 22.25% | −13.75pp |
+| Ukrainian | 68.0% | 62.0% | −6.0pp |
+| Resistance | 42.25% | 37.125% | −5.125pp |
+| Right-wing | 57.25% | 54.5% | −2.75pp |
+| Western | 15.67% | 13.97% | −1.70pp |
+| Left-wing | 10.5% | 10.25% | −0.25pp |
+
+All 7 narratives degraded; Zionist and Russian degraded the most.
+
+**Fresh-author recall summary:**
+
+| Statistic | Original | Normalized | Δ |
+|---|---|---|---|
+| Mean | 38.95% | 32.55% | **−6.40pp** |
+| Median | 38.75% | 27.97% | **−10.78pp** |
+| Std | 23.62% | 21.49% | — |
+| Worst author | 3.0% | 3.5% | — |
+
+Both mean and median moved in the **opposite** direction from the pre-registered improvement
+margin (≥+3pp required for `STRONG_EVIDENCE`): the actual effect is a 6.4pp (mean) /10.8pp
+(median) **decrease**, not an increase.
+
+### Part A ↔ Part B outcome classification (pre-registered 3-way rule, applied mechanically)
+
+`classify_outcome()` evaluates the fixed rules from the module docstring against the actual
+numbers above:
+- Part A: author-signal was **materially reduced** in 6 of 7 narratives (≥10pp absolute drop in
+  5/7, Right-wing −26%), well past the "majority of narratives" bar for ruling out
+  `INSUFFICIENT_INTERVENTION`.
+- Part B: fresh-author mean/median recall did **not** improve by ≥3pp (they *decreased* by
+  6.4pp/10.8pp) — fails the `STRONG_EVIDENCE` condition.
+- Random-split macro-F1 delta (−2.57pp) is inside the non-inferiority margin.
+
+Per the fixed rule, the only remaining bucket is:
+
+> **FINAL DECISION: `WEAK_INCONCLUSIVE`**
+> "Part A shows some reduction in author-signal, but Part B's fresh-author recall improvement is
+> small/mixed or random-split performance degraded beyond the non-inferiority margin — a real
+> generalization benefit cannot be confidently claimed either way."
+
+**This mechanical label should not be read as "no effect" or "a wash".** The pre-registered 3-way
+rule has no separate bucket for "the intervention worked as a manipulation (Part A) but made the
+downstream goal worse, not better (Part B)" — that is the honest, undersold characterization of
+what actually happened here: 13/14 fresh authors got *worse*, not better, after an intervention
+that did measurably strip out a large fraction of the recoverable author signature. The author
+signal Section 27 found is therefore **not simply a harmful shortcut that, once removed, frees up
+generalization** — removing it (at least via this narrow, surface-level normalization) actively
+hurt unseen-author recall more often than it helped. This is a genuine negative result for the
+"author-style-shortcut" causal hypothesis as operationalized here, reported as-is per the
+pre-registered no-cherry-picking commitment.
+
+### Reproducibility
+
+- Seeds: `SEED=42` for LOAO/single-seed runs; `(42, 7, 123)` for random-split multi-seed (matches
+  Section 20).
+- Frozen 14 fresh authors (2 per narrative): `artifacts/experiments/narrative_fresh_author_audit/
+  fresh_author_confirmatory_set.json` (`selected_authors`), loaded via `load_frozen_authors()` —
+  identical set used in Sections 25–27 and here.
+- Section 20's random-split "none"-mode results and Section 25's `sbert_original` fresh-author
+  results were **reused as-is, never retrained**, for the "original" side of every Part B
+  comparison.
+- CLI:
+  ```
+  python experiments/author_generalization/narrative_style_normalization_author_signature.py
+  python experiments/author_generalization/narrative_style_normalization_generalization.py --random
+  python experiments/author_generalization/narrative_style_normalization_generalization.py --all-authors
+  python experiments/author_generalization/narrative_style_normalization_generalization.py --aggregate
+  ```
+- Sanity checks (identical rows/labels/splits/authors between original and normalized variants,
+  no leakage, no dropped rows) passed and were recorded to
+  `artifacts/experiments/narrative_style_normalization_generalization/sanity_checks.json`
+  (`all_passed: true`) **before** any comparison/conclusion was computed — `aggregate()` is
+  wired to hard-fail (`RuntimeError`) if any check fails.
+- Full artifacts: `artifacts/experiments/narrative_style_normalization_generalization/`
+  (`results.json`, `random_split_comparison.csv`, `fresh_author_comparison.csv`,
+  `per_narrative_aggregation.csv`, `final_decision.json`, `sanity_checks.json`, per-seed/
+  per-author confusion matrices, run logs).
+
+### Decision
+
+No mid-experiment tuning was performed — the normalization rules, architecture, splits, seeds,
+and the 3-way interpretation rule were all fixed before Part A or Part B was run, and neither was
+touched afterward based on results. The negative/inconclusive result is reported in full,
+without cherry-picking the one improved author or the non-inferior random-split number to imply
+a positive outcome. No production narrative classifier or pipeline was changed. The
+author-identity-shortcut hypothesis from Section 27 is **not confirmed** as something that
+simple surface-level style normalization can exploit to improve unseen-author generalization —
+if anything, this normalization made fresh-author recall worse for most authors tested, closing
+this specific line of investigation as a negative result.
+
+---
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -3245,3 +3518,4 @@ norm (Section 26).
 | 25. Fresh-Author Confirmatory Evaluation — pre-registered test of Section 24's candidate on unseen authors | 14 fresh authors (2/narrative, seed=42, frozen before training), 3 frozen variants (`sbert_original`, `sbert_soft_topic`, `sbert_person_misc_masked_aug_soft_topic`), same architecture/hyperparameters/seed as #18-24; pre-registered 3pp non-inferiority margin (mean+median) and ≤20%-of-authors->10pp-degradation guardrail | Guardrail passes (1/14 authors degrade >10pp) and mean recall is ~tied (37.1% vs. 39.0%), but median recall fails the margin (32.7% vs. 38.8%, baseline−3pp=35.8%); dominant-error concentration is *not* reduced (45.8% vs. 44.2% baseline); per-narrative gains are limited to Right-wing/Left-wing while Resistance/Russian/Ukrainian/Zionist regress | **NON-INFERIOR = FALSE** — Section 24's policy does not replicate as confirmatory; entity-masking-augmentation line of investigation (Sections 21-25) closed as a negative/non-generalizing result, no production adoption |
 | 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree) | First pass: 5 generic features (`text_length`/`entity_count`/`soft_topic_max_prob`/`soft_topic_entropy`/`classifier_margin`), training accuracy only. Second pass: 11 domain-shift/novelty/style features (SBERT similarity-to-train, entity/lexical novelty, topic-distribution distance, basic style), `classifier_margin` excluded, evaluated via `StratifiedGroupKFold` (5-fold, grouped by author) at depth 3/4/5, on all 3,009 test examples from Section 25's 14 fresh authors | First pass: training accuracy 62.4% vs. 59.9% majority baseline (+2.5pp), dominated by near-tautological `classifier_margin`. Second pass: grouped CV accuracy 56.7%/57.3%/59.0% (depth 3/4/5) — **none beat the 59.9% majority baseline**; full-data-fit feature importance (`distance_to_same_narrative_centroid`≈0.59, `topic_distribution_distance`≈0.30) is not supported by the CV result, and per-leaf error rates show no stable/monotonic pattern | **Closed as negative/inconclusive per the user's pre-registered stopping rule** — not extended to Random Forest or further feature engineering; no evidence domain shift *isn't* the cause, only that no stable per-example pattern was detectable with the tried features/method |
 | 27. Author Signature Diagnostics — does the text identify its author? (Decision Tree) | Decision Tree predicts `author` (never a feature) from 28 style/lexical/entity/topic/SBERT-PCA features, on 50 real authors (10,091 rows, ≥100 examples each, all 7 narratives). Experiment A: all narratives pooled. Experiment B (decisive): same tree, run separately **within each narrative** (narrative held constant). `StratifiedKFold` 5-fold + `cross_val_predict` for honest out-of-fold accuracy/macro-F1/confusion matrices | Experiment A: 47.3% OOF accuracy vs. 4.0%/2.0% (majority/chance) baselines. Experiment B: **every one of the 7 narratives beat both baselines**, several by a wide margin (Western 85.1% vs. 20–22%; Russian 76.0% vs. 11.1%; Zionist, the weakest, still 48.3% vs. 11.1–11.7%) — narrative held constant, so this cannot be a narrative-as-author-proxy artifact. Top features were dominated by style/formatting (`text_length`, `word_count`, `url_count`, `mention_count`, `punctuation_rate`), not semantic content | **Positive result, closed after one pass.** Author identity is recoverable from simple stylistic/formatting features even within a fixed narrative — direct evidence of an author-specific signature that plausibly contributes to unseen-author (LOAO) degradation. Complements rather than contradicts Section 26 (different question: "does author signal exist" vs. "can we predict which examples a given classifier gets wrong"). No production change made; no causal ablation run |
+| 28. Style-Normalization Intervention — does removing author-specific style signal improve unseen-author generalization? | Deterministic `normalize_style()` (URL/mention/hashtag/emoji/repeated-char normalization, pre-registered, unit-tested) applied before SBERT encoding. Part A: Section 27's methodology re-run on normalized text (global + 7 narratives). Part B: `AblationDetector(arms=set())` (= Section 20's `"none"` mode / Section 25's `sbert_original`) trained fresh on normalized text, random split (3 seeds) + all 14 Section-25 frozen fresh authors, compared against REUSED (never retrained) Section 20/25 baselines; sanity-checked (`all_passed=true`) for identical rows/labels/splits/authors before any comparison | Part A: author-signal reduced substantially (avg ≈−15pp macro-F1, 6/7 narratives; Right-wing −26%, Zionist the one exception at +7%) but not eliminated anywhere. Part B: random-split macro-F1 non-inferior (−2.57pp, inside ±3pp margin), but fresh-author recall got **worse**, not better — 13/14 authors degraded, mean −6.4pp, median −10.8pp (opposite direction from the required ≥+3pp improvement) | **`WEAK_INCONCLUSIVE` per the pre-registered 3-way rule, but honestly a negative result**: this specific normalization measurably weakened the author shortcut (Part A) yet made unseen-author recall worse for most authors (Part B), not better — the author-signal-as-harmful-shortcut hypothesis is not confirmed; closed as negative, no production change |

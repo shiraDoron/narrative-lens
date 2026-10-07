@@ -1,0 +1,323 @@
+{
+  "random_split": {
+    "train": {
+      "own_n": 11557,
+      "original_n": 11557,
+      "same_row_count": true,
+      "same_label_sequence": true
+    },
+    "val": {
+      "own_n": 2476,
+      "original_n": 2476,
+      "same_row_count": true,
+      "same_label_sequence": true
+    },
+    "test": {
+      "own_n": 2477,
+      "original_n": 2477,
+      "same_row_count": true,
+      "same_label_sequence": true
+    }
+  },
+  "fresh_authors": {
+    "frozen_set_matches_14_authors": true,
+    "per_author": {
+      "abualiexpress": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "BringThemHomeNow": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "AlJazeeraEnglish": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "PressTV": {
+        "train": {
+          "own_n": 13693,
+          "original_n": 13693,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2417,
+          "original_n": 2417,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 400,
+          "original_n": 400,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "NATO": {
+        "train": {
+          "own_n": 13855,
+          "original_n": 13855,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2446,
+          "original_n": 2446,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 209,
+          "original_n": 209,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "Bloomberg": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "KremlinRussia_E": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "Slavyangrad": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "Babel": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "United24Media": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "ThePostMillennial": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "TheEpochTimes": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "@MiddleEastEye_TG": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      },
+      "ViceNews": {
+        "train": {
+          "own_n": 13863,
+          "original_n": 13863,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "val": {
+          "own_n": 2447,
+          "original_n": 2447,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test": {
+          "own_n": 200,
+          "original_n": 200,
+          "same_row_count": true,
+          "same_label_sequence": true
+        },
+        "test_narrative_matches_frozen_set": true
+      }
+    }
+  },
+  "failures": [],
+  "all_passed": true
+}
