@@ -1,6 +1,6 @@
 # Narrative Lens: Do Narrative Classifiers Generalize to Unseen Authors?
 
-Short political texts are labeled with one of 7 narratives (`Zionist`, `Resistance`, `Western`, `Russian`, `Ukrainian`, `Right-wing`, `Left-wing`). In-distribution accuracy looks strong, but labels are assigned by account/channel, not per-text human judgment, so a model can score well by learning who wrote a text instead of what it argues. This repo tests whether that happens and tries four interventions (entity masking, style normalization, noise removal, group-DRO): none restored generalization to unseen authors.
+Short political texts are labeled with one of 7 narratives (`Zionist`, `Resistance`, `Western`, `Russian`, `Ukrainian`, `Right-wing`, `Left-wing`). In-distribution accuracy looks strong, but labels are assigned by account/channel, not per-text human judgment, so a model can score well by learning who wrote a text instead of what it argues. This repo tests whether that happens: four zero-shot interventions (entity masking, style normalization, noise removal, group-DRO) all failed to restore generalization to unseen authors, but few-shot adaptation works.
 
 ## Research questions
 
@@ -29,6 +29,7 @@ Details: [docs/results.md](docs/results.md). All numbers below trace to that fil
 - **RQ2: entity identity correlates but does not cause errors.** The entity-swap ACE is +0.043. Exploratory masking helped one author and hurt two (Sections 23, 24); the pre-registered test on 14 fresh authors returned `NON-INFERIOR = FALSE` (Section 25).
 - **RQ3: style identifies authors but removing it hurts.** A decision tree predicts the author within a fixed narrative far above chance (`Western`: 85.1% vs. about 20% baseline, Section 27). Normalizing style cut that signal (about minus 15 points macro-F1) yet fresh-author recall regressed for 13 of 14 authors (mean minus 6.4pp, median difference -10.8pp of group medians, Section 28).
 - **Group-DRO confirmatory: NOT_SUPPORTED.** Mean recall 33.3% vs 39.0% baseline, median 30.8% vs 38.8%, guardrail 3/14 (Section 33).
+- **Labeling 10 rows from a new author recovers recall to 64.9% mean (median 65.0%) with no retraining, vs 39.0% zero-shot (Section 35A).**
 
 ## Repo map
 

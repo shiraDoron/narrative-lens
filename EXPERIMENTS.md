@@ -43,6 +43,7 @@ narrative arc that connects the sections below, in the order the questions were 
 | 12 | Group robustness (selection) | Which group-DRO setting best improves worst-group recall on 3 exploratory authors? | eta=0.01, C=0 selected by mean worst-group val recall 0.2517; held-out test deltas vs sbert_only are mixed (IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp) | §33 |
 | 13 | Group robustness (confirmation) | Does the frozen DRO setting replicate on 14 fresh held-out authors (pre-registered test)? | **No**: `NOT_SUPPORTED`; mean, median, and guardrail all FAIL, only error-concentration passes | §33 |
 | 14 | Open-question closeout | Is the §30 Bernie gain stable across seeds, and does fresh single-author training close the event-matched gap? | **No to both**: noise-removal deltas flip sign across seeds 42/43/44 (Bernie mean +0.0017); fresh-train matched recall 0.0059 (gap -73.4pp), worse than Mode Z matched -36.3pp | §34 |
+| 15 | Few-shot adaptation + selective prediction | Does labeling a few rows from a new author, or abstaining on low-confidence rows, fix unseen-author recall? | **Yes to few-shot, no to abstention**: k=10 support recovers mean recall to 64.9% (first positive intervention); confidence detects errors (AUROC 0.63) but 20% abstention only lifts accuracy 0.401 to 0.437 | §35 |
 
 For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_only` vs.
 `hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
@@ -93,6 +94,8 @@ summarized in the storyline table above.
 | §33 Group-DRO on (narrative, author) groups | Intervention | Negative | Closed |
 | §34A Multiseed noise-removal stability | Exploratory | Negative | Closed |
 | §34B Sampled fresh-train matched-event eval (Mode T) | Diagnostic | Negative | Closed |
+| §35A Few-shot author adaptation | Intervention | Positive | Current |
+| §35B Selective prediction on fresh authors | Diagnostic | Mixed | Closed |
 
 ---
 
@@ -3679,6 +3682,38 @@ Artifacts: `artifacts/experiments/matched_event_eval/mode_t_sampled/mode_t_resul
 
 ---
 
+## 35. What finally works: few-shot author adaptation (35A, positive) and selective prediction (35B, mixed)
+
+**Experiment status 35A:** Intervention · Positive · Current (see legend above)
+
+**Experiment status 35B:** Diagnostic · Mixed · Closed (see legend above)
+
+### 35A. Few-shot author adaptation: labeling a handful of rows from a new author recovers recall with no retraining
+
+**Goal:** Test whether a new author can be handled at deployment time without retraining, by nudging the frozen classifier toward a few labeled rows from that author.
+
+**Method:** Frozen SBERT `all-MiniLM-L6-v2`. Seven narrative centroids built from author-disjoint train rows only. Each centroid is adapted toward the test author with k labeled support rows from that author (support/query disjoint, overlap 0 verified), via `adapted_t = normalize((1-a)*C_t + a*S)` with the target narrative centroid moved and others unchanged; prediction is cosine nearest adapted centroid. Primary weight 0.5; weights 0.25 and 1.0 also tried. Bar (pre-declared): mean recall at some k<=10 beats the §25 `sbert_original` mean (0.390) by more than 3pp (i.e. > 0.42).
+
+**Result:** Per-k mean recall at primary weight 0.5: k=0: 0.326, k=1: 0.338, k=5: 0.553, k=10: 0.649 (median 0.650, std 0.221, min 0.153, max 0.989), k=20: 0.708. The bar passes: k=5 already passes (>0.42) and k=10 gains +25.9pp over the §25 mean of 0.390. Weight sensitivity: 0.25 is best at k=1 (41.8% mean) while 1.0 collapses at k=1 (12.3% mean), so a single support row over-trusted (weight 1.0) is worse than a cautious blend; weight 0.5 dominates at k>=5.
+
+**Honest caveats:** Per-author spread at k=10 is wide (min 0.153, max 0.989, std 0.221): adaptation helps on average, not everywhere. And the support labels come from the test author, which is the few-shot premise, not zero-shot generalization; the realistic deployment reading is labeling a handful of rows from a new outlet.
+
+**Conclusion:** First intervention that improves unseen-author recall, reframing deployment from zero-shot to few-shot: labeling 10 rows from a new author recovers recall to 64.9% mean (median 65.0%) with no retraining, vs 39.0% zero-shot. Current: open for follow-up on which authors resist adaptation and how few rows suffice per narrative.
+
+Artifacts: `artifacts/experiments/few_shot_adaptation/fewshot_results.json`.
+
+### 35B. Selective prediction: confidence detects errors but does not close the gap
+
+**Goal:** Ask whether the classifier at least knows when it is wrong on fresh authors, so low-confidence rows can be abstained on instead of mislabeled.
+
+**Method:** Max-softmax confidence (and margin) from the frozen `sbert_original` checkpoint on the 14 fresh authors (n=3009 pooled), scored as error detectors via pooled AUROC, within-author z-scored AUROC, and risk/coverage curves.
+
+**Result:** Pooled AUROC 0.628 (within-author 0.600): confidence detects errors better than chance but weakly. Per-author AUROC exceeds 0.55 for 9/14 authors, ranging from 0.36 (ViceNews) to 0.75 (United24Media). Abstaining 20% lifts accuracy from 0.401 to 0.437, closing only 11% of the 0.331 gap to random-split accuracy; 40% abstention reaches 0.508. Recovering random-level 0.732 requires abstaining effectively everything (min abstention rate 0.9997). Pre-declared bar (AUROC > 0.55 AND >=50% gap closed at 20% or 40% abstention): AUROC passes, coverage fails, verdict mixed.
+
+**Conclusion:** Confidence detects errors but does not close the gap; selective prediction is a partial safety valve, not a fix for unseen-author recall. Closed as a mixed diagnostic.
+
+Artifacts: `artifacts/experiments/selective_prediction/selective_results.json`.
+
 ## Summary
 
 | Experiment | Change | Main Result | Decision |
@@ -3710,4 +3745,5 @@ Artifacts: `artifacts/experiments/matched_event_eval/mode_t_sampled/mode_t_resul
 | 32. Entity attribution by test-time swaps - does entity identity cause LOAO errors? | Test-time entity swaps over full 3009 rows: cross-author transplant (flip cross) vs same-author placebo shuffle; ACE on predicted-label flips | Flip cross 0.577 vs placebo 0.534 (ACE +0.043); per-author ACE -0.146 to +0.166; ACE-gap correlation r = -0.596 | Entity identity correlates with LOAO errors but does not causally drive them; closed as negative diagnostic |
 | 33. Group-DRO on (narrative, author) groups - does robust optimization close the gap? | Eta/C grid selected on 3 exploratory authors by mean worst-group val recall (winner eta=0.01, C=0, frozen), then pre-registered confirmatory on 14 fresh authors vs `sbert_only` | Selection deltas IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp; confirmatory 14/14: mean 33.3% vs 39.0% (needs >=36.0%) FAIL, median 30.8% vs 38.8% (needs >=35.8%) FAIL, guardrail 3/14 >10pp degradations (at most 2) FAIL, concentration 43.9% vs 44.2% PASS; verdict `NOT_SUPPORTED` | Group-DRO does not generalize; closed as negative intervention, no production change, no post-hoc tuning |
 | 34. Open-question closeout (34A multiseed noise removal; 34B sampled Mode T fresh-train) | 34A: post-split row-mask removal vs same-membership baseline, seeds 42/43/44 (seed 42 reused pre-split values); 34B: 40 sampled event-matched pairs, per-pair fresh `sbert_only` on train-author rows | 34A: Bernie deltas +0.115/-0.085/-0.025 (mean +0.0017, std 0.1026, sign flips; baseline swings 0.245-0.335); IDF mean -0.025, Maria mean -0.0417; 34B: Mode T mean recall 0.0059 (gap -73.4pp) vs Mode Z matched -36.3pp; Z recall on 25 covered sampled pairs 0.2951; 34/40 pairs exact zero | Both negatives, closed: no systematic removal effect; fresh single-author training collapses onto the train narrative and does not close the gap |
+| 35. Few-shot adaptation (35A) + selective prediction (35B) | 35A: frozen-SBERT narrative centroids adapted toward the test author with k labeled support rows (weight 0.5, support/query disjoint); 35B: abstain on low max-softmax-confidence fresh-author rows, pooled + per-author AUROC and risk/coverage | 35A: per-k mean recall k=0: 0.326, k=1: 0.338, k=5: 0.553, k=10: 0.649 (median 0.650, std 0.221, min 0.153, max 0.989), k=20: 0.708; bar passed (>0.42 at k<=10, k=5 already passes); +25.9pp vs §25 sbert_original mean 0.390. 35B: pooled AUROC 0.628 (within-author 0.600), 9/14 authors above 0.55, range 0.36 ViceNews to 0.75 United24Media; 20% abstention lifts accuracy 0.401 to 0.437 (11% of the 0.331 gap), 40% abstention reaches 0.508; recovering random-level 0.732 requires abstaining effectively everything | 35A first positive intervention, reframing deployment from zero-shot to few-shot (Current); 35B confidence detects errors but does not close the gap (Closed) |
 
