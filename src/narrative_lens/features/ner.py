@@ -204,6 +204,31 @@ def mask_entities(text, raw_entities, mask_tokens=None):
         masked = masked[:ent["start"]] + token + masked[ent["end"]:]
     return masked
 
+def swap_entities(text, raw_entities, donor_for):
+    """
+    Replace entity spans with caller-chosen donor strings, e.g. for test-time
+    causal attribution (cross-narrative vs same-narrative placebo swaps).
+    `donor_for` maps each entity dict (as returned by extract_raw_entities(),
+    ideally passed through reconstruct_fragmented_entities() first) to a
+    replacement string, or None to leave that span untouched. A donor
+    identical to the original slice is also left untouched (it cannot cause
+    any prediction change). Spans are replaced in descending `start` order so
+    earlier replacements never shift the offsets of later ones.
+    Returns (new_text, n_swapped).
+    """
+    if not raw_entities:
+        return text, 0
+    swapped = text
+    n_swapped = 0
+    for ent in sorted(raw_entities, key=lambda e: e["start"], reverse=True):
+        donor = donor_for(ent)
+        original = text[ent["start"]:ent["end"]]
+        if donor is None or donor == original:
+            continue
+        swapped = swapped[:ent["start"]] + donor + swapped[ent["end"]:]
+        n_swapped += 1
+    return swapped, n_swapped
+
 
 # --- קוד בדיקה (Test) ---
 if __name__ == "__main__":

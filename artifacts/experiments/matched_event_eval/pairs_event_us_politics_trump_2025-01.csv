@@ -1,0 +1,3 @@
+pair_id,event_id,train_author,train_narrative,train_n,test_author,test_narrative,test_n
+event_us_politics_trump_2025-01-P001,event_us_politics_trump_2025-01,AlJazeeraEnglish,Resistance,44,TheIntercept,Left-wing,33
+event_us_politics_trump_2025-01-P002,event_us_politics_trump_2025-01,TheIntercept,Left-wing,33,AlJazeeraEnglish,Resistance,44

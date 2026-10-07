@@ -1,0 +1,5 @@
+pair_id,event_id,train_author,train_narrative,train_n,test_author,test_narrative,test_n
+event_russia_ukraine_2026-02-P001,event_russia_ukraine_2026-02,DefenceU,Ukrainian,30,mfa_russia,Russian,63
+event_russia_ukraine_2026-02-P002,event_russia_ukraine_2026-02,ZelenskyyUa,Ukrainian,69,mfa_russia,Russian,63
+event_russia_ukraine_2026-02-P003,event_russia_ukraine_2026-02,mfa_russia,Russian,63,DefenceU,Ukrainian,30
+event_russia_ukraine_2026-02-P004,event_russia_ukraine_2026-02,mfa_russia,Russian,63,ZelenskyyUa,Ukrainian,69

@@ -1,0 +1,8 @@
+provenance_label,Left-wing,Resistance,Right-wing,Russian,Ukrainian,Western,Zionist
+Left-wing,27,3,2,0,0,0,1
+Resistance,4,22,0,1,0,1,0
+Right-wing,1,0,18,0,0,0,1
+Russian,0,5,0,21,3,1,1
+Ukrainian,0,0,0,2,23,5,0
+Western,0,0,4,0,3,20,1
+Zionist,0,0,4,0,0,2,22

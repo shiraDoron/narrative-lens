@@ -1,0 +1,147 @@
+{
+  "winner_config": "sbert_dro_eta0p01_C0",
+  "eta": 0.01,
+  "C": 0,
+  "selection_criterion": "mean worst-group val recall over 3 exploratory authors (spec section 6)",
+  "mean_worst_group_val_recall": 0.25166191832858503,
+  "per_author_worst_group_val_recall": {
+    "IDF": 0.15384615384615385,
+    "MariaZakharova": 0.23076923076923078,
+    "BernieSanders": 0.37037037037037035
+  },
+  "per_author_recall": {
+    "IDF": 0.285,
+    "MariaZakharova": 0.855,
+    "BernieSanders": 0.44
+  },
+  "mean_recall": 0.5266666666666667,
+  "sbert_only_baseline": {
+    "IDF": 0.635,
+    "MariaZakharova": 0.895,
+    "BernieSanders": 0.245
+  },
+  "deltas_vs_sbert_only": {
+    "IDF": -0.35000000000000003,
+    "MariaZakharova": -0.040000000000000036,
+    "BernieSanders": 0.195
+  },
+  "deltas_vs_sbert_only_pp": {
+    "IDF": -35.0,
+    "MariaZakharova": -4.0,
+    "BernieSanders": 19.5
+  },
+  "full_ranking": [
+    {
+      "config": "sbert_dro_eta0p01_C0",
+      "eta": 0.01,
+      "C": 0,
+      "mean_worst_group_val_recall": 0.25166191832858503,
+      "per_author_worst_val": {
+        "IDF": 0.15384615384615385,
+        "MariaZakharova": 0.23076923076923078,
+        "BernieSanders": 0.37037037037037035
+      },
+      "mean_test_recall": 0.5266666666666667,
+      "per_author_test_recall": {
+        "IDF": 0.285,
+        "MariaZakharova": 0.855,
+        "BernieSanders": 0.44
+      }
+    },
+    {
+      "config": "sbert_dro_eta0p05_C0",
+      "eta": 0.05,
+      "C": 0,
+      "mean_worst_group_val_recall": 0.23735438677967413,
+      "per_author_worst_val": {
+        "IDF": 0.06896551724137931,
+        "MariaZakharova": 0.2727272727272727,
+        "BernieSanders": 0.37037037037037035
+      },
+      "mean_test_recall": 0.49333333333333335,
+      "per_author_test_recall": {
+        "IDF": 0.21,
+        "MariaZakharova": 0.835,
+        "BernieSanders": 0.435
+      }
+    },
+    {
+      "config": "sbert_dro_eta0p01_C2",
+      "eta": 0.01,
+      "C": 2,
+      "mean_worst_group_val_recall": 0.23237179487179485,
+      "per_author_worst_val": {
+        "IDF": 0.15384615384615385,
+        "MariaZakharova": 0.23076923076923078,
+        "BernieSanders": 0.3125
+      },
+      "mean_test_recall": 0.5033333333333333,
+      "per_author_test_recall": {
+        "IDF": 0.245,
+        "MariaZakharova": 0.83,
+        "BernieSanders": 0.435
+      }
+    },
+    {
+      "config": "sbert_dro_eta0p001_C2",
+      "eta": 0.001,
+      "C": 2,
+      "mean_worst_group_val_recall": 0.20614035087719298,
+      "per_author_worst_val": {
+        "IDF": 0.0,
+        "MariaZakharova": 0.25,
+        "BernieSanders": 0.3684210526315789
+      },
+      "mean_test_recall": 0.6033333333333334,
+      "per_author_test_recall": {
+        "IDF": 0.545,
+        "MariaZakharova": 0.885,
+        "BernieSanders": 0.38
+      }
+    },
+    {
+      "config": "sbert_dro_eta0p001_C0",
+      "eta": 0.001,
+      "C": 0,
+      "mean_worst_group_val_recall": 0.19444444444444442,
+      "per_author_worst_val": {
+        "IDF": 0.0,
+        "MariaZakharova": 0.25,
+        "BernieSanders": 0.3333333333333333
+      },
+      "mean_test_recall": 0.5966666666666667,
+      "per_author_test_recall": {
+        "IDF": 0.54,
+        "MariaZakharova": 0.87,
+        "BernieSanders": 0.38
+      }
+    },
+    {
+      "config": "sbert_dro_eta0p05_C2",
+      "eta": 0.05,
+      "C": 2,
+      "mean_worst_group_val_recall": 0.13720761996624065,
+      "per_author_worst_val": {
+        "IDF": 0.06896551724137931,
+        "MariaZakharova": 0.22727272727272727,
+        "BernieSanders": 0.11538461538461539
+      },
+      "mean_test_recall": 0.545,
+      "per_author_test_recall": {
+        "IDF": 0.21,
+        "MariaZakharova": 0.845,
+        "BernieSanders": 0.58
+      }
+    }
+  ],
+  "eta_grid": [
+    0.001,
+    0.01,
+    0.05
+  ],
+  "c_grid": [
+    0,
+    2
+  ],
+  "frozen_note": "Winner frozen here. Post-hoc tuning on the 14-author set is forbidden."
+}

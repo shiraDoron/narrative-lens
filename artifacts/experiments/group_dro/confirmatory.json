@@ -1,0 +1,121 @@
+{
+  "frozen_config": "sbert_dro_eta0p01_C0",
+  "n_complete": 14,
+  "n_total": 14,
+  "complete": true,
+  "per_author": [
+    {
+      "author": "abualiexpress",
+      "dro_recall": 0.225,
+      "baseline_recall": 0.24,
+      "delta_pp": -1.4999999999999987,
+      "dro_dominant_error_concentration": 0.5806451612903226,
+      "baseline_dominant_error_concentration": 0.5723684210526315
+    },
+    {
+      "author": "BringThemHomeNow",
+      "dro_recall": 0.205,
+      "baseline_recall": 0.62,
+      "delta_pp": -41.5,
+      "dro_dominant_error_concentration": 0.4339622641509434,
+      "baseline_dominant_error_concentration": 0.25
+    },
+    {
+      "author": "AlJazeeraEnglish",
+      "dro_recall": 0.29,
+      "baseline_recall": 0.275,
+      "delta_pp": 1.4999999999999958,
+      "dro_dominant_error_concentration": 0.28169014084507044,
+      "baseline_dominant_error_concentration": 0.30344827586206896
+    },
+    {
+      "author": "PressTV",
+      "dro_recall": 0.6125,
+      "baseline_recall": 0.57,
+      "delta_pp": 4.250000000000009,
+      "dro_dominant_error_concentration": 0.44516129032258067,
+      "baseline_dominant_error_concentration": 0.5348837209302325
+    },
+    {
+      "author": "NATO",
+      "dro_recall": 0.27751196172248804,
+      "baseline_recall": 0.2583732057416268,
+      "delta_pp": 1.9138755980861233,
+      "dro_dominant_error_concentration": 0.47019867549668876,
+      "baseline_dominant_error_concentration": 0.4774193548387097
+    },
+    {
+      "author": "Bloomberg",
+      "dro_recall": 0.035,
+      "baseline_recall": 0.055,
+      "delta_pp": -1.9999999999999998,
+      "dro_dominant_error_concentration": 0.32642487046632124,
+      "baseline_dominant_error_concentration": 0.43386243386243384
+    },
+    {
+      "author": "KremlinRussia_E",
+      "dro_recall": 0.52,
+      "baseline_recall": 0.5,
+      "delta_pp": 2.0000000000000018,
+      "dro_dominant_error_concentration": 0.3125,
+      "baseline_dominant_error_concentration": 0.43
+    },
+    {
+      "author": "Slavyangrad",
+      "dro_recall": 0.145,
+      "baseline_recall": 0.22,
+      "delta_pp": -7.500000000000001,
+      "dro_dominant_error_concentration": 0.2982456140350877,
+      "baseline_dominant_error_concentration": 0.2948717948717949
+    },
+    {
+      "author": "Babel",
+      "dro_recall": 0.33,
+      "baseline_recall": 0.59,
+      "delta_pp": -25.999999999999996,
+      "dro_dominant_error_concentration": 0.44776119402985076,
+      "baseline_dominant_error_concentration": 0.36585365853658536
+    },
+    {
+      "author": "United24Media",
+      "dro_recall": 0.615,
+      "baseline_recall": 0.77,
+      "delta_pp": -15.500000000000004,
+      "dro_dominant_error_concentration": 0.45454545454545453,
+      "baseline_dominant_error_concentration": 0.34782608695652173
+    },
+    {
+      "author": "ThePostMillennial",
+      "dro_recall": 0.575,
+      "baseline_recall": 0.64,
+      "delta_pp": -6.500000000000005,
+      "dro_dominant_error_concentration": 0.8,
+      "baseline_dominant_error_concentration": 0.8055555555555556
+    },
+    {
+      "author": "TheEpochTimes",
+      "dro_recall": 0.435,
+      "baseline_recall": 0.505,
+      "delta_pp": -7.000000000000001,
+      "dro_dominant_error_concentration": 0.3805309734513274,
+      "baseline_dominant_error_concentration": 0.36363636363636365
+    },
+    {
+      "author": "@MiddleEastEye_TG",
+      "dro_recall": 0.07,
+      "baseline_recall": 0.03,
+      "delta_pp": 4.000000000000001,
+      "dro_dominant_error_concentration": 0.4838709677419355,
+      "baseline_dominant_error_concentration": 0.3917525773195876
+    },
+    {
+      "author": "ViceNews",
+      "dro_recall": 0.325,
+      "baseline_recall": 0.18,
+      "delta_pp": 14.500000000000002,
+      "dro_dominant_error_concentration": 0.43703703703703706,
+      "baseline_dominant_error_concentration": 0.6097560975609756
+    }
+  ],
+  "verdict": "NOT_SUPPORTED"
+}

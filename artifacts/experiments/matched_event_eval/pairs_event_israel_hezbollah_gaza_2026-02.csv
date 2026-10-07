@@ -1,0 +1,7 @@
+pair_id,event_id,train_author,train_narrative,train_n,test_author,test_narrative,test_n
+event_israel_hezbollah_gaza_2026-02-P001,event_israel_hezbollah_gaza_2026-02,@KoheletForum,Right-wing,31,BringThemHomeNow,Zionist,44
+event_israel_hezbollah_gaza_2026-02-P002,event_israel_hezbollah_gaza_2026-02,@KoheletForum,Right-wing,31,IDF,Zionist,48
+event_israel_hezbollah_gaza_2026-02-P003,event_israel_hezbollah_gaza_2026-02,@KoheletForum,Right-wing,31,Israel,Zionist,31
+event_israel_hezbollah_gaza_2026-02-P004,event_israel_hezbollah_gaza_2026-02,BringThemHomeNow,Zionist,44,@KoheletForum,Right-wing,31
+event_israel_hezbollah_gaza_2026-02-P005,event_israel_hezbollah_gaza_2026-02,IDF,Zionist,48,@KoheletForum,Right-wing,31
+event_israel_hezbollah_gaza_2026-02-P006,event_israel_hezbollah_gaza_2026-02,Israel,Zionist,31,@KoheletForum,Right-wing,31

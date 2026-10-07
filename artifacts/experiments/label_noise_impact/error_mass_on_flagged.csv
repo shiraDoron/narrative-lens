@@ -1,0 +1,18 @@
+suite,author,variant,n_test,true_narrative,n_correct,n_errors,error_rate,audit_mismatch_rate,audit_flagged_rate,expected_errors_on_mismatched,expected_errors_on_flagged,expected_share_errors_on_mismatched,expected_share_errors_on_flagged,estimate_note
+LOAO,IDF,sbert_only,200,Zionist,127,73,0.365,0.0,0.445,0.0,32.5,0.0,0.4452,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+LOAO,MariaZakharova,sbert_only,200,Russian,179,21,0.105,0.325,0.965,6.8,20.3,0.3238,0.9667,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+LOAO,BernieSanders,sbert_only,200,Left-wing,49,151,0.755,0.035,0.66,5.3,99.7,0.0351,0.6603,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,@MiddleEastEye_TG,sbert_original,200,Left-wing,6,194,0.97,0.17,0.925,33.0,179.5,0.1701,0.9253,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,AlJazeeraEnglish,sbert_original,200,Resistance,55,145,0.725,0.025,0.98,3.6,142.1,0.0248,0.98,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,Babel,sbert_original,200,Ukrainian,118,82,0.41,0.125,0.94,10.2,77.1,0.1244,0.9402,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,Bloomberg,sbert_original,200,Western,11,189,0.945,0.05,0.995,9.5,188.1,0.0503,0.9952,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,BringThemHomeNow,sbert_original,200,Zionist,124,76,0.38,0.055,0.655,4.2,49.8,0.0553,0.6553,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,KremlinRussia_E,sbert_original,200,Russian,100,100,0.5,0.01,0.99,1.0,99.0,0.01,0.99,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,NATO,sbert_original,209,Western,54,155,0.7416,0.0191,0.823,3.0,127.6,0.0194,0.8232,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,PressTV,sbert_original,400,Resistance,228,172,0.43,0.0375,0.745,6.4,128.1,0.0372,0.7448,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,Slavyangrad,sbert_original,200,Russian,44,156,0.78,0.11,0.99,17.2,154.4,0.1103,0.9897,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,TheEpochTimes,sbert_original,200,Right-wing,101,99,0.495,0.015,1.0,1.5,99.0,0.0152,1.0,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,ThePostMillennial,sbert_original,200,Right-wing,128,72,0.36,0.045,0.975,3.2,70.2,0.0444,0.975,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,United24Media,sbert_original,200,Ukrainian,154,46,0.23,0.15,0.95,6.9,43.7,0.15,0.95,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,ViceNews,sbert_original,200,Left-wing,36,164,0.82,0.07,1.0,11.5,164.0,0.0701,1.0,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable
+fresh,abualiexpress,sbert_original,200,Zionist,48,152,0.76,0.04,0.91,6.1,138.3,0.0401,0.9099,independence model: errors assumed spread uniformly across audit strata; per-row predictions unavailable

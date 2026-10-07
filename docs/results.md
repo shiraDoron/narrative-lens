@@ -90,8 +90,3 @@ assign `topic_id` before splitting.
   - **Right-wing**: `FoxNews`, `BenShapiro`, `dailywire`, `Heritage`, `TPUSA`
   - **Left-wing**: `novaramedia`, `BernieSanders`, `jacobin`, `democracynow`, `thenation`
 
-- **Shortcut-learning follow-ups to the unseen-author negative result** (three
-  pre-registered research directions: matched-event entanglement measurement,
-  counterfactual entity-shortcut attribution, author-stratified benchmark), grounded in
-  EXPERIMENTS.md §§18-28 with no results claimed: see
-  [`research_agenda_A.md`](research_agenda_A.md).
