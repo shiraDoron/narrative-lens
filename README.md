@@ -15,6 +15,24 @@ It consists of two components:
    summarizes each group's recurring topics, tone, and ideological leaning. It doesn't need the
    classifier at all; it works directly off of texts that are already labeled.
 
+## The 7 narratives
+
+Narrative labels are assigned by *which account/channel a text came from* (see "Label
+provenance" below), not by independent per-text human judgment — so the one-line definitions
+below describe what each narrative's source accounts typically argue, not a guaranteed property
+of every single row. Full definitions, account rosters, and real borderline examples are in
+[`docs/narrative_definitions.md`](docs/narrative_definitions.md).
+
+| Narrative | One-line operational definition | Main confusion risk |
+|---|---|---|
+| `Zionist` | Official Israeli state/military/advocacy framing — Israel's actions are legitimate/defensive, adversaries are terrorists. | `Resistance` (74 confusions — same conflict, opposite legitimacy framing) |
+| `Resistance` | Iran / Axis-of-Resistance (Hezbollah/Houthi/Hamas-adjacent) framing — Israeli/US/Western action is aggression, armed resistance is legitimate. | `Zionist` (74 confusions — same conflict, opposite legitimacy framing) |
+| `Western` | Official Western (US/EU/UK/NATO) government/IGO statements or alliance-solidarity framing — **not** simply "published by a Western outlet" (plain wire/human-interest content from the same accounts is not this narrative). | `Ukrainian` (36 confusions — shares vocabulary on the same war, but speaker differs: third-party ally vs. first-person combatant) |
+| `Russian` | Pro-Kremlin framing of the Ukraine war/geopolitics — Russian actions justified/defensive, the West hypocritical/aggressive. | `Ukrainian` (73 confusions — opposite sides of the same war) |
+| `Ukrainian` | Pro-Ukraine framing of the war — Ukrainian sovereignty/resistance to Russian aggression, appeals for international support. | `Russian` (73 confusions — opposite sides of the same war) |
+| `Right-wing` | US-centric conservative/populist commentary — anti-immigration, anti-"woke," pro-Trump, culture-war framing. | `Left-wing` (75 confusions — the single largest confusion pair in the dataset; opposite partisan valence on the same domestic US topics) |
+| `Left-wing` | US/UK-centric progressive/socialist commentary — pro-labor, anti-Trump, pro-Palestinian-solidarity on Israel/Gaza, pro-immigration. | `Right-wing` (75 confusions — opposite partisan valence on the same domestic US topics) |
+
 ## Current research findings (TL;DR)
 
 The full story is in [`EXPERIMENTS.md`](EXPERIMENTS.md#research-storyline-start-here) and
@@ -46,6 +64,42 @@ The full story is in [`EXPERIMENTS.md`](EXPERIMENTS.md#research-storyline-start-
   performance stayed roughly flat. The conclusion: an author-specific style signal clearly
   exists, but there is currently no evidence it is a harmful shortcut whose removal improves
   generalization (EXPERIMENTS.md §28).
+
+### Current research setup
+
+A reader should not conclude that this project's main contribution today is "SBERT + engineered
+fusion vs. SBERT-only on a random split" — that was the **starting point** (EXPERIMENTS.md
+§1–§17 for the topic-modeling track, plus the initial §15/§17 model comparisons), but the
+research focus has since moved to unseen-author generalization and author-identity shortcuts
+(§18–§28), which is where most current effort and all of §18 onward is concentrated:
+
+- **Main in-distribution baseline**: `sbert_only` (`SBERTOnlyDetector` in `fusion.py`) — a frozen
+  SBERT embedding → MLP, no engineered features. It beats both `baseline_fusion` and `hybrid` on
+  a random split (see "Current research findings" above and [`docs/results.md`](docs/results.md)).
+- **Architecture most generalization analyses (§18–§28) are actually built on**: **not** the
+  production `fusion.py` models directly, except for §18's initial LOAO diagnostic (which used
+  `baseline_fusion`). From §19 onward, every experiment uses a separate, deliberately simpler
+  **"SBERT + explicit single-feature-arm" ablation architecture**
+  (`AblationDetector`/`TopicFeatureLayer`-based scripts under `experiments/author_generalization/`
+  and `experiments/feature_ablation/`) — this isolates one feature's effect on generalization at
+  a time (NER alone, Soft Topics alone, masked text alone, etc.), which the full multi-arm fusion
+  architecture cannot do as cleanly. Results from this ablation architecture are the evidentiary
+  basis for §19–§28's conclusions, not the production `HybridNarrativeDetector`/`NarrativeDetector`
+  classes.
+- **Current research question**: does the classifier rely on an author-identity "shortcut"
+  (entity identity, surface style/formatting) that inflates in-distribution accuracy but fails to
+  transfer to a previously unseen author — and if so, can a training-time or pre-processing
+  intervention (entity masking, style normalization) remove that shortcut without hurting
+  generalization? As of EXPERIMENTS.md §28, the answer so far is: the shortcut signal is real and
+  measurable (§27), but no intervention tried to date (masking in §21–§25, style normalization in
+  §28) has been shown to improve unseen-author generalization — several made it worse.
+- **Role of Hybrid/Fusion (`fusion.py`) today**: **historical / comparison branch, not the
+  active research architecture.** `NarrativeDetector` (`baseline_fusion`) and
+  `HybridNarrativeDetector` (`hybrid`) remain the reference points for the original
+  in-distribution model comparison (`docs/results.md`) and were the architecture behind §18's
+  first LOAO result, but they are not being modified or retrained as part of the ongoing
+  generalization-shortcut research — that work happens in the separate ablation architecture
+  described above.
 
 ## Dataset at a glance
 

@@ -42,6 +42,45 @@ For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_
 `hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
 rather than this file.
 
+### Experiment status legend
+
+Every major experiment (Sections 18-28 — the unseen-author-generalization research line) is
+tagged right under its heading with three short labels, **Type · Result · Lifecycle**, so a
+reader can tell at a glance what kind of claim it supports without reading the full section.
+Earlier sections (1-17, the topic-modeling track) are not tagged individually — they are already
+summarized in the storyline table above.
+
+- **Type** - what kind of experiment it was:
+  - `Exploratory` - hypothesis-generating; the hypothesis was wholly or partly formed by looking
+    at the same data/authors the experiment is evaluated on (test-set-informed), not a blind test.
+  - `Confirmatory` - a pre-registered test run on authors/data that were never used to generate
+    the hypothesis being tested.
+  - `Diagnostic` - does not attempt to fix anything; measures or explains an existing behavior.
+  - `Intervention` - an attempted fix (a training-time or pre-processing change) evaluated for
+    whether it actually improves the targeted problem.
+- **Result** - what the experiment found:
+  - `Positive` - the tested hypothesis/intervention was supported / worked as intended.
+  - `Negative` - the tested hypothesis/intervention was not supported / did not work.
+  - `Mixed` - the result depended on which author/narrative/metric you look at; no single clean
+    answer in either direction.
+- **Lifecycle** - is there more work planned on this specific question:
+  - `Closed` - no further work currently planned on this specific question.
+  - `Current / In progress` - still open / actively being worked on.
+
+| Section | Type | Result | Lifecycle |
+|---|---|---|---|
+| §18 LOAO generalization test | Diagnostic | Negative | Closed |
+| §19 Feature ablation on LOAO authors | Diagnostic | Mixed | Closed |
+| §20 Hard/Soft/LDA controlled comparison | Confirmatory | Mixed | Closed |
+| §21 Entity shortcut test | Diagnostic | Mixed | Closed |
+| §22 Stance-aware entity representation | Exploratory | Negative | Closed |
+| §23 Entity-masking augmentation | Intervention | Mixed | Closed |
+| §24 Selective entity-masking augmentation | Exploratory | Mixed | Closed |
+| §25 Fresh-author confirmatory evaluation | Confirmatory | Negative | Closed |
+| §26 Unseen-author error diagnostics | Diagnostic | Negative | Closed |
+| §27 Author signature diagnostics | Diagnostic | Positive | Closed |
+| §28 Style-normalization intervention | Intervention | Negative | Closed |
+
 ---
 
 ## 1. Soft (multi-topic) clustering added to BERTopic
@@ -1430,6 +1469,8 @@ recommended based on this experiment.**
 
 ## 18. Narrative Classification — Leave-One-Author-Out (LOAO) generalization test
 
+**Experiment status:** Diagnostic · Negative · Closed (see legend above)
+
 **Question:** the production model (`baseline_fusion`) is always evaluated on a **random**
 train/val/test split, where a given author's posts can appear in both train and test. This
 leaves a genuine open question: does the model actually learn generalizable *narrative* signal
@@ -1522,6 +1563,8 @@ close the gap — is a natural, currently unexplored next step (see open problem
 ---
 
 ## 19. Feature Ablation + Soft Topics on unseen (LOAO) authors — which feature helps/hurts generalization?
+
+**Experiment status:** Diagnostic · Mixed · Closed (see legend above)
 
 **Status: COMPLETE.** All 3 authors × 7 variants trained/evaluated, aggregate summary and a
 Right-wing "shortcut" forensic analysis both run — see `experiments/author_generalization/narrative_ablation_loao.py`,
@@ -1740,6 +1783,8 @@ should not be assumed safe by default in future ablations.
 ---
 
 ## 20. Hard Topic vs. Soft Topic Distribution vs. LDA Distribution for Narrative Classification — SBERT-backbone, controlled comparison
+
+**Experiment status:** Confirmatory · Mixed · Closed (see legend above)
 
 **Status: COMPLETE.** All 4 Topic representations (`none`/`hard`/`soft`/`lda`) × 3 seeds
 (random split) + 3 authors (LOAO, `lda` mode only — `none`/`hard`/`soft` reused from Section 19)
@@ -2038,6 +2083,8 @@ code additions — 0 failures.
 
 ## 21. Entity Shortcut Test — does entity IDENTITY (not just topic/stance) drive the LOAO Right-wing shortcut?
 
+**Experiment status:** Diagnostic · Mixed · Closed (see legend above)
+
 **Status: COMPLETE.** All 3 LOAO authors run; masked-text cache built once over the full
 corpus (16,394 unique texts) and reused across authors; 2 new variants trained per author (6
 trainings total); 3 variants reused verbatim from Section 19 after a programmatic reuse-validity
@@ -2195,6 +2242,8 @@ feature caches: `data/cache/cached_features_entity_shortcut_{author}.pt`. Checkp
 ---
 
 ## 22. Stance-Aware Entity Representation — representation-validation gate (NOT reached: LOAO training)
+
+**Experiment status:** Exploratory · Negative · Closed (see legend above)
 
 **Status: STOPPED at the representation-validation gate — negative finding / future work. No
 LOAO classification training was run.** This section documents a pre-training feasibility study
@@ -2445,6 +2494,8 @@ git-tracked, none regenerated after annotation):
 ---
 
 ## 23. Entity-Masking Augmentation — can training-time invariance capture Bernie's gain without paying IDF/Maria's cost?
+
+**Experiment status:** Intervention · Mixed · Closed (see legend above)
 
 **Status: COMPLETE.** All 3 LOAO authors run; 3 variants reused verbatim from Section 21
 (themselves partly reused from Section 19) after a programmatic reuse-validity check; 3 new
@@ -2723,6 +2774,8 @@ Results: `artifacts/experiments/narrative_idf_masking_regression_audit/` (`idf_m
 
 ## 24. Selective Entity-Masking Augmentation — exploratory test of a test-informed hypothesis
 
+**Experiment status:** Exploratory · Mixed · Closed (see legend above)
+
 **Methodological status: EXPLORATORY, NOT CONFIRMATORY.** The masking-policy hypothesis this
 experiment tests (mask only PER, or PER+MISC, while leaving ORG/LOC intact) was generated by
 Section 23's root-cause audit, which looked at IDF's held-out LOAO test set — the SAME 200
@@ -2821,6 +2874,8 @@ Results: `artifacts/experiments/narrative_selective_entity_masking_augmentation/
 ---
 
 ## 25. Fresh-Author Confirmatory Evaluation — Protocol / Pre-registration
+
+**Experiment status:** Confirmatory · Negative · Closed (see legend above)
 
 **Status: COMPLETE. All 14 frozen fresh authors × 3 frozen variants trained/evaluated; results
 below, exactly as pre-registered above (no protocol changes were made after seeing results).**
@@ -2981,6 +3036,8 @@ itself violate this section's own no-further-tuning pre-registration).
 
 ## 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree)
 
+**Experiment status:** Diagnostic · Negative · Closed (see legend above)
+
 **Status: COMPLETE. Closed as a negative/inconclusive result per the pre-registered stopping
 rule below — not extended to Random Forest or further feature engineering.**
 
@@ -3105,6 +3162,8 @@ considered at any point in this section.
 ---
 
 ## 27. Author Signature Diagnostics — does the text itself identify its author? (Decision Tree)
+
+**Experiment status:** Diagnostic · Positive · Closed (see legend above)
 
 **Status: COMPLETE. Positive result** — reframes, but does not contradict, Section 26's negative
 finding (see Interpretation).
@@ -3245,6 +3304,8 @@ norm (Section 26).
 ---
 
 ## 28. Style-Normalization Intervention — does removing author-specific formatting/style signal improve unseen-author generalization?
+
+**Experiment status:** Intervention · Negative · Closed (see legend above)
 
 **Status: COMPLETE. Negative/WEAK_INCONCLUSIVE result (mechanical label), but the actual
 direction of the Part B effect is a net regression, not a neutral mixed result — see

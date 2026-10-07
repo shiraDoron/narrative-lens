@@ -75,6 +75,55 @@ python -m narrative_lens.data.build_twitter_dataset
 python -m narrative_lens.data.build_telegram_dataset
 ```
 
+## Reproduce the headline finding
+
+This project's research focus moved from "which architecture wins on a random split" to "does
+the classifier generalize to an unseen author, or does it rely on an author-identity shortcut"
+(see [`EXPERIMENTS.md`](../EXPERIMENTS.md)'s "Research storyline" table and §18–§28). These 3
+commands, run in order, let you see that story directly instead of just reading about it:
+
+1. **Random-split baseline** (fast, a few minutes on CPU):
+   ```bash
+   python -m narrative_lens.train --model sbert_only --split random
+   ```
+   Runs/overwrites: `data/cache/cached_features_sbert_only.pt`,
+   `models/best_model_sbert_only.pth`. What it does: trains the plain-SBERT classifier on a
+   standard random train/val/test split and prints test-set Accuracy/Macro-F1. Expected
+   qualitative outcome: performance in the same range as the other `--model` choices
+   in-distribution — this step alone does **not** show any generalization problem (see
+   [`docs/results.md`](results.md) for the frozen, already-measured comparison numbers).
+
+2. **Unseen-author (LOAO) evaluation** (slow — a full feature-extraction pass over the whole
+   corpus is required per held-out author, documented at several hours wall-clock on a CPU-only
+   machine; see [`EXPERIMENTS.md`](../EXPERIMENTS.md) §18 for the original timing note):
+   ```bash
+   python -m narrative_lens.train --model hybrid --split leave_one_author --held-out-author IDF
+   ```
+   Runs/overwrites: a new `data/cache/cached_features_*_loao_IDF.pt`, a new checkpoint under
+   `models/`. What it does: trains from scratch with every post by `IDF` held out entirely, then
+   reports recall on that author's held-out posts. Expected qualitative outcome: recall well
+   below the random-split Zionist F1 reported in `docs/results.md` — the generalization gap
+   documented in [`EXPERIMENTS.md §18`](../EXPERIMENTS.md#18-narrative-classification--leave-one-author-out-loao-generalization-test).
+   If you don't want to wait for a fresh training run, the already-computed, frozen numbers for
+   this exact command are in `artifacts/experiments/narrative_ablation_loao/` and EXPERIMENTS.md
+   §18-§19.
+
+3. **Author-signature diagnostic** (fast — fits a Decision Tree on cached features, no
+   SBERT/BERTopic re-inference):
+   ```bash
+   python experiments/author_generalization/narrative_author_signature_diagnostics.py
+   ```
+   Note: this script has no CLI flags - it runs its full analysis unconditionally when invoked
+   (no `--help`/dry-run mode), per this project's convention for one-off research scripts; it
+   does not modify any production model/checkpoint. What it does: tries to predict *which
+   specific author* wrote a text using only surface-level style features (text length,
+   punctuation, mentions), both globally and within each single fixed narrative. Expected
+   qualitative outcome: author-identification accuracy far above the majority-class/chance
+   baseline in every narrative — direct evidence that narrative labels partly encode *who wrote
+   it*, not just *what it says* (frozen numbers in
+   [`EXPERIMENTS.md §27`](../EXPERIMENTS.md#27-author-signature-diagnostics--does-the-text-itself-identify-its-author-decision-tree)
+   and `artifacts/experiments/narrative_author_signature_diagnostics/`).
+
 ## Reproducing the experiments in `EXPERIMENTS.md`
 
 Every experiment documented in [`EXPERIMENTS.md`](../EXPERIMENTS.md) has its code under

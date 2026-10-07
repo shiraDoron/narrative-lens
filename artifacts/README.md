@@ -1,5 +1,34 @@
 # `artifacts/`
 
+## How this fits together with `experiments/`, `models/`, and `EXPERIMENTS.md`
+
+Four related-but-distinct locations, each with one job:
+
+- **`experiments/`** (repo root) - the *code* that runs an experiment: one script per
+  experiment/tool, organized by theme (`experiments/{topic_modeling,feature_ablation,
+  author_generalization}/`). Nothing here is a result - it's the thing you re-run to produce one.
+- **`artifacts/experiments/`** (this directory's `experiments/` subfolder, below) - the
+  *generated* outputs of running that code: raw results.json files, confusion matrices, run logs,
+  per-experiment summary CSVs. Fully reproducible by re-running the corresponding script in
+  `experiments/`; nothing here is hand-edited.
+- **`models/`** (repo root) - saved model/checkpoint artifacts (`.pth` files, saved BERTopic
+  model directories) produced by training runs. Binary, not human-readable; `artifacts/experiments/`
+  is where the human-readable metrics/results *about* those checkpoints live.
+- **`EXPERIMENTS.md`** (repo root) - the canonical, human-readable *interpretation* of every
+  completed experiment: methodology, results tables, conclusions, and an explicit status tag
+  (see its "Experiment status legend"). This is the file to read to understand *what an
+  experiment found*; `artifacts/experiments/` is where to go to verify the raw numbers behind
+  that interpretation.
+
+> **If a raw artifact under `artifacts/experiments/` and `EXPERIMENTS.md` appear to disagree,
+> `EXPERIMENTS.md` contains the canonical documented interpretation of the completed
+> experiment** — but this is not a license to paper over a real discrepancy. A genuine mismatch
+> (e.g. a number in `EXPERIMENTS.md` that doesn't match the underlying `results.json`) is a bug in
+> the documentation and should be flagged/fixed by re-checking the raw artifact, not silently
+> trusted or silently overwritten.
+
+## Contents of this directory
+
 Generated analysis outputs, split by purpose:
 
 - **`tables/`** - curated, small comparison tables meant to be read directly (cross-model
