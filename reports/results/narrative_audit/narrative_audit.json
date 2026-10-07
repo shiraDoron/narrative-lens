@@ -1,0 +1,861 @@
+{
+  "Zionist": {
+    "total_rows": 2626,
+    "distinct_authors": 15,
+    "top_authors": {
+      "gemini_synthetic": 800,
+      "Israel": 202,
+      "IDF": 200,
+      "StandWithUs": 200,
+      "TheJerusalemPost": 200,
+      "OpenSourceIntel": 200,
+      "BringThemHomeNow": 200,
+      "southfirstresponders": 200,
+      "abualiexpress": 200,
+      "AIPAC": 124
+    },
+    "by_dataset_source": {
+      "gemini": 800,
+      "gpt": 84,
+      "telegram": 1004,
+      "twitter": 738
+    },
+    "avg_text_len": 251.2,
+    "samples": [
+      {
+        "account": "StandWithUs",
+        "text": "Fragments of an Iranian missile hit a kindergarten in central Israel. This is what we are facing."
+      },
+      {
+        "account": "JNS_org",
+        "text": "ISRAEL NEWS—Israel's Min. of Heath is encouraging people with Type O blood to donate due to a decrease in the national blood supply.  Find The Nearest  @MDAIS  Blood Donation Center:  eu1.hubs.ly/H0xxvfb0"
+      },
+      {
+        "account": "Israel",
+        "text": "Strong GDP growth, a top-performing shekel, and booming stocks — Israel’s innovation economy is gearing up for its next leap.   jpost.com/defense-and-te …"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "UN votes come and go but rockets don’t wait for diplomacy."
+      },
+      {
+        "account": "abualiexpress",
+        "text": "Iran accuses the \"Zionists\" of publishing the fake evacuation alert for the capital of Qatar☝️ The Iranian News Agency will confirm from a \"reliable source\": 'Iran did not issue any warning to evacuate the media from Doha or Qatar.  The attack on the media is the work of the Zionists and has nothing to do with Iran.  Iran considers the peoples and countries of the region to be its brothers and sis"
+      },
+      {
+        "account": "HananyaNaftali",
+        "text": "👋 hii guys..."
+      },
+      {
+        "account": "BringThemHomeNow",
+        "text": "One year ago today, Sasha Trupanov, Yair Horn and Shagyi Dekel Chen returned home. With tears we watched them fall into the arms of their loved ones.        Since then, they began the restoration process, bravely shared some of the horrors they experienced in the hell of Gaza, and joined the fight to bring everyone back, until the last hostage.     Now that there are no more abductees in Gaza, our"
+      },
+      {
+        "account": "IsraelMFA",
+        "text": "I enjoyed interacting with participants of  @MASHAVisrael  training on social entrepreneurship from Côte d’Ivoire  Cameroon  Burundi  Madagascar   @MCTC_Haifa  is doing a tremendous job in implementing Golda Meir’s vision: sharing knowledge and know-how with friendly nations."
+      },
+      {
+        "account": "Israel",
+        "text": "I spoke with Fatma - the Iranian regime struck her son’s home in Zarzir, a Muslim community in Israel. During Ramadan."
+      },
+      {
+        "account": "JNS_org",
+        "text": "NEWS BRIEF—American forces have redirected 55 commercial vessels, disabled two and boarded two since the blockade of Iranian ports resumed on July 14, U.S. Central Command said on Sunday.  REPORT▸  eu1.hubs.ly/H0xxsGS0"
+      },
+      {
+        "account": "IDF",
+        "text": "ELIMINATED: Esmaeil Khatib, the Iranian terrorist regime Minister of Intelligence, in a targeted strike in Tehran.  Khatib played a significant role during the recent protests throughout Iran, including the arrest & killing of protestors and led terrorist activities against"
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "You know, Zionism is actually quite diverse; there are religious Zionists, secular ones, all kinds."
+      },
+      {
+        "account": "southfirstresponders",
+        "text": "Like many other civilian communities in southern Israel, Hamas attacked Kibbutz Nir Yitzhak with overwhelming force on the morning of October 7th. The Kibbutz rapid response force tried to fight off the terrorists, but eventually the Kibbutz fell. For hours terrorists went house to house burning, killing, looting, and kidnapping its residents.   The coming footage was taken from the Kibbutz securi"
+      },
+      {
+        "account": "TheJerusalemPost",
+        "text": "🔴 Video documenting bombardment in Iran.  ©️Source🔗"
+      },
+      {
+        "account": "OpenSourceIntel",
+        "text": "https://www.modernatx.com/ecosystem/strategic-collaborators/mrna-strategic-collaborators-government-organizations"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "I grew up hearing stories about building a homeland from nothing and it still shapes how I see things."
+      },
+      {
+        "account": "AIPAC",
+        "text": "Here's the true test... Will  @PramilaJayapal  call out J Street?  J Street used its dark money super PAC to help elect Jayapal's preferred candidate in Illinois.  Does she oppose dark money OR does she oppose dark money if she disagrees with how it's used?  Principle vs hypocrisy."
+      },
+      {
+        "account": "IsraelMFA",
+        "text": "Prime Minister Benjamin Netanyahu at the Start of the Government Meeting:  \"Israel does not accept the 15-point document. The IDF will not carry out any withdrawal until Hamas is genuinely disarmed, and it will continue to thwart threats against our forces and citizens.\"  Full"
+      },
+      {
+        "account": "StandWithUs",
+        "text": "BREAKING: Two men have been murdered in an Iranian regime missile attack on central Israel. May their memories forever be a blessing."
+      },
+      {
+        "account": "AJCGlobal",
+        "text": "Enhorabuena and best wishes for success  @ABDELAESPRIELLA  on your inauguration as President of Colombia!    As long time friends of Colombia,  @AJCLatino  stands ready to work with your government and our partners from  @CCJColombia  to promote peace, security and prosperity in your"
+      },
+      {
+        "account": "OpenSourceIntel",
+        "text": "The COVID Orchestra - Dr. David E. Martin (Red Pill Expo 2021)  The Covid Orchestra, Board of Trustees  “The Names of the People Killing Humanity”   Dr. David E. Martin puts names and faces to all of the COVID conspirators that are responsible for the current ongoing crisis of en masse vaccination campaigns at the expense of countless lives being lost.   \"We are living in a country and in a world "
+      },
+      {
+        "account": "southfirstresponders",
+        "text": "Hamas Assaults Symbols of Coexistance:   On 7/10, Hamas terrorists assaulted the Erez/Beit Hanoun crossing point, which had for years facilitated the movement of people and goods between Gaza and Israel. After the 2005 unilateral withdrawal from Gaza, Israelis hoped this crossing could facilitate calm in the region via the economic benefits of the passage of tens of thousands of Gazans to Israel f"
+      },
+      {
+        "account": "BringThemHomeNow",
+        "text": "845 days after October 7, Major Ran Goili, Magen Alumim, the first to enter and the last to return, is laid to rest. In a ceremony in Mitar in the presence of family members, friends, his unit mates, members of the families of the abductees and in the presence of the Prime Minister, the Commissioner, the Chief Rabbi of Israel, the Ministers of Defense and the Interior, the funeral ceremony was hel"
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "It's not perfect, no country is, but Israel is a vibrant democracy in a tough spot."
+      },
+      {
+        "account": "HananyaNaftali",
+        "text": "JOIN FOR BUY"
+      }
+    ]
+  },
+  "Resistance": {
+    "total_rows": 2402,
+    "distinct_authors": 13,
+    "top_authors": {
+      "gemini_synthetic": 800,
+      "PressTV": 400,
+      "QudsNen": 304,
+      "AlMayadeenEnglish": 200,
+      "AlJazeeraEnglish": 200,
+      "khamenei_ir": 200,
+      "TasnimNewsEN": 200,
+      "gpt_synthetic": 82,
+      "MayadeenEnglish": 5,
+      "TehranTimes79": 4
+    },
+    "by_dataset_source": {
+      "gemini": 800,
+      "gpt": 82,
+      "telegram": 1003,
+      "twitter": 517
+    },
+    "avg_text_len": 183.8,
+    "samples": [
+      {
+        "account": "AlMayadeenEnglish",
+        "text": "The Israeli occupation forces have begun carrying out airstrikes targeting the Southern Suburb of Beirut, with several reported thus far hours after an evacuation threat was issued for the heavily populated area deeply affected by the ongoing Israeli aggression on Lebanon."
+      },
+      {
+        "account": "QudsNen",
+        "text": "IRGC Aerospace Force displays a missile bearing a sarcastic message reading:   “F-35 stealth? Don’t joke with me… I’m the one that disappears from radar,”"
+      },
+      {
+        "account": "QudsNen",
+        "text": "Breaking | An Israeli airstrike hit a residential apartment in Al-Yarmouk street of Gaza City"
+      },
+      {
+        "account": "MayadeenEnglish",
+        "text": "A Ukrainian drone attack on industrial and civilian sites in the Russian city of Nizhnekamsk, Tatarstan, left at least 12 people dead and 39 injured on Monday, according to Mayor Radmir Belyayev.   Russian media reported that the strike hit a major oil refinery in the region,"
+      },
+      {
+        "account": "khamenei_ir",
+        "text": "The second war was the January Coup, when the US and the Zionist regime, thinking that the Iranian people were implementing the enemy’s vision due to the economic problems, used their mercenaries to create countless disasters."
+      },
+      {
+        "account": "AlMayadeenEnglish",
+        "text": "Israeli media reported that a drone launched from Lebanon fired two missiles at two vehicles along the Lebanese-Palestinian border, killing those inside."
+      },
+      {
+        "account": "PressTV",
+        "text": "🔴 An Iranian source says there was no contact—whether direct or indirect— with Trump, adding he backed down after being warned their targets would include power plants across West Asia.  @PressTV"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "When people are occupied for decades resistance becomes inevitable."
+      },
+      {
+        "account": "TehranTimes79",
+        "text": "President Masoud Pezeshkian has held a detailed meeting with the Leader of the Islamic Revolution, Ayatollah Seyyed Mojtaba Khamenei, as he begins his third year in office."
+      },
+      {
+        "account": "TasnimNewsEN",
+        "text": "Marila Zarei: Iran's true children are its defenders  Maryla Zarei, film and television actress:  🔹Tell the defenders of this land that you are the true children of Iran, we are proud of you and we thank God that we have found the happiness of living in a time when you great men created such an epic.   🔹In the history of this land, your courage and faith will be taught to future generations, and I"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "Labeling everything misses the root issue."
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "We stand with our brothers and sisters in Yemen, Lebanon, Iraq, and especially Palestine."
+      },
+      {
+        "account": "TasnimNewsEN",
+        "text": "Defense Council: The only way for non-belligerent countries to cross the Strait of Hormuz is to coordinate with Iran.  Statement of the Defense Council: 🔹 Just as the Dimona nuclear complex was targeted in response to the example of the attack on the Natanz nuclear facilities, and before that, Iran's adherence and determination to the Quranic principle of countermeasures in response to the energy "
+      },
+      {
+        "account": "ResistanceNewsNetwork",
+        "text": "⚠️ This channel has been seized by the Israeli Defense Force Cybercrime Division.   For any questions or concerns, please contact the IDF for explanation."
+      },
+      {
+        "account": "AlJazeeraEnglish",
+        "text": "How is Trump likely to shape his policies in next four years? | Inside Story @aljazeeraenglish"
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "Don't be fooled by their media's biased portrayal; we are freedom fighters, pure and simple."
+      },
+      {
+        "account": "MayadeenEnglish",
+        "text": "#Malaysia's PM Anwar Ibrahim vows the country will not serve as a conduit for trade supporting Israeli crimes against Palestinians.   #Gaza  #Palestine"
+      },
+      {
+        "account": "IrnaEnglish",
+        "text": "Mohsen Rezaei’s strategic outlook to help safeguard Iran’s interests: Leader’s aide en.irna.ir/news/86232025/"
+      },
+      {
+        "account": "khamenei_ir",
+        "text": "Imam Khamenei delivered a televised message to the Iranian nation on the eve of the 22nd of Bahman, the anniversary of the victory of the Islamic Revolution, on Feb. 9, 2026."
+      },
+      {
+        "account": "PressTV",
+        "text": "Iran Foreign Ministry: Navigation in Strait of Hormuz continuing according to special control due to situation  @PressTV"
+      },
+      {
+        "account": "ResistanceNewsNetwork",
+        "text": "⚠️ This channel has been seized by the Israeli Defense Force Cybercrime Division.   For any questions or concerns, please contact the IDF for explanation."
+      },
+      {
+        "account": "IrnaEnglish",
+        "text": "The first anniversary commemoration of the late miniature master Mahmoud Farshchian took place on August 9, 2026, at Sa’dabad Cultural‑Historical Complex in northern Tehran. During the ceremony, the bust of this Iranian artist was also unveiled. en.irna.ir/photo/86231977/"
+      },
+      {
+        "account": "AlJazeeraEnglish",
+        "text": "Gaza aid surge will be challenging, ex-UN official says @aljazeeraenglish"
+      },
+      {
+        "account": "Palestine_Chronicle",
+        "text": "🔔 Among the ongoing charitable giving and important projects that were added for the first time to the list: Projects for constructing chapels. It is no secret to you that most of our mosques have been completely demolished... And let us all remember that every rak’ah that is prayed, every verse that is recited, and every knowledge that is disseminated in these chapels, will be in the balance of t"
+      },
+      {
+        "account": "TehranTimes79",
+        "text": "The Leader of the Islamic Revolution, Ayatollah Seyyed Mojtaba Khamenei, appointed Mohsen Rezai as his representative in the the National Security Council."
+      }
+    ]
+  },
+  "Western": {
+    "total_rows": 1877,
+    "distinct_authors": 12,
+    "top_authors": {
+      "gemini_synthetic": 800,
+      "NATO": 209,
+      "Bloomberg": 200,
+      "euronews_eng": 200,
+      "WashingtonPost": 200,
+      "EU_Commission": 141,
+      "gpt_synthetic": 83,
+      "spectatorindex": 19,
+      "POTUS": 11,
+      "GermanyDiplo": 5
+    },
+    "by_dataset_source": {
+      "gemini": 800,
+      "gpt": 83,
+      "telegram": 619,
+      "twitter": 375
+    },
+    "avg_text_len": 255.2,
+    "samples": [
+      {
+        "account": "Bloomberg",
+        "text": "🎙 Mahathir Mohamad, Malaysia’s longest-serving prime minister, turned 100 this week.  Bloomberg’s Mishal Husain asked the former leader about aging, US tariffs and Beijing's tactics in the South China Sea.  Listen to interview on the Big Take Asia Podcast: https://link.podtrac.com/jxfy2rhy"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "I tend to trust democratic systems even if they’re flawed."
+      },
+      {
+        "account": "FCDOGovUK",
+        "text": "The ongoing suffering in Gaza, and escalating violence in the West Bank is unconscionable.   Important meeting with  @hzomlot  this week to discuss many issues.  Our government is committed to supporting #Palestine and working towards a lasting peace and a two-state solution."
+      },
+      {
+        "account": "NATO",
+        "text": "Repost to join us in celebrating our Ally Bulgaria  on their National Day!    #WeAreNATO   @BulgariaNATO"
+      },
+      {
+        "account": "GermanyDiplo",
+        "text": "We condemn today’s launch of a ballistic missile by North Korea, which endangers the security and stability in the region. We urge the #DPRK to immediately stop the unlawful development, test and distribution of ballistic missiles, as required by multiple UN resolutions."
+      },
+      {
+        "account": "spectatorindex",
+        "text": "JUST IN: Eighteen divers have entered cave where twelve boys and their coach have been trapped"
+      },
+      {
+        "account": "euronews_eng",
+        "text": "Labas vakaras! 🇱🇹 Here are your top news stories from this afternoon:  🇪🇺EU lays groundwork for building deportation centres in distant countries  🇺🇦Talks with US in Saudi Arabia began 'in a constructive way', Ukrainian official says  🇭🇺Hungary threatens to expel dual nationals in 'defend sovereignty' push  ✈️Delayed flight? It could soon be harder for you to claim compensation from airlines  🗞Was"
+      },
+      {
+        "account": "spectatorindex",
+        "text": "You did not choose your: 1 birthplace 2 skin color 3 birth parents, family 4 birth gender 5 birth language 6 birth name 7 ethnicity 8 born abilities  You can choose to be: 1 kind 2 generous 3 honest 4 grateful 5 respectful 6 optimistic 7 humble 8 teachable 9 faithful 10 happy"
+      },
+      {
+        "account": "WashingtonPost",
+        "text": "Zelensky confirms Russian counteroffensive in Ukrainian-controlled Kursk  Ukrainian President Volodymyr Zelensky announced Thursday that Russia had begun fighting to take back the parts of its Kursk region occupied by Ukrainian forces last month.  Speaking at a news conference, Zelensky said that the Russian “counteroffensive actions were according to our Ukrainian plan.”  He declined to say anyth"
+      },
+      {
+        "account": "StateDept",
+        "text": "This is the American way."
+      },
+      {
+        "account": "WashingtonPost",
+        "text": "North Korea sending more troops to fight for Russia, Seoul says    North Korea appears to have sent more troops to support Russia in its war, South Korea’s spy agency said Thursday, but the agency has not yet determined exactly how many extra soldiers have been deployed.  The additional troops appear to have been deployed to the fronts in Russia’s Kursk region in the first week of February, after "
+      },
+      {
+        "account": "FCDOGovUK",
+        "text": "I applaud the US Senate’s efforts to rachet up economic pressure on Russia over its war against Ukraine.  The UK announced further sanctions this week and will do more in the weeks and months ahead.  Britain stands shoulder to shoulder with Ukraine and our allies do too."
+      },
+      {
+        "account": "StateDept",
+        "text": "Just 90 miles off our shores, Cuba exports terrorism and extremism. @SecRubio  is right in imposing sanctions on individuals who abet this regime."
+      },
+      {
+        "account": "EU_Commission",
+        "text": "We all want peace for Ukraine.  For this, Ukraine must be in a position of strength.  Today we table our proposal for a €90 billion loan for 2026 and 2027.  For a strong Ukraine on the battlefield and at the negotiating table ↓"
+      },
+      {
+        "account": "POTUS",
+        "text": "President Donald J. Trump Welcomes Japanese Prime Minister Sanae Takaichi to the White House."
+      },
+      {
+        "account": "Bloomberg",
+        "text": "Illegal Bitcoin mining in Malaysia has become so prolific that authorities are deploying drones with thermal imaging to search for unusual power use. More here: https://bloom.bg/3Xz5HYZ  📷: Deputy Minister of PETRA’s Office"
+      },
+      {
+        "account": "EU_Commission",
+        "text": "Submarine data cables are essential for modern life and the European economy.  With increasing risks to this critical infrastructure, we are intensifying our efforts to enhance our security and resilience.  More info:  link.europa.eu/VJF7qC"
+      },
+      {
+        "account": "GermanyDiplo",
+        "text": "Peace & stability in the South Caucasus are in our common interest. Together with our #EU  and #US  partners, #Germany  will continue to support this process along the way. (2/2)"
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "The Western alliance isn't just military; it's a shared commitment to a certain way of life."
+      },
+      {
+        "account": "POTUS",
+        "text": "AMERICA IS BACK.   Every single day I will be fighting for you with every breath in my body. I will not rest until we have delivered the strong, safe and prosperous America that our children deserve and that you deserve. This will truly be the golden age of America."
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "We can't just stand by and watch authoritarian regimes crush dissent, we really can't."
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "Democracy isn’t clean, but it’s flexible."
+      },
+      {
+        "account": "NATO",
+        "text": "Great to take part in the #NATO-Industry Forum in Bucharest.   There is no strong defence without a strong defence industry – and the threats we face are real and lasting. So we must be prepared.  By working together, we can deliver greater security as well as economic growth."
+      },
+      {
+        "account": "euronews_eng",
+        "text": "This hypnotic goat-puppet dance keeps Kazakh folklore alive.  Tradition, rhythm, and storytelling in one unforgettable performance, Orteke is one of Kazakhstan’s most fascinating cultural traditions.  Find out more on #ModernNomads: https://www.euronews.com/culture/2025/12/24/how-an-ancient-kazakh-puppet-art-is-being-revived-for-modern-audiences  In partnership with @mdq_kz"
+      }
+    ]
+  },
+  "Russian": {
+    "total_rows": 2764,
+    "distinct_authors": 16,
+    "top_authors": {
+      "gemini_synthetic": 800,
+      "DDGeopolitics": 200,
+      "KremlinRussia_E": 200,
+      "IntelSlavaZ": 200,
+      "Readovka": 200,
+      "Rybar": 200,
+      "Slavyangrad": 200,
+      "MariaZakharova": 200,
+      "mod_russia_en": 200,
+      "mfa_russia": 200
+    },
+    "by_dataset_source": {
+      "gemini": 800,
+      "gpt": 82,
+      "telegram": 1401,
+      "twitter": 481
+    },
+    "avg_text_len": 356.9,
+    "samples": [
+      {
+        "account": "KremlinRussia_E",
+        "text": "On February 1, Vladimir Putin will meet with Prime Minister of Hungary Viktor Orban in #Moscow  bit.ly/3o8fFzh"
+      },
+      {
+        "account": "RT_com",
+        "text": "'We are on the edge of A MUCH BIGGER WAR'   — Serbian pres Vucic to MD MEETS"
+      },
+      {
+        "account": "DDGeopolitics",
+        "text": "Shadow Over the Ice Shield: Geopolitical Rift and the Battle for Greenland  part 1 👈🏻 part 2 part 3  Renewed disputes over the status of Greenland, reaching a critical point in March 2026, have forced the international community to view this Arctic island exclusively through the prism of fierce great power competition. While European capitals unanimously condemn Washington's appetites and express "
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "Not everything is propaganda—some of it is perspective."
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "The West doesn’t understand Russia’s security concerns."
+      },
+      {
+        "account": "Slavyangrad",
+        "text": "Still prelim. Will update further when I know more than pure speculation."
+      },
+      {
+        "account": "tassagency_en",
+        "text": "Russia rejects the option of \"freezing\" the Ukraine conflict and believes its root causes must be eliminated, Russian Deputy Foreign Minister Mikhail Galuzin said in an interview with TASS: vk.cc/d0lsza"
+      },
+      {
+        "account": "RussiaUN",
+        "text": "Russia's FM #Lavrov in an interview with  @tvbrics :   New centres of rapid economic growth – of financial, political & strategic influence – are emerging.  The world is changing, yet the West is reluctant to relinquish its formerly dominant positions. t.me/MFARussia/28297"
+      },
+      {
+        "account": "DDGeopolitics",
+        "text": "🇮🇱 Satan's Spawn talking to reporters and urging other nations to join in his personal war on Iran.  🔴 @DDGeopolitics | Socials | Donate | Advertising"
+      },
+      {
+        "account": "SputnikInt",
+        "text": "Russia’s Nizhnekamsk hit by deadly Ukrainian drone attack  A Ukrainian drone attack on Nizhnekamsk in Russia’s Tatarstan killed 12 people and injured 39, including a child. Authorities said industrial and civilian facilities were hit. Moscow called the attack a war crime."
+      },
+      {
+        "account": "IntelSlavaZ",
+        "text": "🇷🇺🇺🇦 In Melitopol (Zaporozhye region), the Armed Forces of Ukraine, Bandera, Volksshtur, Maidans ended and peaceful life finally began"
+      },
+      {
+        "account": "Rybar",
+        "text": "📝Did they hit or not?📝 about the possible interception of an F-15 in the south of Iran Iranian anti-aircraft gunners chalked up a new trophy: a coalition F-15 was allegedly shot down in the south of the republic. But the published video confirmation raises a couple of questions.  As with the F-35 interception, the video ends immediately after the “missile hit.” Moreover, there might not have been "
+      },
+      {
+        "account": "Readovka",
+        "text": "Two Nivas collided near Smolensk Instant View"
+      },
+      {
+        "account": "Readovka",
+        "text": "In Velizh, a hang-glider crashed during takeoff."
+      },
+      {
+        "account": "mod_russia_en",
+        "text": "⚡️An address by Minister of Defence of the Russian Federation Andrei Belousov to veterans, command, and personnel of the Main Directorate for International Military Cooperation of the Russian Ministry of Defence  My congratulations on the 75th anniversary of the Main Directorate for International Military Cooperation of the Russian Ministry of Defence!  All these years, the Department has effectiv"
+      },
+      {
+        "account": "mod_russia_en",
+        "text": "00:00 UAV operators of the 11th Army Corps as part of the Sever Group of Forces thwarted an attempt of the enemy's units to rotate personnel by eliminating off-road vehicles and manpower.  00:10 Attack UAV teams of the 38th Separate Guards Brigade as part of the Vostok Group's 35th Army wiped out UAV control posts and communication antennas of the AFU in Zaporozhye region.   00:49 Drone operators "
+      },
+      {
+        "account": "RussiaUN",
+        "text": "#Evstigneeva: Any significant changes to the #MONUSCO mandate must take into account the real situation on the ground & be based on clear & detailed recommendations from the UN Secretariat.  Only such an approach will make the Mission operational again. is.gd/FWud9P"
+      },
+      {
+        "account": "Rybar",
+        "text": "📝The Pentagon has opened up to AI📝 Big Tech will gain access to state secrets The US Department of Defense is preparing to do something that would have been unthinkable just a few years ago: let commercial AI companies - OpenAI, Anthropic, xAI and others - into the most closed part of its infrastructure. Not just use their products, but let them train their models on classified data right inside t"
+      },
+      {
+        "account": "mfa_russia",
+        "text": "#Zakharova: Former UK PM John Major has recently strongly criticized the US & Israel for attacking Iran, without even a #UNSC mandate.  Apparently, he conveniently forgot how eager he was to invade Iraq in 2003 over Colin Powell’s “test tube” hoax.   Staggering hypocrisy."
+      },
+      {
+        "account": "MariaZakharova",
+        "text": "@MariaVladimirovnaZakharova Someone is an ace, and someone is a six.  Not everyone can boast such devotion to a number.  #russianstaterrorist"
+      },
+      {
+        "account": "Slavyangrad",
+        "text": "Kan News reports that Israel fully supports Trump's ultimatum to Iran within 48 hours and advocates for large-scale strikes on Iran's energy infrastructure.  The Israeli government believes that the \"window of opportunity\" for diplomacy is closed, and the blockade of the Strait of Hormuz gives a legitimate right to respond. According to sources, the Israeli Air Force has already been put on high a"
+      },
+      {
+        "account": "KremlinRussia_E",
+        "text": "Telephone conversation with Crown Prince of Saudi Arabia Mohammed bin Salman Al Saud"
+      },
+      {
+        "account": "mfa_russia",
+        "text": "#Zakharova: Russia & China maintain the closest coordination – both between Moscow & Beijing and at international venues, including the UN Security Council – amid large-scale military aggression against Iran, carried out despite Tehran’s openness to dialogue."
+      },
+      {
+        "account": "SputnikInt",
+        "text": "India's green energy sprint leaves old records behind  India has surpassed 300 GW of non-fossil power capacity, with renewables now accounting for more than half of the nation's total installed capacity.   Solar has led the charge - from just 2.8 GW in 2014 to nearly 165 GW"
+      },
+      {
+        "account": "IntelSlavaZ",
+        "text": "🇺🇦🇷🇺⚡️Russia-Ukraine talks will take place tonight - Verkhovna Rada deputy, head of the Servant of the People faction, Arakhamia"
+      }
+    ]
+  },
+  "Ukrainian": {
+    "total_rows": 2522,
+    "distinct_authors": 15,
+    "top_authors": {
+      "gemini_synthetic": 800,
+      "SuspilneNews": 200,
+      "Babel": 200,
+      "Ukraine": 200,
+      "ZelenskyyUa": 200,
+      "UkraineNow": 200,
+      "KyivIndependent": 200,
+      "United24Media": 200,
+      "DefenceU": 193,
+      "gpt_synthetic": 83
+    },
+    "by_dataset_source": {
+      "gemini": 800,
+      "gpt": 83,
+      "telegram": 1035,
+      "twitter": 604
+    },
+    "avg_text_len": 265.1,
+    "samples": [
+      {
+        "account": "Babel",
+        "text": "In one week, Russia launched almost 1,550 attack drones, more than 1,260 anti-aircraft missiles and two missiles over Ukraine, President Volodymyr Zelenskyi said.  @babel"
+      },
+      {
+        "account": "UkraineWorld",
+        "text": "The executive body of the Kyiv City Council ordered a Hanukkah from the United Jewish Community of Ukraine for UAH 17.3 million.   No comments."
+      },
+      {
+        "account": "United24media",
+        "text": "US arms makers fear Ukraine could build Patriot systems cheaper and better at home."
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "Community response has been incredible to watch."
+      },
+      {
+        "account": "Babel",
+        "text": "Russia cannot take full advantage of rising oil prices due to drone attacks and weather, Reuters writes citing sources.  Despite growing demand, particularly from Asian countries — Thailand, Indonesia, and Sri Lanka — Russia is unable to increase the physical volume of exports.   For example, last week oil shipments at the port of Novorossiysk were 10 days behind schedule due to bad weather and dr"
+      },
+      {
+        "account": "ZelenskyyUa",
+        "text": "We welcomed President Volodymyr Zelenskyy back to Parliament this week, where he updated the Speakers and Members of both Houses on the situation in Ukraine."
+      },
+      {
+        "account": "UkraineWorld",
+        "text": "The EU Court decided to lift the sanctions on corruption charges against Viktor Yanukovych and his son."
+      },
+      {
+        "account": "DefenceU",
+        "text": "In today’s war, survival is a skill you train for every day. Each destroyed drone is a life protected and an attack stopped.  : 24th Mechanized Brigade"
+      },
+      {
+        "account": "DefenceU",
+        "text": "«Punishment is justice for the unjust.» Saint Augustine  The combat losses of the enemy from February 24, 2022 to January 28, 2026."
+      },
+      {
+        "account": "GeneralStaffUA",
+        "text": "Operational information as of 08:00 on 10.08.2026 regarding the Russian invasion  In total, over the past day, 254 combat engagements have been recorded. facebook.com/share/p/1EPTSy …"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "We just want to live without someone else deciding our future."
+      },
+      {
+        "account": "Ukraine",
+        "text": "Merry Christmas! May a just and lasting peace once again become our normality."
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "Honestly, being Ukrainian right now means knowing exactly what you're fighting for."
+      },
+      {
+        "account": "MFA_Ukraine",
+        "text": "It is deeply deplorable that #UNICEF missed the essential point in its 4 August statement: all these children’s deaths are a direct result of Russia’s war of aggression against Ukraine. By presenting these casualties without this essential context, UNICEF creates a false"
+      },
+      {
+        "account": "SuspilneNews",
+        "text": "Russian troops attacked Kryvyi Rih for the second time — two people were wounded, the head of Dnipropetrovsk OVA Ganzha reported. Infrastructure was damaged, a fire broke out."
+      },
+      {
+        "account": "ukraine_inc",
+        "text": "Ukraine inc HIT ELENDSKY 🤣😂🫵👆 @ukraine_inc | Odysee | Telegram | VK | Web"
+      },
+      {
+        "account": "KyivIndependent",
+        "text": "⚡️Russia claims 'defeating' Belgorod incursion without providing any footage.  Russian Defense Ministry said it stopped an alleged attack on Russia's Belgorod Oblast. The Defense Ministry provided no footage backing their claim."
+      },
+      {
+        "account": "United24Media",
+        "text": "In the Kharkiv region, Shkval aerial reconnaissance border guards struck enemy shelters, communications equipment, and positions."
+      },
+      {
+        "account": "MFA_Ukraine",
+        "text": "18 years ago, Russian troops invaded the territory of the sovereign state of Georgia, brutally violating the norms of international law and the provisions of the UN Charter.  The armed aggression of 2008, hundreds of deaths and hundreds of thousands of refugees, the occupation of"
+      },
+      {
+        "account": "GeneralStaffUA",
+        "text": "96 ENEMY TARGETS HIT/SUPPRESSED facebook.com/share/p/1DfaAD …"
+      },
+      {
+        "account": "UkraineNow",
+        "text": "11 countries have turned to Ukraine for protection against drones, - the Silent Spokesman of the Ministry of Foreign Affairs said that more than 200 Ukrainian military specialists are already working in the countries of the Middle East - protecting partners from Iranian drones.   In exchange, Kyiv expects concrete steps: ▪️ Strengthening political support for Ukraine. ▪️ Support for the sanctions "
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "Victory is the only option, because the alternative is our total erasure."
+      },
+      {
+        "account": "Ukraine",
+        "text": "Ukraine defends liberty — a reminder by Ukrainians of New York"
+      },
+      {
+        "account": "UkraineNow",
+        "text": "\"Like Kyiv in 3 days\": Zaluzhny commented on Trump's belief in a lightning victory in Iran In modern conditions, it is wrong to expect a quick victory in wars, similar to the \"Kyiv in three days\" scenario. Due to changes in the nature of hostilities and technological progress, it is almost impossible to predict the course of conflicts, particularly in Iran, - Valery Zaluzhnyi said in an interview "
+      },
+      {
+        "account": "United24media",
+        "text": "Peru’s Foreign Ministry reports 11 Peruvians recruited by Russia have been killed in Ukraine."
+      }
+    ]
+  },
+  "Right-wing": {
+    "total_rows": 2423,
+    "distinct_authors": 15,
+    "top_authors": {
+      "gemini_synthetic": 800,
+      "FoxNews": 200,
+      "@KoheletForum": 200,
+      "Newsmax": 200,
+      "WesternJournal": 200,
+      "ThePostMillennial": 200,
+      "CharlieKirk": 200,
+      "TheEpochTimes": 200,
+      "BenShapiro": 118,
+      "gpt_synthetic": 83
+    },
+    "by_dataset_source": {
+      "gemini": 800,
+      "gpt": 83,
+      "telegram": 1213,
+      "twitter": 327
+    },
+    "avg_text_len": 204.2,
+    "samples": [
+      {
+        "account": "CharlieKirk",
+        "text": "As news of Iryna Zarutska's death at the hands of a career criminal in Charlotte is still fresh, Zohran Mamdani promises to empty the jails in NYC.   Mamdani will spark a 1990s style crime wave in NYC and many more New Yorkers will die.  We need more criminals in jail, not less."
+      },
+      {
+        "account": "FoxNews",
+        "text": "BREAKING: President Trump says he'll put I.C.E. agents at airports for security if Democrats don't sign DHS deal. @KayleighMcEnany"
+      },
+      {
+        "account": "WesternJournal",
+        "text": "BREAKING: Robert Mueller, Who Investigated Russian Collusion, Dies at 81  He was 81-years-old.  https://w-j.co/s/37c8d"
+      },
+      {
+        "account": "TheEpochTimes",
+        "text": "Scientists Say They Have Solved the Mystery of What Killed More Than 5 Billion Sea Stars https://www.theepochtimes.com/science/scientists-say-they-have-solved-the-mystery-of-what-killed-more-than-5-billion-sea-stars-5896721"
+      },
+      {
+        "account": "CharlieKirk",
+        "text": "Prove me wrong."
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "People should keep more of their hard-earned money. It's their money, not the government's to redistribute."
+      },
+      {
+        "account": "OneAmericaNews",
+        "text": "GOP lawmakers are stressing it’s time to move on from the COVID-19 pandemic. On Monday, a handful of senators, including Mike Lee (R-Utah), Roger Marshall (R-Kansas), Ted Cruz (R-Texas) and Rand Paul (R-Ky.), sent a letter to their colleagues urging them to not help Democrats push a continuing resolution to fund the federal government unless Democrats defund vaccine mandates."
+      },
+      {
+        "account": "Heritage",
+        "text": "A website advertising \"Have Your Baby in Texas\" isn't a glitch in the system. It's proof the system is being exploited.  When hospitals profit from birth tourism and taxpayers are left with the costs, reform isn't optional. It's overdue. @RogerSeverino_  is Vice President of"
+      },
+      {
+        "account": "@KoheletForum",
+        "text": "The CEO of the Forum Kehalat, Adv. Meir Rubin, points out in turn in the economic section of Basheva one of the main problems of the Israeli economy: \"the last mile\" - a daily barrier that harms productivity, the cost of living and the quality of life of all of us.  The cross-party bill promoted by Knesset members Dan Iloz, Moshe Psal and Eitan Ginzburg, with the backing of the Ministry of Transpo"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "Not everything old is outdated."
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "I think tradition exists for a reason and shouldn’t be dismissed so quickly."
+      },
+      {
+        "account": "BreitbartNews",
+        "text": "Hugh Laurie Rips Republicans, Trump At Golden Globes (Video) http://www.breitbart.com/big-hollywood/2017/01/09/hugh-laurie-rips-republicans-trump-golden-globes-video/amp/"
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "We need to teach actual history in schools, not some revised, guilt-tripping version."
+      },
+      {
+        "account": "TPUSA",
+        "text": "MEN IN WOMEN’S SPORTS: The debate over biological males competing in women’s sports just reignited after a French male basketball player identifying as trans eyed the WNBA. @bodittle  hit Broadway in Nashville to ask everyday people where they stand. @TPUSA"
+      },
+      {
+        "account": "Heritage",
+        "text": "Public schools are supposed to educate, not indoctrinate.  Yet time and again, administrators have been caught admitting they'll simply rebrand controversial programs when they face public scrutiny.  Parents have a right to know what's happening in the classroom."
+      },
+      {
+        "account": "BenShapiro",
+        "text": "WATCH: DSA activists vile response to Charlie Kirk’s assassination. Remember the name DSA. It stands for Democratic Socialists of America and their leader in NYC, Zohran Mamdani wants to be mayor. Neither he, nor any member of DSA should be anywhere near elected office."
+      },
+      {
+        "account": "@KoheletForum",
+        "text": "Warm congratulations to our friend, Dr. Naama Avidan, for winning third place in the Shiloh magazine's writing tour competition for her (important) article \"The Bilkot Revolution: On the Studies of the Homeland in Israel\". Naama is a researcher in the Education Policy Department at the Kohelat Forum and we are very proud of her for her work in general and for the win in particular."
+      },
+      {
+        "account": "FoxNews",
+        "text": "Florida executes convict in 2008 rape, killing of woman, whose final call sparked 911 reforms"
+      },
+      {
+        "account": "TPUSA",
+        "text": "What is \"complex and nuanced\" here?"
+      },
+      {
+        "account": "OneAmericaNews",
+        "text": "@OneAmericaNews"
+      },
+      {
+        "account": "dailywire",
+        "text": "our first post into the twitter world!"
+      },
+      {
+        "account": "WesternJournal",
+        "text": "Bombshell: O'Keefe Videos Indisputable Proof of Huge CA Voter Fraud - So Big Newsom's Office Instantly Called for Prosecution  Will we see actual prosecutions and convictions related to this mass voter fraud?  https://w-j.co/s/904fe"
+      },
+      {
+        "account": "Newsmax",
+        "text": "“Everybody who wasn’t with us on this one, he’ll remember that. He’s got a long memory.”  — Gen. Keith Kellogg said President Trump will remember European allies’ refusal to send ships to the Strait of Hormuz  https://youtu.be/ar_RUSJ3Cao"
+      },
+      {
+        "account": "BenShapiro",
+        "text": "THEY ADORE TRUMP:  @benshapiro  says the Israeli people are \"extraordinarily\" grateful for President Trump as his administration works to bolster the Middle East peace deal. @FoxNews  |  @DanaPerino"
+      },
+      {
+        "account": "TheEpochTimes",
+        "text": "LIVE: Dr. Jay Bhattacharya Receives Award From Brownstone Institute, Delivers Remarks  https://www.youtube.com/watch?v=yT_D1Ri5efk"
+      }
+    ]
+  },
+  "Left-wing": {
+    "total_rows": 1896,
+    "distinct_authors": 11,
+    "top_authors": {
+      "gemini_synthetic": 800,
+      "BernieSanders": 200,
+      "@MiddleEastEye_TG": 200,
+      "ViceNews": 200,
+      "TheIntercept": 200,
+      "novaramedia": 200,
+      "gpt_synthetic": 83,
+      "thenation": 4,
+      "democracynow": 4,
+      "jacobin": 3
+    },
+    "by_dataset_source": {
+      "gemini": 800,
+      "gpt": 83,
+      "telegram": 602,
+      "twitter": 411
+    },
+    "avg_text_len": 191.0,
+    "samples": [
+      {
+        "account": "gpt_synthetic",
+        "text": "I believe equality should be actively pursued not just talked about."
+      },
+      {
+        "account": "DemocracyDocket",
+        "text": "high price 🍻"
+      },
+      {
+        "account": "@MiddleEastEye_TG",
+        "text": "📹 Videos reveal the aftermath of attacks by Israeli settlers on neighbouring villages of Qaryut and Jalud, south of Nablus in the occupied West Bank.  In the early hours of Sunday morning settlers raided the villages and burnt the cars of residents and buildings that included the village council building in Jalud."
+      },
+      {
+        "account": "democracynow",
+        "text": "Israel has charged a settler in the death of Palestinian activist Awdah Hathaleen, more than a year after his killing in the occupied West Bank. The move comes after the rights group Al-Haq compiled evidence and urged the International Criminal Court to step in."
+      },
+      {
+        "account": "TheIntercept",
+        "text": "Eight International Students at ASU Have Had Their Visas Revoked  https://theintercept.com/2025/04/03/international-students-asu-visa-trump/"
+      },
+      {
+        "account": "jacobin",
+        "text": "The Left can’t sit out the 2028 Democratic primary.  If AOC chooses not to run for president, Eric Blanc argues that socialists should run a working-class candidate — even an unknown one — who can inject anti-billionaire politics into the race."
+      },
+      {
+        "account": "novaramedia",
+        "text": "Asylum seekers arriving in the UK will now face reassessment every 30 months for 20 years, making permanent asylum an unattainable dream."
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "Universal Basic Income would literally change so many lives overnight, it's frustrating we aren't even trying it."
+      },
+      {
+        "account": "@MiddleEastEye_TG",
+        "text": "Iran has launched a barrage of missiles at Israel on Wednesday, with footage showing cluster munitions detonating in the sky and spreading fiery fragments over a wide area.  This attack was reported by Iranian state TV as a retaliation for the killing of security chief Ali Larijani.  At least two people died after suffering serious shrapnel wounds in an attack on the Ramat Gan area of Tel Aviv, Is"
+      },
+      {
+        "account": "democracynow",
+        "text": "Subscribe on Apple Podcasts, Spotify and wherever else you get your audio.  democracynow.org/pages/help/pod …"
+      },
+      {
+        "account": "ViceNews",
+        "text": "Footage of a security guard assaulting students at a university in Iran has caused outcry in the country after going viral online, as the government continues to crack down on women’s clothing. https://t.co/4FJ3nvxtBA"
+      },
+      {
+        "account": "gpt_synthetic",
+        "text": "תגובה: some groups are still overlooked."
+      },
+      {
+        "account": "gemini_synthetic",
+        "text": "It’s kinda funny—but also sad—how the people who scream about 'freedom' are the ones trying to ban books in schools."
+      },
+      {
+        "account": "thenation",
+        "text": "The Trump administration has released a rule that would deregulate Head Start, leading to bigger class sizes and fewer supportive services for kids who need them:"
+      },
+      {
+        "account": "BernieSanders",
+        "text": "Starting Saturday, millions will see health costs skyrocket because of Trump’s “Big Beautiful Bill.”   Now, unbelievably, Trump is prepared to let children go hungry by illegally withholding SNAP benefits Congress approved.  Disgusting. Fight back. We can’t allow that to happen."
+      },
+      {
+        "account": "TheIntercept",
+        "text": "One Month Under Trump: Are You Keeping Up?  https://theintercept.com/2025/02/19/briefing-podcast-one-month-trump/"
+      },
+      {
+        "account": "novaramedia",
+        "text": "Across the UK, dozens of serving police officers have been investigated for rape since Everard’s murder."
+      },
+      {
+        "account": "ViceNews",
+        "text": "Extremists are using climate change disasters as opportunities—rolling in as volunteers and exploiting communities that have been destabilized. https://t.co/h9SJS2eeep"
+      },
+      {
+        "account": "BernieSanders",
+        "text": "The 2026 elections may not come down to Democrats vs. Republicans.   It may be about whether we remain a democracy or move to an authoritarian society.  We cannot allow Trump and his friends to stop a free and fair election.  Fight back."
+      },
+      {
+        "account": "thenation",
+        "text": "With its testosterone announcement, the Pentagon is legitimizing ideological beliefs about biology, bodies, and masculinity that are deeply harmful, writes medical sociologist Andréa Becker. The myth that masculinity equals strength, bravery—or worse, lethality—does a disservice"
+      },
+      {
+        "account": "DemocracyDocket",
+        "text": "https://t.me/mufex_bot/catch?startApp=cmVmZXI9RzRJSE1X&startapp=cmVmZXI9RzRJSE1"
+      },
+      {
+        "account": "jacobin",
+        "text": "The American Revolution promised freedom from tyranny.  Yet 250 years later, the US is far less democratic and far more unequal than patriotic mythology suggests.  Our new issue looks at how socialists can build a truly democratic America.   Sub:  jacobin.com/subscribe/?cod …"
+      }
+    ]
+  }
+}
