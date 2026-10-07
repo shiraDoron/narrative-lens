@@ -17,10 +17,10 @@ It consists of two components:
 
 ## The 7 narratives
 
-Narrative labels are assigned by *which account/channel a text came from* (see "Label
-provenance" below), not by independent per-text human judgment — so the one-line definitions
-below describe what each narrative's source accounts typically argue, not a guaranteed property
-of every single row. Full definitions, account rosters, and real borderline examples are in
+Labels are assigned by *account/channel*, not per-text human judgment — see "Label provenance
+matters" below for why that's an important caveat. The one-line definitions below describe what
+each narrative's source accounts typically argue, not a guaranteed property of every single row.
+Full definitions, account rosters, and real borderline examples are in
 [`docs/narrative_definitions.md`](docs/narrative_definitions.md).
 
 | Narrative | One-line operational definition | Main confusion risk |
@@ -74,8 +74,8 @@ research focus has since moved to unseen-author generalization and author-identi
 (§18–§28), which is where most current effort and all of §18 onward is concentrated:
 
 - **Main in-distribution baseline**: `sbert_only` (`SBERTOnlyDetector` in `fusion.py`) — a frozen
-  SBERT embedding → MLP, no engineered features. It beats both `baseline_fusion` and `hybrid` on
-  a random split (see "Current research findings" above and [`docs/results.md`](docs/results.md)).
+  SBERT embedding → MLP, no engineered features (current random-split numbers are in "Current
+  research findings" above and [`docs/results.md`](docs/results.md)).
 - **Architecture most generalization analyses (§18–§28) are actually built on**: **not** the
   production `fusion.py` models directly, except for §18's initial LOAO diagnostic (which used
   `baseline_fusion`). From §19 onward, every experiment uses a separate, deliberately simpler
@@ -127,14 +127,12 @@ research focus has since moved to unseen-author generalization and author-identi
   status.
 
 ### Why it's interesting (the research question)
-A classifier of this kind can be built in more than one way: it can rely entirely on a modern
-pretrained language model (SBERT) to represent meaning, or it can additionally be given
-hand-engineered linguistic features (named entities, who-did-what-to-whom structure, emotional
-tone, topic, source reliability). The central question is whether these additional engineered
-features improve performance in a way that generalizes, or whether any apparent gain is
-specific to the authors/topics seen during training and does not transfer to a previously unseen
-author or topic. This generalization question — rather than raw in-sample accuracy — is the
-primary subject of investigation in this project.
+This project's original framing: a text classifier can rely entirely on a modern pretrained
+language model (SBERT) to represent meaning, or it can additionally be given hand-engineered
+linguistic features (named entities, who-did-what-to-whom structure, emotional tone, topic,
+source reliability) — and the open question is whether those extra features help in a way that
+generalizes, rather than just fitting the authors/topics seen during training. See "Current
+research setup" above for where that question stands today and what it has evolved into.
 
 ### A few terms used throughout this README and the code
 - **SBERT** — a pretrained model that turns a sentence into a numeric vector capturing its
@@ -203,9 +201,10 @@ trained/evaluated on **identical splits** for a fair comparison (`train.py --mod
 | `hybrid` | `HybridNarrativeDetector` | SBERT + all 5 engineered feature layers + agenda/ideology lexicon vectors → MLP |
 
 In other words: `baseline_fusion` tests the engineered features alone, `sbert_only` tests plain
-SBERT alone, and `hybrid` tests whether combining both beats either one individually. Per
-[`docs/results.md`](docs/results.md), `sbert_only` currently wins on a random split — the
-engineered features aren't yet adding measurable value over SBERT alone.
+SBERT alone, and `hybrid` tests whether combining both beats either one individually. See
+["Current research findings"](#current-research-findings-tldr) above and
+[`docs/results.md`](docs/results.md) for which one currently wins and why that isn't the full
+story.
 
 ## Project layout
 
