@@ -1,0 +1,212 @@
+{
+  "seed": 42,
+  "variant": "sbert_original",
+  "n_authors": 14,
+  "n_test_pooled": 3009,
+  "pooled_accuracy_fresh_author": 0.4011299435028249,
+  "pooled_auroc_confidence": 0.6276042361106641,
+  "pooled_auroc_margin": 0.6156296005450999,
+  "per_author": {
+    "@MiddleEastEye_TG": {
+      "n_test": 200,
+      "accuracy": 0.03,
+      "mean_confidence": 0.6418034434318542,
+      "mean_confidence_correct": 0.6389809250831604,
+      "mean_confidence_incorrect": 0.6418907642364502,
+      "auroc_confidence": 0.49484536082474223,
+      "auroc_margin": 0.5240549828178694
+    },
+    "AlJazeeraEnglish": {
+      "n_test": 200,
+      "accuracy": 0.275,
+      "mean_confidence": 0.6190069913864136,
+      "mean_confidence_correct": 0.656103789806366,
+      "mean_confidence_incorrect": 0.6049357652664185,
+      "auroc_confidence": 0.5766771159874609,
+      "auroc_margin": 0.5475862068965518
+    },
+    "Babel": {
+      "n_test": 200,
+      "accuracy": 0.59,
+      "mean_confidence": 0.7213805317878723,
+      "mean_confidence_correct": 0.7816818356513977,
+      "mean_confidence_incorrect": 0.6346057057380676,
+      "auroc_confidence": 0.7100041339396443,
+      "auroc_margin": 0.6853038445638694
+    },
+    "Bloomberg": {
+      "n_test": 200,
+      "accuracy": 0.055,
+      "mean_confidence": 0.6190103888511658,
+      "mean_confidence_correct": 0.6194430589675903,
+      "mean_confidence_incorrect": 0.6189852356910706,
+      "auroc_confidence": 0.4944684944684944,
+      "auroc_margin": 0.4896584896584897
+    },
+    "BringThemHomeNow": {
+      "n_test": 200,
+      "accuracy": 0.62,
+      "mean_confidence": 0.6191825866699219,
+      "mean_confidence_correct": 0.6707847118377686,
+      "mean_confidence_incorrect": 0.5349897146224976,
+      "auroc_confidence": 0.7089346349745331,
+      "auroc_margin": 0.6918505942275042
+    },
+    "KremlinRussia_E": {
+      "n_test": 200,
+      "accuracy": 0.5,
+      "mean_confidence": 0.6640234589576721,
+      "mean_confidence_correct": 0.7375733256340027,
+      "mean_confidence_incorrect": 0.5904735326766968,
+      "auroc_confidence": 0.7133,
+      "auroc_margin": 0.6882999999999999
+    },
+    "NATO": {
+      "n_test": 209,
+      "accuracy": 0.2583732057416268,
+      "mean_confidence": 0.7281798124313354,
+      "mean_confidence_correct": 0.6991354823112488,
+      "mean_confidence_incorrect": 0.7382984757423401,
+      "auroc_confidence": 0.43799283154121865,
+      "auroc_margin": 0.4449223416965353
+    },
+    "PressTV": {
+      "n_test": 400,
+      "accuracy": 0.57,
+      "mean_confidence": 0.6383430361747742,
+      "mean_confidence_correct": 0.693021297454834,
+      "mean_confidence_incorrect": 0.5658625960350037,
+      "auroc_confidence": 0.6903814769481844,
+      "auroc_margin": 0.679110567115463
+    },
+    "Slavyangrad": {
+      "n_test": 200,
+      "accuracy": 0.22,
+      "mean_confidence": 0.6705333590507507,
+      "mean_confidence_correct": 0.7015922665596008,
+      "mean_confidence_incorrect": 0.6617732048034668,
+      "auroc_confidence": 0.5607517482517482,
+      "auroc_margin": 0.555506993006993
+    },
+    "TheEpochTimes": {
+      "n_test": 200,
+      "accuracy": 0.505,
+      "mean_confidence": 0.6771565079689026,
+      "mean_confidence_correct": 0.7459621429443359,
+      "mean_confidence_incorrect": 0.6069609522819519,
+      "auroc_confidence": 0.6928692869286929,
+      "auroc_margin": 0.684968496849685
+    },
+    "ThePostMillennial": {
+      "n_test": 200,
+      "accuracy": 0.64,
+      "mean_confidence": 0.7459127902984619,
+      "mean_confidence_correct": 0.7814407348632812,
+      "mean_confidence_incorrect": 0.6827519536018372,
+      "auroc_confidence": 0.6700303819444444,
+      "auroc_margin": 0.6715494791666667
+    },
+    "United24Media": {
+      "n_test": 200,
+      "accuracy": 0.77,
+      "mean_confidence": 0.7589158415794373,
+      "mean_confidence_correct": 0.7961533665657043,
+      "mean_confidence_incorrect": 0.6342511177062988,
+      "auroc_confidence": 0.7494353472614342,
+      "auroc_margin": 0.735742518351214
+    },
+    "ViceNews": {
+      "n_test": 200,
+      "accuracy": 0.18,
+      "mean_confidence": 0.6136416792869568,
+      "mean_confidence_correct": 0.5378763675689697,
+      "mean_confidence_incorrect": 0.6302731037139893,
+      "auroc_confidence": 0.3607723577235772,
+      "auroc_margin": 0.3257113821138211
+    },
+    "abualiexpress": {
+      "n_test": 200,
+      "accuracy": 0.24,
+      "mean_confidence": 0.6876100301742554,
+      "mean_confidence_correct": 0.6577333807945251,
+      "mean_confidence_incorrect": 0.6970446705818176,
+      "auroc_confidence": 0.4373629385964912,
+      "auroc_margin": 0.4243421052631579
+    }
+  },
+  "risk_coverage_confidence": {
+    "1.0": {
+      "coverage": 1.0,
+      "n_retained": 3009,
+      "accuracy": 0.4011299435028249
+    },
+    "0.8": {
+      "coverage": 0.8,
+      "n_retained": 2407,
+      "accuracy": 0.43705857914416285
+    },
+    "0.6": {
+      "coverage": 0.6,
+      "n_retained": 1805,
+      "accuracy": 0.467590027700831
+    },
+    "0.4": {
+      "coverage": 0.4,
+      "n_retained": 1204,
+      "accuracy": 0.5083056478405316
+    }
+  },
+  "risk_coverage_margin": {
+    "1.0": {
+      "coverage": 1.0,
+      "n_retained": 3009,
+      "accuracy": 0.4011299435028249
+    },
+    "0.8": {
+      "coverage": 0.8,
+      "n_retained": 2407,
+      "accuracy": 0.4308267552970503
+    },
+    "0.6": {
+      "coverage": 0.6,
+      "n_retained": 1805,
+      "accuracy": 0.4664819944598338
+    },
+    "0.4": {
+      "coverage": 0.4,
+      "n_retained": 1204,
+      "accuracy": 0.49750830564784054
+    }
+  },
+  "random_split": {
+    "status": "ok",
+    "checkpoint": "models/best_model_sbert_only.pth",
+    "n_test": 2477,
+    "accuracy": 0.7319337908760597,
+    "auroc_confidence": 0.8130137760086126,
+    "auroc_margin": 0.8049844164301996
+  },
+  "fresh_author_gap_random_minus_fresh": 0.3308038473732348,
+  "gap_closed_fraction_at_coverage": {
+    "0.8": 0.10861009001748671,
+    "0.6": 0.2009048102848135
+  },
+  "abstention_to_recover_random_accuracy": {
+    "target_accuracy": 0.7319337908760597,
+    "min_abstention_rate": 0.9996676636756398,
+    "n_retained_at_min_abstention": 1,
+    "retained_accuracy_at_min_abstention": 1.0,
+    "max_retained_still_above_target": 24
+  },
+  "positive_bar": {
+    "rule": "pooled AUROC_conf > 0.55 AND gap-closed fraction >= 0.5 at 20% or 40% abstention",
+    "auroc_pass": true,
+    "coverage_pass": false,
+    "pass": false
+  },
+  "pooled_auroc_within_author_zscored": {
+    "confidence": 0.6002071710802781,
+    "margin": 0.5898711456569934
+  },
+  "notes": "Random-split accuracy cross-checked against checked-in confusion_matrix_sbert_only_random_test.csv (0.7319, exact match). Within-author z-scored AUROC removes the between-author accuracy/confidence confound."
+}

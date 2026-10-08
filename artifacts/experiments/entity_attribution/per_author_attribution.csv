@@ -1,0 +1,15 @@
+author,narrative,donor_narrative,n_test,n_eligible,n_swaps_cross,n_swaps_placebo,flip_rate_cross,flip_rate_placebo,ace,reproduced_orig_accuracy,reported_accuracy,recall_true_narrative,loao_gap
+@MiddleEastEye_TG,Left-wing,Right-wing,200,200,2070,2070,0.68,0.6,0.08,0.03,0.03,0.03,0.97
+AlJazeeraEnglish,Resistance,Zionist,200,198,442,442,0.6212,0.6616,-0.0404,0.2778,0.275,0.275,0.725
+Babel,Ukrainian,Russian,200,200,2517,2517,0.665,0.56,0.105,0.59,0.59,0.59,0.41
+Bloomberg,Western,Russian,200,200,815,815,0.615,0.59,0.025,0.055,0.055,0.055,0.945
+BringThemHomeNow,Zionist,Resistance,200,193,1905,1905,0.5803,0.4819,0.0984,0.6373,0.62,0.62,0.38
+KremlinRussia_E,Russian,Ukrainian,200,187,479,479,0.6364,0.615,0.0214,0.5294,0.5,0.5,0.5
+NATO,Western,Russian,209,197,843,843,0.5228,0.4873,0.0355,0.269,0.2583732057416268,0.2583732057416268,0.7416
+PressTV,Resistance,Zionist,400,399,1856,1856,0.5739,0.5313,0.0426,0.5689,0.57,0.57,0.43
+Slavyangrad,Russian,Ukrainian,200,192,1284,1284,0.625,0.5833,0.0417,0.2135,0.22,0.22,0.78
+TheEpochTimes,Right-wing,Left-wing,200,191,499,499,0.4712,0.3927,0.0785,0.5288,0.505,0.505,0.495
+ThePostMillennial,Right-wing,Left-wing,200,199,478,478,0.4874,0.3216,0.1658,0.6382,0.64,0.64,0.36
+United24Media,Ukrainian,Russian,200,198,1613,1613,0.6313,0.4798,0.1515,0.7727,0.77,0.77,0.23
+ViceNews,Left-wing,Right-wing,200,173,437,437,0.4624,0.5434,-0.0809,0.1676,0.18,0.18,0.82
+abualiexpress,Zionist,Resistance,200,185,1058,1058,0.4865,0.6324,-0.1459,0.2541,0.24,0.24,0.76

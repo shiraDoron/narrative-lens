@@ -1,0 +1,111 @@
+{
+  "protocol": "artifacts/experiments/label_noise_impact/retrain_protocol.json",
+  "variant": "sbert_only",
+  "seed": 42,
+  "excluded_accounts": [
+    "OpenSourceIntel",
+    "ResistanceNewsNetwork"
+  ],
+  "corpus_rows_before": 16510,
+  "corpus_rows_after": 16308,
+  "commands": [
+    "removal-retrain: split_leave_one_author(author=IDF) on corpus minus ['OpenSourceIntel', 'ResistanceNewsNetwork']; train_variant('sbert_only', set(), seed=42, EPOCHS=20, BATCH=16, lr=0.001, patience=3)",
+    "removal-retrain: split_leave_one_author(author=MariaZakharova) on corpus minus ['OpenSourceIntel', 'ResistanceNewsNetwork']; train_variant('sbert_only', set(), seed=42, EPOCHS=20, BATCH=16, lr=0.001, patience=3)",
+    "removal-retrain: split_leave_one_author(author=BernieSanders) on corpus minus ['OpenSourceIntel', 'ResistanceNewsNetwork']; train_variant('sbert_only', set(), seed=42, EPOCHS=20, BATCH=16, lr=0.001, patience=3)"
+  ],
+  "authors": {
+    "IDF": {
+      "n_test": 200,
+      "test_set_multiset_identical_to_baseline": true,
+      "test_set_order_identical_to_baseline": true,
+      "removal_train_rows": 13691,
+      "removal_val_rows": 2417,
+      "baseline_excluded_rows_in_train": 169,
+      "baseline_excluded_rows_in_val": 33,
+      "removal": {
+        "accuracy": 0.6,
+        "macro_f1": 0.125,
+        "recall_true_narrative": 0.6,
+        "pct_misclassified_right_wing": 0.025,
+        "confusion_matrix_csv": "artifacts/experiments/label_noise_impact/confusion_matrix_sbert_only_IDF_removal_test.csv"
+      },
+      "baseline": {
+        "accuracy": 0.635,
+        "macro_f1": 0.11096548711227609,
+        "recall_true_narrative": 0.635,
+        "pct_misclassified_right_wing": 0.025,
+        "n_test": 200
+      },
+      "delta_removal_minus_baseline": {
+        "accuracy": -0.03500000000000003,
+        "macro_f1": 0.014034512887723907,
+        "recall_true_narrative": -0.03500000000000003,
+        "pct_misclassified_right_wing": 0.0
+      },
+      "wall_time_s": 561.9
+    },
+    "MariaZakharova": {
+      "n_test": 200,
+      "test_set_multiset_identical_to_baseline": true,
+      "test_set_order_identical_to_baseline": true,
+      "removal_train_rows": 13691,
+      "removal_val_rows": 2417,
+      "baseline_excluded_rows_in_train": 157,
+      "baseline_excluded_rows_in_val": 45,
+      "removal": {
+        "accuracy": 0.85,
+        "macro_f1": 0.1312741312741313,
+        "recall_true_narrative": 0.85,
+        "pct_misclassified_right_wing": 0.01,
+        "confusion_matrix_csv": "artifacts/experiments/label_noise_impact/confusion_matrix_sbert_only_MariaZakharova_removal_test.csv"
+      },
+      "baseline": {
+        "accuracy": 0.895,
+        "macro_f1": 0.18891820580474933,
+        "recall_true_narrative": 0.895,
+        "pct_misclassified_right_wing": 0.025,
+        "n_test": 200
+      },
+      "delta_removal_minus_baseline": {
+        "accuracy": -0.04500000000000004,
+        "macro_f1": -0.05764407453061804,
+        "recall_true_narrative": -0.04500000000000004,
+        "pct_misclassified_right_wing": -0.015000000000000001
+      },
+      "wall_time_s": 273.3
+    },
+    "BernieSanders": {
+      "n_test": 200,
+      "test_set_multiset_identical_to_baseline": true,
+      "test_set_order_identical_to_baseline": true,
+      "removal_train_rows": 13691,
+      "removal_val_rows": 2417,
+      "baseline_excluded_rows_in_train": 172,
+      "baseline_excluded_rows_in_val": 30,
+      "removal": {
+        "accuracy": 0.36,
+        "macro_f1": 0.08823529411764706,
+        "recall_true_narrative": 0.36,
+        "pct_misclassified_right_wing": 0.48,
+        "confusion_matrix_csv": "artifacts/experiments/label_noise_impact/confusion_matrix_sbert_only_BernieSanders_removal_test.csv"
+      },
+      "baseline": {
+        "accuracy": 0.245,
+        "macro_f1": 0.06559571619812583,
+        "recall_true_narrative": 0.245,
+        "pct_misclassified_right_wing": 0.575,
+        "n_test": 200
+      },
+      "delta_removal_minus_baseline": {
+        "accuracy": 0.11499999999999999,
+        "macro_f1": 0.02263957791952123,
+        "recall_true_narrative": 0.11499999999999999,
+        "pct_misclassified_right_wing": -0.09499999999999997
+      },
+      "wall_time_s": 330.6
+    }
+  },
+  "verdict": "Removing 202/16510 (1.22%) training rows shifts unseen-author sbert_only recall by -0.0450 to +0.1150 across the 3 LOAO authors (max abs 0.1150); this exceeds typical single-seed noise and warrants a multi-seed follow-up.",
+  "fresh_14_author_confirmatory": "not-run (3-author comparison completed; fresh rerun deferred)",
+  "total_wall_time_s": 1572.2
+}

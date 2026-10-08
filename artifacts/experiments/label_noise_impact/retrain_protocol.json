@@ -1,0 +1,91 @@
+{
+  "protocol_version": "1.0-frozen",
+  "seed": 42,
+  "status": "SPEC ONLY - no retraining run (torch wave pending)",
+  "objective": "Measure the causal effect on unseen-author generalization of removing the two zero-aligned accounts (OpenSourceIntel 200 rows, ResistanceNewsNetwork 2 rows) from training.",
+  "row_filter": {
+    "description": "Drop every corpus row whose author_source is in EXCLUDED_ACCOUNTS. Test splits are unchanged: held-out authors are never in the exclusion set, so test rows are identical before/after.",
+    "predicate_pandas": "df = df[~df[\"author_source\"].isin(EXCLUDED_ACCOUNTS)]",
+    "excluded_accounts": [
+      "OpenSourceIntel",
+      "ResistanceNewsNetwork"
+    ],
+    "excluded_rows_measured": 202,
+    "corpus_rows_before": 16510,
+    "corpus_rows_after": 16308,
+    "code_hook": {
+      "file": "src/narrative_lens/train.py",
+      "function": "load_raw_data",
+      "edit": "After concatenating the four raw CSVs and deriving author_source, insert: EXCLUDED_ACCOUNTS = [\"OpenSourceIntel\", \"ResistanceNewsNetwork\"]; df = df[~df[\"author_source\"].isin(EXCLUDED_ACCOUNTS)].reset_index(drop=True). Applies to train/val/test construction equally; test authors unaffected (IDF, MariaZakharova, BernieSanders and all 14 fresh authors are disjoint from the exclusion set)."
+    }
+  },
+  "splits": {
+    "loao": [
+      {
+        "held_out_author": "IDF"
+      },
+      {
+        "held_out_author": "MariaZakharova"
+      },
+      {
+        "held_out_author": "BernieSanders"
+      }
+    ],
+    "fresh_confirmatory_group": [
+      "@MiddleEastEye_TG",
+      "AlJazeeraEnglish",
+      "Babel",
+      "Bloomberg",
+      "BringThemHomeNow",
+      "KremlinRussia_E",
+      "NATO",
+      "PressTV",
+      "Slavyangrad",
+      "TheEpochTimes",
+      "ThePostMillennial",
+      "United24Media",
+      "ViceNews",
+      "abualiexpress"
+    ],
+    "val_policy": "unchanged from baseline runs (same split_data code path, seed 42)"
+  },
+  "models_and_variants": {
+    "note": "Rerun the exact baseline arms whose numbers this study reports, nothing else.",
+    "loao_arm": "experiments/author_generalization/narrative_ablation_loao.py sbert_only-equivalent (SBERT-only, no engineered arms)",
+    "fresh_arm": "experiments/author_generalization/narrative_fresh_author_confirmatory.py sbert_original"
+  },
+  "commands": [
+    "python experiments/author_generalization/narrative_ablation_loao.py --author IDF",
+    "python experiments/author_generalization/narrative_ablation_loao.py --author MariaZakharova",
+    "python experiments/author_generalization/narrative_ablation_loao.py --author BernieSanders",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --all",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --aggregate"
+  ],
+  "command_caveat": "Seeds are hardcoded SEED=42 in both scripts (no CLI flag); keep them so. Keep the 3+14 held-out author sets identical. Record the exact invoked commands in the run log.",
+  "readouts": {
+    "primary": "per-held-out-author recall_true_narrative after removal minus baseline recall (same author, same arm)",
+    "secondary": [
+      "macro_f1",
+      "accuracy",
+      "dominant_wrong_narrative_error_share"
+    ],
+    "baseline_errors_measured_here": {
+      "LOAO_sbert_only_errors": 245,
+      "fresh_sbert_original_errors": 1802,
+      "combined": 2047
+    },
+    "interpretation_prior": "Under the independence model, 62.2% of LOAO errors and 92.2% of fresh-author errors fall on audit-flagged (neutral+mismatched) rows, but only 4.9% (LOAO) / 6.5% (fresh) on strictly mismatched rows; the removal set itself is 202/16510 (1.22%) of the corpus and 0% of any held-out test set. Expect a small effect; a large recall swing would implicate training-composition sensitivity beyond these two accounts."
+  },
+  "inputs_measured_in_this_study": {
+    "test_author_audit_coverage_csv": "artifacts/experiments/label_noise_impact/test_author_audit_coverage.csv",
+    "error_mass_csv": "artifacts/experiments/label_noise_impact/error_mass_on_flagged.csv",
+    "error_mass_aggregates_csv": "artifacts/experiments/label_noise_impact/error_mass_aggregates.csv",
+    "train_removal_share_csv": "artifacts/experiments/label_noise_impact/train_removal_share.csv",
+    "audit_source": "artifacts/experiments/narrative_audit/label_quality_per_text.csv (10330 rows, seed 42 artifacts)",
+    "confusion_sources": [
+      "artifacts/experiments/narrative_ablation_loao/confusion_matrix_sbert_only_*_test.csv",
+      "artifacts/experiments/narrative_fresh_author_confirmatory/confusion_matrix_sbert_original_*_test.csv"
+    ]
+  },
+  "reproduction": "python3 with pandas/numpy only, seed 42; recompute tables by joining confusion-matrix diagonals against label_quality_per_text account strata as done in this study."
+}

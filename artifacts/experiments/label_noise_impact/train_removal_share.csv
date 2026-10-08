@@ -1,0 +1,6 @@
+scope,train_rows,removal_rows_in_train,hm_rows_in_train,removal_share,hm_share,combined_share
+full_corpus,16510,202,1068,0.0122,0.0647,0.0769
+loao_train_excl_IDF,16310,202,1068,0.0124,0.0655,0.0779
+loao_train_excl_MariaZakharova,16310,202,868,0.0124,0.0532,0.0656
+loao_train_excl_BernieSanders,16310,202,1068,0.0124,0.0655,0.0779
+fresh_confirmatory_train_excl_14,13501,202,868,0.015,0.0643,0.0793

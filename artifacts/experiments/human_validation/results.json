@@ -1,0 +1,176 @@
+{
+  "seed": 42,
+  "annotator1": "human blind file human_validation_pilot_300_blind.csv, labeled subset only",
+  "a_n": 198,
+  "a_accuracy": 0.7727,
+  "a_pobserved": 0.7727,
+  "a_pexpected": 0.1431,
+  "a_cohen_kappa": 0.7348,
+  "a_per_narrative_support": {
+    "Left-wing": {
+      "rate": 0.8182,
+      "support": 27,
+      "n": 33
+    },
+    "Resistance": {
+      "rate": 0.7857,
+      "support": 22,
+      "n": 28
+    },
+    "Right-wing": {
+      "rate": 0.9,
+      "support": 18,
+      "n": 20
+    },
+    "Russian": {
+      "rate": 0.6774,
+      "support": 21,
+      "n": 31
+    },
+    "Ukrainian": {
+      "rate": 0.7667,
+      "support": 23,
+      "n": 30
+    },
+    "Western": {
+      "rate": 0.7143,
+      "support": 20,
+      "n": 28
+    },
+    "Zionist": {
+      "rate": 0.7857,
+      "support": 22,
+      "n": 28
+    }
+  },
+  "chatgpt_n": 166,
+  "chatgpt_accuracy": 0.8012,
+  "chatgpt_kappa": 0.7675,
+  "chatgpt_per_narrative_support": {
+    "Left-wing": {
+      "rate": 0.88,
+      "support": 22,
+      "n": 25
+    },
+    "Resistance": {
+      "rate": 0.76,
+      "support": 19,
+      "n": 25
+    },
+    "Right-wing": {
+      "rate": 0.9286,
+      "support": 13,
+      "n": 14
+    },
+    "Russian": {
+      "rate": 0.7826,
+      "support": 18,
+      "n": 23
+    },
+    "Ukrainian": {
+      "rate": 0.7778,
+      "support": 21,
+      "n": 27
+    },
+    "Western": {
+      "rate": 0.7407,
+      "support": 20,
+      "n": 27
+    },
+    "Zionist": {
+      "rate": 0.8,
+      "support": 20,
+      "n": 25
+    }
+  },
+  "chatgpt_corrupt_rows_excluded": 34,
+  "chatgpt_ids_missing_vs_key": [
+    "HV293"
+  ],
+  "b_second_annotator_labeled": 0,
+  "b_subset_size": 100,
+  "b_status": "second annotator file empty, kappa not computable",
+  "b_blind_vs_chatgpt_subset100": {
+    "n": 55,
+    "agree_rate": 1.0,
+    "kappa": 1.0
+  },
+  "b_blind_vs_chatgpt_all_both_valid": {
+    "n": 166,
+    "agree_rate": 1.0,
+    "kappa": 1.0
+  },
+  "c_flagged_accounts": [
+    {
+      "author": "OpenSourceIntel",
+      "provenance_narrative": "Zionist",
+      "n_pilot": 3,
+      "n_blind_labeled": 2,
+      "blind_support": 0,
+      "blind_support_rate": 0.0,
+      "n_chatgpt_valid": 1,
+      "chatgpt_support": 0,
+      "chatgpt_support_rate": 0.0
+    },
+    {
+      "author": "ResistanceNewsNetwork",
+      "provenance_narrative": "Resistance",
+      "n_pilot": 2,
+      "n_blind_labeled": 0,
+      "blind_support": 0,
+      "blind_support_rate": null,
+      "n_chatgpt_valid": 0,
+      "chatgpt_support": 0,
+      "chatgpt_support_rate": null
+    },
+    {
+      "author": "OneAmericaNews",
+      "provenance_narrative": "Right-wing",
+      "n_pilot": 3,
+      "n_blind_labeled": 1,
+      "blind_support": 1,
+      "blind_support_rate": 1.0,
+      "n_chatgpt_valid": 1,
+      "chatgpt_support": 1,
+      "chatgpt_support_rate": 1.0
+    },
+    {
+      "author": "Readovka",
+      "provenance_narrative": "Russian",
+      "n_pilot": 3,
+      "n_blind_labeled": 0,
+      "blind_support": 0,
+      "blind_support_rate": null,
+      "n_chatgpt_valid": 0,
+      "chatgpt_support": 0,
+      "chatgpt_support_rate": null
+    },
+    {
+      "author": "TheEpochTimes",
+      "provenance_narrative": "Right-wing",
+      "n_pilot": 3,
+      "n_blind_labeled": 0,
+      "blind_support": 0,
+      "blind_support_rate": null,
+      "n_chatgpt_valid": 0,
+      "chatgpt_support": 0,
+      "chatgpt_support_rate": null
+    }
+  ],
+  "d_both_valid_n": 166,
+  "d_both_disagree_n": 33,
+  "d_hard_noise_rate": 0.1988,
+  "d_both_disagree_and_agree_each_other": 33,
+  "commands": [
+    "python3 /tmp/hv_compute.py  # seed 42, inputs data/annotation/human_validation_pilot_300_{blind,blind_annotator1_chatgpt,blind_second_annotator_subset,key}.csv"
+  ],
+  "independence_audit": {
+    "both_valid_n": 166,
+    "identical_labels": 166,
+    "identical_confidence": 166,
+    "identical_neutral": 166,
+    "verdict": "annotator1_chatgpt file is a byte-identical copy of the human blind labels on all 166 valid rows, NOT an independent annotation; 34 rows column-shift corrupted (31 human-labeled), HV293 dropped. Do not use as a second annotator."
+  },
+  "d_note": "chatgpt file is a copy of blind, so (d) collapses to single-annotator disagreement on the 166 both-valid rows, not two independent annotators",
+  "b_note": "chatgpt file cannot substitute as second annotator (copy, see independence_audit)"
+}

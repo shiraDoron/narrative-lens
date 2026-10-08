@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "/home/deftera/Projects/narrative-lens/experiments/author_generalization/narrative_ablation_loao.py", line 101, in <module>
+    from narrative_topic_compare import TopicFeatureLayer, BERTOPIC_MODEL_PATH, BERTOPIC_EMBEDDING_MODEL_NAME, SOFT_TOP_N
+  File "/home/deftera/Projects/narrative-lens/experiments/feature_ablation/narrative_topic_compare.py", line 91, in <module>
+    from gensim.corpora import Dictionary
+ModuleNotFoundError: No module named 'gensim'
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10369.73it/s]

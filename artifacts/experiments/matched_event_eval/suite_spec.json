@@ -1,0 +1,882 @@
+{
+ "seed": 42,
+ "min_texts_per_author_event_cell": 30,
+ "build_command": "python3 artifacts/experiments/matched_event_eval/build_suites.py",
+ "inputs_inspection": {
+  "matched_event_candidates_full.csv": {
+   "columns": [
+    "topic",
+    "month",
+    "narrative_name",
+    "text_count",
+    "author_count"
+   ],
+   "rows": 193,
+   "note": "Aggregated (topic, month, narrative) cells: text_count + author_count, but NO author identities, so author overlap and the 30-text author-event rule cannot be computed from this file alone; author-level mining was redone from data/raw (see method).",
+   "n_topic_month_cells": 58,
+   "cells_ge2_narratives": 26,
+   "cells_ge3_narratives": 14
+  },
+  "matched_event_pilot.csv": {
+   "columns": [
+    "event_id",
+    "event_description",
+    "date_window",
+    "narrative",
+    "author",
+    "source",
+    "text"
+   ],
+   "rows": 78,
+   "events": {
+    "event_us_politics_2026_03": 40,
+    "event_israel_hezbollah_lebanon_2026_03": 38
+   },
+   "authors": [
+    "AIPAC",
+    "BenShapiro",
+    "BernieSanders",
+    "EU_Commission",
+    "FoxNews",
+    "IDF",
+    "Israel",
+    "NATO",
+    "POTUS",
+    "PressTV",
+    "QudsNen",
+    "StandWithUs",
+    "khamenei_ir",
+    "novaramedia"
+   ],
+   "note": "Text-level pilot (2 events x 2026-03). No author-event cell reaches 30 texts (max cell=13); pilot therefore cannot supply frozen eval cells and is used only for event-description grounding plus author-overlap reference."
+  },
+  "date_bug_found": {
+   "finding": "audit_matched_events.py concatenates twitter+telegram BEFORE pd.to_datetime; mixed ISO formats coerce one frame to NaT, silently dropping telegram rows.",
+   "evidence": {
+    "full.csv (iran,2026-03,Resistance)": 221,
+    "recomputed twitter-only": 221,
+    "recomputed twitter+telegram": 711
+   },
+   "impact": "full.csv/summary.csv are effectively twitter-only; suite mining here converts dates per-frame first."
+  }
+ },
+ "method": "Per-frame date conversion, keyword topics identical to audit_matched_events.py, month bucketing, keep author-event cells with >= 30 texts, require >= 2 authors from >= 2 narratives per (topic, month). Pairs = all cross-narrative directed author pairs (train on all of train-author rows, test on all of test-author rows, both directions; author-disjoint by construction, event constant). Spot-check = 50 same-suite + 50 cross-suite blind pairs via numpy RandomState(42).",
+ "suites": [
+  {
+   "event_id": "event_iran_2026-03",
+   "topic": "iran",
+   "month": "2026-03",
+   "description": "March 2026 US/Israel strikes on Iran and Hormuz/nuclear escalation; cross-narrative reaction window.",
+   "n_narratives": 6,
+   "narratives": [
+    "Left-wing",
+    "Resistance",
+    "Right-wing",
+    "Russian",
+    "Ukrainian",
+    "Zionist"
+   ],
+   "n_authors": 19,
+   "n_rows": 1740,
+   "cells": [
+    {
+     "author": "@MiddleEastEye_TG",
+     "narrative": "Left-wing",
+     "n": 111,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "AlMayadeenEnglish",
+     "narrative": "Resistance",
+     "n": 142,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "PressTV",
+     "narrative": "Resistance",
+     "n": 305,
+     "in_frozen14": true,
+     "in_pilot": true
+    },
+    {
+     "author": "QudsNen",
+     "narrative": "Resistance",
+     "n": 146,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "TasnimNewsEN",
+     "narrative": "Resistance",
+     "n": 100,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "FoxNews",
+     "narrative": "Right-wing",
+     "n": 30,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "Newsmax",
+     "narrative": "Right-wing",
+     "n": 68,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "WesternJournal",
+     "narrative": "Right-wing",
+     "n": 30,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "DDGeopolitics",
+     "narrative": "Russian",
+     "n": 95,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Rybar",
+     "narrative": "Russian",
+     "n": 77,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Slavyangrad",
+     "narrative": "Russian",
+     "n": 82,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "mfa_russia",
+     "narrative": "Russian",
+     "n": 36,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Babel",
+     "narrative": "Ukrainian",
+     "n": 44,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "UkraineNow",
+     "narrative": "Ukrainian",
+     "n": 43,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "AIPAC",
+     "narrative": "Zionist",
+     "n": 51,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "IDF",
+     "narrative": "Zionist",
+     "n": 55,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "StandWithUs",
+     "narrative": "Zionist",
+     "n": 110,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "TheJerusalemPost",
+     "narrative": "Zionist",
+     "n": 111,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "abualiexpress",
+     "narrative": "Zionist",
+     "n": 104,
+     "in_frozen14": true,
+     "in_pilot": false
+    }
+   ],
+   "n_directed_pairs": 290,
+   "frozen14_overlap": {
+    "authors": [
+     "@MiddleEastEye_TG",
+     "Babel",
+     "PressTV",
+     "Slavyangrad",
+     "abualiexpress"
+    ],
+    "checkpoints": {
+     "@MiddleEastEye_TG": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_@MiddleEastEye_TG.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_@MiddleEastEye_TG.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_@MiddleEastEye_TG.pth [present]"
+     },
+     "Babel": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_Babel.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_Babel.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_Babel.pth [present]"
+     },
+     "PressTV": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_PressTV.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_PressTV.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_PressTV.pth [present]"
+     },
+     "Slavyangrad": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_Slavyangrad.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_Slavyangrad.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_Slavyangrad.pth [present]"
+     },
+     "abualiexpress": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_abualiexpress.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_abualiexpress.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_abualiexpress.pth [present]"
+     }
+    },
+    "note": "Checkpoint reuse (zero-shot Mode Z) is possible for test authors listed here; all other test authors require fresh training (Mode T)."
+   }
+  },
+  {
+   "event_id": "event_israel_hezbollah_gaza_2026-03",
+   "topic": "israel_hezbollah_gaza",
+   "month": "2026-03",
+   "description": "March 2026 Israel-Hezbollah-Lebanon escalation overlapping the Iran strikes (see pilot event_israel_hezbollah_lebanon_2026_03).",
+   "n_narratives": 4,
+   "narratives": [
+    "Left-wing",
+    "Resistance",
+    "Russian",
+    "Zionist"
+   ],
+   "n_authors": 13,
+   "n_rows": 1348,
+   "cells": [
+    {
+     "author": "@MiddleEastEye_TG",
+     "narrative": "Left-wing",
+     "n": 151,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "AlMayadeenEnglish",
+     "narrative": "Resistance",
+     "n": 131,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "PressTV",
+     "narrative": "Resistance",
+     "n": 174,
+     "in_frozen14": true,
+     "in_pilot": true
+    },
+    {
+     "author": "QudsNen",
+     "narrative": "Resistance",
+     "n": 230,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "TasnimNewsEN",
+     "narrative": "Resistance",
+     "n": 48,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "DDGeopolitics",
+     "narrative": "Russian",
+     "n": 74,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Rybar",
+     "narrative": "Russian",
+     "n": 45,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Slavyangrad",
+     "narrative": "Russian",
+     "n": 41,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "AIPAC",
+     "narrative": "Zionist",
+     "n": 59,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "IDF",
+     "narrative": "Zionist",
+     "n": 60,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "StandWithUs",
+     "narrative": "Zionist",
+     "n": 140,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "TheJerusalemPost",
+     "narrative": "Zionist",
+     "n": 113,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "abualiexpress",
+     "narrative": "Zionist",
+     "n": 82,
+     "in_frozen14": true,
+     "in_pilot": false
+    }
+   ],
+   "n_directed_pairs": 118,
+   "frozen14_overlap": {
+    "authors": [
+     "@MiddleEastEye_TG",
+     "PressTV",
+     "Slavyangrad",
+     "abualiexpress"
+    ],
+    "checkpoints": {
+     "@MiddleEastEye_TG": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_@MiddleEastEye_TG.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_@MiddleEastEye_TG.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_@MiddleEastEye_TG.pth [present]"
+     },
+     "PressTV": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_PressTV.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_PressTV.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_PressTV.pth [present]"
+     },
+     "Slavyangrad": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_Slavyangrad.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_Slavyangrad.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_Slavyangrad.pth [present]"
+     },
+     "abualiexpress": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_abualiexpress.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_abualiexpress.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_abualiexpress.pth [present]"
+     }
+    },
+    "note": "Checkpoint reuse (zero-shot Mode Z) is possible for test authors listed here; all other test authors require fresh training (Mode T)."
+   }
+  },
+  {
+   "event_id": "event_russia_ukraine_2026-03",
+   "topic": "russia_ukraine",
+   "month": "2026-03",
+   "description": "March 2026 Russia-Ukraine war coverage after the 4th invasion anniversary.",
+   "n_narratives": 2,
+   "narratives": [
+    "Russian",
+    "Ukrainian"
+   ],
+   "n_authors": 9,
+   "n_rows": 1146,
+   "cells": [
+    {
+     "author": "Rybar",
+     "narrative": "Russian",
+     "n": 126,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Slavyangrad",
+     "narrative": "Russian",
+     "n": 42,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "mfa_russia",
+     "narrative": "Russian",
+     "n": 93,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "mod_russia_en",
+     "narrative": "Russian",
+     "n": 200,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Babel",
+     "narrative": "Ukrainian",
+     "n": 143,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "SuspilneNews",
+     "narrative": "Ukrainian",
+     "n": 139,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "UkraineNow",
+     "narrative": "Ukrainian",
+     "n": 153,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "United24Media",
+     "narrative": "Ukrainian",
+     "n": 166,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "ZelenskyyUa",
+     "narrative": "Ukrainian",
+     "n": 84,
+     "in_frozen14": false,
+     "in_pilot": false
+    }
+   ],
+   "n_directed_pairs": 40,
+   "frozen14_overlap": {
+    "authors": [
+     "Babel",
+     "Slavyangrad",
+     "United24Media"
+    ],
+    "checkpoints": {
+     "Babel": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_Babel.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_Babel.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_Babel.pth [present]"
+     },
+     "Slavyangrad": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_Slavyangrad.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_Slavyangrad.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_Slavyangrad.pth [present]"
+     },
+     "United24Media": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_United24Media.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_United24Media.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_United24Media.pth [present]"
+     }
+    },
+    "note": "Checkpoint reuse (zero-shot Mode Z) is possible for test authors listed here; all other test authors require fresh training (Mode T)."
+   }
+  },
+  {
+   "event_id": "event_us_politics_trump_2026-03",
+   "topic": "us_politics_trump",
+   "month": "2026-03",
+   "description": "March 2026 US politics: Trump Iran strikes plus ICE/DHS policy fight (see pilot event_us_politics_2026_03).",
+   "n_narratives": 6,
+   "narratives": [
+    "Left-wing",
+    "Resistance",
+    "Right-wing",
+    "Russian",
+    "Ukrainian",
+    "Zionist"
+   ],
+   "n_authors": 13,
+   "n_rows": 720,
+   "cells": [
+    {
+     "author": "@MiddleEastEye_TG",
+     "narrative": "Left-wing",
+     "n": 45,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "PressTV",
+     "narrative": "Resistance",
+     "n": 34,
+     "in_frozen14": true,
+     "in_pilot": true
+    },
+    {
+     "author": "FoxNews",
+     "narrative": "Right-wing",
+     "n": 88,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "Newsmax",
+     "narrative": "Right-wing",
+     "n": 100,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "ThePostMillennial",
+     "narrative": "Right-wing",
+     "n": 50,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "WesternJournal",
+     "narrative": "Right-wing",
+     "n": 89,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "DDGeopolitics",
+     "narrative": "Russian",
+     "n": 32,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Rybar",
+     "narrative": "Russian",
+     "n": 61,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "Slavyangrad",
+     "narrative": "Russian",
+     "n": 31,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "Babel",
+     "narrative": "Ukrainian",
+     "n": 52,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "UkraineNow",
+     "narrative": "Ukrainian",
+     "n": 62,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "United24Media",
+     "narrative": "Ukrainian",
+     "n": 43,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "TheJerusalemPost",
+     "narrative": "Zionist",
+     "n": 33,
+     "in_frozen14": false,
+     "in_pilot": false
+    }
+   ],
+   "n_directed_pairs": 132,
+   "frozen14_overlap": {
+    "authors": [
+     "@MiddleEastEye_TG",
+     "Babel",
+     "PressTV",
+     "Slavyangrad",
+     "ThePostMillennial",
+     "United24Media"
+    ],
+    "checkpoints": {
+     "@MiddleEastEye_TG": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_@MiddleEastEye_TG.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_@MiddleEastEye_TG.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_@MiddleEastEye_TG.pth [present]"
+     },
+     "Babel": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_Babel.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_Babel.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_Babel.pth [present]"
+     },
+     "PressTV": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_PressTV.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_PressTV.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_PressTV.pth [present]"
+     },
+     "Slavyangrad": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_Slavyangrad.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_Slavyangrad.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_Slavyangrad.pth [present]"
+     },
+     "ThePostMillennial": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_ThePostMillennial.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_ThePostMillennial.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_ThePostMillennial.pth [present]"
+     },
+     "United24Media": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_United24Media.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_United24Media.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_United24Media.pth [present]"
+     }
+    },
+    "note": "Checkpoint reuse (zero-shot Mode Z) is possible for test authors listed here; all other test authors require fresh training (Mode T)."
+   }
+  },
+  {
+   "event_id": "event_russia_ukraine_2026-02",
+   "topic": "russia_ukraine",
+   "month": "2026-02",
+   "description": "February 2026 4th anniversary of the full-scale invasion of Ukraine.",
+   "n_narratives": 2,
+   "narratives": [
+    "Russian",
+    "Ukrainian"
+   ],
+   "n_authors": 3,
+   "n_rows": 162,
+   "cells": [
+    {
+     "author": "mfa_russia",
+     "narrative": "Russian",
+     "n": 63,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "DefenceU",
+     "narrative": "Ukrainian",
+     "n": 30,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "ZelenskyyUa",
+     "narrative": "Ukrainian",
+     "n": 69,
+     "in_frozen14": false,
+     "in_pilot": false
+    }
+   ],
+   "n_directed_pairs": 4,
+   "frozen14_overlap": {
+    "authors": [],
+    "checkpoints": {},
+    "note": "Checkpoint reuse (zero-shot Mode Z) is possible for test authors listed here; all other test authors require fresh training (Mode T)."
+   }
+  },
+  {
+   "event_id": "event_israel_hezbollah_gaza_2026-02",
+   "topic": "israel_hezbollah_gaza",
+   "month": "2026-02",
+   "description": "Late-February 2026 US/Israel strikes on Iran spilling into Israel-threat framing.",
+   "n_narratives": 2,
+   "narratives": [
+    "Right-wing",
+    "Zionist"
+   ],
+   "n_authors": 4,
+   "n_rows": 154,
+   "cells": [
+    {
+     "author": "@KoheletForum",
+     "narrative": "Right-wing",
+     "n": 31,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "BringThemHomeNow",
+     "narrative": "Zionist",
+     "n": 44,
+     "in_frozen14": true,
+     "in_pilot": false
+    },
+    {
+     "author": "IDF",
+     "narrative": "Zionist",
+     "n": 48,
+     "in_frozen14": false,
+     "in_pilot": true
+    },
+    {
+     "author": "Israel",
+     "narrative": "Zionist",
+     "n": 31,
+     "in_frozen14": false,
+     "in_pilot": true
+    }
+   ],
+   "n_directed_pairs": 6,
+   "frozen14_overlap": {
+    "authors": [
+     "BringThemHomeNow"
+    ],
+    "checkpoints": {
+     "BringThemHomeNow": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_BringThemHomeNow.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_BringThemHomeNow.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_BringThemHomeNow.pth [present]"
+     }
+    },
+    "note": "Checkpoint reuse (zero-shot Mode Z) is possible for test authors listed here; all other test authors require fresh training (Mode T)."
+   }
+  },
+  {
+   "event_id": "event_us_politics_trump_2025-01",
+   "topic": "us_politics_trump",
+   "month": "2025-01",
+   "description": "January 2025 Trump inauguration and early Gaza-policy reaction (small older-window suite).",
+   "n_narratives": 2,
+   "narratives": [
+    "Left-wing",
+    "Resistance"
+   ],
+   "n_authors": 2,
+   "n_rows": 77,
+   "cells": [
+    {
+     "author": "TheIntercept",
+     "narrative": "Left-wing",
+     "n": 33,
+     "in_frozen14": false,
+     "in_pilot": false
+    },
+    {
+     "author": "AlJazeeraEnglish",
+     "narrative": "Resistance",
+     "n": 44,
+     "in_frozen14": true,
+     "in_pilot": false
+    }
+   ],
+   "n_directed_pairs": 2,
+   "frozen14_overlap": {
+    "authors": [
+     "AlJazeeraEnglish"
+    ],
+    "checkpoints": {
+     "AlJazeeraEnglish": {
+      "sbert_original": "models/experiments/narrative_fresh_author_confirmatory/sbert_original_AlJazeeraEnglish.pth [present]",
+      "sbert_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_soft_topic_AlJazeeraEnglish.pth [present]",
+      "sbert_person_misc_masked_aug_soft_topic": "models/experiments/narrative_fresh_author_confirmatory/sbert_person_misc_masked_aug_soft_topic_AlJazeeraEnglish.pth [present]"
+     }
+    },
+    "note": "Checkpoint reuse (zero-shot Mode Z) is possible for test authors listed here; all other test authors require fresh training (Mode T)."
+   }
+  }
+ ],
+ "pairing_instructions": "For each row of pairs_<event>.csv: train ONLY on <train_author> suite rows, test ONLY on <test_author> suite rows (never mix authors across the split; never add out-of-event rows to test). Metric: true-narrative recall on the test author rows plus predicted-label histogram. Both directions are listed as separate pair_ids. Train from seed 42 with Section 25 hyperparameters (EPOCHS=20, BATCH_SIZE=16, LR=0.001, patience=3, dropout=0.3, hidden=128, all-MiniLM-L6-v2 + soft_v2_baseline_seeded).",
+ "torch_wave_eval_commands": [
+  {
+   "suite": "event_iran_2026-03",
+   "zero_shot_and_train_loop": "python3 - <<'EOF'\nimport json, os, sys\nimport numpy as np, pandas as pd, torch, torch.nn as nn, torch.optim as optim\nfrom sklearn.model_selection import train_test_split\nfrom sentence_transformers import SentenceTransformer\nfrom bertopic import BERTopic\nsys.path.insert(0, \"experiments/author_generalization\")\nfrom narrative_ablation_loao import AblationDetector, build_hard_soft_dense_vectors\nfrom narrative_lens.config import NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE\nSUITE = \"event_iran_2026-03\"; SEED = 42\ntorch.manual_seed(SEED); np.random.seed(SEED)\nsbert = SentenceTransformer(\"sentence-transformers/all-MiniLM-L6-v2\")\nbt = BERTopic.load(\"models/experiments/soft_v2_baseline_seeded\")\nntop = len([t for t in bt.get_topics().keys() if t != -1])\nsdf = pd.read_csv(\"artifacts/experiments/matched_event_eval/suite_\" + SUITE + \".csv\")\npairs = pd.read_csv(\"artifacts/experiments/matched_event_eval/pairs_\" + SUITE + \".csv\")\nlab = {n: i for i, n in enumerate(NARRATIVES)}\ndef feats(texts):\n    se = sbert.encode(texts, convert_to_numpy=True, show_progress_bar=False)\n    _, soft = build_hard_soft_dense_vectors(texts, bt, ntop)\n    return se.astype(np.float32), np.stack([np.asarray(s, dtype=np.float32) for s in soft])\ndef arm_vec(arms, se, sd):\n    parts = [se] + ([sd] if \"soft_topic\" in arms else [])\n    return np.concatenate(parts, axis=1)\ndef run_rows(Xtr, ytr, Xte, yte, in_dim, arms):\n    Xtr_t = torch.tensor(Xtr); ytr_t = torch.tensor(ytr); Xte_t = torch.tensor(Xte)\n    idx = np.arange(len(Xtr)); tr, va = train_test_split(idx, test_size=0.15, random_state=SEED)\n    det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=Xtr.shape[1] - 384, sbert_dim=384)\n    opt = optim.Adam(det.parameters(), lr=LEARNING_RATE); loss = nn.CrossEntropyLoss()\n    best, best_state, bad = -1, None, 0\n    for ep in range(EPOCHS):\n        det.train()\n        for s in range(0, len(tr), BATCH_SIZE):\n            b = tr[s:s + BATCH_SIZE]\n            opt.zero_grad(); loss(det.mlp(Xtr_t[b]), ytr_t[b]).backward(); opt.step()\n        det.eval()\n        with torch.no_grad():\n            p = det.mlp(Xtr_t[va]).argmax(1).numpy()\n        f1 = sum((p == c).sum() and ((p == c) & (ytr[va] == c)).sum() / max(1, ((p == c).sum() + (ytr[va] == c).sum()) / 2) for c in set(ytr)) / len(set(ytr))\n        if f1 > best: best, best_state, bad = f1, {k: v.cpu() for k, v in det.state_dict().items()}, 0\n        else:\n            bad += 1\n            if bad >= 3: break\n    det.load_state_dict(best_state); det.eval()\n    with torch.no_grad(): pred = det.mlp(Xte_t).argmax(1).numpy()\n    tn = NARRATIVES[yte[0]] if len(set(yte)) == 1 else None\n    rec = float((pred == yte).mean()) if tn else None\n    return {\"n_test\": len(yte), \"true_narrative\": tn, \"recall_true_narrative\": rec,\n            \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\nout = []\nfor r in pairs.itertuples():\n    tr = sdf[sdf.author == r.train_author]; te = sdf[sdf.author == r.test_author]\n    Xtr_se, Xtr_sd = feats(tr.text.astype(str).str.slice(0, 3000).tolist()); ytr = tr.narrative.map(lab).values\n    Xte_se, Xte_sd = feats(te.text.astype(str).str.slice(0, 3000).tolist()); yte = te.narrative.map(lab).values\n    res = {\"pair_id\": r.pair_id, \"modes\": {}}\n    res[\"modes\"][\"T_sbert_original\"] = run_rows(arm_vec(set(), Xtr_se, Xtr_sd), ytr, arm_vec(set(), Xte_se, Xte_sd), yte, 384, set())\n    res[\"modes\"][\"T_sbert_soft_topic\"] = run_rows(arm_vec({\"soft_topic\"}, Xtr_se, Xtr_sd), ytr, arm_vec({\"soft_topic\"}, Xte_se, Xte_sd), yte, 384 + ntop + 1, {\"soft_topic\"})\n    for v, arms in [(\"sbert_original\", set()), (\"sbert_soft_topic\", {\"soft_topic\"}), (\"sbert_person_misc_masked_aug_soft_topic\", {\"soft_topic\"})]:\n        ck = f\"models/experiments/narrative_fresh_author_confirmatory/{v}_{r.test_author}.pth\"\n        if os.path.exists(ck):\n            in_dim = 384 + (ntop + 1 if arms else 0)\n            det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=ntop + 1, sbert_dim=384)\n            det.load_state_dict(torch.load(ck, map_location=\"cpu\")); det.eval()\n            with torch.no_grad(): pred = det.mlp(torch.tensor(arm_vec(arms, Xte_se, Xte_sd))).argmax(1).numpy()\n            res[\"modes\"][f\"Z_{v}\"] = {\"n_test\": len(yte), \"true_narrative\": r.test_narrative,\n                                      \"recall_true_narrative\": float((pred == yte).mean()),\n                                      \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\n    out.append(res)\njson.dump(out, open(\"artifacts/experiments/matched_event_eval/results_\" + SUITE + \".json\", \"w\"), indent=1)\nprint(f\"[event_iran_2026-03] pairs={len(out)} wrote results_event_iran_2026-03.json\")\nEOF",
+   "fallback_loao_for_covered_authors": [
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author @MiddleEastEye_TG",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author Babel",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author PressTV",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author Slavyangrad",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author abualiexpress"
+   ]
+  },
+  {
+   "suite": "event_israel_hezbollah_gaza_2026-03",
+   "zero_shot_and_train_loop": "python3 - <<'EOF'\nimport json, os, sys\nimport numpy as np, pandas as pd, torch, torch.nn as nn, torch.optim as optim\nfrom sklearn.model_selection import train_test_split\nfrom sentence_transformers import SentenceTransformer\nfrom bertopic import BERTopic\nsys.path.insert(0, \"experiments/author_generalization\")\nfrom narrative_ablation_loao import AblationDetector, build_hard_soft_dense_vectors\nfrom narrative_lens.config import NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE\nSUITE = \"event_israel_hezbollah_gaza_2026-03\"; SEED = 42\ntorch.manual_seed(SEED); np.random.seed(SEED)\nsbert = SentenceTransformer(\"sentence-transformers/all-MiniLM-L6-v2\")\nbt = BERTopic.load(\"models/experiments/soft_v2_baseline_seeded\")\nntop = len([t for t in bt.get_topics().keys() if t != -1])\nsdf = pd.read_csv(\"artifacts/experiments/matched_event_eval/suite_\" + SUITE + \".csv\")\npairs = pd.read_csv(\"artifacts/experiments/matched_event_eval/pairs_\" + SUITE + \".csv\")\nlab = {n: i for i, n in enumerate(NARRATIVES)}\ndef feats(texts):\n    se = sbert.encode(texts, convert_to_numpy=True, show_progress_bar=False)\n    _, soft = build_hard_soft_dense_vectors(texts, bt, ntop)\n    return se.astype(np.float32), np.stack([np.asarray(s, dtype=np.float32) for s in soft])\ndef arm_vec(arms, se, sd):\n    parts = [se] + ([sd] if \"soft_topic\" in arms else [])\n    return np.concatenate(parts, axis=1)\ndef run_rows(Xtr, ytr, Xte, yte, in_dim, arms):\n    Xtr_t = torch.tensor(Xtr); ytr_t = torch.tensor(ytr); Xte_t = torch.tensor(Xte)\n    idx = np.arange(len(Xtr)); tr, va = train_test_split(idx, test_size=0.15, random_state=SEED)\n    det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=Xtr.shape[1] - 384, sbert_dim=384)\n    opt = optim.Adam(det.parameters(), lr=LEARNING_RATE); loss = nn.CrossEntropyLoss()\n    best, best_state, bad = -1, None, 0\n    for ep in range(EPOCHS):\n        det.train()\n        for s in range(0, len(tr), BATCH_SIZE):\n            b = tr[s:s + BATCH_SIZE]\n            opt.zero_grad(); loss(det.mlp(Xtr_t[b]), ytr_t[b]).backward(); opt.step()\n        det.eval()\n        with torch.no_grad():\n            p = det.mlp(Xtr_t[va]).argmax(1).numpy()\n        f1 = sum((p == c).sum() and ((p == c) & (ytr[va] == c)).sum() / max(1, ((p == c).sum() + (ytr[va] == c).sum()) / 2) for c in set(ytr)) / len(set(ytr))\n        if f1 > best: best, best_state, bad = f1, {k: v.cpu() for k, v in det.state_dict().items()}, 0\n        else:\n            bad += 1\n            if bad >= 3: break\n    det.load_state_dict(best_state); det.eval()\n    with torch.no_grad(): pred = det.mlp(Xte_t).argmax(1).numpy()\n    tn = NARRATIVES[yte[0]] if len(set(yte)) == 1 else None\n    rec = float((pred == yte).mean()) if tn else None\n    return {\"n_test\": len(yte), \"true_narrative\": tn, \"recall_true_narrative\": rec,\n            \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\nout = []\nfor r in pairs.itertuples():\n    tr = sdf[sdf.author == r.train_author]; te = sdf[sdf.author == r.test_author]\n    Xtr_se, Xtr_sd = feats(tr.text.astype(str).str.slice(0, 3000).tolist()); ytr = tr.narrative.map(lab).values\n    Xte_se, Xte_sd = feats(te.text.astype(str).str.slice(0, 3000).tolist()); yte = te.narrative.map(lab).values\n    res = {\"pair_id\": r.pair_id, \"modes\": {}}\n    res[\"modes\"][\"T_sbert_original\"] = run_rows(arm_vec(set(), Xtr_se, Xtr_sd), ytr, arm_vec(set(), Xte_se, Xte_sd), yte, 384, set())\n    res[\"modes\"][\"T_sbert_soft_topic\"] = run_rows(arm_vec({\"soft_topic\"}, Xtr_se, Xtr_sd), ytr, arm_vec({\"soft_topic\"}, Xte_se, Xte_sd), yte, 384 + ntop + 1, {\"soft_topic\"})\n    for v, arms in [(\"sbert_original\", set()), (\"sbert_soft_topic\", {\"soft_topic\"}), (\"sbert_person_misc_masked_aug_soft_topic\", {\"soft_topic\"})]:\n        ck = f\"models/experiments/narrative_fresh_author_confirmatory/{v}_{r.test_author}.pth\"\n        if os.path.exists(ck):\n            in_dim = 384 + (ntop + 1 if arms else 0)\n            det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=ntop + 1, sbert_dim=384)\n            det.load_state_dict(torch.load(ck, map_location=\"cpu\")); det.eval()\n            with torch.no_grad(): pred = det.mlp(torch.tensor(arm_vec(arms, Xte_se, Xte_sd))).argmax(1).numpy()\n            res[\"modes\"][f\"Z_{v}\"] = {\"n_test\": len(yte), \"true_narrative\": r.test_narrative,\n                                      \"recall_true_narrative\": float((pred == yte).mean()),\n                                      \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\n    out.append(res)\njson.dump(out, open(\"artifacts/experiments/matched_event_eval/results_\" + SUITE + \".json\", \"w\"), indent=1)\nprint(f\"[event_israel_hezbollah_gaza_2026-03] pairs={len(out)} wrote results_event_israel_hezbollah_gaza_2026-03.json\")\nEOF",
+   "fallback_loao_for_covered_authors": [
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author @MiddleEastEye_TG",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author PressTV",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author Slavyangrad",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author abualiexpress"
+   ]
+  },
+  {
+   "suite": "event_russia_ukraine_2026-03",
+   "zero_shot_and_train_loop": "python3 - <<'EOF'\nimport json, os, sys\nimport numpy as np, pandas as pd, torch, torch.nn as nn, torch.optim as optim\nfrom sklearn.model_selection import train_test_split\nfrom sentence_transformers import SentenceTransformer\nfrom bertopic import BERTopic\nsys.path.insert(0, \"experiments/author_generalization\")\nfrom narrative_ablation_loao import AblationDetector, build_hard_soft_dense_vectors\nfrom narrative_lens.config import NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE\nSUITE = \"event_russia_ukraine_2026-03\"; SEED = 42\ntorch.manual_seed(SEED); np.random.seed(SEED)\nsbert = SentenceTransformer(\"sentence-transformers/all-MiniLM-L6-v2\")\nbt = BERTopic.load(\"models/experiments/soft_v2_baseline_seeded\")\nntop = len([t for t in bt.get_topics().keys() if t != -1])\nsdf = pd.read_csv(\"artifacts/experiments/matched_event_eval/suite_\" + SUITE + \".csv\")\npairs = pd.read_csv(\"artifacts/experiments/matched_event_eval/pairs_\" + SUITE + \".csv\")\nlab = {n: i for i, n in enumerate(NARRATIVES)}\ndef feats(texts):\n    se = sbert.encode(texts, convert_to_numpy=True, show_progress_bar=False)\n    _, soft = build_hard_soft_dense_vectors(texts, bt, ntop)\n    return se.astype(np.float32), np.stack([np.asarray(s, dtype=np.float32) for s in soft])\ndef arm_vec(arms, se, sd):\n    parts = [se] + ([sd] if \"soft_topic\" in arms else [])\n    return np.concatenate(parts, axis=1)\ndef run_rows(Xtr, ytr, Xte, yte, in_dim, arms):\n    Xtr_t = torch.tensor(Xtr); ytr_t = torch.tensor(ytr); Xte_t = torch.tensor(Xte)\n    idx = np.arange(len(Xtr)); tr, va = train_test_split(idx, test_size=0.15, random_state=SEED)\n    det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=Xtr.shape[1] - 384, sbert_dim=384)\n    opt = optim.Adam(det.parameters(), lr=LEARNING_RATE); loss = nn.CrossEntropyLoss()\n    best, best_state, bad = -1, None, 0\n    for ep in range(EPOCHS):\n        det.train()\n        for s in range(0, len(tr), BATCH_SIZE):\n            b = tr[s:s + BATCH_SIZE]\n            opt.zero_grad(); loss(det.mlp(Xtr_t[b]), ytr_t[b]).backward(); opt.step()\n        det.eval()\n        with torch.no_grad():\n            p = det.mlp(Xtr_t[va]).argmax(1).numpy()\n        f1 = sum((p == c).sum() and ((p == c) & (ytr[va] == c)).sum() / max(1, ((p == c).sum() + (ytr[va] == c).sum()) / 2) for c in set(ytr)) / len(set(ytr))\n        if f1 > best: best, best_state, bad = f1, {k: v.cpu() for k, v in det.state_dict().items()}, 0\n        else:\n            bad += 1\n            if bad >= 3: break\n    det.load_state_dict(best_state); det.eval()\n    with torch.no_grad(): pred = det.mlp(Xte_t).argmax(1).numpy()\n    tn = NARRATIVES[yte[0]] if len(set(yte)) == 1 else None\n    rec = float((pred == yte).mean()) if tn else None\n    return {\"n_test\": len(yte), \"true_narrative\": tn, \"recall_true_narrative\": rec,\n            \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\nout = []\nfor r in pairs.itertuples():\n    tr = sdf[sdf.author == r.train_author]; te = sdf[sdf.author == r.test_author]\n    Xtr_se, Xtr_sd = feats(tr.text.astype(str).str.slice(0, 3000).tolist()); ytr = tr.narrative.map(lab).values\n    Xte_se, Xte_sd = feats(te.text.astype(str).str.slice(0, 3000).tolist()); yte = te.narrative.map(lab).values\n    res = {\"pair_id\": r.pair_id, \"modes\": {}}\n    res[\"modes\"][\"T_sbert_original\"] = run_rows(arm_vec(set(), Xtr_se, Xtr_sd), ytr, arm_vec(set(), Xte_se, Xte_sd), yte, 384, set())\n    res[\"modes\"][\"T_sbert_soft_topic\"] = run_rows(arm_vec({\"soft_topic\"}, Xtr_se, Xtr_sd), ytr, arm_vec({\"soft_topic\"}, Xte_se, Xte_sd), yte, 384 + ntop + 1, {\"soft_topic\"})\n    for v, arms in [(\"sbert_original\", set()), (\"sbert_soft_topic\", {\"soft_topic\"}), (\"sbert_person_misc_masked_aug_soft_topic\", {\"soft_topic\"})]:\n        ck = f\"models/experiments/narrative_fresh_author_confirmatory/{v}_{r.test_author}.pth\"\n        if os.path.exists(ck):\n            in_dim = 384 + (ntop + 1 if arms else 0)\n            det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=ntop + 1, sbert_dim=384)\n            det.load_state_dict(torch.load(ck, map_location=\"cpu\")); det.eval()\n            with torch.no_grad(): pred = det.mlp(torch.tensor(arm_vec(arms, Xte_se, Xte_sd))).argmax(1).numpy()\n            res[\"modes\"][f\"Z_{v}\"] = {\"n_test\": len(yte), \"true_narrative\": r.test_narrative,\n                                      \"recall_true_narrative\": float((pred == yte).mean()),\n                                      \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\n    out.append(res)\njson.dump(out, open(\"artifacts/experiments/matched_event_eval/results_\" + SUITE + \".json\", \"w\"), indent=1)\nprint(f\"[event_russia_ukraine_2026-03] pairs={len(out)} wrote results_event_russia_ukraine_2026-03.json\")\nEOF",
+   "fallback_loao_for_covered_authors": [
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author Babel",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author Slavyangrad",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author United24Media"
+   ]
+  },
+  {
+   "suite": "event_us_politics_trump_2026-03",
+   "zero_shot_and_train_loop": "python3 - <<'EOF'\nimport json, os, sys\nimport numpy as np, pandas as pd, torch, torch.nn as nn, torch.optim as optim\nfrom sklearn.model_selection import train_test_split\nfrom sentence_transformers import SentenceTransformer\nfrom bertopic import BERTopic\nsys.path.insert(0, \"experiments/author_generalization\")\nfrom narrative_ablation_loao import AblationDetector, build_hard_soft_dense_vectors\nfrom narrative_lens.config import NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE\nSUITE = \"event_us_politics_trump_2026-03\"; SEED = 42\ntorch.manual_seed(SEED); np.random.seed(SEED)\nsbert = SentenceTransformer(\"sentence-transformers/all-MiniLM-L6-v2\")\nbt = BERTopic.load(\"models/experiments/soft_v2_baseline_seeded\")\nntop = len([t for t in bt.get_topics().keys() if t != -1])\nsdf = pd.read_csv(\"artifacts/experiments/matched_event_eval/suite_\" + SUITE + \".csv\")\npairs = pd.read_csv(\"artifacts/experiments/matched_event_eval/pairs_\" + SUITE + \".csv\")\nlab = {n: i for i, n in enumerate(NARRATIVES)}\ndef feats(texts):\n    se = sbert.encode(texts, convert_to_numpy=True, show_progress_bar=False)\n    _, soft = build_hard_soft_dense_vectors(texts, bt, ntop)\n    return se.astype(np.float32), np.stack([np.asarray(s, dtype=np.float32) for s in soft])\ndef arm_vec(arms, se, sd):\n    parts = [se] + ([sd] if \"soft_topic\" in arms else [])\n    return np.concatenate(parts, axis=1)\ndef run_rows(Xtr, ytr, Xte, yte, in_dim, arms):\n    Xtr_t = torch.tensor(Xtr); ytr_t = torch.tensor(ytr); Xte_t = torch.tensor(Xte)\n    idx = np.arange(len(Xtr)); tr, va = train_test_split(idx, test_size=0.15, random_state=SEED)\n    det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=Xtr.shape[1] - 384, sbert_dim=384)\n    opt = optim.Adam(det.parameters(), lr=LEARNING_RATE); loss = nn.CrossEntropyLoss()\n    best, best_state, bad = -1, None, 0\n    for ep in range(EPOCHS):\n        det.train()\n        for s in range(0, len(tr), BATCH_SIZE):\n            b = tr[s:s + BATCH_SIZE]\n            opt.zero_grad(); loss(det.mlp(Xtr_t[b]), ytr_t[b]).backward(); opt.step()\n        det.eval()\n        with torch.no_grad():\n            p = det.mlp(Xtr_t[va]).argmax(1).numpy()\n        f1 = sum((p == c).sum() and ((p == c) & (ytr[va] == c)).sum() / max(1, ((p == c).sum() + (ytr[va] == c).sum()) / 2) for c in set(ytr)) / len(set(ytr))\n        if f1 > best: best, best_state, bad = f1, {k: v.cpu() for k, v in det.state_dict().items()}, 0\n        else:\n            bad += 1\n            if bad >= 3: break\n    det.load_state_dict(best_state); det.eval()\n    with torch.no_grad(): pred = det.mlp(Xte_t).argmax(1).numpy()\n    tn = NARRATIVES[yte[0]] if len(set(yte)) == 1 else None\n    rec = float((pred == yte).mean()) if tn else None\n    return {\"n_test\": len(yte), \"true_narrative\": tn, \"recall_true_narrative\": rec,\n            \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\nout = []\nfor r in pairs.itertuples():\n    tr = sdf[sdf.author == r.train_author]; te = sdf[sdf.author == r.test_author]\n    Xtr_se, Xtr_sd = feats(tr.text.astype(str).str.slice(0, 3000).tolist()); ytr = tr.narrative.map(lab).values\n    Xte_se, Xte_sd = feats(te.text.astype(str).str.slice(0, 3000).tolist()); yte = te.narrative.map(lab).values\n    res = {\"pair_id\": r.pair_id, \"modes\": {}}\n    res[\"modes\"][\"T_sbert_original\"] = run_rows(arm_vec(set(), Xtr_se, Xtr_sd), ytr, arm_vec(set(), Xte_se, Xte_sd), yte, 384, set())\n    res[\"modes\"][\"T_sbert_soft_topic\"] = run_rows(arm_vec({\"soft_topic\"}, Xtr_se, Xtr_sd), ytr, arm_vec({\"soft_topic\"}, Xte_se, Xte_sd), yte, 384 + ntop + 1, {\"soft_topic\"})\n    for v, arms in [(\"sbert_original\", set()), (\"sbert_soft_topic\", {\"soft_topic\"}), (\"sbert_person_misc_masked_aug_soft_topic\", {\"soft_topic\"})]:\n        ck = f\"models/experiments/narrative_fresh_author_confirmatory/{v}_{r.test_author}.pth\"\n        if os.path.exists(ck):\n            in_dim = 384 + (ntop + 1 if arms else 0)\n            det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=ntop + 1, sbert_dim=384)\n            det.load_state_dict(torch.load(ck, map_location=\"cpu\")); det.eval()\n            with torch.no_grad(): pred = det.mlp(torch.tensor(arm_vec(arms, Xte_se, Xte_sd))).argmax(1).numpy()\n            res[\"modes\"][f\"Z_{v}\"] = {\"n_test\": len(yte), \"true_narrative\": r.test_narrative,\n                                      \"recall_true_narrative\": float((pred == yte).mean()),\n                                      \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\n    out.append(res)\njson.dump(out, open(\"artifacts/experiments/matched_event_eval/results_\" + SUITE + \".json\", \"w\"), indent=1)\nprint(f\"[event_us_politics_trump_2026-03] pairs={len(out)} wrote results_event_us_politics_trump_2026-03.json\")\nEOF",
+   "fallback_loao_for_covered_authors": [
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author @MiddleEastEye_TG",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author Babel",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author PressTV",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author Slavyangrad",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author ThePostMillennial",
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author United24Media"
+   ]
+  },
+  {
+   "suite": "event_russia_ukraine_2026-02",
+   "zero_shot_and_train_loop": "python3 - <<'EOF'\nimport json, os, sys\nimport numpy as np, pandas as pd, torch, torch.nn as nn, torch.optim as optim\nfrom sklearn.model_selection import train_test_split\nfrom sentence_transformers import SentenceTransformer\nfrom bertopic import BERTopic\nsys.path.insert(0, \"experiments/author_generalization\")\nfrom narrative_ablation_loao import AblationDetector, build_hard_soft_dense_vectors\nfrom narrative_lens.config import NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE\nSUITE = \"event_russia_ukraine_2026-02\"; SEED = 42\ntorch.manual_seed(SEED); np.random.seed(SEED)\nsbert = SentenceTransformer(\"sentence-transformers/all-MiniLM-L6-v2\")\nbt = BERTopic.load(\"models/experiments/soft_v2_baseline_seeded\")\nntop = len([t for t in bt.get_topics().keys() if t != -1])\nsdf = pd.read_csv(\"artifacts/experiments/matched_event_eval/suite_\" + SUITE + \".csv\")\npairs = pd.read_csv(\"artifacts/experiments/matched_event_eval/pairs_\" + SUITE + \".csv\")\nlab = {n: i for i, n in enumerate(NARRATIVES)}\ndef feats(texts):\n    se = sbert.encode(texts, convert_to_numpy=True, show_progress_bar=False)\n    _, soft = build_hard_soft_dense_vectors(texts, bt, ntop)\n    return se.astype(np.float32), np.stack([np.asarray(s, dtype=np.float32) for s in soft])\ndef arm_vec(arms, se, sd):\n    parts = [se] + ([sd] if \"soft_topic\" in arms else [])\n    return np.concatenate(parts, axis=1)\ndef run_rows(Xtr, ytr, Xte, yte, in_dim, arms):\n    Xtr_t = torch.tensor(Xtr); ytr_t = torch.tensor(ytr); Xte_t = torch.tensor(Xte)\n    idx = np.arange(len(Xtr)); tr, va = train_test_split(idx, test_size=0.15, random_state=SEED)\n    det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=Xtr.shape[1] - 384, sbert_dim=384)\n    opt = optim.Adam(det.parameters(), lr=LEARNING_RATE); loss = nn.CrossEntropyLoss()\n    best, best_state, bad = -1, None, 0\n    for ep in range(EPOCHS):\n        det.train()\n        for s in range(0, len(tr), BATCH_SIZE):\n            b = tr[s:s + BATCH_SIZE]\n            opt.zero_grad(); loss(det.mlp(Xtr_t[b]), ytr_t[b]).backward(); opt.step()\n        det.eval()\n        with torch.no_grad():\n            p = det.mlp(Xtr_t[va]).argmax(1).numpy()\n        f1 = sum((p == c).sum() and ((p == c) & (ytr[va] == c)).sum() / max(1, ((p == c).sum() + (ytr[va] == c).sum()) / 2) for c in set(ytr)) / len(set(ytr))\n        if f1 > best: best, best_state, bad = f1, {k: v.cpu() for k, v in det.state_dict().items()}, 0\n        else:\n            bad += 1\n            if bad >= 3: break\n    det.load_state_dict(best_state); det.eval()\n    with torch.no_grad(): pred = det.mlp(Xte_t).argmax(1).numpy()\n    tn = NARRATIVES[yte[0]] if len(set(yte)) == 1 else None\n    rec = float((pred == yte).mean()) if tn else None\n    return {\"n_test\": len(yte), \"true_narrative\": tn, \"recall_true_narrative\": rec,\n            \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\nout = []\nfor r in pairs.itertuples():\n    tr = sdf[sdf.author == r.train_author]; te = sdf[sdf.author == r.test_author]\n    Xtr_se, Xtr_sd = feats(tr.text.astype(str).str.slice(0, 3000).tolist()); ytr = tr.narrative.map(lab).values\n    Xte_se, Xte_sd = feats(te.text.astype(str).str.slice(0, 3000).tolist()); yte = te.narrative.map(lab).values\n    res = {\"pair_id\": r.pair_id, \"modes\": {}}\n    res[\"modes\"][\"T_sbert_original\"] = run_rows(arm_vec(set(), Xtr_se, Xtr_sd), ytr, arm_vec(set(), Xte_se, Xte_sd), yte, 384, set())\n    res[\"modes\"][\"T_sbert_soft_topic\"] = run_rows(arm_vec({\"soft_topic\"}, Xtr_se, Xtr_sd), ytr, arm_vec({\"soft_topic\"}, Xte_se, Xte_sd), yte, 384 + ntop + 1, {\"soft_topic\"})\n    for v, arms in [(\"sbert_original\", set()), (\"sbert_soft_topic\", {\"soft_topic\"}), (\"sbert_person_misc_masked_aug_soft_topic\", {\"soft_topic\"})]:\n        ck = f\"models/experiments/narrative_fresh_author_confirmatory/{v}_{r.test_author}.pth\"\n        if os.path.exists(ck):\n            in_dim = 384 + (ntop + 1 if arms else 0)\n            det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=ntop + 1, sbert_dim=384)\n            det.load_state_dict(torch.load(ck, map_location=\"cpu\")); det.eval()\n            with torch.no_grad(): pred = det.mlp(torch.tensor(arm_vec(arms, Xte_se, Xte_sd))).argmax(1).numpy()\n            res[\"modes\"][f\"Z_{v}\"] = {\"n_test\": len(yte), \"true_narrative\": r.test_narrative,\n                                      \"recall_true_narrative\": float((pred == yte).mean()),\n                                      \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\n    out.append(res)\njson.dump(out, open(\"artifacts/experiments/matched_event_eval/results_\" + SUITE + \".json\", \"w\"), indent=1)\nprint(f\"[event_russia_ukraine_2026-02] pairs={len(out)} wrote results_event_russia_ukraine_2026-02.json\")\nEOF",
+   "fallback_loao_for_covered_authors": [
+    "(no frozen-14 author in this suite; Mode T only)"
+   ]
+  },
+  {
+   "suite": "event_israel_hezbollah_gaza_2026-02",
+   "zero_shot_and_train_loop": "python3 - <<'EOF'\nimport json, os, sys\nimport numpy as np, pandas as pd, torch, torch.nn as nn, torch.optim as optim\nfrom sklearn.model_selection import train_test_split\nfrom sentence_transformers import SentenceTransformer\nfrom bertopic import BERTopic\nsys.path.insert(0, \"experiments/author_generalization\")\nfrom narrative_ablation_loao import AblationDetector, build_hard_soft_dense_vectors\nfrom narrative_lens.config import NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE\nSUITE = \"event_israel_hezbollah_gaza_2026-02\"; SEED = 42\ntorch.manual_seed(SEED); np.random.seed(SEED)\nsbert = SentenceTransformer(\"sentence-transformers/all-MiniLM-L6-v2\")\nbt = BERTopic.load(\"models/experiments/soft_v2_baseline_seeded\")\nntop = len([t for t in bt.get_topics().keys() if t != -1])\nsdf = pd.read_csv(\"artifacts/experiments/matched_event_eval/suite_\" + SUITE + \".csv\")\npairs = pd.read_csv(\"artifacts/experiments/matched_event_eval/pairs_\" + SUITE + \".csv\")\nlab = {n: i for i, n in enumerate(NARRATIVES)}\ndef feats(texts):\n    se = sbert.encode(texts, convert_to_numpy=True, show_progress_bar=False)\n    _, soft = build_hard_soft_dense_vectors(texts, bt, ntop)\n    return se.astype(np.float32), np.stack([np.asarray(s, dtype=np.float32) for s in soft])\ndef arm_vec(arms, se, sd):\n    parts = [se] + ([sd] if \"soft_topic\" in arms else [])\n    return np.concatenate(parts, axis=1)\ndef run_rows(Xtr, ytr, Xte, yte, in_dim, arms):\n    Xtr_t = torch.tensor(Xtr); ytr_t = torch.tensor(ytr); Xte_t = torch.tensor(Xte)\n    idx = np.arange(len(Xtr)); tr, va = train_test_split(idx, test_size=0.15, random_state=SEED)\n    det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=Xtr.shape[1] - 384, sbert_dim=384)\n    opt = optim.Adam(det.parameters(), lr=LEARNING_RATE); loss = nn.CrossEntropyLoss()\n    best, best_state, bad = -1, None, 0\n    for ep in range(EPOCHS):\n        det.train()\n        for s in range(0, len(tr), BATCH_SIZE):\n            b = tr[s:s + BATCH_SIZE]\n            opt.zero_grad(); loss(det.mlp(Xtr_t[b]), ytr_t[b]).backward(); opt.step()\n        det.eval()\n        with torch.no_grad():\n            p = det.mlp(Xtr_t[va]).argmax(1).numpy()\n        f1 = sum((p == c).sum() and ((p == c) & (ytr[va] == c)).sum() / max(1, ((p == c).sum() + (ytr[va] == c).sum()) / 2) for c in set(ytr)) / len(set(ytr))\n        if f1 > best: best, best_state, bad = f1, {k: v.cpu() for k, v in det.state_dict().items()}, 0\n        else:\n            bad += 1\n            if bad >= 3: break\n    det.load_state_dict(best_state); det.eval()\n    with torch.no_grad(): pred = det.mlp(Xte_t).argmax(1).numpy()\n    tn = NARRATIVES[yte[0]] if len(set(yte)) == 1 else None\n    rec = float((pred == yte).mean()) if tn else None\n    return {\"n_test\": len(yte), \"true_narrative\": tn, \"recall_true_narrative\": rec,\n            \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\nout = []\nfor r in pairs.itertuples():\n    tr = sdf[sdf.author == r.train_author]; te = sdf[sdf.author == r.test_author]\n    Xtr_se, Xtr_sd = feats(tr.text.astype(str).str.slice(0, 3000).tolist()); ytr = tr.narrative.map(lab).values\n    Xte_se, Xte_sd = feats(te.text.astype(str).str.slice(0, 3000).tolist()); yte = te.narrative.map(lab).values\n    res = {\"pair_id\": r.pair_id, \"modes\": {}}\n    res[\"modes\"][\"T_sbert_original\"] = run_rows(arm_vec(set(), Xtr_se, Xtr_sd), ytr, arm_vec(set(), Xte_se, Xte_sd), yte, 384, set())\n    res[\"modes\"][\"T_sbert_soft_topic\"] = run_rows(arm_vec({\"soft_topic\"}, Xtr_se, Xtr_sd), ytr, arm_vec({\"soft_topic\"}, Xte_se, Xte_sd), yte, 384 + ntop + 1, {\"soft_topic\"})\n    for v, arms in [(\"sbert_original\", set()), (\"sbert_soft_topic\", {\"soft_topic\"}), (\"sbert_person_misc_masked_aug_soft_topic\", {\"soft_topic\"})]:\n        ck = f\"models/experiments/narrative_fresh_author_confirmatory/{v}_{r.test_author}.pth\"\n        if os.path.exists(ck):\n            in_dim = 384 + (ntop + 1 if arms else 0)\n            det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=ntop + 1, sbert_dim=384)\n            det.load_state_dict(torch.load(ck, map_location=\"cpu\")); det.eval()\n            with torch.no_grad(): pred = det.mlp(torch.tensor(arm_vec(arms, Xte_se, Xte_sd))).argmax(1).numpy()\n            res[\"modes\"][f\"Z_{v}\"] = {\"n_test\": len(yte), \"true_narrative\": r.test_narrative,\n                                      \"recall_true_narrative\": float((pred == yte).mean()),\n                                      \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\n    out.append(res)\njson.dump(out, open(\"artifacts/experiments/matched_event_eval/results_\" + SUITE + \".json\", \"w\"), indent=1)\nprint(f\"[event_israel_hezbollah_gaza_2026-02] pairs={len(out)} wrote results_event_israel_hezbollah_gaza_2026-02.json\")\nEOF",
+   "fallback_loao_for_covered_authors": [
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author BringThemHomeNow"
+   ]
+  },
+  {
+   "suite": "event_us_politics_trump_2025-01",
+   "zero_shot_and_train_loop": "python3 - <<'EOF'\nimport json, os, sys\nimport numpy as np, pandas as pd, torch, torch.nn as nn, torch.optim as optim\nfrom sklearn.model_selection import train_test_split\nfrom sentence_transformers import SentenceTransformer\nfrom bertopic import BERTopic\nsys.path.insert(0, \"experiments/author_generalization\")\nfrom narrative_ablation_loao import AblationDetector, build_hard_soft_dense_vectors\nfrom narrative_lens.config import NARRATIVES, EPOCHS, BATCH_SIZE, LEARNING_RATE\nSUITE = \"event_us_politics_trump_2025-01\"; SEED = 42\ntorch.manual_seed(SEED); np.random.seed(SEED)\nsbert = SentenceTransformer(\"sentence-transformers/all-MiniLM-L6-v2\")\nbt = BERTopic.load(\"models/experiments/soft_v2_baseline_seeded\")\nntop = len([t for t in bt.get_topics().keys() if t != -1])\nsdf = pd.read_csv(\"artifacts/experiments/matched_event_eval/suite_\" + SUITE + \".csv\")\npairs = pd.read_csv(\"artifacts/experiments/matched_event_eval/pairs_\" + SUITE + \".csv\")\nlab = {n: i for i, n in enumerate(NARRATIVES)}\ndef feats(texts):\n    se = sbert.encode(texts, convert_to_numpy=True, show_progress_bar=False)\n    _, soft = build_hard_soft_dense_vectors(texts, bt, ntop)\n    return se.astype(np.float32), np.stack([np.asarray(s, dtype=np.float32) for s in soft])\ndef arm_vec(arms, se, sd):\n    parts = [se] + ([sd] if \"soft_topic\" in arms else [])\n    return np.concatenate(parts, axis=1)\ndef run_rows(Xtr, ytr, Xte, yte, in_dim, arms):\n    Xtr_t = torch.tensor(Xtr); ytr_t = torch.tensor(ytr); Xte_t = torch.tensor(Xte)\n    idx = np.arange(len(Xtr)); tr, va = train_test_split(idx, test_size=0.15, random_state=SEED)\n    det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=Xtr.shape[1] - 384, sbert_dim=384)\n    opt = optim.Adam(det.parameters(), lr=LEARNING_RATE); loss = nn.CrossEntropyLoss()\n    best, best_state, bad = -1, None, 0\n    for ep in range(EPOCHS):\n        det.train()\n        for s in range(0, len(tr), BATCH_SIZE):\n            b = tr[s:s + BATCH_SIZE]\n            opt.zero_grad(); loss(det.mlp(Xtr_t[b]), ytr_t[b]).backward(); opt.step()\n        det.eval()\n        with torch.no_grad():\n            p = det.mlp(Xtr_t[va]).argmax(1).numpy()\n        f1 = sum((p == c).sum() and ((p == c) & (ytr[va] == c)).sum() / max(1, ((p == c).sum() + (ytr[va] == c).sum()) / 2) for c in set(ytr)) / len(set(ytr))\n        if f1 > best: best, best_state, bad = f1, {k: v.cpu() for k, v in det.state_dict().items()}, 0\n        else:\n            bad += 1\n            if bad >= 3: break\n    det.load_state_dict(best_state); det.eval()\n    with torch.no_grad(): pred = det.mlp(Xte_t).argmax(1).numpy()\n    tn = NARRATIVES[yte[0]] if len(set(yte)) == 1 else None\n    rec = float((pred == yte).mean()) if tn else None\n    return {\"n_test\": len(yte), \"true_narrative\": tn, \"recall_true_narrative\": rec,\n            \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\nout = []\nfor r in pairs.itertuples():\n    tr = sdf[sdf.author == r.train_author]; te = sdf[sdf.author == r.test_author]\n    Xtr_se, Xtr_sd = feats(tr.text.astype(str).str.slice(0, 3000).tolist()); ytr = tr.narrative.map(lab).values\n    Xte_se, Xte_sd = feats(te.text.astype(str).str.slice(0, 3000).tolist()); yte = te.narrative.map(lab).values\n    res = {\"pair_id\": r.pair_id, \"modes\": {}}\n    res[\"modes\"][\"T_sbert_original\"] = run_rows(arm_vec(set(), Xtr_se, Xtr_sd), ytr, arm_vec(set(), Xte_se, Xte_sd), yte, 384, set())\n    res[\"modes\"][\"T_sbert_soft_topic\"] = run_rows(arm_vec({\"soft_topic\"}, Xtr_se, Xtr_sd), ytr, arm_vec({\"soft_topic\"}, Xte_se, Xte_sd), yte, 384 + ntop + 1, {\"soft_topic\"})\n    for v, arms in [(\"sbert_original\", set()), (\"sbert_soft_topic\", {\"soft_topic\"}), (\"sbert_person_misc_masked_aug_soft_topic\", {\"soft_topic\"})]:\n        ck = f\"models/experiments/narrative_fresh_author_confirmatory/{v}_{r.test_author}.pth\"\n        if os.path.exists(ck):\n            in_dim = 384 + (ntop + 1 if arms else 0)\n            det = AblationDetector(arms=arms, ner_vocab_size=1, srl_vocab_size=1, bertopic_vec_size=ntop + 1, sbert_dim=384)\n            det.load_state_dict(torch.load(ck, map_location=\"cpu\")); det.eval()\n            with torch.no_grad(): pred = det.mlp(torch.tensor(arm_vec(arms, Xte_se, Xte_sd))).argmax(1).numpy()\n            res[\"modes\"][f\"Z_{v}\"] = {\"n_test\": len(yte), \"true_narrative\": r.test_narrative,\n                                      \"recall_true_narrative\": float((pred == yte).mean()),\n                                      \"pred_hist\": {NARRATIVES[c]: int((pred == c).sum()) for c in set(pred)}}\n    out.append(res)\njson.dump(out, open(\"artifacts/experiments/matched_event_eval/results_\" + SUITE + \".json\", \"w\"), indent=1)\nprint(f\"[event_us_politics_trump_2025-01] pairs={len(out)} wrote results_event_us_politics_trump_2025-01.json\")\nEOF",
+   "fallback_loao_for_covered_authors": [
+    "python experiments/author_generalization/narrative_fresh_author_confirmatory.py --author AlJazeeraEnglish"
+   ]
+  }
+ ],
+ "spotcheck": {
+  "n_pairs": 100,
+  "positive": 50,
+  "negative": 50,
+  "protocol": "Annotator sees only text_a/text_b in spotcheck_sample_blind.csv and marks same-event (1/0); score against spotcheck_key.csv. Report precision on positives and flag pairs where the keyword match is topical but not the same real-world event."
+ },
+ "cross_suite_shared_rows": {
+  "event_iran_2026-03 x event_israel_hezbollah_gaza_2026-03": 769,
+  "event_iran_2026-03 x event_russia_ukraine_2026-03": 114,
+  "event_iran_2026-03 x event_us_politics_trump_2026-03": 276,
+  "event_israel_hezbollah_gaza_2026-03 x event_russia_ukraine_2026-03": 22,
+  "event_israel_hezbollah_gaza_2026-03 x event_us_politics_trump_2026-03": 92,
+  "event_russia_ukraine_2026-03 x event_us_politics_trump_2026-03": 157
+ },
+ "totals": {
+  "n_events": 7,
+  "n_directed_pairs": 592,
+  "n_eval_rows": 5347
+ },
+ "frozen14_note": "Seed-42 frozen authors reused where their cells qualify (PressTV, Slavyangrad, Babel, United24Media, @MiddleEastEye_TG, ThePostMillennial, AlJazeeraEnglish, BringThemHomeNow, abualiexpress as applicable per suite); all remaining suite authors (AIPAC, IDF, StandWithUs, FoxNews, mfa_russia, ZelenskyyUa, QudsNen, etc.) are outside the frozen set and noted per cell."
+}

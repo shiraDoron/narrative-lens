@@ -1,0 +1,4 @@
+suite,author,variant,n_test,n_correct,n_errors,error_rate,audit_mismatch_rate,audit_flagged_rate,expected_errors_on_mismatched,expected_errors_on_flagged,expected_share_errors_on_mismatched,expected_share_errors_on_flagged,estimate_note
+LOAO,ALL_3_AUTHORS,sbert_only,600,355,245,0.4083,,,12.1,152.5,0.0494,0.6224,aggregate of independence-model rows above
+fresh,ALL_14_AUTHORS,sbert_original,3009,1207,1802,0.5989,,,117.3,1660.9,0.0651,0.9217,aggregate of independence-model rows above
+combined,ALL_17_AUTHORS,mixed_baseline,3609,1562,2047,0.5672,,,129.4,1813.4,0.0632,0.8859,aggregate of independence-model rows above

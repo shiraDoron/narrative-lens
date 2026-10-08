@@ -16,82 +16,52 @@ from sklearn.metrics import (
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
-# import project components
+
 from narrative_lens.config import NARRATIVES, MODEL_TYPE, MODEL_TYPES, VAL_SIZE, TEST_SIZE, EPOCHS, BATCH_SIZE, LEARNING_RATE
 from narrative_lens.models.fusion import NarrativeDetector, SBERTOnlyDetector, HybridNarrativeDetector
-# AGENDA_PATTERNS/clean_text: safe import (only pandas/numpy/re at import time, the CLI is
-# guarded by `if __name__ == "__main__"`) - already used by fusion.py's
-# AgendaIdeologyFeatureExtractor. Used here by assign_topic_ids_lexicon (fixed, leak-free
-# topic labels for LOTO).
+# Fixed, leak-free topic labels for LOTO (import-time deps are pandas/numpy/re only).
 from narrative_lens.features.analyze_agendas import AGENDA_PATTERNS, clean_text
 
-# ==========================================================================
-# Split modes supported by train.py:
-#   "random"              - ordinary random train/val/test split (default)
-#   "leave_one_topic"     - Leave-One-Topic-Out (LOTO): one whole topic is held
-#                           out entirely for test, to test generalization to
-#                           unseen topics. See --topic-source ("lexicon"
-#                           [default, leak-free] or "bertopic" [best-effort,
-#                           see assign_topic_ids_lexicon /
-#                           split_leave_one_topic_bertopic below for full detail]).
-#   "leave_one_author"    - Leave-One-Author-Out (LOAO): a single account/channel
-#                           is held out entirely for test, to check the model
-#                           doesn't just recognize source style.
-#   "leave_group_authors" - Group split: several accounts/channels (possibly from
-#                           multiple narratives) are held out together for test -
-#                           a stronger generalization test than leave_one_author
-#                           (single account).
-# ==========================================================================
+# Split modes:
+#   "random" - ordinary random train/val/test split (default).
+#   "leave_one_topic" - Leave-One-Topic-Out (LOTO): one whole topic held out for
+#     test. Topic ids via --topic-source ("lexicon", default and leak-free, or
+#     "bertopic", best-effort).
+#   "leave_one_author" - Leave-One-Author-Out (LOAO): one account/channel held out
+#     for test, so the model cannot just recognize source style.
+#   "leave_group_authors" - like LOAO with several accounts/channels held out together.
+
 SPLIT_MODES = ("random", "leave_one_topic", "leave_one_author", "leave_group_authors")
 
-# Possible sources for topic_id used by leave_one_topic - see assign_topic_ids_lexicon /
-# split_leave_one_topic_bertopic:
-#   "lexicon"  - (default, recommended) the dominant AGENDA_LEXICON category in the text -
-#                defined a priori (hand-authored regex), not learned from the corpus - no
-#                leakage whatsoever.
-#   "bertopic" - BERTopic clustering, best-effort: the model is fit only on an internal
-#                training pool, and test only receives topic_id via transform() (no
-#                re-fitting) - see the limitations note in the function itself.
+# Topic id source for leave_one_topic: "lexicon" (default) is hand-authored regex
+# matched per row, never fit on the corpus, so no leakage; "bertopic" is a fresh
+# per-run fit on a train-only pool, best-effort (ids not comparable across runs).
 TOPIC_SOURCES = ("lexicon", "bertopic")
 
-# Placeholder suffix marking a synthetic author_source (gemini/gpt, see
-# _derive_author_source) - never a legitimate held-out author in LOAO/Group-split
-# experiments (see _validate_real_authors).
+# Synthetic author placeholder (gemini/gpt have no per-row account); never a valid
+# held-out author for LOAO/group splits.
 SYNTHETIC_AUTHOR_SUFFIX = "_synthetic"
 
-# ==========================================================================
-# Model-dependent settings: a feature-cache file + a checkpoint file for each of
-# the three model types separately (each model extracts different features, so
-# each needs its own cache; but all of them use the exact same train/val/test
-# split - see load_raw_data/split_data).
-# Important: the cache/checkpoint also depend on split_mode (see
-# get_cache_file/get_checkpoint_file) - a different split means different
-# samples in train/val/test, so separate cache/checkpoint files are required,
-# otherwise we'd silently reuse features computed for a different split.
-# ==========================================================================
+# One cache/checkpoint file per (model type, split): models extract different features,
+# and different splits hold different samples, so sharing files would silently reuse
+# features from another split.
 CACHE_FILES = {
-    # The historical filename "hybrid" refers to the combined DATASET
-    # (twitter+telegram+gemini+gpt), not to the new Hybrid architecture - kept as-is
-    # to avoid invalidating an already-computed cache.
-    # (Applies only to split_mode="random" - see get_cache_file.)
+    # Historical name: "hybrid" means the combined dataset here, kept to reuse the cache.
     "baseline_fusion": "data/cache/cached_features_hybrid.pt",
     "sbert_only": "data/cache/cached_features_sbert_only.pt",
     "hybrid": "data/cache/cached_features_hybrid_model.pt",
 }
 
 CHECKPOINT_FILES = {
-    # Historical filename, kept as-is because fusion.py's __main__ and other places load it.
-    # (Applies only to split_mode="random" - see get_checkpoint_file.)
+    # Historical name, kept because other entry points load this path.
     "baseline_fusion": "models/best_narrative_model_hybrid.pth",
     "sbert_only": "models/best_model_sbert_only.pth",
     "hybrid": "models/best_model_hybrid_architecture.pth",
 }
 
-# Shared JSON file that accumulates results from every run, for a research comparison
-# between the three models.
+# Accumulates every run's metrics for the cross-model comparison.
 RESULTS_FILE = "artifacts/tables/model_comparison_results.json"
 
-# Narrative <-> index mapping for computing metrics
 label_to_index = {narrative: i for i, narrative in enumerate(NARRATIVES)}
 index_to_label = {i: narrative for i, narrative in enumerate(NARRATIVES)}
 
@@ -102,15 +72,12 @@ def _safe_filename_part(value):
 
 
 def is_synthetic_author(author_source):
-    """gemini_synthetic / gpt_synthetic (see _derive_author_source) - not a real author,
-    must not be chosen as held-out in LOAO/Group-split (see _validate_real_authors)."""
+    """True for gemini/gpt placeholder authors, which can never be held out in LOAO."""
     return str(author_source).endswith(SYNTHETIC_AUTHOR_SUFFIX)
 
 
 def _validate_real_authors(authors):
-    """Ensures none of the requested held-out authors is a synthetic placeholder
-    (gemini_synthetic/gpt_synthetic) - per user request: an author-generalization test is
-    only meaningful for Twitter/Telegram (which have a real account/channel per row)."""
+    """Reject synthetic placeholders: LOAO is only meaningful for real accounts/channels."""
     synthetic = [a for a in authors if is_synthetic_author(a)]
     if synthetic:
         raise ValueError(
@@ -122,9 +89,7 @@ def _validate_real_authors(authors):
 
 def run_key_for(split_mode, held_out_topic=None, held_out_author=None, held_out_authors=None,
                 topic_source="lexicon"):
-    """Unique textual identifier for a run, based on the split mode + held-out value (if
-    relevant). Used both for cache/checkpoint filenames (split_mode != random) and as a
-    key within artifacts/tables/model_comparison_results.json."""
+    """Run identifier from the split mode and held-out value; also keys the results file."""
     if split_mode == "random":
         return "random"
     elif split_mode == "leave_one_topic":
@@ -155,11 +120,7 @@ def get_checkpoint_file(model_type, split_mode, held_out_topic=None, held_out_au
 
 
 def build_model(model_type, ner_vocab, srl_vocab):
-    """
-    Factory that creates the model for the given model_type. This is the single
-    extension point to touch when adding another model variant in the future
-    (e.g. a Hybrid version with SBERT encoder fine-tuning).
-    """
+    """Create the model for the given model_type."""
     if model_type == "baseline_fusion":
         return NarrativeDetector(ner_vocab=ner_vocab, srl_vocab=srl_vocab)
     elif model_type == "sbert_only":
@@ -171,15 +132,9 @@ def build_model(model_type, ner_vocab, srl_vocab):
 
 
 def _derive_author_source(df, dataset_source_name):
-    """
-    author_source = the specific account/channel the text came from.
-    - twitter/telegram: a real 'account' column already exists in the CSV files
-      (build_twitter_dataset.py / build_telegram_dataset.py already write it).
-    - gemini/gpt: there's no real "account" (synthetic text, not from a single source) -
-      gets a fixed placeholder for the whole dataset (e.g. "gemini_synthetic"). Important:
-      LOAO on a synthetic source is effectively equivalent to holding out the entire
-      synthetic dataset, not testing a real "account style" - see the limitations summary
-      given to the user.
+    """Per-row account/channel where known, else a fixed synthetic placeholder.
+    Holding out a synthetic placeholder would hold out a whole synthetic dataset,
+    not one author's style, so LOAO callers must pass real accounts only.
     """
     if "account" in df.columns:
         return df["account"].astype(str)
@@ -187,15 +142,7 @@ def _derive_author_source(df, dataset_source_name):
 
 
 def load_raw_data():
-    """
-    Loads and concatenates (without splitting) all four datasets, with two separate
-    provenance columns:
-      - dataset_source: twitter / telegram / gpt / gemini
-      - author_source:  the specific account/channel (or a synthetic placeholder for
-                        gemini/gpt)
-    This code is shared by every model_type and split_mode - the actual split happens
-    in split_data.
-    """
+    """Concatenate all four datasets with dataset_source/author_source columns, unsplit."""
     print("Loading datasets...")
 
     df_llm = pd.read_csv("data/raw/gemini_natural_dataset.csv")
@@ -225,19 +172,9 @@ def load_raw_data():
 
 
 def assign_topic_ids_lexicon(df):
-    """
-    LEAK-FREE topic assignment for LOTO (priority-1 method, see documentation in
-    TOPIC_SOURCES).
-
-    Assigns each row a 'topic_id' = the category (from AGENDA_LEXICON/AGENDA_PATTERNS in
-    analyze_agendas.py) with the most regex matches in the text (or "no_agenda_match" if
-    there's no match at all). These categories are defined a priori (hand-authored) and are
-    not "learned" in any way from the experiment's corpus - unlike the BERTopic model (see
-    train_topics.py: fit on all four concatenated datasets, INCLUDING the texts that would
-    later become this experiment's test set, before any split - this is exactly the leakage
-    the user identified). Therefore this topic_id can be computed on the whole df before
-    splitting, with zero leakage risk: there's no "fit" at all, just deterministic pattern
-    matching that doesn't depend on which rows end up in train/val/test.
+    """Leak-free topic ids for LOTO: dominant hand-authored lexicon category per row.
+    No fitting involved, so this may run on the whole frame before splitting, unlike
+    the BERTopic model (fit on the full corpus, including future test rows).
     """
     df = df.copy()
     cleaned = df["text"].astype(str).apply(clean_text)
@@ -257,28 +194,9 @@ def assign_topic_ids_lexicon(df):
 
 def split_leave_one_topic_bertopic(df, held_out_topic):
     """
-    BERTopic-based LOTO (fallback method, see TOPIC_SOURCES) - best-effort leakage
-    avoidance: unlike using the global saved BERTopic model
-    (models/saved_topic_model/, which is fit by train_topics.py on all four
-    concatenated datasets - INCLUDING what would become this experiment's test set - and
-    therefore constitutes real leakage), this function fits a new, separate BERTopic
-    instance, within the current run, ONLY on a "FIT_POOL": a random portion of the data
-    (at the same proportion as an ordinary train split - 1 - (VAL_SIZE+TEST_SIZE)).
-
-    The remaining rows ("CANDIDATE_POOL") only get a topic_id via
-    topic_model.transform(), without any re-fitting on them - exactly as requested.
-
-    To guarantee a test set fully clean of leakage, the final test is built ONLY from
-    CANDIDATE_POOL rows matching held_out_topic (these texts were never seen by the fit).
-    FIT_POOL rows that happen to also match that topic_id (assigned by the fit itself) are
-    dropped entirely (neither train nor test) - so that train also doesn't actually contain
-    texts from that same topic, and so we don't "leak" samples that were seen during fit
-    into test.
-
-    Important limitation to document for the user: topic ids here are numbers (int)
-    reassigned on every run (the model is refit every time) - they are NOT stable/comparable
-    across different runs, unlike the lexicon-based topic_id (based on a fixed category
-    name).
+    BERTopic LOTO with best-effort leakage avoidance: fit a fresh model on a FIT_POOL
+    only, assign the rest via transform(), build test solely from never-fitted rows, and
+    drop FIT_POOL rows of the held-out topic entirely. Ids are renumbered every run.
     """
     from bertopic import BERTopic
 
@@ -307,12 +225,8 @@ def split_leave_one_topic_bertopic(df, held_out_topic):
             f"Available topic ids (this run's fresh BERTopic fit): {available_topics}"
         )
 
-    # test = only CANDIDATE_POOL - never seen by the fit
+    # Test uses never-fitted rows only; same-topic FIT_POOL rows stay out entirely.
     test_data = candidate_pool[candidate_pool["topic_id"] == held_out_topic].reset_index(drop=True)
-
-    # FIT_POOL rows of the same topic are dropped entirely (neither train nor test) - keeps
-    # train clean of the held-out topic, and prevents "leaking" samples that were already
-    # seen during fit into test.
     fit_pool_clean = fit_pool[fit_pool["topic_id"] != held_out_topic]
     candidate_pool_remaining = candidate_pool[candidate_pool["topic_id"] != held_out_topic]
 
@@ -331,11 +245,7 @@ def split_leave_one_topic_bertopic(df, held_out_topic):
 
 
 def verify_no_leakage(train_data, val_data, test_data, key_col):
-    """
-    Safety check: ensures no value (account/topic_id) is shared between test and
-    train/val - so we can trust that the dedicated split (LOTO/LOAO) genuinely tests
-    generalization and doesn't "leak" the same source/topic to both sides.
-    """
+    """Fail if any held-out key value appears on both sides of the split."""
     test_values = set(test_data[key_col].unique())
     train_val_values = set(train_data[key_col].unique()) | set(val_data[key_col].unique())
     overlap = test_values & train_val_values
@@ -349,13 +259,7 @@ def verify_no_leakage(train_data, val_data, test_data, key_col):
 
 
 def _print_narrative_distribution_and_warn(test_data, context_label, dominance_threshold=0.9):
-    """
-    Prints the narrative distribution in test, and explicitly warns (WARNING, not
-    silent) if a single narrative makes up more than dominance_threshold of test - a
-    situation that can naturally occur in LOAO/Group-split (an account usually belongs
-    to one narrative), but must be stated explicitly and not "silently swallowed" (per
-    user requirement).
-    """
+    """Print test narrative shares; warn loudly if one narrative dominates the test set."""
     counts = test_data["narrative_name"].value_counts()
     shares = (counts / len(test_data)) if len(test_data) else counts
     print(f"[{context_label}] Test narrative distribution: {counts.to_dict()}")
@@ -372,7 +276,7 @@ def _print_narrative_distribution_and_warn(test_data, context_label, dominance_t
 
 
 def split_random(df):
-    """Ordinary random split into train/val/test (the default, as before)."""
+    """Random train/val/test split (default)."""
     train_data, temp_data = train_test_split(df, test_size=(VAL_SIZE + TEST_SIZE), random_state=42)
     relative_test_size = TEST_SIZE / (VAL_SIZE + TEST_SIZE)
     val_data, test_data = train_test_split(temp_data, test_size=relative_test_size, random_state=42)
@@ -380,15 +284,7 @@ def split_random(df):
 
 
 def split_leave_one_topic(df, held_out_topic, topic_source="lexicon"):
-    """
-    Leave-One-Topic-Out (lexicon method only - the leak-free, priority-1 method):
-    all samples assigned to held_out_topic (by assign_topic_ids_lexicon, which must be
-    called beforehand) go entirely to test; the rest is split into train/val.
-
-    Note: when topic_source="bertopic", an early rejection happens in split_data -
-    that method (BERTopic) needs access to the full df (fit/transform), so it's handled
-    directly by split_leave_one_topic_bertopic rather than through this function.
-    """
+    """Lexicon LOTO: the held-out topic goes entirely to test. Needs topic_id assigned first."""
     if topic_source != "lexicon":
         raise ValueError(
             f"split_leave_one_topic (this function) only supports topic_source='lexicon'. "
@@ -418,11 +314,7 @@ def split_leave_one_topic(df, held_out_topic, topic_source="lexicon"):
 
 
 def split_leave_one_author(df, held_out_author):
-    """
-    Leave-One-Author-Out: all samples from held_out_author (a real Twitter account
-    or Telegram channel only - see _validate_real_authors) go entirely to test; the rest
-    is split into train/val.
-    """
+    """LOAO: the held-out real account/channel goes entirely to test."""
     _validate_real_authors([held_out_author])
 
     available_authors = sorted(a for a in df["author_source"].unique().tolist()
@@ -450,11 +342,7 @@ def split_leave_one_author(df, held_out_author):
 
 
 def split_leave_group_authors(df, held_out_authors):
-    """
-    Group split by authors (a stronger generalization test than a single held-out
-    author): several real accounts/channels (from the same or different narratives) are
-    held out together for test; the rest is split into train/val.
-    """
+    """Group split: several real accounts/channels held out together for test."""
     if not held_out_authors:
         raise ValueError("split_leave_group_authors requires a non-empty list of held_out_authors.")
 
@@ -489,7 +377,7 @@ def split_leave_group_authors(df, held_out_authors):
 
 def split_data(df, split_mode, held_out_topic=None, held_out_author=None, held_out_authors=None,
                topic_source="lexicon"):
-    """Dispatcher: picks the split function based on split_mode (see SPLIT_MODES)."""
+    """Route to the split function matching split_mode."""
     if split_mode == "random":
         return split_random(df)
     elif split_mode == "leave_one_topic":
@@ -505,10 +393,7 @@ def split_data(df, split_mode, held_out_topic=None, held_out_author=None, held_o
 
 
 def print_and_save_split_summary(train_data, val_data, test_data, model_type, run_key):
-    """
-    Prints and saves: the number of samples per narrative in each split, and the number
-    of distinct sources/authors in each split (dataset_source + author_source).
-    """
+    """Print and save per-split narrative counts and source/author coverage."""
     summary = {}
     print("\n=== Split Summary ===")
     for split_name, split_df in (("train", train_data), ("val", val_data), ("test", test_data)):
@@ -534,10 +419,7 @@ def print_and_save_split_summary(train_data, val_data, test_data, model_type, ru
 
 
 def build_shared_vocab(train_data):
-    """
-    Builds a shared vocabulary (NER/SRL) from train_data only. Shared by all three
-    models (even though sbert_only doesn't really need it, for consistency/simplicity).
-    """
+    """Shared NER/SRL vocabulary built from train rows only (no test leakage)."""
     print("Building and saving new deterministic vocabulary...")
 
     def clean_for_vocab(text):
@@ -565,10 +447,7 @@ def extract_all(data, desc, detector):
 
 def get_or_extract_features(model_type, split_mode, held_out_topic, held_out_author,
                              held_out_authors, topic_source, detector, train_data, val_data, test_data):
-    """
-    Cache mechanism: extracts features (slow, once) and saves to disk in a dedicated
-    file per (model_type, split_mode, held_out_*) - see get_cache_file.
-    """
+    """Load cached features for this (model, split), or extract and save them once."""
     cache_file = get_cache_file(model_type, split_mode, held_out_topic, held_out_author,
                                  held_out_authors, topic_source)
 
@@ -593,11 +472,7 @@ def get_or_extract_features(model_type, split_mode, held_out_topic, held_out_aut
 
 
 def compute_metrics(true_labels, predicted_labels):
-    """
-    Accuracy + Macro-Precision/Recall/F1 (for comparing models) + per-class metrics
-    (precision/recall/f1/support per narrative) + confusion matrix - all required for the
-    research reports.
-    """
+    """Accuracy, macro precision/recall/F1, per-class scores, and confusion matrix."""
     accuracy = accuracy_score(true_labels, predicted_labels)
     macro_precision, macro_recall, macro_f1, _ = precision_recall_fscore_support(
         true_labels, predicted_labels, average='macro', zero_division=0
@@ -641,16 +516,7 @@ def save_confusion_matrix_csv(metrics, path):
 
 
 def evaluate(detector, features_labels, loss_fn=None):
-    """
-    Runs the model (classify_features only - fast, no re-extraction of features) on a
-    set of already-extracted features, and returns metrics (including per-class +
-    confusion matrix) + (optionally) average loss.
-
-    This generic function is also the natural future extension point for an ablation
-    study: it can be called with features_labels where one feature group is
-    zeroed-out/removed (e.g. zero out features["agenda_ideology"] before the call) in
-    order to measure the drop in macro_f1 caused by removing that feature group.
-    """
+    """Score pre-extracted features; also usable for ablations by zeroing one feature group."""
     detector.eval()
     true_labels, predicted_labels = [], []
     total_loss = 0.0
@@ -676,13 +542,7 @@ def evaluate(detector, features_labels, loss_fn=None):
 
 
 def save_comparison_result(model_type, run_key, split_name, metrics, extra=None):
-    """
-    Accumulates the results of every run into one shared JSON file (RESULTS_FILE), so
-    that in the end it's easy to compare accuracy/macro-F1/precision/recall (also
-    per-class + confusion matrix) between baseline_fusion / sbert_only / hybrid,
-    and between different split_modes (random / leave_one_topic / leave_one_author).
-    Structure: {model_type: {run_key: {split_name: {...metrics}}}}
-    """
+    """Append this run's metrics to the shared results JSON ({model: {run: {split: metrics}}})."""
     os.makedirs(os.path.dirname(RESULTS_FILE), exist_ok=True)
 
     results = {}
@@ -711,9 +571,7 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
     df = load_raw_data()
 
     if split_mode == "leave_one_topic" and topic_source == "lexicon":
-        # The bertopic method (if topic_source="bertopic") performs fit+transform inside
-        # split_leave_one_topic_bertopic itself (see split_data) - not here, since it
-        # needs to control the fit/transform split (FIT_POOL/CANDIDATE_POOL) itself.
+        # Bertopic LOTO controls its own fit/transform split, so it assigns topics itself.
         df = assign_topic_ids_lexicon(df)
 
     train_data, val_data, test_data = split_data(
@@ -755,7 +613,6 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
         total_train_loss = 0.0
         train_correct = 0
 
-        # Reset outside the sentence loop, to start with a clean accumulation
         optimizer.zero_grad()
 
         for i, (features, label_idx) in enumerate(train_features):
@@ -772,7 +629,6 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
             loss = loss_fn(torch.log(probs + 1e-8), label)
             loss = loss / batch_size
 
-            # Accumulate gradients
             loss.backward()
 
             if (i + 1) % batch_size == 0 or (i + 1) == len(train_features):
@@ -781,7 +637,7 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
 
             total_train_loss += loss.item() * batch_size
 
-        # Validation step - checkpoint is chosen based on Macro-F1 (not loss)
+        # Checkpoint selection uses macro-F1, not loss.
         val_metrics, avg_val_loss, _, _ = evaluate(detector, val_features, loss_fn)
 
         print(
@@ -804,9 +660,7 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
                 print(f"\n[!] Early Stopping Triggered! Training halted at epoch {epoch + 1}.")
                 break
 
-    # ==========================================================
-    # Final evaluation on the Test set (unseen, used neither for training nor for model selection)
-    # ==========================================================
+    # Final test evaluation (test was used neither for training nor model selection).
     print("\n" + "=" * 60)
     print(f"FINAL TEST EVALUATION - model_type='{model_type}' split_mode='{split_mode}' "
           f"(Best Checkpoint by Val Macro-F1)")
@@ -842,7 +696,7 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
     save_comparison_result(model_type, run_key, "test", test_metrics)
     save_confusion_matrix_csv(test_metrics, f"artifacts/experiments/confusion_matrix_{model_type}_{run_key}_test.csv")
 
-    # Print the learned module weights - relevant only for baseline_fusion (NarrativeDetector)
+    # Learned module weights exist only on the baseline_fusion architecture.
     if hasattr(detector, "fusion_network") and hasattr(detector.fusion_network, 'module_weights'):
         print("\n--- Module Importance (Learned Weights) ---")
         learned_weights = torch.softmax(detector.fusion_network.module_weights, dim=0)
@@ -856,11 +710,8 @@ def train(model_type, split_mode="random", held_out_topic=None, held_out_author=
 
 
 if __name__ == "__main__":
-    # Two-phase parsing so --config (a YAML file, see configs/) can supply DEFAULT values for
-    # the flags below, while any flag still explicitly passed on the command line overrides it
-    # (argparse's normal default-vs-explicit-value precedence). Passing no --config at all keeps
-    # every default byte-identical to before this was added - config.get(key, existing_default)
-    # falls back to existing_default when config == {} (see load_config()).
+    # Two-phase parsing: --config supplies flag defaults, explicit CLI flags win. Without
+    # --config every default matches the hardcoded values.
     from narrative_lens.utils.config_loader import load_config
     from narrative_lens.utils.repro import write_run_metadata
     from narrative_lens.utils.seeding import set_all_seeds
@@ -957,8 +808,7 @@ if __name__ == "__main__":
         lr=args.lr,
     )
 
-    # Reproducibility metadata: lets every result be traced back to the exact code version,
-    # config, seed, and CLI arguments that produced it (see narrative_lens/utils/repro.py).
+    # Trace every result to its code version, config, seed, and CLI args.
     run_key = run_key_for(args.split, held_out_topic, args.held_out_author, held_out_authors_list, args.topic_source)
     write_run_metadata(
         f"artifacts/experiments/run_metadata_{args.model}_{run_key}.json",
@@ -967,16 +817,8 @@ if __name__ == "__main__":
         test_metrics={k: v for k, v in test_metrics.items() if k not in ("confusion_matrix",)},
     )
 
-# ==========================================================================
-# Remaining future extension points (not implemented right now, intentionally - just
-# infrastructure):
+# Future extension points (not implemented):
 #
-# - Leave-One-Source-Out (LOSO) by dataset_source (twitter/telegram/gemini/gpt
-#   held out entirely, unlike leave_one_author/leave_group_authors which hold out a
-#   single account/channel or group): could add split_leave_one_source(df, held_out_source)
-#   which filters by dataset_source using the exact same logic as split_leave_one_author.
-# - Ablation study: evaluate() above accepts a ready-made features_labels - could add
-#   ablate_feature_group(features_labels, group_name) which zeroes out one feature group
-#   (e.g. "agenda_ideology" or "emotion") before calling evaluate, and measures the
-#   drop in macro_f1 relative to the full run.
-# ==========================================================================
+# - Leave-One-Source-Out (LOSO) by dataset_source, mirroring split_leave_one_author.
+# - Ablation study: zero out one feature group in features_labels, then call evaluate()
+#   and measure the macro_f1 drop.

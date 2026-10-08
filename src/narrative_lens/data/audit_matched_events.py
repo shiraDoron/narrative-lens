@@ -39,10 +39,14 @@ def load_human_authored() -> pd.DataFrame:
             continue
         df = pd.read_csv(path)
         df["dataset_source"] = source
+        # Parse dates per-frame: twitter uses e.g. 2026-03-22T18:58:59.000Z while
+        # telegram uses e.g. 2023-12-28T16:06:51+00:00; one pd.to_datetime call
+        # over the concatenated frame infers a single strict format and coerces
+        # all telegram rows to NaT.
+        df["date"] = pd.to_datetime(df["date"], errors="coerce", utc=True)
         frames.append(df)
     combined = pd.concat(frames, ignore_index=True)
     combined["text"] = combined["text"].astype(str)
-    combined["date"] = pd.to_datetime(combined["date"], errors="coerce", utc=True)
     combined = combined.dropna(subset=["date"])
     combined["month"] = combined["date"].dt.to_period("M").astype(str)
     return combined

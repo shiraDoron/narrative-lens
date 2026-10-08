@@ -30,13 +30,20 @@ narrative arc that connects the sections below, in the order the questions were 
 | # | Stage | Question | Result | Sections |
 |---|---|---|---|---|
 | 1 | Topic representation | Does a richer topic *distribution* (soft/LDA) beat a single hard topic id for narrative classification? | Hard topic id wins in the full fusion architecture; soft's real benefit turned out to be bias-reduction, not accuracy | §15, §17, §20 |
-| 2 | Unseen-author problem | Does the classifier generalize to an author excluded from training (LOAO)? | No — recall drops 20–38pp vs. the random split, with 2 of 3 tested authors systematically misrouted to `Right-wing` | §18, §19 |
-| 3 | Entity shortcut | Is the drop driven by memorized named-entity identities rather than genuine topic/stance signal? | Partially — masking entity identity changes predictions, but inconsistently across authors | §21, §22 |
-| 4 | Masking intervention | Can training-time entity-masking augmentation close the generalization gap? | Exploratory signal only: helps one author (Bernie), hurts two others (IDF, Maria) — not validated | §23, §24 |
-| 5 | Fresh-author confirmation | Does the masking policy replicate on 14 new, previously unanalyzed held-out authors (pre-registered test)? | **No** — `NON-INFERIOR = FALSE`; masking did not generalize | §25 |
-| 6 | Error diagnostics | What do misclassified unseen-author examples have in common? | Inconclusive — no single clean, actionable failure mode found | §26 |
-| 7 | Author signature | Can a simple model predict *which author* wrote a text using only surface style features, even within one fixed narrative? | **Yes**, far above chance (e.g. `Western` 85.1% vs. ~20% baseline) — narrative labels partly encode author identity, not just content | §27 |
-| 8 | Style normalization | Does normalizing surface style (punctuation, capitalization, length, ...) reduce the author-signature effect and improve unseen-author generalization without hurting in-distribution accuracy? | Normalization reduced the author-signature effect (avg ≈−15pp macro-F1) but **did not improve unseen-author generalization** — fresh-author recall got worse for 13/14 authors (mean −6.4pp, median −10.8pp). Author style signal exists, but there is no evidence yet that it is a harmful shortcut whose removal improves generalization | §28 |
+| 2 | Unseen-author problem | Does the classifier generalize to an author excluded from training (LOAO)? | No, recall drops 20–38pp vs. the random split, with 2 of 3 tested authors systematically misrouted to `Right-wing` | §18, §19 |
+| 3 | Entity shortcut | Is the drop driven by memorized named-entity identities rather than genuine topic/stance signal? | Partially, masking entity identity changes predictions, but inconsistently across authors | §21, §22 |
+| 4 | Masking intervention | Can training-time entity-masking augmentation close the generalization gap? | Exploratory signal only: helps one author (Bernie), hurts two others (IDF, Maria), not validated | §23, §24 |
+| 5 | Fresh-author confirmation | Does the masking policy replicate on 14 new, previously unanalyzed held-out authors (pre-registered test)? | **No**: `NON-INFERIOR = FALSE`; masking did not generalize | §25 |
+| 6 | Error diagnostics | What do misclassified unseen-author examples have in common? | Inconclusive, no single clean, actionable failure mode found | §26 |
+| 7 | Author signature | Can a simple model predict *which author* wrote a text using only surface style features, even within one fixed narrative? | **Yes**, far above chance (e.g. `Western` 85.1% vs. ~20% baseline): narrative labels partly encode author identity, not just content | §27 |
+| 8 | Style normalization | Does normalizing surface style (punctuation, capitalization, length, ...) reduce the author-signature effect and improve unseen-author generalization without hurting in-distribution accuracy? | Normalization reduced the author-signature effect (avg ≈−15pp macro-F1) but **did not improve unseen-author generalization**: fresh-author recall got worse for 13/14 authors (mean −6.4pp, median −10.8pp). Author style signal exists, but there is no evidence yet that it is a harmful shortcut whose removal improves generalization | §28 |
+| 9 | Label quality | Are LOAO errors driven by mislabeled training data, and does removing noisy accounts help? | Human validation shows key labels are mostly sound (annotator-vs-key 0.7727) with hard noise near 0.1988; removing flagged accounts shifts recall in both directions, not a clean fix | §29, §30 |
+| 10 | Event confounding | Is the LOAO gap just topic/event mismatch between train and held-out authors? | No: event-matched pairs show a larger gap (-36.3pp) than mismatched LOAO (-30.9pp); only one event is smaller | §31 |
+| 11 | Entity causality | Does entity identity causally drive LOAO errors at test time? | No: test-time entity swaps move predictions barely above placebo (ACE +0.043); identity correlates with errors but does not cause them | §32 |
+| 12 | Group robustness (selection) | Which group-DRO setting best improves worst-group recall on 3 exploratory authors? | eta=0.01, C=0 selected by mean worst-group val recall 0.2517; held-out test deltas vs sbert_only are mixed (IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp) | §33 |
+| 13 | Group robustness (confirmation) | Does the frozen DRO setting replicate on 14 fresh held-out authors (pre-registered test)? | **No**: `NOT_SUPPORTED`; mean, median, and guardrail all FAIL, only error-concentration passes | §33 |
+| 14 | Open-question closeout | Is the §30 Bernie gain stable across seeds, and does fresh single-author training close the event-matched gap? | **No to both**: noise-removal deltas flip sign across seeds 42/43/44 (Bernie mean +0.0017); fresh-train matched recall 0.0059 (gap -73.4pp), worse than Mode Z matched -36.3pp | §34 |
+| 15 | Few-shot adaptation + selective prediction | Does labeling a few rows from a new author, or abstaining on low-confidence rows, fix unseen-author recall? | **Yes to few-shot, no to abstention**: k=10 support recovers mean recall to 64.9% (first positive intervention); confidence detects errors (AUROC 0.63) but 20% abstention only lifts accuracy 0.401 to 0.437 | §35 |
 
 For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_only` vs.
 `hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
@@ -44,7 +51,7 @@ rather than this file.
 
 ### Experiment status legend
 
-Every major experiment (Sections 18-28 — the unseen-author-generalization research line) is
+Every major experiment (Sections 18-33, the unseen-author-generalization research line) is
 tagged right under its heading with three short labels, **Type · Result · Lifecycle**, so a
 reader can tell at a glance what kind of claim it supports without reading the full section.
 Earlier sections (1-17, the topic-modeling track) are not tagged individually — they are already
@@ -80,6 +87,15 @@ summarized in the storyline table above.
 | §26 Unseen-author error diagnostics | Diagnostic | Negative | Closed |
 | §27 Author signature diagnostics | Diagnostic | Positive | Closed |
 | §28 Style-normalization intervention | Intervention | Negative | Closed |
+| §29 Human validation of key labels | Diagnostic | Positive | Closed |
+| §30 Label-noise removal retrain | Exploratory | Mixed | Closed |
+| §31 Matched-event evaluation (Mode Z) | Diagnostic | Negative | Closed |
+| §32 Entity attribution by test-time swaps | Diagnostic | Negative | Closed |
+| §33 Group-DRO on (narrative, author) groups | Intervention | Negative | Closed |
+| §34A Multiseed noise-removal stability | Exploratory | Negative | Closed |
+| §34B Sampled fresh-train matched-event eval (Mode T) | Diagnostic | Negative | Closed |
+| §35A Few-shot author adaptation | Intervention | Positive | Current |
+| §35B Selective prediction on fresh authors | Diagnostic | Mixed | Closed |
 
 ---
 
@@ -1467,7 +1483,7 @@ recommended based on this experiment.**
 
 ---
 
-## 18. Narrative Classification — Leave-One-Author-Out (LOAO) generalization test
+## 18. Narrative Classification: Leave-One-Author-Out (LOAO) generalization test
 
 **Experiment status:** Diagnostic · Negative · Closed (see legend above)
 
@@ -1562,7 +1578,7 @@ close the gap — is a natural, currently unexplored next step (see open problem
 
 ---
 
-## 19. Feature Ablation + Soft Topics on unseen (LOAO) authors — which feature helps/hurts generalization?
+## 19. Feature Ablation + Soft Topics on unseen (LOAO) authors: which feature helps/hurts generalization?
 
 **Experiment status:** Diagnostic · Mixed · Closed (see legend above)
 
@@ -1782,7 +1798,7 @@ should not be assumed safe by default in future ablations.
 
 ---
 
-## 20. Hard Topic vs. Soft Topic Distribution vs. LDA Distribution for Narrative Classification — SBERT-backbone, controlled comparison
+## 20. Hard Topic vs. Soft Topic Distribution vs. LDA Distribution for Narrative Classification: SBERT-backbone, controlled comparison
 
 **Experiment status:** Confirmatory · Mixed · Closed (see legend above)
 
@@ -2081,7 +2097,7 @@ code additions — 0 failures.
 
 ---
 
-## 21. Entity Shortcut Test — does entity IDENTITY (not just topic/stance) drive the LOAO Right-wing shortcut?
+## 21. Entity Shortcut Test: does entity IDENTITY (not just topic/stance) drive the LOAO Right-wing shortcut?
 
 **Experiment status:** Diagnostic · Mixed · Closed (see legend above)
 
@@ -2241,7 +2257,7 @@ feature caches: `data/cache/cached_features_entity_shortcut_{author}.pt`. Checkp
 
 ---
 
-## 22. Stance-Aware Entity Representation — representation-validation gate (NOT reached: LOAO training)
+## 22. Stance-Aware Entity Representation: representation-validation gate (NOT reached: LOAO training)
 
 **Experiment status:** Exploratory · Negative · Closed (see legend above)
 
@@ -2493,7 +2509,7 @@ git-tracked, none regenerated after annotation):
 
 ---
 
-## 23. Entity-Masking Augmentation — can training-time invariance capture Bernie's gain without paying IDF/Maria's cost?
+## 23. Entity-Masking Augmentation: can training-time invariance capture Bernie's gain without paying IDF/Maria's cost?
 
 **Experiment status:** Intervention · Mixed · Closed (see legend above)
 
@@ -2772,7 +2788,7 @@ Results: `artifacts/experiments/narrative_idf_masking_regression_audit/` (`idf_m
 
 ---
 
-## 24. Selective Entity-Masking Augmentation — exploratory test of a test-informed hypothesis
+## 24. Selective Entity-Masking Augmentation: exploratory test of a test-informed hypothesis
 
 **Experiment status:** Exploratory · Mixed · Closed (see legend above)
 
@@ -2873,7 +2889,7 @@ Results: `artifacts/experiments/narrative_selective_entity_masking_augmentation/
 
 ---
 
-## 25. Fresh-Author Confirmatory Evaluation — Protocol / Pre-registration
+## 25. Fresh-Author Confirmatory Evaluation: Protocol / Pre-registration
 
 **Experiment status:** Confirmatory · Negative · Closed (see legend above)
 
@@ -3034,7 +3050,7 @@ itself violate this section's own no-further-tuning pre-registration).
 
 ---
 
-## 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree)
+## 26. Unseen-Author Error Diagnostics: per-example interpretability study (Decision Tree)
 
 **Experiment status:** Diagnostic · Negative · Closed (see legend above)
 
@@ -3161,7 +3177,7 @@ considered at any point in this section.
 
 ---
 
-## 27. Author Signature Diagnostics — does the text itself identify its author? (Decision Tree)
+## 27. Author Signature Diagnostics: does the text itself identify its author? (Decision Tree)
 
 **Experiment status:** Diagnostic · Positive · Closed (see legend above)
 
@@ -3303,7 +3319,7 @@ norm (Section 26).
 
 ---
 
-## 28. Style-Normalization Intervention — does removing author-specific formatting/style signal improve unseen-author generalization?
+## 28. Style-Normalization Intervention: does removing author-specific formatting/style signal improve unseen-author generalization?
 
 **Experiment status:** Intervention · Negative · Closed (see legend above)
 
@@ -3553,7 +3569,150 @@ simple surface-level style normalization can exploit to improve unseen-author ge
 if anything, this normalization made fresh-author recall worse for most authors tested, closing
 this specific line of investigation as a negative result.
 
+## 29. Human Validation of Key Labels: how noisy is the ground truth?
+
+**Experiment status:** Diagnostic · Positive · Closed (see legend above)
+
+**Goal:** Estimate label noise in the narrative key labels that all LOAO evaluations treat as ground truth, so later removal-retrain results (§30) can be read against a measured noise floor rather than speculation.
+
+**Method:** Single-annotator blind re-labeling of a stratified sample (n=198) against the key labels, reporting accuracy and Cohen kappa overall and per narrative. A second-annotator reliability file (100 rows) was prepared but returned with 0/100 rows labeled, so inter-annotator kappa is not computable. Hard-noise estimate is derived on the single-annotator basis only.
+
+**Result:** Annotator-vs-key agreement on n=198 is accuracy 0.7727 with kappa 0.7348. Per-narrative accuracy is lowest for Russian at 0.6774. The second-annotator file has 0/100 rows labeled so kappa is not computable. Hard-noise estimate is 33/166 = 0.1988 on the single-annotator basis.
+
+**Conclusion:** Key labels are mostly sound (substantial agreement at kappa 0.7348) with hard noise near 0.1988. Label noise is real but not large enough on its own to explain the 20-38pp LOAO drops, which motivates the removal retrain in §30 as a direct test.
+
+Artifacts: `artifacts/experiments/human_validation/results.json`.
+
 ---
+
+## 30. Label-Noise Removal Retrain: does dropping noisy accounts fix LOAO?
+
+**Experiment status:** Exploratory · Mixed · Closed (see legend above)
+
+**Goal:** Test whether removing the accounts flagged as noisy changes unseen-author recall for the three LOAO authors (IDF, MariaZakharova, BernieSanders).
+
+**Method:** Dropped OpenSourceIntel and ResistanceNewsNetwork (202 rows, corpus 16510 to 16308), retrained `sbert_only` once per arm on the reduced corpus, and compared recall on the same three held-out LOAO authors against the original-corpus baseline.
+
+**Result:** `sbert_only` recall moved to IDF 0.60 vs 0.635 (-0.035) and Maria 0.85 vs 0.895 (-0.045), but Bernie improved to 0.36 vs 0.245 (+0.115, with Right-wing misroute down 9.5pp). The effect points in both directions, not a clean fix.
+
+**Conclusion:** Removal helps one author and hurts two, so noisy-account removal is not a general remedy for the LOAO gap. Caveats: train/val splits were re-randomized between arms so deltas mix removal with re-split stochasticity, there is only a single seed per arm, and the 14-author rerun was not done. Closed as exploratory and mixed.
+
+Artifacts: `artifacts/experiments/label_noise_impact/removal_retrain_results.json`.
+
+---
+
+## 31. Matched-Event Evaluation (Mode Z): is the LOAO gap just event mismatch?
+
+**Experiment status:** Diagnostic · Negative · Closed (see legend above)
+
+**Goal:** Test whether the LOAO recall gap shrinks when train and held-out texts are matched on the same real-world event, which would implicate event/topic confounding rather than author identity.
+
+**Method:** Mode Z event-matched directed-pair evaluation over the frozen event suites, comparing the event-matched mean gap against the mismatched LOAO mean gap. Mode T was not run.
+
+**Result:** 196/592 directed pairs were covered. The event-matched mean gap is -36.3pp vs the mismatched LOAO mean gap of -30.9pp: no shrinkage, the matched gap is larger. Only russia_ukraine_2026-03 is smaller at -15.6pp. Separately, a telegram-NaT date-parsing bug was fixed in this work: per-frame date parsing in `audit_matched_events.py` moved proof coverage from cell 221 to 711 and candidate rows from 193 to 379.
+
+**Conclusion:** Event matching does not close the gap, so event mismatch is not the primary driver of LOAO errors. Closed as a negative diagnostic; Mode T remains not run by design.
+
+Artifacts: `artifacts/experiments/matched_event_eval/matched_eval_results.json`.
+
+---
+
+## 32. Entity Attribution by Test-Time Swaps: does entity identity cause LOAO errors?
+
+**Experiment status:** Diagnostic · Negative · Closed (see legend above)
+
+**Goal:** Measure causally, at test time only, how much of the LOAO error is driven by entity identity versus surrounding context.
+
+**Method:** Test-time entity swaps over the full 3009 rows: cross-author entity transplant (flip cross) vs a placebo same-author entity shuffle, reporting the average causal effect (ACE) of the swap on predicted-label flips and the correlation between per-example ACE and the LOAO error gap.
+
+**Result:** Flip cross is 0.577 vs placebo 0.534, for an ACE of +0.043. ACE-gap correlation is Pearson r = -0.596 and Spearman rho = -0.657, with donor-share 0.382. Per-author ACE ranges from -0.146 to +0.166, so the swap effect is small and inconsistent across authors.
+
+**Conclusion:** Entity identity correlates with LOAO errors but does not causally drive them: a +0.043 ACE barely above placebo cannot account for the observed gaps. Closed as a negative diagnostic.
+
+Artifacts: `artifacts/experiments/entity_attribution/attribution_results.json`.
+
+
+---
+
+## 33. Group-DRO on (narrative, author) Groups
+
+**Experiment status:** Intervention · Negative · Closed (see legend above)
+
+**Goal:** Test whether group-DRO training over (narrative, author) groups closes the unseen-author recall gap, following the same selection-then-confirmation pattern as the masking line (§§23-25): pick the DRO setting on 3 exploratory authors, then run a pre-registered confirmatory test on 14 fresh held-out authors.
+
+**Method:** Selection swept eta and C on the 3 exploratory LOAO authors (IDF, MariaZakharova, BernieSanders), ranking configs by mean worst-group val recall over those authors (spec section 6); the winner was frozen with no post-hoc tuning allowed on the 14-author set. Confirmatory evaluated the single frozen config against the `sbert_only` baseline on all 14 fresh authors under four pre-registered bars: mean recall, median recall, a >10pp-degradation guardrail (at most 2 of 14 authors allowed), and dominant-error concentration.
+
+**Result:** Selection winner is eta=0.01, C=0, by mean worst-group val recall 0.2517. Its held-out test-recall deltas vs `sbert_only` are mixed: IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp. Confirmatory ran 14/14 complete: mean DRO recall 33.3% vs baseline 39.0% (needs >=36.0%) FAIL; median 30.8% vs 38.8% (needs >=35.8%) FAIL; guardrail 3/14 authors degrade >10pp (BringThemHomeNow -41.5, Babel -26.0, United24Media -15.5; at most 2 allowed) FAIL; dominant-error concentration 43.9% vs 44.2% PASS. Verdict: `NOT_SUPPORTED`.
+
+**Conclusion:** Group-DRO with the selected setting does not close the unseen-author gap: it loses on average recall, fails the guardrail, and only passes the concentration check, so the robustness hypothesis is not supported. Closed as a negative intervention with no production change; the winner stayed frozen and no post-hoc tuning on the 14-author set was performed.
+
+Artifacts: `artifacts/experiments/group_dro/selection.json`, `artifacts/experiments/group_dro/confirmatory.json`.
+
+---
+
+## 34. Closing the two open questions: seed stability of noise removal (34A) and fresh-train matched-event eval (34B)
+
+**Experiment status 34A:** Exploratory · Negative · Closed (see legend above)
+
+**Experiment status 34B:** Diagnostic · Negative · Closed (see legend above)
+
+### 34A. Multiseed noise-removal stability: is the §30 Bernie gain real?
+
+**Goal:** Test whether the single-seed BernieSanders +0.115 recall gain from §30 replicates across seeds once the removal-vs-baseline comparison is made apples-to-apples.
+
+**Method:** Post-split row-mask method: for each author and seed (42/43/44), the full-corpus baseline split is built first (test is all held-out author rows; pool split train/val by sklearn train_test_split test_size=0.15 random_state=seed); the removal arm reuses the SAME train/val row membership and drops pool rows with author_source in the exclusion set (OpenSourceIntel, ResistanceNewsNetwork: 202 rows). Note: seed 42 values are reused verbatim from removal_retrain_results.json (the older pre-split filter run) and kept for continuity; seeds 43 and 44 are fresh runs under the post-split mask. Per-epoch train order is fixed (no reshuffling), matching narrative_ablation_loao.train_variant. Variant `sbert_only` (sentence-transformers/all-MiniLM-L6-v2, epochs 20, batch 16, lr 0.001, patience 3), CPU only. n_test 200 per author.
+
+**Result:** Bernie per-seed removal-minus-baseline recall deltas are +0.115 (seed 42), -0.085 (seed 43), -0.025 (seed 44), mean +0.0017 std 0.1026, with the sign flipping across seeds. The baseline arm alone swings 0.245-0.335 across seeds (range 0.090), so a 0.115 single-seed delta is within the observed seed noise. Right-wing rate delta likewise flips sign (mean +0.0083, std 0.0929). IDF mean delta -0.025 (std 0.0218) and MariaZakharova mean delta -0.0417 (std 0.0401) are small negatives within about 1 std of zero.
+
+**Conclusion:** The §30 Bernie gain is within noise, not a systematic removal effect: it does not replicate across seeds, and removing 202/16510 rows shows no demonstrated systematic effect on unseen-author `sbert_only` recall. Closed as an exploratory negative.
+
+Artifacts: `artifacts/experiments/label_noise_impact/multiseed/multiseed_results.json`.
+
+### 34B. Sampled fresh-train matched-event eval (Mode T): does training on the event close the gap?
+
+**Goal:** Run the Mode T evaluation left not-run by design in §31: fresh-train a classifier on the train author of an event-matched pair and test on the paired author, to see whether single-event supervision closes the event-matched gap.
+
+**Method:** 40 undirected author pairs sampled min-1-per-suite plus largest-remainder proportional to covered-pair counts (seed 42, choice without replacement per suite); direction per undirected pair prefers the Mode-Z-covered test author for direct comparability, else random (seed 42); all cells verified >=30 texts from the pairs CSV train_n/test_n. Per pair, `sbert_only` fresh-trained on train-author suite rows only (85/15 train/val, EPOCHS=20 BATCH=16 lr=0.001 patience=3 seed 42, hidden 128 dropout 0.3, backbone sentence-transformers/all-MiniLM-L6-v2) and evaluated for true-narrative recall on the test author rows.
+
+**Result:** Sampled Mode T mean recall 0.0059 with mean gap -73.4pp vs the `sbert_only` random baseline, against the Mode Z matched mean gap of -36.3pp (variant Z_sbert_soft_topic, 196 covered pairs). On the 25 sampled pairs also covered by Mode Z, Z mean recall is 0.2951, far above T. 34/40 pairs score exact-zero recall because single-narrative supervision collapses predictions onto the train narrative (per-pair pred_hist shows the train narrative taking nearly all test rows).
+
+**Conclusion:** Fresh single-author training does not close the event-matched gap; it collapses harder than the frozen-checkpoint Mode Z evaluation. Closed as a diagnostic negative.
+
+Artifacts: `artifacts/experiments/matched_event_eval/mode_t_sampled/mode_t_results.json`; runner `artifacts/experiments/matched_event_eval/mode_t_sampled/run_mode_t_sampled.py`.
+
+---
+
+## 35. What finally works: few-shot author adaptation (35A, positive) and selective prediction (35B, mixed)
+
+**Experiment status 35A:** Intervention · Positive · Current (see legend above)
+
+**Experiment status 35B:** Diagnostic · Mixed · Closed (see legend above)
+
+### 35A. Few-shot author adaptation: labeling a handful of rows from a new author recovers recall with no retraining
+
+**Goal:** Test whether a new author can be handled at deployment time without retraining, by nudging the frozen classifier toward a few labeled rows from that author.
+
+**Method:** Frozen SBERT `all-MiniLM-L6-v2`. Seven narrative centroids built from author-disjoint train rows only. Each centroid is adapted toward the test author with k labeled support rows from that author (support/query disjoint, overlap 0 verified), via `adapted_t = normalize((1-a)*C_t + a*S)` with the target narrative centroid moved and others unchanged; prediction is cosine nearest adapted centroid. Primary weight 0.5; weights 0.25 and 1.0 also tried. Bar (pre-declared): mean recall at some k<=10 beats the §25 `sbert_original` mean (0.390) by more than 3pp (i.e. > 0.42).
+
+**Result:** Per-k mean recall at primary weight 0.5: k=0: 0.326, k=1: 0.338, k=5: 0.553, k=10: 0.649 (median 0.650, std 0.221, min 0.153, max 0.989), k=20: 0.708. The bar passes: k=5 already passes (>0.42) and k=10 gains +25.9pp over the §25 mean of 0.390. Weight sensitivity: 0.25 is best at k=1 (41.8% mean) while 1.0 collapses at k=1 (12.3% mean), so a single support row over-trusted (weight 1.0) is worse than a cautious blend; weight 0.5 dominates at k>=5.
+
+**Honest caveats:** Per-author spread at k=10 is wide (min 0.153, max 0.989, std 0.221): adaptation helps on average, not everywhere. And the support labels come from the test author, which is the few-shot premise, not zero-shot generalization; the realistic deployment reading is labeling a handful of rows from a new outlet.
+
+**Conclusion:** First intervention that improves unseen-author recall, reframing deployment from zero-shot to few-shot: labeling 10 rows from a new author recovers recall to 64.9% mean (median 65.0%) with no retraining, vs 39.0% zero-shot. Current: open for follow-up on which authors resist adaptation and how few rows suffice per narrative.
+
+Artifacts: `artifacts/experiments/few_shot_adaptation/fewshot_results.json`.
+
+### 35B. Selective prediction: confidence detects errors but does not close the gap
+
+**Goal:** Ask whether the classifier at least knows when it is wrong on fresh authors, so low-confidence rows can be abstained on instead of mislabeled.
+
+**Method:** Max-softmax confidence (and margin) from the frozen `sbert_original` checkpoint on the 14 fresh authors (n=3009 pooled), scored as error detectors via pooled AUROC, within-author z-scored AUROC, and risk/coverage curves.
+
+**Result:** Pooled AUROC 0.628 (within-author 0.600): confidence detects errors better than chance but weakly. Per-author AUROC exceeds 0.55 for 9/14 authors, ranging from 0.36 (ViceNews) to 0.75 (United24Media). Abstaining 20% lifts accuracy from 0.401 to 0.437, closing only 11% of the 0.331 gap to random-split accuracy; 40% abstention reaches 0.508. Recovering random-level 0.732 requires abstaining effectively everything (min abstention rate 0.9997). Pre-declared bar (AUROC > 0.55 AND >=50% gap closed at 20% or 40% abstention): AUROC passes, coverage fails, verdict mixed.
+
+**Conclusion:** Confidence detects errors but does not close the gap; selective prediction is a partial safety valve, not a fix for unseen-author recall. Closed as a mixed diagnostic.
+
+Artifacts: `artifacts/experiments/selective_prediction/selective_results.json`.
 
 ## Summary
 
@@ -3580,3 +3739,11 @@ this specific line of investigation as a negative result.
 | 26. Unseen-Author Error Diagnostics — per-example interpretability study (Decision Tree) | First pass: 5 generic features (`text_length`/`entity_count`/`soft_topic_max_prob`/`soft_topic_entropy`/`classifier_margin`), training accuracy only. Second pass: 11 domain-shift/novelty/style features (SBERT similarity-to-train, entity/lexical novelty, topic-distribution distance, basic style), `classifier_margin` excluded, evaluated via `StratifiedGroupKFold` (5-fold, grouped by author) at depth 3/4/5, on all 3,009 test examples from Section 25's 14 fresh authors | First pass: training accuracy 62.4% vs. 59.9% majority baseline (+2.5pp), dominated by near-tautological `classifier_margin`. Second pass: grouped CV accuracy 56.7%/57.3%/59.0% (depth 3/4/5) — **none beat the 59.9% majority baseline**; full-data-fit feature importance (`distance_to_same_narrative_centroid`≈0.59, `topic_distribution_distance`≈0.30) is not supported by the CV result, and per-leaf error rates show no stable/monotonic pattern | **Closed as negative/inconclusive per the user's pre-registered stopping rule** — not extended to Random Forest or further feature engineering; no evidence domain shift *isn't* the cause, only that no stable per-example pattern was detectable with the tried features/method |
 | 27. Author Signature Diagnostics — does the text identify its author? (Decision Tree) | Decision Tree predicts `author` (never a feature) from 28 style/lexical/entity/topic/SBERT-PCA features, on 50 real authors (10,091 rows, ≥100 examples each, all 7 narratives). Experiment A: all narratives pooled. Experiment B (decisive): same tree, run separately **within each narrative** (narrative held constant). `StratifiedKFold` 5-fold + `cross_val_predict` for honest out-of-fold accuracy/macro-F1/confusion matrices | Experiment A: 47.3% OOF accuracy vs. 4.0%/2.0% (majority/chance) baselines. Experiment B: **every one of the 7 narratives beat both baselines**, several by a wide margin (Western 85.1% vs. 20–22%; Russian 76.0% vs. 11.1%; Zionist, the weakest, still 48.3% vs. 11.1–11.7%) — narrative held constant, so this cannot be a narrative-as-author-proxy artifact. Top features were dominated by style/formatting (`text_length`, `word_count`, `url_count`, `mention_count`, `punctuation_rate`), not semantic content | **Positive result, closed after one pass.** Author identity is recoverable from simple stylistic/formatting features even within a fixed narrative — direct evidence of an author-specific signature that plausibly contributes to unseen-author (LOAO) degradation. Complements rather than contradicts Section 26 (different question: "does author signal exist" vs. "can we predict which examples a given classifier gets wrong"). No production change made; no causal ablation run |
 | 28. Style-Normalization Intervention — does removing author-specific style signal improve unseen-author generalization? | Deterministic `normalize_style()` (URL/mention/hashtag/emoji/repeated-char normalization, pre-registered, unit-tested) applied before SBERT encoding. Part A: Section 27's methodology re-run on normalized text (global + 7 narratives). Part B: `AblationDetector(arms=set())` (= Section 20's `"none"` mode / Section 25's `sbert_original`) trained fresh on normalized text, random split (3 seeds) + all 14 Section-25 frozen fresh authors, compared against REUSED (never retrained) Section 20/25 baselines; sanity-checked (`all_passed=true`) for identical rows/labels/splits/authors before any comparison | Part A: author-signal reduced substantially (avg ≈−15pp macro-F1, 6/7 narratives; Right-wing −26%, Zionist the one exception at +7%) but not eliminated anywhere. Part B: random-split macro-F1 non-inferior (−2.57pp, inside ±3pp margin), but fresh-author recall got **worse**, not better — 13/14 authors degraded, mean −6.4pp, median −10.8pp (opposite direction from the required ≥+3pp improvement) | **`WEAK_INCONCLUSIVE` per the pre-registered 3-way rule, but honestly a negative result**: this specific normalization measurably weakened the author shortcut (Part A) yet made unseen-author recall worse for most authors (Part B), not better — the author-signal-as-harmful-shortcut hypothesis is not confirmed; closed as negative, no production change |
+| 29. Human validation of key labels - how noisy is ground truth? | Single-annotator blind re-labeling of stratified sample (n=198) vs key labels; second-annotator file returned 0/100 rows so no inter-annotator kappa | Annotator-vs-key accuracy 0.7727, kappa 0.7348 (Russian lowest at 0.6774); hard noise 33/166 = 0.1988 | Key labels mostly sound; noise real but too small to explain 20-38pp LOAO drops; motivated §30 removal retrain |
+| 30. Label-noise removal retrain - does dropping noisy accounts fix LOAO? | Dropped OpenSourceIntel + ResistanceNewsNetwork (202 rows), retrained `sbert_only` per arm, same 3 LOAO authors vs original-corpus baseline | IDF 0.60 vs 0.635 (-0.035), Maria 0.85 vs 0.895 (-0.045), Bernie 0.36 vs 0.245 (+0.115, Right-wing misroute down 9.5pp) | Helps one author, hurts two: noisy-account removal is not a general remedy for the LOAO gap (single seed per arm, re-randomized splits) |
+| 31. Matched-event evaluation (Mode Z) - is the LOAO gap just event mismatch? | Mode Z event-matched directed-pair evaluation over frozen event suites vs mismatched LOAO mean gap; Mode T not run | 196/592 pairs covered; event-matched mean gap -36.3pp vs mismatched LOAO -30.9pp (no shrinkage); only russia_ukraine_2026-03 smaller at -15.6pp | Event mismatch is not the primary driver of LOAO errors; closed as negative diagnostic |
+| 32. Entity attribution by test-time swaps - does entity identity cause LOAO errors? | Test-time entity swaps over full 3009 rows: cross-author transplant (flip cross) vs same-author placebo shuffle; ACE on predicted-label flips | Flip cross 0.577 vs placebo 0.534 (ACE +0.043); per-author ACE -0.146 to +0.166; ACE-gap correlation r = -0.596 | Entity identity correlates with LOAO errors but does not causally drive them; closed as negative diagnostic |
+| 33. Group-DRO on (narrative, author) groups - does robust optimization close the gap? | Eta/C grid selected on 3 exploratory authors by mean worst-group val recall (winner eta=0.01, C=0, frozen), then pre-registered confirmatory on 14 fresh authors vs `sbert_only` | Selection deltas IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp; confirmatory 14/14: mean 33.3% vs 39.0% (needs >=36.0%) FAIL, median 30.8% vs 38.8% (needs >=35.8%) FAIL, guardrail 3/14 >10pp degradations (at most 2) FAIL, concentration 43.9% vs 44.2% PASS; verdict `NOT_SUPPORTED` | Group-DRO does not generalize; closed as negative intervention, no production change, no post-hoc tuning |
+| 34. Open-question closeout (34A multiseed noise removal; 34B sampled Mode T fresh-train) | 34A: post-split row-mask removal vs same-membership baseline, seeds 42/43/44 (seed 42 reused pre-split values); 34B: 40 sampled event-matched pairs, per-pair fresh `sbert_only` on train-author rows | 34A: Bernie deltas +0.115/-0.085/-0.025 (mean +0.0017, std 0.1026, sign flips; baseline swings 0.245-0.335); IDF mean -0.025, Maria mean -0.0417; 34B: Mode T mean recall 0.0059 (gap -73.4pp) vs Mode Z matched -36.3pp; Z recall on 25 covered sampled pairs 0.2951; 34/40 pairs exact zero | Both negatives, closed: no systematic removal effect; fresh single-author training collapses onto the train narrative and does not close the gap |
+| 35. Few-shot adaptation (35A) + selective prediction (35B) | 35A: frozen-SBERT narrative centroids adapted toward the test author with k labeled support rows (weight 0.5, support/query disjoint); 35B: abstain on low max-softmax-confidence fresh-author rows, pooled + per-author AUROC and risk/coverage | 35A: per-k mean recall k=0: 0.326, k=1: 0.338, k=5: 0.553, k=10: 0.649 (median 0.650, std 0.221, min 0.153, max 0.989), k=20: 0.708; bar passed (>0.42 at k<=10, k=5 already passes); +25.9pp vs §25 sbert_original mean 0.390. 35B: pooled AUROC 0.628 (within-author 0.600), 9/14 authors above 0.55, range 0.36 ViceNews to 0.75 United24Media; 20% abstention lifts accuracy 0.401 to 0.437 (11% of the 0.331 gap), 40% abstention reaches 0.508; recovering random-level 0.732 requires abstaining effectively everything | 35A first positive intervention, reframing deployment from zero-shot to few-shot (Current); 35B confidence detects errors but does not close the gap (Closed) |
+
