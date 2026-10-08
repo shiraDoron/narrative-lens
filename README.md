@@ -10,7 +10,7 @@ Derived from EXPERIMENTS.md Sections 18 to 35. Full arc: [EXPERIMENTS.md](EXPERI
 - **RQ2 (entity shortcut):** is the LOAO drop driven by memorized named-entity identities, and does training-time entity masking close the gap on fresh authors? (Sections 21 to 25)
 - **RQ3 (style shortcut):** can surface author style alone identify the author within a fixed narrative, and does normalizing that style improve unseen-author generalization? (Sections 27, 28)
 - **RQ4 (what explains the gap):** to what extent can label noise, event/topic confounding, entity dependence, and robustness interventions explain or mitigate the degradation observed for unseen authors? (Sections 29 to 34)
-- **RQ5 (few-shot recovery):** how much labeled data from a previously unseen author is needed to recover performance, and how effective is few-shot adaptation compared with zero-shot generalization? (Section 35)
+- **RQ5 (few-shot recovery):** how much labeled data from a previously unseen author is needed to recover performance, and how effective is few-shot adaptation compared with zero-shot generalization? (Sections 35, 36)
 
 ## Dataset snapshot
 
@@ -33,7 +33,7 @@ Details: [docs/results.md](docs/results.md). All numbers below trace to that fil
   - Fresh single-author training collapses harder (recall 0.006, gap -73.4pp; Section 34B).
   - Entity identity correlates but does not cause errors: the entity-swap ACE is +0.043, barely above placebo (Section 32).
   - Group-DRO confirmatory: `NOT_SUPPORTED`. Mean recall 33.3% vs 39.0% baseline, median 30.8% vs 38.8%, guardrail 3/14 (Section 33).
-- **RQ5: few-shot adaptation recovers recall; zero-shot fixes do not.** Labeling 10 rows from a new author recovers recall to 64.9% mean (median 65.0%) with no retraining, vs 39.0% zero-shot (Section 35A).
+- **RQ5: few-shot adaptation recovers recall; zero-shot fixes do not.** Labeling 10 rows from a new author recovers recall to 64.9% mean (median 65.0%) with no retraining, vs 39.0% zero-shot (Section 35A). A multi-seed re-test (5 independent sampling seeds per k, Section 36) confirms the k=10 magnitude (65.7% mean) but shows the curve is not monotonic: a single example (k=1) is unreliable and underperforms zero-shot for 9 of 14 authors, k=5-10 is where adaptation becomes reliable (12-13 of 14 authors improve), and one author with an already-strong zero-shot baseline (`United24Media`) resists adaptation at every k tested.
 
 ## Repo map
 

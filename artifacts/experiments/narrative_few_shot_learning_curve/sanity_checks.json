@@ -1,0 +1,109 @@
+{
+  "n_frozen_authors": 14,
+  "frozen_authors_match_section25_results_file": true,
+  "zero_shot_baseline": {
+    "mean_this_run": 0.38952665755297333,
+    "section35a_published_mean": 0.39,
+    "matches_within_1pp": true
+  },
+  "test_set_sizes_match_split_function": {
+    "abualiexpress": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "BringThemHomeNow": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "AlJazeeraEnglish": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "PressTV": {
+      "n_test_from_split": 400,
+      "n_test_from_section25_results": 400,
+      "match": true
+    },
+    "NATO": {
+      "n_test_from_split": 209,
+      "n_test_from_section25_results": 209,
+      "match": true
+    },
+    "Bloomberg": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "KremlinRussia_E": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "Slavyangrad": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "Babel": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "United24Media": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "ThePostMillennial": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "TheEpochTimes": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "@MiddleEastEye_TG": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    },
+    "ViceNews": {
+      "n_test_from_split": 200,
+      "n_test_from_section25_results": 200,
+      "match": true
+    }
+  },
+  "all_test_sizes_match": true,
+  "k20_feasible_for_all_authors": true,
+  "k20_infeasible_authors": [],
+  "support_query_disjoint_verified": true,
+  "labels_unchanged": true,
+  "same_dataset_version": {
+    "dataset_total_rows": 16510,
+    "data_load_seed": 42
+  },
+  "preprocessing": {
+    "text_truncation_chars": 3000,
+    "sbert_model": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "same_checkpoint_model_family": "sentence-transformers/all-MiniLM-L6-v2",
+  "sampling_seeds_documented": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "primary_weight_reused_unchanged": 0.5,
+  "centroid_k0_vs_section35a_published": {
+    "mean_this_run": 0.32623803827751197,
+    "section35a_published": 0.326,
+    "difference_pp": 0.023803827751195383
+  },
+  "all_passed": true
+}

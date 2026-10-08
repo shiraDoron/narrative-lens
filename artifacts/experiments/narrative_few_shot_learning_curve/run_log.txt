@@ -1,0 +1,24 @@
+Loaded 14 frozen authors from C:\Users\P0039126\Downloads\תזה\final_project\artifacts\experiments\narrative_fresh_author_audit\fresh_author_confirmatory_set.json
+Loaded deployed zero-shot (Section 25 sbert_original) baseline for all 14 authors from C:\Users\P0039126\Downloads\תזה\final_project\artifacts\experiments\narrative_fresh_author_confirmatory\results.json
+Loading frozen SBERT 'sentence-transformers/all-MiniLM-L6-v2' (encode-only, CPU)...
+Encoding 16510 texts...
+Embeddings shape: (16510, 384)
+[abualiexpress] narrative=Zionist n_test=200 k0_centroid_recall=0.1150 deployed_zero_shot=0.2400
+[BringThemHomeNow] narrative=Zionist n_test=200 k0_centroid_recall=0.7050 deployed_zero_shot=0.6200
+[AlJazeeraEnglish] narrative=Resistance n_test=200 k0_centroid_recall=0.1350 deployed_zero_shot=0.2750
+[PressTV] narrative=Resistance n_test=400 k0_centroid_recall=0.4975 deployed_zero_shot=0.5700
+[NATO] narrative=Western n_test=209 k0_centroid_recall=0.1148 deployed_zero_shot=0.2584
+[Bloomberg] narrative=Western n_test=200 k0_centroid_recall=0.0650 deployed_zero_shot=0.0550
+[KremlinRussia_E] narrative=Russian n_test=200 k0_centroid_recall=0.5100 deployed_zero_shot=0.5000
+[Slavyangrad] narrative=Russian n_test=200 k0_centroid_recall=0.2100 deployed_zero_shot=0.2200
+[Babel] narrative=Ukrainian n_test=200 k0_centroid_recall=0.4400 deployed_zero_shot=0.5900
+[United24Media] narrative=Ukrainian n_test=200 k0_centroid_recall=0.5650 deployed_zero_shot=0.7700
+[ThePostMillennial] narrative=Right-wing n_test=200 k0_centroid_recall=0.5950 deployed_zero_shot=0.6400
+[TheEpochTimes] narrative=Right-wing n_test=200 k0_centroid_recall=0.4950 deployed_zero_shot=0.5050
+[@MiddleEastEye_TG] narrative=Left-wing n_test=200 k0_centroid_recall=0.0000 deployed_zero_shot=0.0300
+[ViceNews] narrative=Left-wing n_test=200 k0_centroid_recall=0.1200 deployed_zero_shot=0.1800
+Wrote sanity_checks.json (all_passed=True)
+Wrote raw_results.json
+Wrote per_seed_results.csv, per_author_results.csv, aggregated_table.csv
+Wrote learning_curve.png
+Wrote learning_curve_per_author.png

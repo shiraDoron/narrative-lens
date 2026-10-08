@@ -1,0 +1,30 @@
+{
+  "data_seed": 42,
+  "sampling_seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "ks_fewshot": [
+    1,
+    5,
+    10,
+    20
+  ],
+  "primary_weight": 0.5,
+  "sbert_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "text_truncation_chars": 3000,
+  "n_bootstrap": 10000,
+  "frozen_set_file": "artifacts\\experiments\\narrative_fresh_author_audit\\fresh_author_confirmatory_set.json",
+  "baseline_results_file": "artifacts\\experiments\\narrative_fresh_author_confirmatory\\results.json",
+  "interpretation_thresholds": {
+    "mode_a_fraction": 0.7,
+    "heterogeneity_cv_threshold": 0.35,
+    "heterogeneity_degrade_fraction": 0.3,
+    "replication_tolerance": 0.05,
+    "monotonic_tolerance": 0.02,
+    "section_35a_published_k10_mean": 0.649
+  }
+}

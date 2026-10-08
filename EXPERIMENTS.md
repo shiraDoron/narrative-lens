@@ -44,6 +44,7 @@ narrative arc that connects the sections below, in the order the questions were 
 | 13 | Group robustness (confirmation) | Does the frozen DRO setting replicate on 14 fresh held-out authors (pre-registered test)? | **No**: `NOT_SUPPORTED`; mean, median, and guardrail all FAIL, only error-concentration passes | §33 |
 | 14 | Open-question closeout | Is the §30 Bernie gain stable across seeds, and does fresh single-author training close the event-matched gap? | **No to both**: noise-removal deltas flip sign across seeds 42/43/44 (Bernie mean +0.0017); fresh-train matched recall 0.0059 (gap -73.4pp), worse than Mode Z matched -36.3pp | §34 |
 | 15 | Few-shot adaptation + selective prediction | Does labeling a few rows from a new author, or abstaining on low-confidence rows, fix unseen-author recall? | **Yes to few-shot, no to abstention**: k=10 support recovers mean recall to 64.9% (first positive intervention); confidence detects errors (AUROC 0.63) but 20% abstention only lifts accuracy 0.401 to 0.437 | §35 |
+| 16 | Few-shot learning curve (multi-seed confirmatory) | Does Section 35A's single-draw result survive 5 independent sampling seeds per k, and which authors resist adaptation? | **Mostly yes**: k=10 replicates (65.7% vs. 64.9%), but the curve is non-monotonic at k=1 (9/14 authors degrade vs. zero-shot) and one author (`United24Media`) resists adaptation at every k; closes the few-shot line of investigation | §36 |
 
 For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_only` vs.
 `hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
@@ -94,8 +95,9 @@ summarized in the storyline table above.
 | §33 Group-DRO on (narrative, author) groups | Intervention | Negative | Closed |
 | §34A Multiseed noise-removal stability | Exploratory | Negative | Closed |
 | §34B Sampled fresh-train matched-event eval (Mode T) | Diagnostic | Negative | Closed |
-| §35A Few-shot author adaptation | Intervention | Positive | Current |
+| §35A Few-shot author adaptation | Intervention | Positive | Closed (confirmed/qualified by §36) |
 | §35B Selective prediction on fresh authors | Diagnostic | Mixed | Closed |
+| §36 Few-shot learning curve (multi-seed) | Intervention/Confirmatory | Mixed-positive | Closed |
 
 ---
 
@@ -3684,7 +3686,7 @@ Artifacts: `artifacts/experiments/matched_event_eval/mode_t_sampled/mode_t_resul
 
 ## 35. What finally works: few-shot author adaptation (35A, positive) and selective prediction (35B, mixed)
 
-**Experiment status 35A:** Intervention · Positive · Current (see legend above)
+**Experiment status 35A:** Intervention · Positive · Closed (confirmed and qualified by the multi-seed re-test in Section 36; see legend above)
 
 **Experiment status 35B:** Diagnostic · Mixed · Closed (see legend above)
 
@@ -3713,6 +3715,126 @@ Artifacts: `artifacts/experiments/few_shot_adaptation/fewshot_results.json`.
 **Conclusion:** Confidence detects errors but does not close the gap; selective prediction is a partial safety valve, not a fix for unseen-author recall. Closed as a mixed diagnostic.
 
 Artifacts: `artifacts/experiments/selective_prediction/selective_results.json`.
+
+## 36. Few-shot learning curve: does Section 35A's result hold up to multi-seed stress-testing?
+
+**Experiment status:** Intervention/Confirmatory · Mixed-positive · Closed
+
+**Research question:** How much labeled data from a new author is actually needed to recover
+narrative-classification performance, and does Section 35A's single-draw result survive a
+rigorous multi-seed re-test? Relation to RQ5 (few-shot adaptation): this is the confirmatory
+follow-up Section 35A itself called for ("open for follow-up on which authors resist adaptation
+and how few rows suffice"). Relation to Section 35A: identical frozen cohort, identical SBERT
+encoder, identical centroid-adaptation rule and primary weight (a=0.5); the only methodological
+change is replacing Section 35A's single fixed sample of k support rows per author (seed=42,
+nested prefixes of one permutation) with 5 independent sampling seeds per k, so no reported
+number depends on which k examples happened to be drawn.
+
+**Method:** Reused unchanged from Sections 25/35A: the 14 frozen fresh authors
+(`artifacts/experiments/narrative_fresh_author_audit/fresh_author_confirmatory_set.json`), the
+frozen SBERT `all-MiniLM-L6-v2` encoder, `split_leave_one_author` per author, and the centroid
+rule `adapted_t = normalize((1-a)*C_t + a*S)` at the primary weight a=0.5 (not re-tuned). k in
+{0, 1, 5, 10, 20} for every author; no author was swapped or chosen by outcome. For k>0, 5
+independent sampling seeds (1-5, fixed in advance) drew k support rows per author (support/query
+disjoint, verified for every author x seed x k); k=20 was checked and confirmed feasible for all
+14 authors (every author's test set has >=200 rows). The k=0 point reuses Section 25's actual
+trained `sbert_original` zero-shot classifier recall per author (the "vs 39.0% zero-shot" baseline
+Section 35A's conclusion refers to) — not Section 35A's own weaker, unadapted centroid-method
+reference point (0.326), which is recorded separately here purely as a same-method replication
+check. Interpretation thresholds (efficiency/stability/replication) were fixed before running (see
+`configuration.json`) and applied mechanically, not tuned after seeing results. Sanity checks
+(`sanity_checks.json`, all passed): same 14 authors, same zero-shot baseline (0.3895 vs. published
+0.39), test-set sizes match Section 25's exactly for every author, k=20 feasible for all authors,
+zero support/query overlap everywhere, labels unchanged, same dataset (16,510 rows), same
+preprocessing (3000-char truncation), same checkpoint family.
+
+**Result (mean recall across the 14 authors, with 95% bootstrap CI across authors):**
+
+| k | mean | median | std (authors) | 95% CI | mean std across 5 seeds | n improved / degraded vs. zero-shot |
+|---|---|---|---|---|---|---|
+| 0 (zero-shot, §25 `sbert_original`) | 0.390 | 0.388 | 0.228 | [0.270, 0.510] | n/a (no sampling) | — |
+| 1 | 0.357 | 0.337 | 0.205 | [0.254, 0.473] | 0.100 | 5 / 9 |
+| 5 | 0.594 | 0.568 | 0.232 | [0.467, 0.715] | 0.051 | 12 / 2 |
+| 10 | 0.657 | 0.642 | 0.224 | [0.531, 0.769] | 0.035 | 13 / 1 |
+| 20 | 0.703 | 0.691 | 0.218 | [0.578, 0.809] | 0.026 | 13 / 1 |
+
+k=10's mean (0.657) matches Section 35A's published single-draw number (0.649) to within 0.8pp —
+a clean replication of the headline magnitude. The internal centroid-method k=0 reference also
+replicates almost exactly (0.3262 here vs. 0.326 published). However, **the curve is not
+monotonic**: at k=1 mean recall (0.357) sits *below* the zero-shot baseline (0.390, a -3.2pp dip),
+and a majority of authors (9/14) are worse off with a single random support example than with no
+adaptation at all. Sampling noise shrinks steadily with k (within-author seed std 0.100 at k=1 down
+to 0.026 at k=20), so this dip is not an artifact of an unlucky seed — it is consistent across all
+5 independent draws. Bootstrap CIs for k=1 and k=0 overlap substantially, so this is read as "a
+single example does not reliably help, and is as likely to hurt as to help" rather than a
+statistically precise claim (no significance test was run).
+
+Cross-seed variability is small relative to cross-author variability at every k (e.g. at k=10:
+mean within-author seed std 0.035 vs. across-author std 0.224) — most of the "wide spread" Section
+35A already flagged is genuine author-to-author heterogeneity, not sampling luck.
+
+**Per-narrative recall (k=0 -> 1 -> 5 -> 10 -> 20):** Western 0.157->0.365->0.633->0.710->0.768
+and Zionist 0.430->0.526->0.731->0.752->0.810 improve monotonically from the first support example.
+Left-wing 0.105->0.107->0.233->0.315->0.376, Resistance 0.423->0.342->0.611->0.695->0.737,
+Right-wing 0.573->0.537->0.794->0.846->0.877 and Russian 0.360->0.302->0.595->0.638->0.671 all dip
+mildly at k=1 before recovering strongly. Ukrainian is the outlier: 0.680->0.323->0.564->0.640->
+0.684 — a large dip at k=1 that never fully recovers to its own zero-shot level even at k=20,
+driven almost entirely by one author (next paragraph).
+
+**Which authors resist adaptation (direct answer to Section 35A's open follow-up question):**
+`United24Media` (Ukrainian) is the single author that degrades at **every** tested k (-0.526 at
+k=1, -0.227 at k=5, -0.118 at k=10, -0.081 at k=20) and is the biggest degradation at every k. It
+already has the highest zero-shot recall of all 14 authors (0.77, well above the §25 trained
+classifier's own mean), and the simple frozen-centroid method — a far weaker base classifier
+overall (pooled macro-F1 0.315 at k=0 vs. the trained classifier) — cannot catch up to that
+already-strong baseline even with 20 labeled examples. Conversely, `Bloomberg` (Western, zero-shot
+0.055) is the biggest-gain author at every k>=5 (+0.50 to +0.64), because it starts from one of the
+weakest zero-shot baselines and has the most room to improve. The pattern is consistent: few-shot
+centroid adaptation helps most where the deployed zero-shot classifier was already failing, and can
+leave an author worse off than zero-shot when that classifier was already unusually strong.
+
+**Pre-registered interpretation (mechanical, fixed thresholds, not tuned post-hoc):**
+- *Efficiency*: **B** — gain at k=5 (0.204) is 65.3% of the total k=0-to-20 gain (0.314), just under
+  the pre-registered 70% bar for "most improvement by k=5"; most of the improvement does continue
+  to accrue through k=10-20, so more labeling continues to pay off through at least k=10, with
+  diminishing returns from k=10 to k=20 (+0.047 vs. +0.062 from k=5 to k=10).
+- *Stability*: **borderline stable** — CV at k=10 is 0.341, just under the pre-registered 0.35
+  heterogeneity threshold, and only 1/14 authors (United24Media) degrades at k=10 (7.1%, well under
+  the 30% bar). Read as "mostly stable, with one clear, identifiable, persistent exception" rather
+  than uniformly stable.
+- *Replication*: **does not replicate cleanly** by the pre-registered rule, but only because of the
+  k=1 non-monotonicity described above — the k=10 headline magnitude itself replicates almost
+  exactly (0.8pp difference from the published 0.649). The honest reading is: Section 35A's
+  *headline number* replicates; its *implicit claim that recall rises monotonically with every
+  added example* does not — one random example is unreliable and can underperform doing nothing.
+
+**Honest caveats:** This is still a few-shot result (support labels come from the test author
+itself), not zero-shot generalization — unchanged from Section 35A. The frozen-centroid method
+is a much weaker base classifier than the trained `sbert_original` network (pooled accuracy 0.337
+vs. accuracy-equivalent recall 0.390 at k=0), so comparisons against the deployed zero-shot
+baseline conflate "few-shot adaptation" with "a different, simpler model family" — this is the
+same comparison Section 35A's own conclusion made, preserved here for consistency, but it means
+the absolute recall numbers should not be read as "this specific centroid method should replace
+the deployed classifier at k=0"; the fair reading is about how much labeling in this centroid-based
+scheme recovers relative to that scheme's own zero-shot. Second annotator's 100-row validation
+subset was checked and is still 0/100 filled at the time of this experiment; per instruction this
+did not block the few-shot work and no human-validation analysis was run this round.
+
+**Conclusion:** Section 35A's headline finding replicates at k=10 (65.7% mean here vs. 64.9%
+published) and strengthens with multi-seed evidence that cross-author heterogeneity, not sampling
+luck, drives the spread. The new, more rigorous result adds an important qualifier Section 35A's
+single draw could not show: a single labeled example is not reliably better than zero-shot (9/14
+authors degrade at k=1), so k=1 should not be recommended as a deployment point; k=5-10 is where
+adaptation becomes reliable (12-13/14 authors improve) and k=10-20 continues to help with
+diminishing returns. One specific author (`United24Media`) resists adaptation at every k, driven by
+an already-strong zero-shot baseline that this simpler method cannot exceed — this answers Section
+35A's own follow-up question concretely rather than leaving it open. Per the research program's
+closing instruction, this closes the few-shot adaptation line of investigation: no further
+intervention is opened on this question without an explicit new decision.
+
+Artifacts: `artifacts/experiments/narrative_few_shot_learning_curve/` (`raw_results.json`,
+`sanity_checks.json`, `configuration.json`, `per_seed_results.csv`, `per_author_results.csv`,
+`aggregated_table.csv`, `learning_curve.png`, `learning_curve_per_author.png`, `run_log.txt`).
 
 ## Summary
 
@@ -3745,5 +3867,6 @@ Artifacts: `artifacts/experiments/selective_prediction/selective_results.json`.
 | 32. Entity attribution by test-time swaps - does entity identity cause LOAO errors? | Test-time entity swaps over full 3009 rows: cross-author transplant (flip cross) vs same-author placebo shuffle; ACE on predicted-label flips | Flip cross 0.577 vs placebo 0.534 (ACE +0.043); per-author ACE -0.146 to +0.166; ACE-gap correlation r = -0.596 | Entity identity correlates with LOAO errors but does not causally drive them; closed as negative diagnostic |
 | 33. Group-DRO on (narrative, author) groups - does robust optimization close the gap? | Eta/C grid selected on 3 exploratory authors by mean worst-group val recall (winner eta=0.01, C=0, frozen), then pre-registered confirmatory on 14 fresh authors vs `sbert_only` | Selection deltas IDF -35pp, MariaZakharova -4pp, BernieSanders +19.5pp; confirmatory 14/14: mean 33.3% vs 39.0% (needs >=36.0%) FAIL, median 30.8% vs 38.8% (needs >=35.8%) FAIL, guardrail 3/14 >10pp degradations (at most 2) FAIL, concentration 43.9% vs 44.2% PASS; verdict `NOT_SUPPORTED` | Group-DRO does not generalize; closed as negative intervention, no production change, no post-hoc tuning |
 | 34. Open-question closeout (34A multiseed noise removal; 34B sampled Mode T fresh-train) | 34A: post-split row-mask removal vs same-membership baseline, seeds 42/43/44 (seed 42 reused pre-split values); 34B: 40 sampled event-matched pairs, per-pair fresh `sbert_only` on train-author rows | 34A: Bernie deltas +0.115/-0.085/-0.025 (mean +0.0017, std 0.1026, sign flips; baseline swings 0.245-0.335); IDF mean -0.025, Maria mean -0.0417; 34B: Mode T mean recall 0.0059 (gap -73.4pp) vs Mode Z matched -36.3pp; Z recall on 25 covered sampled pairs 0.2951; 34/40 pairs exact zero | Both negatives, closed: no systematic removal effect; fresh single-author training collapses onto the train narrative and does not close the gap |
-| 35. Few-shot adaptation (35A) + selective prediction (35B) | 35A: frozen-SBERT narrative centroids adapted toward the test author with k labeled support rows (weight 0.5, support/query disjoint); 35B: abstain on low max-softmax-confidence fresh-author rows, pooled + per-author AUROC and risk/coverage | 35A: per-k mean recall k=0: 0.326, k=1: 0.338, k=5: 0.553, k=10: 0.649 (median 0.650, std 0.221, min 0.153, max 0.989), k=20: 0.708; bar passed (>0.42 at k<=10, k=5 already passes); +25.9pp vs §25 sbert_original mean 0.390. 35B: pooled AUROC 0.628 (within-author 0.600), 9/14 authors above 0.55, range 0.36 ViceNews to 0.75 United24Media; 20% abstention lifts accuracy 0.401 to 0.437 (11% of the 0.331 gap), 40% abstention reaches 0.508; recovering random-level 0.732 requires abstaining effectively everything | 35A first positive intervention, reframing deployment from zero-shot to few-shot (Current); 35B confidence detects errors but does not close the gap (Closed) |
+| 35. Few-shot adaptation (35A) + selective prediction (35B) | 35A: frozen-SBERT narrative centroids adapted toward the test author with k labeled support rows (weight 0.5, support/query disjoint); 35B: abstain on low max-softmax-confidence fresh-author rows, pooled + per-author AUROC and risk/coverage | 35A: per-k mean recall k=0: 0.326, k=1: 0.338, k=5: 0.553, k=10: 0.649 (median 0.650, std 0.221, min 0.153, max 0.989), k=20: 0.708; bar passed (>0.42 at k<=10, k=5 already passes); +25.9pp vs §25 sbert_original mean 0.390. 35B: pooled AUROC 0.628 (within-author 0.600), 9/14 authors above 0.55, range 0.36 ViceNews to 0.75 United24Media; 20% abstention lifts accuracy 0.401 to 0.437 (11% of the 0.331 gap), 40% abstention reaches 0.508; recovering random-level 0.732 requires abstaining effectively everything | 35A first positive intervention, reframing deployment from zero-shot to few-shot (Closed, confirmed/qualified by §36); 35B confidence detects errors but does not close the gap (Closed) |
+| 36. Few-shot learning curve (multi-seed confirmatory re-test of 35A) | 5 independent sampling seeds per k in {1,5,10,20} (vs 35A's single draw), same 14 frozen authors/SBERT/centroid rule/weight 0.5; k=0 reused from §25's trained `sbert_original` per-author recall | Mean recall k=0: 0.390, k=1: 0.357, k=5: 0.594, k=10: 0.657, k=20: 0.703; k=10 replicates §35A (0.8pp off 0.649); curve non-monotonic at k=1 (9/14 authors degrade vs zero-shot); cross-seed std (0.026-0.100) far smaller than cross-author std (~0.22) at every k; `United24Media` degrades at every k (already-strong 0.77 zero-shot baseline); `Bloomberg` gains most (weak 0.055 baseline) | §35A's headline magnitude replicates; k=1 is unreliable and should not be a deployment point; k=5-10 is where adaptation becomes reliable (12-13/14 authors improve); closed - no further intervention opened without an explicit new decision |
 

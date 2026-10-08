@@ -1,0 +1,3033 @@
+{
+  "configuration": {
+    "data_seed": 42,
+    "sampling_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ks_fewshot": [
+      1,
+      5,
+      10,
+      20
+    ],
+    "primary_weight": 0.5,
+    "sbert_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "text_truncation_chars": 3000,
+    "n_bootstrap": 10000,
+    "frozen_set_file": "artifacts\\experiments\\narrative_fresh_author_audit\\fresh_author_confirmatory_set.json",
+    "baseline_results_file": "artifacts\\experiments\\narrative_fresh_author_confirmatory\\results.json",
+    "interpretation_thresholds": {
+      "mode_a_fraction": 0.7,
+      "heterogeneity_cv_threshold": 0.35,
+      "heterogeneity_degrade_fraction": 0.3,
+      "replication_tolerance": 0.05,
+      "monotonic_tolerance": 0.02,
+      "section_35a_published_k10_mean": 0.649
+    }
+  },
+  "per_author_summary": {
+    "abualiexpress": {
+      "narrative": "Zionist",
+      "deployed_zero_shot_baseline": 0.24,
+      "centroid_zero_shot_reference": 0.115,
+      "by_k": {
+        "0": {
+          "mean": 0.24,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.2090452261306533,
+          "std": 0.06671126341819533,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.1407035175879397,
+            "2": 0.2663316582914573,
+            "3": 0.23115577889447236,
+            "4": 0.12060301507537688,
+            "5": 0.2864321608040201
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.475897435897436,
+          "std": 0.048150541925355915,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.40512820512820513,
+            "2": 0.4564102564102564,
+            "3": 0.48717948717948717,
+            "4": 0.47692307692307695,
+            "5": 0.5538461538461539
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.516842105263158,
+          "std": 0.0844339142322336,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.6526315789473685,
+            "2": 0.5526315789473685,
+            "3": 0.45789473684210524,
+            "4": 0.5157894736842106,
+            "5": 0.4052631578947368
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.63,
+          "std": 0.053240660225381944,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.7,
+            "2": 0.6888888888888889,
+            "3": 0.5777777777777777,
+            "4": 0.5833333333333334,
+            "5": 0.6
+          },
+          "feasible": true
+        }
+      }
+    },
+    "BringThemHomeNow": {
+      "narrative": "Zionist",
+      "deployed_zero_shot_baseline": 0.62,
+      "centroid_zero_shot_reference": 0.705,
+      "by_k": {
+        "0": {
+          "mean": 0.62,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.84321608040201,
+          "std": 0.09273501406570674,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8291457286432161,
+            "2": 0.8592964824120602,
+            "3": 0.8743718592964824,
+            "4": 0.6834170854271356,
+            "5": 0.9698492462311558
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.9856410256410257,
+          "std": 0.00820512820512822,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.9897435897435898,
+            "2": 0.9692307692307692,
+            "3": 0.9897435897435898,
+            "4": 0.9897435897435898,
+            "5": 0.9897435897435898
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.9873684210526313,
+          "std": 0.002578410255561248,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.9894736842105263,
+            "2": 0.9842105263157894,
+            "3": 0.9894736842105263,
+            "4": 0.9842105263157894,
+            "5": 0.9894736842105263
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.99,
+          "std": 0.0022222222222222144,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.9888888888888889,
+            "2": 0.9888888888888889,
+            "3": 0.9888888888888889,
+            "4": 0.9888888888888889,
+            "5": 0.9944444444444445
+          },
+          "feasible": true
+        }
+      }
+    },
+    "AlJazeeraEnglish": {
+      "narrative": "Resistance",
+      "deployed_zero_shot_baseline": 0.275,
+      "centroid_zero_shot_reference": 0.135,
+      "by_k": {
+        "0": {
+          "mean": 0.275,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.23618090452261303,
+          "std": 0.18550814643058483,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.04020100502512563,
+            "2": 0.5276381909547738,
+            "3": 0.3768844221105528,
+            "4": 0.09547738693467336,
+            "5": 0.1407035175879397
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.4902564102564102,
+          "std": 0.06046934553018943,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.49743589743589745,
+            "2": 0.5282051282051282,
+            "3": 0.5641025641025641,
+            "4": 0.38461538461538464,
+            "5": 0.47692307692307695
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.5715789473684211,
+          "std": 0.07558451819375259,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.5894736842105263,
+            "2": 0.6421052631578947,
+            "3": 0.631578947368421,
+            "4": 0.43157894736842106,
+            "5": 0.5631578947368421
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.6211111111111112,
+          "std": 0.03413842554608272,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.5944444444444444,
+            "2": 0.6722222222222223,
+            "3": 0.65,
+            "4": 0.5833333333333334,
+            "5": 0.6055555555555555
+          },
+          "feasible": true
+        }
+      }
+    },
+    "PressTV": {
+      "narrative": "Resistance",
+      "deployed_zero_shot_baseline": 0.57,
+      "centroid_zero_shot_reference": 0.4975,
+      "by_k": {
+        "0": {
+          "mean": 0.57,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.44761904761904764,
+          "std": 0.11845492878497631,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.3583959899749373,
+            "2": 0.6215538847117794,
+            "3": 0.41854636591478694,
+            "4": 0.5413533834586466,
+            "5": 0.2982456140350877
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.7326582278481013,
+          "std": 0.05155116713401689,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.6962025316455697,
+            "2": 0.7417721518987341,
+            "3": 0.6759493670886076,
+            "4": 0.7240506329113924,
+            "5": 0.8253164556962025
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.8174358974358974,
+          "std": 0.009372136862819005,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8153846153846154,
+            "2": 0.8307692307692308,
+            "3": 0.8076923076923077,
+            "4": 0.8256410256410256,
+            "5": 0.8076923076923077
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.8521052631578947,
+          "std": 0.016924142306119473,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8315789473684211,
+            "2": 0.8578947368421053,
+            "3": 0.8342105263157895,
+            "4": 0.8763157894736842,
+            "5": 0.8605263157894737
+          },
+          "feasible": true
+        }
+      }
+    },
+    "NATO": {
+      "narrative": "Western",
+      "deployed_zero_shot_baseline": 0.2583732057416268,
+      "centroid_zero_shot_reference": 0.11483253588516747,
+      "by_k": {
+        "0": {
+          "mean": 0.2583732057416268,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.45673076923076916,
+          "std": 0.13060651641544352,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.2548076923076923,
+            "2": 0.6442307692307693,
+            "3": 0.5144230769230769,
+            "4": 0.38461538461538464,
+            "5": 0.4855769230769231
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.7147058823529411,
+          "std": 0.05549400665915647,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.6666666666666666,
+            "2": 0.696078431372549,
+            "3": 0.7941176470588235,
+            "4": 0.6519607843137255,
+            "5": 0.7647058823529411
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.7879396984924621,
+          "std": 0.051873318193221864,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.7939698492462312,
+            "2": 0.6884422110552764,
+            "3": 0.8090452261306532,
+            "4": 0.8090452261306532,
+            "5": 0.8391959798994975
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.8444444444444444,
+          "std": 0.009225182949292416,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8571428571428571,
+            "2": 0.8412698412698413,
+            "3": 0.8518518518518519,
+            "4": 0.8412698412698413,
+            "5": 0.8306878306878307
+          },
+          "feasible": true
+        }
+      }
+    },
+    "Bloomberg": {
+      "narrative": "Western",
+      "deployed_zero_shot_baseline": 0.055,
+      "centroid_zero_shot_reference": 0.065,
+      "by_k": {
+        "0": {
+          "mean": 0.055,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.27236180904522617,
+          "std": 0.11859296482412061,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.07537688442211055,
+            "2": 0.2613065326633166,
+            "3": 0.32160804020100503,
+            "4": 0.2613065326633166,
+            "5": 0.44221105527638194
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.5507692307692308,
+          "std": 0.06915285264015414,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.5487179487179488,
+            "2": 0.4666666666666667,
+            "3": 0.6358974358974359,
+            "4": 0.48205128205128206,
+            "5": 0.6205128205128205
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.631578947368421,
+          "std": 0.04008301634665215,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.631578947368421,
+            "2": 0.5842105263157895,
+            "3": 0.5894736842105263,
+            "4": 0.6789473684210526,
+            "5": 0.6736842105263158
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.6922222222222223,
+          "std": 0.007535922203472533,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.6888888888888889,
+            "2": 0.6888888888888889,
+            "3": 0.7055555555555556,
+            "4": 0.6833333333333333,
+            "5": 0.6944444444444444
+          },
+          "feasible": true
+        }
+      }
+    },
+    "KremlinRussia_E": {
+      "narrative": "Russian",
+      "deployed_zero_shot_baseline": 0.5,
+      "centroid_zero_shot_reference": 0.51,
+      "by_k": {
+        "0": {
+          "mean": 0.5,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.49547738693467336,
+          "std": 0.1865289810761143,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.21105527638190955,
+            "2": 0.7386934673366834,
+            "3": 0.628140703517588,
+            "4": 0.37185929648241206,
+            "5": 0.5276381909547738
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.8646153846153848,
+          "std": 0.022842110206482167,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8461538461538461,
+            "2": 0.8923076923076924,
+            "3": 0.8512820512820513,
+            "4": 0.841025641025641,
+            "5": 0.8923076923076924
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.8926315789473686,
+          "std": 0.019295055557708777,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.868421052631579,
+            "2": 0.9,
+            "3": 0.8736842105263158,
+            "4": 0.9210526315789473,
+            "5": 0.9
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.9222222222222223,
+          "std": 0.013146843962443592,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.9055555555555556,
+            "2": 0.9166666666666666,
+            "3": 0.9277777777777778,
+            "4": 0.9444444444444444,
+            "5": 0.9166666666666666
+          },
+          "feasible": true
+        }
+      }
+    },
+    "Slavyangrad": {
+      "narrative": "Russian",
+      "deployed_zero_shot_baseline": 0.22,
+      "centroid_zero_shot_reference": 0.21,
+      "by_k": {
+        "0": {
+          "mean": 0.22,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.10753768844221105,
+          "std": 0.04410675026631495,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.08542713567839195,
+            "2": 0.19095477386934673,
+            "3": 0.11055276381909548,
+            "4": 0.06532663316582915,
+            "5": 0.08542713567839195
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.32512820512820506,
+          "std": 0.10192622152865513,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.4205128205128205,
+            "2": 0.26666666666666666,
+            "3": 0.4717948717948718,
+            "4": 0.2564102564102564,
+            "5": 0.21025641025641026
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.3831578947368421,
+          "std": 0.0348164955969289,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.41578947368421054,
+            "2": 0.3473684210526316,
+            "3": 0.43157894736842106,
+            "4": 0.3736842105263158,
+            "5": 0.3473684210526316
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.4188888888888889,
+          "std": 0.038904758666692456,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.4111111111111111,
+            "2": 0.4222222222222222,
+            "3": 0.45,
+            "4": 0.46111111111111114,
+            "5": 0.35
+          },
+          "feasible": true
+        }
+      }
+    },
+    "Babel": {
+      "narrative": "Ukrainian",
+      "deployed_zero_shot_baseline": 0.59,
+      "centroid_zero_shot_reference": 0.44,
+      "by_k": {
+        "0": {
+          "mean": 0.59,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.40201005025125625,
+          "std": 0.037335026373882835,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.3417085427135678,
+            "2": 0.3768844221105528,
+            "3": 0.4371859296482412,
+            "4": 0.41708542713567837,
+            "5": 0.4371859296482412
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.5856410256410257,
+          "std": 0.029262241267050477,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.5384615384615384,
+            "2": 0.6307692307692307,
+            "3": 0.5846153846153846,
+            "4": 0.5897435897435898,
+            "5": 0.5846153846153846
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.6284210526315789,
+          "std": 0.030976713620130856,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.6684210526315789,
+            "2": 0.6631578947368421,
+            "3": 0.6105263157894737,
+            "4": 0.6052631578947368,
+            "5": 0.5947368421052631
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.6788888888888889,
+          "std": 0.03708515392950808,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.6611111111111111,
+            "2": 0.7222222222222222,
+            "3": 0.6722222222222223,
+            "4": 0.6222222222222222,
+            "5": 0.7166666666666667
+          },
+          "feasible": true
+        }
+      }
+    },
+    "United24Media": {
+      "narrative": "Ukrainian",
+      "deployed_zero_shot_baseline": 0.77,
+      "centroid_zero_shot_reference": 0.565,
+      "by_k": {
+        "0": {
+          "mean": 0.77,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.2442211055276382,
+          "std": 0.0766459335273874,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.36683417085427134,
+            "2": 0.17587939698492464,
+            "3": 0.23618090452261306,
+            "4": 0.2864321608040201,
+            "5": 0.15577889447236182
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.5425641025641025,
+          "std": 0.106853879102679,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.717948717948718,
+            "2": 0.5794871794871795,
+            "3": 0.4564102564102564,
+            "4": 0.5487179487179488,
+            "5": 0.41025641025641024
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.6515789473684211,
+          "std": 0.052462887555272064,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.7526315789473684,
+            "2": 0.631578947368421,
+            "3": 0.6,
+            "4": 0.6421052631578947,
+            "5": 0.631578947368421
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.6888888888888889,
+          "std": 0.05293835222031819,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.75,
+            "2": 0.6888888888888889,
+            "3": 0.7444444444444445,
+            "4": 0.6444444444444445,
+            "5": 0.6166666666666667
+          },
+          "feasible": true
+        }
+      }
+    },
+    "ThePostMillennial": {
+      "narrative": "Right-wing",
+      "deployed_zero_shot_baseline": 0.64,
+      "centroid_zero_shot_reference": 0.595,
+      "by_k": {
+        "0": {
+          "mean": 0.64,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.535678391959799,
+          "std": 0.06200280126708415,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.5577889447236181,
+            "2": 0.4371859296482412,
+            "3": 0.49246231155778897,
+            "4": 0.5979899497487438,
+            "5": 0.592964824120603
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.7948717948717948,
+          "std": 0.024700706828291882,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8153846153846154,
+            "2": 0.8307692307692308,
+            "3": 0.7692307692307693,
+            "4": 0.7897435897435897,
+            "5": 0.7692307692307693
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.8347368421052632,
+          "std": 0.013562209186026436,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8421052631578947,
+            "2": 0.8473684210526315,
+            "3": 0.8210526315789474,
+            "4": 0.8473684210526315,
+            "5": 0.8157894736842105
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.8566666666666667,
+          "std": 0.010772621905369626,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.8555555555555555,
+            "2": 0.8777777777777778,
+            "3": 0.85,
+            "4": 0.85,
+            "5": 0.85
+          },
+          "feasible": true
+        }
+      }
+    },
+    "TheEpochTimes": {
+      "narrative": "Right-wing",
+      "deployed_zero_shot_baseline": 0.505,
+      "centroid_zero_shot_reference": 0.495,
+      "by_k": {
+        "0": {
+          "mean": 0.505,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.5386934673366834,
+          "std": 0.15999797983624042,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.4321608040201005,
+            "2": 0.628140703517588,
+            "3": 0.6984924623115578,
+            "4": 0.27638190954773867,
+            "5": 0.6582914572864321
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.7938461538461539,
+          "std": 0.03361224535010038,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.7897435897435897,
+            "2": 0.8512820512820513,
+            "3": 0.7538461538461538,
+            "4": 0.7692307692307693,
+            "5": 0.8051282051282052
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.856842105263158,
+          "std": 0.023395906074624082,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.9,
+            "2": 0.8526315789473684,
+            "3": 0.8421052631578947,
+            "4": 0.8578947368421053,
+            "5": 0.8315789473684211
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.8966666666666668,
+          "std": 0.027799991118215118,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.9055555555555556,
+            "2": 0.8666666666666667,
+            "3": 0.9277777777777778,
+            "4": 0.9222222222222223,
+            "5": 0.8611111111111112
+          },
+          "feasible": true
+        }
+      }
+    },
+    "@MiddleEastEye_TG": {
+      "narrative": "Left-wing",
+      "deployed_zero_shot_baseline": 0.03,
+      "centroid_zero_shot_reference": 0.0,
+      "by_k": {
+        "0": {
+          "mean": 0.03,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.053266331658291456,
+          "std": 0.03561818119933538,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.020100502512562814,
+            "2": 0.12060301507537688,
+            "3": 0.03015075376884422,
+            "4": 0.04020100502512563,
+            "5": 0.05527638190954774
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.07897435897435898,
+          "std": 0.01907802588485977,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.08205128205128205,
+            "2": 0.08717948717948718,
+            "3": 0.1076923076923077,
+            "4": 0.06666666666666667,
+            "5": 0.05128205128205128
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.10736842105263159,
+          "std": 0.009761703679469162,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.10526315789473684,
+            "2": 0.11578947368421053,
+            "3": 0.11578947368421053,
+            "4": 0.08947368421052632,
+            "5": 0.11052631578947368
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.12666666666666665,
+          "std": 0.021773242158072692,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.09444444444444444,
+            "2": 0.1111111111111111,
+            "3": 0.15,
+            "4": 0.12777777777777777,
+            "5": 0.15
+          },
+          "feasible": true
+        }
+      }
+    },
+    "ViceNews": {
+      "narrative": "Left-wing",
+      "deployed_zero_shot_baseline": 0.18,
+      "centroid_zero_shot_reference": 0.12,
+      "by_k": {
+        "0": {
+          "mean": 0.18,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seed_values": null,
+          "source": "section25_sbert_original_trained_classifier"
+        },
+        "1": {
+          "mean": 0.15979899497487435,
+          "std": 0.08792677579135438,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.07537688442211055,
+            "2": 0.08040201005025126,
+            "3": 0.18090452261306533,
+            "4": 0.3165829145728643,
+            "5": 0.1457286432160804
+          },
+          "feasible": true
+        },
+        "5": {
+          "mean": 0.38666666666666666,
+          "std": 0.08897694520736954,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.2512820512820513,
+            "2": 0.4717948717948718,
+            "3": 0.3333333333333333,
+            "4": 0.38461538461538464,
+            "5": 0.49230769230769234
+          },
+          "feasible": true
+        },
+        "10": {
+          "mean": 0.523157894736842,
+          "std": 0.047845550220477956,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.531578947368421,
+            "2": 0.5789473684210527,
+            "3": 0.5684210526315789,
+            "4": 0.45789473684210524,
+            "5": 0.4789473684210526
+          },
+          "feasible": true
+        },
+        "20": {
+          "mean": 0.6255555555555556,
+          "std": 0.03794082461991974,
+          "n_seeds": 5,
+          "seed_values": {
+            "1": 0.65,
+            "2": 0.5833333333333334,
+            "3": 0.6444444444444445,
+            "4": 0.5777777777777777,
+            "5": 0.6722222222222223
+          },
+          "feasible": true
+        }
+      }
+    }
+  },
+  "per_k_table": {
+    "0": {
+      "k": 0,
+      "deployed_zero_shot_mean": 0.38952665755297333,
+      "deployed_zero_shot_median": 0.3875,
+      "deployed_zero_shot_std": 0.22762711930820512,
+      "deployed_zero_shot_ci95": [
+        0.2698808954203691,
+        0.5096428571428572
+      ],
+      "centroid_reference_mean": 0.32623803827751197,
+      "centroid_reference_median": 0.325,
+      "centroid_reference_std": 0.22894636842806457,
+      "centroid_reference_ci95": [
+        0.20660684381408062,
+        0.4500044642857143
+      ],
+      "pooled_accuracy": 0.3369890329012961,
+      "pooled_macro_f1": 0.31495656463317695
+    },
+    "1": {
+      "k": 1,
+      "n_authors_feasible": 14,
+      "n_authors_infeasible": 0,
+      "mean_recall": 0.35727408957398193,
+      "median_recall": 0.33718592964824123,
+      "std_across_authors": 0.20536515079576642,
+      "ci95_across_authors": [
+        0.2542692535315247,
+        0.47310820931580994
+      ],
+      "mean_std_across_seeds_per_author": 0.10019794737691008,
+      "coefficient_of_variation_across_authors": 0.5748112073860334,
+      "pooled_accuracy_mean": 0.3636060100166945,
+      "pooled_accuracy_std": 0.055178562762494915,
+      "pooled_macro_f1_mean": 0.3543685355526507,
+      "pooled_macro_f1_std": 0.052625280817239606
+    },
+    "5": {
+      "k": 5,
+      "n_authors_feasible": 14,
+      "n_authors_infeasible": 0,
+      "mean_recall": 0.594445421790917,
+      "median_recall": 0.5682051282051283,
+      "std_across_authors": 0.23153563667131577,
+      "ci95_across_authors": [
+        0.46690323690333,
+        0.7148620819798222
+      ],
+      "mean_std_across_seeds_per_author": 0.05144824410496352,
+      "coefficient_of_variation_across_authors": 0.38949856148905343,
+      "pooled_accuracy_mean": 0.6042191221503913,
+      "pooled_accuracy_std": 0.014392932090872893,
+      "pooled_macro_f1_mean": 0.5910380916300874,
+      "pooled_macro_f1_std": 0.01474164235917007
+    },
+    "10": {
+      "k": 10,
+      "n_authors_feasible": 14,
+      "n_authors_infeasible": 0,
+      "mean_recall": 0.6564741967016497,
+      "median_recall": 0.641578947368421,
+      "std_across_authors": 0.22400657578785804,
+      "ci95_across_authors": [
+        0.531208299546702,
+        0.7687025754374338
+      ],
+      "mean_std_across_seeds_per_author": 0.03543155968391991,
+      "coefficient_of_variation_across_authors": 0.34122677922962313,
+      "pooled_accuracy_mean": 0.6681073544789126,
+      "pooled_accuracy_std": 0.013262266127644329,
+      "pooled_macro_f1_mean": 0.6574604934454198,
+      "pooled_macro_f1_std": 0.012576676816384875
+    },
+    "20": {
+      "k": 20,
+      "n_authors_feasible": 14,
+      "n_authors_infeasible": 0,
+      "mean_recall": 0.7031662489557226,
+      "median_recall": 0.6905555555555556,
+      "std_across_authors": 0.21804233282588184,
+      "ci95_across_authors": [
+        0.5779305555555556,
+        0.808970238095238
+      ],
+      "mean_std_across_seeds_per_author": 0.025974881716650775,
+      "coefficient_of_variation_across_authors": 0.31008645985170386,
+      "pooled_accuracy_mean": 0.7145474532795897,
+      "pooled_accuracy_std": 0.006393207325046345,
+      "pooled_macro_f1_mean": 0.7052936843027117,
+      "pooled_macro_f1_std": 0.006266962888353244
+    }
+  },
+  "per_narrative": {
+    "Left-wing": {
+      "authors": [
+        "@MiddleEastEye_TG",
+        "ViceNews"
+      ],
+      "by_k": {
+        "0": 0.105,
+        "1": 0.1065326633165829,
+        "5": 0.2328205128205128,
+        "10": 0.3152631578947368,
+        "20": 0.3761111111111112
+      }
+    },
+    "Resistance": {
+      "authors": [
+        "AlJazeeraEnglish",
+        "PressTV"
+      ],
+      "by_k": {
+        "0": 0.4225,
+        "1": 0.34189997607083034,
+        "5": 0.6114573190522558,
+        "10": 0.6945074224021592,
+        "20": 0.7366081871345029
+      }
+    },
+    "Right-wing": {
+      "authors": [
+        "ThePostMillennial",
+        "TheEpochTimes"
+      ],
+      "by_k": {
+        "0": 0.5725,
+        "1": 0.5371859296482413,
+        "5": 0.7943589743589743,
+        "10": 0.8457894736842106,
+        "20": 0.8766666666666667
+      }
+    },
+    "Russian": {
+      "authors": [
+        "KremlinRussia_E",
+        "Slavyangrad"
+      ],
+      "by_k": {
+        "0": 0.36,
+        "1": 0.3015075376884422,
+        "5": 0.594871794871795,
+        "10": 0.6378947368421053,
+        "20": 0.6705555555555556
+      }
+    },
+    "Ukrainian": {
+      "authors": [
+        "Babel",
+        "United24Media"
+      ],
+      "by_k": {
+        "0": 0.6799999999999999,
+        "1": 0.3231155778894472,
+        "5": 0.5641025641025641,
+        "10": 0.64,
+        "20": 0.6838888888888889
+      }
+    },
+    "Western": {
+      "authors": [
+        "NATO",
+        "Bloomberg"
+      ],
+      "by_k": {
+        "0": 0.1566866028708134,
+        "1": 0.3645462891379977,
+        "5": 0.632737556561086,
+        "10": 0.7097593229304415,
+        "20": 0.7683333333333333
+      }
+    },
+    "Zionist": {
+      "authors": [
+        "abualiexpress",
+        "BringThemHomeNow"
+      ],
+      "by_k": {
+        "0": 0.43,
+        "1": 0.5261306532663317,
+        "5": 0.7307692307692308,
+        "10": 0.7521052631578946,
+        "20": 0.81
+      }
+    }
+  },
+  "improved_degraded_vs_deployed_zero_shot": {
+    "1": {
+      "n_improved": 5,
+      "n_degraded": 9,
+      "n_unchanged": 0,
+      "biggest_gain_author": "BringThemHomeNow",
+      "biggest_gain_delta": 0.22321608040201002,
+      "biggest_degradation_author": "United24Media",
+      "biggest_degradation_delta": -0.5257788944723618,
+      "per_author_delta_vs_deployed_zero_shot": {
+        "abualiexpress": -0.030954773869346697,
+        "BringThemHomeNow": 0.22321608040201002,
+        "AlJazeeraEnglish": -0.03881909547738699,
+        "PressTV": -0.12238095238095231,
+        "NATO": 0.19835756348914235,
+        "Bloomberg": 0.21736180904522617,
+        "KremlinRussia_E": -0.004522613065326642,
+        "Slavyangrad": -0.11246231155778895,
+        "Babel": -0.18798994974874372,
+        "United24Media": -0.5257788944723618,
+        "ThePostMillennial": -0.10432160804020096,
+        "TheEpochTimes": 0.033693467336683436,
+        "@MiddleEastEye_TG": 0.023266331658291457,
+        "ViceNews": -0.020201005025125646
+      }
+    },
+    "5": {
+      "n_improved": 12,
+      "n_degraded": 2,
+      "n_unchanged": 0,
+      "biggest_gain_author": "Bloomberg",
+      "biggest_gain_delta": 0.4957692307692308,
+      "biggest_degradation_author": "United24Media",
+      "biggest_degradation_delta": -0.22743589743589754,
+      "per_author_delta_vs_deployed_zero_shot": {
+        "abualiexpress": 0.235897435897436,
+        "BringThemHomeNow": 0.36564102564102574,
+        "AlJazeeraEnglish": 0.21525641025641018,
+        "PressTV": 0.16265822784810136,
+        "NATO": 0.45633267661131427,
+        "Bloomberg": 0.4957692307692308,
+        "KremlinRussia_E": 0.3646153846153848,
+        "Slavyangrad": 0.10512820512820506,
+        "Babel": -0.004358974358974255,
+        "United24Media": -0.22743589743589754,
+        "ThePostMillennial": 0.1548717948717948,
+        "TheEpochTimes": 0.28884615384615386,
+        "@MiddleEastEye_TG": 0.04897435897435898,
+        "ViceNews": 0.20666666666666667
+      }
+    },
+    "10": {
+      "n_improved": 13,
+      "n_degraded": 1,
+      "n_unchanged": 0,
+      "biggest_gain_author": "Bloomberg",
+      "biggest_gain_delta": 0.576578947368421,
+      "biggest_degradation_author": "United24Media",
+      "biggest_degradation_delta": -0.11842105263157887,
+      "per_author_delta_vs_deployed_zero_shot": {
+        "abualiexpress": 0.276842105263158,
+        "BringThemHomeNow": 0.36736842105263134,
+        "AlJazeeraEnglish": 0.29657894736842105,
+        "PressTV": 0.24743589743589745,
+        "NATO": 0.5295664927508353,
+        "Bloomberg": 0.576578947368421,
+        "KremlinRussia_E": 0.39263157894736855,
+        "Slavyangrad": 0.16315789473684209,
+        "Babel": 0.03842105263157891,
+        "United24Media": -0.11842105263157887,
+        "ThePostMillennial": 0.1947368421052632,
+        "TheEpochTimes": 0.35184210526315796,
+        "@MiddleEastEye_TG": 0.07736842105263159,
+        "ViceNews": 0.34315789473684205
+      }
+    },
+    "20": {
+      "n_improved": 13,
+      "n_degraded": 1,
+      "n_unchanged": 0,
+      "biggest_gain_author": "Bloomberg",
+      "biggest_gain_delta": 0.6372222222222222,
+      "biggest_degradation_author": "United24Media",
+      "biggest_degradation_delta": -0.08111111111111113,
+      "per_author_delta_vs_deployed_zero_shot": {
+        "abualiexpress": 0.39,
+        "BringThemHomeNow": 0.37,
+        "AlJazeeraEnglish": 0.34611111111111115,
+        "PressTV": 0.28210526315789475,
+        "NATO": 0.5860712387028176,
+        "Bloomberg": 0.6372222222222222,
+        "KremlinRussia_E": 0.4222222222222223,
+        "Slavyangrad": 0.19888888888888892,
+        "Babel": 0.0888888888888889,
+        "United24Media": -0.08111111111111113,
+        "ThePostMillennial": 0.21666666666666667,
+        "TheEpochTimes": 0.39166666666666683,
+        "@MiddleEastEye_TG": 0.09666666666666665,
+        "ViceNews": 0.44555555555555565
+      }
+    }
+  },
+  "interpretation": {
+    "efficiency_mode": "B",
+    "efficiency_rule": "A if gain(k=5)/gain(k=20) >= 0.7 else B",
+    "frac5_of_gain20": 0.6533574518492611,
+    "stability_mode": "stable",
+    "stability_rule": "heterogeneous if CV(k=10) > 0.35 or degraded-author-fraction(k=10) > 0.3",
+    "cv_at_k10": 0.34122677922962313,
+    "fraction_degraded_at_k10": 0.07142857142857142,
+    "replication_mode": "does_not_replicate_cleanly",
+    "replication_rule": "does_not_replicate_cleanly if |mean(k=10) - 0.649| > 0.05 or curve non-monotonic by more than 0.02",
+    "mean_k10_this_run": 0.6564741967016497,
+    "mean_k10_section35a_published": 0.649,
+    "curve_is_monotonic": false,
+    "curve_means_k_0_1_5_10_20": {
+      "0": 0.38952665755297333,
+      "1": 0.35727408957398193,
+      "5": 0.594445421790917,
+      "10": 0.6564741967016497,
+      "20": 0.7031662489557226
+    }
+  },
+  "disjointness": {
+    "abualiexpress": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "BringThemHomeNow": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "AlJazeeraEnglish": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "PressTV": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 399,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 399,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 399,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 399,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 399,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 400
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 395,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 395,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 395,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 395,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 395,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 400
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 390,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 390,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 390,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 390,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 390,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 400
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 380,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 380,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 380,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 380,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 380,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 400
+      }
+    },
+    "NATO": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 208,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 208,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 208,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 208,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 208,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 209
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 204,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 204,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 204,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 204,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 204,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 209
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 209
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 189,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 189,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 189,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 189,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 189,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 209
+      }
+    },
+    "Bloomberg": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "KremlinRussia_E": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "Slavyangrad": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "Babel": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "United24Media": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "ThePostMillennial": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "TheEpochTimes": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "@MiddleEastEye_TG": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    },
+    "ViceNews": {
+      "1": {
+        "per_seed": {
+          "1": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 1,
+            "n_query": 199,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "5": {
+        "per_seed": {
+          "1": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 5,
+            "n_query": 195,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "10": {
+        "per_seed": {
+          "1": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 10,
+            "n_query": 190,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      },
+      "20": {
+        "per_seed": {
+          "1": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "2": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "3": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "4": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          },
+          "5": {
+            "n_support": 20,
+            "n_query": 180,
+            "overlap": 0
+          }
+        },
+        "feasible": true,
+        "n_test": 200
+      }
+    }
+  }
+}
