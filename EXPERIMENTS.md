@@ -23,8 +23,8 @@ default `ClassTfidfTransformer(bm25_weighting=False, reduce_frequent_words=False
 
 ## Research storyline (start here)
 
-This file is a chronological lab notebook (27+ sections, methodology + results + conclusions for
-every experiment actually run). If you're new to the project, read this table first — it's the
+This file is the full chronological experiment log — methodology + results + conclusions for
+every experiment actually run. If you're new to the project, read this table first — it's the
 narrative arc that connects the sections below, in the order the questions were actually asked.
 
 | # | Stage | Question | Result | Sections |
@@ -51,7 +51,7 @@ rather than this file.
 
 ### Experiment status legend
 
-Every major experiment (Sections 18-33, the unseen-author-generalization research line) is
+Every major experiment (Sections 18-35, the unseen-author-generalization research line) is
 tagged right under its heading with three short labels, **Type · Result · Lifecycle**, so a
 reader can tell at a glance what kind of claim it supports without reading the full section.
 Earlier sections (1-17, the topic-modeling track) are not tagged individually — they are already
