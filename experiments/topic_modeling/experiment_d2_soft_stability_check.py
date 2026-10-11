@@ -116,9 +116,13 @@ def load_sample_and_compare():
     print(f"  סה\"כ topics אחרים שמופו בהצלחה: {len(id_map)}")
 
     print("\nשלב 2: מריצים ניתוח soft quality (n=280, seed=42) על ה-baseline...")
-    baseline_df, _, _, _ = run_soft_quality_analysis(n_per_narrative=N_PER_NARRATIVE, model_path=BASELINE_PATH)
+    # run_name=... makes analyze() write directly to soft_topic_quality_*.<run_name>.csv/json -
+    # the shared canonical (non-suffixed) files are never touched by this script.
+    baseline_df, _, _, _ = run_soft_quality_analysis(
+        n_per_narrative=N_PER_NARRATIVE, model_path=BASELINE_PATH, run_name="expD2_baseline")
     print("\nמריצים ניתוח soft quality (n=280, seed=42) זהה על המודל הממוזג...")
-    merged_df, _, _, _ = run_soft_quality_analysis(n_per_narrative=N_PER_NARRATIVE, model_path=MERGE_PATH)
+    merged_df, _, _, _ = run_soft_quality_analysis(
+        n_per_narrative=N_PER_NARRATIVE, model_path=MERGE_PATH, run_name="expD2_merged")
 
     # Both calls use the identical deterministic (seed=42) load_stratified_sample() - merge on
     # (narrative_name, text) to be robust rather than relying on row order.

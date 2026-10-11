@@ -34,7 +34,6 @@ Run (from repo root): python experiments/topic_modeling/experiment_a_min_topic_s
 """
 import json
 import os
-import shutil
 import time
 
 from bertopic import BERTopic
@@ -125,16 +124,21 @@ def find_control_topic(topic_model, keyword, top_k_search=8):
     }
 
 
-def run_analysis_with_retry(save_path, attempts=3):
+def run_analysis_with_retry(save_path, attempts=3, run_name=None):
     """analyze_soft_topic_quality reloads the saved BERTopic model via BERTopic.load(path), which
     re-resolves the embedding model by name (e.g. from the HF Hub / local cache) rather than
     bundling its weights in the safetensors save. This has been observed to occasionally fail
     transiently (BERTopic silently falls back to embedding_model=None and later raises 'No
-    embedding model was found' inside .transform()) - retry a few times before giving up."""
+    embedding model was found' inside .transform()) - retry a few times before giving up.
+
+    `run_name`, when given, is forwarded to analyze() so results are written directly to
+    per-run-suffixed files (soft_topic_quality_full.<run_name>.csv etc.) instead of the shared
+    canonical filenames - callers running a multi-config sweep MUST pass this (see
+    analyze_soft_topic_quality.py's module docstring, "Artifact naming" section)."""
     last_err = None
     for attempt in range(1, attempts + 1):
         try:
-            return run_soft_quality_analysis(n_per_narrative=40, model_path=save_path)
+            return run_soft_quality_analysis(n_per_narrative=40, model_path=save_path, run_name=run_name)
         except ValueError as e:
             last_err = e
             print(f"  (ניסיון {attempt}/{attempts} נכשל: {e} - מנסה שוב...)")
@@ -195,15 +199,9 @@ def run():
         }
 
         print(f"'{name}': מריץ ניתוח hard/soft agreement (analyze_soft_topic_quality, n=280, seed=42)...")
-        _, summary, _, _ = run_analysis_with_retry(save_path)
-        # analyze() writes to shared fixed filenames - copy them aside per-config so each run's
-        # output survives the next config's overwrite (mirrors the existing .BEFORE_X convention)
-        for fname in ("soft_topic_quality_full.csv", "soft_topic_quality_summary.json",
-                      "soft_topic_cooccurrence.csv", "soft_topic_quality_examples.csv"):
-            src_path = os.path.join(REPORT_DIR, fname)
-            if os.path.exists(src_path):
-                base, ext = os.path.splitext(fname)
-                shutil.copy(src_path, os.path.join(REPORT_DIR, f"{base}.{name}{ext}"))
+        # run_name=name makes analyze() write directly to soft_topic_quality_*.{name}.csv/json -
+        # the shared canonical (non-suffixed) files are never touched by this sweep.
+        _, summary, _, _ = run_analysis_with_retry(save_path, run_name=name)
 
         all_results[name] = {
             "min_topic_size": min_topic_size,

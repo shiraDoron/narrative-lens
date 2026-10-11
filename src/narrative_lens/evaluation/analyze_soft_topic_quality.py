@@ -31,6 +31,16 @@ Outputs (all under artifacts/experiments/profiler_prototype/):
   - soft_topic_cooccurrence.csv        - top topic-pairs from point 4
   - soft_topic_quality_examples.csv    - curated rows from point 5, with a `case_type` column
 
+Artifact naming / canonical-file protection: `analyze(run_name=None)` (the default) writes the 4
+files above under their plain canonical names - this is the PRODUCTION snapshot and should only
+ever be written by a deliberate run against the real deployed model (default `model_path`). ANY
+sweep/experiment script that calls this function in a loop over multiple configs MUST pass a
+distinct `run_name` (e.g. the config's display name) - this makes `analyze()` write directly to
+`soft_topic_quality_full.<run_name>.csv` etc. instead, so the shared canonical files are never
+touched as a side effect and never get silently overwritten by whichever config happened to run
+last. (This replaces the old pattern of writing to the canonical names and copying them aside
+after the fact, which was only as safe as every caller remembering to do the copy step.)
+
 Run (from repo root): `python -m narrative_lens.evaluation.analyze_soft_topic_quality --n-per-narrative 40`
 """
 import argparse
@@ -271,7 +281,17 @@ def select_examples(result_df, n_per_case=5, seed=42):
     return pd.concat(examples, ignore_index=True) if examples else pd.DataFrame()
 
 
-def analyze(n_per_narrative=40, top_n=3, model_path=TOPIC_MODEL_PATH_SOFT):
+def _report_path(basename, run_name):
+    """Canonical path when run_name is None (production snapshot); otherwise writes DIRECTLY to a
+    per-run-suffixed path (e.g. soft_topic_quality_full.expA_mts25.csv) so sweep/experiment runs
+    never touch the shared canonical files - see module docstring's "Artifact naming" section."""
+    if run_name is None:
+        return os.path.join(REPORT_DIR, basename)
+    base, ext = os.path.splitext(basename)
+    return os.path.join(REPORT_DIR, f"{base}.{run_name}{ext}")
+
+
+def analyze(n_per_narrative=40, top_n=3, model_path=TOPIC_MODEL_PATH_SOFT, run_name=None):
     os.makedirs(REPORT_DIR, exist_ok=True)
 
     sample_df = load_stratified_sample(n_per_narrative=n_per_narrative)
@@ -281,24 +301,24 @@ def analyze(n_per_narrative=40, top_n=3, model_path=TOPIC_MODEL_PATH_SOFT):
     pipeline = TopicAnalysisPipeline(model_path=model_path)
 
     result_df = run_batch_analysis(pipeline, sample_df, top_n=top_n)
-    full_csv = os.path.join(REPORT_DIR, "soft_topic_quality_full.csv")
+    full_csv = _report_path("soft_topic_quality_full.csv", run_name)
     result_df.to_csv(full_csv, index=False, encoding="utf-8-sig")
     print(f"Saved full per-text results ({len(result_df)} rows) to {full_csv}")
 
     summary = compute_summary_stats(result_df)
-    summary_json = os.path.join(REPORT_DIR, "soft_topic_quality_summary.json")
+    summary_json = _report_path("soft_topic_quality_summary.json", run_name)
     with open(summary_json, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     print(f"Saved summary stats to {summary_json}")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
     cooc_df = compute_cooccurrence(result_df, top_k=30)
-    cooc_csv = os.path.join(REPORT_DIR, "soft_topic_cooccurrence.csv")
+    cooc_csv = _report_path("soft_topic_cooccurrence.csv", run_name)
     cooc_df.to_csv(cooc_csv, index=False, encoding="utf-8-sig")
     print(f"Saved top {len(cooc_df)} co-occurring topic pairs to {cooc_csv}")
 
     examples_df = select_examples(result_df)
-    examples_csv = os.path.join(REPORT_DIR, "soft_topic_quality_examples.csv")
+    examples_csv = _report_path("soft_topic_quality_examples.csv", run_name)
     examples_df.to_csv(examples_csv, index=False, encoding="utf-8-sig")
     print(f"Saved {len(examples_df)} curated example rows to {examples_csv}")
 
@@ -313,6 +333,11 @@ if __name__ == "__main__":
                         help="Number of top soft topics to keep per text (default 3).")
     parser.add_argument("--model-path", type=str, default=TOPIC_MODEL_PATH_SOFT,
                         help=f"Path to a saved BERTopic model (default: {TOPIC_MODEL_PATH_SOFT}).")
+    parser.add_argument("--run-name", type=str, default=None,
+                        help="If set, writes soft_topic_quality_*.<run-name>.{csv,json} instead "
+                             "of the plain canonical filenames - use for any sweep/experiment run "
+                             "so the production snapshot is never overwritten as a side effect.")
     args = parser.parse_args()
 
-    analyze(n_per_narrative=args.n_per_narrative, top_n=args.top_n, model_path=args.model_path)
+    analyze(n_per_narrative=args.n_per_narrative, top_n=args.top_n, model_path=args.model_path,
+            run_name=args.run_name)

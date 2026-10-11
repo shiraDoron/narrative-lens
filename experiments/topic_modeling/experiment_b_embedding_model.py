@@ -32,7 +32,6 @@ Run (from repo root): python experiments/topic_modeling/experiment_b_embedding_m
 """
 import json
 import os
-import shutil
 
 from bertopic import BERTopic
 
@@ -123,13 +122,9 @@ def analyze_one(name, embedding_model, save_path, texts_list):
     }
 
     print(f"'{name}': מריץ ניתוח hard/soft agreement (analyze_soft_topic_quality, n=280, seed=42)...")
-    _, summary, _, _ = run_analysis_with_retry(save_path)
-    for fname in ("soft_topic_quality_full.csv", "soft_topic_quality_summary.json",
-                  "soft_topic_cooccurrence.csv", "soft_topic_quality_examples.csv"):
-        src_path = os.path.join(REPORT_DIR, fname)
-        if os.path.exists(src_path):
-            base, ext = os.path.splitext(fname)
-            shutil.copy(src_path, os.path.join(REPORT_DIR, f"{base}.{name}{ext}"))
+    # run_name=name makes analyze() write directly to soft_topic_quality_*.{name}.csv/json - the
+    # shared canonical (non-suffixed) files are never touched by this sweep.
+    _, summary, _, _ = run_analysis_with_retry(save_path, run_name=name)
 
     return {
         "embedding_model": embedding_model,

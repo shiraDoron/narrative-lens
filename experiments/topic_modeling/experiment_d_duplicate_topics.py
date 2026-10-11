@@ -350,14 +350,10 @@ def run_merge_test(texts_list):
           f"(לא נדרס baseline_seeded ולא saved_topic_model_soft_v2).")
 
     print("\nמריץ ניתוח hard/soft agreement (analyze_soft_topic_quality, n=280, seed=42) על המודל הממוזג...")
-    _, after_quality_summary, _, _ = run_analysis_with_retry(MERGE_EXPERIMENT_PATH)
-    for fname in ("soft_topic_quality_full.csv", "soft_topic_quality_summary.json",
-                  "soft_topic_cooccurrence.csv", "soft_topic_quality_examples.csv"):
-        src_path = os.path.join(REPORT_DIR, fname)
-        if os.path.exists(src_path):
-            import shutil
-            base, ext = os.path.splitext(fname)
-            shutil.copy(src_path, os.path.join(REPORT_DIR, f"{base}.expD_merge_rulesbased{ext}"))
+    # run_name=... makes analyze() write directly to soft_topic_quality_*.expD_merge_rulesbased.csv/json -
+    # the shared canonical (non-suffixed) files are never touched by this script.
+    _, after_quality_summary, _, _ = run_analysis_with_retry(
+        MERGE_EXPERIMENT_PATH, run_name="expD_merge_rulesbased")
 
     with open(BASELINE_QUALITY_SNAPSHOT, "r", encoding="utf-8") as f:
         before_quality_summary = json.load(f)
