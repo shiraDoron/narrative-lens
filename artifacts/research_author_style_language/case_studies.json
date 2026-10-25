@@ -1,0 +1,42 @@
+{
+  "retrieved": "2026-10-20",
+  "quote_policy": "Short excerpts only; follow each URL for context. Excerpts are not complete texts. Provisional stance labels are researcher interpretations, not model predictions or validated gold labels.",
+  "cases": [
+    {
+      "author": "שי גולדשטיין",
+      "in_existing_dataset": false,
+      "external_change_evidence": [
+        {"url":"https://www.c14.co.il/article/1283704","date":"2025-07-31","summary":"בריאיון הוא מתאר בעצמו תנועה לימין, לשמאל ובחזרה לימין; זו עדות מפורשת אך רטרוספקטיבית, ללא תאריך מעבר חד."},
+        {"url":"https://tovnews.co.il/147485","date":"2023-12-14","summary":"בריאיון הוא מתאר שינוי הדרגתי בהערכת רעיונות השמאל."},
+        {"url":"https://www.ynet.co.il/entertainment/article/yokra13521292","date":"2023-07-28","summary":"הכתבה מתארת שינוי, אך הוא עצמו חולק שם על הטענה שהיה שמאלני. פורסם לראשונה ב-28 ביולי ועודכן ב-30 ביולי; הסתירה אינה מוסתרת."}
+      ],
+      "eligibility":"לא הושלם מקרה ניסויי מאומת: נמצאו שלושה פרסומים מוקדמים ושלושה מאוחרים, אך לא שלושה טקסטים מוקדמים בעלי נרטיב שמאל ברור, מז'אנר ואורך תואמים. אין להסיק יציבות סגנונית.",
+      "texts": [
+        {"id":"SG1","period":"early_candidate","date":"2018-04-30","date_type":"publication","url":"https://www.mako.co.il/entertainment-celebs/local-2018/Article-d584e492c651361006.htm","source_type":"דיווח המצטט את דבריו ברדיו","topic":"תגובה לאסי עזר ומחלוקת על הומור","excerpt":"הכי קל להוציא את הדברים שלי מהקשר","stance":"אין נרטיב שמאל ברור; הגנה על הומור ותקיפה אישית","style_notes":"פנייה אישית, הגנה בגוף ראשון וסרקזם בהמשך התגובה; פיסוק עיתונאי","eligible_as_left_before":false},
+        {"id":"SG2","period":"early_candidate","date":"2018-09-04","date_type":"publication","url":"https://www.maariv.co.il/news/israel/Article-659871","accessible_secondary_url":"https://imageproxy.mivzakim.net/view/feed/342/date/2018-09-04","source_type":"כותרת מצוטטת בארכיון כותרות; גוף המקור לא נגיש בבדיקה","topic":"ביקורת על רמי לוי","excerpt":"עושק את אזרחי ישראל, בושה שהדליק משואה","stance":"ביקורת צרכנית/חברתית; אינה מספיקה לקביעת שמאל פוליטי","style_notes":"לשון שיפוטית בכותרת; חסר טקסט מלא למדידה","eligible_as_left_before":false},
+        {"id":"SG3","period":"early_candidate","date":"2019-11-17","date_type":"publication and reported broadcast day","url":"https://www.zman.co.il/56399/","source_type":"יומן חדשות, עדכון 13:12, המצטט דברי רדיו","topic":"אמיר אוחנה ונראות להטבית","excerpt":"אני רוצה לדעת שיש לי שר משפטים הומו. במדינת ישראל יש שר משפטים הומו – וצריך להתגאות בזה.","stance":"נראות להטבית לצד הקשר סטריאוטיפי/לעגני; אין הצדקה לתווית שמאל חד-משמעית","style_notes":"חזרה על ניסוח, גוף ראשון, אמירה פרובוקטיבית; אין להפריד מההקשר המלא","eligible_as_left_before":false},
+        {"id":"SG4","period":"later","date":"2023-07-18","publication_date":"2023-07-19","date_type":"original embedded post date; news report next day","url":"https://www.ice.co.il/media/news/article/972739","source_type":"פוסט X המוטמע בדיווח; מזהה המקור מקושר בגוף הכתבה","topic":"מחאה נגד הרפורמה המשפטית","excerpt":"מוחים, נסו לחשוב לבד. למה הימין שזוכה בבחירות דמוקרטיות ירצה דיקטטורה?","stance":"הגנה על הלגיטימיות הדמוקרטית של ממשלת הימין וביקורת על המחאה","style_notes":"פנייה לנמען, שאלה רטורית לפי הקשר, חזרתיות והאשמה","eligible_as_later_position":true},
+        {"id":"SG5","period":"later","date":"2023-12-14","date_type":"publication; recording date not established","url":"https://tovnews.co.il/147485","source_type":"ריאיון של גולדשטיין עם ללי דרעי, עם ציטוטים בדף","topic":"היחס לרעיונות השמאל","excerpt":"עם השנים הבנתי שהרעיונות בשמאל אולי יפים, אבל לא ריאליים","stance":"ביקורת מפורשת על רעיונות השמאל; תיאור רטרוספקטיבי של שינוי","style_notes":"גוף ראשון, ניגוד באמצעות אבל; ריאיון ערוך אינו בר-השוואה ישירה לפוסט","eligible_as_later_position":true},
+        {"id":"SG6","period":"later","date":"2025-07-31","date_type":"republication; original X timestamp not independently verified","url":"https://www.news1.co.il/Archive/0026-D-172540-00.html","source_type":"רשומה בחתימת גולדשטיין המציינת פרסום קודם ב-X; תוכן זמין בתוצאת החיפוש","topic":"תגובה להכרה במדינה פלסטינית","excerpt":"די לרפיסות. לאנטישמיות שמסכנת את קיומנו מגיעה תגובה ציונית חדה וקשוחה. אתם איתי?","stance":"תמיכה בסיפוח, החלת ריבונות וממשל צבאי; מסגור לאומי-ימני לפי תוכן הפרסום","style_notes":"רשימה ממוספרת, ציווי, מילים טעונות ושאלה מגייסת","eligible_as_later_position":true}
+      ]
+    },
+    {
+      "author":"Ben Shapiro",
+      "in_existing_dataset":true,
+      "existing_data_window":"2025-09-08 through 2026-08-07; earlier case texts are external additions only",
+      "change_type":"עמדה כלפי טראמפ: התנגדות להצבעה ב-2016 לעומת תמיכה ב-2020; אינו מעבר מוכח בין שבע קטגוריות הנרטיב",
+      "external_change_evidence":[
+        {"url":"https://www.youtube.com/watch?v=Y7Xj3tYFKks","date":"2020-10-19","summary":"הודעה בערוץ הרשמי: לא הצביע לטראמפ ב-2016 ויצביע לו ב-2020."},
+        {"url":"https://www.foxnews.com/media/ben-shapiro-why-voting-trump-in-2020","date":"2020-10-19","summary":"דיווח חיצוני המאמת את ההודעה על השינוי בהצבעה."}
+      ],
+      "texts":[
+        {"id":"BS1","period":"before","date":"2016-08-17","url":"https://townhall.com/columnists/benshapiro/2016/08/17/trump-isnt-an-easy-decision-and-nobody-should-pretend-he-is-n2205964","source_type":"טור בחתימת המחבר","topic":"בחירה בין טראמפ לקלינטון","excerpt":"as of now I have no intention to vote for Trump","stance":"נגד הצבעה לטראמפ, מתוך עמדה שמרנית","project_narrative":"Right-wing remains plausible; no Left-wing label inferred"},
+        {"id":"BS2","period":"before","date":"2016-10-27","url":"https://townhall.com/columnists/benshapiro/2016/10/27/an-honest-question-for-all-voting-americans-n2237630","source_type":"טור בחתימת המחבר","topic":"מוסר, אופי המועמד והטיעון של בחירה בינארית","excerpt":"Do the political ends justify the means?","stance":"ביקורת על הצדקת תמיכה בטראמפ רק כדי למנוע את קלינטון","project_narrative":"Conservative anti-Trump stance; no broad narrative switch established"},
+        {"id":"BS3","period":"before","date":"2016-03-04","publication_date":"2016-03-05","date_type":"Friday essay described in next-day report","url":"https://www.breitbart.com/politics/2016/03/05/ben-shapiro-explains-why-hell-never-vote-for-trump/","original_url":"https://www.dailywire.com/news/3896/shapiro-i-will-never-vote-donald-trump-heres-why-ben-shapiro","source_type":"ציטוטים מקוצרים ממאמר DailyWire; אין לספור את הדיווח והמאמר כשני טקסטים","topic":"עקרונות שמרניים מול טראמפ","excerpt":"I will never vote for Donald Trump because I stand with certain principles.","stance":"התנגדות להצבעה לטראמפ","style_scope":"Abridged essay quotation; excluded from full-column aggregation"},
+        {"id":"BS4","period":"after","date":"2021-01-27","url":"https://townhall.com/columnists/benshapiro/2021/01/27/this-is-not-normal-n2583760","source_type":"טור בחתימת המחבר","topic":"השוואת מדיניות ביידן וטראמפ","excerpt":"Trump did not radically shift American policy. Biden will.","stance":"הגנת מדיניות טראמפ מול ביידן, בלי הכחשת ביקורת על התנהגותו"},
+        {"id":"BS5","period":"after","date":"2023-12-20","url":"https://townhall.com/columnists/benshapiro/2023/12/20/barring-trump-from-ballots-is-a-recipe-for-violence-n2632683","source_type":"טור בחתימת המחבר","topic":"פסילת טראמפ מהתמודדות בקולורדו","excerpt":"This is, to put it mildly, unbelievably dangerous.","stance":"התנגדות לפסילת טראמפ; אין להסיק הסכמה לכל מעשיו"},
+        {"id":"BS6","period":"after","date":"2024-06-05","url":"https://townhall.com/columnists/benshapiro/2024/06/05/of-convicted-felons-and-lying-frauds-n2639979","source_type":"טור בחתימת המחבר","topic":"הרשעת טראמפ והעימות עם ביידן","excerpt":"Biden has no ground to stand on in labeling Trump a threat to law and order.","stance":"ביקורת על העמדת טראמפ לדין ועל טענות ביידן"}
+      ]
+    }
+  ]
+}

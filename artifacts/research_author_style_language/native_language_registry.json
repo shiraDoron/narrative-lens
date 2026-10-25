@@ -1,0 +1,117 @@
+{
+  "ZelenskyyUa": {
+    "status": "explicit_reliable_source",
+    "native_language": "Russian",
+    "source_url": "https://www.euronews.com/2019/04/11/comic-actor-zelenskiy-more-likely-to-win-presidential-run-off-says-new-poll",
+    "publisher": "Reuters, syndicated by Euronews",
+    "publication_date": "2019-04-11",
+    "retrieved": "2026-10-20",
+    "explicit_evidence": "Zelensky, who is a native Russian speaker",
+    "scope": "Person's L1 only. Does not establish that he personally composed, translated, or approved each stored post.",
+    "previous_source_search_status": "explicit_reliable_source",
+    "confidence_status": "verified",
+    "researcher_input": {
+      "source": "User message in this research conversation",
+      "external_source_supplied": false,
+      "note": "User requested probable specifically for khamenei_ir, BenShapiro and CharlieKirk. No independent verification added."
+    }
+  },
+  "khamenei_ir": {
+    "status": "probable",
+    "queries": [
+      "Khamenei mother tongue",
+      "Khamenei mother tongue Azeri"
+    ],
+    "reviewed_url": "https://english.aawsat.com/home/article/1818211/understanding-iran-and-why-it-distrusts-britain?_wrapper_format=html&page=2",
+    "reason": "A commentary explicitly claims Persian but derives this from family background; no independent direct confirmation obtained. Ethnicity and knowledge of Azeri are not evidence of native language. The account identity over time is also not verified.",
+    "previous_source_search_status": "לא נמצא מקור אמין",
+    "native_language": "Persian",
+    "confidence_status": "probable",
+    "researcher_input": {
+      "source": "User message in this research conversation",
+      "external_source_supplied": false,
+      "note": "User requested probable specifically for khamenei_ir, BenShapiro and CharlieKirk. No independent verification added."
+    }
+  },
+  "MariaZakharova": {
+    "status": "user_reported_unverified",
+    "queries": [
+      "Maria Zakharova native language",
+      "Maria Zakharova родной язык"
+    ],
+    "rejected_url": "https://www.wikidata.org/wiki/Q111541436",
+    "reason": "Native-language claim has zero references. Search also returned a LinkedIn namesake in blockchain; excluded as identity mismatch.",
+    "previous_source_search_status": "לא נמצא מקור אמין",
+    "native_language": "Russian",
+    "confidence_status": "user_reported_unverified",
+    "researcher_input": {
+      "source": "User message in this research conversation",
+      "external_source_supplied": false,
+      "note": "User requested probable specifically for khamenei_ir, BenShapiro and CharlieKirk. No independent verification added."
+    }
+  },
+  "BenShapiro": {
+    "status": "probable",
+    "queries": [
+      "Ben Shapiro native language English",
+      "Ben Shapiro English is my first language"
+    ],
+    "reason": "No explicit reliable statement found in this search. English output and US biography are not sufficient. Search result about a child's native language excluded.",
+    "previous_source_search_status": "לא נמצא מקור אמין",
+    "native_language": "English",
+    "confidence_status": "probable",
+    "researcher_input": {
+      "source": "User message in this research conversation",
+      "external_source_supplied": false,
+      "note": "User requested probable specifically for khamenei_ir, BenShapiro and CharlieKirk. No independent verification added."
+    }
+  },
+  "BernieSanders": {
+    "status": "user_reported_unverified",
+    "queries": [
+      "Bernie Sanders first language",
+      "Bernie Sanders mother tongue"
+    ],
+    "reason": "No explicit reliable statement found in this search; biography, accent, and Yiddish cultural association do not establish L1.",
+    "previous_source_search_status": "לא נמצא מקור אמין",
+    "native_language": "English",
+    "confidence_status": "user_reported_unverified",
+    "researcher_input": {
+      "source": "User message in this research conversation",
+      "external_source_supplied": false,
+      "note": "User requested probable specifically for khamenei_ir, BenShapiro and CharlieKirk. No independent verification added."
+    }
+  },
+  "CharlieKirk": {
+    "status": "probable",
+    "queries": [
+      "Charlie Kirk native language"
+    ],
+    "reason": "No explicit reliable biographical statement found. Unreferenced celebrity profile and material about other people's sign language excluded.",
+    "previous_source_search_status": "לא נמצא מקור אמין",
+    "native_language": "English",
+    "confidence_status": "probable",
+    "researcher_input": {
+      "source": "User message in this research conversation",
+      "external_source_supplied": false,
+      "note": "User requested probable specifically for khamenei_ir, BenShapiro and CharlieKirk. No independent verification added."
+    }
+  },
+  "HananyaNaftali": {
+    "status": "user_reported_unverified",
+    "queries": [
+      "Hananya Naftali native language",
+      "Hananya Naftali English learned"
+    ],
+    "reason": "No explicit reliable statement found; English interviews, Hebrew name, and birthplace do not establish L1.",
+    "previous_source_search_status": "לא נמצא מקור אמין",
+    "native_language": "Hebrew / English",
+    "confidence_status": "user_reported_unverified",
+    "researcher_input": {
+      "source": "User message in this research conversation",
+      "external_source_supplied": false,
+      "note": "User requested probable specifically for khamenei_ir, BenShapiro and CharlieKirk. No independent verification added."
+    },
+    "language_interpretation": "Unresolved: slash-separated researcher input; does not establish two native languages, their order of acquisition, or English as L1 rather than L2."
+  }
+}

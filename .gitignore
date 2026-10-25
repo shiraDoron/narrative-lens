@@ -19,3 +19,7 @@ __pycache__/
 # machine-generated from data/raw/ + a documented src/ command, never hand-authored.
 data/cache/**/*.pt
 data/cache/**/*.npy
+
+# Local research dependencies and temporary report rendering
+artifacts/research_dependencies/
+reports/_tmp_report.html

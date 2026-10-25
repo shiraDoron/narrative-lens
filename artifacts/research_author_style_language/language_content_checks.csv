@@ -1,0 +1,15 @@
+﻿row_id,account,source_csv,csv_record_number,automatic_candidate,content_checked_language,note,text_sha256
+twitter:910,khamenei_ir,data/raw/twitter_natural_dataset.csv,910,es,es,"Spanish text, not evidence of account holder L1",e5ae276a5f42c4abc749157ac4f8981930160cd63a52e35e711f20a20295c5d0
+twitter:1476,EU_Commission,data/raw/twitter_natural_dataset.csv,1476,pt,pt,Portuguese text,6945ad542d9f98075d984f2a094eaa99163484aa2b54f08b24aa9ac5aef0c4df
+twitter:1501,EU_Commission,data/raw/twitter_natural_dataset.csv,1501,pt,pt,Portuguese text,fc5cf54527ebc5704d9f7b0842b15c012772478f2cdf76dacd9433fe6659179c
+twitter:1505,EU_Commission,data/raw/twitter_natural_dataset.csv,1505,fr,fr,French text,2e26f9f10d264fa5a7ce2e49e5d74c064c265352764565a0edd09bbe744e0899
+twitter:1531,EU_Commission,data/raw/twitter_natural_dataset.csv,1531,es,es,Spanish text,36d0d95462d05eda7c76b15b83f2fb30026f030d5d8b71e5950af40067dc044f
+twitter:1535,EU_Commission,data/raw/twitter_natural_dataset.csv,1535,es,es,Spanish text,39b16a95fdd3bbf50aa3e94c247ee3f60cea26fca72f2762b642aa8e2031d2fc
+twitter:2091,ZelenskyyUa,data/raw/twitter_natural_dataset.csv,2091,fr,fr,French text,50cbeb5f869800437125403664057e9e9ce0a46ae1fede04fbd90b4e7bcc4813
+twitter:2873,BenShapiro,data/raw/twitter_natural_dataset.csv,2873,es,es,Spanish text; repost/quotation authorship not established,33a9a9dfb0b684b3d04739d851adfb5b7ce1bf8f41e8dbf5bbbe067c487a0e51
+twitter:3424,GeneralStaffUA,data/raw/twitter_natural_dataset.csv,3424,ru,uk+en,Ukrainian and English bilingual text; automatic ru was inaccurate,d3b5b39f7aca3d38a2acc8ad1c27b9dbf40b5337e5497fa64cf98dd4850871ab
+telegram:436,BringThemHomeNow,data/raw/telegram_natural_dataset.csv,436,he,he,Hebrew prose,707bbfd62a6a1c2d4de23514e4299763d6819f7b5f0882c6c31117c0960ea1cc
+telegram:1809,Rybar,data/raw/telegram_natural_dataset.csv,1809,ru,ru,"Russian prose; one checked example, not a statement about every Rybar row",e03dc541cdbdb36f401af2a4bc070ea74b6e7e1b4870b7724412317c6489866d
+twitter:2783,FoxNews,data/raw/twitter_natural_dataset.csv,2783,fr,en,English headline; automatic fr was inaccurate,481b309e5318d3506f8c5a61ae7178151fb2b41646b145685c042e2dbce81fdc
+telegram:286,TheJerusalemPost,data/raw/telegram_natural_dataset.csv,286,zh,en,English uppercase headline; automatic zh was inaccurate,a5e8f42a0f4d82c2c0880c51c8ac106120cde137272150b6a6aeacf4e6022bdb
+telegram:2236,DDGeopolitics,data/raw/telegram_natural_dataset.csv,2236,la,en,English text plus channel footer; automatic la was inaccurate,3037d7c5291f6f06aee92939364ea754431b1d6859be4745fceb817e5ee4a4fd
