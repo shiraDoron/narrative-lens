@@ -2,6 +2,21 @@
 
 Short political texts are labeled with one of 7 narratives (`Zionist`, `Resistance`, `Western`, `Russian`, `Ukrainian`, `Right-wing`, `Left-wing`). In-distribution accuracy looks strong, but labels are assigned by account/channel, not per-text human judgment, so a model can score well by learning who wrote a text instead of what it argues. This repo tests whether that happens: four zero-shot interventions (entity masking, style normalization, noise removal, group-DRO) all failed to restore generalization to unseen authors, but few-shot adaptation works.
 
+## Current work / Active follow-up
+
+The earlier style-normalization intervention (§28) was negative; a more focused author-style follow-up remains active. Current development uses **train authors only**, with the follow-up test set frozen. Recent prompt experiments have not triggered retraining or established any new unseen-author generalization claim. **External LLM Review ≠ Human Validation**; human validation of this follow-up is **Pending**. See [CURRENT_STATE.md](CURRENT_STATE.md) for the latest results and next decision.
+
+## Suggested reading path
+
+If you are new to the project (5–10 minutes):
+
+1. [README.md](README.md) — research question and headline findings.
+2. [CURRENT_STATE.md](CURRENT_STATE.md) — what is active, established and still unproven.
+3. [EXPERIMENTS.md: Research storyline](EXPERIMENTS.md#research-storyline-start-here) — the research history; stop before the lab notebook unless you need details.
+4. [data/README.md](data/README.md) — datasets, label provenance and frozen holdouts.
+5. [docs/running.md](docs/running.md) — setup, inputs, outputs and reproduction routes.
+6. [artifacts/README.md](artifacts/README.md) — experiment outputs, status and local guides.
+
 ## Research questions
 
 Derived from EXPERIMENTS.md Sections 18 to 35. Full arc: [EXPERIMENTS.md](EXPERIMENTS.md#research-storyline-start-here).
@@ -25,7 +40,7 @@ Details: [docs/results.md](docs/results.md). All numbers below trace to that fil
 - **Random split: plain SBERT baseline wins.** `sbert_only` reaches 0.732 accuracy / 0.730 macro-F1, ahead of `hybrid` (0.722 / 0.717) and `baseline_fusion` (0.671 / 0.664). Engineered features add no measurable value here. (Background, Sections 15-20.)
 - **RQ1: LOAO recall drops 20 to 38pp** relative to the random split, and 2 of 3 tested authors are systematically misrouted to `Right-wing` (Sections 18, 19).
 - **RQ2: entity masking does not generalize.** Exploratory masking helped one author and hurt two (Sections 23, 24); the pre-registered test on 14 fresh authors returned `NON-INFERIOR = FALSE` (Section 25).
-- **RQ3: style identifies authors but removing it hurts.** A decision tree predicts the author within a fixed narrative far above chance (`Western`: 85.1% vs. about 20% baseline, Section 27). Normalizing style cut that signal (about minus 15 points macro-F1) yet fresh-author recall regressed for 13 of 14 authors (mean minus 6.4pp, median difference -10.8pp of group medians, Section 28).
+- **RQ3: style predicts author identity; the tested normalization did not improve generalization.** A decision tree predicts the author within a fixed narrative far above chance (`Western`: 85.1% vs. about 20% baseline, Section 27). Normalizing style cut that measured signal (about minus 15 points macro-F1) yet fresh-author recall regressed for 13 of 14 authors (mean minus 6.4pp, median difference -10.8pp of group medians, Section 28). This does not establish that removing author style caused the regression.
 - **RQ4: label noise, event confounding, entity causality, and Group-DRO don't explain or close the gap.**
   - Labels are text-supported but noisy: a 300-text blind validation agrees with provenance labels at 0.7727 accuracy (kappa 0.7348); the hard-disagreement (noise) rate is 0.1988 (Section 29).
   - Removing 202 noisy rows shows no systematic effect across seeds 42/43/44 (Bernie mean delta +0.0017, sign flips; Section 34A).

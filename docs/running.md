@@ -2,18 +2,26 @@
 
 ## Setup
 
-```bash
+Run commands from the **repository root** (the directory containing `pyproject.toml`), after cloning and entering it. Use Python 3.11 for the active style-study environment. Choose the setup block for your shell; after activation, `python` refers to this environment.
+
+Windows PowerShell:
+
+```powershell
 python -m venv .venv
-.venv\Scripts\activate          # Windows PowerShell: .venv\Scripts\Activate.ps1
-
-# Option A - editable install of the narrative_lens package (recommended: enables `python -m
-# narrative_lens...` everywhere below, plus pytest/ruff via the `dev` extra):
-$env:SETUPTOOLS_USE_DISTUTILS="stdlib"   # Windows/pyenv workaround for a distutils_hack bug
-pip install -e ".[dev]"
-
-# Option B - exact pinned lock file used to verify this on a local CPU-only Windows machine:
-pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+.\.venv\Scripts\Activate.ps1
+$env:SETUPTOOLS_USE_DISTUTILS = "stdlib"
+python -m pip install -e ".[dev]"
 ```
+
+Linux/macOS Bash:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+```
+
+Alternatively, `python -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu` installs the pinned dependency set validated on the original CPU-only Windows environment. It is not a portability guarantee for every platform. If activation is unavailable, invoke `.venv/Scripts/python.exe` (Windows) or `.venv/bin/python` (Linux/macOS) directly.
 
 See `requirements.txt` for notes on the CPU-only `torch` build and the optional/Colab-only
 extras (Gemini/Telegram/translation packages, `pip install -e ".[datacollection]"`), which are
@@ -34,8 +42,8 @@ pytest tests/ -q
 
 ## All CLI commands
 
-All scripts must be run **from the repository root** as a module (`python -m
-narrative_lens...`), not from inside `src/` or `experiments/`, since their internal paths
+Package entry points run **from the repository root** as modules (`python -m
+narrative_lens...`); standalone experiment scripts use `python path/to/script.py`. Do not run from inside `src/` or `experiments/`, since internal paths
 (`data/raw/...`, `models/...`, `artifacts/...`) are relative to the project root.
 
 ```bash
@@ -97,13 +105,13 @@ commands, run in order, let you see that story directly instead of just reading 
    corpus is required per held-out author, documented at several hours wall-clock on a CPU-only
    machine; see [`EXPERIMENTS.md`](../EXPERIMENTS.md) §18 for the original timing note):
    ```bash
-   python -m narrative_lens.train --model hybrid --split leave_one_author --held-out-author IDF
+   python -m narrative_lens.train --model baseline_fusion --split leave_one_author --held-out-author IDF
    ```
    Runs/overwrites: a new `data/cache/cached_features_*_loao_IDF.pt`, a new checkpoint under
    `models/`. What it does: trains from scratch with every post by `IDF` held out entirely, then
    reports recall on that author's held-out posts. Expected qualitative outcome: recall well
    below the random-split Zionist F1 reported in `docs/results.md` — the generalization gap
-   documented in [`EXPERIMENTS.md §18`](../EXPERIMENTS.md#18-narrative-classification--leave-one-author-out-loao-generalization-test).
+   documented in [`EXPERIMENTS.md §18`](../EXPERIMENTS.md#18-narrative-classification-leave-one-author-out-loao-generalization-test).
    If you don't want to wait for a fresh training run, the already-computed, frozen numbers for
    this exact command are in `artifacts/experiments/narrative_ablation_loao/` and EXPERIMENTS.md
    §18-§19.
@@ -121,15 +129,35 @@ commands, run in order, let you see that story directly instead of just reading 
    qualitative outcome: author-identification accuracy far above the majority-class/chance
    baseline in every narrative — direct evidence that narrative labels partly encode *who wrote
    it*, not just *what it says* (frozen numbers in
-   [`EXPERIMENTS.md §27`](../EXPERIMENTS.md#27-author-signature-diagnostics--does-the-text-itself-identify-its-author-decision-tree)
+   [`EXPERIMENTS.md §27`](../EXPERIMENTS.md#27-author-signature-diagnostics-does-the-text-itself-identify-its-author-decision-tree)
    and `artifacts/experiments/narrative_author_signature_diagnostics/`).
 
 ## Reproducing the experiments in `EXPERIMENTS.md`
 
-Every experiment documented in [`EXPERIMENTS.md`](../EXPERIMENTS.md) has its code under
+Most historical experiments documented in [`EXPERIMENTS.md`](../EXPERIMENTS.md) have code under
 `experiments/{topic_modeling,feature_ablation,author_generalization}/`, runnable the same way,
 e.g. `python experiments/topic_modeling/experiment_a_min_topic_size.py`. See
 [`experiments/README.md`](../experiments/README.md) for the full list and what each folder covers.
+
+## Active style follow-up reproduction
+
+Start with [CURRENT_STATE.md](../CURRENT_STATE.md); select the exact version in the [artifact index](../artifacts/README.md#style-follow-up-navigation). Reading committed reports requires no model runtime. The recent prompt runs have **no new training results**; historical training commands below/elsewhere are reproduction options, not instructions to resume training now.
+
+| Task | Required inputs | Output / guide |
+|---|---|---|
+| Audit the latest external review | Committed new-review CSV, frozen `comparison_30.csv`, earlier external-review `summary.json`; standard Python only | Per-row classifications, separate Borderline CSV, `summary.json`, audit and reports in the new-review directory; command below |
+| Recompute prompt/style reports | Frozen generated rewrites, old/new comparison inputs, saved automatic scores, original train feature reference; existing study ML environment | [30-train local guide](../artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/README.md) lists each stage and outputs |
+| Reproduce generation / semantic screening | Pinned Qwen GGUF + llama.cpp runtime from the predecessor, cached MPNet/DeBERTa/NER models, protocol settings, Python/ML dependencies | [V2 guide](../artifacts/experiments/style_intervention_v2_20261026/README.md) and [runtime setup](../artifacts/experiments/verified_human_style_followup_20261026/README.md); keep a new versioned directory for fresh generation |
+
+The following import command is valid in PowerShell and Bash from the repository root. It uses the committed source copy and updates **derived review tables and documentation only**, with no LLM call, generation or training:
+
+```bash
+python artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/import_review.py
+```
+
+Expected checks: 30 unique matching IDs, all train; meaning 10 Yes / 15 Borderline / 5 No; style 30 Yes; TP 19 / FP 5 / TN 5 / FN 1 relative to this LLM. Inputs and existing human-review fields remain unchanged. [Import contract and provenance limits](../artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/README.md).
+
+Model weights, runtime binaries, publisher HTML snapshots, embeddings, NLI resume caches and checkpoints are not all committed. Existing generation orchestration was executed on Windows with its recorded llama.cpp executable; Linux/macOS generation is **not verified as copy-and-run**. Reproducing imported ratings means recomputing their summaries, not recreating the external model's judgments. **External LLM Review ≠ Human Validation**; Human Validation of this follow-up is Pending.
 
 ## Environment variables (secrets)
 

@@ -1,5 +1,7 @@
 # `data/`
 
+For the active study, first see [CURRENT_STATE.md](../CURRENT_STATE.md). The bylined-writer style follow-up is a **separate two-narrative corpus** under `artifacts/experiments/verified_human_style_followup_20261026/`, with [its own frozen author split](../artifacts/experiments/verified_human_style_followup_20261026/author_splits.csv). It does not replace the seven-label classifier inputs below. Current prompt development uses only its selected 30 train texts; validation/test assignments remain frozen. Its labels are model-generated proposals, **External LLM Review ≠ Human Validation**, and its Human Validation is **Pending**.
+
 ## Which dataset should I use?
 
 Quick orientation for anyone new to the repo — what each thing under `data/` (plus two
@@ -14,10 +16,10 @@ experiment-output locations referenced below) actually is, and whether you're al
 | Fresh-author holdout (frozen) | `artifacts/experiments/narrative_fresh_author_audit/fresh_author_confirmatory_set.json` (14 authors, 2 per narrative, frozen with seed=42 — see [`EXPERIMENTS.md`](../EXPERIMENTS.md) §25) | The pre-registered, held-out-in-advance author set used for confirmatory (non-exploratory) unseen-author generalization tests (Sections 25, 28) | **No** — frozen by design; re-freezing a different set would invalidate every confirmatory result that depends on it | **Test/audit only** — these authors must never be used in a training set for any experiment that cites Section 25/28 as confirmatory evidence |
 | Matched-event candidate data | `data/candidates/v2_pilot/matched_event_pilot.csv` | A Phase-1, not-yet-adopted "Dataset V2" candidate pairing same-event coverage across narratives, mined offline from the existing raw corpus (see [`data/candidates/v2_pilot/README.md`](candidates/v2_pilot/README.md)) | Yes, in principle regenerable via `narrative_lens.data.build_matched_event_pilot`, but treated as read-only pending review | **Not used anywhere yet** — explicitly **not merged** into `data/raw/*.csv`; do not wire it into training until the Phase-1 quality gate is reviewed |
 
-**Source of truth for "what the model actually trains on" today**: the 4 files under `data/raw/`
+**Source of truth for the main seven-label classifier training pipeline**: the 4 files under `data/raw/`
 via `train.load_raw_data()` — nothing else listed above is part of the training/evaluation loop
 except as a held-out test set (fresh-author holdout) or an offline audit (human-validation,
-matched-event candidates).
+matched-event candidates). Standalone research experiments may use their own frozen corpora, as documented in their local protocols; this does not change the main pipeline's inputs.
 
 ## `data/raw/` (tracked in git)
 

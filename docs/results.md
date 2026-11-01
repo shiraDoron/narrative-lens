@@ -1,6 +1,6 @@
 # Results
 
-## Model comparison & current recommended configuration
+## Random-split model comparison and reproduction baseline
 
 `train.py` trains/evaluates three models, selected via `--model` (or `config.py`'s
 `MODEL_TYPE`), on **identical train/validation/test splits** (`config.py`'s
@@ -17,8 +17,8 @@ split test set (`artifacts/tables/model_comparison_results.json`, rebuild with
 
 On this split, the pure-SBERT baseline currently edges out the Hybrid model, both clearly ahead
 of the original linear-fusion baseline — the engineered feature layers are not yet adding
-measurable value over frozen SBERT embeddings alone on a random split. **Current recommended
-configuration for reproducing the headline result**:
+measurable value over frozen SBERT embeddings alone on a random split. **Reproduction baseline
+for this random-split comparison**:
 
 ```bash
 python -m narrative_lens.train --model sbert_only --split random

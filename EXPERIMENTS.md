@@ -1,37 +1,10 @@
 # Experiments Log
 
-## Style-normalization development checkpoint — 2026-11-01
+Most readers should start with the [research storyline below](#research-storyline-start-here).
+The remainder of this document is the detailed chronological experiment log / lab notebook.
+For today's status, read [CURRENT_STATE.md](CURRENT_STATE.md); for outputs and reproduction guides, use the [artifact index](artifacts/README.md).
 
-The revised prompt was evaluated on the same 30 purposively selected **TRAIN-only** originals. Automatic preservation pass changed from 23/30 to 6/30, substantial-style proxy from 10/30 to 24/30, joint success from 7/30 to 6/30, and exact copies from 7 to 0. These are development diagnostics, not held-out generalization estimates.
-
-The user-supplied **New Normalized External LLM Review** was subsequently imported without running a new judge. Supplied meaning ratings: Yes 10/30, Borderline 15/30, No 5/30; style-change Yes 30/30; semantic-drift Yes 20/30 (including all 15 Borderline cases). Strict descriptive preservation (meaning/stance/attribution/certainty Yes and drift No) and joint preservation/style are both 10/30. These are LLM ratings, not human gold or verified drift.
-
-Five automatic rejections received strict external preservation approval (`0105f26ef9f1`, `120177`, `212505`, `418620`, `459e183c1d0d`); these are candidate false positives relative to this reviewer. One automatic pass, `423315`, was rated Borderline for meaning. No guard decisions were overridden. Exact evaluator model, evaluation prompt, timestamp and reviewed-text hashes were not provided; blinding and independence are not established. Old external-review ratings apply only to old rewrites.
-
-[Full external review report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/REPORT_HE.md) · [Frozen Original/Old/New comparison](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/COMPARISON_30_HE.md) · [Central experiment guide](artifacts/experiments/style_intervention_v2_20261026/EXPERIMENT_GUIDE_HE.md).
-
-No prompt/guard/threshold changes, test use, relabelling, split changes, human-review updates or retraining occurred at this import checkpoint. Stop before further tuning or experiments.
-
-This document consolidates all experiments actually run on the BERTopic topic-modeling
-pipeline (`saved_topic_model_soft_v2`) and its supporting preprocessing/analysis tooling. It
-covers only work that was actually executed and measured (not proposals that were never run).
-
-Scope note: none of these experiments touched `fusion.py`, `train.py`, `config.py`'s narrative
-classifier, `models/saved_topic_model` (the legacy/pinned model used by the trained
-classification checkpoints), or any `.pth` checkpoint. All of them operate on the topic model
-used for soft/multi-topic scoring (`models/saved_topic_model_soft_v2`) or on read-only corpus
-analysis, and every risky change was first validated on a separate path before ever touching
-`saved_topic_model_soft_v2` itself.
-
-All BERTopic configurations described below start from library defaults unless a change is
-explicitly called out: `embedding_model="sentence-transformers/all-MiniLM-L6-v2"`, default UMAP
-(`n_neighbors=15, n_components=5, min_dist=0.0, metric="cosine"`, no `random_state` unless noted),
-default HDBSCAN (`min_cluster_size=min_topic_size`, `metric="euclidean"`,
-`cluster_selection_method="eom"`), default `CountVectorizer()` (no stopwords, unigrams only),
-default `ClassTfidfTransformer(bm25_weighting=False, reduce_frequent_words=False)`, and
-`representation_model=None` (label = single top c-TF-IDF word).
-
----
+Scope: early entries concern BERTopic representation; later entries cover narrative classification, unseen-author evaluation and interventions. The original topic-model-only scope note does not apply to later classifier experiments. Historical sections are retained in place. **Closed refers to an individual experiment, not the entire author-style research question.**
 
 ## Research storyline (start here)
 
@@ -61,6 +34,21 @@ narrative arc that connects the sections below, in the order the questions were 
 For the headline in-distribution model comparison (`baseline_fusion` vs. `sbert_only` vs.
 `hybrid` on a random split) that stage 1 above builds on, see [`docs/results.md`](docs/results.md)
 rather than this file.
+
+### Active follow-up and version lineage
+
+This extends the historical storyline above; it does not reopen or replace the recorded results of Section 28. Observations belong to their own corpus/version. Evidence and reproduction links lead to local guides; full current counts live in [CURRENT_STATE.md](CURRENT_STATE.md).
+
+| Question / experiment | Type | Result | Status | Observed result | Interpretation / what this does not prove | Evidence and reproduction |
+|---|---|---|---|---|---|---|
+| Can a controlled rewrite isolate style? Initial account pilot | Exploratory | Mixed | Superseded | Completed pilot with limited preservation/attribution control | Motivated a bylined-writer cohort; not verified human-author evidence | [Pilot guide and outputs](artifacts/experiments/author_style_controlled_20261026/README.md) |
+| Does normalization outperform paraphrase on disjoint bylined writers? | Exploratory | Negative | Superseded | Matched mean macro-F1: Normalized 0.543747, Paraphrase 0.590256 | No support for the proposed benefit; two-narrative machine-label study, no causal style-removal claim | [Results](artifacts/experiments/verified_human_style_followup_20261026/RESULTS_HE.md), [reproduce](artifacts/experiments/verified_human_style_followup_20261026/README.md) |
+| Does V2 produce a stronger valid intervention? | Intervention | Mixed | Current | More automatic style changes; Human Validation Pending, no new classifier training | Parent study remains active; automatic acceptance is not meaning verification | [Guide, results and reproduction](artifacts/experiments/style_intervention_v2_20261026/README.md) |
+| Are old rewrites semantically/style valid according to an external LLM? | Diagnostic | Mixed | Closed | Supplied ratings imported for Old Normalized | Historical diagnostic, not human gold and not ratings for new rewrites | [Report and import guide](artifacts/experiments/style_intervention_v2_20261026/external_llm_review_20261101/README.md) |
+| Does a stronger prompt change style while preserving meaning? 30 train originals | Exploratory | Mixed | Current | More substantial style proxies, fewer automatic preservation passes | Semantic preservation is the bottleneck; no test or retraining evidence | [Compare texts](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/COMPARISON_30_HE.md), [reproduce](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/README.md) |
+| Which guards agree with External LLM Review - New Normalized? | Diagnostic | Mixed | Current | Imported review and discrepancy analysis completed; Borderline retained separately | Reviewer-relative disagreements, not proven guard error rates; next decision pending | [Report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/REPORT_HE.md), [reproduce import](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/README.md) |
+
+**External LLM Review ? Human Validation.** Automated guards, model-generated label proposals, external LLM ratings, and actual human validation are separate evidence layers. Human Validation is **Pending for this follow-up**; historical Section 29's annotation audit does not validate this new corpus. No imported review fills human fields.
 
 ### Experiment status legend
 
@@ -112,6 +100,16 @@ summarized in the storyline table above.
 | §36 Few-shot learning curve (multi-seed) | Intervention/Confirmatory | Mixed-positive | Closed |
 
 ---
+
+## Detailed chronological log / lab notebook
+
+All BERTopic configurations described below start from library defaults unless a change is
+explicitly called out: `embedding_model="sentence-transformers/all-MiniLM-L6-v2"`, default UMAP
+(`n_neighbors=15, n_components=5, min_dist=0.0, metric="cosine"`, no `random_state` unless noted),
+default HDBSCAN (`min_cluster_size=min_topic_size`, `metric="euclidean"`,
+`cluster_selection_method="eom"`), default `CountVectorizer()` (no stopwords, unigrams only),
+default `ClassTfidfTransformer(bm25_weighting=False, reduce_frequent_words=False)`, and
+`representation_model=None` (label = single top c-TF-IDF word).
 
 ## 1. Soft (multi-topic) clustering added to BERTopic
 
@@ -3847,6 +3845,18 @@ intervention is opened on this question without an explicit new decision.
 Artifacts: `artifacts/experiments/narrative_few_shot_learning_curve/` (`raw_results.json`,
 `sanity_checks.json`, `configuration.json`, `per_seed_results.csv`, `per_author_results.csv`,
 `aggregated_table.csv`, `learning_curve.png`, `learning_curve_per_author.png`, `run_log.txt`).
+
+## Style-normalization development checkpoint — 2026-11-01
+
+The revised prompt was evaluated on the same 30 purposively selected **TRAIN-only** originals. Automatic preservation pass changed from 23/30 to 6/30, substantial-style proxy from 10/30 to 24/30, joint success from 7/30 to 6/30, and exact copies from 7 to 0. These are development diagnostics, not held-out generalization estimates.
+
+The user-supplied **New Normalized External LLM Review** was subsequently imported without running a new judge. Supplied meaning ratings: Yes 10/30, Borderline 15/30, No 5/30; style-change Yes 30/30; semantic-drift Yes 20/30 (including all 15 Borderline cases). Strict descriptive preservation (meaning/stance/attribution/certainty Yes and drift No) and joint preservation/style are both 10/30. These are LLM ratings, not human gold or verified drift.
+
+Five automatic rejections received strict external preservation approval (`0105f26ef9f1`, `120177`, `212505`, `418620`, `459e183c1d0d`); these are candidate false positives relative to this reviewer. One automatic pass, `423315`, was rated Borderline for meaning. No guard decisions were overridden. Exact evaluator model, evaluation prompt, timestamp and reviewed-text hashes were not provided; blinding and independence are not established. Old external-review ratings apply only to old rewrites.
+
+[Full external review report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/REPORT_HE.md) · [Frozen Original/Old/New comparison](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/COMPARISON_30_HE.md) · [Central experiment guide](artifacts/experiments/style_intervention_v2_20261026/EXPERIMENT_GUIDE_HE.md).
+
+No prompt/guard/threshold changes, test use, relabelling, split changes, human-review updates or retraining occurred at this import checkpoint. Stop before further tuning or experiments.
 
 ## Summary
 
