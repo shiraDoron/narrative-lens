@@ -1,0 +1,14 @@
+{
+  "annotate_nli.py": "16ca69fdfe864943f34570103b1b6810e74f211114db362fbe38c9677e4fc87d",
+  "assemble_annotations.py": "eb30bc7a82a0cf6f00018a235da065cce8e097ebc2d20163b371df69f14bf2e7",
+  "collect.py": "01f0c54f05a5edf2382fcc8bb9cb9e4b97b2d400591af4613d53bad3ca0bc29e",
+  "download_model.py": "cbb596bd4d03a5a0a89b04ae8cfecea135c8b1bc2a0fcdaa09bcf9105c6651ac",
+  "download_runtime.py": "bb0fcb7c322767855d535f12bae77b66513cbb5a4db53c03f0e3912f75730f98",
+  "experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+  "final_audit.py": "06fe6ab1695f398866a7a3c6fab7efbec9988324b9cbf1e01f88be21a3458c5c",
+  "generate_light.py": "5354b9cd58bef57412c18e4ac098a3c5b8a271170d6c388d72e27623b1b4094a",
+  "integrity.py": "37fd7b25bc32f69be5730c621fbce991009b100259c9096792b0f6df664778c9",
+  "progress.py": "bc9beed73f7cbb6a01e0125801a082619373ae77f85b35db9e317f19316d3c61",
+  "run_remaining.py": "0c3a746b7e6f1594e464075136526101b5ebc1e24672252d75e006f2c0965cfa",
+  "run_when_ready.py": "b9f38e4eb405c629bee00b851345e18a8ba5233f6e59a090e0ae4bff59ce0699"
+}

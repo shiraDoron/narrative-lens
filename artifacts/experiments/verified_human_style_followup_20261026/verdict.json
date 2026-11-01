@@ -1,0 +1,139 @@
+{
+  "sensitivity_to_style": "See fixed and counterfactual flip rates; passing an automated screen is not proof that only style changed.",
+  "unseen_macro_f1_normalized_minus_original": 0.01191847149599412,
+  "unseen_macro_f1_normalized_minus_paraphrase": -0.04650887673345805,
+  "normalized_beats_paraphrase_seed_count": 0,
+  "n_seeds": 5,
+  "hypothesis_supported": false,
+  "reason": "The joint hypothesis criterion is not established. Inspect the explicit unmet or unverified criteria; numerical improvements alone do not establish author-style removal or causality.",
+  "lora_dora_recommended_now": false,
+  "prompting_sufficient_demonstrated": false,
+  "scope": "Two narrative classes of single-bylined opinion essays, not seven-class social media authorship.",
+  "author_probe_deltas": [
+    {
+      "representation": "embedding",
+      "normalized_minus_original_accuracy": 0.0,
+      "normalized_minus_paraphrase_accuracy": -0.030769230769230826,
+      "normalized_minus_original_macro_f1": -0.00481185481185481,
+      "normalized_minus_paraphrase_macro_f1": -0.018484848484848493
+    },
+    {
+      "representation": "explicit_style",
+      "normalized_minus_original_accuracy": -0.015384615384615385,
+      "normalized_minus_paraphrase_accuracy": 0.0076923076923077205,
+      "normalized_minus_original_macro_f1": -0.0278184441820806,
+      "normalized_minus_paraphrase_macro_f1": -0.001743408107044514
+    }
+  ],
+  "consistent_author_probe_reduction_across_both_representations": false,
+  "any_rewrite_prediction_sensitivity_observed": true,
+  "counterfactual_flip_prediction_count": 1,
+  "improved_diagonal_macro_f1_vs_original": true,
+  "improved_diagonal_macro_f1_vs_paraphrase": false,
+  "normalized_advantage_all_5_seeds": false,
+  "matched_design_quality": {
+    "checks": [
+      {
+        "split": "train",
+        "narrative": "Right-wing",
+        "n_texts": 23,
+        "n_authors": 5,
+        "largest_author_fraction": 0.30434782608695654,
+        "passed": true
+      },
+      {
+        "split": "train",
+        "narrative": "Left-wing",
+        "n_texts": 31,
+        "n_authors": 5,
+        "largest_author_fraction": 0.41935483870967744,
+        "passed": true
+      },
+      {
+        "split": "val",
+        "narrative": "Right-wing",
+        "n_texts": 11,
+        "n_authors": 3,
+        "largest_author_fraction": 0.45454545454545453,
+        "passed": true
+      },
+      {
+        "split": "val",
+        "narrative": "Left-wing",
+        "n_texts": 10,
+        "n_authors": 2,
+        "largest_author_fraction": 0.6,
+        "passed": true
+      },
+      {
+        "split": "test",
+        "narrative": "Right-wing",
+        "n_texts": 17,
+        "n_authors": 3,
+        "largest_author_fraction": 0.5882352941176471,
+        "passed": true
+      },
+      {
+        "split": "test",
+        "narrative": "Left-wing",
+        "n_texts": 21,
+        "n_authors": 4,
+        "largest_author_fraction": 0.3333333333333333,
+        "passed": true
+      }
+    ],
+    "all_multi_author_coverage_checks_passed": true,
+    "previous_pilot_matched_n": 94,
+    "new_matched_n": 113,
+    "size_ratio_to_previous": 1.202127659574468,
+    "larger_than_previous": true,
+    "warning": "If coverage fails, numerical models below are diagnostic and do not satisfy the requested valid design."
+  },
+  "annotations_and_rewrites_independently_human_verified": false,
+  "author_probe_reduction_ci95_below_zero_in_both_comparisons_and_representations": false,
+  "test_authors_with_positive_normalized_minus_paraphrase_accuracy": 3,
+  "test_authors_with_negative_normalized_minus_paraphrase_accuracy": 3,
+  "test_authors_with_zero_normalized_minus_paraphrase_accuracy": 0,
+  "test_author_count": 6,
+  "narrative_author_cluster_bootstrap": {
+    "n_test_authors": 6,
+    "replicates": 1000,
+    "normalized_minus_paraphrase_ci95": [
+      -0.08746945097324027,
+      0.026689909120026886
+    ],
+    "caution": "Very few author clusters; exploratory interval, not a confirmatory significance claim."
+  },
+  "unmet_or_unverified_criteria": [
+    {
+      "criterion": "Author ID drops versus Original and Paraphrase in both representations",
+      "status": "not_consistently_met"
+    },
+    {
+      "criterion": "Normalized exceeds ordinary Paraphrase",
+      "status": "not_met"
+    },
+    {
+      "criterion": "Meaning/stance/framing preservation",
+      "status": "automated_screen_passed_for_primary_cohort; independent_human_adjudication_pending"
+    },
+    {
+      "criterion": "Normalized advantage consistent across five seeds",
+      "status": "not_met"
+    },
+    {
+      "criterion": "At least two test authors improve in accuracy and more authors improve than worsen",
+      "status": "not_met"
+    }
+  ],
+  "counterfactual_style_only_flip_count": 0,
+  "counterfactual_paraphrase_only_flip_count": 1,
+  "style_only_sensitivity_demonstrated": false,
+  "style_only_sensitivity_interpretation": "No label flips across accepted formal/conversational/concise/elaborate variants; only three source texts changed in all four styles, so power is insufficient to claim invariance. Generic paraphrase/normalization sensitivity is a separate observation.",
+  "normalized_vs_paraphrase_seed_outcomes": {
+    "wins": 0,
+    "ties": 1,
+    "losses": 4
+  },
+  "sample_expansion_assessment": "113 versus 94: only 20.2% growth; substantially larger retained sample goal not established. Two active labels rather than seven; no cross-study F1 comparison."
+}

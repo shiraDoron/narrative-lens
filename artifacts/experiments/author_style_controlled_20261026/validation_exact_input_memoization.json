@@ -1,0 +1,7 @@
+{
+  "text_inputs": 2254,
+  "unique_text_inputs": 1231,
+  "nli_ordered_pair_inputs": 2254,
+  "unique_ordered_nli_pairs": 1882,
+  "method": "Exact input memoization only; no rewritten text or validation threshold changed; identical inputs share one model evaluation."
+}

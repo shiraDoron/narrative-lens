@@ -1,0 +1,5 @@
+{
+  "run": true,
+  "n": 78,
+  "definition": "Secondary sensitivity analysis with assistant confidence 3 only. Not independently validated gold; identical source rows across conditions within this cohort."
+}

@@ -1,0 +1,15 @@
+﻿condition,narrative_name,n,passed,pass_rate
+Concise,Left-wing,16,12,0.75
+Concise,Right-wing,16,14,0.875
+Conversational,Left-wing,16,15,0.9375
+Conversational,Right-wing,16,16,1.0
+Elaborate,Left-wing,16,15,0.9375
+Elaborate,Right-wing,16,16,1.0
+Formal,Left-wing,16,14,0.875
+Formal,Right-wing,16,16,1.0
+Formatting,Left-wing,114,114,1.0
+Formatting,Right-wing,104,104,1.0
+Normalized,Left-wing,114,98,0.8596491228070176
+Normalized,Right-wing,104,90,0.8653846153846154
+Paraphrase,Left-wing,114,64,0.5614035087719298
+Paraphrase,Right-wing,104,56,0.5384615384615384

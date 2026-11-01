@@ -1,0 +1,11 @@
+{
+  "n": 5,
+  "by_split": {
+    "val": 1,
+    "train": 3,
+    "test": 1
+  },
+  "human_review_pending": true,
+  "can_estimate_now": false,
+  "reason": "Requires human review and >=3 examples / >=2 writers per class per split. One validation/test source is insufficient."
+}

@@ -1,0 +1,13 @@
+﻿cohort,representation,condition,accuracy_mean,macro_f1_mean,narrative_groups,n_test,uniform_chance_accuracy
+all_generated_descriptive,embedding,Normalized,0.5357142857142857,0.5145846217274789,7,112,0.25
+all_generated_descriptive,embedding,Original,0.5625,0.5428906411049268,7,112,0.25
+all_generated_descriptive,embedding,Paraphrase,0.5,0.47501268572697136,7,112,0.25
+all_generated_descriptive,surface_style,Normalized,0.3482142857142857,0.33996598639455783,7,112,0.25
+all_generated_descriptive,surface_style,Original,0.4642857142857143,0.41931283002711567,7,112,0.25
+all_generated_descriptive,surface_style,Paraphrase,0.4732142857142857,0.4755179344465058,7,112,0.25
+matched_automated_pass,embedding,Normalized,0.9166666666666666,0.8833333333333333,4,14,0.4583333333333333
+matched_automated_pass,embedding,Original,0.9166666666666666,0.8833333333333333,4,14,0.4583333333333333
+matched_automated_pass,embedding,Paraphrase,0.9166666666666666,0.8888888888888888,4,14,0.4583333333333333
+matched_automated_pass,surface_style,Normalized,0.625,0.4166666666666667,4,14,0.4583333333333333
+matched_automated_pass,surface_style,Original,0.7083333333333333,0.5472222222222223,4,14,0.4583333333333333
+matched_automated_pass,surface_style,Paraphrase,0.625,0.4166666666666667,4,14,0.4583333333333333

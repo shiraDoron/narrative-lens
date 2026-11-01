@@ -1,0 +1,6 @@
+{
+  "created_utc": "2026-10-26T11:58:49.271053+00:00",
+  "changes": "Reporting-only digest adds explicit baseline cohort accounting, all planned sensitivity results, failure reasons, genuine style-change sample size, and separates style flips from ordinary paraphrase flips.",
+  "numerical_predictions_or_estimates_changed": false,
+  "new_models_trained_after_seeing_results": false
+}

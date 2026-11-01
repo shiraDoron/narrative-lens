@@ -1,0 +1,8 @@
+{
+  "reused_control_rows": 436,
+  "new_scored_rows": 218,
+  "exact_control_text_match": true,
+  "unchanged_thresholds": true,
+  "previous_validation_sha256": "7ac2202ad2ee91cbe2805096f717e34927cd16b0ee1751f57495cd90820da08b",
+  "new_validation_sha256": "1835861c0fbfc023aa4b7613590b70370ef6d09b5be0b135cb784f2c00242d40"
+}

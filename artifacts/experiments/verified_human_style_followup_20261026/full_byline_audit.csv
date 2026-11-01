@@ -1,0 +1,457 @@
+﻿row_id,author,full_creator_header,expected_person,passed
+creators:415891,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:416235,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:416677,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:417067,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:417572,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:418018,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:418452,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:418843,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:e09a676d2513,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:419173,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:bf753ba213b5,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:21f2ae1a19cd,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:419506,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:297d748d51a5,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:420070,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:420477,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:421062,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:421403,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:421838,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:422327,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:422805,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:423223,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:423645,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:424019,ben-shapiro,By Ben Shapiro,Ben Shapiro,True
+creators:114783,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:115255,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:115785,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:116358,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:117018,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:117645,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:118089,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:118606,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:119142,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:119648,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:120177,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:120669,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:121160,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:121687,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:122279,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:122798,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:123146,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:123470,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:124110,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:124698,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:3e254c45e952,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:3305d61b2fc7,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:9cc35947e5d7,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:db843824adc6,chuck-norris,By Chuck Norris,Chuck Norris,True
+creators:294730,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:295188,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:295647,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:296082,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:296481,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:296848,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:297370,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:297884,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:298495,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:298842,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:299451,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:299834,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:300199,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:40997aa11551,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:300593,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:2e55319b58af,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:301135,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:2644c7547b3b,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:301597,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:302122,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:866815270964,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:302588,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:303091,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:303554,connie-schultz,By Connie Schultz,Connie Schultz,True
+creators:416436,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:416848,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:417181,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:417661,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:418022,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:418620,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:418916,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:419304,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:419779,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:420299,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:420648,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:421176,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:421539,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:421941,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:422578,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:422837,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:423055,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:423371,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:423825,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:424146,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:11db638844f4,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:345c50b8dfca,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:92de8fae2e8e,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:0d8baad1257f,david-harsanyi,By David Harsanyi,David Harsanyi,True
+creators:401668,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:401927,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:402313,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:402850,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:403063,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:403144,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:403504,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:403840,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:403948,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:404279,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:404429,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:404602,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:405093,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:405242,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:405451,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:405550,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:405573,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:405614,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:406101,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:406218,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:113e37168d51,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:14e0faf2c183,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:d89cf0c434c5,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:3f15bd1598d4,debra-saunders,By Debra J. Saunders,Debra J. Saunders,True
+creators:13696f9e42fc,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:2745963c6abe,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:d74caf53a944,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:10e1769e16d2,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:415706,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:416137,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:416483,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:416949,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:417518,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:417874,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:418299,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:418708,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:419046,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:419367,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:419946,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:420371,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:420900,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:421252,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:421710,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:422197,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:422665,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:423131,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:423464,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:423880,dennis-prager,By Dennis Prager,Dennis Prager,True
+creators:420872,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:421024,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:421241,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:421367,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:421689,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:421837,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:422146,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:422331,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:422658,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:422795,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:423163,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:423220,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:423461,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:423635,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:423875,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:424013,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:424229,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:424374,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:424636,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:424781,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:9eac60e2909e,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:2e34435c6ccf,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:b7d13a30421a,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:ef662bddbfc9,froma-harrop,By Froma Harrop,Froma Harrop,True
+creators:415881,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:416232,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:416624,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:417036,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:417479,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:418013,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:418434,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:418827,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:419097,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:419420,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:420061,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:420423,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:420944,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:421279,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:421811,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:422298,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:422791,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:423158,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:423633,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:423931,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:ee623a4f5924,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:8b0d99b23d03,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:97c9d6b9ac1b,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:bfdf12e26791,jamie-stiehm,By Jamie Stiehm,Jamie Stiehm,True
+creators:415676,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:416105,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:416471,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:416913,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:417305,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:417799,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:418272,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:418690,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:419002,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:419342,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:419881,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:420334,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:420865,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:421235,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:421682,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:422187,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:422655,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:423115,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:423439,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:423870,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:7f978dfc110f,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:ff2900c812a1,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:d9ca6451946e,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:5c5420e1907a,jeff-robbins,By Jeff Robbins,Jeff Robbins,True
+creators:415758,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:416152,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:416490,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:416964,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:417456,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:417886,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:418322,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:418728,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:419062,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:419406,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:419965,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:420447,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:420909,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:421269,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:421736,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:422259,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:422713,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:423153,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:423545,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:423915,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:3fd01161cd76,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:254aa595a403,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:79843c5585db,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:3c2ffd23abeb,jim-hightower,By Jim Hightower,Jim Hightower,True
+creators:415705,joe-conason,By Joe Conason,Joe Conason,True
+creators:416122,joe-conason,By Joe Conason,Joe Conason,True
+creators:416482,joe-conason,By Joe Conason,Joe Conason,True
+creators:416956,joe-conason,By Joe Conason,Joe Conason,True
+creators:417453,joe-conason,By Joe Conason,Joe Conason,True
+creators:417864,joe-conason,By Joe Conason,Joe Conason,True
+creators:418297,joe-conason,By Joe Conason,Joe Conason,True
+creators:418672,joe-conason,By Joe Conason,Joe Conason,True
+creators:418984,joe-conason,By Joe Conason,Joe Conason,True
+creators:419364,joe-conason,By Joe Conason,Joe Conason,True
+creators:419835,joe-conason,By Joe Conason,Joe Conason,True
+creators:420406,joe-conason,By Joe Conason,Joe Conason,True
+creators:420899,joe-conason,By Joe Conason,Joe Conason,True
+creators:421251,joe-conason,By Joe Conason,Joe Conason,True
+creators:421705,joe-conason,By Joe Conason,Joe Conason,True
+creators:422148,joe-conason,By Joe Conason,Joe Conason,True
+creators:422666,joe-conason,By Joe Conason,Joe Conason,True
+creators:423137,joe-conason,By Joe Conason,Joe Conason,True
+creators:423373,joe-conason,By Joe Conason,Joe Conason,True
+creators:423854,joe-conason,By Joe Conason,Joe Conason,True
+creators:b85a4098801a,joe-conason,By Joe Conason,Joe Conason,True
+creators:1263a29c0f12,joe-conason,By Joe Conason,Joe Conason,True
+creators:a8991614ff16,joe-conason,By Joe Conason,Joe Conason,True
+creators:be7932c47835,joe-conason,By Joe Conason,Joe Conason,True
+creators:211478,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:207394,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:207582,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:208496,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:209914,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:212505,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:213461,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:213908,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:215176,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:216128,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:217678,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:218236,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:219157,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:220064,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:a5d8497d8c1e,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:221614,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:68235c0e51be,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:222877,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:893c2a1c2715,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:223861,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:4c45b9adcb6d,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:224770,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:225304,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:225779,lawrence-kudlow,By Lawrence Kudlow,Lawrence Kudlow,True
+creators:415984,marc-dion,By Marc Dion,Marc Dion,True
+creators:416389,marc-dion,By Marc Dion,Marc Dion,True
+creators:416805,marc-dion,By Marc Dion,Marc Dion,True
+creators:417148,marc-dion,By Marc Dion,Marc Dion,True
+creators:417666,marc-dion,By Marc Dion,Marc Dion,True
+creators:418147,marc-dion,By Marc Dion,Marc Dion,True
+creators:418566,marc-dion,By Marc Dion,Marc Dion,True
+creators:418904,marc-dion,By Marc Dion,Marc Dion,True
+creators:419255,marc-dion,By Marc Dion,Marc Dion,True
+creators:419662,marc-dion,By Marc Dion,Marc Dion,True
+creators:420207,marc-dion,By Marc Dion,Marc Dion,True
+creators:420677,marc-dion,By Marc Dion,Marc Dion,True
+creators:421109,marc-dion,By Marc Dion,Marc Dion,True
+creators:421540,marc-dion,By Marc Dion,Marc Dion,True
+creators:421951,marc-dion,By Marc Dion,Marc Dion,True
+creators:422471,marc-dion,By Marc Dion,Marc Dion,True
+creators:422930,marc-dion,By Marc Dion,Marc Dion,True
+creators:423315,marc-dion,By Marc Dion,Marc Dion,True
+creators:423754,marc-dion,By Marc Dion,Marc Dion,True
+creators:424110,marc-dion,By Marc Dion,Marc Dion,True
+creators:e4f8200fce6b,marc-dion,By Marc Dion,Marc Dion,True
+creators:0105f26ef9f1,marc-dion,By Marc Dion,Marc Dion,True
+creators:0b4c49505392,marc-dion,By Marc Dion,Marc Dion,True
+creators:0d9347412cb4,marc-dion,By Marc Dion,Marc Dion,True
+creators:415612,mona-charen,By Mona Charen,Mona Charen,True
+creators:416031,mona-charen,By Mona Charen,Mona Charen,True
+creators:416380,mona-charen,By Mona Charen,Mona Charen,True
+creators:416802,mona-charen,By Mona Charen,Mona Charen,True
+creators:417656,mona-charen,By Mona Charen,Mona Charen,True
+creators:418136,mona-charen,By Mona Charen,Mona Charen,True
+creators:418554,mona-charen,By Mona Charen,Mona Charen,True
+creators:418917,mona-charen,By Mona Charen,Mona Charen,True
+creators:419270,mona-charen,By Mona Charen,Mona Charen,True
+creators:419591,mona-charen,By Mona Charen,Mona Charen,True
+creators:420217,mona-charen,By Mona Charen,Mona Charen,True
+creators:420674,mona-charen,By Mona Charen,Mona Charen,True
+creators:421101,mona-charen,By Mona Charen,Mona Charen,True
+creators:421538,mona-charen,By Mona Charen,Mona Charen,True
+creators:421943,mona-charen,By Mona Charen,Mona Charen,True
+creators:422548,mona-charen,By Mona Charen,Mona Charen,True
+creators:422950,mona-charen,By Mona Charen,Mona Charen,True
+creators:423321,mona-charen,By Mona Charen,Mona Charen,True
+creators:423740,mona-charen,By Mona Charen,Mona Charen,True
+creators:424105,mona-charen,By Mona Charen,Mona Charen,True
+creators:a0872e6fc210,mona-charen,By Mona Charen,Mona Charen,True
+creators:120040bca98a,mona-charen,By Mona Charen,Mona Charen,True
+creators:05b33803909c,mona-charen,By Mona Charen,Mona Charen,True
+creators:e8842d43f9ac,mona-charen,By Mona Charen,Mona Charen,True
+creators:94217,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:153638,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:95245,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:96497,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:97142,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:97679,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:98824,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:100651,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:108543,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:109028,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:109300,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:109997,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:110546,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:116832,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:118380,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:146296,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:146824,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:147434,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:147960,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:148511,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:6c2f64b36edc,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:139a43b2bb42,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:03e20b6fac03,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:63dbe0fdec28,robert-scheer,By Robert Scheer,Robert Scheer,True
+creators:415836,star-parker,By Star Parker,Star Parker,True
+creators:416172,star-parker,By Star Parker,Star Parker,True
+creators:416616,star-parker,By Star Parker,Star Parker,True
+creators:417026,star-parker,By Star Parker,Star Parker,True
+creators:417478,star-parker,By Star Parker,Star Parker,True
+creators:417925,star-parker,By Star Parker,Star Parker,True
+creators:418428,star-parker,By Star Parker,Star Parker,True
+creators:418773,star-parker,By Star Parker,Star Parker,True
+creators:419084,star-parker,By Star Parker,Star Parker,True
+creators:419410,star-parker,By Star Parker,Star Parker,True
+creators:420001,star-parker,By Star Parker,Star Parker,True
+creators:420432,star-parker,By Star Parker,Star Parker,True
+creators:420961,star-parker,By Star Parker,Star Parker,True
+creators:421303,star-parker,By Star Parker,Star Parker,True
+creators:421743,star-parker,By Star Parker,Star Parker,True
+creators:422254,star-parker,By Star Parker,Star Parker,True
+creators:422717,star-parker,By Star Parker,Star Parker,True
+creators:423172,star-parker,By Star Parker,Star Parker,True
+creators:423583,star-parker,By Star Parker,Star Parker,True
+creators:423930,star-parker,By Star Parker,Star Parker,True
+creators:3b15f57df40a,star-parker,By Star Parker,Star Parker,True
+creators:ab233d2ead99,star-parker,By Star Parker,Star Parker,True
+creators:10bdf59fa166,star-parker,By Star Parker,Star Parker,True
+creators:f7e6a21fe1ee,star-parker,By Star Parker,Star Parker,True
+creators:415763,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:416154,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:416503,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:416967,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:417371,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:417896,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:418298,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:418705,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:419069,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:419400,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:419945,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:420412,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:420879,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:421239,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:421709,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:422149,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:422731,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:423165,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:423549,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:423920,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:d08cd62a275c,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:92b3dc404201,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:04645fb67d3d,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:5860a99fdbeb,stephen-moore,By Stephen Moore,Stephen Moore,True
+creators:421014,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:421175,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:421348,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:421603,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:421849,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:421988,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:422411,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:422602,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:422808,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:423085,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:423221,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:423388,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:423646,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:423832,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:424012,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:424152,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:424383,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:424588,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:424723,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:424939,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:8cc716b411c9,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:aaf21306093d,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:ca0ac0ad17ba,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:7b85c8cb96fd,susan-estrich,By Susan Estrich,Susan Estrich,True
+creators:415901,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:416277,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:416679,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:417125,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:417610,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:418037,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:418454,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:418852,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:419177,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:419505,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:420088,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:420476,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:421065,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:421406,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:421853,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:422329,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:422806,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:423225,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:423650,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:424074,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:6a04d432710a,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:74180e505e0b,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:6208cccb4ff7,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True
+creators:459e183c1d0d,veronique-de-rugy,By Veronique de Rugy,Veronique de Rugy,True

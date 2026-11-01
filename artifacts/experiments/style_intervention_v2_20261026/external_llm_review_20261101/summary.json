@@ -1,0 +1,126 @@
+{
+  "n": 30,
+  "scope": "Purposively stratified TRAIN-only diagnostic sample; not representative rates or human gold",
+  "evaluation_type": "External LLM Evaluation / LLM External Review",
+  "counts": {
+    "llm_narrative_label": {
+      "Left-wing": 12,
+      "Right-wing": 15,
+      "Unclear": 3
+    },
+    "machine_label_correct": {
+      "Yes": 27,
+      "No": 3
+    },
+    "paraphrase_meaning_preserved": {
+      "No": 4,
+      "Yes": 23,
+      "Borderline": 3
+    },
+    "normalized_meaning_preserved": {
+      "Yes": 27,
+      "No": 3
+    },
+    "paraphrase_style_change_valid": {
+      "Yes": 14,
+      "No": 14,
+      "Borderline": 2
+    },
+    "normalized_style_change_valid": {
+      "Yes": 9,
+      "No": 20,
+      "Borderline": 1
+    }
+  },
+  "meaning_style_combinations": {
+    "paraphrase": {
+      "meaning_No__style_Yes": 3,
+      "meaning_Yes__style_Yes": 8,
+      "meaning_Yes__style_No": 14,
+      "meaning_Yes__style_Borderline": 1,
+      "meaning_Borderline__style_Yes": 3,
+      "meaning_No__style_Borderline": 1
+    },
+    "normalized": {
+      "meaning_Yes__style_Yes": 7,
+      "meaning_No__style_Yes": 2,
+      "meaning_Yes__style_No": 19,
+      "meaning_No__style_No": 1,
+      "meaning_Yes__style_Borderline": 1
+    }
+  },
+  "automatic_comparison": [
+    {
+      "condition": "Paraphrase",
+      "automatic_pass": "False",
+      "external_llm_meaning_preserved": "Borderline",
+      "n": 3
+    },
+    {
+      "condition": "Paraphrase",
+      "automatic_pass": "False",
+      "external_llm_meaning_preserved": "No",
+      "n": 4
+    },
+    {
+      "condition": "Paraphrase",
+      "automatic_pass": "False",
+      "external_llm_meaning_preserved": "Yes",
+      "n": 7
+    },
+    {
+      "condition": "Paraphrase",
+      "automatic_pass": "True",
+      "external_llm_meaning_preserved": "Yes",
+      "n": 16
+    },
+    {
+      "condition": "Normalized",
+      "automatic_pass": "False",
+      "external_llm_meaning_preserved": "No",
+      "n": 3
+    },
+    {
+      "condition": "Normalized",
+      "automatic_pass": "False",
+      "external_llm_meaning_preserved": "Yes",
+      "n": 4
+    },
+    {
+      "condition": "Normalized",
+      "automatic_pass": "True",
+      "external_llm_meaning_preserved": "Yes",
+      "n": 23
+    }
+  ],
+  "by_selection_group": [
+    {
+      "group": "automatic_screen_rejected",
+      "n": 10,
+      "normalized_meaning_yes": 9,
+      "normalized_style_yes": 0,
+      "normalized_style_borderline": 1
+    },
+    {
+      "group": "minimal_style_proxy",
+      "n": 10,
+      "normalized_meaning_yes": 10,
+      "normalized_style_yes": 0,
+      "normalized_style_borderline": 0
+    },
+    {
+      "group": "substantial_style_proxy",
+      "n": 10,
+      "normalized_meaning_yes": 8,
+      "normalized_style_yes": 9,
+      "normalized_style_borderline": 0
+    }
+  ],
+  "evaluator_model_version": "not supplied",
+  "evaluation_prompt": "not supplied",
+  "evaluation_time": "not supplied",
+  "blinding": "Not blinded: pack exposed author, proposed narrative, automatic decisions and style metrics",
+  "human_review_completed_by_this_import": false,
+  "no_training": true,
+  "no_threshold_or_label_changes": true
+}

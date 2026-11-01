@@ -1,0 +1,80 @@
+{
+  "timestamp_utc": "2026-11-01T16:43:14.187062+00:00",
+  "seed": "20261101-external-review-30",
+  "n": 30,
+  "source_split": "train",
+  "group_counts": {
+    "substantial_style_proxy": 10,
+    "minimal_style_proxy": 10,
+    "automatic_screen_rejected": 10
+  },
+  "availability_at_selection": {
+    "substantial_style_proxy": 14,
+    "minimal_style_proxy": 40,
+    "automatic_screen_rejected": 44
+  },
+  "selected_author_counts": {
+    "marc-dion": 4,
+    "froma-harrop": 4,
+    "veronique-de-rugy": 3,
+    "david-harsanyi": 3,
+    "chuck-norris": 4,
+    "lawrence-kudlow": 4,
+    "jamie-stiehm": 4,
+    "jim-hightower": 2,
+    "connie-schultz": 2
+  },
+  "selected_ids": [
+    "creators:0105f26ef9f1",
+    "creators:421024",
+    "creators:422329",
+    "creators:417181",
+    "creators:120177",
+    "creators:212505",
+    "creators:421951",
+    "creators:422331",
+    "creators:120669",
+    "creators:216128",
+    "creators:421279",
+    "creators:419062",
+    "creators:295188",
+    "creators:423315",
+    "creators:422146",
+    "creators:421853",
+    "creators:418620",
+    "creators:114783",
+    "creators:224770",
+    "creators:8b0d99b23d03",
+    "creators:97c9d6b9ac1b",
+    "creators:423545",
+    "creators:298495",
+    "creators:418904",
+    "creators:2e34435c6ccf",
+    "creators:459e183c1d0d",
+    "creators:416436",
+    "creators:116358",
+    "creators:218236",
+    "creators:418827"
+  ],
+  "held_out_authors_included": false,
+  "all_six_human_fields_blank": true,
+  "no_new_model_calls": true,
+  "no_new_semantic_judgments": true,
+  "no_training": true,
+  "inputs_unchanged": true,
+  "input_sha256": {
+    "analysis_cohort.csv": "b9179f67418c516c05a75708d087a95406c1ac9753ef311c9fb9ada942aee663",
+    "split_definitions.csv": "6ebe5c674f5a846b9e5c40c391d45d79efc3bd8c4bdeb58d7780ad0f4a0339ee",
+    "author_splits.csv": "113af071c0275328405850e485b62bb46eefd714128a6beeac621b9a8894be47",
+    "generated_rewrites.jsonl": "f7a53cd04cdaed5fe4cfc57a3de154617c0c37143621d8ac2160b097fba09888",
+    "rewrite_validation.csv": "0c58e16a620b08537bf46fbd2e0e6f6657079f4b9f352d291e05eb3ba2a47510",
+    "style_change_metrics.csv": "6bccd5048d46dcba2837705c7fe8a86a9be349a1c34849bb8c3128b60baf505b",
+    "human_review.csv": "86fe670e3feb793f86b1e1fa29c143e4c8d130e52d0f2921e5d83710b23fbfbd",
+    "HUMAN_REVIEW.html": "fc756e5322c4a2fe88982cb4126be2773792bcdcaf844dbc6f0da0cc34f99b57"
+  },
+  "outputs_sha256": {
+    "REVIEW_30_TRAIN_ONLY_HE.md": "b30816d8f815dac555b1222655b99d216c7579b2d6f276cb0b0797ac99e13707",
+    "review_30_train_only.csv": "890bcf688ef43fb00605b6b38c17fa71a95def425ab13545ade9b969622b7f82"
+  },
+  "caution": "ChatGPT review is external machine review, not human gold."
+}

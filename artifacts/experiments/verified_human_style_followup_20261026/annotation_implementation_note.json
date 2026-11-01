@@ -1,0 +1,8 @@
+{
+  "excluded_early_local_annotations": true,
+  "reason": "Early content-only QA found unsupported political attribution on an excerpt about breast-cancer research funding. No narrative classifier outcome or rewrite validation result consulted.",
+  "replacement": "Blinded text-only annotation by the conversation assistant; independent NLI assessment will be diagnostic, not human gold.",
+  "annotation_identity": "Codex conversation assistant; exact backend revision not available.",
+  "human_gold": false,
+  "blinding_scope": "The assistant saw blind_id plus excerpt for each record, without its byline, URL, title or source category. The conversation also contained study context and the candidate author roster; blinding is at the record attribution level."
+}

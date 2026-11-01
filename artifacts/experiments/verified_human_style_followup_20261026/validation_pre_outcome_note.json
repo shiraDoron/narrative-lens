@@ -1,0 +1,6 @@
+{
+  "future_tense_and_quotation_guards_added": true,
+  "reason": "Outcome-blind inspection of first final-generator paraphrase found future will pardon changed to past has pardoned. Future-tense presence and quote-content guards were added before validation or narrative classifier evaluation.",
+  "selection_not_based_on_classifier_predictions": true,
+  "limitation": "Heuristic tense/quote guards can still miss scope changes or falsely reject legitimate edits."
+}

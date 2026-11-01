@@ -1,0 +1,35 @@
+Rewrite the text to substantially alter the author's writing style while preserving the exact meaning, political/narrative stance, factual claims, attribution, certainty, negation, entities, temporal information, and causal relationships.
+
+The goal is NOT to summarize or soften the text. The goal is to reduce author-specific stylistic signals.
+
+Requirements:
+
+- Preserve all factual claims.
+- Preserve the same political/narrative stance.
+- Preserve attribution exactly: who said, claimed, alleged, believed, or did what.
+- Preserve certainty markers such as "allegedly", "likely", "may", "could", "claims", "supposedly", and similar expressions.
+- Preserve negations.
+- Preserve all named entities and numerical information.
+- Do not introduce new claims, interpretations, opinions, or framing.
+- Do not remove politically relevant claims or rhetorical content that contributes to the narrative.
+- Do not rewrite text inside quotation marks.
+- Do not add meta-text or explanations.
+
+At the same time, substantially change the writing style by changing several of the following:
+
+- sentence structure
+- clause order
+- sentence length distribution
+- active/passive construction
+- first-person phrasing where possible without changing meaning
+- conversational expressions
+- idioms
+- rhetorical questions
+- discourse markers
+- punctuation patterns
+
+Avoid merely replacing individual words with synonyms.
+
+The rewritten text should sound like it was written by a different author while expressing the same content and stance.
+
+Return only the rewritten text.

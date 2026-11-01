@@ -1,0 +1,7 @@
+﻿scope,after_normalization,n_source_texts,n_groups_including_seeds,narrative_consistency_rate,original_plus_variants_consistency_rate
+all_generated_descriptive,False,14,42,0.9761904761904762,0.9761904761904762
+all_generated_descriptive,True,14,42,0.9285714285714286,0.9285714285714286
+all_four_targets_automated_pass,False,4,12,1.0,1.0
+all_four_targets_automated_pass,True,4,12,1.0,1.0
+matched_before_after_automated_pass,False,4,12,1.0,1.0
+matched_before_after_automated_pass,True,4,12,1.0,1.0

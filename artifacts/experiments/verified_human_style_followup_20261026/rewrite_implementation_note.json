@@ -1,0 +1,6 @@
+{
+  "early_1p5b_attempt_excluded": true,
+  "reason": "Content-only inspection before any narrative classifier evaluation found a changed causal claim (despite opposition) and dropped stance in normalization; paraphrase frequently copied input.",
+  "replacement": "Pinned official Qwen2.5-3B Q4_K_M generator and demonstration-based shorter prompts. All feasibility outputs retained, none selected on narrative predictions.",
+  "no_classifier_outcomes_consulted": true
+}

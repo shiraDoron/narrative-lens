@@ -1,0 +1,7 @@
+{
+  "release": "b11887",
+  "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11887/llama-b11887-bin-win-cpu-x64.zip",
+  "archive_sha256": "cf6a48560e0c32baf875f0b84ac578b111e16115ccf2382836489b5e268809c4",
+  "runtime_directory": "runtime_llama",
+  "previous_pilot_modified": false
+}

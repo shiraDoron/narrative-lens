@@ -1,0 +1,58 @@
+{
+  "checks": [
+    {
+      "split": "train",
+      "narrative": "Right-wing",
+      "n_texts": 23,
+      "n_authors": 5,
+      "largest_author_fraction": 0.30434782608695654,
+      "passed": true
+    },
+    {
+      "split": "train",
+      "narrative": "Left-wing",
+      "n_texts": 31,
+      "n_authors": 5,
+      "largest_author_fraction": 0.41935483870967744,
+      "passed": true
+    },
+    {
+      "split": "val",
+      "narrative": "Right-wing",
+      "n_texts": 11,
+      "n_authors": 3,
+      "largest_author_fraction": 0.45454545454545453,
+      "passed": true
+    },
+    {
+      "split": "val",
+      "narrative": "Left-wing",
+      "n_texts": 10,
+      "n_authors": 2,
+      "largest_author_fraction": 0.6,
+      "passed": true
+    },
+    {
+      "split": "test",
+      "narrative": "Right-wing",
+      "n_texts": 17,
+      "n_authors": 3,
+      "largest_author_fraction": 0.5882352941176471,
+      "passed": true
+    },
+    {
+      "split": "test",
+      "narrative": "Left-wing",
+      "n_texts": 21,
+      "n_authors": 4,
+      "largest_author_fraction": 0.3333333333333333,
+      "passed": true
+    }
+  ],
+  "all_multi_author_coverage_checks_passed": true,
+  "previous_pilot_matched_n": 94,
+  "new_matched_n": 113,
+  "size_ratio_to_previous": 1.202127659574468,
+  "larger_than_previous": true,
+  "warning": "If coverage fails, numerical models below are diagnostic and do not satisfy the requested valid design."
+}

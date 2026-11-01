@@ -1,0 +1,92 @@
+{
+  "n": 30,
+  "scope": "TRAIN-only development; not held-out evidence",
+  "totals": {
+    "Old": {
+      "automatic_pass": 23,
+      "substantial_style_proxy": 10,
+      "both": 7,
+      "exact_copies": 7
+    },
+    "New": {
+      "automatic_pass": 6,
+      "substantial_style_proxy": 24,
+      "both": 6,
+      "exact_copies": 0
+    }
+  },
+  "automatic_failures_resolved": [
+    "creators:120669"
+  ],
+  "new_automatic_failures": [
+    "creators:0105f26ef9f1",
+    "creators:422329",
+    "creators:212505",
+    "creators:422331",
+    "creators:216128",
+    "creators:421279",
+    "creators:295188",
+    "creators:422146",
+    "creators:421853",
+    "creators:418620",
+    "creators:114783",
+    "creators:8b0d99b23d03",
+    "creators:97c9d6b9ac1b",
+    "creators:423545",
+    "creators:298495",
+    "creators:418904",
+    "creators:116358",
+    "creators:418827"
+  ],
+  "new_flagged_sources": [
+    "creators:0105f26ef9f1",
+    "creators:422329",
+    "creators:417181",
+    "creators:120177",
+    "creators:212505",
+    "creators:422331",
+    "creators:216128",
+    "creators:421279",
+    "creators:295188",
+    "creators:422146",
+    "creators:421853",
+    "creators:418620",
+    "creators:114783",
+    "creators:8b0d99b23d03",
+    "creators:97c9d6b9ac1b",
+    "creators:423545",
+    "creators:298495",
+    "creators:418904",
+    "creators:2e34435c6ccf",
+    "creators:459e183c1d0d",
+    "creators:416436",
+    "creators:116358",
+    "creators:218236",
+    "creators:418827"
+  ],
+  "weak_style_intervention_resolved": [
+    "creators:419062",
+    "creators:423315",
+    "creators:224770"
+  ],
+  "new_both_ids": [
+    "creators:421024",
+    "creators:421951",
+    "creators:120669",
+    "creators:419062",
+    "creators:423315",
+    "creators:224770"
+  ],
+  "new_truncated": 0,
+  "new_verbatim_quotes_failed": [
+    "creators:417181",
+    "creators:114783",
+    "creators:8b0d99b23d03",
+    "creators:423545",
+    "creators:418904",
+    "creators:416436"
+  ],
+  "semantic_preservation_human_verified": false,
+  "style_change_human_verified": false,
+  "no_training": true
+}

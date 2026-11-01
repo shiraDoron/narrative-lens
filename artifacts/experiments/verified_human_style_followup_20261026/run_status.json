@@ -1,0 +1,33 @@
+{
+  "updated_utc": "2026-10-26T11:43:51.334969+00:00",
+  "computational_experiment_complete": true,
+  "scope": "two narrative classes, single publisher bylines, machine text-label proposals; human adjudication pending",
+  "source_texts": 218,
+  "generation_completed_by_condition": {
+    "Formatting": 218,
+    "Paraphrase": 218,
+    "Normalized": 218,
+    "Formal": 32,
+    "Conversational": 32,
+    "Concise": 32,
+    "Elaborate": 32
+  },
+  "generation_expected_main_per_condition": 218,
+  "generation_expected_counterfactual_per_style": 32,
+  "independent_nli_annotation_pairs_done": 3432,
+  "independent_nli_annotation_pairs_total": 3432,
+  "rewrite_validation_rows": 782,
+  "retraining_metric_rows": 245,
+  "author_probe_metric_rows": 90,
+  "evaluation": {
+    "completed": true,
+    "matched_n": 113,
+    "matched_by_split": {
+      "train": 54,
+      "test": 38,
+      "val": 21
+    },
+    "labels_are_human_gold": false
+  },
+  "human_review_complete": false
+}

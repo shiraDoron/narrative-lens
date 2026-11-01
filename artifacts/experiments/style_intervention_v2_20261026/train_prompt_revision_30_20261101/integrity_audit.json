@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "n": 30,
+  "protected_files": 269,
+  "changed_files": [],
+  "train_only": true,
+  "no_labels_changed": true,
+  "no_split_changed": true,
+  "no_training": true,
+  "all_new_records_screened": true,
+  "all_old_versions_preserved": true,
+  "original_only_generator_inputs": true,
+  "human_fields_not_filled": true
+}

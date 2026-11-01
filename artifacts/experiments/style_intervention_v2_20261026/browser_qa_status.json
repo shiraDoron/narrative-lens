@@ -1,0 +1,6 @@
+{
+  "attempted": true,
+  "visual_check_complete": false,
+  "reason": "Browser connection failed before page navigation: tool transport missing sandboxPolicy. No browser interactions performed. Offline DOM/CSV checks passed separately.",
+  "timestamp": "2026-10-26T15:44:44.050939+00:00"
+}

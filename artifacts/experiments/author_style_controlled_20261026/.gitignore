@@ -1,0 +1,9 @@
+runtime_generator/
+runtime_llama/
+__pycache__/
+*.pt
+*.npy
+*.npz
+*.log
+*progress.json
+*_aborted.jsonl

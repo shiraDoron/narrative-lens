@@ -1,0 +1,29 @@
+{
+  "authors_prespecified": [
+    "ben-shapiro",
+    "david-harsanyi",
+    "stephen-moore",
+    "dennis-prager",
+    "star-parker",
+    "debra-saunders",
+    "jim-hightower",
+    "froma-harrop",
+    "joe-conason",
+    "susan-estrich",
+    "marc-dion",
+    "jamie-stiehm",
+    "veronique-de-rugy",
+    "lawrence-kudlow",
+    "chuck-norris",
+    "mona-charen",
+    "connie-schultz",
+    "robert-scheer",
+    "jeff-robbins",
+    "roger-simon"
+  ],
+  "articles_per_author_target": 24,
+  "selection": "Public feature page plus 5 publicly accessible archive pages; one first eligible contiguous 35–100 word excerpt per article. API page 6 returned 401 during feasibility and was not used or bypassed.",
+  "source_category_used_as_gold": false,
+  "scope": "Exploratory individually bylined English opinion essays, potential Right-wing/Left-wing contrast, not a seven-narrative replication. Other labels and unclear remain available at text annotation.",
+  "sole_unaided_authorship_proven": false
+}

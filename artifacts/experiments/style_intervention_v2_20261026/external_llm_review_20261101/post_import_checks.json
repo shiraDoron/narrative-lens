@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "n": 30,
+  "source_copy_byte_identical": true,
+  "source_file_unchanged": true,
+  "all_human_artifacts_unchanged": true,
+  "all_split_threshold_training_inputs_unchanged": true,
+  "only_existing_code_changed": "report.py (documentation hook only)",
+  "no_training": true,
+  "new_semantic_judgments": false,
+  "timestamp_utc": "2026-11-01T16:53:21.235218+00:00",
+  "protected_existing_files": 54
+}

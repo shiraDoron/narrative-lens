@@ -1,0 +1,9 @@
+{
+  "matched_rows": 94,
+  "matched_test_rows": 24,
+  "fixed_four_way_matched_test_rows": 10,
+  "generated_duplicate_excluded": 0,
+  "primary_comparison_estimable": true,
+  "stance_control_new_gold_labels": false,
+  "causal_claim_supported": false
+}

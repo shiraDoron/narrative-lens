@@ -1,0 +1,31 @@
+﻿id,llm_narrative_label,machine_label_correct,paraphrase_meaning_preserved,normalized_meaning_preserved,paraphrase_style_change_valid,normalized_style_change_valid,llm_notes
+creators:0105f26ef9f1,Left-wing,Yes,No,Yes,Yes,Yes,Paraphrase contains an added meta-preface and slightly compresses meaning; normalized preserves the stance and meaning.
+creators:421024,Right-wing,Yes,Yes,Yes,Yes,Yes,Both rewrites preserve the conservative/critical stance toward 'naked dressing'; automatic quotation rejection appears overly strict.
+creators:422329,Unclear,No,Yes,Yes,Yes,Yes,Excerpt blames both parties for debt; the text itself does not cleanly support a right-wing narrative label.
+creators:417181,Right-wing,Yes,No,No,Yes,Yes,Both rewrites shift certainty/attribution; paraphrase also adds 'supposed champion of civil rights'. Style changes are real but semantic preservation is not strict enough.
+creators:120177,Right-wing,Yes,Yes,Yes,No,No,"Meaning is preserved, but the rhetorical voice ('Folks', slippery slope, war on Christmas) remains strongly intact; proxy overstates style change."
+creators:212505,Right-wing,Yes,Yes,Yes,Yes,Yes,Main claim and pro-Trump/pro-tax-cut framing are preserved; style is meaningfully simplified.
+creators:421951,Unclear,No,Yes,Yes,No,Yes,The excerpt is historical/satirical and does not itself establish a left-wing political narrative. Paraphrase is essentially unchanged; normalized changes style.
+creators:422331,Right-wing,Yes,Yes,Yes,No,Yes,Both preserve the anti-DSA framing. Paraphrase barely changes; normalized changes diction and phrasing.
+creators:120669,Right-wing,Yes,Yes,No,Yes,Yes,"Paraphrase preserves meaning. Normalized incorrectly shifts the Thanksgiving-address subject from Obama to Washington, a clear semantic failure."
+creators:216128,Right-wing,Yes,Yes,Yes,No,Yes,"Both preserve the pro-growth tax-cut argument; paraphrase is nearly identical, normalized makes a modest real style change."
+creators:421279,Left-wing,Yes,Yes,Yes,No,No,Both rewrites are exact copies; no style intervention occurred.
+creators:419062,Left-wing,Yes,Yes,Yes,No,No,Only a tiny lexical substitution ('oozed'→'infiltrated'); not a meaningful style intervention.
+creators:295188,Left-wing,Yes,Yes,Yes,No,No,Only 'buttressed'→'bolstered'; meaning preserved but style essentially unchanged.
+creators:423315,Left-wing,Yes,Yes,Yes,No,No,Minor wording/negation changes only; no meaningful style neutralization.
+creators:422146,Left-wing,Yes,Yes,Yes,No,No,Meaning preserved; edits are tiny and leave the sarcastic/rhetorical voice intact.
+creators:421853,Right-wing,Yes,Yes,Yes,No,No,"Meaning preserved; mostly synonym substitutions, with the rhetorical construction unchanged."
+creators:418620,Right-wing,Yes,Yes,Yes,Yes,No,Paraphrase restructures three sentences into one and preserves the anti-left framing; normalized is an exact copy.
+creators:114783,Right-wing,Yes,Yes,Yes,Yes,No,Paraphrase meaning is preserved and wording is noticeably changed; normalized is effectively unchanged.
+creators:224770,Right-wing,Yes,Yes,Yes,Borderline,No,Paraphrase preserves meaning but changes mainly lexical choices rather than deeper author style; normalized is exact.
+creators:8b0d99b23d03,Unclear,No,Yes,Yes,No,No,The excerpt contrasts two social worlds but does not clearly express a left/right stance by itself. Rewrites are effectively unchanged.
+creators:97c9d6b9ac1b,Left-wing,Yes,Yes,Yes,No,No,"Meaning remains essentially intact, including anti-Trump framing. Changes are too small to count as meaningful style intervention."
+creators:423545,Left-wing,Yes,Yes,Yes,No,No,Paraphrase is grammatically awkward ('been hoist') but semantic content is preserved; automatic NLI rejection looks too strict. Style barely changes.
+creators:298495,Left-wing,Yes,Borderline,Yes,Yes,No,Paraphrase adds specificity ('letters') not present in the original and slightly changes the God phrasing; normalized is unchanged.
+creators:418904,Left-wing,Yes,Yes,Yes,No,No,Changing 'celebrate' to 'mark' inside a quote is undesirable for quote fidelity but preserves propositional meaning; style is essentially unchanged.
+creators:2e34435c6ccf,Left-wing,Yes,Yes,Yes,Yes,No,Both preserve the anti-Trump corruption framing. Paraphrase changes wording substantially; normalized is only a light lexical edit.
+creators:459e183c1d0d,Right-wing,Yes,No,No,Yes,No,"Paraphrase drops 'allegedly one-time', changes former Berkeley status, and turns a claimed 90% allocation into an asserted earmark. Normalized also drops the 'allegedly one-time' qualification."
+creators:416436,Right-wing,Yes,Yes,Yes,Yes,Borderline,Paraphrase and normalized preserve the anti-socialism/pro-capitalism stance. Paraphrase clearly changes style; normalized changes less and keeps much of the rhetoric.
+creators:116358,Right-wing,Yes,No,Yes,Borderline,No,"Paraphrase removes the important Obama relationship ('close friend and confidant'), so strict meaning preservation fails. Normalized is exact."
+creators:218236,Right-wing,Yes,Borderline,Yes,Yes,No,"Paraphrase changes 'are supposed to be' into 'claim to be', subtly shifting stance/attribution. Normalized preserves the original claim closely."
+creators:418827,Left-wing,Yes,Borderline,Yes,Yes,No,Paraphrase turns rhetorical 'brandish X over Y' into the more concrete claim 'replace Y with X' and alters framing. Normalized is exact.

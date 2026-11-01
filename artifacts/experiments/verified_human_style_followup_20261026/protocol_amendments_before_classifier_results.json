@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-26T10:19:58.635300+00:00",
+  "narrative_classifier_outcomes_seen": false,
+  "rewrite_validation_outcomes_seen": false,
+  "amendments_before_primary_analysis": [
+    "Existing social account data replaced by a separately collected, publisher-single-bylined corpus; restricted two-narrative scope declared.",
+    "Weak local 1.5B text annotation attempt excluded after unsupported political attribution in content-only QA; fixed blinded assistant labels plus independent diagnostic NLI assessment used instead.",
+    "Early 1.5B rewrite feasibility attempt excluded after changed causal claims; final 3B Q4_K_M weights and balanced demonstrations frozen before primary generation.",
+    "Future-tense and quotation guards added after content-only inspection of first 3B paraphrase, before model evaluation.",
+    "Full-input guards added: MiniLM 256 tokens, MPNet configured max length, bidirectional NLI 512-token pairs.",
+    "Secondary confidence=3 and nontrivial-change common cohorts declared before classifier results.",
+    "Paired author-cluster intervals and five common seeds specified before model fitting.",
+    "Memory-heavy jobs serialized and HTTP generation client made lightweight without changing final model weights, prompts, temperature, seed, token budget or request concurrency."
+  ],
+  "limitations": [
+    "Not an external preregistration. Data and feasibility outputs were inspected before final analysis.",
+    "Both primary narrative annotations and preservation screens still await independent human adjudication."
+  ]
+}

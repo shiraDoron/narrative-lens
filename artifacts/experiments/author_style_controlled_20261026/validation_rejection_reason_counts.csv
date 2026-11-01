@@ -1,0 +1,10 @@
+﻿reason,count
+entities_preserved,378
+bidirectional_NLI_claim_change_risk,374
+numbers_preserved,88
+semantic_similarity,67
+length_guard,61
+attribution_guard,37
+negation_guard,23
+certainty_guard,22
+framing_anchor_guard,11

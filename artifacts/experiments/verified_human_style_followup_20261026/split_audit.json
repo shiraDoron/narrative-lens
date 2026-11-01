@@ -1,0 +1,11 @@
+{
+  "n": 218,
+  "authors": 19,
+  "author_disjoint": true,
+  "exact_duplicate_count": 0,
+  "global_near_duplicates_removed": [],
+  "semantic_cross_split_removed": [],
+  "split_search_uses": "text annotation class coverage only, no classifier predictions",
+  "coverage": "{('test', 'Left-wing'): 37, ('test', 'Right-wing'): 33, ('train', 'Left-wing'): 55, ('train', 'Right-wing'): 50, ('val', 'Left-wing'): 22, ('val', 'Right-wing'): 21}",
+  "limited_to_two_narratives": true
+}

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "original_sources_unchanged": true,
+  "original_checkpoint_unchanged": true,
+  "author_disjoint_train_validation_test": true,
+  "unique_generation_records": 1127,
+  "validated_generation_records": 1127,
+  "four_variants_per_source_text": true,
+  "prediction_probability_checks": true,
+  "generated_file_sha256": "bdcd3ca70d2fa1cc3233965103a0a72ff7767b51e39504cd0df9ff218564f27f",
+  "implementation_sha256": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8",
+  "formatting_implementation_sha256": "d4bc9133c4ee18c214192ff4aacb170aa698b31e1bae8ba74bed79d116eb235a",
+  "reporting_implementation_sha256": "171b574128669d03b62a37f1865a245f6bebb12d7fb443b678fd215930f23c28",
+  "scope": "File and execution integrity; does not certify semantic correctness or causal validity."
+}

@@ -1,0 +1,16 @@
+{
+  "repo": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+  "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+  "url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/7dabda4d13d513e3e842b20f0d435c732f172cbe/qwen2.5-3b-instruct-q4_k_m.gguf?download=true&cache=20261026",
+  "file": "qwen2.5-3b-instruct-q4_k_m.gguf",
+  "sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+  "bytes": 2104932768,
+  "quantization": "Q4_K_M",
+  "reason": "3B instruction model replaces previous pilot 0.5B and excluded 1.5B feasibility generator; no LoRA or DoRA.",
+  "cpu_threads": 8,
+  "parallel_slots": 4,
+  "cache_prompt": true,
+  "max_tokens": 240,
+  "temperature": 0,
+  "seed": 20261026
+}

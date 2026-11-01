@@ -1,0 +1,8 @@
+﻿condition,automatic_pass,external_llm_meaning_preserved,n
+Paraphrase,False,Borderline,3
+Paraphrase,False,No,4
+Paraphrase,False,Yes,7
+Paraphrase,True,Yes,16
+Normalized,False,No,3
+Normalized,False,Yes,4
+Normalized,True,Yes,23

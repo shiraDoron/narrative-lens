@@ -1,0 +1,9 @@
+{
+  "primary_annotator": "Codex conversation assistant, exact backend revision not exposed",
+  "input": "blind_id plus text only; no author, source, article title, account category or narrative classifier prediction",
+  "definitions": "Project annotation guide: seven classes plus Unclear; neutral factual reporting and unendorsed quotations are not automatically political narratives. Confidence 1 uncertain, 2 plausible, 3 clear.",
+  "main_label_selection": "Primary assistant label Right-wing or Left-wing and confidence >=2, exact evidence span. Other classes and unclear remain saved for human review, not silently recoded.",
+  "independent_assessor": "Separately run DeBERTa NLI, diagnostic agreement only.",
+  "human_review_completed": false,
+  "excluded_weak_local_model_attempt": "annotation_feasibility_1p5b_aborted.jsonl"
+}

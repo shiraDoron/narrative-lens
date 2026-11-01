@@ -1,0 +1,9 @@
+{
+  "n_test_authors": 6,
+  "replicates": 1000,
+  "normalized_minus_paraphrase_ci95": [
+    -0.08746945097324027,
+    0.026689909120026886
+  ],
+  "caution": "Very few author clusters; exploratory interval, not a confirmatory significance claim."
+}

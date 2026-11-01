@@ -1,0 +1,15 @@
+{
+  "source_hashes": {
+    "data\\raw\\twitter_natural_dataset.csv": "a7a73afd1ec3fc182bfa454c530c17885bb3af85cc7e61dd43271d02bbbd8b28",
+    "data\\raw\\telegram_natural_dataset.csv": "969bb2302b4852f91d9a6e085dafb1852d89a044c317487dea84575df6106bca"
+  },
+  "original_checkpoint_sha256": "82710c7b88d35b4d4855be11d1571087e2c0bcd362b27f50b80eb56b7d314cad",
+  "raw_rows": 10330,
+  "eligible_rows": 5608,
+  "pilot_rows": 336,
+  "global_duplicate_clusters": 10005,
+  "verified_near_pairs": 4258,
+  "cross_split_lexical_duplicate_pairs": [],
+  "author_disjoint": true,
+  "limitation": "Exact normalization plus MinHash candidate Jaccard >= .7 and exhaustive pilot word-trigram Jaccard; semantic paraphrases require additional embedding audit. No universal guarantee against all semantic variants."
+}

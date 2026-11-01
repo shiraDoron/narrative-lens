@@ -1,0 +1,66 @@
+{
+  "all_generated_descriptive": {
+    "counts": {
+      "train": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24
+      ],
+      "val": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "test": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    "all_labels_in_each_split": true
+  },
+  "matched_automated_pass": {
+    "counts": {
+      "train": [
+        8,
+        7,
+        10,
+        5,
+        7,
+        6,
+        3
+      ],
+      "val": [
+        3,
+        1,
+        5,
+        4,
+        4,
+        3,
+        4
+      ],
+      "test": [
+        1,
+        2,
+        6,
+        3,
+        3,
+        3,
+        6
+      ]
+    },
+    "all_labels_in_each_split": true
+  }
+}

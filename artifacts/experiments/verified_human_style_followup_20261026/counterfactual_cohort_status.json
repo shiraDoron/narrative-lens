@@ -1,0 +1,8 @@
+{
+  "target_sources": 32,
+  "all_four_style_plus_all_main_arms_passed_sources": 15,
+  "all_four_styles_also_changed_raw_text_sources": 3,
+  "same_sources_for_all_styles_and_paraphrase": true,
+  "not_a_claim_of_causality": true,
+  "caution": "A copied original cannot demonstrate invariance under a genuine style intervention; inspect nontrivial subset separately."
+}

@@ -1,0 +1,41 @@
+{
+  "human_gold": false,
+  "coverage": [
+    {
+      "split": "train",
+      "proposed_narrative": "Left-wing",
+      "n": 31,
+      "n_authors": 5
+    },
+    {
+      "split": "train",
+      "proposed_narrative": "Right-wing",
+      "n": 23,
+      "n_authors": 5
+    },
+    {
+      "split": "val",
+      "proposed_narrative": "Left-wing",
+      "n": 10,
+      "n_authors": 2
+    },
+    {
+      "split": "val",
+      "proposed_narrative": "Right-wing",
+      "n": 11,
+      "n_authors": 3
+    },
+    {
+      "split": "test",
+      "proposed_narrative": "Left-wing",
+      "n": 21,
+      "n_authors": 4
+    },
+    {
+      "split": "test",
+      "proposed_narrative": "Right-wing",
+      "n": 18,
+      "n_authors": 3
+    }
+  ]
+}

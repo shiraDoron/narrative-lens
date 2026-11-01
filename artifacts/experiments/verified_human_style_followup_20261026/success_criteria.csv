@@ -1,0 +1,7 @@
+﻿criterion,status
+Author ID drops versus Original and Paraphrase in both representations,not_consistently_met
+Unseen-author normalized diagonal Macro-F1 improves vs Original,met_numerically
+Normalized exceeds ordinary Paraphrase,not_met
+Meaning/stance/framing preservation,automated_screen_passed_for_primary_cohort; independent_human_adjudication_pending
+Normalized advantage consistent across five seeds,not_met
+At least two test authors improve in accuracy and more authors improve than worsen,not_met

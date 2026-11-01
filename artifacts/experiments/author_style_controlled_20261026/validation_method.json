@@ -1,0 +1,51 @@
+{
+  "nli_model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+  "nli_revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2",
+  "ner_revision": "d1a3e8f13f8c3566299d95fcfc9a8d2382a9affc",
+  "id2label": {
+    "0": "entailment",
+    "1": "not_entailment"
+  },
+  "entailment_index": 0,
+  "semantic_model": "sentence-transformers/all-mpnet-base-v2",
+  "semantic_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "ner": "dslim/bert-base-NER",
+  "thresholds": {
+    "split_seed": 20261026,
+    "authors_per_label": 4,
+    "texts_per_author": 12,
+    "train_authors_per_label": 2,
+    "val_authors_per_label": 1,
+    "test_authors_per_label": 1,
+    "min_words": 20,
+    "max_words": 65,
+    "seeds": [
+      42,
+      7,
+      123
+    ],
+    "epochs": 20,
+    "batch_size": 16,
+    "lr": 0.001,
+    "hidden_size": 128,
+    "dropout": 0.3,
+    "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+    "semantic_validation_encoder": "sentence-transformers/all-mpnet-base-v2",
+    "generator": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+    "generation_seed": 20261026,
+    "generation_batch_size": 4,
+    "generator_quantization": "GGUF Q8_0 weights; floating point activations",
+    "max_new_tokens": 180,
+    "do_sample": false,
+    "similarity_threshold": 0.85,
+    "bidirectional_entailment_threshold": 0.6,
+    "entity_retention_threshold": 1.0,
+    "counterfactual_per_label": 2,
+    "stance_control_per_label": 1,
+    "threads": 4,
+    "interpretation": "Exploratory CPU pilot; source-account labels, automated semantic screening, no independent human gold validation."
+  },
+  "stance_framing_check": "Conservative lexical guardrails plus bidirectional NLI, not independent stance/framing proof.",
+  "human_validation_performed": false,
+  "validation_score": "minimum of cosine similarity, forward/reverse entailment and entity recall/precision; structural flags additionally gate acceptance"
+}

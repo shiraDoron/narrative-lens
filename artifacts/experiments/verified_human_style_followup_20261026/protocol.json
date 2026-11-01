@@ -1,0 +1,36 @@
+{
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    31415
+  ],
+  "epochs": 20,
+  "lr": 0.001,
+  "batch_size": 16,
+  "architecture": "Existing frozen MiniLM encoder plus fresh 384->128->7 MLP, dropout .3",
+  "annotation_gold_status": "LLM proposals, NOT human gold",
+  "primary_labels": [
+    "Right-wing",
+    "Left-wing"
+  ],
+  "scope": "Restricted two-narrative exploratory follow-up; all seven labels and unclear allowed in annotation.",
+  "split_seed": 20261026,
+  "counterfactual_target_n": 32,
+  "similarity_threshold": 0.85,
+  "nli_threshold": 0.6,
+  "entity_guard": "Original confident entity surface spans must still appear, allowing case and punctuation normalization; new confident spans must be traceable to original.",
+  "meaning_gate": "Independent MPNet cosine and bidirectional DeBERTa NLI plus entities, numbers, negation presence/count, certainty, attribution, framing anchors. Human validation pending.",
+  "acceptance_selection": "No narrative prediction is consulted to select or accept a rewrite. One attempt per arm, no classifier-driven retries.",
+  "primary_cohort": "Intersection of all four accepted arms, identical source rows for every comparison.",
+  "minimum_per_label_split": 3,
+  "hypothesis_support_requires": [
+    "author_probe_reduction",
+    "unseen_author_macro_f1_gain",
+    "normalized_beats_paraphrase",
+    "meaning_stance_framing_human_adjudication",
+    "consistency_across_seeds_and_authors"
+  ],
+  "prespecified_before_outcome": true
+}

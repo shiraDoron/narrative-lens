@@ -1,0 +1,103 @@
+{
+  "checks": [
+    {
+      "check": "Frozen analysis_cohort.csv",
+      "passed": true
+    },
+    {
+      "check": "Frozen author_splits.csv",
+      "passed": true
+    },
+    {
+      "check": "Frozen split_definitions.csv",
+      "passed": true
+    },
+    {
+      "check": "Authors disjoint",
+      "passed": true
+    },
+    {
+      "check": "Exactly one version per source and condition",
+      "passed": true
+    },
+    {
+      "check": "Control rewrites frozen",
+      "passed": true
+    },
+    {
+      "check": "All versions screened",
+      "passed": true
+    },
+    {
+      "check": "Review pack has all 218 originals and both rewrites",
+      "passed": true
+    },
+    {
+      "check": "Style measurements complete",
+      "passed": true
+    },
+    {
+      "check": "Explicit feature changes present",
+      "passed": true
+    },
+    {
+      "check": "Identity edit metric zero",
+      "passed": true
+    },
+    {
+      "check": "Punctuation alone is not substantial",
+      "passed": true
+    },
+    {
+      "check": "Human gate detects pending labels",
+      "passed": true
+    },
+    {
+      "check": "No evaluation permitted before real review",
+      "passed": true
+    },
+    {
+      "check": "No invented V2 model results",
+      "passed": true
+    },
+    {
+      "check": "Previous outputs unchanged",
+      "passed": true
+    },
+    {
+      "check": "Readable artifact EXPERIMENT_GUIDE_HE.md",
+      "passed": true
+    },
+    {
+      "check": "Readable artifact FINAL_REPORT_HE.md",
+      "passed": true
+    },
+    {
+      "check": "Readable artifact README.md",
+      "passed": true
+    },
+    {
+      "check": "Readable artifact HUMAN_REVIEW_HE.md",
+      "passed": true
+    },
+    {
+      "check": "Readable artifact HUMAN_REVIEW.html",
+      "passed": true
+    },
+    {
+      "check": "Readable artifact plots/style_intervention.png",
+      "passed": true
+    },
+    {
+      "check": "Readable artifact plots/automatic_screen.png",
+      "passed": true
+    },
+    {
+      "check": "Review HTML contains complete current CSV",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "human_review_complete": false,
+  "scientific_verdict": "pending human review, not evidence for hypothesis"
+}

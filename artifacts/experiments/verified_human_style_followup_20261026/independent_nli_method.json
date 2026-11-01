@@ -1,0 +1,18 @@
+{
+  "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+  "revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2",
+  "hypotheses": {
+    "Zionist": "The writer endorses Israeli legitimacy and security and justifies Israeli actions in the conflict.",
+    "Resistance": "The writer legitimizes Iran-aligned or Palestinian armed resistance against Israel and the United States.",
+    "Western": "The writer explicitly endorses Western international alliances, institutions or the rules-based international order.",
+    "Russian": "The writer legitimizes Russian state actions in the war against Ukraine or endorses Russian anti-Western war framing.",
+    "Ukrainian": "The writer defends Ukrainian sovereignty and resistance against Russian aggression.",
+    "Right-wing": "The writer advocates American conservative or right-wing politics, criticizes progressive or socialist policies, or defends free-market and traditional conservative positions.",
+    "Left-wing": "The writer advocates progressive or left-wing politics, criticizes Trump or right-wing policies, or defends workers and economic equality.",
+    "Unclear": "The text reports facts or tells a story without clearly endorsing a political or ideological position."
+  },
+  "abstention_threshold": 0.55,
+  "minimum_margin": 0.05,
+  "metadata_provided": false,
+  "role": "Independent machine assessment, not gold and not used to override the assistant label. Same NLI model also screens rewrites; agreement does not replace human adjudication."
+}

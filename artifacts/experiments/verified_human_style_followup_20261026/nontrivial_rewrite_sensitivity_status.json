@@ -1,0 +1,5 @@
+{
+  "run": true,
+  "n": 32,
+  "definition": "Secondary common-cohort analysis requiring a changed canonical word sequence in BOTH Paraphrase and Normalized. Not a substitute for checking meaningful style transfer; punctuation-only edits and exact copies are excluded."
+}

@@ -1,0 +1,18 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\Users\\P0039126\\.pyenv\\pyenv-win\\versions\\3.11.9\\python.exe",
+  "platform": "Windows-10-10.0.26100-SP0",
+  "packages": {
+    "torch": "2.13.0+cpu",
+    "transformers": "5.15.0",
+    "sentence-transformers": "5.7.0",
+    "numpy": "2.2.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.9.0",
+    "matplotlib": "3.10.9"
+  },
+  "runtime_sha256": "cc3a6ec4d181bd35c7edbabfdb76d8a17f555e3ef648d3196688b4d6f2ab47b0",
+  "runtime_release": "llama.cpp b11887",
+  "inherited_analysis_code_sha256": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+  "timestamp": "2026-10-26T15:20:17.627954+00:00"
+}

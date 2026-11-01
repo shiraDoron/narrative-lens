@@ -1,0 +1,6 @@
+﻿condition,n_predictions,n_sources,label_flip_rate,correct_to_incorrect,incorrect_to_correct,confidence_delta
+Concise,15,3,0.0,0,0,0.0011506855487823486
+Conversational,15,3,0.0,0,0,-0.0032542824745178224
+Elaborate,15,3,0.0,0,0,-0.0024125407139460246
+Formal,15,3,0.0,0,0,-0.010649041334788004
+Paraphrase,15,3,0.0,0,0,0.0008640587329864502

@@ -1,0 +1,47 @@
+[
+  {
+    "seed": 42,
+    "n": 84,
+    "accuracy": 0.39285714285714285,
+    "macro_f1": 0.39042224905602513,
+    "nll": 1.548262596130371,
+    "brier": 0.7364839154595408,
+    "recall_Zionist": 0.5833333333333334,
+    "recall_Resistance": 0.3333333333333333,
+    "recall_Western": 0.3333333333333333,
+    "recall_Russian": 0.0,
+    "recall_Ukrainian": 0.5833333333333334,
+    "recall_Right-wing": 0.4166666666666667,
+    "recall_Left-wing": 0.5
+  },
+  {
+    "seed": 7,
+    "n": 84,
+    "accuracy": 0.38095238095238093,
+    "macro_f1": 0.3727119293413545,
+    "nll": 1.5333279371261597,
+    "brier": 0.7320962937755225,
+    "recall_Zionist": 0.4166666666666667,
+    "recall_Resistance": 0.3333333333333333,
+    "recall_Western": 0.4166666666666667,
+    "recall_Russian": 0.0,
+    "recall_Ukrainian": 0.5833333333333334,
+    "recall_Right-wing": 0.3333333333333333,
+    "recall_Left-wing": 0.5833333333333334
+  },
+  {
+    "seed": 123,
+    "n": 84,
+    "accuracy": 0.42857142857142855,
+    "macro_f1": 0.4171512083094107,
+    "nll": 1.6867307424545288,
+    "brier": 0.7770328060003441,
+    "recall_Zionist": 0.6666666666666666,
+    "recall_Resistance": 0.3333333333333333,
+    "recall_Western": 0.3333333333333333,
+    "recall_Russian": 0.0,
+    "recall_Ukrainian": 0.6666666666666666,
+    "recall_Right-wing": 0.5,
+    "recall_Left-wing": 0.5
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "frozen_utc": "2026-10-26T10:39:14.610730+00:00",
+  "rewrite_validation_performed": false,
+  "narrative_classifier_results_seen": false,
+  "sha256": {
+    "annotate_nli.py": "16ca69fdfe864943f34570103b1b6810e74f211114db362fbe38c9677e4fc87d",
+    "assemble_annotations.py": "eb30bc7a82a0cf6f00018a235da065cce8e097ebc2d20163b371df69f14bf2e7",
+    "collect.py": "01f0c54f05a5edf2382fcc8bb9cb9e4b97b2d400591af4613d53bad3ca0bc29e",
+    "download_model.py": "cbb596bd4d03a5a0a89b04ae8cfecea135c8b1bc2a0fcdaa09bcf9105c6651ac",
+    "download_runtime.py": "bb0fcb7c322767855d535f12bae77b66513cbb5a4db53c03f0e3912f75730f98",
+    "experiment.py": "47e704a1be9a3bea3a366c35d468f291d3aedb34f5d9a955420e8e4eb1f0749e",
+    "final_audit.py": "06fe6ab1695f398866a7a3c6fab7efbec9988324b9cbf1e01f88be21a3458c5c",
+    "generate_light.py": "5354b9cd58bef57412c18e4ac098a3c5b8a271170d6c388d72e27623b1b4094a",
+    "integrity.py": "37fd7b25bc32f69be5730c621fbce991009b100259c9096792b0f6df664778c9",
+    "progress.py": "bc9beed73f7cbb6a01e0125801a082619373ae77f85b35db9e317f19316d3c61",
+    "run_remaining.py": "0c3a746b7e6f1594e464075136526101b5ebc1e24672252d75e006f2c0965cfa",
+    "run_when_ready.py": "b9f38e4eb405c629bee00b851345e18a8ba5233f6e59a090e0ae4bff59ce0699",
+    "protocol.json": "5d84e1c1de82f3d472c0ddd43cec3f10f15bf83799ecd442d766c050903b5f2f",
+    "assistant_annotations.tsv": "dde8283f00e738b312d1ed268a9b7d2de28355b67c33ad71995d2f8f912ea723",
+    "assistant_annotation_blind.jsonl": "770e44ff132f11d792d3b178c15e40566068277161f267fcd821483b9beaf39d",
+    "analysis_cohort.csv": "b9179f67418c516c05a75708d087a95406c1ac9753ef311c9fb9ada942aee663",
+    "split_definitions.csv": "6ebe5c674f5a846b9e5c40c391d45d79efc3bd8c4bdeb58d7780ad0f4a0339ee",
+    "rewrite_prompts.json": "db283ea750b6b56a66345ff57dff662882bd3b05f021177fd4b0414ada53d26f",
+    "generator_manifest.json": "22f7df991da5be0fde42744612aba5f279b08033eb4166b15816f2d57d8f9500",
+    "generated_rewrites.jsonl": "3bb60fd6360fc6e16bbe6d9a9fa8b6f3fcd90ae6f08161fd160616286bd3889f"
+  }
+}

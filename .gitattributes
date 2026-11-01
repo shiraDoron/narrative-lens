@@ -1,0 +1,8 @@
+# Preserve exact experiment bytes: provenance audits hash raw files, including CRLF.
+artifacts/experiments/author_style_controlled_20261026/** -text
+artifacts/experiments/verified_human_style_followup_20261026/** -text
+artifacts/experiments/style_intervention_v2_20261026/** -text
+experiments/author_generalization/author_style_controlled.py -text
+experiments/author_generalization/author_style_reporting.py -text
+experiments/author_generalization/finish_author_style_run.ps1 -text
+experiments/author_generalization/prepare_llama_runtime.py -text

@@ -1,0 +1,5 @@
+﻿scope,after_normalization,n_source_texts,n_predictions_including_seeds,label_flip_rate,correct_to_incorrect_rate,incorrect_to_correct_rate,mean_max_probability_delta,mean_true_probability_delta
+all_generated_descriptive,False,14,168,0.011904761904761904,0.011904761904761904,0.0,-0.008150938720930177,-0.015616599226459135
+all_generated_descriptive,True,14,168,0.05357142857142857,0.05357142857142857,0.0,-0.002347264704959736,-0.004814449553599667
+automated_pass_only,False,11,93,0.0,0.0,0.0,-0.0013290497884955433,-0.0008741389078799085
+automated_pass_only,True,6,60,0.0,0.0,0.0,-0.001441049824158347,-6.965249776839996e-05

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "JS syntax",
+    "218 rows rendered",
+    "no fabricated human reviews",
+    "single manual edit remains incomplete",
+    "quoted multiline CSV roundtrip",
+    "claim judgments not filled automatically"
+  ],
+  "note": "DOM mocked; no visual browser QA yet."
+}

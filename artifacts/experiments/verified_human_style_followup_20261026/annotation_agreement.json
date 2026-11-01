@@ -1,0 +1,15 @@
+{
+  "n": 429,
+  "agreement": 0.5827505827505828,
+  "cohen_kappa": 0.35857834948212497,
+  "independence": "Text-only conversation assistant vs separately evaluated DeBERTa NLI model. Both machine raters, not human inter-rater reliability. NLI is diagnostic and does not override assistant proposals.",
+  "eligible_provisional": 218,
+  "a_counts": {
+    "Unclear": 203,
+    "Left-wing": 114,
+    "Right-wing": 104,
+    "Zionist": 7,
+    "Ukrainian": 1
+  },
+  "human_gold_completed": false
+}
