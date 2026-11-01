@@ -41,6 +41,10 @@ def main():
         old = path.read_text(encoding="utf-8")
         prefix = old.split(MARKER, 1)[0].rstrip()
         path.write_text(prefix + "\n\n" + section, encoding="utf-8")
+    external = HERE / 'external_llm_review_20261101/import_review.py'
+    if external.exists() and (external.parent / 'CENTRAL_SECTION_HE.md').exists():
+        import runpy
+        runpy.run_path(str(external))['update_docs']()
 
 
 if __name__ == "__main__":

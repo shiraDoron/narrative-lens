@@ -1,0 +1,13 @@
+﻿classification,meaning_preserved,count
+True Positive,Yes,0
+True Positive,Borderline,14
+True Positive,No,5
+False Positive,Yes,5
+False Positive,Borderline,0
+False Positive,No,0
+True Negative,Yes,5
+True Negative,Borderline,0
+True Negative,No,0
+False Negative,Yes,0
+False Negative,Borderline,1
+False Negative,No,0

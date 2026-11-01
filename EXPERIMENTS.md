@@ -1,5 +1,17 @@
 # Experiments Log
 
+## Style-normalization development checkpoint — 2026-11-01
+
+The revised prompt was evaluated on the same 30 purposively selected **TRAIN-only** originals. Automatic preservation pass changed from 23/30 to 6/30, substantial-style proxy from 10/30 to 24/30, joint success from 7/30 to 6/30, and exact copies from 7 to 0. These are development diagnostics, not held-out generalization estimates.
+
+The user-supplied **New Normalized External LLM Review** was subsequently imported without running a new judge. Supplied meaning ratings: Yes 10/30, Borderline 15/30, No 5/30; style-change Yes 30/30; semantic-drift Yes 20/30 (including all 15 Borderline cases). Strict descriptive preservation (meaning/stance/attribution/certainty Yes and drift No) and joint preservation/style are both 10/30. These are LLM ratings, not human gold or verified drift.
+
+Five automatic rejections received strict external preservation approval (`0105f26ef9f1`, `120177`, `212505`, `418620`, `459e183c1d0d`); these are candidate false positives relative to this reviewer. One automatic pass, `423315`, was rated Borderline for meaning. No guard decisions were overridden. Exact evaluator model, evaluation prompt, timestamp and reviewed-text hashes were not provided; blinding and independence are not established. Old external-review ratings apply only to old rewrites.
+
+[Full external review report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/REPORT_HE.md) · [Frozen Original/Old/New comparison](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/COMPARISON_30_HE.md) · [Central experiment guide](artifacts/experiments/style_intervention_v2_20261026/EXPERIMENT_GUIDE_HE.md).
+
+No prompt/guard/threshold changes, test use, relabelling, split changes, human-review updates or retraining occurred at this import checkpoint. Stop before further tuning or experiments.
+
 This document consolidates all experiments actually run on the BERTopic topic-modeling
 pipeline (`saved_topic_model_soft_v2`) and its supporting preprocessing/analysis tooling. It
 covers only work that was actually executed and measured (not proposals that were never run).

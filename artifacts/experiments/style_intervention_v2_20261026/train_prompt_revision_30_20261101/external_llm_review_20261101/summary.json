@@ -1,0 +1,217 @@
+{
+  "n": 30,
+  "scope": "Purposive TRAIN-only development sample",
+  "counts": {
+    "meaning_preserved": {
+      "Yes": 10,
+      "Borderline": 15,
+      "No": 5
+    },
+    "stance_preserved": {
+      "Yes": 29,
+      "Borderline": 1
+    },
+    "attribution_preserved": {
+      "Yes": 29,
+      "No": 1
+    },
+    "certainty_preserved": {
+      "Yes": 28,
+      "Borderline": 2
+    },
+    "style_change_valid": {
+      "Yes": 30
+    },
+    "semantic_drift": {
+      "No": 10,
+      "Yes": 20
+    }
+  },
+  "evaluation_type": "External LLM Review — New Normalized",
+  "discrepancy_classes_relative_to_llm": {
+    "False Positive": 5,
+    "True Negative": 5,
+    "True Positive": 19,
+    "False Negative": 1
+  },
+  "discrepancy_class_ids": {
+    "False Positive": [
+      "creators:0105f26ef9f1",
+      "creators:120177",
+      "creators:212505",
+      "creators:418620",
+      "creators:459e183c1d0d"
+    ],
+    "True Negative": [
+      "creators:421024",
+      "creators:421951",
+      "creators:120669",
+      "creators:419062",
+      "creators:224770"
+    ],
+    "True Positive": [
+      "creators:422329",
+      "creators:417181",
+      "creators:422331",
+      "creators:216128",
+      "creators:421279",
+      "creators:295188",
+      "creators:422146",
+      "creators:421853",
+      "creators:114783",
+      "creators:8b0d99b23d03",
+      "creators:97c9d6b9ac1b",
+      "creators:423545",
+      "creators:298495",
+      "creators:418904",
+      "creators:2e34435c6ccf",
+      "creators:416436",
+      "creators:116358",
+      "creators:218236",
+      "creators:418827"
+    ],
+    "False Negative": [
+      "creators:423315"
+    ]
+  },
+  "borderline_ids": [
+    "creators:422329",
+    "creators:422331",
+    "creators:216128",
+    "creators:421279",
+    "creators:295188",
+    "creators:423315",
+    "creators:422146",
+    "creators:421853",
+    "creators:114783",
+    "creators:97c9d6b9ac1b",
+    "creators:2e34435c6ccf",
+    "creators:416436",
+    "creators:116358",
+    "creators:218236",
+    "creators:418827"
+  ],
+  "classification_by_meaning": [
+    {
+      "classification": "True Positive",
+      "meaning_preserved": "Yes",
+      "count": 0
+    },
+    {
+      "classification": "True Positive",
+      "meaning_preserved": "Borderline",
+      "count": 14
+    },
+    {
+      "classification": "True Positive",
+      "meaning_preserved": "No",
+      "count": 5
+    },
+    {
+      "classification": "False Positive",
+      "meaning_preserved": "Yes",
+      "count": 5
+    },
+    {
+      "classification": "False Positive",
+      "meaning_preserved": "Borderline",
+      "count": 0
+    },
+    {
+      "classification": "False Positive",
+      "meaning_preserved": "No",
+      "count": 0
+    },
+    {
+      "classification": "True Negative",
+      "meaning_preserved": "Yes",
+      "count": 5
+    },
+    {
+      "classification": "True Negative",
+      "meaning_preserved": "Borderline",
+      "count": 0
+    },
+    {
+      "classification": "True Negative",
+      "meaning_preserved": "No",
+      "count": 0
+    },
+    {
+      "classification": "False Negative",
+      "meaning_preserved": "Yes",
+      "count": 0
+    },
+    {
+      "classification": "False Negative",
+      "meaning_preserved": "Borderline",
+      "count": 1
+    },
+    {
+      "classification": "False Negative",
+      "meaning_preserved": "No",
+      "count": 0
+    }
+  ],
+  "strict_preservation_count": 10,
+  "strict_preservation_ids": [
+    "creators:0105f26ef9f1",
+    "creators:421024",
+    "creators:120177",
+    "creators:212505",
+    "creators:421951",
+    "creators:120669",
+    "creators:419062",
+    "creators:418620",
+    "creators:224770",
+    "creators:459e183c1d0d"
+  ],
+  "strict_preservation_and_style_count": 10,
+  "candidate_guard_false_positive_ids": [
+    "creators:0105f26ef9f1",
+    "creators:120177",
+    "creators:212505",
+    "creators:418620",
+    "creators:459e183c1d0d"
+  ],
+  "automatic_pass_but_external_not_yes_ids": [
+    "creators:423315"
+  ],
+  "old_external_counts": {
+    "llm_narrative_label": {
+      "Left-wing": 12,
+      "Right-wing": 15,
+      "Unclear": 3
+    },
+    "machine_label_correct": {
+      "Yes": 27,
+      "No": 3
+    },
+    "paraphrase_meaning_preserved": {
+      "No": 4,
+      "Yes": 23,
+      "Borderline": 3
+    },
+    "normalized_meaning_preserved": {
+      "Yes": 27,
+      "No": 3
+    },
+    "paraphrase_style_change_valid": {
+      "Yes": 14,
+      "No": 14,
+      "Borderline": 2
+    },
+    "normalized_style_change_valid": {
+      "Yes": 9,
+      "No": 20,
+      "Borderline": 1
+    }
+  },
+  "evaluator_model": "Not supplied",
+  "evaluation_prompt": "Not supplied",
+  "evaluation_timestamp": "Not supplied",
+  "review_text_binding": "IDs and user-supplied filename/context only; source has no reviewed-text hashes",
+  "blinded": "Not established",
+  "blinding_note": "Comparison pack exposes author and Old/New versions; evaluator inputs not independently logged",
+  "human_verified": false
+}

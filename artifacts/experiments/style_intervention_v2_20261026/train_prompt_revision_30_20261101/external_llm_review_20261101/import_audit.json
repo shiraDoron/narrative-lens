@@ -1,0 +1,13 @@
+{
+  "source_file": "NEW_NORMALIZED_EXTERNAL_LLM_REVIEW_30_20261101.csv",
+  "source_sha256": "b07dd75a1b02a121330629158b08d451fa54a2f234020dd1977f6ea5bfbc5880",
+  "copied_sha256": "b07dd75a1b02a121330629158b08d451fa54a2f234020dd1977f6ea5bfbc5880",
+  "comparison_sha256": "da183102233bf53a5e993fcbcb37a1d3c32f085277f0ff3ce819a0aec56efa42",
+  "exact_ids": true,
+  "all_train": true,
+  "protected_data_files": 90,
+  "changed_protected_data_files": [],
+  "no_training": true,
+  "no_filter_or_prompt_changes": true,
+  "no_human_field_updates": true
+}
