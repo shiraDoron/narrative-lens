@@ -1,5 +1,7 @@
 # שפת אם, סגנון כותב ונרטיב — בדיקת הנתונים ומקרי בוחן
 
+לספרות והצעת המנגנון העדכניות בתחום style intervention: [Related Work — StyleRemix, Thank you BART!, Decoupled Multi-Agent](style_transfer_related_work_he.md), ו[מסמך design מוצע](semantic_style_intervention_design_he.md), 2026-11-02. זהו עדכון תיעודי; ממצאי בדיקת הנתונים ההיסטורית להלן לא שונו.
+
 תאריך הבדיקה: **20 באוקטובר 2026**. הפרויקט: Narrative Lens.
 
 ## מה אפשר להסיק כעת

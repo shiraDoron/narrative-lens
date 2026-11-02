@@ -41,7 +41,7 @@ Labels, human-review fields, thresholds, filtering, model/runtime and decoding r
 
 ## Next decision
 
-Obtain a separately performed External LLM Review of **Repaired v2**, using the blind package linked below. The current local pipeline changed only one text and retained v2 for 29 process failures, so its automatic scores do not establish semantic improvement. No further prompt/guard changes, training, test evaluation or LoRA/DoRA now. Human Validation remains Pending and required by the study's training gate.
+Review the proposed [literature-based design](docs/semantic_style_intervention_design_he.md) before authorizing another implementation or experiment. The six-row technical debug completed: verification contract 6/6, patches applied 5/9, 18 unit tests passed. Patch execution improved, but verifier omissions and incorrect repairs remain; this is not semantic validation or grounds to rerun all 30. No additional experiment, External LLM Review, training, test evaluation or LoRA/DoRA now. Human Validation remains Pending and required by the study's training gate.
 
 ## Focused guard error analysis — 2026-11-01
 
@@ -56,3 +56,9 @@ Active follow-up: **train-only intervention development**, fixed v2 → local ve
 Automatic results for repair: pass 6/30, substantial style 24/30, both 6/30, exact copies 0. Actual changes: 1/30; verification/patch failures retain v2 and are reported, not hidden by retries. Local verification is part of the pipeline, not independent external approval. No new external/human review, training or test evaluation. Next step: separately review the Repaired v2 blind package; no further tuning now.
 
 [Repair report](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPORT_HE.md) · [Blind package](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPRODUCTION.md)
+
+## Technical debug and literature checkpoint — 2026-11-02
+
+The completed [six-TRAIN debug](artifacts/experiments/style_intervention_v2_20261026/semantic_repair_debug_subset_20261102/DEBUG_SUBSET_RESULTS.md) separates exact patch applicability from semantic correctness. No full 30-row rerun followed. The previous section's external-review next step is historical; the current decision is the design review above.
+
+[Related Work](docs/style_transfer_related_work_he.md) now distinguishes StyleRemix's authorship obfuscation, Lai et al.'s reward-based formality training, Zhang et al.'s training-free decomposition/self-check, and our narrative-preserving intervention question. The proposed hybrid architecture is documentation only. No experimental code or data changed during this literature update; no new experiment was run.

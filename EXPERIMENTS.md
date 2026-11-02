@@ -4,6 +4,8 @@ Most readers should start with the [research storyline below](#research-storylin
 The remainder of this document is the detailed chronological experiment log / lab notebook.
 For today's status, read [CURRENT_STATE.md](CURRENT_STATE.md); for outputs and reproduction guides, use the [artifact index](artifacts/README.md).
 
+Literature/design checkpoint (2026-11-02; no new experiment): [TST and content-preservation Related Work](docs/style_transfer_related_work_he.md), [proposed semantic/style architecture](docs/semantic_style_intervention_design_he.md). The preceding [six-row technical repair debug](artifacts/experiments/style_intervention_v2_20261026/semantic_repair_debug_subset_20261102/DEBUG_SUBSET_RESULTS.md) is reported separately from research outcomes.
+
 Scope: early entries concern BERTopic representation; later entries cover narrative classification, unseen-author evaluation and interventions. The original topic-model-only scope note does not apply to later classifier experiments. Historical sections are retained in place. **Closed refers to an individual experiment, not the entire author-style research question.**
 
 ## Research storyline (start here)

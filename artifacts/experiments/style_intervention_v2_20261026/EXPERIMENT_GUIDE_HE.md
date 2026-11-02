@@ -436,3 +436,8 @@ Meaning Preserved: **10/30 Yes, ‏15/30 Borderline, ‏5/30 No**. שינוי st
 שונו בפועל 1/30 טקסטים, באמצעות 1 עריכות משנות־טקסט; 11 אימותים ו־18 הצעות repair נכשלו בחוזה התהליך. בכשל נשמר v2, ללא retry או בחירה לפי ציונים. המימוש לא סיפק מספיק תיקונים תקינים לביסוס שיפור סמנטי; אין בכך הפרכה של הרעיון הדו־שלבי. שינוי במעברי guards יכול לשקף גם תיקון לקסיקלי טכני; אין עדיין דירוגי משמעות/סגנון חיצוניים ל־Repaired v2. לא נמדדו תוצאות test או generalization, לא אומנו מודלים, ולא מולאו שדות אנושיים. עוצרים לפני External LLM Review עיוור חדש.
 
 [Repair report](v2_semantic_repair_30_20261102/REPORT_HE.md) · [Blind package](v2_semantic_repair_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](v2_semantic_repair_30_20261102/REPRODUCTION.md)
+
+
+## Literature/design checkpoint — 2026-11-02
+
+נוספו [Related Work](../../../docs/style_transfer_related_work_he.md) ו[הצעת architecture](../../../docs/semantic_style_intervention_design_he.md): הבחנה בין authorship obfuscation, formality reward training ו־training-free decomposition/self-check. ההמלצה היא שילוב מוגבל של structured execution, בדיקת semantics ו־style נפרדים ו־refinement עם תקציב עצירה. זו הצעה בלבד, ללא שינוי קוד ניסויי או הרצה חדשה. [ה־debug הטכני הקודם](semantic_repair_debug_subset_20261102/DEBUG_SUBSET_RESULTS.md) הראה יכולת החלה משופרת, אך גם verifier חלש ותיקונים לא נכונים; לא נוספה מסקנת generalization או אימות אנושי.

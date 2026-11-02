@@ -17,6 +17,8 @@ If you are new to the project (5–10 minutes):
 5. [docs/running.md](docs/running.md) — setup, inputs, outputs and reproduction routes.
 6. [artifacts/README.md](artifacts/README.md) — experiment outputs, status and local guides.
 
+For the current intervention design: [Text Style Transfer Related Work](docs/style_transfer_related_work_he.md) and [proposed architecture](docs/semantic_style_intervention_design_he.md). These are literature analysis and a proposal, not a new experiment.
+
 ## Research questions
 
 Derived from EXPERIMENTS.md Sections 18 to 35. Full arc: [EXPERIMENTS.md](EXPERIMENTS.md#research-storyline-start-here).
