@@ -16,18 +16,18 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
-Style intervention V2 → prompt v2 on **30 frozen TRAIN examples** → external review/error analysis → **Prompt Revision v3 on the same originals**. V3 generation and unchanged screening are complete; the v3 external review/comparison is complete; a new two-stage verification/minimal-repair run on fixed v2 has now completed (see below). No experiment is running. The separate bylined-writer corpus covers two narratives, not the main seven-label social-media dataset. Bylines establish attribution, not human-validated labels or unaided authorship.
+A separate **ChatGPT-generated Style Rewrite experiment** on the same 30 frozen TRAIN originals has completed import and unchanged automatic screening. Generation was performed outside this repo, according to the user from Original only; model version/prompt/request history were not supplied. Independent review is Pending. No process is running. Prior v2/v3/repair outputs remain intact.
 
 The central [FINAL_REPORT_HE.md](artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md) first describes the completed 218-text V2 automatic stage, then appends the 30-train v2 prompt/review checkpoints. Its 114 matched automatic passes are a different denominator from v2's 6/30. [The new v3 report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_v3_30_20261102/REPORT_HE.md) is separate; no prior results were overwritten. Human Validation remains Pending.
 
 ## Current results
 
-| Measure on the same 30 examples | Old | New v2 | New v3 |
-|---|---:|---:|---:|
-| All automated preservation checks pass | 23 | 6 | 9 |
-| Substantial style change, operational proxy | 10 | 24 | 26 |
-| Both automated criteria | 7 | 6 | 9 |
-| Exact original copies | 7 | 0 | 0 |
+| Measure on the same 30 examples | Old | New v2 | New v3 |  ChatGPT Rewrite |
+|---|---:|---:|---:| ---:|
+| All automated preservation checks pass | 23 | 6 | 9 | 22 |
+| Substantial style change, operational proxy | 10 | 24 | 26 | 22 |
+| Both automated criteria | 7 | 6 | 9 | 15 |
+| Exact original copies | 7 | 0 | 0 | 0 |
 
 External LLM Review of **New v2 only**: meaning **10 Yes / 15 Borderline / 5 No**; style change **30/30 Yes**; strict preservation and style together **10/30**. Guard classifications relative to that reviewer: **TP 19 / FP 5 / TN 5 / FN 1**. All 15 Borderline ratings remain separate; all also carry explicit drift=Yes in the supplied review. These v2 ratings do not transfer to v3. The separately supplied v3 review has **5 Yes / 17 Borderline / 8 No** for meaning and **27 Yes / 3 Borderline** for style.
 
@@ -41,7 +41,7 @@ Labels, human-review fields, thresholds, filtering, model/runtime and decoding r
 
 ## Next decision
 
-Resolve the existing-tool inference prerequisites before further repair development: [StyleRemix feasibility audit](docs/existing_style_transfer_tools_evaluation_he.md). Local CUDA is unavailable, anonymous access to the gated Llama-3-8B base failed, and the official hosted demo reports RUNTIME_ERROR. No StyleRemix benchmark ran; its semantic/style quality relative to v2 remains unknown. Nine TRAIN rows and their frozen v2 baseline are prepared only. Patch Correctness Evaluation was interrupted and remains incomplete; the earlier [literature-based design](docs/semantic_style_intervention_design_he.md) is still a proposal. No training, test evaluation, new LoRA or External LLM Review now. Human Validation remains Pending.
+Prepare a separately performed External LLM Review of the imported **ChatGPT Style Rewrite** outputs using the [new blind package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REVIEW_PACKAGE_BLIND_30.md). Automatic screening is complete; these outputs are not independently reviewed or human validated. Stop before review, retraining, test evaluation, new LoRA or any guard/threshold changes. Existing-tool feasibility and repair development remain separate historical checkpoints.
 
 ## Focused guard error analysis — 2026-11-01
 
@@ -68,3 +68,19 @@ The completed [six-TRAIN debug](artifacts/experiments/style_intervention_v2_2026
 Read the pinned StyleRemix and Thank you BART repositories and checked official checkpoint/demo metadata. StyleRemix exposes direct text inference and 16 adapters; local hardware and hosted-service availability prevent a reasonable run here. BART's checked repo supplies style classifiers but not the transfer checkpoint needed by infer.py; no legacy environment was installed. No official Zhang et al. implementation was identified in the checked sources. [Full findings and reproduction](docs/existing_style_transfer_tools_evaluation_he.md).
 
 The planned nine-TRAIN subset has existing v2 automatic pass/style/both/exact-copy counts **2/9, 8/9, 2/9, 0/9**; StyleRemix is **N/A, not 0/9**. This is a prepared baseline, not a completed comparative benchmark. No inference, new guard run, human/external review, classifier training or repair development followed this audit.
+
+## ChatGPT Style Rewrite — 2026-11-02
+
+ניסוי נפרד של generator חלופי, לבדיקת style change + semantic preservation על אותם 30 מקורות train בלבד. ה־CSV המקורי נשמר byte-for-byte; כל ID חובר למקורו והשכתובים לא נערכו. לפי דיווח המשתמש נכתבו מ־Original בלבד, ללא גרסאות/מדדים/ביקורות קודמות; פרטי generation מלאים אינם זמינים לאימות עצמאי.
+
+| Metric | v2 | v3 | ChatGPT Rewrite |
+| --- | --- | --- | --- |
+| automated preservation pass | 6/30 | 9/30 | 22/30 |
+| substantial style change | 24/30 | 26/30 | 22/30 |
+| both preservation + style | 6/30 | 9/30 | 15/30 |
+| exact copies | 0/30 | 0/30 | 0/30 |
+
+Automated pass הוא signal בלבד; substantial style הוא proxy. אין עדיין External LLM Review עצמאי לתוצרים אלה או Human Validation, ואין להסיק הצלחת פתרון או generalization. לא שונו guards, ספים, חלוקה, תוויות, scaling או שדות אנושיים קיימים; לא בוצעו training, test evaluation או LoRA. עוצרים לפני ביקורת חיצונית חדשה.
+
+[Report](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REPORT_HE.md) · [Blind review input](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REPRODUCTION.md)
+<!-- END_CHATGPT_REWRITE_30 -->

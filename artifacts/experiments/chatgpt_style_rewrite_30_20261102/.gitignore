@@ -1,0 +1,7 @@
+__pycache__/
+runtime/
+*.log
+*progress.json
+*.npz
+*.npy
+*.pt

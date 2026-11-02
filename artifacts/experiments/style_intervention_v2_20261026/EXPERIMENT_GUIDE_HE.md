@@ -441,3 +441,20 @@ Meaning Preserved: **10/30 Yes, ‏15/30 Borderline, ‏5/30 No**. שינוי st
 ## Literature/design checkpoint — 2026-11-02
 
 נוספו [Related Work](../../../docs/style_transfer_related_work_he.md) ו[הצעת architecture](../../../docs/semantic_style_intervention_design_he.md): הבחנה בין authorship obfuscation, formality reward training ו־training-free decomposition/self-check. ההמלצה היא שילוב מוגבל של structured execution, בדיקת semantics ו־style נפרדים ו־refinement עם תקציב עצירה. זו הצעה בלבד, ללא שינוי קוד ניסויי או הרצה חדשה. [ה־debug הטכני הקודם](semantic_repair_debug_subset_20261102/DEBUG_SUBSET_RESULTS.md) הראה יכולת החלה משופרת, אך גם verifier חלש ותיקונים לא נכונים; לא נוספה מסקנת generalization או אימות אנושי.
+
+
+## ChatGPT Style Rewrite — 2026-11-02
+
+ניסוי נפרד של generator חלופי, לבדיקת style change + semantic preservation על אותם 30 מקורות train בלבד. ה־CSV המקורי נשמר byte-for-byte; כל ID חובר למקורו והשכתובים לא נערכו. לפי דיווח המשתמש נכתבו מ־Original בלבד, ללא גרסאות/מדדים/ביקורות קודמות; פרטי generation מלאים אינם זמינים לאימות עצמאי.
+
+| Metric | v2 | v3 | ChatGPT Rewrite |
+| --- | --- | --- | --- |
+| automated preservation pass | 6/30 | 9/30 | 22/30 |
+| substantial style change | 24/30 | 26/30 | 22/30 |
+| both preservation + style | 6/30 | 9/30 | 15/30 |
+| exact copies | 0/30 | 0/30 | 0/30 |
+
+Automated pass הוא signal בלבד; substantial style הוא proxy. אין עדיין External LLM Review עצמאי לתוצרים אלה או Human Validation, ואין להסיק הצלחת פתרון או generalization. לא שונו guards, ספים, חלוקה, תוויות, scaling או שדות אנושיים קיימים; לא בוצעו training, test evaluation או LoRA. עוצרים לפני ביקורת חיצונית חדשה.
+
+[Separate experiment report](../chatgpt_style_rewrite_30_20261102/REPORT_HE.md) · [Paired comparison](../chatgpt_style_rewrite_30_20261102/COMPARISON_30.md) · [Blind package](../chatgpt_style_rewrite_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](../chatgpt_style_rewrite_30_20261102/REPRODUCTION.md)
+<!-- END_CHATGPT_REWRITE_30 -->

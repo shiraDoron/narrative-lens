@@ -1,0 +1,12 @@
+{
+  "raw_bytes_sha256": "f37909a93929ba772af40cf91a2c15140a6b5726ebee2011d9dc3cb33f254dde",
+  "all_30_rewrite_strings_unchanged": true,
+  "all_30_originals_match": true,
+  "ids_unique_train_only": true,
+  "v2_v3_style_recomputed_identically": true,
+  "blind_package_sha256": "5f51c712e0464743c5ade0f440814cb2fa60390fa6b205602fe7cd76a5082aab",
+  "blind_content_exact": true,
+  "blank_new_review_templates": true,
+  "protected_file_count": 252,
+  "review_performed": false
+}

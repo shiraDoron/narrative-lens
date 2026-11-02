@@ -1,0 +1,2 @@
+# Provenance hashes and received CSV bytes must survive Git checkout unchanged.
+* -text

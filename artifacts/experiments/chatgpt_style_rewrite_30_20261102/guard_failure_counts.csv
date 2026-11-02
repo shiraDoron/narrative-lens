@@ -1,0 +1,11 @@
+﻿guard,v2,v3,ChatGPT,new_guard_type_in_ChatGPT
+attribution,2,2,1,False
+bidirectional_nli,10,9,1,False
+certainty,9,8,2,False
+entities,2,0,2,False
+framing_anchors,1,1,1,False
+future_tense,2,0,1,False
+negation,5,4,2,False
+numbers,3,1,0,False
+quotations,6,6,2,False
+similarity,1,2,0,False

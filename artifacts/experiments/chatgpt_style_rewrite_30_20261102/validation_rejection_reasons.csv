@@ -1,0 +1,9 @@
+﻿condition,reason,n
+Normalized,attribution,1
+Normalized,bidirectional_nli,1
+Normalized,certainty,2
+Normalized,entities,2
+Normalized,framing_anchors,1
+Normalized,future_tense,1
+Normalized,negation,2
+Normalized,quotations,2

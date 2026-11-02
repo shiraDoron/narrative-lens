@@ -1,0 +1,105 @@
+{
+  "n": 30,
+  "totals": {
+    "v2": {
+      "preservation_pass": 6,
+      "substantial_style": 24,
+      "both": 6,
+      "exact_copies": 0
+    },
+    "v3": {
+      "preservation_pass": 9,
+      "substantial_style": 26,
+      "both": 9,
+      "exact_copies": 0
+    },
+    "ChatGPT": {
+      "preservation_pass": 22,
+      "substantial_style": 22,
+      "both": 15,
+      "exact_copies": 0
+    }
+  },
+  "failure_counts": {
+    "v2": {
+      "bidirectional_nli": 10,
+      "certainty": 9,
+      "quotations": 6,
+      "negation": 5,
+      "numbers": 3,
+      "future_tense": 2,
+      "entities": 2,
+      "attribution": 2,
+      "similarity": 1,
+      "framing_anchors": 1
+    },
+    "v3": {
+      "bidirectional_nli": 9,
+      "certainty": 8,
+      "quotations": 6,
+      "negation": 4,
+      "attribution": 2,
+      "similarity": 2,
+      "numbers": 1,
+      "framing_anchors": 1
+    },
+    "ChatGPT": {
+      "negation": 2,
+      "certainty": 2,
+      "quotations": 2,
+      "entities": 2,
+      "future_tense": 1,
+      "attribution": 1,
+      "bidirectional_nli": 1,
+      "framing_anchors": 1
+    }
+  },
+  "new_guard_types": [],
+  "new_id_guard_failures": [
+    {
+      "ID": "creators:0105f26ef9f1",
+      "new_failures_vs_both_prior_versions": "negation",
+      "ChatGPT_rejection_reasons": "negation|certainty|future_tense",
+      "automatic_outcome_vs_v2": "improved",
+      "automatic_outcome_vs_v3": "worsened"
+    },
+    {
+      "ID": "creators:421024",
+      "new_failures_vs_both_prior_versions": "quotations",
+      "ChatGPT_rejection_reasons": "quotations",
+      "automatic_outcome_vs_v2": "worsened",
+      "automatic_outcome_vs_v3": "worsened"
+    },
+    {
+      "ID": "creators:120177",
+      "new_failures_vs_both_prior_versions": "attribution|entities",
+      "ChatGPT_rejection_reasons": "entities|attribution",
+      "automatic_outcome_vs_v2": "unchanged",
+      "automatic_outcome_vs_v3": "unchanged"
+    },
+    {
+      "ID": "creators:421951",
+      "new_failures_vs_both_prior_versions": "entities|negation",
+      "ChatGPT_rejection_reasons": "entities|negation",
+      "automatic_outcome_vs_v2": "worsened",
+      "automatic_outcome_vs_v3": "worsened"
+    }
+  ],
+  "outcomes": {
+    "v2": {
+      "improved": 16,
+      "worsened": 3,
+      "unchanged": 6,
+      "mixed": 5
+    },
+    "v3": {
+      "worsened": 4,
+      "improved": 11,
+      "unchanged": 8,
+      "mixed": 7
+    }
+  },
+  "semantic_success_established": false,
+  "external_review": "Pending",
+  "human_validation": "Pending"
+}
