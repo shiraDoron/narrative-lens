@@ -1,0 +1,50 @@
+{
+  "StyleRemix": {
+    "commit": "c999002c4a5e858ac452794b20b896d06137a13c",
+    "commit_date": "2024-09-16T11:33:32-07:00",
+    "remote": "https://github.com/jfisher52/StyleRemix.git",
+    "inspected_file_sha256": {
+      "README.md": "75b61b560827173ddef7de67df4f7d4d9fbe0184d6e2a83aef1f731cd97b6697",
+      "quickstart.py": "07236d5e7816a7e32f5d3e1a549b7cb6f80c26e901cb5a3e0055db9c363919ec",
+      "obfuscate.py": "bc7e68a41dd6c7ab21271645599251fc51b1deed44c2716649edaab5d40c2686",
+      "src/eval_data.py": "3d0bdb2701084ed4efe54d8374822675ce2803c53c59d33ee6745d96967e8b1c",
+      "src/generate_lora_adapters.py": "4c7f86dbc32fbfd3c40bad36218b6d5093705b4ef0848c3ce2d818a71457f219",
+      "requirements.txt": "d2e3e3bdf49248f2cb2a6095163f5235dc6c9e09f1421596845d742bb30872e8",
+      "LICENSE": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "checkpoint_tree": [],
+    "license_first_lines": [
+      "                                 Apache License",
+      "                           Version 2.0, January 2004",
+      "                        http://www.apache.org/licenses/",
+      ""
+    ]
+  },
+  "pre-trained-formality-transfer": {
+    "commit": "6c6560caaa7828185ae914b207e3070da789a171",
+    "commit_date": "2022-10-25T13:03:24+02:00",
+    "remote": "https://github.com/laihuiyuan/pre-trained-formality-transfer.git",
+    "inspected_file_sha256": {
+      "README.md": "ade6b46faabcf22b00827dcb4f70e4ce51e0943f1e75feede06cc7d288db04ff",
+      "infer.py": "6cfdf70f24a3304755be94ff7d08b4921f0b3ee043e109bc40c1071fbceb5038",
+      "model.py": "d314ba3401082e0ce09f91c8fee25c561fe78ab69e204a183b4fa4fd127d6239",
+      "pg.sh": "aa10d9e9e22c9e1d61346330cc95c475c0ba98453d27f702f61bf60b526c8438",
+      "train.py": "c14f8c164f2f7e94b02ea1d21fae7033e9d8342c1b83ee97a716b499994b9a5a",
+      "LICENSE": "851e252fe2225be21f54acbeace196b9b7d256181d12923649e3e978823fca6b"
+    },
+    "checkpoint_tree": [
+      "100644 blob 76392fa68d927f4b0feda5e9e48dd27917cc6b22 63450183\tcheckpoints/textcnn_em.chkpt",
+      "100644 blob ca992ce82357d1e60d0e36a3c86ff71bb0005a3e 63446583\tcheckpoints/textcnn_em_gpt2.chkpt",
+      "100644 blob 1fbff3ee070f90845675ffacdead6415f646143f 63450183\tcheckpoints/textcnn_fr.chkpt",
+      "100644 blob 98f61ee1639908ee4217cba890ac069a15601b65 63446583\tcheckpoints/textcnn_fr_gpt2.chkpt",
+      "100644 blob 8d6aeaf7d2e114eb691c6e86c4be3a898c2fc32b 63450183\tcheckpoints/textcnn_gyafc.chkpt",
+      "100644 blob bb07bc3f002c5be3b8a3f5b4dabbf57ba958b5c7 63452583\tcheckpoints/textcnn_gyafc_tag.chkpt"
+    ],
+    "license_first_lines": [
+      "MIT License",
+      "",
+      "Copyright (c) 2021 Lai, Huiyuan",
+      ""
+    ]
+  }
+}

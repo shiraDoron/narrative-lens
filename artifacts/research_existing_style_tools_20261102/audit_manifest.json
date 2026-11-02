@@ -1,0 +1,19 @@
+{
+  "checked_at_utc": "2026-11-02T09:37:03.430193+00:00",
+  "project_commit": "7a22b3428e9f54f787d4bbc0d636cb762457ea79",
+  "scope": "Static feasibility and frozen TRAIN subset preparation only",
+  "source_sha256": {
+    "artifacts\\experiments\\style_intervention_v2_20261026\\train_prompt_revision_30_20261101\\comparison_30.csv": "da183102233bf53a5e993fcbcb37a1d3c32f085277f0ff3ce819a0aec56efa42",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\train_prompt_revision_30_20261101\\analysis_cohort.csv": "7aac6ed96214a4d163e6e0ddbae099abf13a89e7a4b92a4fe34fde6cbffd93c1",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\train_prompt_revision_30_20261101\\rewrite_validation.csv": "ef0dd00e04699099bc709573439d8cbd562e113fcdd41c10131f03ace68ac8f8",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\study.py": "39ccf8a470955ad212dd9c3b3631591e59b0a87732d5fc4f24a651585af1a44e"
+  },
+  "inference_run": false,
+  "model_weights_downloaded_for_inference": false,
+  "external_clone_note": "BART repository itself includes TextCNN classifier checkpoint blobs; external clones stay outside project/Git. No classifier weights loaded.",
+  "packages_installed": false,
+  "repair_development": false,
+  "external_review": false,
+  "training": false,
+  "test_evaluation": false
+}

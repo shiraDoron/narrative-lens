@@ -1,0 +1,26 @@
+{
+  "cpu": {
+    "Name": "Intel(R) Core(TM) Ultra 5 125U",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 14
+  },
+  "memory": 16652894208,
+  "gpu": [
+    {
+      "Name": "Intel(R) Graphics",
+      "AdapterRAM": 2147479552
+    }
+  ],
+  "disk_free": 227456360448,
+  "python": "3.11.9",
+  "torch": "2.13.0+cpu",
+  "cuda_available": false,
+  "cuda_device_count": 0,
+  "packages": {
+    "transformers": "5.15.0",
+    "peft": null,
+    "bitsandbytes": null,
+    "accelerate": null,
+    "vllm": null
+  }
+}

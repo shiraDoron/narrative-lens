@@ -1,0 +1,16 @@
+{
+  "url": "https://huggingface.co/api/spaces/hallisky/StyleRemix",
+  "status": 200,
+  "revision": "27cf7bd1271efbef322464252381293884f8998b",
+  "host": "https://hallisky-styleremix.hf.space",
+  "sdk": "gradio",
+  "runtime_stage": "RUNTIME_ERROR",
+  "hardware": {
+    "current": null,
+    "requested": "cpu-basic"
+  },
+  "error_summary": [
+    "ImportError: cannot import name 'EncoderDecoderCache' from 'transformers' (/usr/local/lib/python3.10/site-packages/transformers/__init__.py)"
+  ],
+  "inference_request_sent": false
+}

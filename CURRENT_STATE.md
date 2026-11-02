@@ -41,7 +41,7 @@ Labels, human-review fields, thresholds, filtering, model/runtime and decoding r
 
 ## Next decision
 
-Review the proposed [literature-based design](docs/semantic_style_intervention_design_he.md) before authorizing another implementation or experiment. The six-row technical debug completed: verification contract 6/6, patches applied 5/9, 18 unit tests passed. Patch execution improved, but verifier omissions and incorrect repairs remain; this is not semantic validation or grounds to rerun all 30. No additional experiment, External LLM Review, training, test evaluation or LoRA/DoRA now. Human Validation remains Pending and required by the study's training gate.
+Resolve the existing-tool inference prerequisites before further repair development: [StyleRemix feasibility audit](docs/existing_style_transfer_tools_evaluation_he.md). Local CUDA is unavailable, anonymous access to the gated Llama-3-8B base failed, and the official hosted demo reports RUNTIME_ERROR. No StyleRemix benchmark ran; its semantic/style quality relative to v2 remains unknown. Nine TRAIN rows and their frozen v2 baseline are prepared only. Patch Correctness Evaluation was interrupted and remains incomplete; the earlier [literature-based design](docs/semantic_style_intervention_design_he.md) is still a proposal. No training, test evaluation, new LoRA or External LLM Review now. Human Validation remains Pending.
 
 ## Focused guard error analysis — 2026-11-01
 
@@ -62,3 +62,9 @@ Automatic results for repair: pass 6/30, substantial style 24/30, both 6/30, exa
 The completed [six-TRAIN debug](artifacts/experiments/style_intervention_v2_20261026/semantic_repair_debug_subset_20261102/DEBUG_SUBSET_RESULTS.md) separates exact patch applicability from semantic correctness. No full 30-row rerun followed. The previous section's external-review next step is historical; the current decision is the design review above.
 
 [Related Work](docs/style_transfer_related_work_he.md) now distinguishes StyleRemix's authorship obfuscation, Lai et al.'s reward-based formality training, Zhang et al.'s training-free decomposition/self-check, and our narrative-preserving intervention question. The proposed hybrid architecture is documentation only. No experimental code or data changed during this literature update; no new experiment was run.
+
+## Existing-tool feasibility checkpoint — 2026-11-02
+
+Read the pinned StyleRemix and Thank you BART repositories and checked official checkpoint/demo metadata. StyleRemix exposes direct text inference and 16 adapters; local hardware and hosted-service availability prevent a reasonable run here. BART's checked repo supplies style classifiers but not the transfer checkpoint needed by infer.py; no legacy environment was installed. No official Zhang et al. implementation was identified in the checked sources. [Full findings and reproduction](docs/existing_style_transfer_tools_evaluation_he.md).
+
+The planned nine-TRAIN subset has existing v2 automatic pass/style/both/exact-copy counts **2/9, 8/9, 2/9, 0/9**; StyleRemix is **N/A, not 0/9**. This is a prepared baseline, not a completed comparative benchmark. No inference, new guard run, human/external review, classifier training or repair development followed this audit.

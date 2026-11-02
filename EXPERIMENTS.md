@@ -6,6 +6,8 @@ For today's status, read [CURRENT_STATE.md](CURRENT_STATE.md); for outputs and r
 
 Literature/design checkpoint (2026-11-02; no new experiment): [TST and content-preservation Related Work](docs/style_transfer_related_work_he.md), [proposed semantic/style architecture](docs/semantic_style_intervention_design_he.md). The preceding [six-row technical repair debug](artifacts/experiments/style_intervention_v2_20261026/semantic_repair_debug_subset_20261102/DEBUG_SUBSET_RESULTS.md) is reported separately from research outcomes.
 
+Existing-tool feasibility checkpoint (2026-11-02; **benchmark not run**): [StyleRemix/BART/Decoupled evaluation](docs/existing_style_transfer_tools_evaluation_he.md). StyleRemix is blocked locally by absent CUDA/capacity and unverified gated-model access; its official demo is in runtime error. BART lacks a transfer checkpoint in the inspected repo; no clear official Decoupled repo was found. A planned nine-TRAIN subset reuses v2 pass/style/both/exact-copy **2/9, 8/9, 2/9, 0/9**; StyleRemix metrics are N/A. No model inference, test/training, new review or further repair development occurred. The interrupted Patch Correctness Evaluation remains incomplete.
+
 Scope: early entries concern BERTopic representation; later entries cover narrative classification, unseen-author evaluation and interventions. The original topic-model-only scope note does not apply to later classifier experiments. Historical sections are retained in place. **Closed refers to an individual experiment, not the entire author-style research question.**
 
 ## Research storyline (start here)

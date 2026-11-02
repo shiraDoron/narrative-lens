@@ -1,0 +1,8 @@
+__pycache__/
+runtime/
+external/
+*.log
+*.bin
+*.safetensors
+*.pt
+*.chkpt

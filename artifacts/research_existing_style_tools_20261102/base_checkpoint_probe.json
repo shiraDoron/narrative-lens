@@ -1,0 +1,33 @@
+{
+  "metadata_url": "https://huggingface.co/api/models/meta-llama/Meta-Llama-3-8B",
+  "status": 200,
+  "metadata": {
+    "id": "meta-llama/Meta-Llama-3-8B",
+    "sha": "8cde5ca8380496c9a6cc7ef3a8b46a0372a1d920",
+    "gated": "manual",
+    "safetensors": {
+      "parameters": {
+        "BF16": 8030261248
+      },
+      "total": 8030261248
+    },
+    "config": {
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "model_type": "llama",
+      "tokenizer_config": {
+        "bos_token": "<|begin_of_text|>",
+        "eos_token": "<|end_of_text|>"
+      }
+    },
+    "cardData": {
+      "license": "llama3"
+    }
+  },
+  "anonymous_config": {
+    "url": "https://huggingface.co/meta-llama/Meta-Llama-3-8B/resolve/main/config.json",
+    "status": 401,
+    "error": "Access to model meta-llama/Meta-Llama-3-8B is restricted. You must have access to it and be authenticated to access it. Please log in."
+  }
+}
