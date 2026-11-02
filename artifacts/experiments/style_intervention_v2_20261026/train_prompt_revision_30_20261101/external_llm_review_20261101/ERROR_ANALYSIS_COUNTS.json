@@ -1,0 +1,270 @@
+{
+  "external_class_counts": {
+    "False Positive": 5,
+    "True Negative": 5,
+    "True Positive": 19,
+    "False Negative": 1
+  },
+  "borderline_count": 15,
+  "externally_flagged_risk_cases": 20,
+  "type_counts": [
+    {
+      "error_type": "certainty_change",
+      "count": 7,
+      "examples": "creators:114783|creators:216128|creators:2e34435c6ccf|creators:417181|creators:423315|creators:423545|creators:97c9d6b9ac1b",
+      "caught_by_guard": 4,
+      "missed_by_guard": 3,
+      "likely_source": "ambiguous|guard-too-weak|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "creators:423545|creators:97c9d6b9ac1b",
+      "partial_aligned_ids": "creators:2e34435c6ccf|creators:417181"
+    },
+    {
+      "error_type": "attribution_change",
+      "count": 7,
+      "examples": "creators:114783|creators:116358|creators:295188|creators:298495|creators:2e34435c6ccf|creators:417181|creators:422329",
+      "caught_by_guard": 5,
+      "missed_by_guard": 2,
+      "likely_source": "ambiguous|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "",
+      "partial_aligned_ids": "creators:295188|creators:298495|creators:2e34435c6ccf|creators:417181|creators:422329"
+    },
+    {
+      "error_type": "quote_change",
+      "count": 4,
+      "examples": "creators:114783|creators:417181|creators:418904|creators:8b0d99b23d03",
+      "caught_by_guard": 4,
+      "missed_by_guard": 0,
+      "likely_source": "prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "creators:114783|creators:417181|creators:418904|creators:8b0d99b23d03",
+      "partial_aligned_ids": ""
+    },
+    {
+      "error_type": "stance_or_framing_change",
+      "count": 16,
+      "examples": "creators:116358|creators:216128|creators:218236|creators:298495|creators:416436|creators:417181|creators:418827|creators:418904|creators:421279|creators:421853|creators:422146|creators:422331|creators:423315|creators:423545|creators:8b0d99b23d03|creators:97c9d6b9ac1b",
+      "caught_by_guard": 10,
+      "missed_by_guard": 6,
+      "likely_source": "ambiguous|guard-too-weak|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "creators:417181|creators:418827",
+      "partial_aligned_ids": "creators:298495|creators:418904|creators:421279|creators:422146|creators:422331|creators:423545|creators:8b0d99b23d03|creators:97c9d6b9ac1b"
+    },
+    {
+      "error_type": "factual_change",
+      "count": 16,
+      "examples": "creators:218236|creators:295188|creators:298495|creators:2e34435c6ccf|creators:416436|creators:417181|creators:418827|creators:421279|creators:421853|creators:422146|creators:422329|creators:422331|creators:423315|creators:423545|creators:8b0d99b23d03|creators:97c9d6b9ac1b",
+      "caught_by_guard": 10,
+      "missed_by_guard": 6,
+      "likely_source": "ambiguous|guard-too-weak|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "",
+      "partial_aligned_ids": "creators:295188|creators:2e34435c6ccf|creators:418827|creators:421279|creators:422146|creators:422329|creators:422331|creators:423545|creators:8b0d99b23d03|creators:97c9d6b9ac1b"
+    },
+    {
+      "error_type": "entity_change",
+      "count": 2,
+      "examples": "creators:216128|creators:417181",
+      "caught_by_guard": 2,
+      "missed_by_guard": 0,
+      "likely_source": "prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "creators:216128|creators:417181",
+      "partial_aligned_ids": ""
+    },
+    {
+      "error_type": "number_change",
+      "count": 0,
+      "examples": "",
+      "caught_by_guard": 0,
+      "missed_by_guard": 0,
+      "likely_source": "ambiguous",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "",
+      "partial_aligned_ids": ""
+    },
+    {
+      "error_type": "negation_change",
+      "count": 0,
+      "examples": "",
+      "caught_by_guard": 0,
+      "missed_by_guard": 0,
+      "likely_source": "ambiguous",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "",
+      "partial_aligned_ids": ""
+    },
+    {
+      "error_type": "causal_relation_change",
+      "count": 0,
+      "examples": "",
+      "caught_by_guard": 0,
+      "missed_by_guard": 0,
+      "likely_source": "ambiguous",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "",
+      "partial_aligned_ids": ""
+    },
+    {
+      "error_type": "temporal_change",
+      "count": 2,
+      "examples": "creators:2e34435c6ccf|creators:422329",
+      "caught_by_guard": 2,
+      "missed_by_guard": 0,
+      "likely_source": "ambiguous|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "",
+      "partial_aligned_ids": "creators:2e34435c6ccf|creators:422329"
+    },
+    {
+      "error_type": "omission",
+      "count": 10,
+      "examples": "creators:116358|creators:216128|creators:295188|creators:416436|creators:417181|creators:418827|creators:418904|creators:421279|creators:422331|creators:423545",
+      "caught_by_guard": 8,
+      "missed_by_guard": 2,
+      "likely_source": "ambiguous|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "creators:216128|creators:417181",
+      "partial_aligned_ids": "creators:295188|creators:418827|creators:418904|creators:421279|creators:422331|creators:423545"
+    },
+    {
+      "error_type": "addition",
+      "count": 6,
+      "examples": "creators:114783|creators:295188|creators:2e34435c6ccf|creators:421853|creators:422331|creators:97c9d6b9ac1b",
+      "caught_by_guard": 5,
+      "missed_by_guard": 1,
+      "likely_source": "ambiguous|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "creators:114783",
+      "partial_aligned_ids": "creators:295188|creators:2e34435c6ccf|creators:422331|creators:97c9d6b9ac1b"
+    },
+    {
+      "error_type": "other",
+      "count": 2,
+      "examples": "creators:216128|creators:421279",
+      "caught_by_guard": 1,
+      "missed_by_guard": 1,
+      "likely_source": "ambiguous|prompt-induced",
+      "unit": "unique externally flagged source IDs per type; overlapping categories",
+      "direct_aligned_ids": "",
+      "partial_aligned_ids": "creators:421279"
+    }
+  ],
+  "guard_analysis": [
+    {
+      "guard": "attribution",
+      "rejected_rows": 2,
+      "external_TP": 2,
+      "external_FP": 0,
+      "analyst_relevant_or_partial_rows": 1,
+      "analyst_direct_rows": 0,
+      "no_alignment_in_external_risk_coding_ids": "creators:114783",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "bidirectional_nli",
+      "rejected_rows": 10,
+      "external_TP": 10,
+      "external_FP": 0,
+      "analyst_relevant_or_partial_rows": 10,
+      "analyst_direct_rows": 0,
+      "no_alignment_in_external_risk_coding_ids": "",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "certainty",
+      "rejected_rows": 9,
+      "external_TP": 6,
+      "external_FP": 3,
+      "analyst_relevant_or_partial_rows": 4,
+      "analyst_direct_rows": 2,
+      "no_alignment_in_external_risk_coding_ids": "creators:0105f26ef9f1|creators:120177|creators:421279|creators:459e183c1d0d|creators:218236",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "entities",
+      "rejected_rows": 2,
+      "external_TP": 2,
+      "external_FP": 0,
+      "analyst_relevant_or_partial_rows": 2,
+      "analyst_direct_rows": 2,
+      "no_alignment_in_external_risk_coding_ids": "",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "framing_anchors",
+      "rejected_rows": 1,
+      "external_TP": 1,
+      "external_FP": 0,
+      "analyst_relevant_or_partial_rows": 1,
+      "analyst_direct_rows": 1,
+      "no_alignment_in_external_risk_coding_ids": "",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "future_tense",
+      "rejected_rows": 2,
+      "external_TP": 0,
+      "external_FP": 2,
+      "analyst_relevant_or_partial_rows": 0,
+      "analyst_direct_rows": 0,
+      "no_alignment_in_external_risk_coding_ids": "creators:0105f26ef9f1|creators:418620",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "negation",
+      "rejected_rows": 5,
+      "external_TP": 5,
+      "external_FP": 0,
+      "analyst_relevant_or_partial_rows": 1,
+      "analyst_direct_rows": 0,
+      "no_alignment_in_external_risk_coding_ids": "creators:422146|creators:421853|creators:114783|creators:298495",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "numbers",
+      "rejected_rows": 3,
+      "external_TP": 2,
+      "external_FP": 1,
+      "analyst_relevant_or_partial_rows": 0,
+      "analyst_direct_rows": 0,
+      "no_alignment_in_external_risk_coding_ids": "creators:212505|creators:114783|creators:116358",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "quotations",
+      "rejected_rows": 6,
+      "external_TP": 6,
+      "external_FP": 0,
+      "analyst_relevant_or_partial_rows": 4,
+      "analyst_direct_rows": 4,
+      "no_alignment_in_external_risk_coding_ids": "creators:423545|creators:416436",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    },
+    {
+      "guard": "similarity",
+      "rejected_rows": 1,
+      "external_TP": 1,
+      "external_FP": 0,
+      "analyst_relevant_or_partial_rows": 1,
+      "analyst_direct_rows": 0,
+      "no_alignment_in_external_risk_coding_ids": "",
+      "caution": "Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision."
+    }
+  ],
+  "reviewer_disagreement_risk_ids": [
+    "creators:0105f26ef9f1",
+    "creators:421024",
+    "creators:212505",
+    "creators:421951",
+    "creators:120669",
+    "creators:224770",
+    "creators:459e183c1d0d"
+  ],
+  "taxonomy_scope": "20 external drift-risk rows; FP/TN additional risks documented separately, never relabelled",
+  "semantic_drift_is_not_human_verified": true,
+  "no_training": true,
+  "no_filter_changes": true
+}

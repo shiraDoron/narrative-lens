@@ -1,0 +1,57 @@
+Rewrite the text to substantially alter the author's writing style while preserving the exact meaning, political/narrative stance, factual claims, attribution, certainty, negation, entities, temporal information, and causal relationships.
+
+The goal is NOT to summarize or soften the text. The goal is to reduce author-specific stylistic signals.
+
+Requirements:
+
+- Preserve all factual claims.
+- Preserve the same political/narrative stance.
+- Preserve attribution exactly: who said, claimed, alleged, believed, or did what.
+- Preserve certainty markers such as "allegedly", "likely", "may", "could", "claims", "supposedly", and similar expressions.
+- Preserve negations.
+- Preserve all named entities and numerical information.
+- Do not introduce new claims, interpretations, opinions, or framing.
+- Do not remove politically relevant claims or rhetorical content that contributes to the narrative.
+- Do not rewrite text inside quotation marks.
+- Do not add meta-text or explanations.
+
+At the same time, substantially change the writing style by changing several of the following:
+
+- sentence structure
+- clause order
+- sentence length distribution
+- active/passive construction
+- first-person phrasing where possible without changing meaning
+- conversational expressions
+- idioms
+- rhetorical questions
+- discourse markers
+- punctuation patterns
+
+Avoid merely replacing individual words with synonyms.
+
+The rewritten text should sound like it was written by a different author while expressing the same content and stance.
+
+Return only the rewritten text.
+
+Additional targeted preservation safeguards (v3):
+
+Preserve event characterization and political framing. Do not change riots to protests, murder to damage, or bullying to aggressive behavior. A politically loaded event label must retain its meaning, evaluative force and polarity.
+
+Preserve rhetorical intensity exactly. Neither soften nor intensify insults, accusations, praise, criticism or rhetorical stance. An insult must not become a neutral description; an accusation must not become mild criticism. Preserve the force of comparisons such as moral and economic superiority, not just generic approval.
+
+Preserve certainty in context, attached to the same claim. Do not change may to will, likely to a factual assertion, going to lose to destined to lose, allegedly to an unqualified claim, or claims to a factual statement. Keep the original certainty/uncertainty expressions and their scope. Distinguish predictions, possibilities, intentions, obligations and actual effects.
+
+Preserve participant roles and attribution: the same subject must perform the same action on the same object, and the same person must say, believe, allege, quote or be accused of the same thing. Fighting someone's wars is not facing those people in battle. Preserve personal versus collective experience; do not replace I with we when that adds a group claim. Do not replace a personal friend with a political ally, or net worth with assets.
+
+Preserve quantifiers and limits exactly: all, some, many, few, most, only, approximately, allegedly one-time, less than, and similar expressions. Do not drop, replace, strengthen or weaken a quantifier, degree word or comparison. Preserve numbers, dates and numerical expressions as written, including 10 rather than ten and 5 1/2 rather than five and a half; this preserves the same content without changing representation.
+
+Preserve all text inside quotation marks verbatim, including words, punctuation and capitalization. Do not move punctuation into or out of the quoted content. Do not paraphrase direct quotations, quote fragments or quoted titles. Changing quotation order is safe only if attribution and discourse relations remain identical.
+
+Preserve metaphorical claims that contribute to stance or framing. Two countries inside America's borders must not become two regions. Preserve the political force and logical content of a metaphor rather than replacing it with a weaker neutral claim.
+
+No invented interpretation: do not add explanations, motives, instruments or implications not stated in the original. Did not build their muscles at a wellness club does not license embodying the hard work of the American workforce. Do not turn strangers into anonymous sources or invent bulldozers from an axe metaphor. Do not omit a claim while replacing it with a new evaluation.
+
+These safeguards do not permit a near-copy as the default. Still substantially change the author's stylistic signature through safe sentence restructuring, clause order, sentence-length distribution, syntax, active/passive voice, discourse markers, punctuation outside quotations, conversational markers and non-evaluative idioms. Change first-person phrasing only when the experiencer and claim stay the same. Avoid synonym-only rewriting. If a politically meaningful expression cannot safely change, keep that expression and restructure the surrounding syntax instead.
+
+The goal remains: different author style, same content and stance. Return only the rewritten text.

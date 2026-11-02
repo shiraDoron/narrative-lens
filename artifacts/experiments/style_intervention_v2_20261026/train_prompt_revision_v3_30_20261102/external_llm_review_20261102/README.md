@@ -1,0 +1,9 @@
+# External LLM Review — v3 blind package and paired v2 comparison
+
+Start with [the comparison report](V2_V3_EXTERNAL_REVIEW_COMPARISON_HE.md). The user-supplied v3 source CSV is retained byte-for-byte, separate from v2 and Human Validation. `compare_reviews.py` joins exact 30-ID sets against the frozen train-only text comparison and writes every shared rating and note, v3-only fields, outcome counts, field transitions, qualitative reported-error counts and a hash audit. It calls no model.
+
+Outcome rule: Pareto comparison of the five shared preservation/style fields, with No < Borderline < Yes; improved/worsened require changes in only one direction, mixed requires both, unchanged means equal shared ratings. Raw `semantic_drift` is preserved; Yes and Borderline both denote risk in the comparison rule because the two review schemas use different drift conventions. Borderline is never recoded as a meaning Yes/No. Unchanged ratings do not mean identical defects. Reported error-type changes are recorded separately in notes/profile fields.
+
+Error-type counts are assistant coding of **supplied notes**, not complete annotations. Unmentioned errors are unknown. V2 did not collect quote_fidelity or rhetorical_intensity as separate fields, so direct score deltas for those fields are unavailable. Reviewer model version, evaluation prompt, actual context, and reviewed-text hashes were not supplied. Blinding is reported, not independently verified. These reviews are diagnostic, not human gold or a controlled causal comparison.
+
+Run the command in the report from repository root to reproduce derived outputs from the committed source copy. On first import, the source is read from Downloads. Existing prior outputs/ratings, guards, thresholds, splits, labels, human-review fields and training code remain unchanged. No new external judgment, training or test evaluation is performed.

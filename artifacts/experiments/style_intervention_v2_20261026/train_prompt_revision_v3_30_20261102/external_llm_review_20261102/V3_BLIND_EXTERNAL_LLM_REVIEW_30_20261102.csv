@@ -1,0 +1,31 @@
+﻿id,meaning_preserved,stance_preserved,attribution_preserved,certainty_preserved,quote_fidelity,rhetorical_intensity_preserved,style_change_valid,semantic_drift,notes
+creators:0105f26ef9f1,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,"Meaning, stance, attribution, certainty, and quoted terms are preserved; style is clearly changed."
+creators:421024,Borderline,Yes,Yes,Yes,Yes,Borderline,Yes,Borderline,'Saturday night' becomes 'the next night'; the nightclub judgment is also slightly rephrased. Core stance is preserved.
+creators:422329,Borderline,Yes,Yes,Yes,Yes,Yes,Yes,Borderline,"'Blaming the other party' becomes blaming 'whichever party is in power', which is not the same claim."
+creators:417181,No,Yes,Borderline,No,Yes,Borderline,Yes,Yes,'Most generous funder ... was likely' becomes 'a major funder ... may have been supporting'; rank/claim structure and certainty are materially altered.
+creators:120177,Borderline,Yes,Yes,Yes,Yes,Yes,Yes,Borderline,'We haven't even hit Thanksgiving' becomes 'It's barely Thanksgiving'; timing is shifted slightly while stance is preserved.
+creators:212505,Yes,Yes,Yes,Yes,Yes,Yes,Borderline,No,Meaning is preserved; the rewrite is somewhat conservative stylistically.
+creators:421951,No,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Critical role reversal: 'That's who you want to fight your wars' becomes 'These were the men you should face in battle'.
+creators:422331,Borderline,Yes,Yes,Yes,Yes,Borderline,Yes,Borderline,"'Tough women in uniforms' becomes 'women in tough uniforms'; some evaluative phrasing is shifted, though the main stance remains."
+creators:120669,No,No,No,No,Yes,No,Yes,Yes,"The Obama/Washington error returns: Obama's Thanksgiving addresses are replaced with President Washington's, then compared to George Washington."
+creators:216128,Borderline,Yes,Yes,Yes,Yes,Yes,Yes,Borderline,"'That has always been the bet' becomes 'That has always been the strategy', changing expectation into deliberate planning."
+creators:421279,Borderline,Yes,Yes,Yes,Yes,Yes,Yes,Borderline,"'An answer ... presently be revealed' becomes an 'explanation ... made public shortly'; close, but not fully equivalent."
+creators:419062,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,"Core claims, stance, causal framing, and certainty are preserved with a genuine style shift."
+creators:295188,Borderline,Yes,Yes,Yes,Yes,No,Yes,Borderline,"'A lot of excitement' becomes an 'overwhelming surge of joy', strengthening emotional intensity."
+creators:423315,No,No,Yes,No,Yes,No,Yes,Yes,Two material shifts remain: 'riots'→'protests' changes event characterization; 'going to lose'→'destined to lose' strengthens certainty.
+creators:422146,Borderline,Yes,Yes,Borderline,Yes,Yes,Borderline,Borderline,"The rewrite is close, but 'perhaps' slightly restructures speculative framing; style change is modest."
+creators:421853,Borderline,Yes,Yes,Yes,Yes,No,Yes,Borderline,"The proverb is interpreted as 'skills and resources', and 'devise ways' becomes 'schemes ... seize', strengthening evaluative framing."
+creators:418620,Borderline,Yes,Yes,Yes,Yes,Yes,Yes,Borderline,"Main meaning is preserved, but 'fallen to a champion' becomes 'succumbed to the sway', slightly altering metaphorical framing."
+creators:114783,Borderline,Yes,Yes,Yes,No,Borderline,Yes,Yes,The direct quote 'never forget' is no longer preserved verbatim as a quotation; the rest is largely equivalent.
+creators:224770,Yes,Yes,Yes,Yes,Yes,Yes,Borderline,No,Meaning and stance are preserved; style change is real but relatively conservative.
+creators:8b0d99b23d03,No,Borderline,Yes,Yes,No,Borderline,Yes,Yes,"The Fitzgerald quote is altered, Saturday/Sunday are omitted, and the structure of the 'two countries' claim is changed."
+creators:97c9d6b9ac1b,Borderline,Yes,Yes,Borderline,Yes,No,Yes,Borderline,"The rewrite weakens/omits 'destroyed it', 'from his axe', 'fancy', and 'sneakily', reducing rhetorical intensity."
+creators:423545,Borderline,Yes,Yes,Yes,Yes,No,Yes,Borderline,"'Hoisted by a big one' becomes 'in a bit of a bind', substantially weakening the metaphor and rhetorical force."
+creators:298495,No,Yes,Yes,Yes,Yes,Borderline,Yes,Yes,"'Strangers' becomes 'anonymous sources' (new factual property), and 'a different version of God' becomes 'a different God'."
+creators:418904,No,No,Yes,No,No,No,Yes,Yes,The direct quote is changed; 'typically surrendered on this day' adds a false temporal claim; 'branded' is newly introduced.
+creators:2e34435c6ccf,Borderline,Yes,Yes,No,Yes,Borderline,Yes,Borderline,"'Expect an electoral beating' becomes 'were set to suffer', and 'had to' becomes 'an inevitability', strengthening certainty."
+creators:459e183c1d0d,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,"Meaning, uncertainty, attribution, quantities, and stance are preserved while style changes materially."
+creators:416436,Borderline,Yes,Yes,Yes,Yes,Borderline,Yes,Borderline,"'Cheap and easy' becomes 'simple and effective', adding effectiveness and dropping cost/ease nuance."
+creators:116358,Borderline,Yes,Borderline,Yes,Yes,Yes,Yes,Borderline,"'Close friend and confidant' becomes 'close ally', and 'voluntary departure' is introduced; overall claim remains close."
+creators:218236,Borderline,Yes,Yes,Borderline,Yes,Yes,Yes,Borderline,"'Supposed to be the party' becomes 'often expected to', and 'might indeed rise' adds emphasis to uncertainty."
+creators:418827,No,Yes,Yes,Yes,Yes,No,Yes,Yes,"'Murder' is softened to 'slash', and 'brandish X over Y' becomes 'rewrite X over Y', changing both framing and action."

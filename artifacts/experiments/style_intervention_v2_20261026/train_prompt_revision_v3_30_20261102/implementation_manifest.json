@@ -1,0 +1,18 @@
+{
+  "generator_model_and_runtime_match_v2": true,
+  "v2_style_metrics_recomputed_identically": true,
+  "report_code_sha256": "35bb40641baabec44e8ed268ea794971b7077dc8bc1760d04376e64f0f862fea",
+  "orchestration_code_sha256": "5cd3e3f6be95d16793d8e880caadb4cdbe1733881fac18e5dbe97a54f601f311",
+  "inherited_code_sha256": "11776ca144edcc881ab6fbf4358d65ceaea6fffb018bf006e6c3f98d6a6322ef",
+  "effective_decoding": {
+    "temperature": 0,
+    "seed": 20261026,
+    "max_tokens": 320,
+    "repeat_penalty": 1.0,
+    "top_k": 1,
+    "top_p": 1.0,
+    "min_p": 0.0,
+    "cache_prompt": true
+  },
+  "inherited_manifest_note": "The nested generator manifest contains predecessor defaults; effective max_tokens=320 is in protocol and reconstructed request hashes."
+}

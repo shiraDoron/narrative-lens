@@ -407,3 +407,32 @@ Meaning Preserved: **10/30 Yes, ‏15/30 Borderline, ‏5/30 No**. שינוי st
 
 
 [הדוח המלא וכל 30 ההכרעות](train_prompt_revision_30_20261101/external_llm_review_20261101/REPORT_HE.md)
+
+## Focused guard error analysis — 2026-11-01
+
+בוצע ניתוח איכותני של הסוכן על אותם 30 טקסטי train, ללא שופט נוסף או אימות אנושי. נשמרו דירוגי External LLM Review — New Normalized: ‏19 TP / ‏5 FP / ‏5 TN / ‏1 FN ו־15 Borderline נפרדים (קבוצה חופפת). סוגי הסיכון השכיחים ב־20 המקרים שהבודק סימן הם stance_or_framing_change (16), factual_change (16), omission (10); קטגוריות חופפות וספירות אלו הן קידוד איכותני, לא תיוגי אדם.
+
+ההבחנה המרכזית: TP ברמת הרשומה אינו הוכחה שה־guard זיהה את הכשל. ב־116358 הדגל היחיד הוא מספר שקול במילים; ב־298495 השינוי העובדתי אינו מזוהה ישירות; ב־416436 דגל הציטוט נובע מפסיק ולא מהשמטת מסגור. מספרים/ביטויי חובה/עתיד ותחליפים לקסיקליים מייצרים דגלים טכניים; ציטוטים שעברו שינוי תוכן ו־murder ב־418827 מספקים דוגמאות לאותות רלוונטיים. ב־423315 חסר כיסוי לאפיון riots/protests ולגוון ההכרח ב־destined.
+
+נרשמו בנפרד גם סיכונים שלא הוזכרו בדירוגי Yes, ובהם fight your wars→face in battle ב־421951, השמטות ב־421024, most→many ב־212505 ו־net worth→assets ב־459e183c1d0d. אלו מועמדים לבדיקה נוספת, לא שינוי הכרעות ה־LLM. אין לראות בו gold או להציג את ספירות ה־FP/FN כשיעורי טעות מאומתים.
+
+המלצות לעתיד בלבד: שימור טענות, תפקידים, scope מודלי, אפיון אירוע וציטוטים; אבחון שקילות מספרים/ביטויי שלילה וחובה; בדיקה ממוקדת של אי־הסכמות מול סוקר אדם. לא שונו prompt, guards, ספים, filtering, split, labels, human-review fields או קוד אימון; לא בוצעו retraining או test evaluation. עוצרים לפני החלטה על ניסוי חדש.
+
+[Error analysis — ראיות, ספירות והמלצות](train_prompt_revision_30_20261101/external_llm_review_20261101/ERROR_ANALYSIS_SUMMARY_HE.md)
+
+## Two-stage v2 semantic repair — 2026-11-02
+
+**Train-only intervention development** על אותם 30 מקורות, עם v2 הקיים כקלט — ללא יצירת rewrite ראשוני חדש. v3 attempted to encode more semantic-preservation constraints in a single rewrite prompt, but external review showed overall degradation relative to v2. Therefore the next experiment separates style rewriting from semantic verification and minimal repair.
+
+אותו מודל מקומי מבצע checklist על Original/v2, ואז תיקון מותנה באמצעות patches ממוקדים בלבד. רשימת ההפרות נשלחת לשלב התיקון; דירוגי review קודמים, IDs ותוצאות guards אינם נשלחים למודל. אימות זה הוא חלק מההתערבות ולא External LLM Review או Human Validation. ה־guards והספים נשארו קפואים.
+
+| Metric | v2 | v3 | v2 + Repair |
+|---|---:|---:|---:|
+| Automated preservation pass | 6 | 9 | 6 |
+| Substantial style proxy | 24 | 26 | 24 |
+| Both | 6 | 9 | 6 |
+| Exact copies | 0 | 0 | 0 |
+
+שונו בפועל 1/30 טקסטים, באמצעות 1 עריכות משנות־טקסט; 11 אימותים ו־18 הצעות repair נכשלו בחוזה התהליך. בכשל נשמר v2, ללא retry או בחירה לפי ציונים. המימוש לא סיפק מספיק תיקונים תקינים לביסוס שיפור סמנטי; אין בכך הפרכה של הרעיון הדו־שלבי. שינוי במעברי guards יכול לשקף גם תיקון לקסיקלי טכני; אין עדיין דירוגי משמעות/סגנון חיצוניים ל־Repaired v2. לא נמדדו תוצאות test או generalization, לא אומנו מודלים, ולא מולאו שדות אנושיים. עוצרים לפני External LLM Review עיוור חדש.
+
+[Repair report](v2_semantic_repair_30_20261102/REPORT_HE.md) · [Blind package](v2_semantic_repair_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](v2_semantic_repair_30_20261102/REPRODUCTION.md)

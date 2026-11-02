@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "protected_files": 183,
+  "changed_experimental_files": [],
+  "same_30_originals": true,
+  "same_v2_inputs": true,
+  "all_train": true,
+  "no_first_stage_regeneration": true,
+  "no_external_ratings_used_for_routing": true,
+  "patches_reconstruct_outputs": true,
+  "no_single_whole_text_replacement": true,
+  "human_fields_blank": true,
+  "no_training": true,
+  "no_test": true,
+  "authorized_doc_updates_separate": [
+    "EXPERIMENT_GUIDE_HE.md",
+    "FINAL_REPORT_HE.md"
+  ],
+  "guard_source_sha256": {
+    "artifacts\\experiments\\style_intervention_v2_20261026\\study.py": "39ccf8a470955ad212dd9c3b3631591e59b0a87732d5fc4f24a651585af1a44e",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+    "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8"
+  }
+}

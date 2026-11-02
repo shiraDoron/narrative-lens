@@ -1,0 +1,11 @@
+﻿guard,rejected_rows,external_TP,external_FP,analyst_relevant_or_partial_rows,analyst_direct_rows,no_alignment_in_external_risk_coding_ids,caution
+attribution,2,2,0,1,0,creators:114783,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+bidirectional_nli,10,10,0,10,0,,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+certainty,9,6,3,4,2,creators:0105f26ef9f1|creators:120177|creators:421279|creators:459e183c1d0d|creators:218236,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+entities,2,2,0,2,2,,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+framing_anchors,1,1,0,1,1,,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+future_tense,2,0,2,0,0,creators:0105f26ef9f1|creators:418620,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+negation,5,5,0,1,0,creators:422146|creators:421853|creators:114783|creators:298495,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+numbers,3,2,1,0,0,creators:212505|creators:114783|creators:116358,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+quotations,6,6,0,4,4,creators:423545|creators:416436,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.
+similarity,1,1,0,1,0,,Alignment counts only the 20 external-risk cases; additional FP/TN concerns are separate. Not causal validation or guard precision.

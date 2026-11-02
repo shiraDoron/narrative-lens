@@ -1,0 +1,24 @@
+{
+  "authorized_doc_paths": [
+    "CURRENT_STATE.md",
+    "EXPERIMENTS.md",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\EXPERIMENT_GUIDE_HE.md",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\FINAL_REPORT_HE.md",
+    "artifacts\\README.md"
+  ],
+  "note": "Only documentation updated; experimental-input integrity audited separately",
+  "initial_or_previous_doc_sha256": {
+    "CURRENT_STATE.md": "d8c05e6e6167b169b2c25d59a4529d000e7e9176e68ff1aaf5883d0da757b6ab",
+    "EXPERIMENTS.md": "560a0cccd9a4cf77d8c4dcbd39e74104fe26c59c2ad2938d82c8318a49b8a8bb",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\EXPERIMENT_GUIDE_HE.md": "e0815c6f7c16368d7895119352da06acd1860ca0c0ce372d1e29473e77505ac4",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\FINAL_REPORT_HE.md": "612422ef0ffc8effef0c58079ada04fe064134d165d9e07878e070866273dec6",
+    "artifacts\\README.md": "f97b8648a23e876943a4177772135de6d60ec8f5c555c1741b1b2ef5640c182e"
+  },
+  "current_doc_sha256": {
+    "CURRENT_STATE.md": "d8c05e6e6167b169b2c25d59a4529d000e7e9176e68ff1aaf5883d0da757b6ab",
+    "EXPERIMENTS.md": "560a0cccd9a4cf77d8c4dcbd39e74104fe26c59c2ad2938d82c8318a49b8a8bb",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\EXPERIMENT_GUIDE_HE.md": "e0815c6f7c16368d7895119352da06acd1860ca0c0ce372d1e29473e77505ac4",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\FINAL_REPORT_HE.md": "612422ef0ffc8effef0c58079ada04fe064134d165d9e07878e070866273dec6",
+    "artifacts\\README.md": "f97b8648a23e876943a4177772135de6d60ec8f5c555c1741b1b2ef5640c182e"
+  }
+}

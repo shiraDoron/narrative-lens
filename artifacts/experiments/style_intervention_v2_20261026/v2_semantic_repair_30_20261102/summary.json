@@ -1,0 +1,134 @@
+{
+  "n": 30,
+  "scope": "train-only intervention development",
+  "totals": {
+    "v2": {
+      "automated_preservation_pass": 6,
+      "substantial_style_change": 24,
+      "both": 6,
+      "exact_copies": 0
+    },
+    "v3": {
+      "automated_preservation_pass": 9,
+      "substantial_style_change": 26,
+      "both": 9,
+      "exact_copies": 0
+    },
+    "repair": {
+      "automated_preservation_pass": 6,
+      "substantial_style_change": 24,
+      "both": 6,
+      "exact_copies": 0
+    }
+  },
+  "verification_invalid_ids": [
+    "creators:0105f26ef9f1",
+    "creators:120669",
+    "creators:295188",
+    "creators:114783",
+    "creators:97c9d6b9ac1b",
+    "creators:423545",
+    "creators:298495",
+    "creators:418904",
+    "creators:2e34435c6ccf",
+    "creators:416436",
+    "creators:418827"
+  ],
+  "repair_invalid_ids": [
+    "creators:421024",
+    "creators:422329",
+    "creators:120177",
+    "creators:212505",
+    "creators:421951",
+    "creators:422331",
+    "creators:216128",
+    "creators:421279",
+    "creators:419062",
+    "creators:423315",
+    "creators:422146",
+    "creators:421853",
+    "creators:418620",
+    "creators:224770",
+    "creators:8b0d99b23d03",
+    "creators:459e183c1d0d",
+    "creators:116358",
+    "creators:218236"
+  ],
+  "verification_call_count": 30,
+  "repair_call_count": 19,
+  "issue_category_marked_preserved_count": 20,
+  "changed_count": 1,
+  "applied_edit_count": 2,
+  "repair_categories": {
+    "additions": 1
+  },
+  "fallback_count": 29,
+  "fallback_ids": [
+    "creators:0105f26ef9f1",
+    "creators:421024",
+    "creators:422329",
+    "creators:120177",
+    "creators:212505",
+    "creators:421951",
+    "creators:422331",
+    "creators:120669",
+    "creators:216128",
+    "creators:421279",
+    "creators:419062",
+    "creators:295188",
+    "creators:423315",
+    "creators:422146",
+    "creators:421853",
+    "creators:418620",
+    "creators:114783",
+    "creators:224770",
+    "creators:8b0d99b23d03",
+    "creators:97c9d6b9ac1b",
+    "creators:423545",
+    "creators:298495",
+    "creators:418904",
+    "creators:2e34435c6ccf",
+    "creators:459e183c1d0d",
+    "creators:416436",
+    "creators:116358",
+    "creators:218236",
+    "creators:418827"
+  ],
+  "process_completed_without_contract_error": 1,
+  "actually_changed_ids": [
+    "creators:417181"
+  ],
+  "changed_subset_automatic": {
+    "n": 1,
+    "pass_count": 0,
+    "substantial_style_count": 1,
+    "both_count": 0
+  },
+  "effective_edit_count": 1,
+  "noop_edit_count": 1,
+  "both_ids": [
+    "creators:421024",
+    "creators:421951",
+    "creators:120669",
+    "creators:419062",
+    "creators:423315",
+    "creators:224770"
+  ],
+  "guard_pass_gained_ids": [],
+  "guard_pass_lost_ids": [],
+  "exact_quote_failures": [
+    "creators:417181",
+    "creators:114783",
+    "creators:8b0d99b23d03",
+    "creators:423545",
+    "creators:418904",
+    "creators:416436"
+  ],
+  "verification_truncated": 0,
+  "repair_truncated": 0,
+  "mean_word_edit_fraction_from_v2": 0.0036363636363636377,
+  "external_review": "Pending; not performed",
+  "human_validation": "Pending; not performed",
+  "no_training": true,
+  "no_test_evaluation": true
+}

@@ -1,0 +1,6 @@
+{
+  "artifacts\\experiments\\style_intervention_v2_20261026\\study.py": "39ccf8a470955ad212dd9c3b3631591e59b0a87732d5fc4f24a651585af1a44e",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+  "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8",
+  "artifacts\\experiments\\style_intervention_v2_20261026\\train_prompt_revision_30_20261101\\run.py": "11776ca144edcc881ab6fbf4358d65ceaea6fffb018bf006e6c3f98d6a6322ef"
+}

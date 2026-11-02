@@ -1,0 +1,20 @@
+﻿ID,diagnostic,original_anchor,prior_risk_pattern,v2_anchor_present,v3_anchor_present,v2_risk_pattern_present,v3_risk_pattern_present,v3_pass,v3_style,limitation
+creators:417181,funding_rank,most generous funder,\b(?:primary financier|major funder)\b,False,False,True,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:417181,ironic_fighting_quote,"""fighting""",\bfighting\b,False,False,False,False,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:8b0d99b23d03,Fitzgerald_verbatim,The rich are different from you and me.,The rich are distinct,False,False,True,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:8b0d99b23d03,countries_metaphor,two countries,two (?:distinct )?regions,False,False,True,False,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:423545,insult_intensity,right-wing hack,right-wing figure,False,True,True,False,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:423545,bomb_metaphor,bomb maker,\bcreator\b,False,False,True,False,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:298495,sender_property,strangers,anonymous sources,False,False,True,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:418904,quoted_celebrate,"We didn't celebrate the Fourth of July,","We didn't mark the Fourth of July,",False,False,True,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:423315,event_characterization,George Floyd riots,George Floyd protests,False,False,True,True,True,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:423315,inevitability,going to lose,destined to lose,False,False,True,True,True,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:418904,new_branded_word,Black backs whipped bloody,\bbranded\b,False,False,False,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:418904,new_specific_surrender_day,as was their habit,typically surrendered on this day,False,False,False,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:417181,new_pseudonymous_word,fictitious entities,\bpseudonymous\b,False,False,False,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:8b0d99b23d03,Saturday_retention,on Saturday,(?!),True,False,False,False,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:8b0d99b23d03,Sunday_retention,on Sunday,(?!),True,False,False,False,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:120669,Obama_Washington_reference,his past Thanksgiving addresses,President Washington's Thanksgiving addresses,True,False,False,True,False,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:421951,participant_role,fight your wars,(?:wanted to|should) face in battle,False,False,True,True,True,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:212505,quantifier,most media pundits,many media (?:analysts|pundits),False,False,True,True,True,True,Literal pattern/anchor observation only; no final semantic adjudication
+creators:459e183c1d0d,net_worth_eligibility,worth more than $1 billion,with more than \$1 billion in assets,False,False,True,False,False,True,Literal pattern/anchor observation only; no final semantic adjudication

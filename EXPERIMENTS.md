@@ -3892,3 +3892,19 @@ No prompt/guard/threshold changes, test use, relabelling, split changes, human-r
 | 35. Few-shot adaptation (35A) + selective prediction (35B) | 35A: frozen-SBERT narrative centroids adapted toward the test author with k labeled support rows (weight 0.5, support/query disjoint); 35B: abstain on low max-softmax-confidence fresh-author rows, pooled + per-author AUROC and risk/coverage | 35A: per-k mean recall k=0: 0.326, k=1: 0.338, k=5: 0.553, k=10: 0.649 (median 0.650, std 0.221, min 0.153, max 0.989), k=20: 0.708; bar passed (>0.42 at k<=10, k=5 already passes); +25.9pp vs §25 sbert_original mean 0.390. 35B: pooled AUROC 0.628 (within-author 0.600), 9/14 authors above 0.55, range 0.36 ViceNews to 0.75 United24Media; 20% abstention lifts accuracy 0.401 to 0.437 (11% of the 0.331 gap), 40% abstention reaches 0.508; recovering random-level 0.732 requires abstaining effectively everything | 35A first positive intervention, reframing deployment from zero-shot to few-shot (Closed, confirmed/qualified by §36); 35B confidence detects errors but does not close the gap (Closed) |
 | 36. Few-shot learning curve (multi-seed confirmatory re-test of 35A) | 5 independent sampling seeds per k in {1,5,10,20} (vs 35A's single draw), same 14 frozen authors/SBERT/centroid rule/weight 0.5; k=0 reused from §25's trained `sbert_original` per-author recall | Mean recall k=0: 0.390, k=1: 0.357, k=5: 0.594, k=10: 0.657, k=20: 0.703; k=10 replicates §35A (0.8pp off 0.649); curve non-monotonic at k=1 (9/14 authors degrade vs zero-shot); cross-seed std (0.026-0.100) far smaller than cross-author std (~0.22) at every k; `United24Media` degrades at every k (already-strong 0.77 zero-shot baseline); `Bloomberg` gains most (weak 0.055 baseline) | §35A's headline magnitude replicates; k=1 is unreliable and should not be a deployment point; k=5-10 is where adaptation becomes reliable (12-13/14 authors improve); closed - no further intervention opened without an explicit new decision |
 
+## Two-stage v2 semantic repair — 2026-11-02
+
+**Train-only intervention development** על אותם 30 מקורות, עם v2 הקיים כקלט — ללא יצירת rewrite ראשוני חדש. v3 attempted to encode more semantic-preservation constraints in a single rewrite prompt, but external review showed overall degradation relative to v2. Therefore the next experiment separates style rewriting from semantic verification and minimal repair.
+
+אותו מודל מקומי מבצע checklist על Original/v2, ואז תיקון מותנה באמצעות patches ממוקדים בלבד. רשימת ההפרות נשלחת לשלב התיקון; דירוגי review קודמים, IDs ותוצאות guards אינם נשלחים למודל. אימות זה הוא חלק מההתערבות ולא External LLM Review או Human Validation. ה־guards והספים נשארו קפואים.
+
+| Metric | v2 | v3 | v2 + Repair |
+|---|---:|---:|---:|
+| Automated preservation pass | 6 | 9 | 6 |
+| Substantial style proxy | 24 | 26 | 24 |
+| Both | 6 | 9 | 6 |
+| Exact copies | 0 | 0 | 0 |
+
+שונו בפועל 1/30 טקסטים, באמצעות 1 עריכות משנות־טקסט; 11 אימותים ו־18 הצעות repair נכשלו בחוזה התהליך. בכשל נשמר v2, ללא retry או בחירה לפי ציונים. המימוש לא סיפק מספיק תיקונים תקינים לביסוס שיפור סמנטי; אין בכך הפרכה של הרעיון הדו־שלבי. שינוי במעברי guards יכול לשקף גם תיקון לקסיקלי טכני; אין עדיין דירוגי משמעות/סגנון חיצוניים ל־Repaired v2. לא נמדדו תוצאות test או generalization, לא אומנו מודלים, ולא מולאו שדות אנושיים. עוצרים לפני External LLM Review עיוור חדש.
+
+[Repair report](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPORT_HE.md) · [Blind package](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPRODUCTION.md)

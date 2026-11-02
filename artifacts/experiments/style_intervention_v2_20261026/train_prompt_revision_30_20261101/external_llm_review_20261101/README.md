@@ -2,6 +2,8 @@
 
 Explicit evaluation name: **External LLM Review — New Normalized**. This directory is separate from Human Validation and the earlier Old Normalized review.
 
+Focused follow-on analysis: [ERROR_ANALYSIS_SUMMARY_HE.md](ERROR_ANALYSIS_SUMMARY_HE.md), [all 30 cases](ERROR_ANALYSIS_30.csv), [15 Borderline cases](ERROR_ANALYSIS_BORDERLINE_15.csv). These are assistant-authored qualitative notes and guard-code diagnostics, not new external ratings or human labels. `build_error_analysis.py` rebuilds only analysis tables/reports and their central documentation summary from `error_analysis_annotations.json`; it never runs a model, edits filters or reassigns external classes. The existing import/documentation refresh preserves this later summary.
+
 `discrepancy_classification_30.csv` compares all 30 rows, including individual guards, similarity/NLI scores, original external ratings and TP/FP/TN/FN classification **relative to the supplied LLM**. Positive means automatic rejection / external drift risk. TP: rejected and external drift Yes; FP: rejected and external meaning Yes with drift No; TN: passed and external preservation; FN: passed and external drift Yes or meaningful Borderline. All 15 actual Borderline rows also explicitly have drift Yes in the supplied source; their meaning is never recoded as No. `borderline_cases_15.csv` preserves these cases separately; `classification_by_meaning.csv` preserves Yes/Borderline/No within each class. These analytical categories never override automatic filtering.
 
 Run from the project root with the existing Python environment:

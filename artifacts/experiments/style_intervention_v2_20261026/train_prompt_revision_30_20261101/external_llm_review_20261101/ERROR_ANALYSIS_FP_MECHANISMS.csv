@@ -1,0 +1,7 @@
+﻿mechanism,count,examples
+technical false positive,1,creators:212505
+formatting variation,1,creators:212505
+lexical variation,4,creators:0105f26ef9f1|creators:120177|creators:418620|creators:459e183c1d0d
+overly strict threshold,0,
+guard logic issue,5,creators:0105f26ef9f1|creators:120177|creators:212505|creators:418620|creators:459e183c1d0d
+other,0,

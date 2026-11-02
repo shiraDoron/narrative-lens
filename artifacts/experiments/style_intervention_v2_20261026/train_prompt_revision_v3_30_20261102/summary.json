@@ -1,0 +1,224 @@
+{
+  "n": 30,
+  "scope": "Same TRAIN-only diagnostic sources; not unseen-author evidence",
+  "totals": {
+    "v2": {
+      "automatic_pass": 6,
+      "substantial_style_proxy": 24,
+      "both": 6,
+      "exact_copies": 0
+    },
+    "v3": {
+      "automatic_pass": 9,
+      "substantial_style_proxy": 26,
+      "both": 9,
+      "exact_copies": 0
+    }
+  },
+  "v3_both_ids": [
+    "creators:0105f26ef9f1",
+    "creators:421024",
+    "creators:212505",
+    "creators:421951",
+    "creators:422331",
+    "creators:216128",
+    "creators:419062",
+    "creators:423315",
+    "creators:224770"
+  ],
+  "automatic_pass_gained_ids": [
+    "creators:0105f26ef9f1",
+    "creators:212505",
+    "creators:422331",
+    "creators:216128"
+  ],
+  "automatic_pass_lost_ids": [
+    "creators:120669"
+  ],
+  "v3_rejection_counts": {
+    "bidirectional_nli": 9,
+    "certainty": 8,
+    "quotations": 6,
+    "negation": 4,
+    "attribution": 2,
+    "similarity": 2,
+    "numbers": 1,
+    "framing_anchors": 1
+  },
+  "v3_truncated": 0,
+  "v3_verbatim_quote_failures": [
+    "creators:417181",
+    "creators:114783",
+    "creators:8b0d99b23d03",
+    "creators:423545",
+    "creators:418904",
+    "creators:416436"
+  ],
+  "span_probe_counts": {
+    "original_span_restored_v2_span_absent": 5,
+    "v2_span_still_present": 16,
+    "different_form_requires_external_review": 28,
+    "both_spans_present_or_overlapping": 1
+  },
+  "preliminary_literal_repairs": [
+    {
+      "ID": "creators:422329",
+      "prior_risk": "A strict duration upper bound becomes a roughly decade-long duration.",
+      "original_span": "doubling in less than a decade",
+      "v2_problem_span": "doubling in just a decade",
+      "original_span_present_in_v3": true,
+      "v2_span_present_in_v3": false,
+      "literal_probe_status": "original_span_restored_v2_span_absent",
+      "v3_automatic_pass": false,
+      "v3_style": true,
+      "final_semantic_verdict": "Pending separate external review; literal probes are not adjudication"
+    },
+    {
+      "ID": "creators:216128",
+      "prior_risk": "Drops explicit named institutions in favor of a generic description.",
+      "original_span": "the House and Senate",
+      "v2_problem_span": "the legislative bodies",
+      "original_span_present_in_v3": true,
+      "v2_span_present_in_v3": false,
+      "literal_probe_status": "original_span_restored_v2_span_absent",
+      "v3_automatic_pass": true,
+      "v3_style": true,
+      "final_semantic_verdict": "Pending separate external review; literal probes are not adjudication"
+    },
+    {
+      "ID": "creators:422146",
+      "prior_risk": "Downscales the conflict metaphor; bullying and humiliation are also softened to aggressive behavior and targeting.",
+      "original_span": "trade war",
+      "v2_problem_span": "trade spat",
+      "original_span_present_in_v3": true,
+      "v2_span_present_in_v3": false,
+      "literal_probe_status": "original_span_restored_v2_span_absent",
+      "v3_automatic_pass": false,
+      "v3_style": true,
+      "final_semantic_verdict": "Pending separate external review; literal probes are not adjudication"
+    },
+    {
+      "ID": "creators:422146",
+      "prior_risk": "A specific documentary referent becomes a broader scandal.",
+      "original_span": "the Jeffrey Epstein files",
+      "v2_problem_span": "the Jeffrey Epstein scandal",
+      "original_span_present_in_v3": true,
+      "v2_span_present_in_v3": false,
+      "literal_probe_status": "original_span_restored_v2_span_absent",
+      "v3_automatic_pass": false,
+      "v3_style": true,
+      "final_semantic_verdict": "Pending separate external review; literal probes are not adjudication"
+    },
+    {
+      "ID": "creators:423545",
+      "prior_risk": "Removes the derogatory hack evaluation while retaining political direction.",
+      "original_span": "the right-wing hack",
+      "v2_problem_span": "the right-wing figure",
+      "original_span_present_in_v3": true,
+      "v2_span_present_in_v3": false,
+      "literal_probe_status": "original_span_restored_v2_span_absent",
+      "v3_automatic_pass": false,
+      "v3_style": true,
+      "final_semantic_verdict": "Pending separate external review; literal probes are not adjudication"
+    }
+  ],
+  "new_textual_risk_patterns": [
+    {
+      "ID": "creators:418904",
+      "diagnostic": "new_branded_word",
+      "original_anchor": "Black backs whipped bloody",
+      "prior_risk_pattern": "\\bbranded\\b",
+      "v2_anchor_present": false,
+      "v3_anchor_present": false,
+      "v2_risk_pattern_present": false,
+      "v3_risk_pattern_present": true,
+      "v3_pass": false,
+      "v3_style": true,
+      "limitation": "Literal pattern/anchor observation only; no final semantic adjudication"
+    },
+    {
+      "ID": "creators:418904",
+      "diagnostic": "new_specific_surrender_day",
+      "original_anchor": "as was their habit",
+      "prior_risk_pattern": "typically surrendered on this day",
+      "v2_anchor_present": false,
+      "v3_anchor_present": false,
+      "v2_risk_pattern_present": false,
+      "v3_risk_pattern_present": true,
+      "v3_pass": false,
+      "v3_style": true,
+      "limitation": "Literal pattern/anchor observation only; no final semantic adjudication"
+    },
+    {
+      "ID": "creators:417181",
+      "diagnostic": "new_pseudonymous_word",
+      "original_anchor": "fictitious entities",
+      "prior_risk_pattern": "\\bpseudonymous\\b",
+      "v2_anchor_present": false,
+      "v3_anchor_present": false,
+      "v2_risk_pattern_present": false,
+      "v3_risk_pattern_present": true,
+      "v3_pass": false,
+      "v3_style": true,
+      "limitation": "Literal pattern/anchor observation only; no final semantic adjudication"
+    },
+    {
+      "ID": "creators:120669",
+      "diagnostic": "Obama_Washington_reference",
+      "original_anchor": "his past Thanksgiving addresses",
+      "prior_risk_pattern": "President Washington's Thanksgiving addresses",
+      "v2_anchor_present": true,
+      "v3_anchor_present": false,
+      "v2_risk_pattern_present": false,
+      "v3_risk_pattern_present": true,
+      "v3_pass": false,
+      "v3_style": true,
+      "limitation": "Literal pattern/anchor observation only; no final semantic adjudication"
+    }
+  ],
+  "original_anchors_lost_since_v2": [
+    {
+      "ID": "creators:8b0d99b23d03",
+      "diagnostic": "Saturday_retention",
+      "original_anchor": "on Saturday",
+      "prior_risk_pattern": "(?!)",
+      "v2_anchor_present": true,
+      "v3_anchor_present": false,
+      "v2_risk_pattern_present": false,
+      "v3_risk_pattern_present": false,
+      "v3_pass": false,
+      "v3_style": true,
+      "limitation": "Literal pattern/anchor observation only; no final semantic adjudication"
+    },
+    {
+      "ID": "creators:8b0d99b23d03",
+      "diagnostic": "Sunday_retention",
+      "original_anchor": "on Sunday",
+      "prior_risk_pattern": "(?!)",
+      "v2_anchor_present": true,
+      "v3_anchor_present": false,
+      "v2_risk_pattern_present": false,
+      "v3_risk_pattern_present": false,
+      "v3_pass": false,
+      "v3_style": true,
+      "limitation": "Literal pattern/anchor observation only; no final semantic adjudication"
+    },
+    {
+      "ID": "creators:120669",
+      "diagnostic": "Obama_Washington_reference",
+      "original_anchor": "his past Thanksgiving addresses",
+      "prior_risk_pattern": "President Washington's Thanksgiving addresses",
+      "v2_anchor_present": true,
+      "v3_anchor_present": false,
+      "v2_risk_pattern_present": false,
+      "v3_risk_pattern_present": true,
+      "v3_pass": false,
+      "v3_style": true,
+      "limitation": "Literal pattern/anchor observation only; no final semantic adjudication"
+    }
+  ],
+  "no_training": true,
+  "no_test_evaluation": true,
+  "external_llm_review": "Pending, not performed",
+  "human_validation": "Pending, not performed"
+}

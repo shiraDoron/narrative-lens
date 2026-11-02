@@ -1,6 +1,6 @@
 # Current Research State
 
-Updated: 2026-11-01. This is the changing status page; [README](README.md) provides the stable research overview.
+Updated: 2026-11-02. This is the changing status page; [README](README.md) provides the stable research overview.
 
 ## Current research question
 
@@ -16,20 +16,20 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
-Style intervention V2 → revised prompt on **30 frozen TRAIN examples** → **External LLM Review — New Normalized**, now imported and compared with guards. Current phase: review results and decide the next development step; no experiment is running. The separate bylined-writer corpus covers two narratives, not the main seven-label social-media dataset. Bylines establish attribution, not human-validated labels or unaided authorship.
+Style intervention V2 → prompt v2 on **30 frozen TRAIN examples** → external review/error analysis → **Prompt Revision v3 on the same originals**. V3 generation and unchanged screening are complete; the v3 external review/comparison is complete; a new two-stage verification/minimal-repair run on fixed v2 has now completed (see below). No experiment is running. The separate bylined-writer corpus covers two narratives, not the main seven-label social-media dataset. Bylines establish attribution, not human-validated labels or unaided authorship.
 
-The central [FINAL_REPORT_HE.md](artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md) first describes the completed 218-text V2 automatic stage, then appends the 30-train prompt/review checkpoints. Its 114 matched automatic passes are a different denominator from the latest 6/30. Earlier “next review” statements describe their dated checkpoint; the New Normalized review has since been imported. Human Validation remains Pending across those updates.
+The central [FINAL_REPORT_HE.md](artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md) first describes the completed 218-text V2 automatic stage, then appends the 30-train v2 prompt/review checkpoints. Its 114 matched automatic passes are a different denominator from v2's 6/30. [The new v3 report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_v3_30_20261102/REPORT_HE.md) is separate; no prior results were overwritten. Human Validation remains Pending.
 
 ## Current results
 
-| Measure on the same 30 examples | Old | New |
-|---|---:|---:|
-| All automated preservation checks pass | 23 | 6 |
-| Substantial style change, operational proxy | 10 | 24 |
-| Both automated criteria | 7 | 6 |
-| Exact original copies | 7 | 0 |
+| Measure on the same 30 examples | Old | New v2 | New v3 |
+|---|---:|---:|---:|
+| All automated preservation checks pass | 23 | 6 | 9 |
+| Substantial style change, operational proxy | 10 | 24 | 26 |
+| Both automated criteria | 7 | 6 | 9 |
+| Exact original copies | 7 | 0 | 0 |
 
-External LLM Review of **New**: meaning **10 Yes / 15 Borderline / 5 No**; style change **30/30 Yes**; strict preservation and style together **10/30**. Guard classifications relative to that reviewer: **TP 19 / FP 5 / TN 5 / FN 1**. All 15 Borderline ratings remain separate; all also carry explicit drift=Yes in the supplied review. These are reviewer-relative categories, not validated guard error rates.
+External LLM Review of **New v2 only**: meaning **10 Yes / 15 Borderline / 5 No**; style change **30/30 Yes**; strict preservation and style together **10/30**. Guard classifications relative to that reviewer: **TP 19 / FP 5 / TN 5 / FN 1**. All 15 Borderline ratings remain separate; all also carry explicit drift=Yes in the supplied review. These v2 ratings do not transfer to v3. The separately supplied v3 review has **5 Yes / 17 Borderline / 8 No** for meaning and **27 Yes / 3 Borderline** for style.
 
 **Interpretation:** style intervention produces stronger stylistic changes, but semantic preservation is the bottleneck. **This does not prove:** actual removal of author identity, improved unseen-author performance, or human-verified semantic drift. No retraining followed the prompt trials. [Full report and per-example evidence](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/REPORT_HE.md).
 
@@ -37,8 +37,22 @@ External LLM Review of **New**: meaning **10 Yes / 15 Borderline / 5 No**; style
 
 The follow-up's author-disjoint train/validation/test assignments are recorded in [author_splits.csv](artifacts/experiments/verified_human_style_followup_20261026/author_splits.csv) and [analysis_cohort.csv](artifacts/experiments/style_intervention_v2_20261026/analysis_cohort.csv). Its validation and test rows are excluded from current 30-train development. The historical [14-author confirmatory holdout](artifacts/experiments/narrative_fresh_author_audit/fresh_author_confirmatory_set.json) is a separate frozen set. Do not conflate them.
 
-Labels, human-review fields, thresholds, filtering and the current prompt remain unchanged. Any future threshold/prompt change requires an explicit new, documented experiment. **External LLM Review ≠ Human Validation.** Four evidence layers remain separate: automated guards; model-generated label proposals; External LLM Review; Human Validation (**Pending** for the active follow-up). `human_verified=False` remains false after LLM review.
+Labels, human-review fields, thresholds, filtering, model/runtime and decoding remain unchanged. V3 changes only the prompt by appending targeted safeguards; it is now frozen with its outputs. Any further prompt/threshold change requires a new documented experiment. **External LLM Review ≠ Human Validation.** Automated guards, model-generated proposals, external LLM ratings and Human Validation (**Pending**) remain separate. `human_verified=False` remains false.
 
 ## Next decision
 
-Review the preservation failures and reviewer/guard disagreements before deciding whether to open a new train-only intervention version. No further tuning, training or LoRA/DoRA is currently authorized. Actual Human Validation remains required by the study's training gate. Use the [artifact index](artifacts/README.md#style-follow-up-navigation) for results and the [reproduction routes](docs/running.md#active-style-follow-up-reproduction) to audit existing outputs.
+Obtain a separately performed External LLM Review of **Repaired v2**, using the blind package linked below. The current local pipeline changed only one text and retained v2 for 29 process failures, so its automatic scores do not establish semantic improvement. No further prompt/guard changes, training, test evaluation or LoRA/DoRA now. Human Validation remains Pending and required by the study's training gate.
+
+## Focused guard error analysis — 2026-11-01
+
+הניתוח האיכותני מבחין בין פסילת רשומה לזיהוי השגיאה: חלק מה־TP נתפסו רק בדגל טכני שאינו מסביר את הסיכון הסמנטי. ציטוטים/מסגור מפורש מספקים אותות רלוונטיים; כיסוי אפיון אירוע, תפקידי משתתפים ו־certainty scope חלש. זוהו גם סיכונים במקרים שה־LLM אישר, בלי לשנות את דירוגיו או את 15 מקרי ה־Borderline. זהו ניתוח הסוכן, לא Human Validation. ההמלצות עתידיות בלבד; כל הרכיבים הקפואים נשמרו ולא בוצע אימון או test evaluation.
+
+[Error analysis — ראיות, ספירות והמלצות](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/ERROR_ANALYSIS_SUMMARY_HE.md)
+
+## Two-stage v2 semantic repair — 2026-11-02
+
+Active follow-up: **train-only intervention development**, fixed v2 → local verification → conditional patch repair → unchanged guards. No new first-stage rewriting. v3 attempted to encode more semantic-preservation constraints in a single rewrite prompt, but external review showed overall degradation relative to v2. Therefore the next experiment separates style rewriting from semantic verification and minimal repair.
+
+Automatic results for repair: pass 6/30, substantial style 24/30, both 6/30, exact copies 0. Actual changes: 1/30; verification/patch failures retain v2 and are reported, not hidden by retries. Local verification is part of the pipeline, not independent external approval. No new external/human review, training or test evaluation. Next step: separately review the Repaired v2 blind package; no further tuning now.
+
+[Repair report](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPORT_HE.md) · [Blind package](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPRODUCTION.md)

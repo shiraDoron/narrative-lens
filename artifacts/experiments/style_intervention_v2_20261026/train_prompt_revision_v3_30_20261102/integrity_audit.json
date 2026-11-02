@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "protected_files": 136,
+  "changed_files": [],
+  "n": 30,
+  "same_originals": true,
+  "train_only": true,
+  "no_split_or_label_changes": true,
+  "all_old_versions_preserved": true,
+  "no_existing_human_review_fields_changed": true,
+  "new_review_fields_blank": true,
+  "unchanged_guard_code": true,
+  "same_style_definition_and_scaling": true,
+  "original_only_requests": true,
+  "no_training": true,
+  "no_test_evaluation": true,
+  "no_external_review": true
+}

@@ -1,0 +1,182 @@
+{
+  "n": 30,
+  "outcomes": {
+    "unchanged": 13,
+    "worsened": 15,
+    "mixed": 1,
+    "improved": 1
+  },
+  "field_counts": {
+    "v2": {
+      "meaning_preserved": {
+        "Yes": 10,
+        "Borderline": 15,
+        "No": 5
+      },
+      "stance_preserved": {
+        "Yes": 29,
+        "Borderline": 1
+      },
+      "attribution_preserved": {
+        "Yes": 29,
+        "No": 1
+      },
+      "certainty_preserved": {
+        "Yes": 28,
+        "Borderline": 2
+      },
+      "style_change_valid": {
+        "Yes": 30
+      },
+      "semantic_drift": {
+        "No": 10,
+        "Yes": 20
+      }
+    },
+    "v3": {
+      "meaning_preserved": {
+        "Yes": 5,
+        "Borderline": 17,
+        "No": 8
+      },
+      "stance_preserved": {
+        "Yes": 26,
+        "No": 3,
+        "Borderline": 1
+      },
+      "attribution_preserved": {
+        "Yes": 27,
+        "Borderline": 2,
+        "No": 1
+      },
+      "certainty_preserved": {
+        "Yes": 22,
+        "No": 5,
+        "Borderline": 3
+      },
+      "style_change_valid": {
+        "Yes": 27,
+        "Borderline": 3
+      },
+      "semantic_drift": {
+        "No": 5,
+        "Borderline": 16,
+        "Yes": 9
+      }
+    }
+  },
+  "reported_error_type_counts": [
+    {
+      "error_type": "quote_fidelity",
+      "v2_count": 3,
+      "v3_count": 3,
+      "delta": 0,
+      "v2_ids": "creators:114783|creators:8b0d99b23d03|creators:418904",
+      "v3_ids": "creators:114783|creators:8b0d99b23d03|creators:418904",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "certainty",
+      "v2_count": 4,
+      "v3_count": 5,
+      "delta": 1,
+      "v2_ids": "creators:417181|creators:423315|creators:97c9d6b9ac1b|creators:2e34435c6ccf",
+      "v3_ids": "creators:417181|creators:423315|creators:422146|creators:2e34435c6ccf|creators:218236",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "attribution",
+      "v2_count": 2,
+      "v3_count": 3,
+      "delta": 1,
+      "v2_ids": "creators:422329|creators:417181",
+      "v3_ids": "creators:422329|creators:120669|creators:116358",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "factual_claims",
+      "v2_count": 3,
+      "v3_count": 6,
+      "delta": 3,
+      "v2_ids": "creators:295188|creators:422146|creators:298495",
+      "v3_ids": "creators:417181|creators:120669|creators:298495|creators:418904|creators:416436|creators:418827",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "event_characterization",
+      "v2_count": 1,
+      "v3_count": 1,
+      "delta": 0,
+      "v2_ids": "creators:423315",
+      "v3_ids": "creators:423315",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "participant_roles",
+      "v2_count": 1,
+      "v3_count": 3,
+      "delta": 2,
+      "v2_ids": "creators:116358",
+      "v3_ids": "creators:421951|creators:120669|creators:116358",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "rhetorical_intensity",
+      "v2_count": 10,
+      "v3_count": 9,
+      "delta": -1,
+      "v2_ids": "creators:421024|creators:422331|creators:422146|creators:8b0d99b23d03|creators:97c9d6b9ac1b|creators:423545|creators:418904|creators:416436|creators:116358|creators:418827",
+      "v3_ids": "creators:421024|creators:422331|creators:295188|creators:421853|creators:418620|creators:8b0d99b23d03|creators:97c9d6b9ac1b|creators:423545|creators:418827",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "omissions_additions",
+      "v2_count": 2,
+      "v3_count": 6,
+      "delta": 4,
+      "v2_ids": "creators:422331|creators:421853",
+      "v3_ids": "creators:421853|creators:8b0d99b23d03|creators:97c9d6b9ac1b|creators:418904|creators:416436|creators:116358",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "temporal_information",
+      "v2_count": 1,
+      "v3_count": 3,
+      "delta": 2,
+      "v2_ids": "creators:422329",
+      "v3_ids": "creators:421024|creators:120177|creators:418904",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    },
+    {
+      "error_type": "lexical_or_discourse_nuance",
+      "v2_count": 3,
+      "v3_count": 3,
+      "delta": 0,
+      "v2_ids": "creators:216128|creators:421279|creators:218236",
+      "v3_ids": "creators:216128|creators:421279|creators:218236",
+      "measurement": "Qualitative coding of supplied notes, not full-error prevalence or direct missing-column comparison"
+    }
+  ],
+  "outcome_rule": "Pareto comparison on five shared preservation/style fields (No<Borderline<Yes) plus drift-risk presence; Yes and Borderline drift are both risk. No scalar averaging.",
+  "unchanged_means": "Shared ordinal ratings unchanged, not identical text or identical defects",
+  "note_types_are_assistant_coding": true,
+  "style_semantic_tradeoffs_remain_mixed": true,
+  "v3_new_field_counts": {
+    "quote_fidelity": {
+      "Yes": 27,
+      "No": 3
+    },
+    "rhetorical_intensity_preserved": {
+      "Yes": 14,
+      "Borderline": 8,
+      "No": 8
+    }
+  },
+  "evaluator_model_version": "Not supplied for either review",
+  "evaluation_prompt": "Not supplied",
+  "v3_blinding": "Reported use of blind package; actual evaluator context not independently logged",
+  "no_new_llm_judge": true,
+  "no_human_validation": true,
+  "no_training": true,
+  "no_test_evaluation": true
+}

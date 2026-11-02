@@ -1,0 +1,13 @@
+{
+  "source_sha256": "47ea9cf80353f2b3c489e5e6798240cac25d305e128fed93b15f438a35da246a",
+  "v2_review_sha256": "b07dd75a1b02a121330629158b08d451fa54a2f234020dd1977f6ea5bfbc5880",
+  "v3_comparison_sha256": "20fc50a92d5957574bedbb55e17e0882b7a02541786d48aef5c0ef5544aae47e",
+  "protected_files": 171,
+  "changed_files": [],
+  "unique_ids": 30,
+  "all_train": true,
+  "ratings_preserved": true,
+  "human_fields_unchanged": true,
+  "model_version_unknown": true,
+  "review_text_binding": "ID and user context only; supplied review lacks reviewed-text hashes"
+}

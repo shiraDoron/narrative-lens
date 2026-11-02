@@ -1,0 +1,28 @@
+{
+  "orchestration_code_sha256": "64199ecb8dca63c7d56d4cda7a51523815ccdf3023d71ca0aeec8ea833236d4f",
+  "report_code_sha256": "5600f3b4681c8cb7af5ce5ac466940d955edab24c84d7af3e60f2d18f1c4a4bb",
+  "verification_prompt_sha256": "899b45a896ee6f497e656d8bd704bf4c6735b36feb3f8f873052d4da3414b428",
+  "repair_prompt_sha256": "86d44b8a5df5033c4e6009f638af344dc67ad0a931bd34635ba4be0a724e6785",
+  "runtime_sha256": "cc3a6ec4d181bd35c7edbabfdb76d8a17f555e3ef648d3196688b4d6f2ab47b0",
+  "model": {
+    "repo": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+    "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+    "url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/7dabda4d13d513e3e842b20f0d435c732f172cbe/qwen2.5-3b-instruct-q4_k_m.gguf?download=true&cache=20261026",
+    "file": "qwen2.5-3b-instruct-q4_k_m.gguf",
+    "sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+    "bytes": 2104932768,
+    "quantization": "Q4_K_M",
+    "reason": "3B instruction model replaces previous pilot 0.5B and excluded 1.5B feasibility generator; no LoRA or DoRA.",
+    "cpu_threads": 8,
+    "parallel_slots": 4,
+    "cache_prompt": true,
+    "max_tokens": 240,
+    "temperature": 0,
+    "seed": 20261026
+  },
+  "response_format": "json_schema",
+  "verification_max_tokens": 1536,
+  "repair_max_tokens": 1024,
+  "no_model_retry": true,
+  "final_guard_source_unchanged": true
+}

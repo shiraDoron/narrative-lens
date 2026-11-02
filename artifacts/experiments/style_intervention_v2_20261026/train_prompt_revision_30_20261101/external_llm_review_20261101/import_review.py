@@ -47,6 +47,11 @@ def update_docs():
         prefix = 'train_prompt_revision_30_20261101/' if path.parent == STUDY else ''
         text += '\n\n' + section + '\n\n[הדוח המלא וכל 30 ההכרעות](' + prefix + 'external_llm_review_20261101/REPORT_HE.md)\n'
         path.write_text(text, encoding='utf-8')
+    analysis = OUT / 'build_error_analysis.py'
+    if analysis.exists() and (OUT / 'ERROR_ANALYSIS_CENTRAL_SECTION_HE.md').exists():
+        # Preserve the later reporting-only analysis when refreshing earlier review docs.
+        import runpy
+        runpy.run_path(str(analysis))['apply_doc_summary']()
 
 
 def main():
