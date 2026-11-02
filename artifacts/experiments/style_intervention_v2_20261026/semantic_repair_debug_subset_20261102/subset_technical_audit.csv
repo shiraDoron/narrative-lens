@@ -1,0 +1,7 @@
+﻿ID,replay_exact,changed,schema_valid,proposed,applied,old_reasons,new_reasons
+creators:417181,True,True,True,3,2,entities|certainty|quotations,entities|certainty|quotations|bidirectional_nli
+creators:421951,True,False,True,1,0,,
+creators:423315,True,True,True,1,1,,
+creators:8b0d99b23d03,True,True,True,1,1,quotations|bidirectional_nli,quotations|bidirectional_nli
+creators:298495,True,False,True,2,0,negation|attribution,negation|attribution
+creators:418904,True,True,True,1,1,quotations|bidirectional_nli,bidirectional_nli

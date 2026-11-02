@@ -1,0 +1,11 @@
+{
+  "verification_failed_rows": 11,
+  "repair_failed_sets": 18,
+  "repair_edits_in_failed_sets": 41,
+  "malformed_json": 0,
+  "schema_failures": 0,
+  "missing_fields": 0,
+  "unsupported_types": 0,
+  "all_verification_failures": "non-verbatim evidence",
+  "warning": "18 denotes failed proposal sets, not 18 individual edits; JSON and schema were already valid."
+}

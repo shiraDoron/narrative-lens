@@ -96,3 +96,8 @@ v3 attempted to encode more semantic-preservation constraints in a single rewrit
 - [Prompt תיקון](SEMANTIC_REPAIR_PROMPT.txt), [Prompt אימות](SEMANTIC_VERIFICATION_PROMPT.txt), [פרוטוקול](protocol.json), [סיכום](summary.json), [תקינות](integrity_audit.json), [שחזור](REPRODUCTION.md).
 
 לא שונו split, labels, human-review fields או קוד אימון. לא הורצו retraining, test evaluation, LoRA, External LLM Review חדש או Human Validation. עוצרים לפני הבדיקה החיצונית העיוורת של Repaired v2.
+
+
+## Technical debug checkpoint — 2026-11-02
+
+On six fixed TRAIN v2 candidates only: verification contract 6/6; applicable/applied patches 5/9; changed rows 4/6; unit tests 18 passed. This measures technical execution, not semantic success. Original 30-row outputs remain unchanged. No style prompt, experimental guard/threshold, split, label or existing human-review field changed. No training, test evaluation or External LLM Review. See [debug results](../semantic_repair_debug_subset_20261102/DEBUG_SUBSET_RESULTS.md).

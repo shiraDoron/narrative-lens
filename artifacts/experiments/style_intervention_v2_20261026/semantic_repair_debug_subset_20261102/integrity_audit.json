@@ -1,0 +1,75 @@
+{
+  "replays": [
+    {
+      "ID": "creators:417181",
+      "replay_exact": true,
+      "changed": true,
+      "schema_valid": true,
+      "proposed": 3,
+      "applied": 2,
+      "old_reasons": "entities|certainty|quotations",
+      "new_reasons": "entities|certainty|quotations|bidirectional_nli"
+    },
+    {
+      "ID": "creators:421951",
+      "replay_exact": true,
+      "changed": false,
+      "schema_valid": true,
+      "proposed": 1,
+      "applied": 0,
+      "old_reasons": "",
+      "new_reasons": ""
+    },
+    {
+      "ID": "creators:423315",
+      "replay_exact": true,
+      "changed": true,
+      "schema_valid": true,
+      "proposed": 1,
+      "applied": 1,
+      "old_reasons": "",
+      "new_reasons": ""
+    },
+    {
+      "ID": "creators:8b0d99b23d03",
+      "replay_exact": true,
+      "changed": true,
+      "schema_valid": true,
+      "proposed": 1,
+      "applied": 1,
+      "old_reasons": "quotations|bidirectional_nli",
+      "new_reasons": "quotations|bidirectional_nli"
+    },
+    {
+      "ID": "creators:298495",
+      "replay_exact": true,
+      "changed": false,
+      "schema_valid": true,
+      "proposed": 2,
+      "applied": 0,
+      "old_reasons": "negation|attribution",
+      "new_reasons": "negation|attribution"
+    },
+    {
+      "ID": "creators:418904",
+      "replay_exact": true,
+      "changed": true,
+      "schema_valid": true,
+      "proposed": 1,
+      "applied": 1,
+      "old_reasons": "quotations|bidirectional_nli",
+      "new_reasons": "bidirectional_nli"
+    }
+  ],
+  "reference_sha256": {
+    "artifacts\\experiments\\style_intervention_v2_20261026\\v2_semantic_repair_30_20261102\\model_stage_outputs.jsonl": "cef9c47c92c232dc016e4886b68825f45e1377ee02765bebdb3b708fa7e9e8ee",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\v2_semantic_repair_30_20261102\\repaired_outputs.csv": "cef0312d37a1b697f6318f4d26a36e5592cf86c3f85f7cdf17e0327735c60bde",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\train_prompt_revision_30_20261101\\prompt.txt": "506bb4bce1075e7ff464e93011de4cb91805e70e30dfc74ed79f927464ed8ca2",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+    "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8"
+  },
+  "scope": "All six are existing TRAIN rows; no full 30 regeneration, training, test evaluation or External LLM Review",
+  "changed_existing_files": [
+    "artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPORT_HE.md"
+  ]
+}

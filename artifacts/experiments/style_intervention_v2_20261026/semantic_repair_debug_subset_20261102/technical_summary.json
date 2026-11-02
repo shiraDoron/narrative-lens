@@ -1,0 +1,10 @@
+{
+  "verification_valid": 6,
+  "verification_empty": 0,
+  "repair_calls": 6,
+  "proposals": 9,
+  "applied": 5,
+  "changed_rows": 4,
+  "guard_pass": 2,
+  "tests": 18
+}

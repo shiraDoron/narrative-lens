@@ -1,0 +1,385 @@
+[
+  {
+    "ID": "creators:0105f26ef9f1",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "original_span",
+        "actual": "\"escargot and gang rape, three things that disgust me, but are keenly desired by some people. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "\"Examples of this include Donald Trump, escargot, and gang rape, three things that I find repulsive, yet are desired by some individuals. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "original_span",
+        "actual": "\"escargot and gang rape, three things that disgust me, but are keenly desired by some people. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "rewrite_span",
+        "actual": "\"Examples of this include Donald Trump, escargot, and gang rape, three things that I find repulsive, yet are desired by some individuals. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      }
+    ]
+  },
+  {
+    "ID": "creators:120669",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "original_span",
+        "actual": "\"Fox & Friends\" highlighted my most recent column, titled \"Neutering Religious Holidays\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "\"Fox & Friends\" featured my latest column, \"Neutering Religious Holidays\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      }
+    ]
+  },
+  {
+    "ID": "creators:295188",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "boldered by successive waves of relief.",
+        "root_cause": "invented or non-verbatim evidence",
+        "failure_type": "evidence span not found",
+        "fix": "Use side-specific exact evidence IDs"
+      }
+    ]
+  },
+  {
+    "ID": "creators:114783",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "original_span",
+        "actual": "\"We said on 9/11 that we'd \"never forget.\" But when our president has a no-strategy strategy for stopping Islamic extremists, isn't Washington sidestepping our commitment of remembrance, in addition to its duty to protect our land and liberties?\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "\"We declared on September 11 that we would never forget the horrors of that day. Yet, when our president opts for a strategy that lacks any clear plan to combat Islamic extremists, doesn't Washington seem to be avoiding its pledge of remembrance, as well as its obligation to safeguard our nation and freedoms?\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "original_span",
+        "actual": "\"We said on 9/11 that we'd \"never forget.\" But when our president has a no-strategy strategy for stopping Islamic extremists, isn't Washington sidestepping our commitment of remembrance, in addition to its duty to protect our land and liberties?\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "rewrite_span",
+        "actual": "\"We declared on September 11 that we would never forget the horrors of that day. Yet, when our president opts for a strategy that lacks any clear plan to combat Islamic extremists, doesn't Washington seem to be avoiding its pledge of remembrance, as well as its obligation to safeguard our nation and freedoms?\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      }
+    ]
+  },
+  {
+    "ID": "creators:97c9d6b9ac1b",
+    "failures": [
+      {
+        "issue": 1,
+        "field": "rewrite_span",
+        "actual": "On the next weekend, he cut down 430 trees — for a fancy golf course, of course.",
+        "root_cause": "evidence copied from opposite text",
+        "failure_type": "mismatch between evidence and rewrite",
+        "fix": "Use side-specific exact evidence IDs"
+      }
+    ]
+  },
+  {
+    "ID": "creators:423545",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "original_span",
+        "actual": "\"Greg Abbott, the right-wing hack who is governor of Texas, probably doesn't know what a \"petard\" is, but he's now been hoisted by a big one. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "\"Greg Abbott, the right-wing figure who serves as Texas's governor, may not be familiar with the term \"petard,\" but he's now caught in a significant predicament. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "original_span",
+        "actual": "\"Hoist on a petard\" is a phrase from Shakespeare, indicating a creator being destroyed by the very thing they've devised.",
+        "root_cause": "evidence copied from opposite text",
+        "failure_type": "mismatch between evidence and original",
+        "fix": "Use side-specific exact evidence IDs"
+      },
+      {
+        "issue": 1,
+        "field": "rewrite_span",
+        "actual": "\"Hoist on a petard\" is a Shakespearean phrase for a bomb maker being blown sky-high by his own creation.",
+        "root_cause": "evidence copied from opposite text",
+        "failure_type": "mismatch between evidence and rewrite",
+        "fix": "Use side-specific exact evidence IDs"
+      },
+      {
+        "issue": 2,
+        "field": "original_span",
+        "actual": "\"Greg Abbott, the right-wing hack who is governor of Texas, probably doesn't know what a \"petard\" is, but he's now been hoisted by a big one. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 2,
+        "field": "rewrite_span",
+        "actual": "\"Greg Abbott, the right-wing figure who serves as Texas's governor, may not be familiar with the term \"petard,\" but he's now caught in a significant predicament. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      }
+    ]
+  },
+  {
+    "ID": "creators:298495",
+    "failures": [
+      {
+        "issue": 3,
+        "field": "original_span",
+        "actual": "I was employed at The Plain Dealer in Cleveland, and I was already well-acquainted with the bigotry in my home state.",
+        "root_cause": "evidence copied from opposite text",
+        "failure_type": "mismatch between evidence and original",
+        "fix": "Use side-specific exact evidence IDs"
+      }
+    ]
+  },
+  {
+    "ID": "creators:418904",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "original_span",
+        "actual": "\"For us, it was the day Vicksburg fell.\"\nVicksburg, Mississippi, fell to Union troops on July 4, 1863.",
+        "root_cause": "whitespace/Unicode/case representation mismatch",
+        "failure_type": "evidence span not found",
+        "fix": "Resolve unique exact surface span; do not modify source"
+      },
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "\"For us, it was the day Vicksburg fell.\"\nVicksburg, Mississippi, capitulated to Union forces on July 4, 1863.",
+        "root_cause": "whitespace/Unicode/case representation mismatch",
+        "failure_type": "evidence span not found",
+        "fix": "Resolve unique exact surface span; do not modify source"
+      }
+    ]
+  },
+  {
+    "ID": "creators:2e34435c6ccf",
+    "failures": [
+      {
+        "issue": 1,
+        "field": "original_span",
+        "actual": "about three weeks",
+        "root_cause": "whitespace/Unicode/case representation mismatch",
+        "failure_type": "evidence span not found",
+        "fix": "Resolve unique exact surface span; do not modify source"
+      },
+      {
+        "issue": 1,
+        "field": "rewrite_span",
+        "actual": "just three weeks",
+        "root_cause": "whitespace/Unicode/case representation mismatch",
+        "failure_type": "evidence span not found",
+        "fix": "Resolve unique exact surface span; do not modify source"
+      },
+      {
+        "issue": 3,
+        "field": "original_span",
+        "actual": "significant",
+        "root_cause": "evidence copied from opposite text",
+        "failure_type": "mismatch between evidence and original",
+        "fix": "Use side-specific exact evidence IDs"
+      },
+      {
+        "issue": 4,
+        "field": "original_span",
+        "actual": "about three weeks before Republicans expect an electoral beating,",
+        "root_cause": "whitespace/Unicode/case representation mismatch",
+        "failure_type": "evidence span not found",
+        "fix": "Resolve unique exact surface span; do not modify source"
+      }
+    ]
+  },
+  {
+    "ID": "creators:416436",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "original_span",
+        "actual": "\"Socialism will always find an audience because it appeals to base envy and resentment. Ginning up a mob to be mad at \"oligarchs,\" \"Wall Street barons,\" \"kulaks\" or \"billionaires\" is cheap and easy. So, it was refreshing to hear Amazon founder Jeff Bezos, the fourth richest man on the planet, offer unadulterated praise of the moral and economic superiority of capitalism in his recent interview with CNBC's Andrew Ross Sorkin. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "\"Socialism will always have its supporters, as it taps into deep-seated feelings of envy and resentment. Stirring up a mob to be angry at \"oligarchs,\" \"Wall Street barons,\" \"kulaks,\" or \"billionaires\" is a simple and effective tactic. Hence, it was noteworthy to hear Amazon's founder, Jeff Bezos, the fourth wealthiest individual, extol the virtues of capitalism in his recent interview with CNBC's Andrew Ross Sorkin. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "original_span",
+        "actual": "\"Socialism will always find an audience because it appeals to base envy and resentment. Ginning up a mob to be mad at \"oligarchs,\" \"Wall Street barons,\" \"kulaks\" or \"billionaires\" is cheap and easy. So, it was refreshing to hear Amazon founder Jeff Bezos, the fourth richest man on the planet, offer unadulterated praise of the moral and economic superiority of capitalism in his recent interview with CNBC's Andrew Ross Sorkin. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "rewrite_span",
+        "actual": "\"Socialism will always have its supporters, as it taps into deep-seated feelings of envy and resentment. Stirring up a mob to be angry at \"oligarchs,\" \"Wall Street barons,\" \"kulaks,\" or \"billionaires\" is a simple and effective tactic. Hence, it was noteworthy to hear Amazon's founder, Jeff Bezos, the fourth wealthiest individual, extol the virtues of capitalism in his recent interview with CNBC's Andrew Ross Sorkin. \"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      }
+    ]
+  },
+  {
+    "ID": "creators:418827",
+    "failures": [
+      {
+        "issue": 0,
+        "field": "original_span",
+        "actual": "\"White House Rose Garden\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 0,
+        "field": "rewrite_span",
+        "actual": "\"Rose Garden\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "original_span",
+        "actual": "\"stately East Wing\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 1,
+        "field": "rewrite_span",
+        "actual": "\"stately East Wing\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 2,
+        "field": "original_span",
+        "actual": "\"guests gathered and mingled\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 2,
+        "field": "rewrite_span",
+        "actual": "\"guests once mingled\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 3,
+        "field": "original_span",
+        "actual": "\"marble wall of the national performing arts center\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 3,
+        "field": "rewrite_span",
+        "actual": "\"marble wall of the national performing arts center\"",
+        "root_cause": "extraneous quotation wrapper or trailing whitespace",
+        "failure_type": "evidence span not found",
+        "fix": "Select exact evidence catalog ID"
+      },
+      {
+        "issue": 5,
+        "field": "original_span",
+        "actual": "No, friends, Romans, countrymen, it wasn't enough to tear down its stately East Wing, where guests gathered and mingled.",
+        "root_cause": "invented or non-verbatim evidence",
+        "failure_type": "evidence span not found",
+        "fix": "Use side-specific exact evidence IDs"
+      },
+      {
+        "issue": 5,
+        "field": "rewrite_span",
+        "actual": "No, friends, Romans, countrymen, it wasn't enough to topple its stately East Wing, where guests once mingled.",
+        "root_cause": "invented or non-verbatim evidence",
+        "failure_type": "evidence span not found",
+        "fix": "Use side-specific exact evidence IDs"
+      },
+      {
+        "issue": 6,
+        "field": "original_span",
+        "actual": "No, friends, Romans, countrymen, it wasn't enough to brandish \"Donald J. Trump\" over \"John F. Kennedy\" on the marble wall of the national performing arts center.",
+        "root_cause": "invented or non-verbatim evidence",
+        "failure_type": "evidence span not found",
+        "fix": "Use side-specific exact evidence IDs"
+      },
+      {
+        "issue": 6,
+        "field": "rewrite_span",
+        "actual": "No, friends, Romans, countrymen, it wasn't enough to display \"Donald J. Trump\" above \"John F. Kennedy\" on the marble wall of the national performing arts center.",
+        "root_cause": "invented or non-verbatim evidence",
+        "failure_type": "evidence span not found",
+        "fix": "Use side-specific exact evidence IDs"
+      }
+    ]
+  }
+]
