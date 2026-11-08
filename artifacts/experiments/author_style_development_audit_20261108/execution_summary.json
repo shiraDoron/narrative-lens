@@ -1,0 +1,12 @@
+{
+  "source_original_cv_model_fits": 380,
+  "fixed_paired_model_fits": 8,
+  "training_resample_model_fits": 40,
+  "posthoc_temporal_cv_model_fits": 100,
+  "posthoc_temporal_fixed_model_fits": 4,
+  "narrative_classifier_model_fits": 0,
+  "new_rewrites_generated": 0,
+  "frozen_test_predictions": 0,
+  "human_fields_filled": 0,
+  "total_author_probe_fits": 532
+}

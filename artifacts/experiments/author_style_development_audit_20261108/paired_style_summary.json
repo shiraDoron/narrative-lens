@@ -1,0 +1,37 @@
+{
+  "n": 30,
+  "all_pairs_kept": true,
+  "style_proxy_substantial": 22,
+  "auto_preservation_pass": 22,
+  "word_edit_fraction_mean": 0.27801287045592304,
+  "word_edit_fraction_median": 0.2847826086956522,
+  "changed_sentence_count_pairs": 9,
+  "changed_mean_sentence_length_pairs": 30,
+  "content_tfidf_cosine_mean": 0.8576888939894194,
+  "word_set_jaccard_mean": 0.6811886478500869,
+  "family_mean_abs_standardized_change": {
+    "length": 0.1692529133381389,
+    "lexical_variety": 0.41189126700778245,
+    "sentence_structure_proxies": 0.2882425325775178,
+    "punctuation": 0.19128639919761709,
+    "orthography_contractions": 0.3384912312813934,
+    "function_words": 0.25607935223478845
+  },
+  "mean_word_count_original": 59.46666666666667,
+  "mean_word_count_rewrite": 57.86666666666667,
+  "mean_sentence_words_original": 18.243611111111115,
+  "mean_sentence_words_rewrite": 18.13404761904762,
+  "certainty_anchor_set_changes": 2,
+  "attribution_anchor_set_changes": 2,
+  "framing_anchor_set_changes": 1,
+  "english_parser_model_available": false,
+  "syntax_measured": false,
+  "syntax_note": "Sentence/clause-length and punctuation proxies only. No English syntactic parser checkpoint available; no parser downloaded or inferred syntax labels invented.",
+  "semantic_or_rhetorical_judgment_performed": false,
+  "external_rhetorical_review_counts": {
+    "Yes": 19,
+    "Borderline": 10,
+    "No": 1
+  },
+  "scope_caution": "Style metric changes and lexical overlap do not prove author identity removal, syntactic transformation, or semantic equivalence."
+}

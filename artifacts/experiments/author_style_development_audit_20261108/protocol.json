@@ -1,0 +1,59 @@
+{
+  "created_at_utc": "2026-11-08T21:57:53.512570+00:00",
+  "scope": "TRAIN authors only for every feature, fit, topic and model-choice diagnostic; val/test metadata counts only",
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    31415
+  ],
+  "methods": [
+    "surface_66",
+    "function_punctuation",
+    "char_tfidf",
+    "word_content_control"
+  ],
+  "model": "LogisticRegression C=1, lbfgs, max_iter=3000; no search",
+  "character_features": {
+    "analyzer": "char",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "min_df": 2,
+    "max_features": 30000,
+    "sublinear_tf": true
+  },
+  "word_control": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "stop_words": "english",
+    "min_df": 2,
+    "max_features": 10000,
+    "sublinear_tf": true
+  },
+  "cohorts": [
+    "train_all_annotations",
+    "train_eligible_narrative",
+    "train_eligible_Left-wing",
+    "train_eligible_Right-wing"
+  ],
+  "cv": "StratifiedGroupKFold; at most five folds, minimum distinct groups/author; same folds for all methods; five seeds",
+  "groups": "same article/text or TRAIN-only word-5-shingle Jaccard>=0.80 or word-TFIDF cosine>=0.95; graph connected components",
+  "new_duplicate_thresholds_are_not_preservation_guards": true,
+  "paired_primary": "Fit each method on all TRAIN originals excluding every group represented in the fixed 30 pairs. Predict unseen Original and corresponding ChatGPT Rewrite using precisely the same fitted model.",
+  "paired_secondary": "Repeat fixed-30 comparison after stratified 80% resampling of training pool by author; five seeds. Also eligible-only pool as prespecified sensitivity.",
+  "feature_scaling": "fit on each fit portion only",
+  "topic_audit": "TRAIN-only word unigram TFIDF and KMeans(k=6,n_init=10,random_state=42); exploratory cluster-author NMI, not topic labels or causal shortcut proof",
+  "paired_inference": "two-sided exact McNemar via binomial test, Holm over four primary all-TRAIN methods; paired accuracy cluster bootstrap by author, 2000 draws seed 20261108",
+  "selection": "All 30 pairs regardless of guard/review; no filtering by external clean status",
+  "syntax": "No English parser model installed at feasibility; sentence structure metrics are proxies, not syntactic analysis",
+  "no_new_rewrites": true,
+  "no_narrative_classifier_training": true,
+  "no_frozen_test_evaluation": true,
+  "no_paid_cloud": true,
+  "script_sha256_before_results": "2d51deb5f9e4c7c7cf3a9e57bddc9f497e5c8ff9f38c1369b4a63fe5534c32ab"
+}

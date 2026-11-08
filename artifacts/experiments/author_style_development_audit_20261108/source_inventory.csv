@@ -1,0 +1,5 @@
+﻿path,role,n,unique_additional_sources
+artifacts\experiments\verified_human_style_followup_20261026\collected_texts.csv,"raw article collection, repeats included",456,False
+artifacts\experiments\verified_human_style_followup_20261026\text_annotations.csv,"unique annotated source universe, machine proposals",429,False
+artifacts\experiments\verified_human_style_followup_20261026\analysis_cohort.csv,"two-narrative eligible subset, all study splits",218,False
+artifacts\experiments\chatgpt_style_rewrite_30_20261102\frozen_comparison_inputs.csv,"same 30 source articles, not 30 new sources",30,False

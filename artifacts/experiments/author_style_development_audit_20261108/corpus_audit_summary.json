@@ -1,0 +1,66 @@
+{
+  "raw_collected": 456,
+  "unique_corpus": 429,
+  "authors": 19,
+  "corpus_by_author_split": {
+    "val": 96,
+    "test": 131,
+    "train": 202
+  },
+  "eligible_by_split": {
+    "test": 70,
+    "train": 105,
+    "val": 43
+  },
+  "development_authors": [
+    "chuck-norris",
+    "connie-schultz",
+    "david-harsanyi",
+    "froma-harrop",
+    "jamie-stiehm",
+    "jim-hightower",
+    "lawrence-kudlow",
+    "marc-dion",
+    "veronique-de-rugy"
+  ],
+  "all_train_available": 202,
+  "eligible_train": 105,
+  "all_train_plus_val_metadata": 298,
+  "train_plus_val_authors": 13,
+  "test_authors": 6,
+  "current_pairs": 30,
+  "additional_eligible_rewrites": 75,
+  "additional_all_train_rewrites": 172,
+  "filled_human_source_labels": 0,
+  "machine_label_distribution": {
+    "Unclear": 203,
+    "Right-wing": 104,
+    "Left-wing": 114,
+    "Zionist": 7,
+    "Ukrainian": 1
+  },
+  "metadata_cross_split_exact_hash_collisions": {},
+  "metadata_cross_split_article_collisions": 0,
+  "development_near_pair_count": 0,
+  "development_groups": 202,
+  "historical_218_split_audit": {
+    "n": 218,
+    "authors": 19,
+    "author_disjoint": true,
+    "exact_duplicate_count": 0,
+    "global_near_duplicates_removed": [],
+    "semantic_cross_split_removed": [],
+    "split_search_uses": "text annotation class coverage only, no classifier predictions",
+    "coverage": "{('test', 'Left-wing'): 37, ('test', 'Right-wing'): 33, ('train', 'Left-wing'): 55, ('train', 'Right-wing'): 50, ('val', 'Left-wing'): 22, ('val', 'Right-wing'): 21}",
+    "limited_to_two_narratives": true
+  },
+  "historical_generated_cross_split_pairs": [],
+  "fresh_test_near_duplicate_scan": false,
+  "test_content_features_computed": false,
+  "topic_author_nmi": 0.11763084270960715,
+  "year_author_nmi": 0.5828997320446937,
+  "human_package_blind_fields_verified": true,
+  "filled_human_pair_fields": 0,
+  "chatgpt_review_per_id_imported": false,
+  "missing_review": "ChatGPT per-ID ratings + notes + reviewer/model/prompt/date; aggregate only available"
+}

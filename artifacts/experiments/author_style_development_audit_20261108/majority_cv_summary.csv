@@ -1,0 +1,5 @@
+﻿cohort,accuracy_mean,macro_f1_mean
+train_all_annotations,0.1,0.06744607244607245
+train_eligible_Left-wing,0.38181818181818183,0.1105263157894737
+train_eligible_Right-wing,0.28,0.0875
+train_eligible_narrative,0.2,0.037037037037037035

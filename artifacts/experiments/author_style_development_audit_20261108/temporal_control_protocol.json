@@ -1,0 +1,31 @@
+{
+  "status": "post-hoc sensitivity after main results; no confirmatory inference",
+  "motivation": "Strong author/year association identified in development metadata",
+  "selection": "All authors whose available train sources all date to 2026; independent of review, guards and rewrite outcomes",
+  "authors": [
+    "david-harsanyi",
+    "froma-harrop",
+    "jamie-stiehm",
+    "jim-hightower",
+    "marc-dion",
+    "veronique-de-rugy"
+  ],
+  "n_sources": 139,
+  "n_pairs": 20,
+  "methods": [
+    "surface_66",
+    "function_punctuation",
+    "char_tfidf",
+    "word_content_control"
+  ],
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    31415
+  ],
+  "all_30_primary_results_retained": true,
+  "narrative_training": false,
+  "test_used": false
+}

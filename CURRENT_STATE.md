@@ -1,6 +1,6 @@
 # Current Research State
 
-Updated: 2026-11-02. This is the changing status page; [README](README.md) provides the stable research overview.
+Updated: 2026-11-09. This is the changing status page; [README](README.md) provides the stable research overview.
 
 ## Current research question
 
@@ -16,7 +16,7 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
-A separate **ChatGPT-generated Style Rewrite experiment** on the same 30 frozen TRAIN originals has completed import and unchanged automatic screening. Generation was performed outside this repo, according to the user from Original only; model version/prompt/request history were not supplied. External LLM Review aggregate counts are now imported; per-ID ratings are unavailable. Human Validation remains Pending. No process is running. Prior v2/v3/repair outputs remain intact.
+The **development corpus audit and expanded Author-ID baseline** are complete. New analyses use 202 originals from nine train authors and all 30 existing paired rewrites; validation/test remain outside model development. Human Validation is Pending; ChatGPT external review is aggregate-only. No process is running, no new rewrite was generated and no Narrative Classifier/test experiment was run.
 
 The central [FINAL_REPORT_HE.md](artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md) first describes the completed 218-text V2 automatic stage, then appends the 30-train v2 prompt/review checkpoints. Its 114 matched automatic passes are a different denominator from v2's 6/30. [The new v3 report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_v3_30_20261102/REPORT_HE.md) is separate; no prior results were overwritten. Human Validation remains Pending.
 
@@ -41,7 +41,7 @@ Labels, human-review fields, thresholds, filtering, model/runtime and decoding r
 
 ## Next decision
 
-Obtain actual human judgments for **all 30 pairs** using the [blank Human Validation package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md). External LLM Review aggregate counts are imported (24 meaning Yes; 16 clean according to External LLM Review); per-ID ratings were not supplied. Human Validation remains Pending. The paired Author-ID diagnostic shows only a small, seed-unstable matched decrease, and an increase with a fixed Original classifier; author-signal reduction is not established. Do not select the 16, tune prompts/guards, train the Narrative Classifier, run LoRA or evaluate the frozen test.
+Complete independent human preservation judgments for **all 30 pairs** and human narrative labels for source texts; obtain ChatGPT per-ID external review and original generator provenance. The expanded train-only Author-ID diagnostics show mixed, representation-dependent intervention effects, not robust author-cue removal. A 75-source rewrite manifest and central-experiment design are ready, but no new batch, prompt/guard tuning, Narrative Classifier training, LoRA or frozen-test evaluation is authorized by these results. See the [new development report](artifacts/experiments/author_style_development_audit_20261108/REPORT_HE.md).
 
 ## Focused guard error analysis — 2026-11-01
 
@@ -110,3 +110,17 @@ Author-ID השתמש בכל 30 זוגות ה־train, בתשעה כותבים ו�
 
 [Analysis report](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/REPORT_HE.md) · [Human package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md) · [Reproduce](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/REPRODUCTION.md)
 <!-- END_CHATGPT_REVIEW_AUTHOR_20261102 -->
+
+
+## Development corpus audit and expanded Author-ID — 2026-11-08/09
+
+New development-only audit: **429 unique excerpts / 19 authors**, but only **202 originals / 9 train authors** were used in new features, topics and models. There are **105 eligible narrative-train sources**, **96 raw validation / 4 authors** and **131 raw test / 6 authors**; test/validation content was not used. All corpus narrative labels remain machine proposals (0/429 human source labels filled). No exact hash collision across frozen splits; no lexical near-duplicate among the 202 train texts at the documented audit thresholds. A fresh semantic near-duplicate scan against test was deliberately not performed.
+
+Author-ID on held-out original sources (5-seed grouped CV, 202 train): character TF-IDF accuracy **48.42%**, Macro-F1 **0.4318**; surface-66 **29.11% / 0.2899**. This establishes predictability in this development sample, not pure style; word-content control also predicts authors and publication years are strongly author-confounded.
+
+For the intervention question, each classifier was fit on **172 different original sources** and then predicted the same **30 held-out Original/Rewrite pairs**: surface accuracy **46.67%→33.33%**, function/punctuation **50.00%→26.67%**, character and word controls both **53.33%→53.33%**. The smallest Holm-adjusted primary p is **0.15625**; resampling and eligible-only controls are mixed. A separately labeled post-hoc 2026-only sensitivity retains lexical cues. **Some surface cues change, but robust author-signal removal and narrative generalization are not established.** No Narrative Classifier was trained or test-evaluated.
+
+The 30 pairs and blank Human Validation package remain unchanged. ChatGPT External LLM Review is still aggregate-only; per-ID ratings/notes and generator provenance are missing. An exact manifest of **75 additional eligible train Originals** is prepared, with no new rewrites. A main-experiment design separates fixed-model sensitivity from controlled training/unseen-author evaluation; neither main experiment was run. **19 integrity tests passed.**
+
+[Summary](artifacts/experiments/author_style_development_audit_20261108/REPORT_HE.md) · [Corpus](artifacts/experiments/author_style_development_audit_20261108/CORPUS_AUDIT_HE.md) · [Author-ID](artifacts/experiments/author_style_development_audit_20261108/AUTHOR_ID_RESULTS_HE.md) · [Style/content](artifacts/experiments/author_style_development_audit_20261108/PAIRED_STYLE_CONTENT_HE.md) · [Next experiment plan](artifacts/experiments/author_style_development_audit_20261108/MAIN_EXPERIMENT_PLAN_HE.md) · [Reproduce/tests](artifacts/experiments/author_style_development_audit_20261108/REPRODUCTION.md)
+<!-- END_DEVELOPMENT_AUTHOR_AUDIT_20261108 -->

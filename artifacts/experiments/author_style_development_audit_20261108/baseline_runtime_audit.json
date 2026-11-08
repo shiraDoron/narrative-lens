@@ -1,0 +1,17 @@
+{
+  "versions": {
+    "numpy": "2.2.5",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.0"
+  },
+  "n_original_train": 202,
+  "n_paired": 30,
+  "all_train_fit_excluding_pairs": 172,
+  "eligible_fit_excluding_pairs": 75,
+  "same_fitted_classifier_for_original_and_rewrite": true,
+  "no_test_features": true,
+  "no_narrative_models": true,
+  "source_code_sha256": "2d51deb5f9e4c7c7cf3a9e57bddc9f497e5c8ff9f38c1369b4a63fe5534c32ab",
+  "protocol_sha256": "4270c8307c3db21db232e6781fd724507a48e7c4c1ecc335a3463cf28061f6c0",
+  "methods_fixed_before_results": true
+}

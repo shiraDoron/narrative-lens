@@ -1,0 +1,6 @@
+{
+  "purpose": "Audit reference only, appended after the four fixed model runs; no model method or parameter selected from results",
+  "tie_break": "Lexicographic author ID",
+  "uniform_chance": "Analytic 1 / fit author classes",
+  "no_test": true
+}

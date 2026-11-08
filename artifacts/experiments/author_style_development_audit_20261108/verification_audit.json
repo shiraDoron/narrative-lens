@@ -1,0 +1,13 @@
+{
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "all_passed": true,
+  "test_code_sha256": "5a88f7b9172518751f1999e4f954d5c4675ce835c5212ee4d68d127688f8beb6",
+  "recorded_at_utc": "2026-11-08T22:24:14.548793+00:00",
+  "source_inputs_unchanged": true,
+  "human_fields_blank": true,
+  "all_30_in_primary_paired_evaluation": true,
+  "posthoc_temporal_control_labeled_separately": true,
+  "narrative_classifier_fit_or_test": false
+}

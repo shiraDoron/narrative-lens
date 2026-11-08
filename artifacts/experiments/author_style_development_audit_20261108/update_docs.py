@@ -1,0 +1,25 @@
+"""Brief root status update; experimental inputs remain protected/read-only."""
+from run import *
+def append(path,body):
+    marker='\n\n## Development corpus audit and expanded Author-ID — 2026-11-08/09\n\n';end='\n<!-- END_DEVELOPMENT_AUTHOR_AUDIT_20261108 -->\n'
+    old=path.read_bytes().decode('utf8');actual=marker if marker in old else marker.replace('\n','\r\n');block=marker+body.rstrip()+end
+    if actual in old:
+        start=old.index(actual);finish=end if end in old[start:] else end.replace('\n','\r\n');stop=old.index(finish,start)+len(finish);new=old[:start]+block+old[stop:]
+    else:new=old+block
+    path.write_bytes(new.encode('utf8'))
+def main():
+    protected()
+    body='New development-only audit: **429 unique excerpts / 19 authors**, but only **202 originals / 9 train authors** were used in new features, topics and models. There are **105 eligible narrative-train sources**, **96 raw validation / 4 authors** and **131 raw test / 6 authors**; test/validation content was not used. All corpus narrative labels remain machine proposals (0/429 human source labels filled). No exact hash collision across frozen splits; no lexical near-duplicate among the 202 train texts at the documented audit thresholds. A fresh semantic near-duplicate scan against test was deliberately not performed.\n\n'
+    body+='Author-ID on held-out original sources (5-seed grouped CV, 202 train): character TF-IDF accuracy **48.42%**, Macro-F1 **0.4318**; surface-66 **29.11% / 0.2899**. This establishes predictability in this development sample, not pure style; word-content control also predicts authors and publication years are strongly author-confounded.\n\n'
+    body+='For the intervention question, each classifier was fit on **172 different original sources** and then predicted the same **30 held-out Original/Rewrite pairs**: surface accuracy **46.67%→33.33%**, function/punctuation **50.00%→26.67%**, character and word controls both **53.33%→53.33%**. The smallest Holm-adjusted primary p is **0.15625**; resampling and eligible-only controls are mixed. A separately labeled post-hoc 2026-only sensitivity retains lexical cues. **Some surface cues change, but robust author-signal removal and narrative generalization are not established.** No Narrative Classifier was trained or test-evaluated.\n\n'
+    body+='The 30 pairs and blank Human Validation package remain unchanged. ChatGPT External LLM Review is still aggregate-only; per-ID ratings/notes and generator provenance are missing. An exact manifest of **75 additional eligible train Originals** is prepared, with no new rewrites. A main-experiment design separates fixed-model sensitivity from controlled training/unseen-author evaluation; neither main experiment was run. **18 integrity tests passed.**\n\n'
+    body=body.replace('**18 integrity tests passed.**','**'+str(read('verification_audit.json')['tests_run'])+' integrity tests passed.**')
+    body+='[Summary](artifacts/experiments/author_style_development_audit_20261108/REPORT_HE.md) · [Corpus](artifacts/experiments/author_style_development_audit_20261108/CORPUS_AUDIT_HE.md) · [Author-ID](artifacts/experiments/author_style_development_audit_20261108/AUTHOR_ID_RESULTS_HE.md) · [Style/content](artifacts/experiments/author_style_development_audit_20261108/PAIRED_STYLE_CONTENT_HE.md) · [Next experiment plan](artifacts/experiments/author_style_development_audit_20261108/MAIN_EXPERIMENT_PLAN_HE.md) · [Reproduce/tests](artifacts/experiments/author_style_development_audit_20261108/REPRODUCTION.md)'
+    p=ROOT/'CURRENT_STATE.md';text=p.read_text(encoding='utf8')
+    text=re.sub(r'Updated: \d{4}-\d{2}-\d{2}\.', 'Updated: 2026-11-09.',text,count=1)
+    next_step='Complete independent human preservation judgments for **all 30 pairs** and human narrative labels for source texts; obtain ChatGPT per-ID external review and original generator provenance. The expanded train-only Author-ID diagnostics show mixed, representation-dependent intervention effects, not robust author-cue removal. A 75-source rewrite manifest and central-experiment design are ready, but no new batch, prompt/guard tuning, Narrative Classifier training, LoRA or frozen-test evaluation is authorized by these results. See the [new development report](artifacts/experiments/author_style_development_audit_20261108/REPORT_HE.md).'
+    text,n=re.subn(r'(## Next decision\n\n).*?(?=\n## )',lambda m:m.group(1)+next_step+'\n',text,count=1,flags=re.S);assert n==1
+    active='The **development corpus audit and expanded Author-ID baseline** are complete. New analyses use 202 originals from nine train authors and all 30 existing paired rewrites; validation/test remain outside model development. Human Validation is Pending; ChatGPT external review is aggregate-only. No process is running, no new rewrite was generated and no Narrative Classifier/test experiment was run.'
+    text,n=re.subn(r'(## Current active experiment\n\n).*?(?=\n\n)',lambda m:m.group(1)+active,text,count=1,flags=re.S);assert n==1;p.write_text(text,encoding='utf8')
+    append(p,body);append(ROOT/'EXPERIMENTS.md',body);protected()
+if __name__=='__main__':main()
