@@ -1,0 +1,19 @@
+{
+  "all_30_included": true,
+  "no_review_based_selection": true,
+  "no_pair_crosses_folds": true,
+  "unique_articles": true,
+  "all_30_oof_each_seed_and_representation": true,
+  "human_fields_all_blank": true,
+  "source_sha256": {
+    "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\CHATGPT_STYLE_REWRITE_30_20261102.csv": "f37909a93929ba772af40cf91a2c15140a6b5726ebee2011d9dc3cb33f254dde",
+    "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\analysis_cohort.csv": "7aac6ed96214a4d163e6e0ddbae099abf13a89e7a4b92a4fe34fde6cbffd93c1",
+    "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\frozen_comparison_inputs.csv": "23f18f8fe322999f4ad0a4ae99427eb14aebc88657cfd4097360e1d0a410f008",
+    "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f"
+  },
+  "author_feature_code": "existing 66 features, unchanged",
+  "created_at_utc": "2026-11-02T16:10:10.732545+00:00",
+  "no_narrative_training": true,
+  "no_test_evaluation": true
+}

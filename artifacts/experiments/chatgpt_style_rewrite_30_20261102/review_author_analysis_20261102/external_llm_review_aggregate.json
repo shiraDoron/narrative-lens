@@ -1,0 +1,66 @@
+{
+  "source": "User-provided aggregate counts in conversation, 2026-11-02",
+  "review_name": "External LLM Review — ChatGPT Style Rewrite",
+  "independence": "Reported by user; context/request history not supplied",
+  "n": 30,
+  "counts": {
+    "meaning_preserved": {
+      "Yes": 24,
+      "Borderline": 6,
+      "No": 0
+    },
+    "narrative_stance_preserved": {
+      "Yes": 28,
+      "Borderline": 2,
+      "No": 0
+    },
+    "attribution_preserved": {
+      "Yes": 28,
+      "Borderline": 2,
+      "No": 0
+    },
+    "certainty_preserved": {
+      "Yes": 26,
+      "Borderline": 2,
+      "No": 2
+    },
+    "participant_roles_preserved": {
+      "Yes": 29,
+      "Borderline": 1,
+      "No": 0
+    },
+    "event_characterization_preserved": {
+      "Yes": 22,
+      "Borderline": 8,
+      "No": 0
+    },
+    "rhetorical_intensity_preserved": {
+      "Yes": 19,
+      "Borderline": 10,
+      "No": 1
+    },
+    "quote_fidelity": {
+      "Yes": 11,
+      "N/A": 19
+    },
+    "style_change_valid": {
+      "Yes": 24,
+      "Borderline": 6,
+      "No": 0
+    },
+    "semantic_drift": {
+      "Yes": 3,
+      "Borderline": 11,
+      "No": 16
+    }
+  },
+  "per_id_ratings_available": false,
+  "reviewer_model": null,
+  "review_prompt": null,
+  "review_date": null,
+  "clean_label": "clean according to External LLM Review",
+  "clean_definition": "semantic_drift = No, not a conjunction of other fields",
+  "clean_count": 16,
+  "human_validation": false,
+  "review_performed_here": false
+}

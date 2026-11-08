@@ -16,7 +16,7 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
-A separate **ChatGPT-generated Style Rewrite experiment** on the same 30 frozen TRAIN originals has completed import and unchanged automatic screening. Generation was performed outside this repo, according to the user from Original only; model version/prompt/request history were not supplied. Independent review is Pending. No process is running. Prior v2/v3/repair outputs remain intact.
+A separate **ChatGPT-generated Style Rewrite experiment** on the same 30 frozen TRAIN originals has completed import and unchanged automatic screening. Generation was performed outside this repo, according to the user from Original only; model version/prompt/request history were not supplied. External LLM Review aggregate counts are now imported; per-ID ratings are unavailable. Human Validation remains Pending. No process is running. Prior v2/v3/repair outputs remain intact.
 
 The central [FINAL_REPORT_HE.md](artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md) first describes the completed 218-text V2 automatic stage, then appends the 30-train v2 prompt/review checkpoints. Its 114 matched automatic passes are a different denominator from v2's 6/30. [The new v3 report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_v3_30_20261102/REPORT_HE.md) is separate; no prior results were overwritten. Human Validation remains Pending.
 
@@ -41,7 +41,7 @@ Labels, human-review fields, thresholds, filtering, model/runtime and decoding r
 
 ## Next decision
 
-Prepare a separately performed External LLM Review of the imported **ChatGPT Style Rewrite** outputs using the [new blind package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REVIEW_PACKAGE_BLIND_30.md). Automatic screening is complete; these outputs are not independently reviewed or human validated. Stop before review, retraining, test evaluation, new LoRA or any guard/threshold changes. Existing-tool feasibility and repair development remain separate historical checkpoints.
+Obtain actual human judgments for **all 30 pairs** using the [blank Human Validation package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md). External LLM Review aggregate counts are imported (24 meaning Yes; 16 clean according to External LLM Review); per-ID ratings were not supplied. Human Validation remains Pending. The paired Author-ID diagnostic shows only a small, seed-unstable matched decrease, and an increase with a fixed Original classifier; author-signal reduction is not established. Do not select the 16, tune prompts/guards, train the Narrative Classifier, run LoRA or evaluate the frozen test.
 
 ## Focused guard error analysis — 2026-11-01
 
@@ -84,3 +84,29 @@ Automated pass הוא signal בלבד; substantial style הוא proxy. אין ע
 
 [Report](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REPORT_HE.md) · [Blind review input](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REVIEW_PACKAGE_BLIND_30.md) · [Reproduce](artifacts/experiments/chatgpt_style_rewrite_30_20261102/REPRODUCTION.md)
 <!-- END_CHATGPT_REWRITE_30 -->
+
+
+## ChatGPT external review and author signals — 2026-11-02
+
+נשמרו ספירות External LLM Review שסיפק המשתמש: Meaning 24 Yes / 6 Borderline / 0 No; Style 24 Yes / 6 Borderline / 0 No; Semantic drift 3 Yes / 11 Borderline / 16 No. **16 clean according to External LLM Review**, לפי drift=No בלבד — לא Human Validation ולא כלל קבלה משולב. אין הכרעות לפי ID, ולכן אין שיוך 16 אלה לרשומות או חישוב חפיפות בין שדות. כל הספירות הנוספות והמקור המצרפי נשמרו בדוח הניתוח. לא נערך review חדש כאן.
+
+| Method | Auto_preservation | External_LLM_meaning_Yes | External_LLM_style_Yes | Clean_no_drift |
+| --- | --- | --- | --- | --- |
+| v2 | 6 | 10 | 30 | 10 |
+| v3 | 9 | 5 | 27 | 5 |
+| ChatGPT | 22 | 24 | 24 | 16 |
+
+חבילת Human Validation נוצרה לכל 30 הזוגות עם חמשת השדות הריקים, ללא scores, guards, מחבר, גרסאות קודמות או review. טרם הוחזרה בדיקה אנושית: **Human Validation Pending**. לא נבחר subset של 16. כלל קבלה עתידי אפשרי: human meaning=Yes וגם stance=Yes וגם style=Yes, המוחל על כל ה־30; לא הוחל כעת.
+
+| Author-ID setting | Accuracy | Macro-F1 |
+| --- | --- | --- |
+| Original | 23.33% | 0.1964 |
+| Rewrite | 22.00% | 0.1867 |
+| Original_fit_Rewrite_dev | 28.00% | 0.2129 |
+
+Author-ID השתמש בכל 30 זוגות ה־train, בתשעה כותבים וב־66 מאפייני style קיימים. Logistic Regression זהה מבחינת pipeline/פרמטרים, עם fit נפרד לכל representation, שתי חלוקות stratified לכל אחד מחמישה seeds ו־scaling בתוך fold בלבד. במסלול המשני אותו fitted Original classifier נבחן על paired Rewrite. זהו development closed-set, לא test או unseen-author evaluation. הירידה הממוצעת קטנה: accuracy −1.33pp ו־Macro-F1 −0.0097; accuracy יורד רק ב־2/5 seeds, ובמסווג המקור הקבוע עולה ל־28%. **אין כרגע ראיה יציבה שה־author signal ירד.** אין להציג את הממוצע הקטן כהסרת סגנון כותב מוכחת או כהשפעה על narrative generalization.
+
+החידוש אינו בהכרח Text Style Transfer חדש. השאלה המחקרית היא האם Narrative Classifier משתמש ב־author style כ־shortcut, והאם הפחתת author-specific style תוך שמירת narrative משפרת generalization ל־unseen authors. ChatGPT rewrite הוא intervention candidate, לא contribution בפני עצמו. לא שונו prompt/guards/thresholds/split, לא אומן Narrative Classifier ולא בוצעו LoRA או test evaluation. אומנו רק probes זמניים של Author-ID, ללא שמירת weights.
+
+[Analysis report](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/REPORT_HE.md) · [Human package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md) · [Reproduce](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/REPRODUCTION.md)
+<!-- END_CHATGPT_REVIEW_AUTHOR_20261102 -->

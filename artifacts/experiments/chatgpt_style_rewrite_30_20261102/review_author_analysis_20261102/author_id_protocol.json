@@ -1,0 +1,50 @@
+{
+  "scope": "All 30 paired existing TRAIN examples; closed-set author identification, not frozen test evaluation",
+  "target": "author, never narrative",
+  "authors": {
+    "marc-dion": 4,
+    "froma-harrop": 4,
+    "veronique-de-rugy": 3,
+    "david-harsanyi": 3,
+    "chuck-norris": 4,
+    "lawrence-kudlow": 4,
+    "jamie-stiehm": 4,
+    "jim-hightower": 2,
+    "connie-schultz": 2
+  },
+  "n": 30,
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    31415
+  ],
+  "n_splits": 2,
+  "split_strategy": "Paired StratifiedKFold, shuffle=True; no Original/Rewrite pair crosses folds",
+  "article_groups_unique": true,
+  "primary": "Matched representation: fit Original/train -> Original/dev; independently fit Rewrite/train -> Rewrite/dev with identical pipeline, hyperparameters and fold IDs",
+  "secondary": "Same fitted Original pipeline -> paired Rewrite/dev; diagnostic for transfer/distribution shift",
+  "features": "existing 66 raw stylometric features, including function-word rates; no topic/content embeddings",
+  "scaling": "StandardScaler fit on training fold separately inside each pipeline; never full-data or held-out scaling",
+  "classifier": {
+    "type": "LogisticRegression",
+    "C": 1.0,
+    "max_iter": 2000,
+    "solver": "lbfgs",
+    "class_weight": null
+  },
+  "hyperparameter_search": false,
+  "review_based_selection": false,
+  "all_30_included": true,
+  "acceptance_rule": "not applied; future human meaning=Yes AND human stance=Yes AND human style=Yes applied to every row",
+  "human_validation": "Pending",
+  "narrative_classifier_training": false,
+  "test_evaluation": false,
+  "weights_saved": false,
+  "versions": {
+    "numpy": "2.2.5",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.17.1"
+  }
+}
