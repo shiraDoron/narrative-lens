@@ -1,0 +1,4 @@
+* -text
+*.csv -whitespace
+# Preserve literal legacy paraphrase whitespace; do not clean source text for Git.
+HUMAN_PARAPHRASE_REVIEW_105.md -whitespace

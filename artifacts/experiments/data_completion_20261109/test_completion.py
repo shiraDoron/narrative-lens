@@ -145,6 +145,8 @@ class CompletionTests(unittest.TestCase):
             tmp=Path(tmp);(tmp/'runs'/'fixture').mkdir(parents=True)
             with patch.object(cc,'HERE',tmp),patch.object(cc,'registry',lambda *a:received):out=cc.compile_run('fixture')
             rows=b.read(out/'CANDIDATE_ID_MAP_105.csv');self.assertEqual(len(rows),105)
+            self.assertTrue(all(r['style_present']=='True' for r in rows))
+            self.assertTrue(all(r['original_present']=='True' and r['paraphrase_present']=='True' for r in rows))
             for r in rows:
                 if r['ID'] in b.legacy():self.assertEqual(r['Style'],b.legacy()[r['ID']]['Style'])
             for arm,mult in [('A',1),('B',1),('C',1),('D',2),('E',2)]:

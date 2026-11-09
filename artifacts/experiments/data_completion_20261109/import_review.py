@@ -14,7 +14,7 @@ def parse(source,kind):
     text=source.read_text(encoding='utf-8-sig');rows=[]
     for match in re.finditer(r'^## (creators:[^\r\n]+)\s*\n(.*?)(?=^## creators:|\Z)',text,re.S|re.M):
         rid,block=match.groups();fields=dict(re.findall(r'^\| ([a-z_]+) \| (.*?) \|\s*$',block,re.M))
-        if kind=='labels105':
+        if kind in ('labels105','labels43'):
             original=block.split('**תווית מוצעת')[0].strip()
             proposed=re.search(r'\*\*תווית מוצעת בלבד, לא gold:\*\* ([^\r\n]+)',block)
             rows.append(dict(ID=rid,Original=original,proposed_label=proposed.group(1) if proposed else '',**fields))
@@ -27,6 +27,14 @@ def parse(source,kind):
 def registry(kind,run=None):
     if kind=='pairs30':return legacy()
     if kind=='labels105':return {r['ID']:r for r in mapping()}
+    if kind=='labels43':
+        from bundle import FOLLOW
+        return {r['row_id']:dict(ID=r['row_id'],Original=r['text'],label=r['narrative_name'])
+                for r in read(FOLLOW/'analysis_cohort.csv') if r['split']=='val'}
+    if kind=='pairs105':
+        combined={**legacy(),**registry('pairs75',run)}
+        if len(combined)!=105:raise ValueError('Expected exact105 combined text pairs')
+        return combined
     if not run:raise ValueError('pairs75 requires an ingested run name')
     run_dir=(HERE/'runs'/run).resolve()
     if run_dir.parent!=(HERE/'runs').resolve():raise ValueError('Invalid run name')
@@ -47,7 +55,7 @@ def validate(rows,expected,kind,reviewer_type):
         declared=(row.get('reviewer_type') or '').lower()
         if declared and declared!=reviewer_type:raise ValueError(f'{rid}: reviewer_type contradicts import metadata')
         if reviewer_type=='human' and 'llm' in (row.get('review_type') or '').lower():raise ValueError('LLM review cannot be imported as human')
-        if kind=='labels105':
+        if kind in ('labels105','labels43'):
             if row.get('proposed_label')!=expected[rid]['label']:raise ValueError('Proposed label changed')
             if row.get('human_label') not in ['Right-wing','Left-wing','Unclear','Mixed','Other']:raise ValueError(f'{rid}: missing/invalid human_label')
             if row.get('proposed_label_correct') not in ['Yes','No','Borderline']:raise ValueError('Missing label agreement rating')
@@ -84,17 +92,17 @@ def import_file(source,kind,reviewer_type,reviewer_id,review_date,name,run=None,
     save(dest/'reviews_by_id.csv',rows)
     issues=[]
     for r in rows:
-        if kind!='labels105' and r['human_meaning_preserved']=='Yes' and r['human_semantic_drift']=='Yes':issues.append(dict(ID=r['ID'],issue='meaning Yes and drift Yes; retain ratings, clarify'))
+        if kind not in ('labels105','labels43') and r['human_meaning_preserved']=='Yes' and r['human_semantic_drift']=='Yes':issues.append(dict(ID=r['ID'],issue='meaning Yes and drift Yes; retain ratings, clarify'))
         if any(v=='Borderline' for v in r.values()) and not r.get('human_notes'):issues.append(dict(ID=r['ID'],issue='Borderline without notes; retain ratings, clarify'))
     dump(dest/'IMPORT_MANIFEST.json',dict(kind=kind,n=len(rows),source_sha256=sha(source),reviewer_type=reviewer_type,
       reviewer_id=reviewer_id,review_date=review_date,assistance_used=assistance,
       attribution_basis='Explicit user-supplied metadata; reviewer identity not independently verified',
       ratings_edited=False,original_human_files_overwritten=False,issues=issues,
-      text_version=run or ('train105_20261026' if kind=='labels105' else 'legacy_chatgpt30_20261102')))
+      text_version=('train105_20261026' if kind=='labels105' else 'validation43_20261026' if kind=='labels43' else run or 'legacy_chatgpt30_20261102')))
     verify();return dest
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True)
-    p.add_argument('--kind',choices=['pairs30','pairs75','labels105'],required=True)
+    p.add_argument('--kind',choices=['pairs30','pairs75','pairs105','labels105','labels43'],required=True)
     p.add_argument('--reviewer-type',choices=['human','llm'],required=True);p.add_argument('--reviewer-id',required=True)
     p.add_argument('--review-date',required=True);p.add_argument('--name',required=True);p.add_argument('--run');p.add_argument('--assistance-used',default='not supplied')
     a=p.parse_args()

@@ -1,0 +1,12 @@
+{
+  "style_pairs": 105,
+  "paraphrase_pairs": 105,
+  "source_labels_train": 105,
+  "source_labels_validation": 43,
+  "human_answers_filled": 0,
+  "ratings_inferred_from_llm": false,
+  "test_texts_exported": 0,
+  "assisted_review_is_blind": false,
+  "independent_review_contains_qc": false,
+  "quantifier_hints_are_descriptive_not_new_guards": true
+}

@@ -1,0 +1,54 @@
+{
+  "audit_date": "2026-11-10",
+  "training_ready": false,
+  "sources": 105,
+  "originals": 105,
+  "paraphrases": 105,
+  "style_rewrites": 105,
+  "missing_styles": 0,
+  "style_protocol_counts": {
+    "chatgpt_style_extension_v1_20261109": 75,
+    "legacy_chatgpt30_20261102_unknown_prompt": 30
+  },
+  "proposed_label_counts": {
+    "Right-wing": 50,
+    "Left-wing": 55
+  },
+  "author_split_counts": {
+    "train": 9,
+    "val": 4,
+    "test": 6
+  },
+  "author_disjoint": true,
+  "cross_split_exact_hash_collisions": {
+    "text_sha256": 0,
+    "article_snapshot_sha256": 0
+  },
+  "near_duplicate_caution": "Only inherited train202 near-duplicate audit; no new semantic scan of frozen test",
+  "configs_checked": 25,
+  "schedules_checked": 25,
+  "fixed_updates": 140,
+  "processed_examples": 2240,
+  "tokens_and_flops_equal": false,
+  "initialization_equal_in_configs_not_execution_verified": true,
+  "human_status": {
+    "attributable_import_manifests": 0,
+    "source_labels_train": 0,
+    "source_labels_validation": 0,
+    "style_pairs": 0,
+    "paraphrase_pairs": 0
+  },
+  "blockers": [
+    "105 train source labels require attributable human validation; proposals are not gold",
+    "43 validation source labels require attributable human validation",
+    "105 Style pair judgments and105 Paraphrase pair judgments are missing; auto pass does not substitute",
+    "Resolve disagreements/Borderline and apply the preregistered shared-ID symmetric fallback before training approval",
+    "Legacy30 generator model/prompt remain unknown; document the mixed-protocol interpretation before scientific training",
+    "No approved end-to-end A-E trainer/evaluation bridge yet; historical evaluate()/train() must not be used as a drop-in"
+  ],
+  "task": "text-level Left/Right; historical seven-output head retained only for protocol compatibility",
+  "test_texts_exported": 0,
+  "test_predictions": 0,
+  "training_runs": 0,
+  "candidate_map_sha256": "a0a668e6deb7503d2c75b6d13ba9bd5477c89e48ac329ed5cc91886952d0ab24"
+}

@@ -1,0 +1,11 @@
+{
+  "n_sources": 105,
+  "conditions": 5,
+  "legacy30_unchanged": true,
+  "new75_received": true,
+  "mixed_protocol": true,
+  "training_ready": false,
+  "source_label_gold_not_assumed": true,
+  "no_training": true,
+  "no_test_evaluation": true
+}

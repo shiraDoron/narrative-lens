@@ -20,6 +20,11 @@ def compile_run(name):
         else:
             assert r['ID'] in legacy() and r['Style']==legacy()[r['ID']]['Style']
             row['style_protocol_cohort']='legacy_chatgpt30_20261102_unknown_prompt'
+        # The historical map marks the extension75 as missing. Once bound to a
+        # received output, refresh availability without implying QC acceptance.
+        row['original_present']=bool(row['Original'])
+        row['paraphrase_present']=bool(row['Paraphrase'])
+        row['style_present']=bool(row['Style'])
         row['training_ready']=False;rows.append(row)
     assert len(rows)==105 and len({r['ID'] for r in rows})==105 and all(r['split']=='train' and r['Style'] and r['Paraphrase'] for r in rows)
     spec=importlib.util.spec_from_file_location('frozen_main_prep_schedules',PREP/'prepare.py')

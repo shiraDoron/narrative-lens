@@ -1,0 +1,32 @@
+{
+  "condition": "A",
+  "seed": 123,
+  "view_file": "DRAFT_ARM_A.csv",
+  "n_sources": 105,
+  "n_examples": 105,
+  "label_space": [
+    "Right-wing",
+    "Left-wing"
+  ],
+  "output_label_order": [
+    "Zionist",
+    "Resistance",
+    "Western",
+    "Russian",
+    "Ukrainian",
+    "Right-wing",
+    "Left-wing"
+  ],
+  "encoder": "same frozen production MiniLM; no encoder fine-tuning",
+  "head": "fresh 384->128 ReLU Dropout(.3)->7",
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "batch_size": 16,
+  "optimizer_updates": 140,
+  "processed_examples": 2240,
+  "checkpoint_rule": "evaluate all fixed steps; no condition-specific early stopping; one final checkpoint",
+  "validation": "original validation texts only; no frozen-test inputs; labels must pass human gate",
+  "training_ready": false,
+  "readiness_reason": "Received generation is not human-gold/QC approval; mixed legacy/extension protocol must be recorded",
+  "schedule": "SCHEDULE_A_seed123.csv"
+}

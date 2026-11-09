@@ -1,0 +1,10 @@
+{
+  "base_commit": "c5eab72800729707062e0e4f8f6ec749a7610110",
+  "base_document_sha256": "8536518c9502ab912c6cbfa33d9c808062f522b13c2d24c90a843facc8075344",
+  "revised_document_sha256": "713d1cf44caf7d734eaa19bc5da452da8a4232137f79e9d827cbd75e5bf78f05",
+  "local_document_changes_at_start": false,
+  "removed_reference_targets": [],
+  "missing_reported_decimal_values": [],
+  "numerical_results_edited": false,
+  "scientific_protocol_edited": false
+}
