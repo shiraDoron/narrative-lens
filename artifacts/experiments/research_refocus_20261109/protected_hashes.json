@@ -1,0 +1,12 @@
+{
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\frozen_comparison_inputs.csv": "23f18f8fe322999f4ad0a4ae99427eb14aebc88657cfd4097360e1d0a410f008",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\CHATGPT_STYLE_REWRITE_30_20261102.csv": "f37909a93929ba772af40cf91a2c15140a6b5726ebee2011d9dc3cb33f254dde",
+  "artifacts\\experiments\\style_intervention_v2_20261026\\external_review_30_20261101\\review_30_train_only.csv": "890bcf688ef43fb00605b6b38c17fa71a95def425ab13545ade9b969622b7f82",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\analysis_cohort.csv": "b9179f67418c516c05a75708d087a95406c1ac9753ef311c9fb9ada942aee663",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\author_splits.csv": "113af071c0275328405850e485b62bb46eefd714128a6beeac621b9a8894be47",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\checkpoints\\full_original_baseline_Original_seed42.pt": "cfb6f8d5497839687305d2d15c38c0874be393e52642ae1ffb3b16fa8bb57825",
+  "models\\best_model_sbert_only.pth": "82710c7b88d35b4d4855be11d1571087e2c0bcd362b27f50b80eb56b7d314cad",
+  "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8",
+  "src\\narrative_lens\\config.py": "2a496b0a5ba042f947fd0e6f10261cfb91e09ca4fe490cdbfdc50cfba0af5078",
+  "artifacts\\experiments\\research_refocus_20261109\\run_pilot.py": "3b7a676ba73335d8dcd1ad25abb4b6dde7f48b8b56e42c6379343b94d5337183"
+}

@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-09",
+  "primary_model": "artifacts\\experiments\\verified_human_style_followup_20261026\\checkpoints\\full_original_baseline_Original_seed42.pt",
+  "seed_selection": "42 fixed convention, no outcome selection",
+  "encoder": "Existing production MiniLM weights, exactly base.encoder()",
+  "architecture": "384->128 ReLU Dropout(.3)->7, eval mode, strict state loading",
+  "label_order": [
+    "Zionist",
+    "Resistance",
+    "Western",
+    "Russian",
+    "Ukrainian",
+    "Right-wing",
+    "Left-wing"
+  ],
+  "active_training_labels": [
+    "Right-wing",
+    "Left-wing"
+  ],
+  "compatibility": "Exact same source corpus, label definitions and index order; two active labels, not seven-class validation",
+  "scope": "All 30 train sources including rejected/borderline; no test/val predictions",
+  "head_training": "Existing 105-source train head; all 30 Originals seen in earlier fitting; validation selection used earlier 43 sources",
+  "primary_metrics": [
+    "argmax flips",
+    "probability TV",
+    "JS nats",
+    "delta original predicted class probability",
+    "delta confidence",
+    "delta margin"
+  ],
+  "performance_metrics": null,
+  "performance_reason": "Source labels are machine proposals, not human gold",
+  "control": "Existing Paraphrase for exact same IDs; imperfect unmatched-strength, non-human-verified control",
+  "analysis": "Descriptive training-source sensitivity, no causal effect or generalization estimate",
+  "bootstrap": "2000 author-cluster draws, seed 20261109, descriptive only",
+  "new_fits": 0,
+  "new_rewrites": 0,
+  "new_external_reviews": 0,
+  "threshold_changes": false
+}

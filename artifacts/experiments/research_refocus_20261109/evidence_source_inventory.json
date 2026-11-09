@@ -1,0 +1,12 @@
+{
+  "EXPERIMENTS.md": "56f7c213aadc957882fbb2f3b5efcf9b842053c7a5b2e55613dbc8523ad44bfb",
+  "artifacts\\tables\\comparison_random_test.md": "5c0ba78f2bddc1db481568c106e5a907703026f4f5604a4ab007898c7c7d0f86",
+  "artifacts\\experiments\\group_dro\\confirmatory.json": "7a991660390484c1676f724a53114e1527cc50b11a37bc09d1027cc1454f85ae",
+  "artifacts\\experiments\\entity_attribution\\attribution_results.json": "5bff48449dae98c9822ecc03606bab19a2272d1936351de410c8b713a994c0e9",
+  "artifacts\\experiments\\narrative_style_normalization_generalization\\final_decision.json": "86f560419d840cc1fda4027ccd53c7b4e64ec5f5a60d307ba0ef2d6015f226ec",
+  "artifacts\\experiments\\narrative_few_shot_learning_curve\\aggregated_table.csv": "70bec53f6aebb932c9141e37639969181dad9923ad093e8c792b851ed2925ba6",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\RESULTS_HE.md": "8a99ced5d8421b4c3679ef3295e3ad2532f13059dcc57a9049172580482d050c",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\summary.json": "be02cb1fd8fad596d191c4ac363b969b8ab2803aa7240e1e032352b17094f731",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\review_author_analysis_20261102\\EXTERNAL_LLM_REVIEW_CLAUDE_20261109.md": "584958f16322d4c8b3de20d10d0f9b71fe07e0a99f80f1514ea76a5268c48957",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\review_author_analysis_20261102\\HUMAN_VALIDATION_30.md": "aa9d14ab413af7bd951ce66a49bd7f2684f23da7169e0e5b978128e14010b880"
+}

@@ -1,0 +1,18 @@
+{
+  "n": 30,
+  "both_flip": [],
+  "chatgpt_only_flip": [
+    "creators:114783"
+  ],
+  "paraphrase_only_flip": [
+    "creators:116358"
+  ],
+  "neither_flip": 28,
+  "mean_word_edit_fraction": {
+    "chatgpt": 0.2780128704559231,
+    "paraphrase": 0.17387412538540362
+  },
+  "accuracy": null,
+  "macro_f1": null,
+  "reason": "No human-gold source narrative labels; in-fit sources"
+}

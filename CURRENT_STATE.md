@@ -4,7 +4,7 @@ Updated: 2026-11-09. This is the changing status page; [README](README.md) provi
 
 ## Current research question
 
-Can we substantially change author-specific writing style while preserving meaning and political framing well enough to test whether author-style shortcuts impair generalization to unseen authors?
+Does a political narrative classifier use author-specific style as a shortcut, and can a narrative-preserving style intervention improve generalization to unseen authors? Style rewriting is an experimental instrument, not the intended scientific contribution.
 
 ## What is already established
 
@@ -16,7 +16,9 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
-The **development corpus audit and expanded Author-ID baseline** are complete. New analyses use 202 originals from nine train authors and all 30 existing paired rewrites; validation/test remain outside model development. Human Validation is Pending; ChatGPT external review is aggregate-only. No process is running, no new rewrite was generated and no Narrative Classifier/test experiment was run.
+The **research-gap review, evidence audit and frozen Narrative Classifier sensitivity pilot** are complete (2026-11-09). The pilot made 90 predictions on all 30 existing train sources in Original/ChatGPT/Paraphrase conditions, using one existing seed42 head without retraining. These Originals were seen in the head's historical training; this is sensitivity, not held-out generalization. ChatGPT and Paraphrase each flip 1/30 predictions, on different IDs. No validation/test predictions or new rewrites were produced. Human Validation is Pending; a separate per-ID Claude LLM review now exists alongside the earlier aggregate-only review. No process is running.
+
+Read [Research gap and novelty](RESEARCH_GAP_AND_NOVELTY_HE.md), [Evidence Matrix](EVIDENCE_MATRIX_HE.md), and [Sensitivity pilot](STYLE_SENSITIVITY_PILOT_HE.md). Closely related prior work (Style Pooling, CATO, Shortcut Maze) precludes claiming novelty for style-based debiasing or author-style shortcuts in general. The defensible contribution candidate is a controlled empirical study of the limits of that explanation in political narrative classification.
 
 The central [FINAL_REPORT_HE.md](artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md) first describes the completed 218-text V2 automatic stage, then appends the 30-train v2 prompt/review checkpoints. Its 114 matched automatic passes are a different denominator from v2's 6/30. [The new v3 report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_v3_30_20261102/REPORT_HE.md) is separate; no prior results were overwritten. Human Validation remains Pending.
 
@@ -49,10 +51,10 @@ Claude independently assessed all 30 ChatGPT-rewritten text pairs on four criter
 - Style change valid: 28/30 Yes, 2/30 Borderline  
 - Semantic drift: 0/30 (0%)
 
-**Acceptance criterion (all four = Yes): 28/30 pairs (93%)**  
+**Reviewer-based criterion (meaning + stance + style = Yes, drift = No): 28/30 pairs (93.3%)**
 **Flexible criterion (meaning + stance + style Yes or Borderline; drift = No): 30/30 pairs (100%)**
 
-Detailed analytical notes document specific textual changes, preservation of facts/framing, stylistic shifts, and per-pair quality assessment. Two borderline cases (creators:421853, creators:418904) have minimal style changes but perfect meaning/stance preservation and zero drift.
+These are Claude's reported judgments, not verified preservation or an applied human acceptance rule. Two cases (creators:421853, creators:418904) have Borderline style ratings. The earlier aggregate review reports different judgments (meaning 24 Yes/6 Borderline; drift 3 Yes/11 Borderline/16 No); the two reviews must remain separate.
 
 **Note:** creators:421951 shows weakening of "No one" → "Few people" (universal to empirical generalization), noted in review and accepted. Human expert may reconsider this edge case.
 
@@ -63,11 +65,9 @@ Detailed analytical notes document specific textual changes, preservation of fac
 
 ## Next decision
 
-Author-ID diagnostic on rewritten pairs to assess whether style normalization reduces author-signal. The expanded train-only Author-ID diagnostics (30-pair v1) showed mixed, representation-dependent intervention effects. A robust diagnostic with 300+ examples (30-40 per author) is proposed conditional on fresh-author generalization test results.
+First obtain independent human source-label and paired-preservation judgments, resolving quantifiers/certainty/rhetorical-intensity disputes. Then design a source-held-out development sensitivity study with the same IDs and imperfect paraphrase control; current training-source flips cannot identify a harmful style shortcut. The completed expanded Author-ID audit is mixed and representation-dependent; it does not justify repeating a larger probe before defining the central estimand.
 
-Proceed to fresh-author generalization test: train separate Narrative Classifiers on original TRAIN vs ChatGPT-rewritten TRAIN; evaluate on frozen test_14_fresh_authors. Primary hypothesis: does rewritten-trained model show ≥5pp recall improvement on unseen authors?
-
-A 75-source rewrite manifest and central-experiment design are ready. No new batch, prompt/guard tuning, Narrative Classifier training, LoRA or frozen-test evaluation is authorized until downstream steps confirm the intervention has measurable effect on generalization.
+The decisive future intervention compares Original, compute-matched Original repetition, paraphrase augmentation and style augmentation on common source IDs, evaluated primarily on Original texts from unseen authors with valid text-level gold. Predefine the acceptance/coverage rules and author-level uncertainty; no new numerical success target is declared after seeing results. The historical 14-author set has already been repeatedly evaluated and is not a fresh confirmatory holdout. No training, test evaluation, prompt revision, new rewrites or guard/threshold changes were performed or launched in this phase. See [the focused pilot and next design](STYLE_SENSITIVITY_PILOT_HE.md).
 
 ## Focused guard error analysis — 2026-11-01
 

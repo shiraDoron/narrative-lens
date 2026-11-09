@@ -1,0 +1,111 @@
+[
+  {
+    "title": "1. Geirhos et al. — Shortcut Learning in Deep Neural Networks (2020)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://doi.org/10.1038/s42256-020-00257-z",
+      "https://arxiv.org/abs/2004.07780",
+      "https://github.com/rgeirhos/shortcut-perspective"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "2. Veitch et al. — Counterfactual Invariance to Spurious Correlations in Text Classification (NeurIPS 2021)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://papers.neurips.cc/paper_files/paper/2021/hash/8710ef761bbb29a6f9d12e4ef8e4379c-Abstract.html",
+      "https://arxiv.org/pdf/2106.00545"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "3. Kaushik, Hovy & Lipton — Learning the Difference that Makes a Difference (ICLR 2020)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://openreview.net/forum?id=Sklgs0NFvr",
+      "https://github.com/dkaushik96/counterfactually-augmented-data"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "4. Mireshghallah & Berg-Kirkpatrick — Style Pooling (EMNLP 2021)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://aclanthology.org/2021.emnlp-main.152/",
+      "https://github.com/mireshghallah/style-pooling"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "5. Feder, Wald, Shi, Saria & Blei — Causal-structure Driven Augmentations (NeurIPS 2023)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://research.google/pubs/causal-structure-driven-augmentations-for-text-ood-generalization/",
+      "https://arxiv.org/html/2310.12803v2"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "6. Fisher et al. — StyleRemix (EMNLP 2024)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://aclanthology.org/2024.emnlp-main.241/",
+      "https://github.com/jfisher52/StyleRemix"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "7. Altakrori, Cheung & Fung — The Topic Confusion Task (Findings EMNLP 2021)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://aclanthology.org/2021.findings-emnlp.359/",
+      "https://malikaltakrori.github.io/"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "8. Koh et al. — WILDS (ICML 2021)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://proceedings.mlr.press/v139/koh21a.html",
+      "https://github.com/p-lambda/wilds"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "9. Card et al. — The Media Frames Corpus (ACL-IJCNLP 2015)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://aclanthology.org/P15-2072/",
+      "https://github.com/dallascard/media_frames_corpus"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "10. Otmakhova, Khanehzar & Frermann — Media Framing: A Typology and Survey (ACL 2024)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://aclanthology.org/2024.acl-long.822/",
+      "https://github.com/julia-nixie/awesome-media-framing"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "11. Piskorski et al. — SemEval-2025 Task 10",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://aclanthology.org/2025.semeval-1.331/",
+      "https://propaganda.math.unipd.it/semeval2025task10/"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  },
+  {
+    "title": "12. Zhou, Tang, Yao & Zhu — Navigating the Shortcut Maze (Findings EMNLP 2024)",
+    "accessed": "2026-11-09",
+    "urls": [
+      "https://aclanthology.org/2024.findings-emnlp.146/",
+      "https://github.com/yuqing-zhou/shortcut-learning-in-text-classification"
+    ],
+    "source_policy": "Primary papers/author or institutional resources; no systematic-review completeness claim"
+  }
+]

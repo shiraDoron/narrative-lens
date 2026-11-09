@@ -1,0 +1,10 @@
+{
+  "n_predictions": 90,
+  "n_train_sources": 30,
+  "n_val_or_test_predictions": 0,
+  "new_fits": 0,
+  "new_rewrites": 0,
+  "protected_inputs_unchanged": true,
+  "torch": "2.13.0+cpu",
+  "numpy": "2.2.5"
+}

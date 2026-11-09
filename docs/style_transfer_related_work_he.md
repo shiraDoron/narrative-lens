@@ -2,6 +2,8 @@
 
 עודכן: 2026-11-02. קריאה במאמרים הראשוניים, כולל שיטת העבודה, המדדים, האבלציות והמגבלות. ההמלצות כאן הן הצעות לעתיד; לא הוטמע מנגנון חדש בעקבות הקריאה. [Design מוצע](semantic_style_intervention_design_he.md).
 
+**הרחבה ומיקוד מחדש, 2026-11-09:** [סקירת 12 מאמרים, פער וחידוש אפשרי](../RESEARCH_GAP_AND_NOVELTY_HE.md) מוסיפה Style Pooling, CATO, Shortcut Maze, Counterfactual Invariance, CAD, topic confusion, WILDS ו־political framing. יש תקדימים ישירים לשינוי סגנון לצורך סיווג ולהדגמת author-style shortcuts; לכן מנגנון שכתוב חדש אינו בסיס החידוש המוצע. [מטריצת הראיות](../EVIDENCE_MATRIX_HE.md) ו[הפיילוט הקפוא](../STYLE_SENSITIVITY_PILOT_HE.md) מפרידים בין המדידה לבין טענה סיבתית ושיפור הכללה. מסמך זה נשמר כרקע טכני היסטורי.
+
 ## Thank you BART! — Lai, Toral and Nissim, ACL-IJCNLP 2021
 
 Huiyuan Lai, Antonio Toral, and Malvina Nissim. *Thank you BART! Rewarding Pre-Trained Models Improves Formality Style Transfer*. ACL-IJCNLP 2021, pp. 484–494. [מאמר ומטא־דאטה](https://aclanthology.org/2021.acl-short.62/), [PDF](https://aclanthology.org/2021.acl-short.62.pdf), DOI: 10.18653/v1/2021.acl-short.62.
