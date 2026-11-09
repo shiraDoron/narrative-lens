@@ -1,0 +1,17 @@
+{
+  "protocol_version": "chatgpt_style_extension_v1_20261109",
+  "prompt_sha256": "9035ed1999b232d64dbb713c1740290a68606c2933af4ec5e8a4325d54a958a3",
+  "generator": "ChatGPT",
+  "interface": null,
+  "visible_model_name": null,
+  "exact_model_revision": null,
+  "actual_generation_date": null,
+  "temperature": null,
+  "top_p": null,
+  "seed": null,
+  "output_limit": null,
+  "parameters_exposure": "fill actual values, or explicitly record unavailable in UI",
+  "unknown_fields_are_not_legacy_defaults": true,
+  "batches": [],
+  "original30_unchanged": true
+}

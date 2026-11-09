@@ -16,6 +16,8 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
+**Latest status: extension intake complete75/75.** All five batches match the missing train-only ID set with no duplicates/empty outputs. [Canonical run01](artifacts/experiments/data_completion_20261109/runs/extension_v1_run01/received_rewrites_75.csv) preserves outputs unchanged; [independent human75 package](artifacts/experiments/data_completion_20261109/runs/extension_v1_run01/HUMAN_PAIR_REVIEW_NEW75.md) is populated with pairs and blank ratings. Model/date remain unknown: intake used the null-valued metadata template, with provenance_complete=false. QC dry-run and18 infrastructure tests passed; full semantic/style QC, human ratings and training remain pending. Earlier batch intake entries below are historical.
+
 Latest intake: [Batch 4](artifacts/experiments/data_completion_20261109/received_batches/batch_04/BATCH_04_OUTPUT.csv) received: all15 expected IDs in order, no duplicate IDs or empty outputs; raw paste preserved and rewrites unchanged. Total extension intake60/75. Batch5 and generation metadata remain pending. No semantic QC, human validation, training or test evaluation was run.
 
 Latest intake: [Batch 3](artifacts/experiments/data_completion_20261109/received_batches/batch_03/BATCH_03_OUTPUT.csv) received with all15 expected IDs in order, no duplicates or empty rewrites, and raw paste preserved. Total extension intake45/75; batches4–5 and generation metadata pending. This is structural intake only, not semantic QC or human validation.

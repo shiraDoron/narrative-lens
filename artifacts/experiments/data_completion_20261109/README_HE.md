@@ -1,5 +1,9 @@
 # חבילת השלמת נתונים — 2026-11-09
 
+**המצב העדכני: כל חמשת ה־batches התקבלו, 75/75 IDs צפויים וייחודיים.** נשמרו raw ו־receipts ללא עריכת שכתובים. [הקובץ המאוחד](runs/extension_v1_run01/received_rewrites_75.csv) ו־[חבילת אימות אנושי מלאה ל־75](runs/extension_v1_run01/HUMAN_PAIR_REVIEW_NEW75.md) מוכנים. אפשר למלא במקום Markdown את [ה־CSV המקביל](runs/extension_v1_run01/HUMAN_PAIR_REVIEW_NEW75.csv), לא את שניהם. הסוקר מקבל רק זוגות ושדות ריקים, ללא ציונים או תוויות.
+
+קליטת run01 השתמשה ב־metadata template עם ערכי מודל/מועד null: זהו רישום מפורש של מידע חסר, לא metadata שהתקבל מהמשתמש ולא הוכחה לפרוטוקול היצירה בפועל. receipt מסמן `provenance_complete=false`. יש לשמור השלמת metadata בעתיד בנפרד, בלי לדרוס receipt מקורי. בוצע QC dry-run לבדיקת binding וקוד קפוא בלבד; **טרם הורצו guards סמנטיים או style metrics**, ולא התקבלו הכרעות אנושיות. אין אישור אימון. עדכוני הקליטה החלקיים בהמשך הם היסטוריים.
+
 **מצב קליטה:** Batch 1 התקבל: [15 פלטים](received_batches/batch_01/BATCH_01_OUTPUT.csv), לצד ההדבקה המקורית ו־receipt באותה תיקייה. ה־IDs והסדר תואמים; אין כפילויות או טקסטים ריקים. הוסרה רק מעטפת Markdown. לא הורצו semantic QC או Human Validation. מודל ותאריך יצירה לא סופקו; batches 2–5 עדיין חסרים. קליטה חלקית אינה אישור ל־75 או לאימון.
 
 לשחזור חילוץ הדבקה בלבד: `python artifacts/experiments/data_completion_20261109/import_pasted_batch.py --source <pasted-text.txt> --batch 1`. אין דריסה של batch קיים. לאחר קבלת כל החמישה משתמשים בקובצי `BATCH_*_OUTPUT.csv` כ־`--sources` בפקודת הקליטה המלאה שלהלן.
