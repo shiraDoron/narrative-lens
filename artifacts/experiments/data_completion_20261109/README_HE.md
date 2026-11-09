@@ -1,5 +1,9 @@
 # חבילת השלמת נתונים — 2026-11-09
 
+**מצב קליטה:** Batch 1 התקבל: [15 פלטים](received_batches/batch_01/BATCH_01_OUTPUT.csv), לצד ההדבקה המקורית ו־receipt באותה תיקייה. ה־IDs והסדר תואמים; אין כפילויות או טקסטים ריקים. הוסרה רק מעטפת Markdown. לא הורצו semantic QC או Human Validation. מודל ותאריך יצירה לא סופקו; batches 2–5 עדיין חסרים. קליטה חלקית אינה אישור ל־75 או לאימון.
+
+לשחזור חילוץ הדבקה בלבד: `python artifacts/experiments/data_completion_20261109/import_pasted_batch.py --source <pasted-text.txt> --batch 1`. אין דריסה של batch קיים. לאחר קבלת כל החמישה משתמשים בקובצי `BATCH_*_OUTPUT.csv` כ־`--sources` בפקודת הקליטה המלאה שלהלן.
+
 ## מה להעביר ל־ChatGPT
 
 לפתוח שיחה חדשה לכל batch ולהשתמש **באותו מודל גלוי ובאותו prompt**:
