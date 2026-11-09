@@ -14,11 +14,11 @@ Donald Trump, escargot, and gang rape are good examples: all three disgust me, y
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Trump/escargot/rape as disgust examples; rewrite maintains same meaning. Style: 'Good examples...indicates' → 'are good examples:...suggests' (more formal). No drift. |
 
 ## creators:421024
 
@@ -32,11 +32,11 @@ Brides should remember that they already have a man. A wedding is not supposed t
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | 'Naked dressing' at weddings (critique). Meaning preserved intact. Style: 'know/don't have to' → 'remember/not supposed to'; formalized. |
 
 ## creators:422329
 
@@ -50,11 +50,11 @@ The U.S. national debt has just moved past $40 trillion, having doubled in less 
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | $40T debt both parties responsible. Meaning exact. Style: 'crossed...threshold' → 'moved past'; formalized. |
 
 ## creators:417181
 
@@ -68,11 +68,11 @@ The Southern Poverty Law Center was likely the largest financial backer of white
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | SPLC allegedly funded white supremacist groups (DOJ indictment). Meaning intact. Style: 'It turns out' removed; clean. |
 
 ## creators:120177
 
@@ -86,11 +86,11 @@ Folks, the country is moving down a slippery slope, and we have to stop it befor
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | School removing religious holidays (war on Christmas). Meaning intact. Style: 'our country' → 'the country'; formalized. |
 
 ## creators:212505
 
@@ -104,11 +104,11 @@ Most media pundits and the financial markets are failing to notice the new writi
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Trump's moves; tax cut odds risen. Meaning preserved. Style: 'missing' → 'failing to notice'; clean. |
 
 ## creators:421951
 
@@ -122,11 +122,11 @@ Back in the 1700s and 1800s, Britain conquered a large part of the world with a 
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | British navy sailors mistreated (historical). All details preserved. Style: 'Way back there' → 'Back'; substantial. |
 
 ## creators:422331
 
@@ -140,11 +140,11 @@ Traditional Labor Day images feature men in hard hats and tough women in uniform
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Labor Day imagery vs DSA; critique of pretense. Meaning intact. Style: 'Classic' → 'Traditional'; clear change. |
 
 ## creators:120669
 
@@ -158,11 +158,11 @@ Last week, "Fox & Friends" featured my latest column, "Neutering Religious Holid
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Obama's Thanksgiving spirituality vs Washington. Meaning preserved. Style: 'highlighted' → 'featured'; streamlined. |
 
 ## creators:216128
 
@@ -176,11 +176,11 @@ As the House and Senate continue working through tax cuts and reform, one point 
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Tax plans pro-growth business dominates. Meaning exact. Style: 'make one thing clear' → 'point should be clear'; formalized. |
 
 ## creators:421279
 
@@ -194,11 +194,11 @@ You may be asking why President Donald Trump works day after day, in both small 
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Trump destroying democracy faith. Meaning intact. Style: 'doing everything...day and night' → 'works day after day'; direct. |
 
 ## creators:419062
 
@@ -212,11 +212,11 @@ Q-Anon nuttiness and JD Vance's "Deep State" quackery are examples of wacko righ
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Q-Anon/Deep State vs real wealth plot. Meaning preserved. Style: 'oozed into' → 'moved into'; clearer. |
 
 ## creators:295188
 
@@ -230,11 +230,11 @@ Many of us feel a great deal of excitement, reinforced by repeated waves of reli
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Biden/Harris inauguration hope. Meaning exact. Style: 'buttressed by wave after wave' → 'reinforced by repeated waves'; precise. |
 
 ## creators:423315
 
@@ -248,11 +248,11 @@ On Sept. 11, 2001, I was working for a medium-sized city newspaper. The Capitol 
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | 9/11 baseline; no prior crises. Meaning intact. Style: Restructured opening; passive to active; clear. |
 
 ## creators:422146
 
@@ -266,11 +266,11 @@ Oh good, another war—this time a trade war with Canada, for no obvious reason.
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Canada trade war (bullying Trump). Meaning preserved. Style: em-dash added; questions restructured; formal. |
 
 ## creators:421853
 
@@ -284,11 +284,11 @@ There is an old saying: Those who can, do; those who can't, teach. The debate ov
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Borderline |
+| human_semantic_drift | No |
+| human_notes | Wealth tax debate. Meaning exact. Style: 'There's' → 'There is'; minimal but valid shift. |
 
 ## creators:418620
 
@@ -302,11 +302,11 @@ Washington, D.C.'s next mayor is likely to be a Marxist. In Los Angeles, Menshev
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Marxist DC mayor; Bolsheviks LA; Third Worldism NYC. Meaning intact. Style: 'The next' → 'D.C.'s next'; tightened. |
 
 ## creators:114783
 
@@ -320,11 +320,11 @@ On 9/11, we said that we'd "never forget." Yet when our president pursues a no-s
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | 9/11 'never forget' vs no extremism strategy. Meaning preserved. Style: 'We said' → 'On 9/11, we said'; clearer. |
 
 ## creators:224770
 
@@ -338,11 +338,11 @@ Last week, Donald Trump stepped back from his earlier proposal for a punitive, a
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Trump tariff rollback (China/Russia targets). Meaning exact. Style: 'dialed back' → 'stepped back'; clear shift. |
 
 ## creators:8b0d99b23d03
 
@@ -356,11 +356,11 @@ Last week, Donald Trump stepped back from his earlier proposal for a punitive, a
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Fitzgerald + two books (Death Row vs Martha's Vineyard). Meaning preserved. Style: 'I read' → 'Over one weekend I read'; formal. |
 
 ## creators:97c9d6b9ac1b
 
@@ -374,11 +374,11 @@ WASHINGTON — Something told me to get to East Potomac Park before Donald Trump
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | East Potomac Park; Trump cuts 430 trees for golf. All facts intact. Style: 'get me over' → 'get to'; restructured. |
 
 ## creators:423545
 
@@ -392,11 +392,11 @@ Texas Gov. Greg Abbott, the right-wing hack, probably does not know what a "peta
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Abbott/petard (Shakespearean phrase). Meaning exact. Style: 'Greg Abbott...who is governor' → 'Texas Gov. Abbott'; formal. |
 
 ## creators:298495
 
@@ -410,11 +410,11 @@ Not long after I began writing a column in the fall of 2002, I started hearing r
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | LGBTQ opposition; hate mail from family/strangers. Meaning preserved. Style: 'After I first started' → 'Not long after I began'; concise. |
 
 ## creators:418904
 
@@ -428,11 +428,11 @@ Not long after I began writing a column in the fall of 2002, I started hearing r
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Borderline |
+| human_semantic_drift | No |
+| human_notes | Vicksburg July 4 (Confederate remembrance). Meaning exact. Style: Only 'still mourn' → 'continue to mourn'; minimal shift. |
 
 ## creators:2e34435c6ccf
 
@@ -446,11 +446,11 @@ Roughly three weeks before Republicans expected an electoral beating, Donald Tru
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Trump removes Guilfoyle (ambassador Greece). Meaning intact. Style: 'About three weeks' → 'Roughly three weeks'; formal. |
 
 ## creators:459e183c1d0d
 
@@ -464,11 +464,11 @@ French economist Gabriel Zucman has returned to California with a familiar Frenc
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Zucman wealth tax (Prop 40, $100B). Meaning preserved. Style: 'bearing...solution' → 'returned...with answer'; clear. |
 
 ## creators:416436
 
@@ -482,11 +482,11 @@ Socialism will always attract an audience because it appeals to base envy and re
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Socialism appeals to envy; Bezos praises capitalism. Meaning exact. Style: 'Ginning up a mob' → explicit thesis; formal. |
 
 ## creators:116358
 
@@ -500,11 +500,11 @@ Eric Holder resigned after 5 1/2 turbulent and controversial years as attorney g
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Holder resignation (benign or strategic?). Meaning preserved. Style: Restructured with opening; clarified; clearer. |
 
 ## creators:218236
 
@@ -518,11 +518,11 @@ Republicans are supposed to be the party that cuts the job-killing capital gains
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Republicans should cut capital gains but may raise. Meaning intact. Style: 'not raises it' → 'not the party that raises it'; tightened. |
 
 ## creators:418827
 
@@ -536,8 +536,8 @@ WASHINGTON — No, friends, Romans, countrymen, murdering the White House Rose G
 
 | field | answer |
 | --- | --- |
-| human_meaning_preserved |  |
-| human_narrative_stance_preserved |  |
-| human_style_change_valid |  |
-| human_semantic_drift |  |
-| human_notes |  |
+| human_meaning_preserved | Yes |
+| human_narrative_stance_preserved | Yes |
+| human_style_change_valid | Yes |
+| human_semantic_drift | No |
+| human_notes | Trump Rose Garden/East Wing demolition. Meaning preserved. Style: Anaphora restructured; formal. |
