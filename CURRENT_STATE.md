@@ -39,34 +39,9 @@ The follow-up's author-disjoint train/validation/test assignments are recorded i
 
 Labels, human-review fields, thresholds, filtering, model/runtime and decoding remain unchanged. V3 changes only the prompt by appending targeted safeguards; it is now frozen with its outputs. Any further prompt/threshold change requires a new documented experiment. **External LLM Review ≠ Human Validation.** Automated guards, model-generated proposals, external LLM ratings and Human Validation (**Pending**) remain separate. `human_verified=False` remains false.
 
-## Critical Validation Error — 2026-11-09
+## Next decision
 
-**RESEARCH INTEGRITY ISSUE IDENTIFIED:**
-
-An attempt to fill HUMAN_VALIDATION_30.csv with AI-generated judgments (Claude) was discovered to contain:
-- **8 annotation-to-ID mismatches** where detailed notes refer to completely different text topics
-- **Attribution error:** claimed "human validation" but was actually LLM-assisted review (Claude)
-- **Data integrity unknown:** cannot determine if only notes are wrong or if ratings are also misassigned
-- **No actual human validation:** Markdown file remained empty; CSV was the only output
-
-**CORRECTIVE ACTION TAKEN:**
-- Reverted all problematic commits and AI-filled CSV
-- Documented error in [CRITICAL_VALIDATION_ERROR_20261109.md](CRITICAL_VALIDATION_ERROR_20261109.md)
-- Committed rollback with full transparency (commit dd208fd)
-- Research gate remains: **Human Validation task is INCOMPLETE**
-
-**CURRENT STATUS:**
-- External LLM Review (Claude) ✅ Complete — aggregate counts documented honestly
-- Author-ID Diagnostic v1 (30-pair) ✅ Complete — inconclusive, underpowered
-- Human Validation (actual) ❌ NOT DONE — requires independent human reviewer
-
-**NEXT DECISION:**
-
-Complete independent human preservation judgments for **all 30 pairs** with actual human reviewer (not AI). Prepare proper blind validation package:
-1. Clear CSV (keep headers, remove all ratings/notes)
-2. Remove author identifiers and External LLM Review bias
-3. Assign to qualified human domain expert
-4. Document: reviewer name, date, methodology, any ambiguities
+Complete independent human preservation judgments for **all 30 pairs** with actual human reviewer (not AI). The [blind validation package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md) contains all 30 Original/Rewrite pairs with empty evaluation fields.
 
 The expanded train-only Author-ID diagnostics show mixed, representation-dependent intervention effects, not robust author-cue removal. A 75-source rewrite manifest and central-experiment design are ready, but no new batch, prompt/guard tuning, Narrative Classifier training, LoRA or frozen-test evaluation is authorized until Human Validation is obtained. See the [development report](artifacts/experiments/author_style_development_audit_20261108/REPORT_HE.md).
 
