@@ -16,6 +16,8 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
+Latest intake: [Batch 3](artifacts/experiments/data_completion_20261109/received_batches/batch_03/BATCH_03_OUTPUT.csv) received with all15 expected IDs in order, no duplicates or empty rewrites, and raw paste preserved. Total extension intake45/75; batches4–5 and generation metadata pending. This is structural intake only, not semantic QC or human validation.
+
 Latest intake: [Batch 2](artifacts/experiments/data_completion_20261109/received_batches/batch_02/BATCH_02_OUTPUT.csv) also received: all15 expected IDs, ordered, nonempty and unchanged. Total extension intake30/75; batches3–5 and generation metadata pending. No semantic QC, human validation or training performed on this intake.
 
 Partial intake: [ChatGPT extension Batch 1](artifacts/experiments/data_completion_20261109/received_batches/batch_01/BATCH_01_OUTPUT.csv) received with all15 expected IDs in order; raw paste preserved and Markdown fences removed without rewrite edits. Batches2–5 and actual generation metadata remain pending. Intake validity is not semantic preservation or human validation; no final experiment ran.
