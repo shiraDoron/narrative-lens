@@ -1,0 +1,20 @@
+{
+  "rows": 30,
+  "completed_rows": 0,
+  "filled_fields": {
+    "human_meaning_preserved": 0,
+    "human_narrative_stance_preserved": 0,
+    "human_style_change_valid": 0,
+    "human_semantic_drift": 0,
+    "human_notes": 0
+  },
+  "conclusion": "No attributable completed human judgments found on disk",
+  "user_reported_counts": {
+    "meaning_Yes": 30,
+    "stance_Yes": 30,
+    "style_Yes": 28,
+    "style_Borderline": 2,
+    "drift_No": 30
+  },
+  "user_reported_counts_are_not_per_id_import": true
+}

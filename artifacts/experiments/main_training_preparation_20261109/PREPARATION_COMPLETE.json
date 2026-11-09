@@ -1,0 +1,8 @@
+{
+  "status": "prepared_but_blocked",
+  "conditions": 5,
+  "configs": 25,
+  "inputs_unchanged": true,
+  "no_fitting": true,
+  "no_test_evaluation": true
+}

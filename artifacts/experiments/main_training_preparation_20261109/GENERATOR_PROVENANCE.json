@@ -1,0 +1,12 @@
+{
+  "generator": "ChatGPT (user-reported)",
+  "model": null,
+  "prompt": null,
+  "parameters": null,
+  "date": "2026-11-02 received-file date; actual generation timestamp unknown",
+  "source_file_sha256": "f37909a93929ba772af40cf91a2c15140a6b5726ebee2011d9dc3cb33f254dde",
+  "original_only": "user-reported, not independently auditable",
+  "recovered_constraints": "Original only; preserve claims, stance, attribution, certainty, roles, events, intensity, quotes, quantifiers, negation, entities, numbers, time, causality",
+  "recovered_constraints_are_not_original_prompt": true,
+  "generation_permitted": false
+}

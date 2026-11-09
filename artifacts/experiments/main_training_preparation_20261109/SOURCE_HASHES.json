@@ -1,0 +1,11 @@
+{
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\analysis_cohort.csv": "b9179f67418c516c05a75708d087a95406c1ac9753ef311c9fb9ada942aee663",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\text_annotations.csv": "4900ac1d51a60fe97c032d94e3ddef80f8f3f629ba1d7340584c7bddaa8e508c",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\author_splits.csv": "113af071c0275328405850e485b62bb46eefd714128a6beeac621b9a8894be47",
+  "artifacts\\experiments\\verified_human_style_followup_20261026\\generated_rewrites.jsonl": "3bb60fd6360fc6e16bbe6d9a9fa8b6f3fcd90ae6f08161fd160616286bd3889f",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\CHATGPT_STYLE_REWRITE_30_20261102.csv": "f37909a93929ba772af40cf91a2c15140a6b5726ebee2011d9dc3cb33f254dde",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\protocol.json": "5d70a691233e6fc3e2b4f1903ab841892893cba0773c5bb75ec3b3b0107ee719",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\review_author_analysis_20261102\\HUMAN_VALIDATION_30.csv": "c05c7b4b3732f93f0cd34bff2e4657cd5ac2c46796ed5a6d458910060d1fdf57",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\review_author_analysis_20261102\\HUMAN_VALIDATION_30.md": "aa9d14ab413af7bd951ce66a49bd7f2684f23da7169e0e5b978128e14010b880",
+  "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\review_author_analysis_20261102\\EXTERNAL_LLM_REVIEW_CLAUDE_20261109.md": "584958f16322d4c8b3de20d10d0f9b71fe07e0a99f80f1514ea76a5268c48957"
+}

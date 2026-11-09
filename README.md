@@ -1,10 +1,16 @@
-# Narrative Lens: Do Narrative Classifiers Generalize to Unseen Authors?
+# Narrative Lens: Meaning-Preserving Style Interventions and Unseen-Author Generalization
 
-Short political texts are labeled with one of 7 narratives (`Zionist`, `Resistance`, `Western`, `Russian`, `Ukrainian`, `Right-wing`, `Left-wing`). In-distribution accuracy looks strong, but labels are assigned by account/channel, not per-text human judgment, so a model can score well by learning who wrote a text instead of what it argues. This repo tests whether that happens: four zero-shot interventions (entity masking, style normalization, noise removal, group-DRO) all failed to restore generalization to unseen authors, but few-shot adaptation works.
+**Central research question: Can meaning-preserving author-style interventions improve political narrative classification generalization to unseen authors?**
+
+The candidate contribution is empirical and methodological: compare Original, Paraphrase, Style Rewrite and matched augmentation on common source IDs, evaluating Original texts from unseen authors. Author-style shortcuts are a hypothesis, not an established mechanism. Style Pooling, CATO and Shortcut Maze already study closely related ideas; we do not claim to invent style transfer or to be first to test style shortcuts.
+
+Historical work uses seven broad labels (`Zionist`, `Resistance`, `Western`, `Russian`, `Ukrainian`, `Right-wing`, `Left-wing`), largely assigned by account/channel. The current bylined-opinion follow-up is restricted to **Left/Right machine proposals at text level**, pending human gold. These label spaces and datasets must not be conflated. Prior interventions did not establish a stable generalization recovery; few-shot adaptation helped with labeled target-author support in its separate historical protocol.
 
 ## Current work / Active follow-up
 
-The earlier style-normalization intervention (§28) was negative; a more focused author-style follow-up remains active. Current development uses **train authors only**, with the follow-up test set frozen. Recent prompt experiments have not triggered retraining or established any new unseen-author generalization claim. **External LLM Review ≠ Human Validation**; human validation of this follow-up is **Pending**. See [CURRENT_STATE.md](CURRENT_STATE.md) for the latest results and next decision.
+The five-arm main experiment is **prepared but not ready to train**: 105 eligible train sources (55 Left/50 Right), ordinary Paraphrases for all, and 30 existing Style Rewrites; **75 Style Rewrites are missing**. The pipeline, 25 configs and reproducible fixed-budget batch schedules are prepared. No A–E training or new test evaluation was run. Human templates remain blank on disk; the complete per-ID ratings currently available are Claude's **External LLM Review**, not Human Validation. Original ChatGPT prompt/model/parameters are unknown, so no additional rewrites were generated. See [CURRENT_STATE.md](CURRENT_STATE.md).
+
+Start with [Thesis research direction](THESIS_RESEARCH_DIRECTION_HE.md), [Main training protocol A–E](MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md), [Deep Related Work: 18 papers](RELATED_WORK_DEEP_REVIEW_HE.md), [comparison matrix](RELATED_WORK_COMPARISON.md), [possible contribution](RESEARCH_GAP_AND_CONTRIBUTION_HE.md) and [BibTeX](REFERENCES.bib).
 
 ## Suggested reading path
 
@@ -17,7 +23,7 @@ If you are new to the project (5–10 minutes):
 5. [docs/running.md](docs/running.md) — setup, inputs, outputs and reproduction routes.
 6. [artifacts/README.md](artifacts/README.md) — experiment outputs, status and local guides.
 
-For the current intervention design: [Text Style Transfer Related Work](docs/style_transfer_related_work_he.md) and [proposed architecture](docs/semantic_style_intervention_design_he.md). These are literature analysis and a proposal, not a new experiment.
+For the scientific evidence: [Evidence Matrix](EVIDENCE_MATRIX_HE.md) and [frozen sensitivity pilot](STYLE_SENSITIVITY_PILOT_HE.md). The older [technical TST review](docs/style_transfer_related_work_he.md) and [architecture proposal](docs/semantic_style_intervention_design_he.md) remain historical background, not the current contribution or an implemented new system.
 
 ## Research questions
 
@@ -40,7 +46,7 @@ Derived from EXPERIMENTS.md Sections 18 to 35. Full arc: [EXPERIMENTS.md](EXPERI
 Details: [docs/results.md](docs/results.md). All numbers below trace to that file or the EXPERIMENTS.md storyline table.
 
 - **Random split: plain SBERT baseline wins.** `sbert_only` reaches 0.732 accuracy / 0.730 macro-F1, ahead of `hybrid` (0.722 / 0.717) and `baseline_fusion` (0.671 / 0.664). Engineered features add no measurable value here. (Background, Sections 15-20.)
-- **RQ1: LOAO recall drops 20 to 38pp** relative to the random split, and 2 of 3 tested authors are systematically misrouted to `Right-wing` (Sections 18, 19).
+- **RQ1: held-out-account performance is weak.** Initial LOAO recalls were 53.5%, 31.0% and 28.0%; 2 of 3 accounts were often misrouted to `Right-wing`. The older “20–38pp gap” subtracts random per-class F1 from LOAO recall, so it is not a clean recall effect size (Sections 18, 19; [evidence audit](EVIDENCE_MATRIX_HE.md)).
 - **RQ2: entity masking does not generalize.** Exploratory masking helped one author and hurt two (Sections 23, 24); the pre-registered test on 14 fresh authors returned `NON-INFERIOR = FALSE` (Section 25).
 - **RQ3: style predicts author identity; the tested normalization did not improve generalization.** A decision tree predicts the author within a fixed narrative far above chance (`Western`: 85.1% vs. about 20% baseline, Section 27). Normalizing style cut that measured signal (about minus 15 points macro-F1) yet fresh-author recall regressed for 13 of 14 authors (mean minus 6.4pp, median difference -10.8pp of group medians, Section 28). This does not establish that removing author style caused the regression.
 - **RQ4: label noise, event confounding, entity causality, and Group-DRO don't explain or close the gap.**

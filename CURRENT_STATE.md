@@ -4,7 +4,7 @@ Updated: 2026-11-09. This is the changing status page; [README](README.md) provi
 
 ## Current research question
 
-Does a political narrative classifier use author-specific style as a shortcut, and can a narrative-preserving style intervention improve generalization to unseen authors? Style rewriting is an experimental instrument, not the intended scientific contribution.
+**Can meaning-preserving author-style interventions improve political narrative classification generalization to unseen authors?** Author-style shortcut dependence is a working hypothesis, not a finding. The candidate contribution is empirical/methodological; style rewriting is the intervention instrument, not a new TST invention. [Canonical research direction](THESIS_RESEARCH_DIRECTION_HE.md).
 
 ## What is already established
 
@@ -16,9 +16,9 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
-The **research-gap review, evidence audit and frozen Narrative Classifier sensitivity pilot** are complete (2026-11-09). The pilot made 90 predictions on all 30 existing train sources in Original/ChatGPT/Paraphrase conditions, using one existing seed42 head without retraining. These Originals were seen in the head's historical training; this is sensitivity, not held-out generalization. ChatGPT and Paraphrase each flip 1/30 predictions, on different IDs. No validation/test predictions or new rewrites were produced. Human Validation is Pending; a separate per-ID Claude LLM review now exists alongside the earlier aggregate-only review. No process is running.
+The **main A–E training experiment is prepared but blocked**, not executed. Current audit confirms 202 raw train sources / nine authors, 105 eligible Left/Right machine proposals (55/50), 30 common Original/Paraphrase/Style IDs and 75 missing Style Rewrites. Paraphrases exist for all105. Five draft arms, 25 configs and 25 deterministic schedules use a fixed update/example budget. Source labels and paired human QC are not available as attributable completed per-ID judgments; original ChatGPT prompt/model/parameters are unknown. No new text, model training or validation/test inference was performed in preparation. No process is running.
 
-Read [Research gap and novelty](RESEARCH_GAP_AND_NOVELTY_HE.md), [Evidence Matrix](EVIDENCE_MATRIX_HE.md), and [Sensitivity pilot](STYLE_SENSITIVITY_PILOT_HE.md). Closely related prior work (Style Pooling, CATO, Shortcut Maze) precludes claiming novelty for style-based debiasing or author-style shortcuts in general. The defensible contribution candidate is a controlled empirical study of the limits of that explanation in political narrative classification.
+Read [main protocol](MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md), [deep review of 18 papers](RELATED_WORK_DEEP_REVIEW_HE.md), [closest-work comparison](RELATED_WORK_COMPARISON.md), [contribution candidate](RESEARCH_GAP_AND_CONTRIBUTION_HE.md), and [Evidence Matrix](EVIDENCE_MATRIX_HE.md). CATO's final published title is **Data Augmentations for Improved (Large) Language Model Generalization**; representation-based A and prompted B must be distinguished. Earlier [frozen sensitivity](STYLE_SENSITIVITY_PILOT_HE.md) remains 1/30 flips in each rewrite arm, on sources seen in training, not generalization evidence.
 
 The central [FINAL_REPORT_HE.md](artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md) first describes the completed 218-text V2 automatic stage, then appends the 30-train v2 prompt/review checkpoints. Its 114 matched automatic passes are a different denominator from v2's 6/30. [The new v3 report](artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_v3_30_20261102/REPORT_HE.md) is separate; no prior results were overwritten. Human Validation remains Pending.
 
@@ -65,9 +65,9 @@ These are Claude's reported judgments, not verified preservation or an applied h
 
 ## Next decision
 
-First obtain independent human source-label and paired-preservation judgments, resolving quantifiers/certainty/rhetorical-intensity disputes. Then design a source-held-out development sensitivity study with the same IDs and imperfect paraphrase control; current training-source flips cannot identify a harmful style shortcut. The completed expanded Author-ID audit is mixed and representation-dependent; it does not justify repeating a larger probe before defining the central estimand.
+Obtain the actual per-ID human judgments with notes/reviewer/date (the on-disk templates are blank), source-label gold and QC for both rewrite types. The user's reported 30/30 and 28/2 counts were preserved separately as a claim, not converted into invented human rows. Claude's complete per-ID review was imported explicitly as External LLM Review; it does not replace human gold or erase the earlier aggregate review's disagreements. Resolve quantifiers/certainty/intensity cases without overwriting original ratings. Recover original ChatGPT generation provenance before creating the 75 missing outputs, or explicitly register a new generator version rather than silently mixing methods.
 
-The decisive future intervention compares Original, compute-matched Original repetition, paraphrase augmentation and style augmentation on common source IDs, evaluated primarily on Original texts from unseen authors with valid text-level gold. Predefine the acceptance/coverage rules and author-level uncertainty; no new numerical success target is declared after seeing results. The historical 14-author set has already been repeatedly evaluated and is not a fresh confirmatory holdout. No training, test evaluation, prompt revision, new rewrites or guard/threshold changes were performed or launched in this phase. See [the focused pilot and next design](STYLE_SENSITIVITY_PILOT_HE.md).
+Primary future contrasts are C−B and D−E (Original/Paraphrase/Style; Original+Style vs Original+Paraphrase), with common IDs/labels, matched budgets and Original unseen-author evaluation. The QC contract preserves all-attempted coverage and common accepted-only secondary analysis without model-based selection. The historical test sets are not fresh confirmatory holdouts. Sixteen preparation tests passed; [readiness command and reproduction](artifacts/experiments/main_training_preparation_20261109/REPRODUCTION.md) fail closed on missing gold/QC/provenance. No retraining, test evaluation, prompt revision or guard/threshold change was launched.
 
 ## Focused guard error analysis — 2026-11-01
 

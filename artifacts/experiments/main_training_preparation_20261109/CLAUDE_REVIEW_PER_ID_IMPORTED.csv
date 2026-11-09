@@ -1,0 +1,31 @@
+﻿ID,review_type,reviewer,review_date,meaning_preserved,stance_preserved,style_change_valid,semantic_drift,notes
+creators:0105f26ef9f1,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Trump/escargot/rape as disgust examples; rewrite maintains same meaning. Style: conversational → formal.
+creators:421024,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,'Naked dressing' at weddings (critique). Meaning preserved intact. Style formalized.
+creators:422329,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,$40T debt both parties responsible. Meaning exact. Style formalized.
+creators:417181,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,SPLC allegedly funded white supremacist groups (DOJ indictment). Meaning intact. Style clean.
+creators:120177,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,School removing religious holidays (war on Christmas). Meaning intact. Style formalized.
+creators:212505,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Trump's moves; tax cut odds risen. Meaning preserved. Style clean.
+creators:421951,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,"British navy sailors; core preserved. **CAVEAT:** 'No one fights like' → 'Few people fight like' (weakened generalization from universal to empirical). However, the core argument (mistreated soldiers fight harder) is preserved; the difference is tone/emphasis rather than fundamental claim. Rated Yes with notation of this semantic nuance."
+creators:422331,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Labor Day imagery vs DSA; critique of pretense. Meaning intact. Style clear change.
+creators:120669,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Obama's Thanksgiving spirituality vs Washington. Meaning preserved. Style streamlined.
+creators:216128,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Tax plans pro-growth business dominates. Meaning exact. Style formalized.
+creators:421279,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Trump destroying democracy faith. Meaning intact. Style direct.
+creators:419062,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Q-Anon/Deep State vs real wealth plot. Meaning preserved. Style clearer.
+creators:295188,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Biden/Harris inauguration hope. Meaning exact. Style precise.
+creators:423315,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,"9/11 baseline; no prior crises. Meaning intact. **Note:** Changes active ""No one had stormed"" to passive ""The Capitol had not yet been stormed""—a structural shift in voice, not semantic shift. Meaning preserved."
+creators:422146,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Canada trade war (bullying Trump). Meaning preserved. Style formal.
+creators:421853,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Borderline,No,"Wealth tax debate. Meaning exact. Style minimal but valid (e.g., ""There is"" instead of ""There's""; ""other people"" instead of ""others""). Sufficient change to mark style as present but subtle."
+creators:418620,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Marxist DC mayor; Bolsheviks LA; Third Worldism NYC. Meaning intact. Style tightened.
+creators:114783,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,9/11 'never forget' vs no extremism strategy. Meaning preserved. Style clearer.
+creators:224770,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Trump tariff rollback (China/Russia targets). Meaning exact. Style clear shift.
+creators:8b0d99b23d03,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Fitzgerald + two books (Death Row vs Martha's Vineyard). Meaning preserved. Style formal.
+creators:97c9d6b9ac1b,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,East Potomac Park; Trump cuts 430 trees for golf. All facts intact. Style restructured.
+creators:423545,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Abbott/petard (Shakespearean phrase). Meaning exact. Style formal.
+creators:298495,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,LGBTQ opposition; hate mail from family/strangers. Meaning preserved. Style concise.
+creators:418904,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Borderline,No,"Vicksburg July 4 (Confederate remembrance). Meaning exact. Style minimal (single word: ""still"" → ""continue""). Valid but subtle."
+creators:2e34435c6ccf,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Trump removes Guilfoyle (ambassador Greece). Meaning intact. Style formal.
+creators:459e183c1d0d,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,"Zucman wealth tax (Prop 40, $100B). Meaning preserved. Style clear."
+creators:416436,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Socialism appeals to envy; Bezos praises capitalism. Meaning exact. Style formal.
+creators:116358,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Holder resignation (benign or strategic?). Meaning preserved. Style clearer.
+creators:218236,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Republicans should cut capital gains but may raise. Meaning intact. Style tightened.
+creators:418827,External LLM Review,"Claude, exact version unknown",2026-11-09,Yes,Yes,Yes,No,Trump Rose Garden/East Wing demolition. Meaning preserved. Style formal.

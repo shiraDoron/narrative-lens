@@ -2,6 +2,8 @@
 
 תאריך בדיקה: 2026-11-09. שאלת המחקר: האם מסווג נרטיבים פוליטיים נשען על סגנון הכותב כ־shortcut, והאם התערבות השומרת על הנרטיב משפרת הכללה לכותבים חדשים?
 
+מסמך זה הוא מיפוי ההיתכנות הקודם. המסמכים המרכזיים המעודכנים: [כיוון התזה](THESIS_RESEARCH_DIRECTION_HE.md), [סקירה מעמיקה](RELATED_WORK_DEEP_REVIEW_HE.md), [פער ותרומה](RESEARCH_GAP_AND_CONTRIBUTION_HE.md) ו[פרוטוקול A–E](MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md). תוצאות הפיילוט נשמרות בנפרד.
+
 **המלצה:** למקד את התרומה בהערכה אמפירית מבוקרת של השאלה, ולא בפיתוח Style Transfer חדש. יש תקדימים קרובים מאוד להתערבות בסגנון לשיפור משימת סיווג; אין בסיס לטענת “ראשונים להשתמש בשכתוב להסרת shortcut”. גם Author-disjoint evaluation אינו חדש.
 
 ## היקף הקריאה ואופן ביסוס הטענות
@@ -58,9 +60,11 @@
 - **יחס אלינו:** תקדים ישיר לרעיון הכללי; השוני האפשרי הוא מסגור פוליטי ופרוטוקול כותבים נפרדים.
 - **גבול:** לא הודגמה אותה שאלת political narrative עם השכתובים והאילוצים שלנו. הירידה בזיהוי מאפיין רגיש אינה הסרת זהות כל כותב.
 
-## 5. Feder, Wald, Shi, Saria & Blei — Causal-structure Driven Augmentations (NeurIPS 2023)
+## 5. Feder, Wald, Shi, Saria & Blei — Data Augmentations for Improved (Large) Language Model Generalization (NeurIPS 2023)
 
 [עמוד מוסדי](https://research.google/pubs/causal-structure-driven-augmentations-for-text-ood-generalization/), [גרסה מעודכנת: Data Augmentations for Improved (Large) Language Model Generalization](https://arxiv.org/html/2310.12803v2). לא אומת מימוש רשמי; אין לייחס repo צד שלישי למחברים.
+
+תיקון מול [דף הפרסום הסופי](https://proceedings.neurips.cc/paper_files/paper/2023/hash/df88b275bef31ac96c85f0c4013734fc-Abstract-Conference.html): הכותרת Causal-structure Driven… היא כותרת טיוטה/עמוד מוסדי; שם המאמר הסופי הוא הכותרת בכותרת הסעיף. CATO(A) בייצוגים ו־CATO(B) ב־prompting אינם אותה התערבות; אין לתאר את כל המערך כ־free-text rewriting.
 
 - **שאלה:** האם התערבות במאפיין המשויך לכותב יכולה לנתק מתאם כוזב ולשפר סיווג OOD?
 - **שיטה:** CATO, שימוש במידע עזר ובהנחות סיבתיות/difference-in-differences להפקת counterfactuals בעזרת LM.

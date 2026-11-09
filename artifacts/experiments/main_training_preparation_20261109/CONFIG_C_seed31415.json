@@ -1,0 +1,32 @@
+{
+  "condition": "C",
+  "seed": 31415,
+  "view_file": "DRAFT_ARM_C.csv",
+  "n_sources": 30,
+  "n_examples": 30,
+  "label_space": [
+    "Right-wing",
+    "Left-wing"
+  ],
+  "output_label_order": [
+    "Zionist",
+    "Resistance",
+    "Western",
+    "Russian",
+    "Ukrainian",
+    "Right-wing",
+    "Left-wing"
+  ],
+  "encoder": "same frozen production MiniLM; no encoder fine-tuning",
+  "head": "fresh 384->128 ReLU Dropout(.3)->7",
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "batch_size": 16,
+  "optimizer_updates": 40,
+  "processed_examples": 640,
+  "checkpoint_rule": "evaluate all fixed steps; no condition-specific early stopping; one final checkpoint",
+  "validation": "original validation texts only; no frozen-test inputs; labels must pass human gate",
+  "training_ready": false,
+  "readiness_reason": "missing verified human gold/QC and original ChatGPT generation metadata",
+  "schedule": "SCHEDULE_C_seed31415.csv"
+}

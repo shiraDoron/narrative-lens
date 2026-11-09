@@ -1,0 +1,52 @@
+{
+  "raw_unique": 429,
+  "train_raw": 202,
+  "train_eligible": 105,
+  "train_classes": {
+    "Right-wing": 50,
+    "Left-wing": 55
+  },
+  "common_ids": 30,
+  "missing_style": 75,
+  "missing_paraphrase": 0,
+  "common_classes": {
+    "Right-wing": 16,
+    "Left-wing": 14
+  },
+  "split_coverage": {
+    "train": {
+      "n": 105,
+      "classes": {
+        "Right-wing": 50,
+        "Left-wing": 55
+      }
+    },
+    "val": {
+      "n": 43,
+      "classes": {
+        "Left-wing": 22,
+        "Right-wing": 21
+      }
+    },
+    "test": {
+      "n": 70,
+      "classes": {
+        "Right-wing": 33,
+        "Left-wing": 37
+      }
+    }
+  },
+  "cross_split_exact_hash_collisions": [],
+  "author_disjoint": true,
+  "human_source_labels": 0,
+  "human_pair_reviews_completed": 0,
+  "required_human_labels_development": 148,
+  "required_pair_qc_full105": 210,
+  "new_training": 0,
+  "new_rewrites": 0,
+  "test_predictions": 0,
+  "training_ready": false,
+  "all_views_are_drafts": true,
+  "near_duplicate_scope": "Prior train202 audit only; no new semantic/test near-duplicate scan",
+  "historical_test_repeatedly_used": true
+}
