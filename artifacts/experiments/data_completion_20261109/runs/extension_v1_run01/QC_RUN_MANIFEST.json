@@ -1,0 +1,49 @@
+{
+  "evaluation_date": "2026-11-10",
+  "methods": [
+    {
+      "method": "Style",
+      "n": 75,
+      "preservation_pass": 42,
+      "substantial_style": 71,
+      "both": 39,
+      "exact_copies": 0
+    },
+    {
+      "method": "Paraphrase",
+      "n": 75,
+      "preservation_pass": 43,
+      "substantial_style": 23,
+      "both": 6,
+      "exact_copies": 12
+    }
+  ],
+  "validator": {
+    "semantic_similarity": 0.85,
+    "bidirectional_nli": 0.6,
+    "code_sha256": {
+      "artifacts\\experiments\\verified_human_style_followup_20261026\\experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+      "artifacts\\experiments\\style_intervention_v2_20261026\\study.py": "39ccf8a470955ad212dd9c3b3631591e59b0a87732d5fc4f24a651585af1a44e",
+      "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8"
+    },
+    "style_scaling_sha256": "3c0a7ea471f984e3e1dbde81d54dba730ffa54d1b6fb4b3161c4898cfe2acfce",
+    "classifier_predictions": false,
+    "thresholds_changed": false
+  },
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "device": "CPU",
+  "package_versions": {
+    "torch": "2.13.0+cpu",
+    "transformers": "5.15.0",
+    "sentence-transformers": "5.7.0",
+    "numpy": "2.2.5",
+    "pandas": "2.2.3"
+  },
+  "received_outputs_sha256": "d4d4ce3a44f32568b790bce0be38c38585893eb52212f41daf08b9f5b39fc0ec",
+  "paraphrase_inputs_sha256": "ffdb0768f0ed2a2cad11f51582f6071b965a7f1f001c84432b8323bc24eaae92",
+  "generation_metadata_supplement_sha256": "5b0ab3f06bcbdfe2815dadeda70a3419850f573c51c1a4dbdc06e930538f3ddf",
+  "human_validation": false,
+  "narrative_classifier_run": false,
+  "test_evaluation": false,
+  "caution": "Automatic screening only; no dedicated validated narrative/stance/rhetorical-intensity metric."
+}

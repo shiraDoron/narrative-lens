@@ -1,0 +1,17 @@
+{
+  "recorded_date": "2026-11-10",
+  "source": "User declaration in conversation on 2026-11-10",
+  "generator": "ChatGPT",
+  "visible_model_name": "GPT-6",
+  "actual_generation_date": "2026-11-09",
+  "applies_to": "All 75 rewrites across batches 1-5",
+  "exact_model_revision": null,
+  "interface": null,
+  "temperature": null,
+  "top_p": null,
+  "seed": null,
+  "output_limit": null,
+  "finish_reason": null,
+  "unknown_parameter_status": "Unknown; not inferred",
+  "original_receipts_preserved": true
+}

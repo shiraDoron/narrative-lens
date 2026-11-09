@@ -1,0 +1,9 @@
+{
+  "n_pairs": 75,
+  "n_method_evaluations": 150,
+  "same_id_coverage": true,
+  "guard_accounting_consistent": true,
+  "summary_recomputed_from_pairs": true,
+  "frozen_sources_unchanged": true,
+  "narrative_classifier_or_test_inference": false
+}

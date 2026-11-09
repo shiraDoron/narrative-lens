@@ -1,6 +1,6 @@
 # Current Research State
 
-Updated: 2026-11-09. This is the changing status page; [README](README.md) provides the stable research overview.
+Updated: 2026-11-10. This is the changing status page; [README](README.md) provides the stable research overview.
 
 ## Current research question
 
@@ -15,6 +15,8 @@ Historical experiments show a large unseen-author gap, measurable author-style s
 No causal evidence yet that removing author style improves generalization. A paraphrase gain alone cannot establish that cause. No new generalization, Macro-F1 or author-identification claim follows from the latest 30-text prompt trials. Automated passes and external LLM judgments are not human gold.
 
 ## Current active experiment
+
+**Latest completed stage — automatic QC of all75 extension pairs (2026-11-10):** [Report](artifacts/experiments/data_completion_20261109/runs/extension_v1_run01/QC_REPORT_HE.md) and [per-ID results](artifacts/experiments/data_completion_20261109/runs/extension_v1_run01/QC_COMPARISON_BY_ID_75.csv). Style: preservation42/75, substantial71/75, both39/75, exact0. Same-ID Paraphrase: preservation43/75, substantial23/75, both6/75, exact12. Frozen guards/scaling/thresholds unchanged; complete75 paired coverage verified. All75 generated with GPT-6 on2026-11-09 per user declaration; unknown parameters remain null in additive metadata. Passing is not semantic/narrative gold; rhetorical intensity lacks a dedicated existing guard. Human75 remains blank/pending. No Narrative Classifier training/inference or test evaluation. Prior intake/QC-pending entries below are historical.
 
 **Latest status: extension intake complete75/75.** All five batches match the missing train-only ID set with no duplicates/empty outputs. [Canonical run01](artifacts/experiments/data_completion_20261109/runs/extension_v1_run01/received_rewrites_75.csv) preserves outputs unchanged; [independent human75 package](artifacts/experiments/data_completion_20261109/runs/extension_v1_run01/HUMAN_PAIR_REVIEW_NEW75.md) is populated with pairs and blank ratings. Model/date remain unknown: intake used the null-valued metadata template, with provenance_complete=false. QC dry-run and18 infrastructure tests passed; full semantic/style QC, human ratings and training remain pending. Earlier batch intake entries below are historical.
 

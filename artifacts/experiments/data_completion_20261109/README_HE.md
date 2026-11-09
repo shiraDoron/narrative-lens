@@ -1,5 +1,9 @@
 # חבילת השלמת נתונים — 2026-11-09
 
+**עדכון QC — 10.11.2026:** [הדוח המלא](runs/extension_v1_run01/QC_REPORT_HE.md) ו־[תוצאות לפי ID](runs/extension_v1_run01/QC_COMPARISON_BY_ID_75.csv) מוכנים. כל75 השכתובים וכל75 הפרפרזות התואמות נבדקו באותם guards וספים. Style: שימור42/75, substantial71/75, שניהם39/75, exact copies0. Paraphrase: שימור43/75, substantial23/75, שניהם6/75, exact copies12. אלה תוצאות אוטומטיות בלבד; אין הכרעות אנושיות או אימון. לפי הצהרת המשתמשת, כל75 נוצרו ב־GPT-6 ב־9.11.2026; [תוספת metadata](runs/extension_v1_run01/GENERATION_METADATA_SUPPLEMENT_20261110.json) משלימה זאת בלי לשנות receipts. פרמטרים וגרסת מודל מדויקת אינם ידועים. דיווחי ההמתנה ל־QC ולשם המודל בהמשך הם היסטוריים.
+
+לשחזור QC והשוואה ראו פקודות בדוח. בדיקת עקביות: `python artifacts/experiments/data_completion_20261109/verify_qc_results.py --run extension_v1_run01`. קובצי הניתוח והדגלים אינם חלק מהחבילה העיוורת לאדם. טפסים ריקים נוספים שה־validator מפיק אוטומטית אינם הגרסה למסירה; יש להשתמש בחבילת HUMAN_PAIR_REVIEW_NEW75 הקיימת.
+
 **המצב העדכני: כל חמשת ה־batches התקבלו, 75/75 IDs צפויים וייחודיים.** נשמרו raw ו־receipts ללא עריכת שכתובים. [הקובץ המאוחד](runs/extension_v1_run01/received_rewrites_75.csv) ו־[חבילת אימות אנושי מלאה ל־75](runs/extension_v1_run01/HUMAN_PAIR_REVIEW_NEW75.md) מוכנים. אפשר למלא במקום Markdown את [ה־CSV המקביל](runs/extension_v1_run01/HUMAN_PAIR_REVIEW_NEW75.csv), לא את שניהם. הסוקר מקבל רק זוגות ושדות ריקים, ללא ציונים או תוויות.
 
 קליטת run01 השתמשה ב־metadata template עם ערכי מודל/מועד null: זהו רישום מפורש של מידע חסר, לא metadata שהתקבל מהמשתמש ולא הוכחה לפרוטוקול היצירה בפועל. receipt מסמן `provenance_complete=false`. יש לשמור השלמת metadata בעתיד בנפרד, בלי לדרוס receipt מקורי. בוצע QC dry-run לבדיקת binding וקוד קפוא בלבד; **טרם הורצו guards סמנטיים או style metrics**, ולא התקבלו הכרעות אנושיות. אין אישור אימון. עדכוני הקליטה החלקיים בהמשך הם היסטוריים.

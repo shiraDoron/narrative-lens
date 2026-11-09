@@ -1,2 +1,6 @@
 __pycache__/
 *.log
+nli_progress.json
+# Frozen validator also emits redundant blank review forms; primary blind package is tracked.
+runs/*/automatic_qc/rewrite_human_review*.csv
+runs/*/paraphrase_qc/rewrite_human_review*.csv

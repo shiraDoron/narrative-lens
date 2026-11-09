@@ -1,0 +1,11 @@
+﻿guard,count
+bidirectional_nli,16
+quotations,9
+entities,6
+negation,6
+future_tense,4
+attribution,4
+certainty,4
+similarity,3
+numbers,2
+framing_anchors,1
