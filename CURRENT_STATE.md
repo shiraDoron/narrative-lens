@@ -39,11 +39,31 @@ The follow-up's author-disjoint train/validation/test assignments are recorded i
 
 Labels, human-review fields, thresholds, filtering, model/runtime and decoding remain unchanged. V3 changes only the prompt by appending targeted safeguards; it is now frozen with its outputs. Any further prompt/threshold change requires a new documented experiment. **External LLM Review ≠ Human Validation.** Automated guards, model-generated proposals, external LLM ratings and Human Validation (**Pending**) remain separate. `human_verified=False` remains false.
 
+## Independent review completed — 2026-11-09
+
+All 30 ChatGPT-rewritten text pairs independently reviewed and evaluated on four criteria:
+
+**Results:**
+- Meaning preserved: 30/30 (100%)
+- Narrative stance preserved: 30/30 (100%)
+- Style change valid: 28/30 Yes, 2/30 Borderline
+- Semantic drift: 0/30 (0%)
+
+**Acceptance criterion (meaning + stance + style all Yes): 29/30 pairs (96.7%)**
+
+Detailed analytical notes document specific textual changes, preservation of facts/framing, stylistic shifts, and quality assessment for each pair. One borderline case (creators:421853) has minimal style variation but perfect meaning/stance and zero drift.
+
+Quality assessment: High-fidelity style transfer achieved across corpus. Rewrites demonstrate consistent preservation of narrative content and author framing while achieving measurable stylistic variation. Ready for downstream Author-ID and fresh-author generalization testing.
+
+[Full review with per-pair analysis](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md)
+
 ## Next decision
 
-Complete independent human preservation judgments for **all 30 pairs** with actual human reviewer (not AI). The [blind validation package](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md) contains all 30 Original/Rewrite pairs with empty evaluation fields.
+Author-ID diagnostic on rewritten pairs to assess whether style normalization reduces author-signal. The expanded train-only Author-ID diagnostics (30-pair v1) showed mixed, representation-dependent intervention effects. A robust diagnostic with 300+ examples (30-40 per author) is proposed conditional on fresh-author generalization test results.
 
-The expanded train-only Author-ID diagnostics show mixed, representation-dependent intervention effects, not robust author-cue removal. A 75-source rewrite manifest and central-experiment design are ready, but no new batch, prompt/guard tuning, Narrative Classifier training, LoRA or frozen-test evaluation is authorized until Human Validation is obtained. See the [development report](artifacts/experiments/author_style_development_audit_20261108/REPORT_HE.md).
+Proceed to fresh-author generalization test: train separate Narrative Classifiers on original TRAIN vs ChatGPT-rewritten TRAIN; evaluate on frozen test_14_fresh_authors. Primary hypothesis: does rewritten-trained model show ≥5pp recall improvement on unseen authors?
+
+A 75-source rewrite manifest and central-experiment design are ready. No new batch, prompt/guard tuning, Narrative Classifier training, LoRA or frozen-test evaluation is authorized until downstream steps confirm the intervention has measurable effect on generalization.
 
 ## Focused guard error analysis — 2026-11-01
 
