@@ -16,6 +16,8 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
+Latest intake: [Batch 4](artifacts/experiments/data_completion_20261109/received_batches/batch_04/BATCH_04_OUTPUT.csv) received: all15 expected IDs in order, no duplicate IDs or empty outputs; raw paste preserved and rewrites unchanged. Total extension intake60/75. Batch5 and generation metadata remain pending. No semantic QC, human validation, training or test evaluation was run.
+
 Latest intake: [Batch 3](artifacts/experiments/data_completion_20261109/received_batches/batch_03/BATCH_03_OUTPUT.csv) received with all15 expected IDs in order, no duplicates or empty rewrites, and raw paste preserved. Total extension intake45/75; batches4–5 and generation metadata pending. This is structural intake only, not semantic QC or human validation.
 
 Latest intake: [Batch 2](artifacts/experiments/data_completion_20261109/received_batches/batch_02/BATCH_02_OUTPUT.csv) also received: all15 expected IDs, ordered, nonempty and unchanged. Total extension intake30/75; batches3–5 and generation metadata pending. No semantic QC, human validation or training performed on this intake.
