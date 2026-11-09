@@ -39,23 +39,27 @@ The follow-up's author-disjoint train/validation/test assignments are recorded i
 
 Labels, human-review fields, thresholds, filtering, model/runtime and decoding remain unchanged. V3 changes only the prompt by appending targeted safeguards; it is now frozen with its outputs. Any further prompt/threshold change requires a new documented experiment. **External LLM Review ≠ Human Validation.** Automated guards, model-generated proposals, external LLM ratings and Human Validation (**Pending**) remain separate. `human_verified=False` remains false.
 
-## Independent review completed — 2026-11-09
+## External LLM Review completed — 2026-11-09
 
-All 30 ChatGPT-rewritten text pairs independently reviewed and evaluated on four criteria:
+Claude independently assessed all 30 ChatGPT-rewritten text pairs on four criteria. **This is an external LLM review, not human validation.**
 
 **Results:**
 - Meaning preserved: 30/30 (100%)
 - Narrative stance preserved: 30/30 (100%)
-- Style change valid: 28/30 Yes, 2/30 Borderline
+- Style change valid: 28/30 Yes, 2/30 Borderline  
 - Semantic drift: 0/30 (0%)
 
-**Acceptance criterion (meaning + stance + style all Yes): 29/30 pairs (96.7%)**
+**Acceptance criterion (all four = Yes): 28/30 pairs (93%)**  
+**Flexible criterion (meaning + stance + style Yes or Borderline; drift = No): 30/30 pairs (100%)**
 
-Detailed analytical notes document specific textual changes, preservation of facts/framing, stylistic shifts, and quality assessment for each pair. One borderline case (creators:421853) has minimal style variation but perfect meaning/stance and zero drift.
+Detailed analytical notes document specific textual changes, preservation of facts/framing, stylistic shifts, and per-pair quality assessment. Two borderline cases (creators:421853, creators:418904) have minimal style changes but perfect meaning/stance preservation and zero drift.
 
-Quality assessment: High-fidelity style transfer achieved across corpus. Rewrites demonstrate consistent preservation of narrative content and author framing while achieving measurable stylistic variation. Ready for downstream Author-ID and fresh-author generalization testing.
+**Note:** creators:421951 shows weakening of "No one" → "Few people" (universal to empirical generalization), noted in review and accepted. Human expert may reconsider this edge case.
 
-[Full review with per-pair analysis](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md)
+**Review location and details:** [EXTERNAL_LLM_REVIEW_CLAUDE_20261109.md](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/EXTERNAL_LLM_REVIEW_CLAUDE_20261109.md)
+
+**Human Validation status:** PENDING — 30 text pairs prepared in blank template awaiting independent domain expert review.  
+[Template: HUMAN_VALIDATION_30.md](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/HUMAN_VALIDATION_30.md)
 
 ## Next decision
 
