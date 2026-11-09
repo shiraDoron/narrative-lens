@@ -16,6 +16,8 @@ No causal evidence yet that removing author style improves generalization. A par
 
 ## Current active experiment
 
+Latest intake: [Batch 2](artifacts/experiments/data_completion_20261109/received_batches/batch_02/BATCH_02_OUTPUT.csv) also received: all15 expected IDs, ordered, nonempty and unchanged. Total extension intake30/75; batches3–5 and generation metadata pending. No semantic QC, human validation or training performed on this intake.
+
 Partial intake: [ChatGPT extension Batch 1](artifacts/experiments/data_completion_20261109/received_batches/batch_01/BATCH_01_OUTPUT.csv) received with all15 expected IDs in order; raw paste preserved and Markdown fences removed without rewrite edits. Batches2–5 and actual generation metadata remain pending. Intake validity is not semantic preservation or human validation; no final experiment ran.
 
 **Data completion handoff (2026-11-09):** [Bundle and exact handoff instructions](artifacts/experiments/data_completion_20261109/README_HE.md) now provide 105 proposed-label human review records, 75 missing train-only sources in five batches, a fixed extension prompt, separate human/LLM importers, immutable receipt/text binding, unchanged automatic QC wiring, and a draft 105-source A–E compiler. All 18 infrastructure tests pass. No completed attributable human30 file was found on disk; Claude judgments remain LLM-only. New75 human pair review becomes usable after generation, not before. Legacy30 and frozen source/guard hashes are unchanged. This newly authorized prompt is a distinct protocol cohort, not a reconstruction of the undocumented legacy prompt. No generation, final training, or frozen-test inference was run.

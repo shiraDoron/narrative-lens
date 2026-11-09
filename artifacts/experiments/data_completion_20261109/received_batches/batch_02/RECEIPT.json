@@ -1,0 +1,16 @@
+{
+  "protocol_version_expected": "chatgpt_style_extension_v1_20261109",
+  "batch": 2,
+  "rows": 15,
+  "raw_sha256": "c98c0148439caf3e180354ec4657bd349483fc5d6cc892472db6995f44b892fe",
+  "csv_sha256": "c98c0148439caf3e180354ec4657bd349483fc5d6cc892472db6995f44b892fe",
+  "input_batch_sha256": "a69d3dea51f37d35ca6fef26c3b404cf5d53207c3dd6e0af510757d7ac92efb3",
+  "markdown_fences_removed": false,
+  "rewrite_text_edited": false,
+  "id_order_matches": true,
+  "actual_model_and_generation_date": null,
+  "generation_metadata_status": "not supplied; do not infer from receipt",
+  "semantic_qc_executed": false,
+  "human_validation_complete": false,
+  "full75_import_complete": false
+}
