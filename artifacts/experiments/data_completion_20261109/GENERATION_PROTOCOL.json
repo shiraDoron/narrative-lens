@@ -1,0 +1,21 @@
+{
+  "version": "chatgpt_style_extension_v1_20261109",
+  "prompt_sha256": "9035ed1999b232d64dbb713c1740290a68606c2933af4ec5e8a4325d54a958a3",
+  "legacy_prompt_reconstruction": false,
+  "new_generator": "ChatGPT; actual selected model to be recorded before batch1",
+  "frozen_input_file_sha256": "cf886ff0ecc8052470bd77d1310899141327384a4e3a01d0898d1fff9b23d541",
+  "batch_sha256": {
+    "BATCH_01_15.csv": "fb7ce12ad44eac3d69bb437fa6e1473d9b0535874d461e3f36bcab3ef7ec4f78",
+    "BATCH_02_15.csv": "a69d3dea51f37d35ca6fef26c3b404cf5d53207c3dd6e0af510757d7ac92efb3",
+    "BATCH_03_15.csv": "713585795f412679b1cc843a84736b6b0516aec961ccdc2ec1d742bb4e1b268a",
+    "BATCH_04_15.csv": "3040b8ec2189440287bc904e7d617d7aba720808b248d9f9d959979d35c60975",
+    "BATCH_05_15.csv": "bf924863662c4c0370a6d134c909ea86128235bc706be1bf8b59d5bd42c03fb6"
+  },
+  "attempts": "one candidate per ID; technical failure retries only, retain all receipts; no classifier-driven retries",
+  "new75_and_legacy30_are_different_protocol_cohorts": true,
+  "automatic_thresholds": {
+    "similarity": 0.85,
+    "bidirectional_nli": 0.6
+  },
+  "existing_guards_and_style_metrics_unchanged": true
+}

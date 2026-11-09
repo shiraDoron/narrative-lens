@@ -1,0 +1,58 @@
+# חבילת השלמת נתונים — 2026-11-09
+
+## מה להעביר ל־ChatGPT
+
+לפתוח שיחה חדשה לכל batch ולהשתמש **באותו מודל גלוי ובאותו prompt**:
+
+1. [STYLE_REWRITE_PROMPT_V1.txt](STYLE_REWRITE_PROMPT_V1.txt) — הוראות קבועות. זהו prompt חדש לגרסת המשך, לא הפרומפט המקורי שאינו מתועד.
+2. אחד מקובצי [chatgpt_batches](chatgpt_batches/): `BATCH_01_15.csv` עד `BATCH_05_15.csv`. חמישה batches, בכל אחד 15 מקורות; לא לצרף את כל75 בכל שיחה בנוסף ל־batch.
+3. לבקש פלט CSV בלבד עם `id,chatgpt_style_rewrite`, ולשמור כל תשובה בקובץ נפרד. [תבנית פלט](STYLE_REWRITE_OUTPUT_TEMPLATE_75.csv) מתארת את הסכימה לכל75; היא אינה תשובה שנוצרה.
+
+אפשר להשתמש ב־[STYLE_REWRITE_INPUT_75.csv](STYLE_REWRITE_INPUT_75.csv) כקובץ המקורות המלא, אבל החלוקה לחמישה מפחיתה סיכון לקטיעת תשובות. אין לשלוח את `PRIVATE_SPLIT_AND_LABEL_KEY_75.csv`, הערכות, שמות כותבים, תוצאות guards או מסווג.
+
+לפני batch1 יש לתעד ב־[GENERATION_METADATA_TEMPLATE.json](GENERATION_METADATA_TEMPLATE.json) את interface, visible_model_name ומועד. להמשיך באותה בחירת מודל בכל חמש השיחות; אם השתנתה, לתעד ולסמן cohort נפרד. exact_model_revision ופרמטרים לא גלויים ב־UI נשארים null עם הסבר, לא ערכי ברירת מחדל מומצאים. ב־API לתעד את הפרמטרים והגרסה שנשלחו בפועל. לשמור raw replies ו־finish_reason אם זמין. [מניפסט קפוא](GENERATION_PROTOCOL.json) מכיל hashes של prompt ובאצ׳ים.
+
+לא נוצרו כאן שכתובים. ה־30 הקיימים נשארים בדיוק כפי שהתקבלו. extension_v1 הוא הבדל מתועד: כעת יש prompt גלוי, התערבות מבנית מפורשת וכללים מדויקים לשימור כמתים/מודליות/ציטוטים. אין הבטחה שהוא שקול או עדיף על הפרוטוקול המקורי; אין לערוך את הפלטים או לבחור best-of לפי מודל.
+
+## מה דורש אדם
+
+- [NARRATIVE_LABEL_VALIDATION_105.md](NARRATIVE_LABEL_VALIDATION_105.md), או [ה־CSV](NARRATIVE_LABEL_VALIDATION_105.csv): כל105 Originals, תווית מוצעת והגדרות. למלא אחד מהם בלבד. ההצעה אינה gold; יש אפשרויות Unclear/Mixed/Other.
+- קובץ האימות המלא שכבר מולא עבור legacy30: לשמור אותו כ־CSV/Markdown ולייבא עם הסוקר והתאריך, לפי ההוראות להלן. לא צריך למלא שוב אם קיים קובץ תקף. אם אין עותק זמין, [HUMAN_PAIR_REVIEW_LEGACY30.md](HUMAN_PAIR_REVIEW_LEGACY30.md)/[CSV](HUMAN_PAIR_REVIEW_LEGACY30.csv) הן תבניות ריקות של אותם זוגות.
+- [HUMAN_PAIR_REVIEW_NEW75_TEMPLATE.md](HUMAN_PAIR_REVIEW_NEW75_TEMPLATE.md)/[CSV](HUMAN_PAIR_REVIEW_NEW75_TEMPLATE.csv): **עדיין לא למילוי** — Rewrite ריק ומסומן pending. אחרי קליטת התשובות תיווצר חבילה מלאה בשם `runs/<run>/HUMAN_PAIR_REVIEW_NEW75.md/.csv`, והיא הקובץ שיש למסור לאדם.
+- פרפרזות105 ו־validation source labels43 עדיין דורשים QC/gold לפני ניסוי A–E; הקבצים הקיימים ב־main_training_preparation נשמרים. הבקשה הנוכחית אינה הופכת אותם למאומתים.
+
+## ייבוא האימות שכבר מולא
+
+לא נמצא ברפו או בקבצי Downloads הרלוונטיים `HUMAN_VALIDATION_30_FILLED.csv`; התבניות שעל הדיסק ריקות. קובץ מלא של Claude קיים בנפרד, והוא **אינו** מיובא כאדם. לשוניות IDE יכולות להציג קובץ שטרם נשמר; יש לשמור את קובץ התשובות לפני הפקודה.
+
+```powershell
+python artifacts/experiments/data_completion_20261109/import_review.py --source "C:/path/to/completed.csv" --kind pairs30 --reviewer-type human --reviewer-id "reviewer01" --review-date 2026-11-09 --name human30_reviewer01
+```
+
+התאריך צריך להיות תאריך הסקירה בפועל, לא העתקת הדוגמה אם שונה. המקור חייב לכלול ID, Original, ChatGPT_Style_Rewrite וחמשת שדות human כפי שבתבנית. תמיכה גם ב־Markdown של החבילה. מזהה/תאריך/סוג סוקר חובה; יש לתעד assistance באמצעות `--assistance-used`. ייבוא דורש את כל30 ה־IDs ובדיקת התאמת טקסטים, ערכים וכפילויות. raw file נשמר byte-for-byte בתיקיית `human_imports/<name>` עם receipt ו־hash; אין דריסה של היסטוריה או שינוי דירוגים.
+
+ל־LLM משתמשים ב־`--reviewer-type llm`; הוא נשמר ב־`llm_imports`. מקור המצהיר במפורש Claude/AI יידחה אם ינסו לייחסו לאדם. סוג סוקר שמספק המשתמש מתועד כ־declaration; התוכנה אינה מוכיחה מי קרא בפועל. Notes ו־Borderline נשמרים; סתירות מסומנות, לא מתוקנות. עבור labels105 משתמשים ב־`--kind labels105`. עבור75 משתמשים ב־`--kind pairs75 --run <run>` לאחר קליטת פלטים.
+
+## קליטת השכתובים ו־QC
+
+```powershell
+python artifacts/experiments/data_completion_20261109/receive_rewrites.py --sources "C:/path/batch1.csv" "C:/path/batch2.csv" "C:/path/batch3.csv" "C:/path/batch4.csv" "C:/path/batch5.csv" --metadata "C:/path/generation_metadata.json" --name extension_v1_run01
+python artifacts/experiments/data_completion_20261109/automatic_qc.py --run extension_v1_run01 --dry-run
+python artifacts/experiments/data_completion_20261109/automatic_qc.py --run extension_v1_run01
+python artifacts/experiments/data_completion_20261109/compile_candidates.py --run extension_v1_run01
+```
+
+קליטה בודקת את כל75 IDs, טקסטים לא ריקים, כפילויות, אי־חפיפה עם legacy30 ו־prompt hash; שומרת את המקור ויוצרת חבילת אדם עיוורת. `automatic_qc` משתמש **באותו קוד/similarity/NLI/guards/metrics/scaling**, עם sink מבודד בתיקיית run ו־offline models. אין classifier inference/אימון, אין שינויים בספים ואין כתיבה לתוצאות הקודמות. ה־dry-run בודק wiring/hash ואינו טוען מודלים. הרצה מלאה מחייבת את המשאבים המקומיים הקיימים; אין הורדת מודל חלופי.
+
+`compile_candidates` מחבר 30 קיימים ו־75 נקלטים ל־105 מקורות ולחמש זרועות טיוטה חדשות ב־`runs/<run>/candidate_105`, כולל configs וסדרי batches בתקציב שנקבע. הוא אינו משנה את snapshot ההכנה הישן, ואינו מאשר אימון: proposed labels, human QC ו־mixed-protocol provenance נשארים גלויים וממתינים לאישור. אין ערבוב עם test ואין החלפת legacy30.
+
+[QC_RULES_HE.md](QC_RULES_HE.md) מקבע כלל קבלה לפני ביצועי Narrative Classifier. Auto pass אינו אישור אדם, ואין Human Validation כש־ChatGPT/Claude ממלאים את טופס הסקירה. הקליטה אינה נותנת אישור אוטומטי לאימון או לשימוש ב־test.
+
+## שחזור החבילה
+
+```powershell
+python artifacts/experiments/data_completion_20261109/bundle.py
+python -m unittest discover -s artifacts/experiments/data_completion_20261109 -p test_completion.py -v
+```
+
+יצירת החבילה משתמשת ב־stdlib בלבד ובמקורות קיימים. ה־source hashes מגינים על 30 השכתובים, התבניות, splits, validator ו־scaling. לא לשנות prompt תחת אותו protocol version לאחר תחילת batch. זו חבילת השלמה, לא שינוי בתכנון A–E ולא ניסוי סופי.

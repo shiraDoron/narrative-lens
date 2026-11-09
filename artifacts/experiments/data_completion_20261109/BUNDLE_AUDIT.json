@@ -1,0 +1,19 @@
+{
+  "train_sources": 105,
+  "proposed_counts": {
+    "Right-wing": 50,
+    "Left-wing": 55
+  },
+  "missing_style": 75,
+  "legacy_style": 30,
+  "unique_missing_ids": 75,
+  "unique_missing_texts": 75,
+  "all_train_authors": true,
+  "test_rows_exported": 0,
+  "human_completed_file_found": false,
+  "human_import_status": "Awaiting actual per-ID completed file; current templates blank; Claude review kept separate",
+  "new_generation_protocol": "chatgpt_style_extension_v1_20261109",
+  "legacy_generator_metadata_unknown": true,
+  "generation_executed": false,
+  "training_executed": false
+}
