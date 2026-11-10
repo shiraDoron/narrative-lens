@@ -1,0 +1,73 @@
+{
+  "source15": {
+    "meaning": {
+      "Yes": 4,
+      "Borderline": 7,
+      "No": 4
+    },
+    "narrative": {
+      "Yes": 11,
+      "Borderline": 4
+    },
+    "style": {
+      "Yes": 15
+    }
+  },
+  "audited15": {
+    "ai_meaning_preserved": {
+      "Yes": 6,
+      "No": 1,
+      "Borderline": 8
+    },
+    "ai_narrative_preserved": {
+      "Yes": 12,
+      "Borderline": 3
+    },
+    "ai_style_change_valid": {
+      "Yes": 15
+    }
+  },
+  "remaining90": {
+    "ai_meaning_preserved": {
+      "Yes": 62,
+      "Borderline": 22,
+      "No": 6
+    },
+    "ai_narrative_preserved": {
+      "Yes": 85,
+      "Borderline": 5
+    },
+    "ai_style_change_valid": {
+      "Yes": 80,
+      "Borderline": 8,
+      "No": 2
+    }
+  },
+  "all105": {
+    "ai_meaning_preserved": {
+      "Yes": 68,
+      "Borderline": 30,
+      "No": 7
+    },
+    "ai_narrative_preserved": {
+      "Yes": 97,
+      "Borderline": 8
+    },
+    "ai_style_change_valid": {
+      "Yes": 95,
+      "Borderline": 8,
+      "No": 2
+    }
+  },
+  "changed_ids": [
+    "creators:420299",
+    "creators:423650",
+    "creators:418916",
+    "creators:423371",
+    "creators:3fd01161cd76",
+    "creators:421811"
+  ],
+  "changed_fields": 8,
+  "all_three_yes": 59,
+  "all_three_yes_not_training_acceptance": true
+}

@@ -16,6 +16,8 @@
 
 ## תוצאות וניתוח
 
+**סקירת AI נוספת:** [ביקורת הסקירה המצורפת של15 והמשך לכל105](ai_review_audit_105_20261110/AI_AUDIT_SUMMARY_HE.md), עם המקור ללא שינוי, נימוקי ההבדלים וכל90 הזוגות הנותרים. זו סקירת ChatGPT/Codex לא עיוורת, לא Claude ולא האדם הנדרש ב־QC. הקבצים כאן למילוי אדם נשארו ריקים; אין להשתמש בדירוגי ה־AI למילוי אוטומטי שלהם.
+
 - [QC וניתוח סיכונים](QC_FAILURE_ANALYSIS_HE.md): Style42/75 preservation,71/75 substantial,39/75 both; Paraphrase43/75,23/75,6/75. אלה signals, לא אימות משמעות.
 - [Original / Style / Paraphrase — כל75 לקריאה](COMPARISON_75_READABLE.md).
 - [מיון סיכונים לפי ID ושיטה](QC_FAILURE_TRIAGE_150.csv), כולל דוגמאות עריכה ורמזי כמתים. רמזי הכמתים תיאוריים בלבד; לא guard חדש ולא כלל קבלה.

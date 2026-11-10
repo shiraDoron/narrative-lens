@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-10",
+  "reviewer": "ChatGPT/Codex",
+  "exact_model_revision": null,
+  "is_human": false,
+  "is_blind": false,
+  "independent_different_model_verified": false,
+  "source_review_visible": true,
+  "prior_qc_and_focus_notes_visible": true,
+  "review_basis": "Direct assistant reading of105 complete Original/Style pairs; judgments recorded in review_decisions.py",
+  "no_guard_or_keyword_rule_computes_judgments": true,
+  "no_external_model_api_called": true,
+  "no_training": true,
+  "no_test_evaluation": true,
+  "original_reviews_preserved": true,
+  "source_texts_edited": false,
+  "human_fields_edited": false,
+  "protected_source_sha256": {
+    "artifacts\\experiments\\research_completion_20261110\\human_review_batch_01_15\\REVIEW_15_HE.md": "7229ab5f1ca771951ab5515f49c6e7c944e986dff3a9fe2cdb0f4027ef290096",
+    "artifacts\\experiments\\research_completion_20261110\\HUMAN_STYLE_REVIEW_105.md": "b04f1d82fdb57bf5a28c5c2cf5356764953589b597904536f2ae1c16340e2bfc",
+    "artifacts\\experiments\\research_completion_20261110\\HUMAN_STYLE_REVIEW_105.csv": "0feae86d5de4535cb26638dd9f7bb96cab11ac3eb37ee6b1a362cb7e54b20720",
+    "artifacts\\experiments\\research_completion_20261110\\PAIRED_QC_INTAKE_210.csv": "356f0d669a7a21ae70c1173aaa1691e79de191acfd92b86b605625fa2cf79c9c",
+    "artifacts\\experiments\\research_completion_20261110\\NARRATIVE_LABEL_VALIDATION_105.csv": "7c9643d8ff1bb23cd311e8864d4873f73414139c68f0ebd69173c8cdbc6495e0",
+    "artifacts\\experiments\\research_completion_20261110\\NARRATIVE_LABEL_VALIDATION_43_VALIDATION.csv": "7b6b587cb0e100a39aef251e3da886e4f436b7163633465abf57fd48fbf3bdf1",
+    "artifacts\\experiments\\data_completion_20261109\\runs\\extension_v1_run01\\received_rewrites_75.csv": "d4d4ce3a44f32568b790bce0be38c38585893eb52212f41daf08b9f5b39fc0ec"
+  }
+}

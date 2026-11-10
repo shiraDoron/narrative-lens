@@ -54,6 +54,8 @@ Paraphrase הוא ניסוח מחדש לצורך בקרה, לא סיכום ול�
 
 ### אימות אנושי
 
+ב־10.11.2026 נוספה [ביקורת AI לסקירת15 והמשך סקירה לכל105 הזוגות](artifacts/experiments/research_completion_20261110/ai_review_audit_105_20261110/AI_AUDIT_SUMMARY_HE.md). סקירת המקור נשמרה לצד ההכרעות החדשות. הביקורת נעשתה בידי ChatGPT/Codex תוך חשיפה לביקורת ול־QC קודמים; אין לראות בה בדיקה עיוורת של מודל אחר או אימות אנושי. היא אינה מסירה את חסמי ה־human gold וה־QC של הניסוי.
+
 תוויות Left/Right עדיין מוגדרות כהצעות מכונה. לא נמצא ייבוא מלא של הכרעות אדם לפי ID עם זהות סוקר ותאריך. [סקירת Claude על 30 זוגות Original/ChatGPT Style](artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/EXTERNAL_LLM_REVIEW_CLAUDE_20261109.md) היא **External LLM Review**, ולא אימות אדם או סקירה של כל הפרפרזות. גם ספירות review שמסר המשתמש אינן מאפשרות לשחזר הכרעות אדם לפי ID.
 
 נדרשים אימות תוויות ל־105 מקורות train ול־43 מקורות validation, וכן QC אנושי ל־105 זוגות Style ול־105 זוגות Paraphrase. הוכנו חבילה עצמאית וחבילה נפרדת בסיוע QC; השנייה מסומנת במפורש כלא עיוורת. אין תוויות gold או החלטות אדם שמולאו אוטומטית. [חבילות הסקירה והוראות המילוי](artifacts/experiments/research_completion_20261110/README_HE.md).

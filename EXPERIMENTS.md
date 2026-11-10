@@ -3993,6 +3993,14 @@ Prepared five draft views A Original, B Paraphrase, C Style, D Original+Style, E
 
 ## Data completion handoff — 2026-11-09
 
+### Supplied ChatGPT15 review audit and continuation90 — 2026-11-10
+
+Preserved the supplied AI_REVIEW_15_HE (1).md byte-for-byte with receipt/hash; parsed its15 ratings and compared complete canonical text pairs. Additional review is ChatGPT/Codex, not Claude, not human, and not blind to prior QC/source review. Changed6 of15 IDs (8 fields):420299,423650,418916,423371,3fd01161cd76,421811. Retained Meaning No for424146; revised the other three highlighted Meaning No ratings to Borderline after checking full temporal/agent/metaphorical context. Source ratings and explanations remain separately accessible.
+
+Continued direct AI review of all remaining90 train pairs, using the same three dimensions. All105 AI ratings: Meaning68 Yes /30 Borderline /7 No; Narrative97/8/0; Style95/8/2. First15 audit alone: Meaning6/8/1, Narrative12/3/0, Style15/0/0. Separate fields prevent confusing content preservation, political framing and style magnitude.59 all-three-Yes judgments are not the full acceptance rule or human-validated examples. No filter, source label, human field, rewrite, guard, threshold or model was changed.10 integrity tests verify raw archival,105 canonical bindings,15+90 coverage, comparison accounting and protected human files; they do not verify semantic correctness.
+
+[AI audit and decision changes](artifacts/experiments/research_completion_20261110/ai_review_audit_105_20261110/AI_AUDIT_SUMMARY_HE.md) · [All105 AI rows](artifacts/experiments/research_completion_20261110/ai_review_audit_105_20261110/AI_REVIEW_ALL_105.csv) · [Review methodology and non-independence limitations](artifacts/experiments/research_completion_20261110/ai_review_audit_105_20261110/METHODOLOGY_HE.md). No retraining, test evaluation, external-model API call or Human Validation.
+
 ### Development completion / human handoff / readiness — 2026-11-10
 
 Reused and numerically verified the completed75 Style +75 matched Paraphrase screens; no model rerun or new review. Added per-ID failure-risk triage, readable75 triplets, independent Style105 and separate QC-assisted105 views, Paraphrase105 view/paired210 intake, and train105/validation43 proposed-label human packages. All ratings remain blank. Quantifier counts are descriptive hints only, not new guards, thresholds or acceptance rules.
