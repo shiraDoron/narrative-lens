@@ -1,5 +1,8 @@
 # הפער והתרומה המחקרית המועמדת
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 החלטה 2026-11-09: לשאול **Can meaning-preserving author-style interventions improve political narrative classification generalization to unseen authors?** ולבחון זאת אמפירית. אין לנו עדיין תוצאה שמוכיחה שיפור או מנגנון style shortcut.
 
 הרעיון הכללי אינו חדש: Style Pooling משנה סגנון לשיפור הוגנות; CATO משתמש במבנה סיבתי וב־augmentation לשיפור OOD; Shortcut Maze יוצר style shortcuts; SCPN משווה פרפרזה מבוקרת תחביר לפרפרזה כללית; Amazon-WILDS מחלק לפי כותב. [מקורות מלאים](RELATED_WORK_DEEP_REVIEW_HE.md), [מטריצה](RELATED_WORK_COMPARISON.md). הכותרת הסופית המאומתת של עבודת CATO היא *Data Augmentations for Improved (Large) Language Model Generalization* (NeurIPS2023), ולא כותרת הטיוטה שהופיעה בתיעוד הקודם.

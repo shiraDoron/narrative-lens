@@ -1,0 +1,593 @@
+{
+  "current_scope_documents": [
+    "README.md",
+    "THESIS_RESEARCH_DIRECTION_HE.md",
+    "EVIDENCE_MATRIX_HE.md",
+    "RESEARCH_GAP_AND_NOVELTY_HE.md",
+    "RESEARCH_GAP_AND_CONTRIBUTION_HE.md",
+    "RELATED_WORK_DEEP_REVIEW_HE.md",
+    "RELATED_WORK_COMPARISON.md",
+    "STYLE_SENSITIVITY_PILOT_HE.md"
+  ],
+  "relevant_tracked_markdown": 64,
+  "records": [
+    {
+      "path": "COMPLETION_STATUS_20261108.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "CURRENT_STATE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "EDITING_SUMMARY_20261110.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "EVIDENCE_MATRIX_HE.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "EXPERIMENTS.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "README.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "RELATED_WORK_COMPARISON.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "RELATED_WORK_DEEP_REVIEW_HE.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "REPORT_SESSION_20261108_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "RESEARCH_GAP_AND_CONTRIBUTION_HE.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "RESEARCH_GAP_AND_NOVELTY_HE.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "STYLE_SENSITIVITY_PILOT_HE.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "THESIS_RESEARCH_DIRECTION_HE.md",
+      "current_direction_document": true,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": true,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/README.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/ai_preliminary_intake_20261110/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_controlled_20261026/README.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_controlled_20261026/final_research_report.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_controlled_20261026/final_research_report_he.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_development_audit_20261108/AUTHOR_ID_RESULTS_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_development_audit_20261108/CORPUS_AUDIT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_development_audit_20261108/MAIN_EXPERIMENT_PLAN_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_development_audit_20261108/PAIRED_STYLE_CONTENT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_development_audit_20261108/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/author_style_development_audit_20261108/REPRODUCTION.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/chatgpt_style_rewrite_30_20261102/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/REPRODUCTION.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/chatgpt_style_rewrite_30_20261102/review_author_analysis_20261102/SEPARATION_COMPLETE_20261109.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/data_completion_20261109/HUMAN_PAIR_REVIEW_LEGACY30.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/data_completion_20261109/HUMAN_PAIR_REVIEW_NEW75_TEMPLATE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/data_completion_20261109/runs/extension_v1_run01/HUMAN_PAIR_REVIEW_NEW75.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/debias_spec.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/label_decisions_20261110/LABEL_CONSTRUCT_AND_PROTOCOL_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/label_decisions_20261110/RESEARCH_DECISIONS_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/main_training_runtime_20261110/QUALITY_REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/HANDOFF_SUMMARY_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": true,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/HUMAN_STYLE_REVIEW_105.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/INFRASTRUCTURE_REVIEW_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/THESIS_EDIT_AUDIT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/ai_review_audit_105_20261110/AI_REVIEW_REMAINING_90_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/focused_quality_64_20261110/CASE_ANALYSIS_64_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/focused_quality_64_20261110/CASE_TABLE_64_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/focused_quality_64_20261110/SUMMARY_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/research_completion_20261110/human_review_batch_01_15/REVIEW_15_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/EXPERIMENT_GUIDE_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/FINAL_REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/external_llm_review_20261101/EXTERNAL_LLM_REVIEW_SUMMARY_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/external_llm_review_20261101/README.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/external_review_30_20261101/REVIEW_30_TRAIN_ONLY_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/CENTRAL_SECTION_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_30_20261101/external_llm_review_20261101/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": false,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/train_prompt_revision_v3_30_20261102/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/style_intervention_v2_20261026/v2_semantic_repair_30_20261102/REPORT_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/verified_human_style_followup_20261026/RESULTS_HE.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "artifacts/experiments/verified_human_style_followup_20261026/final_research_report_he.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "docs/AUTHOR_STYLE_RESEARCH_TODO.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "docs/author_style_native_language_research_he.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "docs/existing_style_transfer_tools_evaluation_he.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": false,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "docs/running.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "docs/semantic_style_intervention_design_he.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "docs/style_transfer_related_work_he.md",
+      "current_direction_document": false,
+      "contains_author_id": false,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    },
+    {
+      "path": "experiments/README.md",
+      "current_direction_document": false,
+      "contains_author_id": true,
+      "contains_shortcut_term": true,
+      "contains_generalization": true,
+      "explicit_current_scope_link": false,
+      "interpretation": "Inventory only; lexical co-occurrence does not verify scientific claims"
+    }
+  ],
+  "historical_results_edited": false,
+  "limitation": "Current direction documents reviewed for claim scope; archived prose remains historical, not individually re-adjudicated"
+}

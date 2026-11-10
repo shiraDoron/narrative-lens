@@ -1,8 +1,13 @@
 # הכיוון המרכזי של התזה
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 עודכן ב־10.11.2026. מסמך זה מגדיר את שאלת המחקר, גבולות הטענה המדעית והניסוי המתוכנן. המצב התפעולי מתועד ב־[CURRENT_STATE.md](CURRENT_STATE.md), והיסטוריית הניסויים ב־[EXPERIMENTS.md](EXPERIMENTS.md).
 
 ## שאלת המחקר והתרומה האפשרית
+
+**הגדרת עבודה זמנית שאושרה להמשך ההכנה:** Left/Right ברמת הקטע, עד הכרעת המנחה. זו אופרציונליזציה מצומצמת של עמדה ומסגור, ולא שקילות לסיווג נרטיבים רחב. הצעות confidence≥2/3 הן ציוני מכונה סודרים, לא הסתברות או Gold. לא מוציאים את67 ה-Unclear ולא משנים תוויות מכוח אבחון AI. [קריטריונים מוצעים לאדם ואחריות להכרעה](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md), [רשימת התנאים הקצרה לתחילת אימון](artifacts/experiments/working_scope_confirmation_20261110/TRAINING_START_CHECKLIST_HE.md).
 
 **האם מסווג נרטיבים פוליטיים משתמש במאפייני סגנון של הכותב כקיצור דרך, והאם התערבות סגנונית המשמרת את הנרטיב יכולה לשפר הכללה לכותבים שלא נראו באימון?**
 

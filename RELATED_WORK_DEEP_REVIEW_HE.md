@@ -1,5 +1,8 @@
 # Related Work — סקירה מעמיקה למיקוד התזה
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 נבדק ב־2026-11-09. זו סקירה ממוקדת במקורות ראשוניים, לא systematic review ממצה. כל הטענות מוגבלות למערכים של המאמר הנדון. “לא נבדק” אינו טענה שאין עבודה אחרת בעולם. רלוונטיות High/Medium היא להחלטת המחקר שלנו, לא דירוג איכות מאמר.
 
 **תיקון ביבליוגרפי חשוב:** הכותרת הרשמית של עבודת Feder et al. ב־NeurIPS 2023 היא **Data Augmentations for Improved (Large) Language Model Generalization**. CATO הוא שם השיטה; “Causal-structure Driven Augmentations for Text OOD Generalization” מופיע בכותרת גרסת טיוטה/עמוד מוסדי, ואינו הכותרת בדף הפרסום הסופי. אין לערבב את CATO(A) בייצוגים עם CATO(B) המשכתב טקסט.

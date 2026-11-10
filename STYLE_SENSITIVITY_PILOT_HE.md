@@ -1,5 +1,8 @@
 # פיילוט רגישות סגנונית של Narrative Classifier קפוא
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 2026-11-09. **הבדיקה בוצעה בפועל**: 90 תחזיות על 30 מקורות train בשלושה תנאים. אין אימון חדש ואין תחזיות על validation/test.
 
 ## התאמת המודל והגבלת ההסקה

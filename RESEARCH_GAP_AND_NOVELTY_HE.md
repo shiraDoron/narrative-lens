@@ -1,5 +1,8 @@
 # מיקוד התזה: ספרות, פער ותרומה אפשרית
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 תאריך בדיקה: 2026-11-09. שאלת המחקר: האם מסווג נרטיבים פוליטיים נשען על סגנון הכותב כ־shortcut, והאם התערבות השומרת על הנרטיב משפרת הכללה לכותבים חדשים?
 
 מסמך זה הוא מיפוי ההיתכנות הקודם. המסמכים המרכזיים המעודכנים: [כיוון התזה](THESIS_RESEARCH_DIRECTION_HE.md), [סקירה מעמיקה](RELATED_WORK_DEEP_REVIEW_HE.md), [פער ותרומה](RESEARCH_GAP_AND_CONTRIBUTION_HE.md) ו[פרוטוקול A–E](MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md). תוצאות הפיילוט נשמרות בנפרד.

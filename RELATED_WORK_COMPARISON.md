@@ -1,5 +1,8 @@
 # Closest-work comparison — 2026-11-09
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 Sources and full bibliographic entries: [deep review](RELATED_WORK_DEEP_REVIEW_HE.md), [BibTeX](REFERENCES.bib).
 “Not evaluated here” concerns the paper's demonstrated protocol, not proof of absence throughout the literature.
 

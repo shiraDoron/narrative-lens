@@ -1,5 +1,8 @@
 # Narrative Lens: Meaning-Preserving Style Interventions and Unseen-Author Generalization
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 **Central research question: Can meaning-preserving author-style interventions improve political narrative classification generalization to unseen authors?**
 
 The candidate contribution is empirical and methodological: compare Original, Paraphrase, Style Rewrite and matched augmentation on common source IDs, evaluating Original texts from unseen authors. Author-style shortcuts are a hypothesis, not an established mechanism. Style Pooling, CATO and Shortcut Maze already study closely related ideas; we do not claim to invent style transfer or to be first to test style shortcuts.

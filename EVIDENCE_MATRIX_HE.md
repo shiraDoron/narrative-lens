@@ -1,5 +1,8 @@
 # Evidence Matrix — מה הנתונים מאפשרים לטעון
 
+> Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
+
+
 2026-11-09. ביקורת read-only של ניסויים קיימים ופיילוט train חדש במשקולות קפואות. לא הורץ מחדש שום historical test, לא אומן Narrative Classifier ולא שונו שכתובים/guards. מסמך זה מסייג טענות בתיעוד ההיסטורי במקום למחוק תוצאות שליליות או להמירן להסבר סיבתי.
 
 ## ארבע טענות שונות
