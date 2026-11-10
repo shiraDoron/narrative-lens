@@ -1,0 +1,1538 @@
+﻿kind,key,field,code,detail
+labels,"('creators:0105f26ef9f1',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:0105f26ef9f1',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:0105f26ef9f1',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:0105f26ef9f1',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:0b4c49505392',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:0b4c49505392',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:0b4c49505392',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:0b4c49505392',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:118089',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:118089',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:118089',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:118089',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:11db638844f4',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:11db638844f4',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:11db638844f4',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:11db638844f4',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:120669',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:120669',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:120669',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:120669',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:122279',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:122279',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:122279',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:122279',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:217678',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:217678',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:217678',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:217678',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:296082',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:296082',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:296082',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:296082',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:298495',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:298495',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:298495',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:298495',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:2e34435c6ccf',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:2e34435c6ccf',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:2e34435c6ccf',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:2e34435c6ccf',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:3fd01161cd76',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:3fd01161cd76',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:3fd01161cd76',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:3fd01161cd76',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416232',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416232',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416232',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416232',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416624',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416624',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416624',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416624',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416848',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416848',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416848',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416848',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:417886',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:417886',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:417886',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:417886',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:419062',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:419062',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:419062',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:419062',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:419097',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:419097',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:419097',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:419097',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:419965',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:419965',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:419965',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:419965',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:420909',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:420909',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:420909',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:420909',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421024',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421024',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421024',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421024',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421269',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421269',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421269',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421269',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421279',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421279',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421279',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421279',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421367',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421367',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421367',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421367',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421811',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421811',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421811',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421811',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421951',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421951',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421951',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421951',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422146',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422146',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422146',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422146',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422329',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422329',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422329',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422329',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423371',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423371',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423371',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423371',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423650',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423650',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423650',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423650',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:424146',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:424146',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:424146',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:424146',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:114783',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:114783',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:114783',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:114783',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:115785',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:115785',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:115785',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:115785',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:116358',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:116358',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:116358',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:116358',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:117018',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:117018',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:117018',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:117018',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:117645',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:117645',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:117645',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:117645',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:118606',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:118606',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:118606',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:118606',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:119142',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:119142',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:119142',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:119142',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:120177',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:120177',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:120177',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:120177',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:121687',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:121687',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:121687',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:121687',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:123470',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:123470',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:123470',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:123470',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:208496',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:208496',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:208496',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:208496',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:209914',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:209914',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:209914',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:209914',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:212505',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:212505',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:212505',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:212505',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:213461',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:213461',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:213461',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:213461',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:213908',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:213908',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:213908',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:213908',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:216128',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:216128',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:216128',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:216128',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:218236',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:218236',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:218236',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:218236',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:219157',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:219157',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:219157',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:219157',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:221614',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:221614',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:221614',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:221614',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:222877',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:222877',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:222877',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:222877',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:223861',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:223861',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:223861',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:223861',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:224770',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:224770',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:224770',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:224770',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:254aa595a403',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:254aa595a403',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:254aa595a403',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:254aa595a403',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:2644c7547b3b',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:2644c7547b3b',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:2644c7547b3b',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:2644c7547b3b',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:295188',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:295188',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:295188',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:295188',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:296848',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:296848',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:296848',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:296848',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:302588',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:302588',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:302588',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:302588',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:3c2ffd23abeb',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:3c2ffd23abeb',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:3c2ffd23abeb',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:3c2ffd23abeb',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:3e254c45e952',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:3e254c45e952',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:3e254c45e952',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:3e254c45e952',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:415758',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:415758',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:415758',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:415758',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:415881',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:415881',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:415881',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:415881',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416436',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416436',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416436',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416436',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416490',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416490',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416490',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416490',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416964',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416964',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416964',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416964',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:417181',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:417181',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:417181',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:417181',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:417456',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:417456',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:417456',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:417456',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:417479',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:417479',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:417479',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:417479',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:417610',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:417610',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:417610',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:417610',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:417661',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:417661',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:417661',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:417661',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418022',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418022',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418022',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418022',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418322',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418322',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418322',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418322',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418434',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418434',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418434',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418434',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418620',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418620',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418620',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418620',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418728',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418728',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418728',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418728',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418827',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418827',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418827',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418827',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418904',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418904',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418904',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418904',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418916',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418916',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418916',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418916',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:419406',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:419406',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:419406',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:419406',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:419420',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:419420',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:419420',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:419420',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:420299',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:420299',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:420299',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:420299',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:420447',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:420447',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:420447',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:420447',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421241',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421241',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421241',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421241',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421539',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421539',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421539',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421539',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421736',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421736',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421736',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421736',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421853',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421853',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421853',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421853',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422259',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422259',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422259',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422259',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422298',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422298',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422298',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422298',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422331',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422331',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422331',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422331',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422791',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422791',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422791',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422791',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423153',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423153',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423153',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423153',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423315',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423315',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423315',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423315',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423461',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423461',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423461',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423461',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423545',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423545',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423545',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423545',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423633',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423633',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423633',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423633',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423635',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423635',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423635',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423635',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423915',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423915',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423915',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423915',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423931',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423931',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423931',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423931',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:424229',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:424229',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:424229',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:424229',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:424636',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:424636',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:424636',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:424636',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:459e183c1d0d',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:459e183c1d0d',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:459e183c1d0d',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:459e183c1d0d',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:74180e505e0b',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:74180e505e0b',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:74180e505e0b',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:74180e505e0b',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:8b0d99b23d03',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:8b0d99b23d03',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:8b0d99b23d03',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:8b0d99b23d03',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:92de8fae2e8e',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:92de8fae2e8e',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:92de8fae2e8e',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:92de8fae2e8e',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:97c9d6b9ac1b',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:97c9d6b9ac1b',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:97c9d6b9ac1b',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:97c9d6b9ac1b',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:ee623a4f5924',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:ee623a4f5924',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:ee623a4f5924',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:ee623a4f5924',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422808',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422808',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422808',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422808',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:e8842d43f9ac',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:e8842d43f9ac',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:e8842d43f9ac',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:e8842d43f9ac',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:415612',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:415612',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:415612',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:415612',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422411',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422411',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422411',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422411',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:3b15f57df40a',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:3b15f57df40a',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:3b15f57df40a',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:3b15f57df40a',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:8cc716b411c9',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:8cc716b411c9',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:8cc716b411c9',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:8cc716b411c9',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418554',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418554',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418554',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418554',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:f7e6a21fe1ee',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:f7e6a21fe1ee',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:f7e6a21fe1ee',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:f7e6a21fe1ee',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:401668',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:401668',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:401668',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:401668',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421603',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421603',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421603',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421603',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:420674',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:420674',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:420674',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:420674',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:404429',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:404429',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:404429',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:404429',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:3f15bd1598d4',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:3f15bd1598d4',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:3f15bd1598d4',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:3f15bd1598d4',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:404279',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:404279',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:404279',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:404279',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:424152',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:424152',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:424152',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:424152',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416802',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416802',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416802',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416802',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:415836',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:415836',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:415836',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:415836',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:424723',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:424723',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:424723',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:424723',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416380',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416380',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416380',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416380',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422950',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422950',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422950',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422950',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:05b33803909c',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:05b33803909c',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:05b33803909c',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:05b33803909c',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423930',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423930',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423930',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423930',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:420217',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:420217',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:420217',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:420217',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421849',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421849',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421849',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421849',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:113e37168d51',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:113e37168d51',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:113e37168d51',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:113e37168d51',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423085',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423085',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423085',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423085',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:405614',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:405614',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:405614',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:405614',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:423321',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:423321',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:423321',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:423321',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:405093',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:405093',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:405093',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:405093',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:419591',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:419591',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:419591',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:419591',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:120040bca98a',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:120040bca98a',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:120040bca98a',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:120040bca98a',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:405451',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:405451',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:405451',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:405451',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:403504',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:403504',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:403504',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:403504',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:aaf21306093d',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:aaf21306093d',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:aaf21306093d',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:aaf21306093d',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:a0872e6fc210',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:a0872e6fc210',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:a0872e6fc210',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:a0872e6fc210',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:422548',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:422548',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:422548',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:422548',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:d89cf0c434c5',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:d89cf0c434c5',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:d89cf0c434c5',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:d89cf0c434c5',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:402850',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:402850',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:402850',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:402850',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421538',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421538',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421538',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421538',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:416031',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:416031',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:416031',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:416031',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:421101',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:421101',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:421101',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:421101',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:418428',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:418428',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:418428',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:418428',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+labels,"('creators:7b85c8cb96fd',)",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+labels,"('creators:7b85c8cb96fd',)",human_label,missing_or_invalid_answer,"Allowed: Left-wing, Mixed, Other, Right-wing, Unclear"
+labels,"('creators:7b85c8cb96fd',)",proposed_label_correct,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+labels,"('creators:7b85c8cb96fd',)",evidence_span,missing_or_nonexact_evidence,Exact Original span required for documented label
+pairs,"('creators:0105f26ef9f1', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:0105f26ef9f1', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0105f26ef9f1', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0105f26ef9f1', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0105f26ef9f1', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0b4c49505392', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:0b4c49505392', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0b4c49505392', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0b4c49505392', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0b4c49505392', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118089', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:118089', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118089', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118089', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118089', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:11db638844f4', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:11db638844f4', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:11db638844f4', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:11db638844f4', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:11db638844f4', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120669', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:120669', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120669', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120669', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120669', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:122279', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:122279', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:122279', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:122279', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:122279', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:217678', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:217678', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:217678', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:217678', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:217678', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296082', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:296082', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296082', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296082', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296082', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:298495', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:298495', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:298495', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:298495', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:298495', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2e34435c6ccf', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:2e34435c6ccf', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2e34435c6ccf', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2e34435c6ccf', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2e34435c6ccf', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3fd01161cd76', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:3fd01161cd76', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3fd01161cd76', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3fd01161cd76', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3fd01161cd76', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416232', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416232', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416232', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416232', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416232', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416624', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416624', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416624', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416624', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416624', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416848', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416848', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416848', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416848', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416848', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417886', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417886', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417886', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417886', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417886', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419062', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419062', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419062', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419062', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419062', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419097', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419097', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419097', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419097', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419097', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419965', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419965', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419965', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419965', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419965', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420909', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:420909', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420909', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420909', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420909', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421024', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421024', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421024', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421024', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421024', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421269', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421269', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421269', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421269', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421269', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421279', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421279', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421279', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421279', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421279', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421367', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421367', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421367', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421367', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421367', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421811', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421811', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421811', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421811', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421811', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421951', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421951', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421951', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421951', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421951', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422146', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422146', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422146', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422146', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422146', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422329', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422329', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422329', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422329', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422329', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423371', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423371', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423371', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423371', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423371', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423650', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423650', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423650', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423650', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423650', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424146', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:424146', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424146', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424146', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424146', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:114783', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:114783', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:114783', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:114783', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:114783', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:115785', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:115785', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:115785', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:115785', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:115785', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:116358', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:116358', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:116358', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:116358', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:116358', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117018', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:117018', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117018', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117018', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117018', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117645', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:117645', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117645', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117645', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117645', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118606', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:118606', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118606', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118606', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118606', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:119142', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:119142', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:119142', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:119142', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:119142', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120177', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:120177', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120177', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120177', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120177', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:121687', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:121687', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:121687', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:121687', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:121687', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:123470', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:123470', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:123470', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:123470', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:123470', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:208496', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:208496', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:208496', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:208496', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:208496', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:209914', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:209914', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:209914', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:209914', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:209914', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:212505', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:212505', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:212505', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:212505', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:212505', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213461', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:213461', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213461', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213461', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213461', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213908', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:213908', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213908', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213908', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213908', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:216128', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:216128', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:216128', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:216128', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:216128', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:218236', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:218236', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:218236', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:218236', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:218236', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:219157', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:219157', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:219157', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:219157', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:219157', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:221614', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:221614', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:221614', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:221614', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:221614', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:222877', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:222877', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:222877', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:222877', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:222877', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:223861', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:223861', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:223861', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:223861', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:223861', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:224770', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:224770', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:224770', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:224770', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:224770', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:254aa595a403', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:254aa595a403', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:254aa595a403', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:254aa595a403', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:254aa595a403', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2644c7547b3b', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:2644c7547b3b', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2644c7547b3b', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2644c7547b3b', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2644c7547b3b', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:295188', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:295188', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:295188', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:295188', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:295188', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296848', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:296848', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296848', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296848', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296848', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:302588', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:302588', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:302588', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:302588', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:302588', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3c2ffd23abeb', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:3c2ffd23abeb', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3c2ffd23abeb', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3c2ffd23abeb', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3c2ffd23abeb', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3e254c45e952', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:3e254c45e952', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3e254c45e952', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3e254c45e952', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3e254c45e952', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415758', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:415758', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415758', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415758', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415758', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415881', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:415881', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415881', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415881', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415881', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416436', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416436', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416436', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416436', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416436', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416490', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416490', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416490', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416490', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416490', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416964', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416964', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416964', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416964', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416964', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417181', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417181', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417181', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417181', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417181', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417456', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417456', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417456', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417456', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417456', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417479', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417479', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417479', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417479', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417479', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417610', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417610', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417610', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417610', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417610', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417661', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417661', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417661', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417661', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417661', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418022', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418022', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418022', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418022', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418022', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418322', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418322', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418322', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418322', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418322', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418434', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418434', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418434', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418434', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418434', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418620', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418620', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418620', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418620', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418620', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418728', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418728', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418728', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418728', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418728', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418827', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418827', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418827', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418827', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418827', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418904', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418904', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418904', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418904', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418904', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418916', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418916', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418916', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418916', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418916', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419406', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419406', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419406', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419406', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419406', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419420', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419420', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419420', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419420', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419420', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420299', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:420299', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420299', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420299', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420299', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420447', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:420447', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420447', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420447', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420447', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421241', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421241', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421241', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421241', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421241', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421539', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421539', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421539', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421539', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421539', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421736', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421736', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421736', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421736', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421736', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421853', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421853', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421853', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421853', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421853', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422259', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422259', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422259', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422259', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422259', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422298', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422298', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422298', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422298', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422298', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422331', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422331', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422331', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422331', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422331', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422791', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422791', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422791', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422791', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422791', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423153', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423153', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423153', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423153', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423153', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423315', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423315', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423315', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423315', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423315', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423461', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423461', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423461', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423461', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423461', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423545', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423545', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423545', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423545', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423545', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423633', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423633', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423633', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423633', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423633', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423635', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423635', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423635', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423635', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423635', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423915', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423915', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423915', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423915', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423915', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423931', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423931', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423931', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423931', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423931', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424229', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:424229', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424229', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424229', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424229', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424636', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:424636', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424636', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424636', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424636', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:459e183c1d0d', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:459e183c1d0d', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:459e183c1d0d', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:459e183c1d0d', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:459e183c1d0d', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:74180e505e0b', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:74180e505e0b', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:74180e505e0b', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:74180e505e0b', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:74180e505e0b', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:8b0d99b23d03', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:8b0d99b23d03', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:8b0d99b23d03', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:8b0d99b23d03', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:8b0d99b23d03', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:92de8fae2e8e', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:92de8fae2e8e', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:92de8fae2e8e', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:92de8fae2e8e', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:92de8fae2e8e', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:97c9d6b9ac1b', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:97c9d6b9ac1b', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:97c9d6b9ac1b', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:97c9d6b9ac1b', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:97c9d6b9ac1b', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:ee623a4f5924', 'Style')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:ee623a4f5924', 'Style')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:ee623a4f5924', 'Style')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:ee623a4f5924', 'Style')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:ee623a4f5924', 'Style')",style_change,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0105f26ef9f1', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:0105f26ef9f1', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0105f26ef9f1', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0105f26ef9f1', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0b4c49505392', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:0b4c49505392', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0b4c49505392', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:0b4c49505392', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118089', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:118089', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118089', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118089', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:11db638844f4', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:11db638844f4', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:11db638844f4', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:11db638844f4', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120669', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:120669', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120669', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120669', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:122279', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:122279', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:122279', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:122279', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:217678', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:217678', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:217678', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:217678', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296082', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:296082', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296082', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296082', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:298495', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:298495', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:298495', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:298495', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2e34435c6ccf', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:2e34435c6ccf', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2e34435c6ccf', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2e34435c6ccf', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3fd01161cd76', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:3fd01161cd76', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3fd01161cd76', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3fd01161cd76', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416232', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416232', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416232', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416232', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416624', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416624', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416624', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416624', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416848', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416848', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416848', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416848', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417886', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417886', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417886', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417886', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419062', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419062', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419062', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419062', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419097', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419097', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419097', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419097', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419965', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419965', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419965', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419965', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420909', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:420909', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420909', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420909', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421024', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421024', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421024', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421024', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421269', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421269', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421269', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421269', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421279', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421279', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421279', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421279', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421367', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421367', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421367', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421367', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421811', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421811', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421811', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421811', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421951', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421951', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421951', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421951', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422146', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422146', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422146', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422146', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422329', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422329', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422329', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422329', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423371', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423371', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423371', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423371', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423650', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423650', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423650', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423650', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424146', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:424146', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424146', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424146', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:114783', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:114783', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:114783', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:114783', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:115785', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:115785', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:115785', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:115785', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:116358', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:116358', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:116358', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:116358', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117018', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:117018', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117018', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117018', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117645', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:117645', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117645', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:117645', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118606', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:118606', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118606', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:118606', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:119142', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:119142', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:119142', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:119142', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120177', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:120177', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120177', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:120177', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:121687', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:121687', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:121687', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:121687', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:123470', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:123470', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:123470', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:123470', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:208496', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:208496', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:208496', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:208496', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:209914', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:209914', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:209914', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:209914', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:212505', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:212505', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:212505', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:212505', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213461', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:213461', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213461', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213461', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213908', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:213908', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213908', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:213908', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:216128', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:216128', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:216128', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:216128', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:218236', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:218236', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:218236', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:218236', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:219157', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:219157', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:219157', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:219157', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:221614', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:221614', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:221614', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:221614', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:222877', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:222877', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:222877', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:222877', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:223861', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:223861', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:223861', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:223861', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:224770', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:224770', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:224770', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:224770', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:254aa595a403', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:254aa595a403', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:254aa595a403', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:254aa595a403', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2644c7547b3b', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:2644c7547b3b', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2644c7547b3b', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:2644c7547b3b', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:295188', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:295188', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:295188', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:295188', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296848', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:296848', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296848', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:296848', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:302588', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:302588', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:302588', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:302588', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3c2ffd23abeb', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:3c2ffd23abeb', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3c2ffd23abeb', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3c2ffd23abeb', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3e254c45e952', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:3e254c45e952', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3e254c45e952', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:3e254c45e952', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415758', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:415758', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415758', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415758', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415881', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:415881', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415881', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:415881', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416436', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416436', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416436', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416436', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416490', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416490', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416490', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416490', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416964', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:416964', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416964', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:416964', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417181', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417181', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417181', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417181', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417456', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417456', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417456', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417456', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417479', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417479', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417479', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417479', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417610', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417610', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417610', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417610', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417661', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:417661', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417661', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:417661', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418022', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418022', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418022', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418022', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418322', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418322', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418322', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418322', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418434', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418434', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418434', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418434', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418620', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418620', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418620', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418620', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418728', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418728', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418728', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418728', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418827', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418827', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418827', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418827', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418904', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418904', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418904', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418904', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418916', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:418916', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418916', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:418916', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419406', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419406', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419406', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419406', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419420', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:419420', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419420', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:419420', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420299', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:420299', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420299', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420299', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420447', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:420447', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420447', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:420447', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421241', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421241', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421241', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421241', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421539', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421539', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421539', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421539', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421736', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421736', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421736', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421736', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421853', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:421853', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421853', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:421853', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422259', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422259', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422259', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422259', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422298', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422298', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422298', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422298', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422331', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422331', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422331', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422331', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422791', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:422791', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422791', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:422791', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423153', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423153', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423153', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423153', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423315', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423315', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423315', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423315', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423461', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423461', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423461', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423461', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423545', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423545', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423545', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423545', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423633', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423633', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423633', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423633', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423635', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423635', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423635', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423635', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423915', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423915', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423915', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423915', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423931', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:423931', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423931', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:423931', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424229', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:424229', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424229', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424229', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424636', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:424636', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424636', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:424636', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:459e183c1d0d', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:459e183c1d0d', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:459e183c1d0d', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:459e183c1d0d', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:74180e505e0b', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:74180e505e0b', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:74180e505e0b', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:74180e505e0b', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:8b0d99b23d03', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:8b0d99b23d03', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:8b0d99b23d03', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:8b0d99b23d03', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:92de8fae2e8e', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:92de8fae2e8e', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:92de8fae2e8e', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:92de8fae2e8e', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:97c9d6b9ac1b', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:97c9d6b9ac1b', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:97c9d6b9ac1b', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:97c9d6b9ac1b', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:ee623a4f5924', 'Paraphrase')",reviewer,missing_or_nonhuman_provenance,Missing/malformed human provenance field: reviewer_type
+pairs,"('creators:ee623a4f5924', 'Paraphrase')",meaning,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:ee623a4f5924', 'Paraphrase')",stance,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
+pairs,"('creators:ee623a4f5924', 'Paraphrase')",semantic_drift,missing_or_invalid_answer,"Allowed: Borderline, No, Yes"
