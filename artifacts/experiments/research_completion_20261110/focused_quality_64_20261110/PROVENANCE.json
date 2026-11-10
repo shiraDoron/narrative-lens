@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-10",
+  "reviewer": "ChatGPT/Codex; exact revision unknown",
+  "selection": "exact previous 57 unresolved + 7 concern, train only",
+  "counts": {
+    "style_proxy_disagreement": 2,
+    "unresolved_semantic_risk": 23,
+    "qc_signal_only": 17,
+    "prior_reservation_resolved": 3,
+    "ai_identified_difference": 7,
+    "quote_fidelity_only": 3,
+    "style_limited": 9
+  },
+  "is_human_review": false,
+  "new_model_inference": false,
+  "source_sha256": {
+    "artifacts\\experiments\\main_training_runtime_20261110\\QUALITY_GROUPS_105.csv": "b304158d01f157932283b1ca7ff2ffe4dfc459b8f2b540a6305179d5938f8501",
+    "artifacts\\experiments\\research_completion_20261110\\ai_review_audit_105_20261110\\AI_REVIEW_ALL_105.csv": "e6d50e845fe67ae34b79d328f8b2bc4442d9fd8936a69aba1c66f7a16af3383c",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+    "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8",
+    "artifacts\\experiments\\research_completion_20261110\\focused_quality_64_20261110\\findings.py": "1f0f06ee5994897deadc1ca56910f302ace077f1fb7078a108446a55b07220bd",
+    "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\rewrite_validation.csv": "be599e5b6beaca5bb23790935a20939573916fdc6f82725d0a9ee11fcd149c2d",
+    "artifacts\\experiments\\chatgpt_style_rewrite_30_20261102\\style_metrics_v2_v3_chatgpt.csv": "cadef2ee3eb32965fa329b0ee5d57034cfa324dee7905451b8bb8998c9f30782",
+    "artifacts\\experiments\\data_completion_20261109\\runs\\extension_v1_run01\\automatic_qc\\rewrite_validation.csv": "6a9fb78129c970dd0fda448990b34dfc06ead6766b9e8cfbda7c0eddaf9eb873",
+    "artifacts\\experiments\\data_completion_20261109\\runs\\extension_v1_run01\\automatic_qc\\style_metrics.csv": "53cf276687271e55a67fc52259929f79790abdd3a8743149fa817ac330bac796",
+    "artifacts\\experiments\\data_completion_20261109\\runs\\extension_v1_run01\\candidate_105\\CANDIDATE_ID_MAP_105.csv": "a0a668e6deb7503d2c75b6d13ba9bd5477c89e48ac329ed5cc91886952d0ab24"
+  }
+}
