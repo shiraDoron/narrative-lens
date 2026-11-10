@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-10",
+  "trainer_implemented": true,
+  "technical_smoke_passed": true,
+  "scientific_training_ready": false,
+  "scientific_runs_executed": 0,
+  "technical_head_smoke_runs": 5,
+  "technical_updates_per_arm": 2,
+  "train_data_available": true,
+  "source_audit": {
+    "train_sources": 105,
+    "validation_sources": 43,
+    "authors": {
+      "train": 9,
+      "validation": 4,
+      "test": 6
+    },
+    "exact_source_article_hash_collisions": 0,
+    "train_variant_validation_exact_collisions": 0,
+    "test_model_inputs": 0,
+    "limitation": "Exact/hash and author checks do not exclude semantic/event/topic overlap; no test semantic scan"
+  },
+  "human_gold_confirmed": 0,
+  "human_pair_qc_confirmed": 0,
+  "approved_scientific_snapshots": 0,
+  "quality_grouping": {
+    "borderline_or_unresolved_quality": 57,
+    "all_available_ai_and_automatic_checks_passed": 41,
+    "ai_substantial_semantic_concern": 7
+  },
+  "quality_grouping_not_acceptance": true,
+  "fixed_validation_ids": 43,
+  "validation_checkpoint_rule": "final fixed budget, not best validation",
+  "test_evaluated": false,
+  "blockers": [
+    "105 attributable human train labels",
+    "43 attributable human validation labels",
+    "210 human pair QC records and adjudication",
+    "signed protocol/provenance freeze"
+  ],
+  "tests": {
+    "total_unique": 195,
+    "passed": 193,
+    "failed_historical_archive": 2,
+    "new_runtime_passed": 25,
+    "default_pytest_passed": 59
+  },
+  "implementation_sha256": {
+    "audit_tokens.py": "82cfe69cb1848cd8e0ccfef5f92750e5925101901f982a64ebd8d0460a335732",
+    "cli.py": "5f16cb88e4a76786c84c75fd13859b695f2c60736cde584420c2eb92132ab64d",
+    "contract.py": "241089695fd50503436aa6db82a8b696af50d85455b18172ad04f8bd59a69b57",
+    "data.py": "f885f376c2ba887b8be862829091acba316017d233c91b45c294d789abe495d3",
+    "quality_report.py": "12465320ffb6c2187826f2bdfa3e65627b13a0704689cba8c3f417fbc4a376a1",
+    "smoke.py": "149b8bf3f17f04e200c055be27d26dbe58894aeaaf666c8a7602b9cfed48f4aa",
+    "test_runtime.py": "8ea43173d9ae9d1de36d05d4ea5936f15da1d34b034ec8a3e731fe311354c99f",
+    "trainer.py": "4db423abf707b1667ed130318d70773c8e9321cbfa7af073a914dc84a9e05ec3"
+  }
+}

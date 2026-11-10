@@ -1,0 +1,11 @@
+{
+  "responsible_reviewer_id": "",
+  "freeze_date": "",
+  "protocol_sha256": "a213c5bbccfd086077ed84ff56dd2060e5908253b62489838e7b8e591795a68f",
+  "human_source_labels_confirmed": false,
+  "paired_human_qc_finalized": false,
+  "adjudication_complete": false,
+  "mixed_generator_protocol_documented": false,
+  "unknown_generator_parameters_acknowledged": false,
+  "status": "unfilled; not approval"
+}

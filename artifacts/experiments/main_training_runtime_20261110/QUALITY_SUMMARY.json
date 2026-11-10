@@ -1,0 +1,13 @@
+{
+  "n": 105,
+  "groups": {
+    "borderline_or_unresolved_quality": 57,
+    "all_available_ai_and_automatic_checks_passed": 41,
+    "ai_substantial_semantic_concern": 7
+  },
+  "human_validated": 0,
+  "scientific_acceptance_applied": false,
+  "ai_source_sha256": "e6d50e845fe67ae34b79d328f8b2bc4442d9fd8936a69aba1c66f7a16af3383c",
+  "original_guards_and_thresholds_unchanged": true,
+  "grouping_not_used_for_training": true
+}

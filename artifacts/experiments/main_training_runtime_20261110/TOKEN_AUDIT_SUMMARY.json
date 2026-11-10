@@ -1,0 +1,14 @@
+{
+  "n": 358,
+  "train_rows": 315,
+  "validation_original_rows": 43,
+  "test_rows": 0,
+  "encoder_max_seq_length": 256,
+  "tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "tokenizer_vocabulary_sha256": "f21ba7d9e039a58203c4dcbab3b89aacd44946d8dba15c12b61666cf93b786c1",
+  "max_input_tokens": 151,
+  "truncated": 0,
+  "classifier_predictions": false,
+  "thresholds_changed": false,
+  "draft_only": true
+}

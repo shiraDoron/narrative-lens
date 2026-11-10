@@ -3993,6 +3993,16 @@ Prepared five draft views A Original, B Paraphrase, C Style, D Original+Style, E
 
 ## Data completion handoff — 2026-11-09
 
+### Working A–E trainer / train-only technical smoke — 2026-11-10
+
+Implemented a new fixed-update runtime around the existing frozen production encoder/head, not the historical best-validation trainer. A–E share architecture,5 seeds,Adam lr.001,batch16 and140 updates/2240 processed examples at105 sources; same43 human-gold validation Originals, final-step checkpoint only, no test command. Human snapshot admission rejects AI/missing/edited/duplicate/mismatched evidence, applies the frozen paired-human symmetric fallback and checks signed protocol/provenance freeze. No real approved snapshot exists yet.
+
+Actual smoke completed on4 train IDs/12 unique texts,synthetic alternating5/6 targets,seed42,2 updates per arm. All5 forward/backward/checkpoint/optimizer-reload paths passed with identical reloaded logits and common initial hash; encoder unchanged/no gradients. No Accuracy/F1,validation/test inputs or research result. Tokenizer-only audit covers315 train variants +43 validation Originals,max151 tokens,0 truncations at256;25 draft token budgets recorded. Orchestration of all25 jobs was unit-tested with fully mocked training/predictions in TemporaryDirectory, not a scientific experiment.
+
+Descriptive quality groups across105:41 pass all available AI+auto/style checks,57 borderline/unresolved,7 substantial semantic concerns according to AI; none becomes human-validated/accepted. No thresholds,rewrites,source labels or frozen protocols changed.195 distinct tests exercised:193 pass,2 historical author-audit failures (old human CSV hash mismatch and missing trailing notes cells) preserved/documented; all25 new runtime and59 default pytest cases pass,ruff clean. No frozen source/hash was rewritten to hide a failure.
+
+[Trainer/data workflow/reproduction](artifacts/experiments/main_training_runtime_20261110/README_HE.md) · [Quality105](artifacts/experiments/main_training_runtime_20261110/QUALITY_REPORT_HE.md) · [Technical smoke](artifacts/experiments/main_training_runtime_20261110/smoke_runtime/SMOKE_RESULT.json) · [Tests and archive caveat](artifacts/experiments/main_training_runtime_20261110/TEST_RESULTS_HE.md). Human labels105+43,pair QC210/adjudication and signed freeze still block scientific training. No main A–E run or test evaluation.
+
 ### Supplied ChatGPT15 review audit and continuation90 — 2026-11-10
 
 Preserved the supplied AI_REVIEW_15_HE (1).md byte-for-byte with receipt/hash; parsed its15 ratings and compared complete canonical text pairs. Additional review is ChatGPT/Codex, not Claude, not human, and not blind to prior QC/source review. Changed6 of15 IDs (8 fields):420299,423650,418916,423371,3fd01161cd76,421811. Retained Meaning No for424146; revised the other three highlighted Meaning No ratings to Borderline after checking full temporal/agent/metaphorical context. Source ratings and explanations remain separately accessible.

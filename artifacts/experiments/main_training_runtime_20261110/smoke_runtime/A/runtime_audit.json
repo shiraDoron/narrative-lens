@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "updates": 2,
+  "processed_examples": 32,
+  "initial_head_sha256": "0c9e09e788cf18bcb422e28395dd963ed27f86c15c66cd26660b3d53fde914be",
+  "final_head_sha256": "e9374e5ea42b1fd3f962ad12abc687bd53ff7ad33f2b978bf2caf264c3bde2fc",
+  "checkpoint_sha256": "f8dd97f801ee17f25dcaa541187dcf48802c95668a76cee4e586b76f2c3f90cf",
+  "reload_logits_identical": true,
+  "optimizer_state_reloaded": true,
+  "backward_pass_verified": true,
+  "elapsed_seconds": 0.06501899985596538,
+  "mode": "technical_smoke",
+  "scientific_result": false
+}
