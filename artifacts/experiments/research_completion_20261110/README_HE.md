@@ -4,6 +4,8 @@
 
 ## מה למסור לסוקר/ת
 
+**להתחלה נוחה:** [חבילה ראשונה של15 זוגות בסיוע QC](human_review_batch_01_15/REVIEW_15_HE.md), עם המקור והשכתוב זה לצד זה, הבדלים מילוליים, שאלות ושדות ריקים. הבחירה מתוך75 החדשים מכוונת לסיכונים ואינה מדגם מייצג. [הוראות תיוג Left/Right](human_review_batch_01_15/LEFT_RIGHT_LABELING_GUIDE_HE.md). זהו טופס עבודה חלקי של שלוש הכרעות והערות, לא פורמט יבוא מלא או קבלה לאימון; הקבצים המלאים להלן נשמרו ללא שינוי.
+
 1. [Style — כל105 הזוגות, ללא דגלים](HUMAN_STYLE_REVIEW_105.md), או [CSV למילוי](HUMAN_STYLE_REVIEW_105.csv). אם כבר קיים אימות אדם מלא של30 הישנים, יש לייבא אותו עם provenance ולא למלא שוב סתם. החבילה של75 מהשלב הקודם נשמרה; לא חייבים למלא גם אותה וגם את full105.
 2. [פרפרזות — כל105 הזוגות](HUMAN_PARAPHRASE_REVIEW_105.md). תוצאות QC אנושי לשתי הגרסאות אפשר לרכז ב־[PAIRED_QC_INTAKE_210.csv](PAIRED_QC_INTAKE_210.csv): שורה אחת לכל ID ו־variant, עם reviewer_type, reviewer_id ותאריך. לא למלא החלטות באמצעות ChatGPT/Claude ולקרוא להן אדם.
 3. [אימות תוויות train105](NARRATIVE_LABEL_VALIDATION_105.md) או [CSV](NARRATIVE_LABEL_VALIDATION_105.csv); וכן [אימות תוויות validation43](NARRATIVE_LABEL_VALIDATION_43_VALIDATION.md) או [CSV](NARRATIVE_LABEL_VALIDATION_43_VALIDATION.csv). ההגדרות כלולות; התוויות המוצעות אינן gold. Unclear/Mixed/Other הם תשובות תקפות לסקירה, אך מחייבים החלטת corpus מפורשת לפני אימון, ולא relabel אוטומטי.
