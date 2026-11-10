@@ -1,0 +1,3 @@
+* text eol=lf
+raw/* -text
+*.csv whitespace=-blank-at-eol

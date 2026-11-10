@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "pair_rows": 210,
+    "label_rows": 148,
+    "binding_issues": 2,
+    "exact_bound_pair_rows": 209,
+    "exact_bound_label_rows": 148,
+    "populated_human_fields_in_supplied_files": 0,
+    "supplied_reviewer_model": "unknown; not established by file metadata",
+    "supplied_review_date": "unknown",
+    "import_date": "2026-11-10",
+    "original_file_sha256": {
+      "PAIRS_210_AI_DIAGNOSTIC.csv": "edd75ab962eef7420a0d2b305a078f0e5becce4d91e2472b281f3d5e7a57e3bc",
+      "LABELS_148_AI_PRELIMINARY.csv": "76f081e7288bbdd9dfe37e3587a63550915b72475cc01f00390d732f97e52ea2"
+    },
+    "pair_counts_by_variant": {
+      "Style": {
+        "ai_meaning_assessment": {
+          "Needs close review": 78,
+          "Not established": 27
+        },
+        "ai_stance_assessment": {
+          "Needs close review": 78,
+          "Not established": 27
+        },
+        "ai_style_observation": {
+          "Structural change visible": 98,
+          "Limited textual change / inspect syntax": 7
+        },
+        "ai_semantic_risk": {
+          "Review priority": 57,
+          "High review priority (protected surface changes)": 16,
+          "Low automated flags; semantic equivalence unverified": 27,
+          "High review priority (specific wording issue)": 5
+        },
+        "ai_review_status": {
+          "Automated diagnostic + selected manual red flags; no full semantic validation": 105
+        }
+      },
+      "Paraphrase": {
+        "ai_meaning_assessment": {
+          "Needs close review": 46,
+          "Not established": 59
+        },
+        "ai_stance_assessment": {
+          "Needs close review": 46,
+          "Not established": 59
+        },
+        "ai_style_observation": {
+          "Structural change visible": 45,
+          "Limited textual change / inspect syntax": 47,
+          "No change": 13
+        },
+        "ai_semantic_risk": {
+          "Review priority": 29,
+          "High review priority (protected surface changes)": 16,
+          "Low automated flags; semantic equivalence unverified": 59,
+          "High review priority (multiple diagnostics)": 1
+        },
+        "ai_review_status": {
+          "Automated diagnostic + selected manual red flags; no full semantic validation": 105
+        }
+      }
+    },
+    "label_counts_by_split": {
+      "train": {
+        "ai_candidate_label": {
+          "Left-wing": 30,
+          "Unclear": 43,
+          "Right-wing": 32
+        },
+        "ai_confidence": {
+          "Medium": 40,
+          "Low": 65
+        }
+      },
+      "validation": {
+        "ai_candidate_label": {
+          "Unclear": 24,
+          "Left-wing": 11,
+          "Right-wing": 8
+        },
+        "ai_confidence": {
+          "Low": 28,
+          "Medium": 15
+        }
+      }
+    },
+    "label_proposal_comparison": {
+      "same_as_proposal": 81,
+      "unclear_not_opposite": 67
+    },
+    "nonexact_label_evidence": 0,
+    "pair_comparison_flag_counts": {
+      "ai_number_change_definition_disagreement": 11,
+      "auto_pass_but_new_review_priority": 53,
+      "low_surface_flags_but_prior_semantic_reservation": 4,
+      "low_surface_flags_but_focused_semantic_reservation": 3,
+      "auto_reject_but_low_new_surface_flags": 16,
+      "exact_text_binding_failed_do_not_compare_scores_as_same_text": 1
+    },
+    "qc_available": 209,
+    "source_sha256": {
+      "artifacts\\experiments\\research_completion_20261110\\ai_review_audit_105_20261110\\AI_REVIEW_ALL_105.csv": "e6d50e845fe67ae34b79d328f8b2bc4442d9fd8936a69aba1c66f7a16af3383c",
+      "artifacts\\experiments\\research_completion_20261110\\focused_quality_64_20261110\\FOCUSED_QUALITY_REVIEW_64.csv": "ee415eb3d84b0be3309fb56820b72b5c732d649e48e446d3d65dd4560ec45676",
+      "artifacts\\experiments\\data_completion_20261109\\runs\\extension_v1_run01\\paraphrase_qc\\rewrite_validation.csv": "539cf20798f6750fb9176634afce29439841fc0003ebd6ad1f983888d4e5647d",
+      "artifacts\\experiments\\verified_human_style_followup_20261026\\rewrite_validation.csv": "7ac2202ad2ee91cbe2805096f717e34927cd16b0ee1751f57495cd90820da08b",
+      "artifacts\\experiments\\human_validation_handoff_20261110\\forms\\PAIRS_210.csv": "2a7c2b35b0e26b89cb45f02f9e7603cd7dc07a0d7e24f17d60c8e12ded14ee08",
+      "artifacts\\experiments\\human_validation_handoff_20261110\\forms\\LABELS_148.csv": "f722c7471d4a6110aa7c930ebf4f4eecf9fe70874407e3b154eb31007fceebc8"
+    },
+    "semantic_gold_created": false,
+    "human_validation_completed": false,
+    "scientific_training_ready": false,
+    "main_training_executed": false,
+    "test_evaluated": false
+  },
+  "issues": [
+    {
+      "key": "('creators:0105f26ef9f1', 'Paraphrase')",
+      "field": "Rewrite",
+      "problem": "binding_mismatch"
+    },
+    {
+      "key": "('creators:0105f26ef9f1', 'Paraphrase')",
+      "field": "rewrite_sha256",
+      "problem": "content_hash_mismatch"
+    }
+  ]
+}
