@@ -1,0 +1,25 @@
+{
+  "ambiguity_counts": {
+    "עוגן אידאולוגי חסר בקטע": 4,
+    "הפרדה בין דובר, ייחוס ואימוץ עמדה": 5,
+    "רמזי מדיניות/אידאולוגיה — תלות ב-codebook": 16,
+    "סאטירה ומטאפורה": 7,
+    "קטע חלקי/תלות בהקשר": 6,
+    "עמדה כלפי יעד אינה אידאולוגיה מלאה": 22,
+    "ביקורת פנים־מחנאית": 3,
+    "ערך משותף שאינו מבחין לבדו": 4
+  },
+  "scenario_count": 5,
+  "no_data_changed": true,
+  "test_evaluated": false,
+  "source_sha256": {
+    "artifacts\\experiments\\ai_preliminary_intake_20261110\\raw\\LABELS_148_AI_PRELIMINARY.csv": "76f081e7288bbdd9dfe37e3587a63550915b72475cc01f00390d732f97e52ea2",
+    "artifacts\\experiments\\ai_preliminary_intake_20261110\\raw\\PAIRS_210_AI_DIAGNOSTIC.csv": "edd75ab962eef7420a0d2b305a078f0e5becce4d91e2472b281f3d5e7a57e3bc",
+    "artifacts\\experiments\\human_validation_handoff_20261110\\forms\\PAIRS_210.csv": "2a7c2b35b0e26b89cb45f02f9e7603cd7dc07a0d7e24f17d60c8e12ded14ee08",
+    "artifacts\\experiments\\human_validation_handoff_20261110\\forms\\LABELS_148.csv": "f722c7471d4a6110aa7c930ebf4f4eecf9fe70874407e3b154eb31007fceebc8",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\text_annotations.csv": "4900ac1d51a60fe97c032d94e3ddef80f8f3f629ba1d7340584c7bddaa8e508c",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\assemble_annotations.py": "eb30bc7a82a0cf6f00018a235da065cce8e097ebc2d20163b371df69f14bf2e7",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\annotation_method.json": "150aedf785c6cb44fb2a331df40a2e53491385aed7e52bd945b90e86becf180f",
+    "MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md": "a213c5bbccfd086077ed84ff56dd2060e5908253b62489838e7b8e591795a68f"
+  }
+}

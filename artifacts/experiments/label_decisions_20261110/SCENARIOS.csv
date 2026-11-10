@@ -1,0 +1,6 @@
+﻿scenario,train_sources,validation_sources,train_Left,train_Right,validation_Left,validation_Right,train_authors,validation_authors,A,B,C,D,E,formula_updates_if_new_protocol_approved,existing_105_runtime_updates,new_protocol_required,applied
+unchanged_frozen_cohort,105,43,55,50,22,21,9,4,105,105,105,210,210,140,140,False,False
+exclude_all_67_hypothetical,62,19,30,32,11,8,9,4,62,62,62,124,124,80,140,True,False
+exclude_train_43_only,62,43,30,32,22,21,9,4,62,62,62,124,124,80,140,True,False
+exclude_validation_24_only,105,19,55,50,11,8,9,4,105,105,105,210,210,140,140,True,False
+exclude_4_anchor_candidates_only,101,43,52,49,22,21,9,4,101,101,101,202,202,140,140,True,False

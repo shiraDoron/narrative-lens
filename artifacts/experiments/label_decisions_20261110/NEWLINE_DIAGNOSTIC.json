@@ -1,0 +1,11 @@
+{
+  "ID": "creators:0105f26ef9f1",
+  "variant": "Paraphrase",
+  "supplied_hash": "c09698c9d74906911cabc15c903b92885253240cbae2f18d1bb4237d94d344bc",
+  "canonical_text_sha256": "c09698c9d74906911cabc15c903b92885253240cbae2f18d1bb4237d94d344bc",
+  "received_text_sha256": "c853461a550d35266575dcf895c11243acb948ea7ade60abc3f2cdad0dde2870",
+  "received_crlf_count": 1,
+  "canonical_crlf_count": 0,
+  "equal_only_after_documented_crlf_to_lf_comparison": true,
+  "normalization_applied_to_data": false
+}
