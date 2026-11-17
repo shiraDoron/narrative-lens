@@ -1,0 +1,13 @@
+Minimal Rewrite v3: distributed lexical edits plus safe local syntax, 2026-11-17
+Use exactly the preservation contract of v2 and v1. In addition to contextual
+lexical equivalence, permit limited local syntax: active/passive with the identical
+explicit agent and patient, or moving a short adjunct while keeping its scope and
+attribution unambiguous. Do not split or merge sentences merely to meet a style
+threshold. Preserve emphasis, metaphor, irony, rhetorical question, evaluative force
+and political framing. Retain quantifier, negation and certainty wording, entities,
+numbers and direct quotes verbatim. Revert a proposed syntax edit BEFORE finalizing
+the candidate if it creates an uncertain relation or rhetorical shift; record that
+decision. There is no mandatory syntax change. No minimum edit distance or target
+score. One candidate per source, no post-measurement retries or best-of selection.
+Return the full text and exact edit ledger. No author/label/held-out information.
+AI self-check does not constitute human validation.

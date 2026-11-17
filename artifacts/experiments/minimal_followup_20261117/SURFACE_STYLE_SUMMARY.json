@@ -1,0 +1,48 @@
+{
+  "methods": {
+    "Minimal_v1": {
+      "n": 9,
+      "standardized_mean_abs_change": 0.01008764305506545,
+      "median": 0.0021713567841859793,
+      "nonzero_pairs": 8
+    },
+    "Minimal_v2": {
+      "n": 9,
+      "standardized_mean_abs_change": 0.040208091795420856,
+      "median": 0.04210972915793404,
+      "nonzero_pairs": 8
+    },
+    "Minimal_v3": {
+      "n": 9,
+      "standardized_mean_abs_change": 0.05097534046552357,
+      "median": 0.0436392558034161,
+      "nonzero_pairs": 9
+    },
+    "Original": {
+      "n": 9,
+      "standardized_mean_abs_change": 0.0,
+      "median": 0.0,
+      "nonzero_pairs": 0
+    },
+    "Paraphrase": {
+      "n": 9,
+      "standardized_mean_abs_change": 0.21445597321750623,
+      "median": 0.13990757635991652,
+      "nonzero_pairs": 9
+    },
+    "Style": {
+      "n": 9,
+      "standardized_mean_abs_change": 0.27487363151883765,
+      "median": 0.2462718325822273,
+      "nonzero_pairs": 9
+    }
+  },
+  "scaling_fit_scope": "Original training texts only; no validation/test scaling fit",
+  "new_scaling_fit": false,
+  "inference": "descriptive surface differences only; no author classifier or causal/generalization inference",
+  "code_scaling_sha256": {
+    "experiments\\author_generalization\\author_style_controlled.py": "674015e2cc3709c1b081baf0418ee5b5727c165848bc44647cf5ab87cdf127b8",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\experiment.py": "33ceeea29b3a2b856ab950c68bdb7f1dff1688a8b55240714e33297d06acc19f",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\style_feature_scaling.json": "3c0a7ea471f984e3e1dbde81d54dba730ffa54d1b6fb4b3161c4898cfe2acfce"
+  }
+}

@@ -1,0 +1,45 @@
+﻿ID,method,before,after,decision,reviewer_type
+creators:222877,Minimal_v2,along with,alongside,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:222877,Minimal_v2,good things to come,good things ahead,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:222877,Minimal_v3,along with,alongside,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:222877,Minimal_v3,good things to come,good things ahead,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:222877,Minimal_v3,The Trump administration and the Republicans in Congress have passed one of the best pro-growth tax bills ever.,One of the best pro-growth tax bills ever has been passed by the Trump administration and the Republicans in Congress.,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421269,Minimal_v2,by attempting to kill,by trying to kill,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421269,Minimal_v2,rather than always depending on politicians,instead of always relying on politicians,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421269,Minimal_v3,by attempting to kill,by trying to kill,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421269,Minimal_v3,rather than always depending on politicians,instead of always relying on politicians,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:122279,Minimal_v2,take our attention off something,divert our attention from something,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:122279,Minimal_v2,put it on something,direct it toward something,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:122279,Minimal_v2,he who resides at,he who lives at,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:122279,Minimal_v3,take our attention off something,divert our attention from something,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:122279,Minimal_v3,put it on something,direct it toward something,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:122279,Minimal_v3,he who resides at,he who lives at,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421241,Minimal_v2,keeps calling himself,keeps describing himself as,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421241,Minimal_v2,to win over even Democrats,to persuade even Democrats,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421241,Minimal_v2,he would do as they say,he would do as they tell him,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421241,Minimal_v3,keeps calling himself,keeps describing himself as,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421241,Minimal_v3,to win over even Democrats,to persuade even Democrats,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:421241,Minimal_v3,he would do as they say,he would do as they tell him,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:423633,Minimal_v2,That was just a prelude,That was merely a prelude,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:423633,Minimal_v2,shut the building,closed the building,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:423633,Minimal_v3,That was just a prelude,That was merely a prelude,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:423633,Minimal_v3,shut the building,closed the building,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:2644c7547b3b,Minimal_v2,to reflect on the historical significance,to consider the historical significance,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:2644c7547b3b,Minimal_v2,"in this role, in this time","in this role, at this time",contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:2644c7547b3b,Minimal_v3,to reflect on the historical significance,to consider the historical significance,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:2644c7547b3b,Minimal_v3,"in this role, in this time","in this role, at this time",contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417181,Minimal_v2,secretly paid informants,covertly paid informants,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417181,Minimal_v2,fictitious entities,fictitious organizations,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417181,Minimal_v2,to hide funding from their donors,to conceal funding from their donors,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417181,Minimal_v3,secretly paid informants,covertly paid informants,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417181,Minimal_v3,fictitious entities,fictitious organizations,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417181,Minimal_v3,to hide funding from their donors,to conceal funding from their donors,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417181,Minimal_v3,"The organization covertly paid informants to engage in the active promotion and funding of racist groups while denouncing and ""fighting"" the very same groups in public.","The organization covertly paid informants to engage in the active promotion and funding of racist groups while, in public, denouncing and ""fighting"" the very same groups.",contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417610,Minimal_v2,would scheme to seize,would plot to seize,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417610,Minimal_v2,in pursuit of a distorted sense of justice,in pursuit of a distorted notion of justice,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417610,Minimal_v2,the people who hold such ideas,the people who hold these ideas,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417610,Minimal_v3,would scheme to seize,would plot to seize,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417610,Minimal_v3,in pursuit of a distorted sense of justice,in pursuit of a distorted notion of justice,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:417610,Minimal_v3,the people who hold such ideas,the people who hold these ideas,contextual candidate; equivalence and rhetorical force require independent human review,ai
+creators:418904,Minimal_v2,,,retain original: no safe lexical edit selected,ai
+creators:418904,Minimal_v3,"The Confederates surrendered, as was their habit.","As was their habit, the Confederates surrendered.",contextual candidate; equivalence and rhetorical force require independent human review,ai

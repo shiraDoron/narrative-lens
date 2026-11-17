@@ -1,0 +1,98 @@
+review_id	category	evidence_span	rationale_he
+L001	insufficient	it would run itself without any one person in charge	תיאור תאוריה פוליטית ללא אימוץ עמדה בינארית.
+L002	insufficient	living in biblical times	מטפורה דתית ואסונות בלי טיעון פוליטי מפורש.
+L003	insufficient	watching him through the window of my home office	תיאור אישי של עובד ואינו טיעון על מדיניות או היררכיה.
+L004	research	Watters finally interjects	שאלות טעונות מיוחסות למראיין; יחס המספר והעמדה אינם מפורשים.
+L005	research	proof that it can keep up the borrowing?	שאלה על חוב ציבורי; דאגה לחוב משותפת לכמה זרמים ואינה מספיקה לבינארי.
+L006	insufficient	two big money-and-politics stories	דיווח על בורסה ובאנון בלי מסגור מדיני מספיק.
+L007	research	it's even more right today	אימוץ ביקורת חריפה על רוסיה; אינו מגדיר עמדה בציר Left/Right האמריקאי.
+L008	insufficient	autonomous vehicles will serve as cabs	טענה חיובית על בטיחות טכנולוגיה ללא ציר פוליטי מפורש.
+L009	insufficient	She sat behind me in math class	זיכרון אישי מבית הספר.
+L010	insufficient	Frozen eggs can later be fertilized	תיאור הליך רפואי וחשיפתו; אין תמיכה או התנגדות פוליטית מפורשת.
+L011	insufficient	a Puritan governor declared	פתיח היסטורי; אופי הביקורת והחלופה הפוליטית חסרים.
+L012	research	it still gives unfair advantages to white kids	טענת אי־שוויון שעשויה להיות טיעון מאומץ או הצגת טיעון של מתנגדים; ייחוס והקשר מחייבים הכרעה.
+L013	research	Californians will face two competing tax measures	שני צעדי מס מתוארים ללא בחירה או תמיכה מפורשת של המספר.
+L014	insufficient	Do the world's most talented and ambitious people want to immigrate here?	הגירה כמדד לבריאות המדינה אינה עמדה ברורה על מדיניות הגירה.
+L015	insufficient	we again honor all who have served our country	הוקרת ותיקים אינה ראיה מספקת לימין או לשמאל.
+L016	insufficient	We responded by pulling together	זיכרון היסטורי של אחדות לאומית ללא עמדה בינארית.
+L017	insufficient	A jeans-clad Kennedy flexes alongside Kid Rock	תיאור סרטון והופעה גופנית ללא טענה אידאולוגית מספיק ברורה.
+L018	insufficient	changing the narrative	פתיח מבטיח פתרון אך תוכן הפתרון אינו בקטע.
+L019	insufficient	She is right, but not really	זיכרון על הורות יחידנית; ההסבר חסר.
+L020	insufficient	leave pennies on the railroad tracks	סיפור משפחתי שאינו מציג עמדה פוליטית.
+L021	research	in charge of white people were white men	דובר סאטירי עשוי לבקר היררכיה גזעית ומגדרית; אין לתייג את הקול המילולי בלי הכרעה על אירוניה.
+L022	insufficient	the hurt haunted the surviving daughter	סיפור פגיעה משפחתית ללא עמדה בינארית.
+L023	insufficient	There are barbecues and baseball games and fireworks	תיאור חגיגות משפחתיות ולא עמדה מדינית.
+L024	research	prospective truck buyers are lining up at car lots	ביקורת על הפסקת רכב חשמלי עשויה להיות כלכלית או סביבתית; אין טיעון מספיק לקבוע צד.
+L025	insufficient	The young Black woman	זהות הסטודנטית וכאבה אינם מסבירים את גורם הכאב או עמדה פוליטית.
+L026	research	to protect their residents	אימוץ הגנה על מוסלמים עשוי לשקף שוויון אזרחי, אך גם נורמה משותפת; נדרשת הכרעה בגבולות המסגור.
+L027	insufficient	our courageous men and women in uniform	הוקרת חיילים וציטוט היסטורי ללא עמדה שמבדילה צדדים.
+L028	insufficient	influencers who harm their devotees	ביקורת על משפיענים אינה מכוונת למסגרת פוליטית מסוימת.
+L029	insufficient	real, demonstrable change	קריאה כללית לאחריות נבחרים; תוכן השינוי הרצוי אינו מצוין.
+L030	insufficient	Allegory of Good and Bad Government	פתיח אמנותי על ממשל בלי טיעון אידאולוגי בקטע.
+L031	insufficient	I don't care that the royals moved away	אי־עניין במלוכה אינו לבדו מסגור Left/Right מקומי.
+L032	insufficient	they'd used it to buy meat	אנקדוטה על נוכחות באירוע בלי ציר אידאולוגי.
+L033	insufficient	he went into remission	סיפור על בריאות חתול.
+L034	insufficient	it all comes down to body chemistry	הסתייגות מידע רפואי ודיון כללי בכימיה; ללא מסגור פוליטי.
+L035	research	his tariffs are a major reason why	ביקורת על מכסים ואינפלציה אפשרית מימין ומשמאל; אין עיקרון בינארי מפורש.
+L036	insufficient	I have a Snoop Dogg T-shirt	תיאור חולצה והופעת מוזיקאי.
+L037	research	a dramatic decline of women senators	דגש על ייצוג נשים עשוי להיות מסגור שוויוני או דיווח סטטיסטי; דורש הכרעה בהגדרה.
+L038	insufficient	The median household income	רקע אמיד של מועמד ורמז אירוני; אין טיעון על מדיניות.
+L039	research	Young people overall feel a tremendous amount of betrayal	עמדת AOC מצוטטת; אימוץ או ביקורת מצד המספר אינם ברורים.
+L040	insufficient	Polls find widespread opposition to data centers	דיווח סקרים וצו בלי תמיכה או התנגדות מפורשת של המספר.
+L041	insufficient	limited opportunities	תיאור ילדות מעמדית ועיירות תעשייה; אין בסיס מספיק לסיווג מדיני.
+L042	research	First, the good news	אימוץ חיובי של חיסונים; עמדה רפואית זו אינה לבדה קריטריון פוליטי ברור.
+L043	research	his faith is portrayed in the movie	דיון חיובי באמונה; נדרש להכריע אם עדות דתית ללא מדיניות כלולה בימין חברתי.
+L044	research	restoring and transforming Zamperini's heart and life	טענה נוצרית מאומצת, אך אין טענה על סדר חברתי או מדיניות; דורש הגדרת גבולות.
+L045	insufficient	a child of the obligatory poverty-stricken immigrants	זיכרון משפחתי ועוני ללא טיעון פוליטי מפורש.
+L046	research	groups of unmasked college students	תיאור טעון של אי־עטיית מסכה; אינו מספיק בלי הגדרה עקבית של מסגור בריאותי פוליטי.
+L047	insufficient	Scott Pelley got canned	שבח לעיתונות וביקורת על פיטורים; הגורם והמסגור המדיני חסרים.
+L048	insufficient	one memory is seared into my brain	זיכרון אישי של אכזבת אם.
+L049	insufficient	I got my second jab of the Moderna vaccine	עדות אישית על חיסון, ללא עמדה פוליטית מספקת.
+L050	research	immigration arrests has hit the construction industry	ביקורת על השפעת אכיפה על ענף כלכלי; יכולה לנבוע מגישה שוקית או מזכויות מהגרים.
+L051	insufficient	those manly men	סאטירה על בוקרים; יעד הטיעון אינו מופיע בקטע.
+L052	insufficient	I've written a few books	הצגה עצמית וסאטירה אישית ללא עמדה פוליטית.
+L053	research	the grid didn't give a damn about where you were	ביקורת מעמדית על הזנחה ונגישות עשויה להתאים לשמאל, אך אין טיעון מפורש דיו; הכרעה על מסגור עקיף.
+L054	insufficient	explain complicated Social Security rules	הסבר תפקיד כותב בייעוץ זכויות; אין עמדה על המדיניות.
+L055	insufficient	use your inside voice	עצות אישיות בתקופת הסגר ללא ביקורת פוליטית מספקת.
+L056	research	taking money from special interests	ביקורת שחיתות כללית אינה ייחודית לשמאל או לימין; נדרשת מדיניות עקבית לתוויות מסגור כוח.
+L057	insufficient	my family moved quite a bit	סיפור ילדות ומעברי דירה.
+L058	research	says prospective 2028 presidential candidate	טיעון נגד ריכוז עושר מיוחס לפוליטיקאי אחר; אין אימוץ מצד המספר.
+L059	insufficient	our walk in a gentle but persistent snowstorm	אנקדוטה אישית ושיחה ללא עמדה פוליטית.
+L060	insufficient	posted a picture of a group	אירוע פוליטי מתואר אך תוכן הפרסום ועמדת המספר חסרים.
+L061	insufficient	we speak 28% fewer words every day	נתון על דיבור ושיחה ללא עמדה מדינית.
+L062	research	Pro-terrorist activist Mahmoud Khalil	מסגור עוין וברור של פעיל בהקשר חמאס; אין להמירו אוטומטית לימין בציר האמריקאי.
+L063	research	These enormous budget deficits are the new normal	דאגה לחוב ומסגור שלילי יכולים להתקיים בכמה זרמים; אין דרישה לקיצוץ/מסים המבחינה ביניהם.
+L064	research	Innocent people are often intimidated or tricked	מסגור זכויות מול כוח אכיפה יכול להיות ליברלי או שמרני־ליברטריאני; נדרשת הכרעה על היקף ההגדרה.
+L065	insufficient	where Sen. Joe Manchin's hideaway is	תיאור מסדרונות ומיקום סנאטור ללא עמדה אידאולוגית.
+L066	insufficient	The agenda included an elaborate Rose Garden military review	דיווח דיפלומטי ללא שיפוט בינארי מפורש.
+L067	insufficient	youth's hunger for fame	ביקורת על תרבות פרסום, בלי מסגור מדיני ברור; אין כאן בדיקת אמיתות האירועים.
+L068	insufficient	I swam in the beautiful bay water	סיפור נופש וארוחה.
+L069	insufficient	We will see soon enough	ספקולציה תיאורית על מינוי בנק מרכזי בלי העדפת מדיניות.
+L070	research	This is the same Tom Steyer who opposed single-payer	עמדה סוציאלית מצוטטת לצד רמז לחוסר עקביות; עמדת המספר לגבי השיטה אינה ברורה.
+L071	insufficient	a $50,000 pickup truck	הומור על מקצוע תיקונים ומחיר רכב ללא טיעון מדיני.
+L072	research	How do we actually lift people out of poverty?	הצעות חלוקה מחדש מיוחסות לדוח; השאלה הפותחת אינה קובעת אימוץ או התנגדות.
+L073	research	one of its dumbest statutes	ביקורת חריפה על חוק בלתי מזוהה בקטע; ההקשר הנדרש לקביעת ציר חסר.
+L074	insufficient	Bob Dylan made me break into silent tears	זיכרון מהופעה ואבל בעקבות טרור.
+L075	research	people wielding God as a weapon	ביקורת על שימוש בדת מול נצרות לא שיפוטית עשויה להיות שמאלית אך יכולה להיות דתית חוצת צדדים.
+L076	research	A simple open primary system	העדפה לפריימריז פתוחים אינה מגדירה צד; ביקורת על טראמפ אינה מספיקה.
+L077	research	my party left me. Both of them.	דחיית שתי המפלגות וביקורת מנגנון מועמדות; אין עמדה דומיננטית בינארית.
+L078	insufficient	Leaving the land of my grandmother	זיכרון מעבר דירה וחוסר צדק אישי.
+L079	research	told the audience that 14,000 babies	טענה הומניטרית מיוחסת לאיש או״ם; אין עמדת מספר או מיפוי מוצדק לבינארי.
+L080	research	supporting freedom, change and democracy	שבח מרד במשטר קומוניסטי ודמוקרטיה אינו לבדו מכריע ציר Left/Right; הכרעה על אנטי־קומוניזם.
+L081	research	the expensive tariff policy	התנגדות למכסים וליוקר מחיה יכולה להיות משמאל או מימין.
+L082	insufficient	my mother disappeared	סיפור משפחתי על יום התפטרות נשיא; אין עמדת המספר על ההתפטרות.
+L083	insufficient	the style influence who crowns the influencers	תיאור אופנה וכוח תרבותי ללא מסגור מדיני מפורש.
+L084	insufficient	we humans once relied on	פתיח על כלים וחברה; הטיעון המדיני אינו בקטע.
+L085	insufficient	according to Fox News	דיווח מיוחס על מספר לוחמים; המקור המצוטט אינו בסיס לשיוך פוליטי.
+L086	insufficient	he insisted his faith in me was steadfast	סיפור הכרת תודה ותמיכה אישית.
+L087	research	up to and including widows living on survivors' checks	אזהרה על קיצוץ זכויות ומסגור פגיעות, בלי העדפה מפורשת לפתרון; דורש החלטה על מסגור רווחה.
+L088	insufficient	I split my bet	הומור על מוות ומלחמת אזרחים בלי עמדה כלפי צד פוליטי.
+L089	research	a poor, drug-abusing member of a widely despised minority group	תיאור דפוס בסיקור פשיעה; עשוי להיות פתיח לביקורת מבנית או לסיפור אחר, ללא מסקנה בקטע.
+L090	insufficient	violently robbed in a subway station	זיכרון פשיעה בלי הצעת מדיניות או שיפוט פוליטי מפורש.
+L091	research	he went on	מסגור רווחה מול מלחמה מיוחס לממדאני; אימוץ או התנגדות של המספר אינם ברורים.
+L092	research	her recent rant	ביקורת על קלינטון הכוללת גם דמוקרטים; אין עיקרון שמרני או חלופה מפורשים.
+L093	research	celebrating the killing of Americans	גינוי טרור ותיאור חגיגות אינו לבדו קובע תווית בינארית אמריקאית.
+L094	insufficient	Democrats must pick up 23 seats	חשבון בחירות ותיאור סיכויים ללא העדפה מפורשת.
+L095	insufficient	Cool is supposed to be American territory	סאטירה על תרבות צריכה ותדמית; הציר המדיני אינו ברור.
+L096	insufficient	we went to places where the job wasn't	תיאור שגרת עבודה ומנוחה ללא טיעון על יחסי עבודה.
+L097	insufficient	no one can see the empties	סיפור הומוריסטי על גינון ושתייה.

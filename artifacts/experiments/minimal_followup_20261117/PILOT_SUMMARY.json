@@ -1,0 +1,50 @@
+{
+  "Minimal_v1": {
+    "n": 9,
+    "edit_fraction_mean": 0.015752086373555296,
+    "substantial_style_changes": 0,
+    "exact_copies": 1,
+    "sentence_relative_change_mean": 0.004978862437491444,
+    "punctuation_l1_mean": 0.030187916267407983
+  },
+  "Minimal_v2": {
+    "n": 9,
+    "edit_fraction_mean": 0.04535242062614326,
+    "substantial_style_changes": 0,
+    "exact_copies": 1,
+    "sentence_relative_change_mean": 0.0062273018881780955,
+    "punctuation_l1_mean": 0.03999353083758492
+  },
+  "Minimal_v3": {
+    "n": 9,
+    "edit_fraction_mean": 0.0688731414783248,
+    "substantial_style_changes": 0,
+    "exact_copies": 0,
+    "sentence_relative_change_mean": 0.003730422986804808,
+    "punctuation_l1_mean": 0.3085039891969391
+  },
+  "Original": {
+    "n": 9,
+    "edit_fraction_mean": 0.0,
+    "substantial_style_changes": 0,
+    "exact_copies": 9,
+    "sentence_relative_change_mean": 0.0,
+    "punctuation_l1_mean": 0.0
+  },
+  "Paraphrase": {
+    "n": 9,
+    "edit_fraction_mean": 0.21488626704457103,
+    "substantial_style_changes": 3,
+    "exact_copies": 0,
+    "sentence_relative_change_mean": 0.0861822605110338,
+    "punctuation_l1_mean": 2.837241390964632
+  },
+  "Style": {
+    "n": 9,
+    "edit_fraction_mean": 0.3372201810733188,
+    "substantial_style_changes": 7,
+    "exact_copies": 0,
+    "sentence_relative_change_mean": 0.1992566760163314,
+    "punctuation_l1_mean": 2.743580988729634
+  }
+}

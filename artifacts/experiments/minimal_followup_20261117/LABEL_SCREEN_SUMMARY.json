@@ -1,0 +1,28 @@
+{
+  "additional97": {
+    "n": 97,
+    "ai_unambiguous_binary_candidates": 0,
+    "insufficient": 61,
+    "research_decision": 36
+  },
+  "provisional200": {
+    "existing_binary_proposals": 105,
+    "nominated_additional": 95,
+    "additional_unambiguous_binary_candidates": 0,
+    "additional_insufficient": 61,
+    "additional_research_decision": 34
+  },
+  "reserve_sources": 2,
+  "total_train_pool": 202,
+  "new_human_gold_labels": 0,
+  "interpretation": "Conservative text-only AI screen cannot establish95 additional binary sources. Existing105 proposals remain unvalidated; not105 confirmed eligible texts.",
+  "original_source_labels_overwritten": false,
+  "author_identity_not_used": true,
+  "criterion": "Require an adopted ideological framing in this excerpt; mere actor/party, faith, topic, geopolitical side or reported quote insufficient",
+  "limitations": [
+    "not independent human review",
+    "research group may include genuine Left/Right after construct/irony/attribution adjudication",
+    "apply any clarified construct consistently to old105 too; do not loosen only to reach200",
+    "no factual verification or author inference"
+  ]
+}

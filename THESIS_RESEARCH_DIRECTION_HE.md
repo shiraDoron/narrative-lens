@@ -1,5 +1,7 @@
 # הכיוון המרכזי של התזה
 
+> בדיקת המשך17.11.2026: [דוח השכתוב וביקורת97 המקורות](artifacts/experiments/minimal_followup_20261117/REPORT_HE.md). עריכות v2/v3 גדלו אך לא עברו את סף שינוי הסגנון הישן; מומלץ לעת עתה מיצוב כבקרת התערבות מינימלית.105 הן הצעות תווית קיימות ולא אישור כשירות; יעד200 עדיין אינו מבוסס. אין שינוי בפרוטוקול או בתקציב ללא אישור מפורש.
+
 > עדכון מנחה17.11.2026: יעד חדש של200 מקורות ושיטה נוספת של החלפות מילוליות שקולות בהקשר, עם שינויים תחביריים קטנים ובטוחים. [פרוטוקול חדש ומתועד](artifacts/experiments/minimal_meaning_v1_20261117/PROTOCOL_HE.md). יש202 טקסטים של כותבי Train, אך רק105 הצעות Left/Right; ההרחבה ל־200 במשימה הבינארית טעונה הכרעת אדם ואינה מובטחת. אין הנחה שהחלפת מילים נרדפות מסירה סגנון מחבר. הפרוטוקול הקפוא וההיסטוריה להלן נשמרים; לא מורצים אימון מרכזי או Test.
 
 > Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.

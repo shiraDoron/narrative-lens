@@ -1,0 +1,13 @@
+﻿condition,narrative_name,n,passed,pass_rate
+Minimal_v1,Left-wing,4,4,1.0
+Minimal_v1,Right-wing,5,5,1.0
+Minimal_v2,Left-wing,4,4,1.0
+Minimal_v2,Right-wing,5,5,1.0
+Minimal_v3,Left-wing,4,4,1.0
+Minimal_v3,Right-wing,5,5,1.0
+Original,Left-wing,4,4,1.0
+Original,Right-wing,5,5,1.0
+Paraphrase,Left-wing,4,2,0.5
+Paraphrase,Right-wing,5,1,0.2
+Style,Left-wing,4,4,1.0
+Style,Right-wing,5,3,0.6

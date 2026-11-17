@@ -1,0 +1,15 @@
+Minimal Rewrite v2: distributed contextual lexical edits, 2026-11-17
+Apply the complete preservation contract of v1. Read the whole passage before
+editing. Inspect each sentence for contextually equivalent words and short phrases,
+rather than stopping after the first safe substitution. Retain the full proposition,
+referents, participant roles, attribution, time, causality, evaluative force,
+political framing, metaphor, irony and rhetorical question form. Never weaken,
+strengthen, broaden or narrow a claim. Leave quantifiers and negation (including
+their scope), certainty/modality, entities, numbers and quotations verbatim.
+Preserve loaded wording when its force or connotation cannot safely be matched.
+No global synonym dictionary, minimum edit fraction, required count or target
+style score. Leave an unsafe expression or the whole text unchanged.
+One candidate per source; exact before/after ledger for every edit and a note
+where an edit was declined. Do not use author identity, labels, model scores or
+held-out data. No candidate selection or revision after measurements.
+AI self-check does not constitute human validation.

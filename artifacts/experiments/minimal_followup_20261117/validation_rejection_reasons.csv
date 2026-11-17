@@ -1,0 +1,11 @@
+﻿condition,reason,n
+Paraphrase,bidirectional_nli,2
+Paraphrase,certainty,1
+Paraphrase,entities,2
+Paraphrase,future_tense,2
+Paraphrase,negation,1
+Paraphrase,quotations,2
+Paraphrase,similarity,1
+Style,future_tense,1
+Style,negation,1
+Style,similarity,1
