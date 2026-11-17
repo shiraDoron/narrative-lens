@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-17",
+  "target": {
+    "train_human_accepted_sources": 200,
+    "validation_included_in_target": false,
+    "test_included_in_target": false
+  },
+  "author_counts": {
+    "train": 9,
+    "val": 4,
+    "test": 6
+  },
+  "authors_disjoint": true,
+  "existing_train_sources": 202,
+  "old_binary_proposals": 105,
+  "unresolved_original_excerpts": 97,
+  "additional_candidate_texts": 14,
+  "alternate_excerpts_from_old97": 8,
+  "recovered_other_train_articles": 6,
+  "confirmed_human_gold_in_documented_experiment": 0,
+  "approved_snapshots": [],
+  "additional_acquisition_gap_if_old105_all_accepted": 95,
+  "conditional_acquisition_gap_if_old105_and_new14_all_accepted": 81,
+  "total_target_pending_human_confirmation": 200,
+  "distinction": "Zero documented approved gold does not mean200 brand-new texts must be collected: validate existing proposals first; acquisition gap95 is conditional.",
+  "original97_review": "AI screen only:61 insufficient evidence,36 research decisions; no human acceptance yet; alternate passages do not relabel original excerpts",
+  "checked_forms": [
+    {
+      "path": "data_completion_20261109/NARRATIVE_LABEL_VALIDATION_105.csv",
+      "rows": 105,
+      "nonblank_label_answers": 0
+    },
+    {
+      "path": "minimal_followup_20261117/LABEL_97_BLIND.csv",
+      "rows": 97,
+      "nonblank_label_answers": 0
+    },
+    {
+      "path": "data_expansion_plan_20261117/LABEL_STARTER_119_BLIND.csv",
+      "rows": 119,
+      "nonblank_label_answers": 0
+    },
+    {
+      "path": "data_expansion_plan_20261117/CANDIDATE_HUMAN_BLIND_14.csv",
+      "rows": 14,
+      "nonblank_label_answers": 0
+    }
+  ],
+  "repeated_forms_not_additional_sources": true,
+  "source_sha256": {
+    "artifacts\\experiments\\data_completion_20261109\\NARRATIVE_LABEL_VALIDATION_105.csv": "7c9643d8ff1bb23cd311e8864d4873f73414139c68f0ebd69173c8cdbc6495e0",
+    "artifacts\\experiments\\minimal_followup_20261117\\LABEL_97_BLIND.csv": "59a5a95aadcb843da13dd856dbb5231bf12c985325dad1dd3be59d580d9227c6",
+    "artifacts\\experiments\\data_expansion_plan_20261117\\LABEL_STARTER_119_BLIND.csv": "51216171f6569c76af4353040ab4fba4e4bd1685ee274c5cd2b122eb65634b27",
+    "artifacts\\experiments\\data_expansion_plan_20261117\\CANDIDATE_HUMAN_BLIND_14.csv": "efb45f35057ded105eb29399bed14a360ed4c8ff55c6a86cd160869847699f7b",
+    "MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md": "a213c5bbccfd086077ed84ff56dd2060e5908253b62489838e7b8e591795a68f",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\author_splits.csv": "113af071c0275328405850e485b62bb46eefd714128a6beeac621b9a8894be47",
+    "artifacts\\experiments\\minimal_meaning_v1_20261117\\DRAFT_CONFIG.json": "e05a906cd97228caa0c65deaee890461f70a2eeca9be37048eda337487999a15",
+    "artifacts\\experiments\\data_expansion_plan_20261117\\COLLECTION_PLAN_PROPOSED.json": "63ebdc7e223482642070fbf980e2076c58bbb143b00d96bf5c3a2d5be77aec14"
+  },
+  "frozen_protocol_changed": false,
+  "training_run": false,
+  "test_evaluation": false
+}
