@@ -1,0 +1,32 @@
+{
+  "source_sha256": {
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\author_splits.csv": "113af071c0275328405850e485b62bb46eefd714128a6beeac621b9a8894be47",
+    "artifacts\\experiments\\verified_human_style_followup_20261026\\text_annotations.csv": "4900ac1d51a60fe97c032d94e3ddef80f8f3f629ba1d7340584c7bddaa8e508c",
+    "artifacts\\experiments\\data_completion_20261109\\runs\\extension_v1_run01\\candidate_105\\CANDIDATE_ID_MAP_105.csv": "a0a668e6deb7503d2c75b6d13ba9bd5477c89e48ac329ed5cc91886952d0ab24",
+    "MAIN_TRAINING_EXPERIMENT_PROTOCOL_HE.md": "a213c5bbccfd086077ed84ff56dd2060e5908253b62489838e7b8e591795a68f",
+    "artifacts\\experiments\\style_intervention_v2_20261026\\study.py": "39ccf8a470955ad212dd9c3b3631591e59b0a87732d5fc4f24a651585af1a44e",
+    "artifacts\\experiments\\minimal_meaning_v1_20261117\\PROMPT.txt": "909dc93111a465eaf5698e309599087f3199329bc719b6f8f470aefea3d79193",
+    "artifacts\\experiments\\minimal_meaning_v1_20261117\\PROTOCOL_HE.md": "b66810340c9ee1d9d1aa84f784c6d0b122f9782173b081a38bf8748e6c73936b",
+    "artifacts\\experiments\\minimal_meaning_v1_20261117\\prepare.py": "3e286acc4881201cf9e5255ef62c7ae81e54c817c570e8a27ba1de17072406d4"
+  },
+  "no_training": true,
+  "no_test_evaluation": true,
+  "pilot_selection": "first record per author in existing105 order; nine authors; convenience pilot not representative",
+  "output_sha256": {
+    "analysis_cohort.csv": "cf7395b147df619067dcb28530d5f17b79dd8a5ad81668dde7695b3592c0d9af",
+    "AUDIT.json": "f4b56468f55cf16b21c29a0133cb7b19db72ae94c6448a35a70a56bba434a67c",
+    "DRAFT_CONFIG.json": "e05a906cd97228caa0c65deaee890461f70a2eeca9be37048eda337487999a15",
+    "EDIT_LEDGER.csv": "524a36b921d3e045b1d3c7b34e0d712a60fc0ce1695e1af338dcf4da15cb4037",
+    "generated_rewrites.jsonl": "e27a6beb7dc272f202a3c760c5c134756e05f3681ae91def1a0f52e260ecd610",
+    "HUMAN_REVIEW_BLIND.csv": "b5f9b6d8a087218f029a1c2c78d568e256a174eab756d73f96fbc3aaf57eec37",
+    "HUMAN_REVIEW_KEY.csv": "641fd067bde1e26e0cfc5c2dbe48ec148449b8627036a2bebd630cf17b4bb4e4",
+    "PILOT_METRICS.csv": "d0d92865bb9e1831db9b6eb6e11398e3f919a5dde7518b21eef6c9a48afae944",
+    "PILOT_SUMMARY.json": "ff977f5309cdf0e63e4605db973dc574d4a40af2014cf4586856256f97a9f049",
+    "prepare.py": "3e286acc4881201cf9e5255ef62c7ae81e54c817c570e8a27ba1de17072406d4",
+    "PROMPT.txt": "909dc93111a465eaf5698e309599087f3199329bc719b6f8f470aefea3d79193",
+    "PROTOCOL_HE.md": "b66810340c9ee1d9d1aa84f784c6d0b122f9782173b081a38bf8748e6c73936b",
+    "PROVISIONAL_200.csv": "05682afe3e122cb5fb909583b344420efde06b544e89ae1ce945589c17d868be",
+    "screen.py": "04cd689d281716dbc0935f68df78e82ce04185c9144c151b420949585b0540e4",
+    "TRAIN_POOL_202.csv": "27f537fd636e1fd5e2469346121388f571229e7fd7d90bf1f31f3f0baf93b3a5"
+  }
+}

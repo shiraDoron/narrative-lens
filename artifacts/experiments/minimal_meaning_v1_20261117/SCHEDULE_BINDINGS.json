@@ -1,0 +1,8 @@
+{
+  "draft_only": true,
+  "no_training": true,
+  "algorithm": "Python random.Random(seed), shuffled source/slot cycles, full batches; common index schedules across equal-size arms",
+  "missing_rewrites_and_human_labels_are_not_generated_by_schedules": true,
+  "total_updates": 9100,
+  "total_processed_examples": 145600
+}

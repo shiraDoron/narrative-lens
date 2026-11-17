@@ -1,6 +1,8 @@
 # Current Research State
 
-Updated: 2026-11-10. This is the changing status page; [README](README.md) provides the stable research overview.
+Updated: 2026-11-17. This is the changing status page; [README](README.md) provides the stable research overview.
+
+**Supervisor amendment — 2026-11-17:** [New versioned protocol](artifacts/experiments/minimal_meaning_v1_20261117/PROTOCOL_HE.md) prepares a target of200 sources and Minimal Meaning-Preserving Rewrite, retaining the old105/A–E protocol and all history.202 Train-author texts have verified publisher bylines, but only105 have provisional binary labels; the other97 have96 Unclear and1 Zionist first-pass proposals.200 binary-eligible sources are therefore not established. A provisional200 list preserves old105 and nominates95 additional IDs without relabeling. Nine-source Train-only paired pilot and blinded human forms are prepared. Proposed seven-arm A–G budget:260 updates/4160 examples per seed, subject to new freeze and a new trainer adapter. No central training or Test evaluation. Earlier dated statuses below describe the prior version.
 
 ## Current research question
 

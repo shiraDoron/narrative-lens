@@ -1,0 +1,17 @@
+{
+  "train_sources": 202,
+  "verified_named_bylines": 202,
+  "train_authors": 9,
+  "existing_binary_proposals": 105,
+  "additional_sources": 97,
+  "additional_label_a_counts": {
+    "Unclear": 96,
+    "Zionist": 1
+  },
+  "provisional200_not_approved": true,
+  "binary200_feasibility": "not established: need at least95 of97 additional sources independently eligible after human review, retaining old105 subject to review",
+  "cross_split_hash_collisions": [],
+  "train_duplicate_pairs": [],
+  "heldout_usage": "author assignment/source ID/text hash/article hash only; no held-out text metrics, predictions or selection",
+  "semantic_event_leakage": "not excluded by identity/hash checks; independent data stewardship review remains pending"
+}

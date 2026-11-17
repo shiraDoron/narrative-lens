@@ -1,0 +1,61 @@
+{
+  "version": "minimal_meaning_v1_20261117",
+  "status": "preparation_only_not_training_ready",
+  "arms": {
+    "A": [
+      "Original"
+    ],
+    "B": [
+      "Paraphrase"
+    ],
+    "C": [
+      "Style"
+    ],
+    "D": [
+      "Original",
+      "Style"
+    ],
+    "E": [
+      "Original",
+      "Paraphrase"
+    ],
+    "F": [
+      "Minimal"
+    ],
+    "G": [
+      "Original",
+      "Minimal"
+    ]
+  },
+  "n_sources_target": 200,
+  "batch_size": 16,
+  "optimizer_updates": 260,
+  "processed_examples": 4160,
+  "budget_rule": "20 * ceil(200/16); equal full batches across all seven arms; not epoch-equality",
+  "old_updates": 140,
+  "old_examples": 2240,
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    31415
+  ],
+  "validation": "unchanged43 Originals; fixed final checkpoint; no rewrite selection",
+  "test": "disabled",
+  "required_before_training": [
+    "human binary labels and adjudication",
+    "all three rewrites per200",
+    "human QC600 pairs",
+    "common symmetric fallback across three rewrites",
+    "signed new freeze",
+    "new versioned trainer adapter and safety tests"
+  ],
+  "generator": {
+    "identity": "Codex assistant in this conversation",
+    "exact_revision": null,
+    "temperature": null,
+    "provenance": "eight context-specific literal substitutions plus one unchanged source; no external generation API",
+    "main_generation_not_started": true
+  }
+}

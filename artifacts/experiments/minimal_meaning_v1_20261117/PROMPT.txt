@@ -1,0 +1,21 @@
+Minimal Meaning-Preserving Rewrite v1 — 2026-11-17
+
+Rewrite the supplied English text with minimal intervention. Prefer one or a few
+contextually equivalent words/phrases and optional small, safe syntax changes.
+Do not apply a global synonym dictionary. Evaluate each expression in its context.
+Preserve all propositions, referents, agents, patients, attribution, causal and
+temporal relations, rhetorical questions, sarcasm, metaphors, narrative and
+political stance. Preserve register where changing it changes evaluative force.
+Never weaken, strengthen, broaden, narrow, add, omit or fact-correct a claim.
+Keep quantifiers and their scope, negation and its scope, modality, tense and
+certainty unchanged: all is not most; no one is not few people; will is not might.
+Keep names, numbers, dates, direct quotations, legal/political terms and loaded
+evaluative anchors verbatim unless an independently reviewed equivalence exists.
+An idiom or metaphor need not be replaced. Do not resolve ambiguous pronouns.
+No minimum edit distance, mandatory restructuring or stylistic anonymity target.
+If safe equivalence is uncertain, retain that expression or the entire original.
+Do not use author identity, Left/Right labels, held-out data or model predictions.
+Return ID, rewrite, and an edit ledger with each exact before/after span and reason.
+Make one candidate per source. Retain unsuccessful attempts and technical retries.
+Do not select among candidates by semantic scores, style scores or classifier output.
+Self-check is AI assistance, not human verification. Retain unchanged outputs.

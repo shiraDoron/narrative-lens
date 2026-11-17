@@ -1,0 +1,5 @@
+﻿condition,n,passed,pass_rate,changed_rate
+Minimal,9,9,1.0,0.8888888888888888
+Original,9,9,1.0,0.0
+Paraphrase,9,3,0.3333333333333333,1.0
+Style,9,7,0.7777777777777778,1.0
