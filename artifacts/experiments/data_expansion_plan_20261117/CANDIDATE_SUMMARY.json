@@ -1,0 +1,24 @@
+{
+  "selected_candidates": 14,
+  "unique_article_groups": 14,
+  "ai_label_counts": {
+    "Left": 3,
+    "Right": 11
+  },
+  "recovered_previously_unrepresented_articles": 6,
+  "alternate_excerpts_from_noncore_articles": 8,
+  "human_accepted_new": 0,
+  "all_candidates_require_human_review": true,
+  "conditional_core105_plus14": 119,
+  "conditional_remaining_after_all119_accepted": 81,
+  "original_additional_gap_if105_all_accepted": 95,
+  "formula": "remaining = max(0,200 - human_accepted_existing105 - human_accepted_distinct_additional_articles)",
+  "bank_windows_not_independent_samples": true,
+  "yield_not_estimated_from_purposive_shortlist": true,
+  "deferred_targeted_source_groups": 8,
+  "nominal_archive_new_urls": 8,
+  "probable_aliases": 8,
+  "confirmed_novel_archive_articles": 0,
+  "authorship_flagged_article_groups": 1,
+  "no_historical_labels_splits_or_budget_changed": true
+}

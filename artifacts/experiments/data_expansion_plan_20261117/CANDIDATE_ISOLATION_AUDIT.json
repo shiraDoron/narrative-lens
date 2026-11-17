@@ -1,0 +1,8 @@
+{
+  "exact_match_existing_all_split_source_hashes": [],
+  "train_only_near_duplicates_jaccard_ge_08": [],
+  "threshold_role": "duplicate triage only, not a rewrite/style acceptance threshold",
+  "heldout_text_used": false,
+  "heldout_predictions": false,
+  "limitation": "Hash/URL and TRAIN lexical screens do not exclude held-out semantic/syndicated/event overlap; steward review required"
+}

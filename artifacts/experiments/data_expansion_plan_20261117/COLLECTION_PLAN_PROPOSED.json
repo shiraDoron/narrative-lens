@@ -1,0 +1,35 @@
+{
+  "status": "proposal_only_not_a_frozen_protocol_amendment",
+  "target_human_accepted_train_sources": 200,
+  "existing105_human_accepted_status": "unknown",
+  "newly_human_accepted_in_this_session": 0,
+  "initial_gap_assuming_old105_accept": 95,
+  "conditional_gap_if_local14_also_accept": 81,
+  "first_calibration_batch": {
+    "candidate_articles": 45,
+    "per_existing_train_author": 5,
+    "composition": "local additional article candidates first, public new articles to fill author coverage; no writer-implied labels"
+  },
+  "eligibility_yield": "measure real source eligibility after independent human ratings and adjudication; planning40/60/80 percent are not observed",
+  "collection_rule": "single explicit named byline; same nine Train authors; one standalone contiguous35–100 word excerpt per parent article; keep all attempts/reasons; no held-out selection",
+  "alternate_excerpt_rule": "new source ID and paragraph offsets; same parent group; existing unclear excerpt retained and never relabeled; requires explicit future sampling amendment",
+  "priority": "Creators public same-genre archives around observed author-specific dates; other official same-author text essays only as separately audited domain cohorts",
+  "access": "no401/403 bypass; honor access limitations; no guaranteed yield or invented unseen URL inventory",
+  "stop_rule": "200 independently accepted unique article groups under approved sampling plan; do not stop at200 machine suggestions",
+  "human_label_options": [
+    "Left",
+    "Right",
+    "Unclear"
+  ],
+  "labels_from_author": false,
+  "time_estimate_person_hours": {
+    "low": 35.016666666666666,
+    "high": 55.41666666666667
+  },
+  "time_estimate_scope": "data preparation and labels only; excludes rewrite generation/pairQC, training and held-out evaluation",
+  "minimal_prompt_development": "stopped; possible control only; retain all negative results",
+  "training_protocol_changed": false,
+  "training_updates_changed": false,
+  "train_run": false,
+  "test_run": false
+}

@@ -1,0 +1,13 @@
+﻿accepted_core_assumption,accepted_local_assumption,deficit,assumed_yield,candidate_articles_to_screen,empirical_yield,optimizer_budget_changed
+105,0,95,0.4,238,False,False
+105,0,95,0.6,159,False,False
+105,0,95,0.8,119,False,False
+105,14,81,0.4,203,False,False
+105,14,81,0.6,135,False,False
+105,14,81,0.8,102,False,False
+95,14,91,0.4,228,False,False
+95,14,91,0.6,152,False,False
+95,14,91,0.8,114,False,False
+90,0,110,0.4,275,False,False
+90,0,110,0.6,184,False,False
+90,0,110,0.8,138,False,False

@@ -1,0 +1,7 @@
+﻿task,unit_count,low_minutes_per_unit,high_minutes_per_unit,low_person_hours,high_person_hours
+setup sampling/QA and prepare reviewed candidate package,1,180,300,3.0,5.0
+"existing105 labels, two independent raters",210,2,3,7.0,10.5
+"160 candidate articles: retrieval/byline/window triage, local plus external",160,3,5,8.0,13.333333333333334
+"160 new candidate labels, two independent raters",320,2,3,10.666666666666666,16.0
+adjudication on assumed25 percent of265 sources,67,3,5,3.35,5.583333333333333
+"deduplication, source/author/period/topic audit and immutable handoff",1,180,300,3.0,5.0

@@ -1,5 +1,7 @@
 # פיילוט רגישות סגנונית של Narrative Classifier קפוא
 
+> עדכון17.11.2026: פיתוח Minimal נעצר לפי הנחיית החוקרת והשיטה נשמרת כבקרה אפשרית. [הממצא השלילי המתועד](artifacts/experiments/data_expansion_plan_20261117/MINIMAL_CLOSED_FINDING_HE.md): בכל שלוש הגרסאות התקבל9/9 בסקר השימור האוטומטי, אך0/9 בסף שינוי הסגנון המהותי הקיים, גם כששיעור העריכה גדל מ־1.58% ל־4.54% ול־6.89%. אין לשנות ספים בדיעבד או להציג את הסקר כאימות אדם. יתר המסמך מתעד את ההיסטוריה הקודמת.
+
 > Current working scope (2026-11-10): text-level Left/Right is provisional, not broad narrative classification. Author-ID predictability does not establish classifier reliance on author style or improved unseen-author generalization. See [task scope, proposed human criteria and training handoff](WORKING_TASK_AND_TRAINING_HANDOFF_HE.md). Historical results below are retained unchanged.
 
 

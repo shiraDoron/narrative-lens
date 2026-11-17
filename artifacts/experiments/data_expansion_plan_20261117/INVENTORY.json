@@ -1,0 +1,71 @@
+{
+  "raw_train_rows": 216,
+  "unique_train_article_urls": 208,
+  "existing_pool202_unique_urls": 202,
+  "existing105_unique_urls": 105,
+  "roles": {
+    "alternate_excerpt_of_unclear_article": 97,
+    "existing105_do_not_replace": 105,
+    "unrepresented_cached_article": 6
+  },
+  "candidate_windows": 1673,
+  "candidate_article_groups": 103,
+  "archive_urls_seen": 180,
+  "unretrieved_archive_urls": 8,
+  "errors": [],
+  "raw_other_corpora": [
+    {
+      "path": "data\\raw\\gemini_natural_dataset.csv",
+      "n": 5600,
+      "columns": [
+        "text",
+        "label",
+        "narrative_name"
+      ],
+      "known_named_single_author_field": false,
+      "eligibility": "not automatically eligible: synthetic or social/account-level origin; cannot identify the same nine named Train writers from supplied schema alone"
+    },
+    {
+      "path": "data\\raw\\gpt_natural_dataset.csv",
+      "n": 580,
+      "columns": [
+        "text",
+        "label",
+        "narrative_name"
+      ],
+      "known_named_single_author_field": false,
+      "eligibility": "not automatically eligible: synthetic or social/account-level origin; cannot identify the same nine named Train writers from supplied schema alone"
+    },
+    {
+      "path": "data\\raw\\telegram_natural_dataset.csv",
+      "n": 6877,
+      "columns": [
+        "text",
+        "label",
+        "narrative_name",
+        "account",
+        "date"
+      ],
+      "known_named_single_author_field": false,
+      "eligibility": "not automatically eligible: synthetic or social/account-level origin; cannot identify the same nine named Train writers from supplied schema alone"
+    },
+    {
+      "path": "data\\raw\\twitter_natural_dataset.csv",
+      "n": 3453,
+      "columns": [
+        "text",
+        "label",
+        "narrative_name",
+        "account",
+        "date"
+      ],
+      "known_named_single_author_field": false,
+      "eligibility": "not automatically eligible: synthetic or social/account-level origin; cannot identify the same nine named Train writers from supplied schema alone"
+    }
+  ],
+  "heldout_usage": "author/source URL metadata isolation only; no held-out text metrics, labels or predictions",
+  "limitation": "URL grouping plus TRAIN full-body hashes; syndication/semantic/event overlap and all human labels remain pending",
+  "one_excerpt_per_article_required": true,
+  "no_source_labels_changed": true,
+  "no_training": true
+}

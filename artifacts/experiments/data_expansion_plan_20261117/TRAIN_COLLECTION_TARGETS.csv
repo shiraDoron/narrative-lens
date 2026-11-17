@@ -1,0 +1,10 @@
+﻿author,split,existing105,existing_unclear_articles,recovered_articles,feature_url,bio_url,collection_batch1_target,collection_additional_target,label_inferred_from_author
+chuck-norris,train,14,9,1,https://www.creators.com/features/chuck-norris,https://www.creators.com/author/chuck-norris,5,15,False
+connie-schultz,train,6,14,0,https://www.creators.com/features/connie-schultz,https://www.creators.com/author/connie-schultz,5,15,False
+david-harsanyi,train,13,11,0,https://www.creators.com/features/david-harsanyi,https://www.creators.com/author/david-harsanyi,5,15,False
+froma-harrop,train,10,14,0,https://www.creators.com/features/froma-harrop,https://www.creators.com/author/froma-harrop,5,15,False
+jamie-stiehm,train,17,7,0,https://www.creators.com/features/jamie-stiehm,https://www.creators.com/author/jamie-stiehm,5,15,False
+jim-hightower,train,21,3,0,https://www.creators.com/features/jim-hightower,https://www.creators.com/author/jim-hightower,5,15,False
+lawrence-kudlow,train,13,7,0,https://www.creators.com/features/lawrence-kudlow,https://www.creators.com/author/lawrence-kudlow,5,15,False
+marc-dion,train,5,19,0,https://www.creators.com/features/marc-dion,https://www.creators.com/author/marc-dion,5,15,False
+veronique-de-rugy,train,6,13,5,https://www.creators.com/features/veronique-de-rugy,https://www.creators.com/author/veronique-de-rugy,5,15,False

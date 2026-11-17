@@ -1,0 +1,9 @@
+{
+  "n_sources": 119,
+  "distinct_article_groups": 119,
+  "human_answers_filled": 0,
+  "includes": "old105 source texts unchanged plus14 literal candidate windows",
+  "use": "two independent human copies; no author, prior AI label or source cohort in blind form",
+  "source_labels_changed": false,
+  "automatic_training_acceptance": false
+}
