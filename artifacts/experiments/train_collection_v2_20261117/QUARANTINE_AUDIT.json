@@ -1,0 +1,12 @@
+{
+  "full_article_overlap_exclusions": 13,
+  "overlap_by_protected_split": {
+    "test": 8,
+    "val": 5
+  },
+  "authorship_exclusions": 5,
+  "original105_excluded": 9,
+  "previous105_files_changed": false,
+  "classifier_metrics_computed": false,
+  "explanation": "Earlier zero exact HTML/text hash collisions did not exclude shared article bodies with differing pages/excerpts. Full-body fingerprint audit now blocks these sources in the new candidate bank."
+}

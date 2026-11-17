@@ -1,0 +1,9 @@
+{
+  "candidate_articles": 348,
+  "flagged_pairs": [],
+  "threshold": 0.8,
+  "labels_used": false,
+  "test_used": false,
+  "no_exact_or_near_train_full_bodies_at_this_threshold": true,
+  "semantic_or_event_independence_proven": false
+}

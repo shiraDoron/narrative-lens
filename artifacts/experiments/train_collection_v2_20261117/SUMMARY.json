@@ -1,0 +1,32 @@
+{
+  "unique_article_urls_considered": 366,
+  "new_retrieved_receipts": 158,
+  "unique_candidate_texts": 348,
+  "priority_political_review": 122,
+  "lower_priority_candidates": 226,
+  "quarantined_sources": 18,
+  "duplicate_events": 0,
+  "original105_retained": 96,
+  "new_public_articles_in_candidates": 158,
+  "by_author": {
+    "chuck-norris": 29,
+    "connie-schultz": 36,
+    "david-harsanyi": 53,
+    "froma-harrop": 51,
+    "jamie-stiehm": 29,
+    "jim-hightower": 47,
+    "lawrence-kudlow": 21,
+    "marc-dion": 54,
+    "veronique-de-rugy": 28
+  },
+  "human_gold_confirmed": 0,
+  "protected_heldout_excerpt_fingerprints": 227,
+  "protected_heldout_article_fingerprints": 235,
+  "heldout_use": "deterministic URL/exact/5-shingle duplication safeguard only; no labels, predictions, feature fitting or candidate ranking",
+  "duplicate_threshold": 0.8,
+  "semantic_event_overlap_proven_absent": false,
+  "triage": "text-only transparent cue prioritization, not a political label or a validated meaning/stance assessment",
+  "no_training": true,
+  "no_test_evaluation": true,
+  "no_rewriting": true
+}

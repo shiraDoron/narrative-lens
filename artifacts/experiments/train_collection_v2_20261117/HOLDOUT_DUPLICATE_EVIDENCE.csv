@@ -1,0 +1,14 @@
+﻿train_source_url,protected_source_ID,protected_split,exact_normalized_body,full_body_jaccard,original105,action
+https://www.creators.com/read/jim-hightower/05/26/ai-billionaires-to-grassroots-people-shut-up,creators:416956,test,True,1.0,True,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/jim-hightower/06/26/shouldnt-public-protection-be-for-you-know-the-public,creators:417453,test,True,1.0,True,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/jim-hightower/07/26/ai-billionaires-say-get-out-of-our-way-fools,creators:420899,test,True,1.0,True,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/jim-hightower/07/26/corporate-stupidity-sidetracked-by-mad-as-hell-farm-rebels,creators:420406,test,True,1.0,True,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/jim-hightower/08/26/big-tech-is-the-new-feudalism-heres-how-to-fight-back,creators:422148,test,True,1.0,True,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/froma-harrop/09/26/the-best-of-us-25-years-later-reflecting-on-windows-of-hope-7cf8c,creators:423115,test,True,1.0,False,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/jim-hightower/05/26/the-inequality-merry-go-round-built-by-stanley-tools,creators:416482,test,True,1.0,False,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/jim-hightower/09/26/billionaires-playing-cowboys-at-our-expense,creators:423137,test,True,1.0,False,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/veronique-de-rugy/05/26/when-businessmen-enter-the-beltway-its-business-as-usual,creators:416031,val,False,0.944078947368421,False,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/veronique-de-rugy/06/26/from-londons-tennis-courts-to-california-aggressive-taxes-always-disappoint,creators:418554,val,False,0.9432071269487751,False,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/veronique-de-rugy/07/26/the-transportation-bill-that-proves-washington-cant-quit-clientelism,creators:418917,val,False,0.9368029739776952,False,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/veronique-de-rugy/08/26/socialism-in-the-open-and-on-the-right,creators:421101,val,False,0.9398843930635838,False,excluded from new review packet; historical files unchanged
+https://www.creators.com/read/veronique-de-rugy/09/26/a-convoluted-scheme-to-pay-parents-to-stay-at-home,creators:423321,val,False,0.9425028184892897,False,excluded from new review packet; historical files unchanged
