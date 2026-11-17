@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-17",
+  "ready_to_assign_independent_human_reviewers": true,
+  "unique_train_candidates_per_reviewer": 348,
+  "first_block_sources": 122,
+  "second_block_sources": 226,
+  "reviewer_packets_separate": true,
+  "ai_label_suggestions_in_packets": false,
+  "human_verified_binary_labels": 0,
+  "missing_to_target200": 200,
+  "historical_nine_still_excluded": 9,
+  "restored_historical_sources": 0,
+  "raw_agreement_and_cohen_kappa_available_after_valid_paired_reviews": true,
+  "adjudication_requires_distinct_human_and_current_review_hashes": true,
+  "tests_passed_this_round": 46,
+  "collection_stopped": true,
+  "minimal_development_stopped": true,
+  "frozen_protocol_changed": false,
+  "training_run": false,
+  "test_evaluation": false,
+  "next_action": "Name two independent human reviewers and a separate adjudicator; give reviewer A only REVIEWER_A_ONLY.zip and reviewer B only REVIEWER_B_ONLY.zip."
+}

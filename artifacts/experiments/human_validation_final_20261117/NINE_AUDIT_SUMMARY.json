@@ -1,0 +1,12 @@
+{
+  "sources": 9,
+  "exact_Test_body_overlaps": 5,
+  "exact_Validation_body_overlaps_among_these9": 0,
+  "joint_credits_with_Test_author": 3,
+  "joint_credit_with_unassigned_author": 1,
+  "still_excluded": 9,
+  "restored": 0,
+  "frozen_files_changed": false,
+  "refinement": "Book co-authorship mention is not proof of article co-authorship; the Carter article has separate explicit two-author publication evidence.",
+  "external_credit_sources_checked": "2026-11-17; verification of existing sources only, no candidate collection"
+}

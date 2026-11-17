@@ -1,0 +1,22 @@
+{
+  "created_at_utc": "2026-11-17T09:57:58.928585+00:00",
+  "input_sha256": {
+    "C:\\Users\\P0039126\\Downloads\\תזה\\final_project\\artifacts\\experiments\\human_validation_final_20261117\\reviewer_A\\REVIEW.csv": "196aad059cd5a76fdc56c8bad1ad5fcdb192e7c5762395a6abdf2659e09c7223",
+    "C:\\Users\\P0039126\\Downloads\\תזה\\final_project\\artifacts\\experiments\\human_validation_final_20261117\\reviewer_B\\REVIEW.csv": "9022d6f3e9b6c14613e294a6b74a1fb825f49c18597b4981e99551fd7249efd8"
+  },
+  "handoff_manifest_sha256": "3b5f65e0a554d1fd20b170d0b0601757e405e55f3fe03a5374c0962bb3d51274",
+  "engine_sha256": "7893fde16797353822e28edcc1dcbdb8b03ace96e7bf90902ee8d730e0eb716f",
+  "output_sha256": {
+    "ADJUDICATION_TO_FILL.csv": "e48d56977023174630d3c369ade7b53e3b140dc31d56bac1077ba27f98d8c52a",
+    "BUNDLE_SNAPSHOT.py": "b2cca1dece88e5d8bdd3414da723280433701b4c847bc9c8a487e315c515b455",
+    "DISAGREEMENTS.csv": "40d6a86c78a8d3ae307cb6271fa3a33ca07de41156c61ef38ebe9a61f5734a8f",
+    "ENGINE_SNAPSHOT.py": "7893fde16797353822e28edcc1dcbdb8b03ace96e7bf90902ee8d730e0eb716f",
+    "ISSUES.csv": "b5eaf14e271454972dd57538f98b4e61e743e865aea5c2d13635ffe24036cd1a",
+    "MERGED_REVIEW_STATUS.csv": "7bfdb9a7236020c071dc14a0b987d197b73a0a93c75e6f73ce2da5912108129a",
+    "PROGRESS.json": "58d59c05ae011255e656dd6d21fc438f2ad911fc0b4861622f281d225f71a20a",
+    "PROGRESS_HE.md": "24c6ccd431fdda657061162a34cbe4781da92b05fd86cb7570d562d4fff9f1e8",
+    "reviewer_A_received.csv": "196aad059cd5a76fdc56c8bad1ad5fcdb192e7c5762395a6abdf2659e09c7223",
+    "reviewer_B_received.csv": "9022d6f3e9b6c14613e294a6b74a1fb825f49c18597b4981e99551fd7249efd8"
+  },
+  "approvals": "No automatic corpus edit, selection of200, freeze or training"
+}

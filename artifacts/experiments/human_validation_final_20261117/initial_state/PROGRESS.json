@@ -1,0 +1,64 @@
+{
+  "target_verified_train": 200,
+  "candidate_sources": 348,
+  "valid_reviews_A": 0,
+  "valid_reviews_B": 0,
+  "pending_A": 348,
+  "pending_B": 348,
+  "invalid_A": 0,
+  "invalid_B": 0,
+  "verified_binary_labels": 0,
+  "missing_to200": 200,
+  "target_fraction": 0.0,
+  "resolved_unclear": 0,
+  "status_counts": {
+    "pending_review": 348
+  },
+  "remaining_source_decisions": 348,
+  "progress_by_label": {
+    "Left": 0,
+    "Right": 0,
+    "Unclear": 0
+  },
+  "agreement_before_adjudication": {
+    "valid_independent_pairs": 0,
+    "agreements": 0,
+    "disagreements": 0,
+    "raw_agreement": null,
+    "expected_chance_agreement": null,
+    "cohen_kappa": null,
+    "kappa_unavailable_reason": "no valid independent pairs",
+    "labels": [
+      "Left",
+      "Right",
+      "Unclear"
+    ],
+    "confusion": {
+      "Left": {
+        "Left": 0,
+        "Right": 0,
+        "Unclear": 0
+      },
+      "Right": {
+        "Left": 0,
+        "Right": 0,
+        "Unclear": 0
+      },
+      "Unclear": {
+        "Left": 0,
+        "Right": 0,
+        "Unclear": 0
+      }
+    },
+    "interpretation": "Before adjudication, all3 labels including Unclear; descriptive inter-rater agreement, not classifier performance or independent author-cluster inference"
+  },
+  "disagreement_sources": 0,
+  "pending_adjudications": 0,
+  "global_independence_block": false,
+  "errors": 0,
+  "meaning": "Human-label-verified count only; provenance is declared, source checks are technical, no final corpus/protocol freeze or training approval",
+  "training_ready": false,
+  "corpus_modified": false,
+  "auto_selected200": false,
+  "no_test_evaluation": true
+}

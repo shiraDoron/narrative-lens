@@ -1,0 +1,20 @@
+{
+  "created_at_utc": "2026-11-17T09:53:24.295978+00:00",
+  "input_sha256": {
+    "C:\\Users\\P0039126\\Downloads\\תזה\\final_project\\artifacts\\experiments\\human_validation_final_20261117\\reviewer_A\\REVIEW.csv": "196aad059cd5a76fdc56c8bad1ad5fcdb192e7c5762395a6abdf2659e09c7223",
+    "C:\\Users\\P0039126\\Downloads\\תזה\\final_project\\artifacts\\experiments\\human_validation_final_20261117\\reviewer_B\\REVIEW.csv": "9022d6f3e9b6c14613e294a6b74a1fb825f49c18597b4981e99551fd7249efd8"
+  },
+  "handoff_manifest_sha256": "3b5f65e0a554d1fd20b170d0b0601757e405e55f3fe03a5374c0962bb3d51274",
+  "engine_sha256": "d893a384e16be2c10da17406186ae0e5f47dfe909d4114476dd158e58103670d",
+  "output_sha256": {
+    "ADJUDICATION_TO_FILL.csv": "e48d56977023174630d3c369ade7b53e3b140dc31d56bac1077ba27f98d8c52a",
+    "DISAGREEMENTS.csv": "40d6a86c78a8d3ae307cb6271fa3a33ca07de41156c61ef38ebe9a61f5734a8f",
+    "ISSUES.csv": "b5eaf14e271454972dd57538f98b4e61e743e865aea5c2d13635ffe24036cd1a",
+    "MERGED_REVIEW_STATUS.csv": "7bfdb9a7236020c071dc14a0b987d197b73a0a93c75e6f73ce2da5912108129a",
+    "PROGRESS.json": "58d59c05ae011255e656dd6d21fc438f2ad911fc0b4861622f281d225f71a20a",
+    "PROGRESS_HE.md": "bed1f322f46aeb0e248ca0fa027d31c4d543d1d47e5a2a232d3dbfe5402f181f",
+    "reviewer_A_received.csv": "196aad059cd5a76fdc56c8bad1ad5fcdb192e7c5762395a6abdf2659e09c7223",
+    "reviewer_B_received.csv": "9022d6f3e9b6c14613e294a6b74a1fb825f49c18597b4981e99551fd7249efd8"
+  },
+  "approvals": "No automatic corpus edit, selection of200, freeze or training"
+}
